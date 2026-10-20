@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T17:25:27.357030131Z",
+    "generatedAt": "2026-10-20T21:29:47.916286952Z",
     "module": ":src:en:batcave",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17b",
+    "extensionCommit": "ff521c17",
     "sources": [
         {
             "sourceId": 7422099479605463706,
@@ -15,7 +15,7 @@
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 9,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,27 +23,25 @@
                 {
                     "name": "connectivity",
                     "status": "FAIL",
-                    "durationMs": 31169,
+                    "durationMs": 30639,
                     "message": "Open in WebView to bypass site protection",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 714,
+                    "status": "WARN",
+                    "durationMs": 289,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Harley Quinn Fartacular: Silent Butt Deadly (2025-) -> /33408-harley-quinn-fartacular-silent-butt-deadly-2025.html",
-                        "Absolute Batman (2024-) -> /33051-absolute-batman-2024.html",
-                        "Invincible (2003) -> /6975-invincible-2003.html"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 796,
+                    "durationMs": 513,
                     "message": "Open in WebView to bypass site protection",
                     "notes": [],
                     "samples": []
@@ -60,9 +58,9 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 811,
-                    "message": "Open in WebView to bypass site protection",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -70,13 +68,28 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T17:25:27.357030131Z",
+    "changes": [
+        {
+            "source": "BatCave",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "BatCave",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "SKIP"
+        }
+    ]
 }

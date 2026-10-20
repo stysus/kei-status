@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:52:02.604241669Z",
+    "generatedAt": "2026-10-20T21:35:06.801583067Z",
     "module": ":src:en:toonizy",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "Toonizy",
             "lang": "en",
             "baseUrl": "https://toonizy.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,27 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 6360,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30161,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 5367,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "My Stepmom -> 626",
-                        "Fatal Lessons in this Pandemic -> 634",
-                        "The Late-Bloomers -> 636"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 5463,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30001,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Liberating Coast -> 2148",
-                        "Hooked On You -> 2847",
-                        "A Summer Camp to Remember -> 2845"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,39 +56,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 3370,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 51 - [End] -> p626-ch-051",
-                        "Chapter 50 - My Stepmom -> p626-ch-050",
-                        "Chapter 49 - My Stepmom -> p626-ch-049"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 3767,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://toonizy.com/wp-content/uploads/WP-manga/data/manga_63590fc85976a/c810c8de487a88817b277a01b68e0482/001.jpg",
-                        "https://toonizy.com/wp-content/uploads/WP-manga/data/manga_63590fc85976a/c810c8de487a88817b277a01b68e0482/002.jpg",
-                        "https://toonizy.com/wp-content/uploads/WP-manga/data/manga_63590fc85976a/c810c8de487a88817b277a01b68e0482/003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2387,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:52:02.604241669Z",
+    "changes": [
+        {
+            "source": "Toonizy",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Toonizy",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Toonizy",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Toonizy",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Toonizy",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Toonizy",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

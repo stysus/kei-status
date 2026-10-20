@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:46:40.946821392Z",
+    "generatedAt": "2026-10-20T21:23:58.912190783Z",
     "module": ":src:ko:sbxh",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -15,7 +15,7 @@
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1308,
+                    "durationMs": 1083,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,22 +31,18 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 508,
+                    "durationMs": 505,
                     "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 407,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 457,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "해주는 여대생 -> /webtoon/19001",
-                        "여교수의 비밀계정 -> /webtoon/18662",
-                        "키스 미 이프 유 캔 (Kiss Me If You Can) -> /webtoon/17631"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -60,9 +56,9 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 437,
-                    "message": "HTTP error 403",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -70,13 +66,28 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:46:40.946821392Z",
+    "changes": [
+        {
+            "source": "Newtoki (SBXH)",
+            "lang": "ko",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Newtoki (SBXH)",
+            "lang": "ko",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "SKIP"
+        }
+    ]
 }

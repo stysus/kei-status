@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:18.558080427Z",
+    "generatedAt": "2026-10-20T21:29:02.292728509Z",
     "module": ":src:pt:temakimangas",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "Temaki mangás",
             "lang": "pt-BR",
             "baseUrl": "https://temakimangas.blogspot.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,25 +23,23 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 616,
+                    "durationMs": 683,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 446,
-                    "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 484,
+                    "message": "HTTP error 429",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 164,
+                    "durationMs": 115,
                     "message": null,
                     "notes": [
                         "popular/latest returned an empty list"
@@ -77,6 +75,14 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:18.558080427Z",
+    "changes": [
+        {
+            "source": "Temaki mangás",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "FAIL"
+        }
+    ]
 }

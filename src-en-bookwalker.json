@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:43:35.067228633Z",
+    "generatedAt": "2026-10-20T21:23:20.118385258Z",
     "module": ":src:en:bookwalker",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,12 +10,12 @@
             "name": "BookWalker",
             "lang": "en",
             "baseUrl": "https://bookwalker.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 21,
+                    "durationMs": 13,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,37 +23,41 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 870,
+                    "durationMs": 876,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 11,
-                    "message": "missing class: kotlinx/serialization/protobuf/ProtoNumber",
+                    "status": "WARN",
+                    "durationMs": 347,
+                    "message": null,
                     "notes": [
-                        "java.lang.NoClassDefFoundError: kotlinx/serialization/protobuf/ProtoNumber",
-                        "java.lang.ClassNotFoundException: kotlinx.serialization.protobuf.ProtoNumber"
+                        "manga[4] has no thumbnail"
                     ],
-                    "samples": []
+                    "samples": [
+                        "My Sweet Marriage to My Ex-Nemesis -> /series/1SX1CH556EGG/my-sweet-marriage-to-my-ex-nemesis",
+                        "Doomsday Requiem with You -> /series/3TBBKT0SCTX0/doomsday-requiem-with-you",
+                        "Soul Guiders -> /series/0T023WVXNAEG/soul-guiders"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 0,
-                    "message": "missing class: Could not initialize class eu.kanade.tachiyomi.extension.en.bookwalker.dto.SearchRequestDto$$serializer",
-                    "notes": [
-                        "java.lang.NoClassDefFoundError: Could not initialize class eu.kanade.tachiyomi.extension.en.bookwalker.dto.SearchRequestDto$$serializer",
-                        "java.lang.ExceptionInInitializerError: Exception java.lang.NoClassDefFoundError: kotlinx/serialization/protobuf/ProtoNumber [in thread \"DefaultDispatcher-worker-1\"]"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 474,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "A Certain Scientific Railgun -> /series/1G9C4CWC3J1G/a-certain-scientific-railgun",
+                        "Kisses, Sighs, and Cherry Blossom Pink -> /series/2KY2QNQG81H0/kisses-sighs-and-cherry-blossom-pink",
+                        "The Diary of Ochibi -> /series/2JE9DEAT14D0/the-diary-of-ochibi"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,23 +66,47 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 195,
+                    "message": null,
+                    "notes": [
+                        "chapter list is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:43:35.067228633Z",
+    "changes": [
+        {
+            "source": "BookWalker",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "WARN"
+        },
+        {
+            "source": "BookWalker",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "BookWalker",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "WARN"
+        }
+    ]
 }

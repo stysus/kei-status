@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:57.331500838Z",
+    "generatedAt": "2026-10-20T21:29:07.474474500Z",
     "module": ":src:en:kuramanga",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "KuraManga",
             "lang": "en",
             "baseUrl": "https://kuramanga.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 947,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30086,
+                    "message": "Network is unreachable",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 134,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30032,
+                    "message": "Network is unreachable",
                     "notes": [],
-                    "samples": [
-                        "I’ll Be The Matriarch In This Life -> /illbethematriarchinthislife",
-                        "Dog and Bird -> /dogandbird",
-                        "Defiance of the Fall -> /defianceofthefall"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 133,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30032,
+                    "message": "Network is unreachable",
                     "notes": [],
-                    "samples": [
-                        "Fake Wife -> /fakewife",
-                        "The Crimson Bride -> /thecrimsonbride",
-                        "Slave Diary -> /slavediary"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,39 +56,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 677,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 236 -> /illbethematriarchinthislife/chapter-236",
-                        "Chapter 235 -> /illbethematriarchinthislife/chapter-235",
-                        "Chapter 234 -> /illbethematriarchinthislife/chapter-234"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 292,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://shadowabyss.com/manhwa/illbethematriarchinthislife/chapters/0236/0001.jpg",
-                        "https://shadowabyss.com/manhwa/illbethematriarchinthislife/chapters/0236/0002.jpg",
-                        "https://shadowabyss.com/manhwa/illbethematriarchinthislife/chapters/0236/0003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2269,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:57.331500838Z",
+    "changes": [
+        {
+            "source": "KuraManga",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "KuraManga",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "KuraManga",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "KuraManga",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KuraManga",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KuraManga",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

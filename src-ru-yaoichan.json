@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:44:49.775907828Z",
+    "generatedAt": "2026-10-20T21:24:54.706497790Z",
     "module": ":src:ru:yaoichan",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "YaoiChan",
             "lang": "ru",
             "baseUrl": "https://yaoi-chan.me",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,27 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 31134,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 9622,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30138,
-                    "message": "timeout",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 1843,
+                    "message": null,
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 30137,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 1208,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Fake dating -> /manga/175072-fake-dating.html",
+                        "Jujutsu Kaisen dj - WE ARE CUTE DOGS. -> /manga/175071-jujutsu-kaisen-dj-we-are-cute-dogs..html",
+                        "Genshin Impact dj - Atarashii kuni -> /manga/175063-genshin-impact-dj-atarashii-kuni.html"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -56,23 +62,54 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 1915,
+                    "message": null,
+                    "notes": [
+                        "chapter list is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:44:49.775907828Z",
+    "changes": [
+        {
+            "source": "YaoiChan",
+            "lang": "ru",
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "YaoiChan",
+            "lang": "ru",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "WARN"
+        },
+        {
+            "source": "YaoiChan",
+            "lang": "ru",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "YaoiChan",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "WARN"
+        }
+    ]
 }
