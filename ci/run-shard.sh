@@ -47,8 +47,9 @@ if ! "$source_root/gradlew" \
   echo "::warning::some modules in this shard did not compile; they will be reported as failed loads"
 fi
 
-# Exit 1 means "some extension failed", which is a finding and belongs on the page. Anything else
-# is the checker itself breaking, and that must fail the job.
+# Exit 1 means "at least one source failed", which is a finding the page records. In a sweep of
+# 1,400 modules that is the normal case, so it is not a warning. Anything else is the checker
+# itself breaking, and that must fail the job.
 set +e
 ./cli/build/install/cli/bin/cli \
   --module-list "$shard_file" \
@@ -59,8 +60,7 @@ code=$?
 set -e
 
 case "$code" in
-  0) ;;
-  1) echo "::warning::some modules in this shard failed; the page records them" ;;
+  0 | 1) ;;
   *)
     echo "::error::the checker exited $code"
     exit "$code"

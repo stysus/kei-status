@@ -49,26 +49,25 @@ class HarnessRunner(private val config: HarnessConfig) {
         }
         HarnessBootstrap.install(config.scratchRoot)
 
-        val reports = SourceLoader(config.sourceRoot, layout).use { loader ->
-            val sources = try {
-                loader.createSources().filter { config.langs.isEmpty() || it.lang in config.langs }
-            } catch (e: Throwable) {
-                // A missing host class must not abort the run: report it and stop here.
-                return@runBlocking buildReport(listOf(loadFailureReport(e)))
-            }
-
-            if (sources.isEmpty() && config.langs.isNotEmpty()) {
-                return@runBlocking buildReport(
-                    listOf(
-                        loadFailureReport(
-                            IllegalArgumentException("no source matched --lang ${config.langs.joinToString()}"),
-                        ),
-                    ),
-                )
-            }
-
-            sources.map { runGuarded(it) }
+        val loader = SourceLoader(config.sourceRoot, layout)
+        val sources = try {
+            loader.createSources().filter { config.langs.isEmpty() || it.lang in config.langs }
+        } catch (e: Throwable) {
+            // A missing host class must not abort the run: report it and stop here.
+            return@runBlocking buildReport(listOf(loadFailureReport(e)))
         }
+
+        if (sources.isEmpty() && config.langs.isNotEmpty()) {
+            return@runBlocking buildReport(
+                listOf(
+                    loadFailureReport(
+                        IllegalArgumentException("no source matched --lang ${config.langs.joinToString()}"),
+                    ),
+                ),
+            )
+        }
+
+        val reports = sources.map { runGuarded(it) }
 
         buildReport(reports)
     }
