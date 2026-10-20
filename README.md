@@ -383,6 +383,13 @@ The page is published to `https://<owner>.github.io/kei-status/`. Enable it once
   language would otherwise fetch the same filter page once per language, and the background fetch
   failing never fails the source: `getFilterList()` falls back to the static list, so a broken
   dynamic filter fetch still reports `PASS`.
+- OkHttp sometimes reports `A connection to … was leaked. Did you forget to close a
+  response body?`. That is an extension dropping a `Response` instead of closing it: a geo-block
+  interceptor that throws mid-chain, an image interceptor that swaps the body without closing the
+  original, a DDos-Guard probe that reads one header and returns. Everything the harness opens is
+  closed, so this is the extension's bug, not the harness's. OkHttp logs it once per connection when
+  it notices at GC time and then returns the connection to the pool, so it costs one line in the log
+  and does not change a verdict.
 - A Cloudflare challenge can be clicked through, but `cf_clearance` is bound to the client that
   earned it, so a zone that enforces that binding refuses the replayed request. Six sampled zones
   all earned the cookie and all still refused the replay; those extensions report `BLOCKED` after
