@@ -1,0 +1,243 @@
+name: status
+
+# Checks every extension in keiyoushi/extensions-source against its live site and publishes the
+# result to GitHub Pages.
+#
+# The sweep is split into shards that run in parallel. Each shard compiles only its own modules and
+# keeps its own Gradle build cache, so a run after a quiet night restores compiled extensions from
+# cache instead of rebuilding them and spends its time checking sites. A shard's module set is
+# stable (the list is sorted and split contiguously), which is what keeps its cache useful.
+#
+# The extension sources are third-party code and are never modified: only their compiled classes
+# are read, which is what the harness does locally too.
+
+on:
+  push:
+    branches: [main]
+    # The run commits its own results back to `data/`; that push must not start another run.
+    paths:
+      - "ci/**"
+      - "engine/**"
+      - "cli/**"
+      - "android-shim/**"
+      - "host-shim/**"
+      - "tools/**"
+      - "gradle/**"
+      - "build.gradle.kts"
+      - "settings.gradle.kts"
+      - ".github/workflows/status.yml"
+  schedule:
+    # Daily, off the hour so it does not compete with other scheduled work.
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+    inputs:
+      shards:
+        description: "Parallel shards to split the sweep into"
+        required: false
+        default: "20"
+        type: string
+      modules:
+        description: "Optional space separated modules, instead of the full sweep"
+        required: false
+        type: string
+
+permissions:
+  # Write, because the run commits the state it recorded back to `data/`.
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: status
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    name: Discover modules
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      matrix: ${{ steps.discover.outputs.matrix }}
+      total: ${{ steps.discover.outputs.total }}
+      shards: ${{ steps.discover.outputs.shards }}
+    steps:
+      - name: Check out the harness
+        uses: actions/checkout@v7
+
+      - name: Check out extensions-source
+        uses: actions/checkout@v7
+        with:
+          repository: keiyoushi/extensions-source
+          path: extensions-source
+          fetch-depth: 1
+
+      - name: Split the tree into shards
+        id: discover
+        env:
+          SHARDS: ${{ inputs.shards }}
+          MODULES: ${{ inputs.modules }}
+        run: |
+          shards="${SHARDS:-20}"
+          if [ -n "${MODULES:-}" ]; then
+            printf '%s\n' "$MODULES" | tr ' ' '\n' | sed '/^$/d' > manual.txt
+            ./ci/discover.sh extensions-source shards "$shards" manual.txt
+          else
+            ./ci/discover.sh extensions-source shards "$shards"
+          fi
+
+      - name: Upload the shard lists
+        uses: actions/upload-artifact@v7
+        with:
+          name: shards
+          path: shards/
+          retention-days: 1
+
+  sweep:
+    name: Shard ${{ matrix.shard }}
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+    steps:
+      - name: Check out the harness
+        uses: actions/checkout@v7
+
+      - name: Check out extensions-source
+        uses: actions/checkout@v7
+        with:
+          repository: keiyoushi/extensions-source
+          path: extensions-source
+          fetch-depth: 1
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Identify the upstream revision
+        id: source
+        run: echo "sha=$(git -C extensions-source rev-parse --short HEAD)" >>"$GITHUB_OUTPUT"
+
+      # Two caches, on purpose. Dependencies are identical in every shard, so one shared key keeps
+      # twenty copies out of the cache budget. The Gradle build cache is per shard: each shard
+      # compiles the same modules every run, so its entries are only useful to itself, and twenty
+      # jobs saving to one key would leave nineteen of them discarded.
+      #
+      # The build-cache key carries the upstream revision, so there is exactly one entry per shard
+      # per upstream change: a second run on the same revision restores the same entry for free,
+      # and a moved revision restores the previous one through `restore-keys` and saves a new one.
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v6
+        with:
+          path: |
+            ~/.gradle/caches/modules-2
+            ~/.gradle/wrapper
+          key: gradle-deps-${{ runner.os }}-${{ hashFiles('gradle/libs.versions.toml', 'extensions-source/gradle/libs.versions.toml', 'extensions-source/gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: |
+            gradle-deps-${{ runner.os }}-
+
+      - name: Restore this shard's build cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.gradle/caches/build-cache-1
+          key: gradle-build-cache-${{ runner.os }}-shard-${{ matrix.shard }}-${{ steps.source.outputs.sha }}
+          restore-keys: |
+            gradle-build-cache-${{ runner.os }}-shard-${{ matrix.shard }}-
+
+      - name: Check the toolchain
+        run: ./ci/environment.sh extensions-source
+
+      - name: Download the shard list
+        uses: actions/download-artifact@v8
+        with:
+          name: shards
+          path: shards
+
+      - name: Build the harness
+        run: ./gradlew :cli:installDist --stacktrace
+
+      - name: Build and check the shard
+        run: ./ci/run-shard.sh "${{ matrix.file }}" data
+
+      - name: Collect the changed state
+        run: ./ci/collect.sh "${{ matrix.shard }}" data "$RUNNER_TEMP/out"
+
+      - name: Upload the changed state
+        uses: actions/upload-artifact@v7
+        with:
+          name: data-${{ matrix.shard }}
+          path: ${{ runner.temp }}/out
+          retention-days: 1
+          if-no-files-found: error
+
+  publish:
+    name: Publish
+    needs: [prepare, sweep]
+    # A single failing shard must not stop the shards that succeeded from being recorded; the
+    # verify step below is what refuses to publish a partial sweep.
+    if: always() && needs.prepare.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Check out the harness
+        uses: actions/checkout@v7
+        with:
+          # Full history: the state commit retries its push by rebasing, which a shallow clone
+          # cannot do.
+          fetch-depth: 0
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Download the shard lists
+        uses: actions/download-artifact@v8
+        with:
+          name: shards
+          path: shards
+
+      - name: Download the changed state
+        uses: actions/download-artifact@v8
+        with:
+          pattern: data-*
+          path: incoming
+          merge-multiple: true
+
+      - name: Build the harness
+        run: ./gradlew :cli:installDist --stacktrace
+
+      - name: Apply the changed state
+        run: ./ci/apply.sh incoming data
+
+      - name: Verify the sweep
+        run: ./ci/verify.sh data incoming shards/matrix.json
+
+      - name: Render the page
+        run: ./ci/publish.sh shards/all.txt site
+
+      - name: Commit the state
+        run: ./ci/commit.sh data
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload the page
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+      - name: Deploy
+        id: deploy
+        uses: actions/deploy-pages@v5

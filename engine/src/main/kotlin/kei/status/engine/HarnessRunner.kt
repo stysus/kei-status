@@ -32,7 +32,13 @@ data class HarnessConfig(
 class HarnessRunner(private val config: HarnessConfig) {
 
     fun run(): RunReport = runBlocking {
-        val layout = ModuleLayouts.read(config.sourceRoot, config.module)
+        // A module that was never compiled has no layout file. Report that as a failed load instead
+        // of throwing: a CI run over many modules must still publish what the other modules said.
+        val layout = try {
+            ModuleLayouts.read(config.sourceRoot, config.module)
+        } catch (e: Throwable) {
+            return@runBlocking buildReport(listOf(loadFailureReport(e)))
+        }
         HarnessBootstrap.install(config.scratchRoot)
 
         val reports = SourceLoader(config.sourceRoot, layout).use { loader ->
@@ -70,11 +76,25 @@ class HarnessRunner(private val config: HarnessConfig) {
 
     private fun buildReport(sources: List<SourceReport>) = RunReport(
         generatedAt = Instant.now().toString(),
-        module = config.module,
+        module = canonicalModule(config.module, config.sourceRoot),
         sourceRoot = config.sourceRoot.toAbsolutePath().toString(),
         extensionCommit = gitCommit(config.sourceRoot),
         sources = sources,
     )
+
+    /**
+     * Reports a module as a Gradle path even when it was given as a directory.
+     *
+     * `--module` accepts either form, and the directory form is convenient locally but would put an
+     * absolute path in the report and on the published page.
+     */
+    private fun canonicalModule(module: String, sourceRoot: Path): String {
+        if (module.startsWith(":")) return module
+        val root = runCatching { sourceRoot.toAbsolutePath().normalize() }.getOrNull() ?: return module
+        val dir = runCatching { Path.of(module).toAbsolutePath().normalize() }.getOrNull() ?: return module
+        if (!dir.startsWith(root)) return module
+        return ":" + root.relativize(dir).toString().replace(java.io.File.separatorChar, ':')
+    }
 
     private fun loadFailureReport(e: Throwable): SourceReport {
         if (TRACE) e.printStackTrace()

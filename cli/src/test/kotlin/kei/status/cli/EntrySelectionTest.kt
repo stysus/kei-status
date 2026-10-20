@@ -1,0 +1,92 @@
+package kei.status.cli
+
+import kei.status.engine.ModuleList
+import java.nio.file.Files
+import java.nio.file.Path
+import kotlin.io.path.createDirectories
+import kotlin.io.path.writeText
+import org.junit.Assert.assertEquals
+import org.junit.Rule
+import org.junit.Test
+import org.junit.rules.TemporaryFolder
+
+/**
+ * `resolveEntries` decides what a run actually checks. Getting this wrong is quiet and expensive:
+ * a broken `--module-list` once made every run sweep the whole tree instead of the requested
+ * subset, which looked like a working run until the summary line was read.
+ */
+class EntrySelectionTest {
+
+    @get:Rule
+    val temporary = TemporaryFolder()
+
+    @Test
+    fun `module list is used when given`() {
+        val root = sourceRoot(":src:en:aurora", ":src:en:erisscans")
+        val list = file(":src:en:erisscans")
+
+        val entries = resolveEntries(
+            Options.parse(arrayOf("--module-list", list.toString(), "--source-root", root.toString())),
+        )
+
+        assertEquals(listOf(ModuleList.Entry(":src:en:erisscans")), entries)
+    }
+
+    @Test
+    fun `discovery is used when no list is given`() {
+        val root = sourceRoot(":src:en:aurora", ":src:en:erisscans")
+
+        val entries = resolveEntries(Options.parse(arrayOf("--discover", "--source-root", root.toString())))
+
+        assertEquals(
+            listOf(ModuleList.Entry(":src:en:aurora"), ModuleList.Entry(":src:en:erisscans")),
+            entries,
+        )
+    }
+
+    @Test
+    fun `a single module runs alone`() {
+        val entries = resolveEntries(Options.parse(arrayOf("--module", ":src:all:mangadex", "--lang", "en")))
+
+        assertEquals(listOf(ModuleList.Entry(":src:all:mangadex")), entries)
+    }
+
+    @Test
+    fun `a module list keeps per-line flags`() {
+        val list = file(":src:all:mangadex --lang en", ":src:en:aurora")
+
+        val entries = resolveEntries(Options.parse(arrayOf("--module-list", list.toString())))
+
+        assertEquals(
+            listOf(
+                ModuleList.Entry(":src:all:mangadex", listOf("--lang", "en")),
+                ModuleList.Entry(":src:en:aurora"),
+            ),
+            entries,
+        )
+    }
+
+    @Test
+    fun `a shard narrows the selected list`() {
+        val list = file(*(1..10).map { ":src:en:m$it" }.toTypedArray())
+
+        val entries = resolveEntries(Options.parse(arrayOf("--module-list", list.toString(), "--shard", "2/2")))
+
+        assertEquals((6..10).map { ModuleList.Entry(":src:en:m$it") }, entries)
+    }
+
+    private fun file(vararg lines: String): Path = temporary.newFile().toPath().also {
+        Files.write(it, lines.toList())
+    }
+
+    /** A minimal `extensions-source` layout: only directories with a build script are modules. */
+    private fun sourceRoot(vararg modules: String): Path {
+        val root = temporary.newFolder().toPath()
+        modules.forEach { module ->
+            val path = root.resolve(module.removePrefix(":").replace(':', '/'))
+            path.createDirectories()
+            path.resolve("build.gradle.kts").writeText("")
+        }
+        return root
+    }
+}

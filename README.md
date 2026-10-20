@@ -104,15 +104,99 @@ Step 2 only needs to be repeated when you switch modules or after `clean`.
 Options:
 
 ```
---module <path>       Gradle module path, e.g. :src:en:aurora (required)
+--module <path>       Gradle module path, e.g. :src:en:aurora
+--module-list <file>  run every module listed in <file>, one per line
+--discover            run every module in the source tree
+--shard <i>/<n>       run only shard i of n, so several jobs can split the work
 --source-root <dir>   extensions-source checkout (default: ./extensions-source)
 --output <file>       write a JSON report
+--html <file>         write a standalone HTML page for this run
+--store <dir>         keep one file per module, so the next run can report what changed
 --timeout <seconds>   per-scenario timeout (default: 45)
 --manga-limit <n>     manga sampled in the report (default: 3)
 --page-limit <n>      pages probed (default: 3)
 --no-images           skip downloading and decoding page images
 --lang <codes>        only run these languages, comma separated (multi-source modules)
 ```
+
+A module list line is `<Gradle module> [extra flags]`, so a module with many language variants can
+be kept to a slice: `:src:all:mangadex --lang en` runs one source instead of sixty-one.
+`--discover` needs no list at all:
+
+```bash
+# every module, one JVM, one browser
+./cli/build/install/cli/bin/cli --discover --store data
+
+# the same work split across four machines
+./cli/build/install/cli/bin/cli --discover --shard 1/4 --store data
+```
+
+Publishing several runs as one page:
+
+```bash
+# each run writes its own JSON report
+./cli/build/install/cli/bin/cli --module :src:en:aurora \
+  --output site/en-aurora/report.json
+
+# aggregate every report under a directory into one static page
+./cli/build/install/cli/bin/cli --site site --out site --title "Extension status"
+
+# ... optionally publishing only the modules that exist right now, so a module deleted upstream
+# does not linger on a page that claims it was just checked
+./cli/build/install/cli/bin/cli --site site --out site --only modules.txt
+```
+
+`--site` reads only the JSON files, so it needs no browser and no extension sources. The page is
+plain HTML with no external assets: it works from `file://` and on GitHub Pages, filters by source,
+module, URL or message. Everything starts collapsed — the first screen is the list of modules — and
+opening a module shows its sources, which open in turn. The status tallies at the top are filters as
+well: clicking `FAIL 2` narrows the page to those two sources, clicking it again clears the filter, and
+the text box narrows the result further. Filtering only changes which modules are listed — it opens
+nothing, so a status view is the same collapsed list as the page itself.
+Each extension is one collapsible block headed by the name the extension reports for
+itself (`AllManga`, not `:src:en:allanime`); clicking the header hides or shows the sources inside
+it, and the full module path stays available to the filter without being displayed. The
+`extensions-source` revision the reports were built from is shown once in the page header, where it
+links to that commit, instead of being repeated in every module header.
+
+An extension with a single source has nothing to keep apart, so it is one row: the header carries
+that source's language and URL, and the scenario table follows it directly — inside the same card a
+multi-source module puts around each of its sources, so the two shapes read the same when opened.
+Only a multi-source extension (one Gradle module shipping several sites, such as a `webtoons`
+bundle) gets a collapsible row per source.
+
+### Keeping state between runs
+
+`--store <dir>` keeps one file per module and compares the new run against it:
+
+```bash
+./cli/build/install/cli/bin/cli --module :src:en:aurora --store data
+```
+
+```
+new module recorded; wrote data/src-en-aurora.json
+
+state unchanged; data/src-en-aurora.json left alone
+
+state changed (1 transition(s)); wrote data/src-en-aurora.json
+  Aurora [en] pages: FAIL -> PASS
+```
+
+The file is only rewritten when the state actually moves, so a module that keeps passing produces
+no diff. The store is meant to be committed: `git diff data/` answers "what broke since the last
+run", and the commit history is the timeline. Each stored report carries `comparedTo` (the run it
+replaced) and `changes` (the transitions), which the page renders under the module heading.
+
+The page itself is timestamped once, at the top, with when the run happened. A nightly job
+refreshes the page every night while most modules keep the state they have had for weeks, so a
+per-module "first run" or "since" label would be either stale or meaningless; only transitions are
+shown per module, and only when there are any.
+
+Fields that drift without meaning anything — scenario durations, the manga a site happened to
+return, the checkout path, the clock — are excluded from the comparison. A scenario that keeps
+failing but for a *different reason* still counts as a change, because the reason is what a reader
+needs.
+
 
 Environment:
 
@@ -154,10 +238,100 @@ A module that cannot link is reported as `UNSUPPORTED`/`FAIL` instead of abortin
 ```
 android-shim/   android.* and androidx.preference stand-ins, plus the Chromium DevTools client
 host-shim/      eu.kanade.tachiyomi.* and the keiyoushi host contract
-engine/         loader, scenarios, checks, report
-cli/            argument parsing and the console report
+engine/         loader, scenarios, checks, report, HTML page
+cli/            argument parsing, console report, site publishing
+ci/             shell steps the workflows call: discover, run a shard, verify, publish, commit
+data/           stored per-module reports, committed so runs can be compared
 tools/          Gradle init script that records a module's compiled classes
+.github/        the CI and status workflows
 ```
+
+## Continuous integration
+
+Two workflows, split by what they can prove:
+
+| File | Runs on | Does |
+| --- | --- | --- |
+| `.github/workflows/ci.yml` | every pull request and push | builds the harness and runs the unit tests; lints the workflows and the CI scripts. No network. |
+| `.github/workflows/status.yml` | push to `main`, nightly, on demand | checks every extension against its live site and publishes the result to GitHub Pages. |
+
+The shell steps live in `ci/` rather than in YAML, so the same commands can be run locally:
+
+```
+ci/discover.sh <extensions-source> <out-dir> <shard-count> [list-file]
+ci/environment.sh [extensions-source]
+ci/run-shard.sh <shard-file> [store-dir] [source-root]
+ci/collect.sh <shard-id> <store-dir> <out-dir>
+ci/apply.sh <incoming-dir> [store-dir]
+ci/verify.sh <store-dir> <incoming-dir> <matrix.json>
+ci/publish.sh <all-modules-file> [out-dir] [store-dir]
+ci/commit.sh [store-dir] [message-prefix]
+```
+
+### There is no module list
+
+`ci/discover.sh` reads the tree. `extensions-source` registers every `src/<lang>/<name>` directory
+as a Gradle module (`loadAllIndividualExtensions()` in `extensions-source/settings.gradle.kts`), and
+every real extension carries a `build.gradle.kts` — that file is what tells an extension from a
+stray directory. An extension added upstream is checked by the next run without anyone editing a
+file here; a hand-written list would go stale the day after it was written.
+
+`--module-list` still exists for a one-off run, and the `modules` input on the `workflow_dispatch`
+trigger feeds one in without committing it.
+
+### Sharding
+
+1,400+ modules do not fit in one job, so the discovered list is split into contiguous, evenly sized
+shards (`20` by default, `shards` input to change it) and each shard runs in its own job. Shards are
+independent: `fail-fast: false`, so one bad shard does not cancel the rest.
+
+A shard compiles its own modules in one Gradle invocation, so the shared modules (`:core`, `:lib:*`)
+compile once instead of once per extension and compilation runs in parallel.
+
+### Build caching
+
+Compiling an extension is the expensive part of a run and almost nothing changes upstream between
+two nights. Each shard therefore keeps its own Gradle build cache (`~/.gradle/caches/build-cache-1`)
+under a key scoped to that shard, plus one shared cache for downloaded dependencies.
+
+The cache is per shard on purpose: a shard always compiles the same modules, so its entries are only
+useful to itself, and twenty jobs saving to one key would leave nineteen of them discarded. The key
+also carries the upstream revision, so a second run on the same revision restores the same entry for
+free. With a warm cache a module whose sources did not change is restored instead of recompiled, so
+a run spends its time checking sites. A module that *did* change upstream misses the cache and is
+rebuilt, which is exactly the wanted behaviour and needs no bookkeeping.
+
+### What gets published
+
+Each shard passes `--store data`, so results persist in the repository instead of living only in the
+workspace of that one run. The store only rewrites a file when a module's state actually moves, so a
+quiet night produces no commit; a module that moved gets one, and the page shows the transition.
+
+Shards upload only the files they rewrote, plus a marker recording that the shard finished. The
+publish job merges those, refuses to publish unless **every** shard reported in, then renders and
+deploys. A partial sweep would stamp the whole page with a "last checked" time that is false for the
+shards that never ran, so it is treated as a failure rather than as a partial success.
+
+`--only shards/all.txt` keeps a module that was deleted upstream from lingering on a page that
+claims it was just checked.
+
+Two details keep a scheduled run useful rather than noisy:
+
+- A `FAIL` verdict is a finding, not a build failure, so the run does not go red when a site breaks.
+  The page is the result. Only a broken harness, a missing browser, or a missing Android SDK fails
+  the job.
+- A module that does not compile still gets a report: the harness records the missing layout as a
+  failed load, so the module appears on the page with its reason instead of disappearing.
+
+If every module fails to load, the job fails instead of publishing a page full of "failed to load":
+a single site breaking is a finding, a broken toolchain is not.
+
+The job commits `data/` back to `main` when something changed, and the push trigger's `paths` list
+keeps that commit from starting another run. Because the store is in git, the history of what broke
+when is the commit log, and a stale entry is one `git log -p data/<module>.json` away.
+
+The page is published to `https://<owner>.github.io/kei-status/`. Enable it once under
+**Settings -> Pages -> Build and deployment -> Source: GitHub Actions**.
 
 ## Known gaps
 

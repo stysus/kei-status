@@ -109,7 +109,16 @@ object Checks {
             else -> Status.FAIL
         }
 
-        return Diagnosis(status, reason(status, chain, t), rendering)
+        val reason = reason(status, chain, t)
+
+        // When the reason is the exception's own message, the chain entry for that exception only
+        // repeats it ("java.io.IOException: <same text>"). Keep the entries that add context - the
+        // wrapping causes and the class names of a different message - and drop the restatement.
+        val notes = rendering
+            .filterNot { it.substringAfter(": ", "") == reason }
+            .distinct()
+
+        return Diagnosis(status, reason, notes)
     }
 
     private fun reason(status: Status, chain: List<Throwable>, t: Throwable): String = when (status) {

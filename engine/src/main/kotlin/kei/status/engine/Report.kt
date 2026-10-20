@@ -49,6 +49,21 @@ data class SourceReport(
     val scenarios: List<ScenarioResult>,
 )
 
+/**
+ * One status transition between two runs.
+ *
+ * `from` and `to` are nullable so a source or scenario that appeared or disappeared is expressed
+ * with the same shape as a normal change.
+ */
+@Serializable
+data class StatusChange(
+    val source: String,
+    val lang: String,
+    val scenario: String? = null,
+    val from: Status? = null,
+    val to: Status? = null,
+)
+
 @Serializable
 data class RunReport(
     val schemaVersion: Int = 1,
@@ -57,7 +72,52 @@ data class RunReport(
     val sourceRoot: String,
     val extensionCommit: String?,
     val sources: List<SourceReport>,
+    /**
+     * `generatedAt` of the report this one replaced, or null on the first run.
+     *
+     * A stored report is only rewritten when its state changes, so this timestamp is when the
+     * state last changed, not when the module was last checked.
+     */
+    val comparedTo: String? = null,
+    val changes: List<StatusChange> = emptyList(),
 ) {
     val status: Status
         get() = sources.maxByOrNull { it.status.severity }?.status ?: Status.SKIP
+
+    /**
+     * The extension's name as the extension itself reports it, e.g. `AllManga` for
+     * `:src:en:allanime`.
+     *
+     * The module path is a Gradle address, and the directory name is only a slug of the real name:
+     * showing `allanime` above a source row that says `AllManga` reads like two different things.
+     * The sources are the authority on the name; a module that failed to load has none, so its
+     * path is humanised instead.
+     */
+    val displayName: String
+        get() = sources.map { it.name }.distinct()
+            .singleOrNull()
+            ?: humanise(module)
+
+    /**
+     * The module's language bucket (`all`, `en`, `zh`, ...), empty when the path is not a source
+     * module.
+     *
+     * A handful of extension names exist in more than one language, so this is what keeps two
+     * identically named modules apart.
+     */
+    val lang: String
+        get() = module.removePrefix(":").split(':')
+            .takeIf { it.size >= 3 && it.first() == "src" }
+            ?.get(1)
+            ?: ""
+
+    /** File name used in the store: `:src:en:aurora` becomes `src-en-aurora`. */
+    val slug: String
+        get() = module.removePrefix(":").replace(':', '-')
+
+    private fun humanise(path: String): String =
+        path.substringAfterLast(':')
+            .replace('-', ' ')
+            .replace('_', ' ')
+            .replaceFirstChar { it.uppercaseChar() }
 }

@@ -62,16 +62,29 @@ class WebViewTest {
     }
 
     @Test
-    fun `evaluateJavascript returns Android-shaped values`() {
-        val result = AtomicReference<String>()
-        val view = webView { it.evaluateJavascript("'hello'") { value -> result.set(value) } }
-        view.loadDataWithBaseURL("https://example.test/", "<html><body></body></html>", "text/html", "UTF-8", null)
+    fun `evaluateJavascript returns Android-shaped values from the loaded document`() {
+        // Both halves of the contract `runWebView` relies on: the callback receives Android-shaped
+        // JSON, and the document runs at the base URL the source passed in.
+        val string = AtomicReference<String>()
+        val origin = AtomicReference<String>()
+        val view = webView {
+            it.evaluateJavascript("'hello'") { value -> string.set(value) }
+            it.evaluateJavascript("location.origin") { value -> origin.set(value) }
+        }
+        view.loadDataWithBaseURL(
+            "https://example.test/reader",
+            "<html><body></body></html>",
+            "text/html",
+            "UTF-8",
+            null,
+        )
 
         assertTrue(finished.await(30, TimeUnit.SECONDS))
         val deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(20)
-        while (result.get() == null && System.nanoTime() < deadline) Thread.sleep(50)
+        while ((string.get() == null || origin.get() == null) && System.nanoTime() < deadline) Thread.sleep(50)
 
-        assertEquals("\"hello\"", result.get())
+        assertEquals("\"hello\"", string.get())
+        assertEquals("\"https://example.test\"", origin.get())
         view.destroy()
     }
 
@@ -147,29 +160,9 @@ class WebViewTest {
     }
 
     @Test
-    fun `document base url becomes the page origin`() {
-        val result = AtomicReference<String>()
-        val view = webView {
-            it.evaluateJavascript("location.origin") { value -> result.set(value) }
-        }
-        view.loadDataWithBaseURL(
-            "https://example.test/reader",
-            "<html><body></body></html>",
-            "text/html",
-            "UTF-8",
-            null,
-        )
-
-        assertTrue(finished.await(30, TimeUnit.SECONDS))
-        val deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(20)
-        while (result.get() == null && System.nanoTime() < deadline) Thread.sleep(50)
-
-        assertEquals("\"https://example.test\"", result.get())
-        view.destroy()
-    }
-
-    @Test
-    fun `blockImages stops image requests`() {
+    fun `blockImages does not stall the load`() {
+        // Blocking images is what keeps a page load cheap; if the blocked request kept the load
+        // open, every WebView scenario would hang instead.
         val view = webView()
         view.settings.blockNetworkImage = true
         view.loadDataWithBaseURL(
@@ -180,7 +173,7 @@ class WebViewTest {
             null,
         )
 
-        assertTrue(finished.await(30, TimeUnit.SECONDS))
+        assertTrue("the load never finished with images blocked", finished.await(30, TimeUnit.SECONDS))
         view.destroy()
     }
 }

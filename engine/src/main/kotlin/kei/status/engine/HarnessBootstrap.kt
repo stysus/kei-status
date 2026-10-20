@@ -24,15 +24,32 @@ object HarnessBootstrap {
         coerceInputValues = true
     }
 
+    @Volatile
+    private var installed: Application? = null
+
+    /**
+     * Registers the host services once per JVM.
+     *
+     * A run over every extension executes thousands of modules in one process, and the registry is
+     * global: installing again would build a fresh Application and OkHttp client per module and
+     * leave the previous ones reachable. The first install wins, which is also what the app does.
+     */
     fun install(scratchDir: Path): Application {
-        val app = Application()
-        app.attachRoot(scratchDir.toFile())
+        installed?.let { return it }
 
-        val registry: InjektRegistry = Injekt
-        registry.addSingleton(app)
-        registry.addSingleton(NetworkHelper(app))
-        registry.addSingleton(json)
+        synchronized(this) {
+            installed?.let { return it }
 
-        return app
+            val app = Application()
+            app.attachRoot(scratchDir.toFile())
+
+            val registry: InjektRegistry = Injekt
+            registry.addSingleton(app)
+            registry.addSingleton(NetworkHelper(app))
+            registry.addSingleton(json)
+
+            installed = app
+            return app
+        }
     }
 }
