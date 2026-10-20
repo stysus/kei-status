@@ -1,0 +1,84 @@
+{
+    "schemaVersion": 1,
+    "generatedAt": "2026-10-20T19:43:35.067228633Z",
+    "module": ":src:en:bookwalker",
+    "sourceRoot": "",
+    "extensionCommit": "ff521c17",
+    "sources": [
+        {
+            "sourceId": 2744810059574599668,
+            "name": "BookWalker",
+            "lang": "en",
+            "baseUrl": "https://bookwalker.com",
+            "status": "FAIL",
+            "scenarios": [
+                {
+                    "name": "metadata",
+                    "status": "PASS",
+                    "durationMs": 21,
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "PASS",
+                    "durationMs": 870,
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "FAIL",
+                    "durationMs": 11,
+                    "message": "missing class: kotlinx/serialization/protobuf/ProtoNumber",
+                    "notes": [
+                        "java.lang.NoClassDefFoundError: kotlinx/serialization/protobuf/ProtoNumber",
+                        "java.lang.ClassNotFoundException: kotlinx.serialization.protobuf.ProtoNumber"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "FAIL",
+                    "durationMs": 0,
+                    "message": "missing class: Could not initialize class eu.kanade.tachiyomi.extension.en.bookwalker.dto.SearchRequestDto$$serializer",
+                    "notes": [
+                        "java.lang.NoClassDefFoundError: Could not initialize class eu.kanade.tachiyomi.extension.en.bookwalker.dto.SearchRequestDto$$serializer",
+                        "java.lang.ExceptionInInitializerError: Exception java.lang.NoClassDefFoundError: kotlinx/serialization/protobuf/ProtoNumber [in thread \"DefaultDispatcher-worker-1\"]"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 4,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "3 filters"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                }
+            ]
+        }
+    ],
+    "comparedTo": null,
+    "changes": []
+}
