@@ -117,11 +117,11 @@ internal fun resolveEntries(options: Options): List<ModuleList.Entry> {
     return ModuleList.shard(all, index, count)
 }
 
-private fun configFor(options: Options, entry: ModuleList.Entry, scratch: Path): HarnessConfig {
+internal fun configFor(options: Options, entry: ModuleList.Entry, scratch: Path): HarnessConfig {
     // Entry flags are parsed with the same rules as the command line, so `--lang en` on one line of
     // a list means the same as `--lang en` on the command line.
     val overrides = try {
-        Options.parse(entry.args.toTypedArray() + arrayOf("--module", entry.module))
+        Options.parse(options.runArgs.toTypedArray() + entry.args.toTypedArray() + arrayOf("--module", entry.module))
     } catch (e: IllegalArgumentException) {
         throw IllegalArgumentException("${entry.module}: ${e.message}")
     }
@@ -275,6 +275,8 @@ internal class Options(
     val probeImages: Boolean,
     val langs: Set<String>,
     val help: Boolean,
+    /** Module-run flags as given on the command line, so a list entry can override them. */
+    val runArgs: List<String> = emptyList(),
 ) {
     companion object {
         val USAGE = """
@@ -386,7 +388,33 @@ internal class Options(
                 probeImages = probeImages,
                 langs = langs,
                 help = help,
+                runArgs = moduleRunFlags(args),
             )
+        }
+
+        /**
+         * The flags that only affect a single module run, in the order given.
+         *
+         * A list entry is parsed on its own so it can carry per-module flags; the command line's
+         * values are prepended so they act as defaults the entry can override.
+         */
+        private fun moduleRunFlags(args: Array<String>): List<String> {
+            val valued = setOf("--timeout", "--manga-limit", "--page-limit", "--lang")
+            return buildList {
+                var i = 0
+                while (i < args.size) {
+                    val arg = args[i]
+                    when {
+                        arg in valued -> {
+                            add(arg)
+                            args.getOrNull(i + 1)?.let { add(it) }
+                            i++
+                        }
+                        arg == "--no-images" -> add(arg)
+                    }
+                    i++
+                }
+            }
         }
 
         private fun Array<String>.requireValue(index: Int, flag: String): String =

@@ -7,6 +7,8 @@ dependencies {
     api(libs.coroutines.core)
     api(libs.serialization.json)
     api(libs.serialization.json.okio)
+    api(libs.serialization.protobuf)
+    api(libs.org.json)
     api(libs.okhttp)
     api(libs.okhttp.brotli)
     api(libs.okhttp.zstd)

@@ -3,6 +3,7 @@ package kei.status.engine
 import android.app.Application
 import eu.kanade.tachiyomi.network.NetworkHelper
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.protobuf.ProtoBuf
 import uy.kohesive.injekt.Injekt
 import uy.kohesive.injekt.api.InjektRegistry
 import uy.kohesive.injekt.api.addSingleton
@@ -13,7 +14,8 @@ import java.nio.file.Path
  *
  * `keiyoushi.utils.applicationContext` is `Injekt.get()`, so an Application must be registered
  * before the first source is constructed - including for sources that only touch preferences.
- * Themes also inject [Json] to parse embedded filter data.
+ * Themes also inject [Json] to parse embedded filter data, and `keiyoushi.utils.protoInstance`
+ * injects [ProtoBuf] for the `parseAsProto` helpers.
  */
 object HarnessBootstrap {
 
@@ -23,6 +25,9 @@ object HarnessBootstrap {
         explicitNulls = false
         coerceInputValues = true
     }
+
+    /** Mirrors the app's protobuf configuration; extensions only decode with it. */
+    val protoBuf: ProtoBuf = ProtoBuf
 
     @Volatile
     private var installed: Application? = null
@@ -47,6 +52,7 @@ object HarnessBootstrap {
             registry.addSingleton(app)
             registry.addSingleton(NetworkHelper(app))
             registry.addSingleton(json)
+            registry.addSingleton(protoBuf)
 
             installed = app
             return app

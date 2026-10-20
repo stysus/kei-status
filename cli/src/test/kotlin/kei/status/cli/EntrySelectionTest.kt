@@ -75,6 +75,29 @@ class EntrySelectionTest {
         assertEquals((6..10).map { ModuleList.Entry(":src:en:m$it") }, entries)
     }
 
+    @Test
+    fun `command line run flags reach the harness config`() {
+        val options = Options.parse(
+            arrayOf("--module", ":src:all:mangadex", "--lang", "en", "--timeout", "9", "--no-images"),
+        )
+
+        val config = configFor(options, ModuleList.Entry(":src:all:mangadex"), temporary.newFolder().toPath())
+
+        assertEquals(setOf("en"), config.langs)
+        assertEquals(9L, config.timeout.seconds)
+        assertEquals(false, config.probeImages)
+    }
+
+    @Test
+    fun `a module list entry overrides the command line`() {
+        val list = file(":src:all:mangadex --lang ja")
+        val options = Options.parse(arrayOf("--module-list", list.toString(), "--lang", "en"))
+
+        val config = configFor(options, resolveEntries(options).single(), temporary.newFolder().toPath())
+
+        assertEquals(setOf("ja"), config.langs)
+    }
+
     private fun file(vararg lines: String): Path = temporary.newFile().toPath().also {
         Files.write(it, lines.toList())
     }

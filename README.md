@@ -366,9 +366,9 @@ The page is published to `https://<owner>.github.io/kei-status/`. Enable it once
 - `withNativeWebView` hands out a real `WebView` object, but touch synthesis
   (`dispatchTouchEvent`, `MotionEvent`) is inert, so sources that solve a challenge by dragging a
   slider cannot succeed.
-- `injectAtDocumentStart` falls back to the documented `onPageStarted` path, because the Chromium
-  glue that would give it document-start timing is not present. Sources that need a script to run
-  before the page's own code may miss that window.
+- `injectAtDocumentStart` falls back to the documented `onPageStarted` path: the Chromium glue is
+  stubbed to advertise no optional WebView features, so document-start timing is unavailable.
+  Sources that need a script to run before the page's own code may miss that window.
 - Native QuickJS has no JVM build, so sources that evaluate JavaScript through it report
   `UNSUPPORTED` when a scenario needs it. A background prefetch that needs it prints a one-line note
   and does not fail the run.
@@ -379,11 +379,14 @@ The page is published to `https://<owner>.github.io/kei-status/`. Enable it once
   preference-driven behaviour is only exercised with default values.
 - Header/cookie behaviour is close to the app but not identical, so a `PASS` here is strong evidence,
   not a guarantee.
+- `filters` is checked once per extension class and site. A module that declares one source per
+  language would otherwise fetch the same filter page once per language, and the background fetch
+  failing never fails the source: `getFilterList()` falls back to the static list, so a broken
+  dynamic filter fetch still reports `PASS`.
 - A Cloudflare challenge can be clicked through, but `cf_clearance` is bound to the client that
   earned it, so a zone that enforces that binding refuses the replayed request. Six sampled zones
   all earned the cookie and all still refused the replay; those extensions report `BLOCKED` after
   one attempt rather than retrying.
-- One module per run; batching and baseline diffs are not implemented yet.
 
 ## Verdicts on real sources
 

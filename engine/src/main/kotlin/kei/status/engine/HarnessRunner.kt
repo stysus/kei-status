@@ -31,6 +31,14 @@ data class HarnessConfig(
 
 class HarnessRunner(private val config: HarnessConfig) {
 
+    /**
+     * One entry per (extension class, site). A module that declares one source per language runs
+     * the same class against the same site once per language; core fetches filter data in the
+     * background and caches it per source id, so without this every variant would download the
+     * same filter page.
+     */
+    private val filterSites = mutableMapOf<String, FilterSite>()
+
     fun run(): RunReport = runBlocking {
         // A module that was never compiled has no layout file. Report that as a failed load instead
         // of throwing: a CI run over many modules must still publish what the other modules said.
@@ -134,7 +142,7 @@ class HarnessRunner(private val config: HarnessConfig) {
         }
         scenarios += latest?.result ?: ScenarioResult("latest", Status.SKIP, 0, "supportsLatest = false")
 
-        scenarios += capture("filters", samples = { listOf("${it.size} filters") }) { source.getFilterList() }.result
+        scenarios += filtersScenario(source)
 
         // Some sources have no content for every language they advertise (MangaDex has no
         // "popular in Japanese" because the original language is not a translated language), so
@@ -175,6 +183,46 @@ class HarnessRunner(private val config: HarnessConfig) {
 
     private fun baseUrlOf(source: CatalogueSource): String =
         (source as? HttpSource)?.baseUrl ?: ""
+
+    /**
+     * Runs the filter-list scenario once per extension class and site.
+     *
+     * `getFilterList()` is documented as fast and I/O-free, but core also kicks off a background
+     * fetch of the site's filter page the first time it is called for a source. A module that
+     * declares one source per language would therefore download the same page once per language -
+     * and fail the same way, since the fetch is a property of the site, not of the variant. The
+     * first source's result is reported for the rest, with a note saying so.
+     */
+    private suspend fun filtersScenario(source: CatalogueSource): ScenarioResult {
+        val site = filterSites.getOrPut("${sourceType(source).name}|${baseUrlOf(source)}") { FilterSite() }
+
+        site.result?.let { leader ->
+            return leader.copy(
+                durationMs = 0,
+                notes = leader.notes + "same site as ${site.leader}; not checked again",
+            )
+        }
+
+        val captured = capture("filters", samples = { listOf("${it.size} filters") }) { source.getFilterList() }
+        site.leader = "${source.name} [${source.lang}]"
+        site.result = captured.result
+        return captured.result
+    }
+
+    /**
+     * The extension's own class, not the anonymous per-language subclass the generated factory
+     * creates for each `source {}` block.
+     */
+    private fun sourceType(source: CatalogueSource): Class<*> {
+        var type: Class<*> = source.javaClass
+        while (type.isAnonymousClass && type.superclass != null) type = type.superclass
+        return type
+    }
+
+    private class FilterSite {
+        var leader: String = ""
+        var result: ScenarioResult? = null
+    }
 
     private suspend fun probeHome(source: CatalogueSource): List<String> {
         val httpSource = source as? HttpSource
