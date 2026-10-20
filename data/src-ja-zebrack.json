@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:53:12.808622880Z",
+    "generatedAt": "2026-10-20T21:30:31.175724020Z",
     "module": ":src:ja:zebrack",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -23,32 +23,36 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 829,
+                    "durationMs": 652,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 1532,
-                    "message": "missing class: kotlinx/serialization/protobuf/ProtoNumber",
+                    "status": "WARN",
+                    "durationMs": 933,
+                    "message": null,
                     "notes": [
-                        "java.lang.NoClassDefFoundError: kotlinx/serialization/protobuf/ProtoNumber",
-                        "java.lang.ClassNotFoundException: kotlinx.serialization.protobuf.ProtoNumber"
+                        "duplicate manga urls: [1, 8]"
                     ],
-                    "samples": []
+                    "samples": [
+                        "こういうのがいい -> 4364",
+                        "アオアシ -> 129883",
+                        "ワールドトリガー -> 1106"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 159,
-                    "message": "missing class: kotlinx/serialization/protobuf/ProtoNumber",
-                    "notes": [
-                        "java.lang.NoClassDefFoundError: kotlinx/serialization/protobuf/ProtoNumber",
-                        "java.lang.ClassNotFoundException: kotlinx.serialization.protobuf.ProtoNumber"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 102,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "静かなるドン-もうひとつの最終章- -> 46404",
+                        "【タテヨミ】神血の救世主〜0.00000001%を引き当て最強へ〜 -> 77629",
+                        "カット＆ペーストでこの世界を生きていく -> 3478"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -62,23 +66,56 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 324,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "🔒 57発目 - ② 本懐 -> 1025454",
+                        "🔒 57発目 - ① 本懐 -> 1025451",
+                        "🔒 56発目 - ② 萌芽 -> 1025448"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 175,
+                    "message": "Log in via WebView and purchase this product to read.",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:53:12.808622880Z",
+    "changes": [
+        {
+            "source": "Zebrack",
+            "lang": "ja",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "WARN"
+        },
+        {
+            "source": "Zebrack",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Zebrack",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Zebrack",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "FAIL"
+        }
+    ]
 }

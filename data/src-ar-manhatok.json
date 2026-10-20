@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:34.606892756Z",
+    "generatedAt": "2026-10-20T21:26:16.690094543Z",
     "module": ":src:ar:manhatok",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "Manhatok",
             "lang": "ar",
             "baseUrl": "https://manhatok.blogspot.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,27 +23,23 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 261,
+                    "durationMs": 498,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 138,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 291,
+                    "message": "HTTP error 429",
                     "notes": [],
-                    "samples": [
-                        "One Piece مترجم -> /2023/04/one-piece_29.html",
-                        "Blue Lock -> /2023/05/blue-lock.html",
-                        "Ao Ashi -> /2023/05/ao-ashi.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 214,
+                    "durationMs": 728,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,40 +60,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 877,
-                    "message": null,
-                    "notes": [
-                        "chapter[0] has a blank name",
-                        "chapter[1] has a blank name"
-                    ],
-                    "samples": [
-                        " -> /2026/01/image-host_4.html",
-                        " -> /2026/01/image-host.html",
-                        "مانجا ون بيس الفصل Chapter 1131 -> /2024/11/chapter-1131.html"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 361,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 381,
+                    "message": "HTTP error 429",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "pages",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:34.606892756Z",
+    "changes": [
+        {
+            "source": "Manhatok",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manhatok",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manhatok",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhatok",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

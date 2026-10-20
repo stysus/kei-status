@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:57.845124811Z",
+    "generatedAt": "2026-10-20T21:28:27.885209717Z",
     "module": ":src:tr:shadowceviri",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "Shadow Çeviri",
             "lang": "tr",
             "baseUrl": "https://shadowceviri.blogspot.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,29 +23,23 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 310,
+                    "durationMs": 579,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 186,
-                    "message": null,
-                    "notes": [
-                        "duplicate manga urls: [/2021/05/hajime-no-ippo_1.html, /2021/05/doomwar_1.html, /2023/03/tower-of-god.html]"
-                    ],
-                    "samples": [
-                        "Hajime No Ippo -> /2021/05/hajime-no-ippo_1.html",
-                        "Doomwar -> /2021/05/doomwar_1.html",
-                        "Tower of God -> /2023/03/tower-of-god.html"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 421,
+                    "message": "HTTP error 429",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 143,
+                    "durationMs": 95,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,39 +60,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 783,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 268,
+                    "message": "HTTP error 429",
                     "notes": [],
-                    "samples": [
-                        "Raunt 1515 -> /2026/03/hajime-no-ippo-1515.html",
-                        "Raunt 1514 -> /2026/03/hajime-no-ippo-1514.html",
-                        "Raunt 1513 -> /2026/03/hajime-no-ippo-1513.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 288,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSuqXIRyLR_R-5PWc-rjoifoaHvcUb6s538cSMsBjZrFWVP18RJPUP-iw_MPpOnEukyXE_YRju4kLD8-P8juXX5BXIKpH1g7LJxm-sRCLj2NZ9WczqmV3sM14ina486LhQqJI_z3kVG8bgv1Ahr5YguG7qF1VvRTFimtMDIQsWiJcUwByY-b9mNSPXignR/s1600/01.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwhlriDzgETgKHniB7a925tgz-zaFyBggtdd-hrNemfbcAYOfgX8cpONs4gg29Vg-B_0aEaFiP4lNI-dMZhNNkWVij6PzXnBAelElWRYpUnzdHSNehOdxCpHoL0QhBENbLKNmNr529Ud-f4TNrZjHjx_mIGBuHmpmHQ2rt1qn6ZAioKlOq4gKcu2HcSnsQ/s2230/01a.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4IKdm-LiAsyjb0YborchBoFxLWEtOUg00f02g9nGwybxiqypSlADMWJfGVInje2oZY67mGyDynwg6FuYrpTdtAy5PfgIvYrVhW9ioD0BTz2UO3sQNCvZ791llJEbuBOdNTS-G8SGxx7U2RL6DPR69UL884dSm6d_9Qmvrty4Ae8HG2v6Inqp1tzl7Bi2J/s2230/02-03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1656,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:57.845124811Z",
+    "changes": [
+        {
+            "source": "Shadow Çeviri",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "Shadow Çeviri",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Shadow Çeviri",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Shadow Çeviri",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

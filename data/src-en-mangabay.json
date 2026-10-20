@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:46:57.114606450Z",
+    "generatedAt": "2026-10-20T21:24:11.921055868Z",
     "module": ":src:en:mangabay",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "FAIL",
-                    "durationMs": 37177,
+                    "durationMs": 38391,
                     "message": "Open in WebView to bypass site protection",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 380,
+                    "status": "WARN",
+                    "durationMs": 304,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "High School Musical Genius Is Paganini Reincarnated -> /28040-high-school-musical-genius-is-paganini-reincarnated.html",
-                        "For the Musical Genius -> /23658-for-the-musical-genius.html",
-                        "My Daughter Is a Musical Genius -> /6740-my-daughter-is-a-musical-genius.html"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 424,
+                    "status": "WARN",
+                    "durationMs": 278,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Junior Brother Demon Emperor Is Really Too Dedicated -> /72166-junior-brother-demon-emperor-is-really-too-dedicatedd.html",
-                        "I Am Being Mistaken for an S-Class Employee -> /72165-i-am-being-mistaken-for-an-s-class-employee.html",
-                        "I Asked If I Could Really Speak My Mind, and Since You Said It Was Fine To Do So, I Said What I Thought -> /72164-i-asked-if-i-could-really-speak-my-mind-and-since-you-said-it-was-fine-to-do-so-i-said-what-i-thought.html"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,9 +60,9 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 387,
-                    "message": "Open in WebView to bypass site protection",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -74,13 +70,35 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:46:57.114606450Z",
+    "changes": [
+        {
+            "source": "Manga-Bay",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manga-Bay",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manga-Bay",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "SKIP"
+        }
+    ]
 }

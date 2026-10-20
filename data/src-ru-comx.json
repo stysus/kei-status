@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:52:09.757906589Z",
+    "generatedAt": "2026-10-20T21:31:46.635512012Z",
     "module": ":src:ru:comx",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "FAIL",
-                    "durationMs": 31378,
+                    "durationMs": 31242,
                     "message": "Open in WebView to bypass site protection",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1658,
+                    "status": "WARN",
+                    "durationMs": 1256,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Магическая битва -> /9514-magicheskaya-bitva-reads.html",
-                        "Берсерк -> /2789-berserk-read-online.html",
-                        "Распятие шести -> /10856-raspjatie-shesti-read.html"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1326,
+                    "status": "WARN",
+                    "durationMs": 997,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Андердоктор -> /21381-anderdoktor.html",
-                        "Эволюция некроманта: Мой аватар — скелет -> /29574-jevoljucija-nekromanta-moj-avatar-skelet.html",
-                        "Я шокировал свою жену-императрицу, я непобедим -> /20162-ja-shokiroval-svoju-zhenu-imperatricu-ja-nepobedim.html"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,9 +60,9 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 875,
-                    "message": "Open in WebView to bypass site protection",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -74,13 +70,35 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:52:09.757906589Z",
+    "changes": [
+        {
+            "source": "Com-X",
+            "lang": "ru",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Com-X",
+            "lang": "ru",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Com-X",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "SKIP"
+        }
+    ]
 }

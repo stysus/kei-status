@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:55.006573835Z",
+    "generatedAt": "2026-10-20T21:26:54.301320112Z",
     "module": ":src:ar:orcamanga",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,12 +10,12 @@
             "name": "Orca Manga",
             "lang": "ar",
             "baseUrl": "https://infinity896.blogspot.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,27 +23,23 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 287,
+                    "durationMs": 412,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 88,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 412,
+                    "message": "HTTP error 429",
                     "notes": [],
-                    "samples": [
-                        "Legend of Mir: Gold Armored Sword Dragon -> /2021/05/legend-of-mir-gold-armored-sword-dragon.html?m=1",
-                        "Omniscient Reader Viewpoint -> /2021/10/omniscient-reader-viewpoint.html?m=1",
-                        "Dragon Ego -> /2021/05/dragon-ego.html?m=1"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 146,
+                    "durationMs": 143,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,12 +60,10 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 339,
-                    "message": null,
-                    "notes": [
-                        "chapter list is empty"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 412,
+                    "message": "HTTP error 429",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -83,6 +77,21 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:55.006573835Z",
+    "changes": [
+        {
+            "source": "Orca Manga",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Orca Manga",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "FAIL"
+        }
+    ]
 }
