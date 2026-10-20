@@ -253,7 +253,18 @@ Two workflows, split by what they can prove:
 | File | Runs on | Does |
 | --- | --- | --- |
 | `.github/workflows/ci.yml` | every pull request and push | builds the harness and runs the unit tests; lints the workflows and the CI scripts. No network. |
-| `.github/workflows/status.yml` | push to `main`, nightly, on demand | checks every extension against its live site and publishes the result to GitHub Pages. |
+| `.github/workflows/status.yml` | nightly, on demand | checks every extension against its live site and publishes the result to GitHub Pages. |
+
+A sweep hits every live site and takes hours of runner time, so it is deliberately not wired to
+push: a commit that touches the harness is guarded by `ci.yml`, and the published page is refreshed
+by the nightly run or by asking for it. To trigger one by hand:
+
+```
+gh workflow run status.yml
+```
+
+Its `modules` input narrows a run to a few extensions, which is the cheap way to try a change to the
+sweep itself without checking all 1,444.
 
 The shell steps live in `ci/` rather than in YAML, so the same commands can be run locally:
 
@@ -286,7 +297,8 @@ shards (`20` by default, `shards` input to change it) and each shard runs in its
 independent: `fail-fast: false`, so one bad shard does not cancel the rest.
 
 A shard compiles its own modules in one Gradle invocation, so the shared modules (`:core`, `:lib:*`)
-compile once instead of once per extension and compilation runs in parallel.
+compile once instead of once per extension and compilation runs in parallel. What a shard does *not*
+build is the harness: that is shared by every shard and is built once, in `prepare`.
 
 ### Build caching
 
@@ -300,6 +312,17 @@ also carries the upstream revision, so a second run on the same revision restore
 free. With a warm cache a module whose sources did not change is restored instead of recompiled, so
 a run spends its time checking sites. A module that *did* change upstream misses the cache and is
 rebuilt, which is exactly the wanted behaviour and needs no bookkeeping.
+
+The harness itself is not an extension and does not depend on one, so it is built once in the
+`prepare` job and handed to the shards as an artifact. Building it per shard was the same eighty
+seconds of compilation paid twenty times over — about twenty minutes of runner time per run — and the
+publish job used to pay it a twenty-first time. It is now built once and downloaded, which is also
+why `publish` runs no Gradle at all.
+
+Every shard checks out the revision `prepare` discovered the tree from, rather than asking for `main`
+independently. Twenty checkouts of a moving branch can land on different commits, and then a module
+the shard list names may not exist in the tree a shard actually compiled — which reads on the page as
+a failed load. Pinning also keeps the build-cache key in agreement with the tree.
 
 ### What gets published
 
@@ -326,9 +349,11 @@ Two details keep a scheduled run useful rather than noisy:
 If every module fails to load, the job fails instead of publishing a page full of "failed to load":
 a single site breaking is a finding, a broken toolchain is not.
 
-The job commits `data/` back to `main` when something changed, and the push trigger's `paths` list
-keeps that commit from starting another run. Because the store is in git, the history of what broke
-when is the commit log, and a stale entry is one `git log -p data/<module>.json` away.
+The job commits `data/` back to `main` when something changed. That commit cannot start another
+sweep, since `status.yml` has no push trigger; it also carries `[skip ci]` and is pushed with
+`GITHUB_TOKEN`, which GitHub does not use to start workflows either. Because the store is in git,
+the history of what broke when is the commit log, and a stale entry is one
+`git log -p data/<module>.json` away.
 
 The page is published to `https://<owner>.github.io/kei-status/`. Enable it once under
 **Settings -> Pages -> Build and deployment -> Source: GitHub Actions**.

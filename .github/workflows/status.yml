@@ -10,22 +10,13 @@ name: status
 #
 # The extension sources are third-party code and are never modified: only their compiled classes
 # are read, which is what the harness does locally too.
+#
+# This workflow does not run on push. A sweep hits every live site, takes hours of runner time and
+# writes the state it found back to `data/`, so it is not something a commit should set off; it runs
+# on the nightly schedule and when someone asks for it by hand. Changes to the harness are still
+# guarded on every push, by `ci.yml`.
 
 on:
-  push:
-    branches: [main]
-    # The run commits its own results back to `data/`; that push must not start another run.
-    paths:
-      - "ci/**"
-      - "engine/**"
-      - "cli/**"
-      - "android-shim/**"
-      - "host-shim/**"
-      - "tools/**"
-      - "gradle/**"
-      - "build.gradle.kts"
-      - "settings.gradle.kts"
-      - ".github/workflows/status.yml"
   schedule:
     # Daily, off the hour so it does not compete with other scheduled work.
     - cron: "17 3 * * *"
@@ -52,14 +43,19 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Everything that is the same for every shard happens here, once: reading the tree, and building
+  # the harness. The harness is a plain JVM build that does not depend on any extension, so building
+  # it per shard was the same eighty seconds of compilation paid twenty times over. It is built here
+  # and handed to the shards as an artifact.
   prepare:
-    name: Discover modules
+    name: Prepare the harness and the shard list
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     outputs:
       matrix: ${{ steps.discover.outputs.matrix }}
       total: ${{ steps.discover.outputs.total }}
       shards: ${{ steps.discover.outputs.shards }}
+      source_sha: ${{ steps.source.outputs.sha }}
     steps:
       - name: Check out the harness
         uses: actions/checkout@v7
@@ -70,6 +66,13 @@ jobs:
           repository: keiyoushi/extensions-source
           path: extensions-source
           fetch-depth: 1
+
+      # Every shard pins its checkout to this commit. Twenty independent checkouts of a moving
+      # branch can land on different commits, and then a module the shard list names may not exist
+      # in the tree a shard actually compiled - which reads on the page as a failed load.
+      - name: Identify the upstream revision
+        id: source
+        run: echo "sha=$(git -C extensions-source rev-parse HEAD)" >>"$GITHUB_OUTPUT"
 
       - name: Split the tree into shards
         id: discover
@@ -92,6 +95,35 @@ jobs:
           path: shards/
           retention-days: 1
 
+      - name: Set up JDK 21
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      # This job owns the dependency cache: it restores it, and its post-job save runs before the
+      # shards start, so a cold run downloads Maven once rather than once per shard.
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v6
+        with:
+          path: |
+            ~/.gradle/caches/modules-2
+            ~/.gradle/wrapper
+          key: gradle-deps-${{ runner.os }}-${{ hashFiles('gradle/libs.versions.toml', 'extensions-source/gradle/libs.versions.toml', 'extensions-source/gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: |
+            gradle-deps-${{ runner.os }}-
+
+      - name: Build the harness
+        run: ./gradlew :cli:installDist --stacktrace
+
+      - name: Upload the harness
+        uses: actions/upload-artifact@v7
+        with:
+          name: harness
+          path: cli/build/install/cli/
+          retention-days: 1
+          if-no-files-found: error
+
   sweep:
     name: Shard ${{ matrix.shard }}
     needs: prepare
@@ -110,6 +142,7 @@ jobs:
         with:
           repository: keiyoushi/extensions-source
           path: extensions-source
+          ref: ${{ needs.prepare.outputs.source_sha }}
           fetch-depth: 1
 
       - name: Set up JDK 21
@@ -118,20 +151,22 @@ jobs:
           distribution: temurin
           java-version: "21"
 
-      - name: Identify the upstream revision
-        id: source
-        run: echo "sha=$(git -C extensions-source rev-parse --short HEAD)" >>"$GITHUB_OUTPUT"
-
       # Two caches, on purpose. Dependencies are identical in every shard, so one shared key keeps
       # twenty copies out of the cache budget. The Gradle build cache is per shard: each shard
       # compiles the same modules every run, so its entries are only useful to itself, and twenty
       # jobs saving to one key would leave nineteen of them discarded.
       #
+      # `prepare` owns the dependency cache and saves it before any shard starts, so a cold run
+      # downloads Maven once instead of twenty times. The shards only restore it: a shard that
+      # tried to save would be uploading the same bytes to a key that already exists.
+      #
       # The build-cache key carries the upstream revision, so there is exactly one entry per shard
       # per upstream change: a second run on the same revision restores the same entry for free,
       # and a moved revision restores the previous one through `restore-keys` and saves a new one.
-      - name: Cache Gradle dependencies
-        uses: actions/cache@v6
+      # The revision is the one `prepare` pinned, not a fresh read, so the key cannot disagree with
+      # the tree this shard compiled.
+      - name: Restore the Gradle dependency cache
+        uses: actions/cache/restore@v6
         with:
           path: |
             ~/.gradle/caches/modules-2
@@ -144,21 +179,29 @@ jobs:
         uses: actions/cache@v6
         with:
           path: ~/.gradle/caches/build-cache-1
-          key: gradle-build-cache-${{ runner.os }}-shard-${{ matrix.shard }}-${{ steps.source.outputs.sha }}
+          key: gradle-build-cache-${{ runner.os }}-shard-${{ matrix.shard }}-${{ needs.prepare.outputs.source_sha }}
           restore-keys: |
             gradle-build-cache-${{ runner.os }}-shard-${{ matrix.shard }}-
 
       - name: Check the toolchain
         run: ./ci/environment.sh extensions-source
 
+      - name: Download the harness
+        uses: actions/download-artifact@v8
+        with:
+          name: harness
+          path: cli/build/install/cli
+
+      # An artifact does not carry the executable bit, so the launcher has to be made runnable
+      # again before `ci/run-shard.sh` calls it.
+      - name: Make the harness runnable
+        run: chmod +x cli/build/install/cli/bin/cli
+
       - name: Download the shard list
         uses: actions/download-artifact@v8
         with:
           name: shards
           path: shards
-
-      - name: Build the harness
-        run: ./gradlew :cli:installDist --stacktrace
 
       - name: Build and check the shard
         run: ./ci/run-shard.sh "${{ matrix.file }}" data
@@ -193,14 +236,21 @@ jobs:
           # cannot do.
           fetch-depth: 0
 
+      # Only a JRE is needed: the harness is downloaded, not built, so this job runs no Gradle.
       - name: Set up JDK 21
         uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: "21"
 
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v6
+      - name: Download the harness
+        uses: actions/download-artifact@v8
+        with:
+          name: harness
+          path: cli/build/install/cli
+
+      - name: Make the harness runnable
+        run: chmod +x cli/build/install/cli/bin/cli
 
       - name: Download the shard lists
         uses: actions/download-artifact@v8
@@ -214,9 +264,6 @@ jobs:
           pattern: data-*
           path: incoming
           merge-multiple: true
-
-      - name: Build the harness
-        run: ./gradlew :cli:installDist --stacktrace
 
       - name: Apply the changed state
         run: ./ci/apply.sh incoming data
