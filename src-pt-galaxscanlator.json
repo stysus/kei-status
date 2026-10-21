@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:51:04.751549447Z",
+    "generatedAt": "2026-10-21T08:47:58.586938674Z",
     "module": ":src:pt:galaxscanlator",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "GALAX Scans",
             "lang": "pt-BR",
             "baseUrl": "https://galaxscanlator.blogspot.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,27 +23,23 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 228,
+                    "durationMs": 560,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 114,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 364,
+                    "message": "HTTP error 429",
                     "notes": [],
-                    "samples": [
-                        "Savage Hero -> /2024/01/savage-hero.html?m=1",
-                        "Sono Munou Jitsuha Sekai Saikyou No Mahoutsukai -> /2024/01/sono-munou-jitsuha-sekai-saikyou-no.html?m=1",
-                        "Uragirareta S Rank Boukensha no Ore wa -> /2024/01/uragirareta-s-rank-boukensha-no-ore-wa.html?m=1"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 332,
+                    "durationMs": 265,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +51,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,37 +60,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 519,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 415,
+                    "message": "HTTP error 429",
                     "notes": [],
-                    "samples": [
-                        "Savage Hero Chapter 34 -> /2026/10/savage-hero-34.html",
-                        "Savage Hero Chapter 33 -> /2026/10/savage-hero-33.html",
-                        "Savage Hero Chapter 32 -> /2026/10/savage-hero-32.html"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 1126,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "pages",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:51:04.751549447Z",
+    "changes": [
+        {
+            "source": "GALAX Scans",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "GALAX Scans",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "GALAX Scans",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "GALAX Scans",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

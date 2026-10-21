@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:55:31.353158938Z",
+    "generatedAt": "2026-10-21T08:53:18.127796913Z",
     "module": ":src:all:v2ph",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "V2PH",
             "lang": "all",
             "baseUrl": "https://www.v2ph.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 493,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 3193,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.v2ph.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 336,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "精选街拍 – 极品美胸小姐姐 -> /album/am35898a.html",
-                        "Selected Street Style Photos – Exquisite Nude-Colored Stockings and High Heels -> /album/amo89e8a.html",
-                        "Selected Street Shots – Superb Skinny Denim Shorts -> /album/zo73enez.html"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 18,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.v2ph.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 251,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "[FRIDAY Digital Photo Book] Eren Sora - Rich Angel vol.2 100+ Cuts Super Complete Edition -> /album/ane7x64z.html",
-                        "物恋传媒 NO.2744 包包-高跟鞋、短肉丝 -> /album/WLCM-2744",
-                        "[Kodansha/Weekly Young Magazine] Enohara Ina - 2026 No.45 -> /album/axn8374a.html"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 7,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.v2ph.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,25 +62,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 244,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Gallery -> /album/am35898a.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 203,
-                    "message": "V2PH Session expired. Please log in via WebView to view more than 20 images.",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:55:31.353158938Z",
+    "changes": [
+        {
+            "source": "V2PH",
+            "lang": "all",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "V2PH",
+            "lang": "all",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "V2PH",
+            "lang": "all",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "V2PH",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "V2PH",
+            "lang": "all",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
+        }
+    ]
 }

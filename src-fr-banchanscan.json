@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:54:25.881810471Z",
+    "generatedAt": "2026-10-21T08:52:18.533950971Z",
     "module": ":src:fr:banchanscan",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "Banchan Scan",
             "lang": "fr",
             "baseUrl": "https://banchanscan.fr",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,27 +23,25 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2030,
+                    "durationMs": 5352,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1455,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Trash Will Always Be Trash -> webtoon_24c93655-c284-40f4-b41e-d29208d485da",
-                        "The Villainess Wants to Turn Over a New Leaf -> webtoon_afafe806-75d5-473f-9356-7720f861faa3",
-                        "It Was Love At First Sight, Mr. Villain! -> webtoon_42514548-ff2a-4cb1-bb57-b27f9e355e12"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 30,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from banchanscan.fr (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 315,
+                    "durationMs": 4054,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,39 +62,54 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 314,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Saison 3 · Chapitre 130 -> chapter_c4a4cbd8-4cb5-4d4c-95bb-2cb69aedf4b2",
-                        "Saison 3 · Chapitre 129 -> chapter_22a80a81-9e0a-4c4d-9008-a6d09b51bd41",
-                        "Saison 3 · Chapitre 128 -> chapter_7d462155-e53c-470e-9bf9-f883809d7d41"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 203,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from banchanscan.fr (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 179,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.banchanscan.fr/chapters/trash-will-always-be-trash/130/chapter_c4a4cbd8-4cb5-4d4c-95bb-2cb69aedf4b2-1792435827198-3ucxwm9/0001-1792435827198-pv7fd7e.webp",
-                        "https://cdn.banchanscan.fr/chapters/trash-will-always-be-trash/130/chapter_c4a4cbd8-4cb5-4d4c-95bb-2cb69aedf4b2-1792435827198-3ucxwm9/0002-1792435827198-sva54fp.webp",
-                        "https://cdn.banchanscan.fr/chapters/trash-will-always-be-trash/130/chapter_c4a4cbd8-4cb5-4d4c-95bb-2cb69aedf4b2-1792435827198-3ucxwm9/0003-1792435828952-o14rrnk.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2326,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:54:25.881810471Z",
+    "changes": [
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

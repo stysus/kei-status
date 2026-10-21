@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T21:26:16.690094543Z",
+    "generatedAt": "2026-10-21T08:45:05.637588301Z",
     "module": ":src:ar:manhatok",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "Manhatok",
             "lang": "ar",
             "baseUrl": "https://manhatok.blogspot.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,23 +23,27 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 498,
+                    "durationMs": 289,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 291,
-                    "message": "HTTP error 429",
+                    "status": "PASS",
+                    "durationMs": 154,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "One Piece مترجم -> /2023/04/one-piece_29.html",
+                        "Blue Lock -> /2023/05/blue-lock.html",
+                        "Ao Ashi -> /2023/05/ao-ashi.html"
+                    ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 728,
+                    "durationMs": 140,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,52 +64,69 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 381,
-                    "message": "HTTP error 429",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 1009,
+                    "message": null,
+                    "notes": [
+                        "chapter[0] has a blank name",
+                        "chapter[1] has a blank name"
+                    ],
+                    "samples": [
+                        " -> /2026/01/image-host_4.html",
+                        " -> /2026/01/image-host.html",
+                        "مانجا ون بيس الفصل Chapter 1131 -> /2024/11/chapter-1131.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
+                    "status": "WARN",
+                    "durationMs": 383,
+                    "message": null,
+                    "notes": [
+                        "page list is empty"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:34.606892756Z",
+    "comparedTo": "2026-10-20T21:26:16.690094543Z",
     "changes": [
         {
             "source": "Manhatok",
             "lang": "ar",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Manhatok",
             "lang": "ar",
             "scenario": "chapters",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
             "source": "Manhatok",
             "lang": "ar",
             "scenario": "pages",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
         },
         {
             "source": "Manhatok",
             "lang": "ar",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ]
 }

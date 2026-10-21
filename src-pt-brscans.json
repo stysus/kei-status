@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:28.437966637Z",
+    "generatedAt": "2026-10-21T08:46:26.625454657Z",
     "module": ":src:pt:brscans",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "BRScans",
             "lang": "pt-BR",
             "baseUrl": "https://brscans.vercel.app",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 864,
+                    "durationMs": 526,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 951,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 1020,
+                    "message": "HTTP error 500",
                     "notes": [],
-                    "samples": [
-                        "A Suprema Espada Demoníaca -> /manga/182",
-                        "Crônicas do Soberano Preguiçoso -> /manga/129",
-                        "Guerreiro de Escolta Reencarnado -> /manga/178"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 996,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 822,
+                    "message": "HTTP error 500",
                     "notes": [],
-                    "samples": [
-                        "No Gélido Inverno -> /manga/191",
-                        "O Romeu da Minha Família -> /manga/195",
-                        "Spirit Fingers -> /manga/205"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,39 +56,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 337,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 29 -> /manga/182/chapter/6330?variant=translated",
-                        "Chapter 29 -> /manga/182/chapter/6330?variant=original",
-                        "Chapter 29 -> /manga/182/chapter/6330?variant=raw"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 517,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://d47sf0ah3vbtc.cloudfront.net/media/chapters/6330/translated/1053d5a6d51f4698b46bde5f3c42e558.jpeg",
-                        "https://d47sf0ah3vbtc.cloudfront.net/media/chapters/6330/translated/0acd93c6f8f844d89ed4adbaa425a634.jpeg",
-                        "https://d47sf0ah3vbtc.cloudfront.net/media/chapters/6330/translated/739f1e05bb9a4d5ba0c120873f2b20bf.jpeg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2749,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:28.437966637Z",
+    "changes": [
+        {
+            "source": "BRScans",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "BRScans",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "BRScans",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "BRScans",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "BRScans",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

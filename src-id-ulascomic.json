@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:50:22.962517979Z",
+    "generatedAt": "2026-10-21T08:46:57.449477866Z",
     "module": ":src:id:ulascomic",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -23,25 +23,23 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 970,
+                    "durationMs": 959,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 329,
-                    "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 552,
+                    "message": "HTTP error 429",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 152,
+                    "durationMs": 123,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,11 +61,9 @@
                 {
                     "name": "chapters",
                     "status": "FAIL",
-                    "durationMs": 524,
-                    "message": "NullPointerException",
-                    "notes": [
-                        "java.lang.NullPointerException: <no message>"
-                    ],
+                    "durationMs": 392,
+                    "message": "HTTP error 429",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -81,6 +77,14 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:50:22.962517979Z",
+    "changes": [
+        {
+            "source": "Ulas Comic",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "FAIL"
+        }
+    ]
 }

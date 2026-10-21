@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:45:46.764460196Z",
+    "generatedAt": "2026-10-21T08:43:00.140639677Z",
     "module": ":src:en:webnovel",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "WebNovel",
             "lang": "en",
             "baseUrl": "https://www.webnovel.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,27 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 301,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 1132,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.webnovel.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 5,
-                    "message": "Open in WebView to set necessary cookies.",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 19,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.webnovel.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 0,
-                    "message": "Open in WebView to set necessary cookies.",
+                    "status": "PASS",
+                    "durationMs": 68,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Ain't Faded -> 33020329408021401",
+                        "Myriad Realms Gatekeeper -> 31705778300125301",
+                        "Battle Through the Heavens -> 13741824806105701"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -56,23 +64,54 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 70,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.webnovel.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:45:46.764460196Z",
+    "changes": [
+        {
+            "source": "WebNovel",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "WebNovel",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "WebNovel",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "WebNovel",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "BLOCKED"
+        }
+    ]
 }

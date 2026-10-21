@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:47:31.652119972Z",
+    "generatedAt": "2026-10-21T08:45:16.663224480Z",
     "module": ":src:es:mangasin",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "Mangas.in",
             "lang": "es",
             "baseUrl": "https://m440.in",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 809,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30127,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 3282,
+                    "durationMs": 2841,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from m440.in (HTTP 403)"
@@ -41,13 +41,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 534,
+                    "durationMs": 10360,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Sarariiman ga Isekai ni Ittara Shitennou ni Natta Hanashi -> /manga/sarariiman-ga-isekai-ni-ittara-shitennou-ni-natta-hanashi",
-                        "The Dragon Girlfriend Has Returned -> /manga/the-dragon-girlfriend-has-returned",
-                        "The Regressed Mercenary Has a Plan -> /manga/the-regressed-mercenary-has-a-plan"
+                        "Class no Bocchi Gal o Omochikaeri shite Seisokei Bijin ni shiteyatta Hanashi -> /manga/class-no-bocchi-gal-o-omochikaeri-shite-seisokei-bijin-ni-shiteyatta-hanashi",
+                        "Kotou no Futari -> /manga/kotou-no-futari",
+                        "One-Top  Shoujo -> /manga/one-top-shoujo"
                     ]
                 },
                 {
@@ -62,12 +62,11 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "UNSUPPORTED",
-                    "durationMs": 2520,
-                    "message": "requires the native QuickJS library, which has no JVM build: app.cash.quickjs.QuickJs",
+                    "status": "FAIL",
+                    "durationMs": 60001,
+                    "message": "stream was reset: CANCEL",
                     "notes": [
-                        "java.lang.NoClassDefFoundError: app/cash/quickjs/QuickJs",
-                        "java.lang.ClassNotFoundException: app.cash.quickjs.QuickJs"
+                        "java.io.InterruptedIOException: timeout"
                     ],
                     "samples": []
                 },
@@ -82,6 +81,21 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:47:31.652119972Z",
+    "changes": [
+        {
+            "source": "Mangas.in",
+            "lang": "es",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mangas.in",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "UNSUPPORTED",
+            "to": "FAIL"
+        }
+    ]
 }
