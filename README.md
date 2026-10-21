@@ -219,7 +219,7 @@ Exit codes: `0` no failures, `1` at least one source failed, `2` bad arguments, 
 | `PASS` | ran and met the contract |
 | `WARN` | ran, but something is off (blank thumbnail, empty list, relative URL) |
 | `FAIL` | exception, timeout, or broken contract |
-| `SKIP` | the source does not support that entry point, or its newest chapter has to be unlocked first |
+| `SKIP` | the source does not support that entry point, its newest chapter has to be unlocked first, or it runs against a server you host yourself |
 | `UNSUPPORTED` | needs an Android class the harness does not provide |
 | `BLOCKED` | anti-bot challenge; not the source's fault |
 
@@ -394,6 +394,12 @@ The page is published to `https://<owner>.github.io/kei-status/`. Enable it once
   then try again" message. A reader's WebView has that state built up over many visits; the harness
   starts from an empty profile for every run, so the source reports `FAIL` with a real message
   rather than a timeout.
+- A source that talks to a server the reader hosts themselves is reported `SKIP` without being
+  probed: Komga (which has no address until one is typed into its settings), LANraragi, StashApp,
+  Mango, FoolSlide Customizable and Bakkin Self-hosted all default to loopback. Every network
+  scenario would only report `connection refused`, which says the server is absent, not that the
+  extension is broken. The rule is the base URL itself - a loopback host, or no address at all on a
+  configurable source - so a self-hosted extension added upstream is covered without touching a list.
 - OkHttp sometimes reports `A connection to … was leaked. Did you forget to close a
   response body?`. That is an extension dropping a `Response` instead of closing it: a geo-block
   interceptor that throws mid-chain, an image interceptor that swaps the body without closing the

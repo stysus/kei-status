@@ -144,6 +144,29 @@ class ChecksTest {
     }
 
     @Test
+    fun `a source that runs against your own server is recognised`() {
+        // The defaults shipped by Komga, LANraragi, Stash, Bakkin Self-hosted and the two
+        // customizable readers: there is no public server to probe.
+        listOf(
+            "http://127.0.0.1/",
+            "https://127.0.0.1:25600",
+            "http://127.0.0.1:3000",
+            "http://localhost:9999",
+            "http://0.0.0.0:8080",
+            "http://[::1]:8080",
+        ).forEach { url -> assertTrue(url, Checks.selfHosted(url)) }
+
+        listOf(
+            "https://comikey.com",
+            "https://mangadex.org",
+            // A LAN address is somebody's home server, not a published site, but it is not the
+            // machine the harness runs on either; leave it to the source to fail honestly.
+            "",
+            "not a url",
+        ).forEach { url -> assertFalse(url, Checks.selfHosted(url)) }
+    }
+
+    @Test
     fun `a missing class keeps the name that was missing`() {
         val diagnosis = Checks.diagnose(NoClassDefFoundError("android/webkit/WebView"))
 

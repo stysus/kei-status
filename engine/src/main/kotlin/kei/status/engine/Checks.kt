@@ -96,6 +96,19 @@ object Checks {
         return "lock" in text && "chapter" in text
     }
 
+    /**
+     * True when the source's base URL points at the machine the reader runs it on.
+     *
+     * Six extensions ship a loopback default - Komga, LANraragi, Stash, Bakkin Self-hosted and two
+     * customizable readers - because the reader is expected to run the server themselves. Nothing
+     * is published to check, so probing one only ever reports "connection refused", which says the
+     * server is absent rather than anything about the extension.
+     */
+    fun selfHosted(baseUrl: String): Boolean {
+        val host = baseUrl.toHttpUrlOrNull()?.host ?: return false
+        return host == "localhost" || host == "0.0.0.0" || host == "::1" || host.startsWith("127.")
+    }
+
     fun metadata(id: Long, name: String, lang: String, baseUrl: String): List<String> = buildList {
         if (id <= 0) add("source id is not positive")
         if (name.isBlank()) add("source name is blank")

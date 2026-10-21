@@ -3,6 +3,7 @@ package kei.status.engine
 import android.graphics.BitmapFactory
 import eu.kanade.tachiyomi.network.await
 import eu.kanade.tachiyomi.source.CatalogueSource
+import eu.kanade.tachiyomi.source.ConfigurableSource
 import eu.kanade.tachiyomi.source.model.MangasPage
 import eu.kanade.tachiyomi.source.model.Page
 import eu.kanade.tachiyomi.source.model.SMangaUpdate
@@ -125,6 +126,29 @@ class HarnessRunner(private val config: HarnessConfig) {
     }
 
     private suspend fun runSource(source: CatalogueSource): SourceReport {
+        val baseUrl = baseUrlOf(source)
+
+        // A source that talks to a server the reader hosts themselves has nothing public to check.
+        // Komga ships no address at all until one is typed into its settings; the others default
+        // to loopback. Probing either only reports "connection refused", which is a verdict on the
+        // missing server, not on the extension.
+        val unconfigured = baseUrl.isBlank() && source is ConfigurableSource
+        if (unconfigured || Checks.selfHosted(baseUrl)) {
+            val reason = if (unconfigured) {
+                "the address is set in the source's own settings; it runs against a server you host yourself"
+            } else {
+                "the source runs against a server you host yourself, so there is nothing public to check"
+            }
+            return SourceReport(
+                sourceId = source.id,
+                name = source.name,
+                lang = source.lang,
+                baseUrl = baseUrl,
+                status = Status.SKIP,
+                scenarios = listOf(ScenarioResult("self-hosted", Status.SKIP, 0, reason)),
+            )
+        }
+
         val scenarios = mutableListOf<ScenarioResult>()
 
         scenarios += capture("metadata") { Checks.metadata(source.id, source.name, source.lang, baseUrlOf(source)) }.result
