@@ -21,7 +21,28 @@ open class WebSettings internal constructor() {
 
     var loadWithOverviewMode: Boolean = false
 
-    var userAgentString: String? = null
+    /**
+     * A UA the source asked for, applied to the page when it is created.
+     *
+     * Kept apart from [userAgentString] because reading that property must not turn into an
+     * override: a source reads the current agent, derives a reduced one, and only then sets it.
+     */
+    internal var overrideUserAgent: String? = null
+
+    /** What the browser reports for itself; filled in as soon as the page exists. */
+    internal var browserUserAgent: String? = null
+
+    /**
+     * The agent the page sends, as on Android, where this is never null.
+     *
+     * `TurnstileHelper` reads it back to strip the `; wv` and `Version/4.0` markers a WebView
+     * carries, so a null here fails the source before the captcha is even attempted.
+     */
+    var userAgentString: String
+        get() = overrideUserAgent ?: browserUserAgent ?: DEFAULT_USER_AGENT
+        set(value) {
+            overrideUserAgent = value
+        }
 
     var supportMultipleWindows: Boolean = false
 
@@ -68,5 +89,10 @@ open class WebSettings internal constructor() {
         const val LOAD_CACHE_ELSE_NETWORK: Int = 1
         const val LOAD_NO_CACHE: Int = 2
         const val LOAD_CACHE_ONLY: Int = 3
+
+        /** Only read before a page exists; the browser's own agent replaces it. */
+        private const val DEFAULT_USER_AGENT =
+            "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) " +
+                "Chrome/126.0.0.0 Mobile Safari/537.36"
     }
 }

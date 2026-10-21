@@ -13,6 +13,7 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.contentOrNull
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
@@ -364,11 +365,27 @@ open class WebView(context: Context?) : View() {
             ),
         )
 
-        settings.userAgentString?.let { agent ->
+        settings.overrideUserAgent?.let { agent ->
             setup += session.send(
                 "Network.setUserAgentOverride",
                 JsonObject(mapOf("userAgent" to JsonPrimitive(agent))),
             )
+        }
+
+        // Read the agent the page will actually send, so `settings.userAgentString` reports it the
+        // way Android does instead of guessing. Sources that derive a reduced agent from it need the
+        // real Chrome version.
+        setup += session.send(
+            "Runtime.evaluate",
+            JsonObject(
+                mapOf(
+                    "expression" to JsonPrimitive("navigator.userAgent"),
+                    "returnByValue" to JsonPrimitive(true),
+                ),
+            ),
+        ).thenAccept { result ->
+            result?.get("result")?.jsonObject?.get("value")?.jsonPrimitive?.contentOrNull
+                ?.let { settings.browserUserAgent = it }
         }
 
         bindingScripts.forEach { script ->
