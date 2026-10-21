@@ -44,11 +44,27 @@ open class WebView(context: Context?) : View() {
 
     private var destroyed = false
 
+    /** Only used to stamp trace lines; the harness itself never depends on wall-clock timing. */
+    private val pageStartedNanos = System.nanoTime()
+
+    private fun sinceStartMs(): Long = (System.nanoTime() - pageStartedNanos) / 1_000_000
+
     private var currentUrl: String? = null
 
     private var mainFrameId: String? = null
 
     private var pendingDocument: PendingDocument? = null
+
+    /**
+     * Extra headers for the next top-level navigation, as passed to
+     * `WebView.loadUrl(url, additionalHttpHeaders)`.
+     *
+     * Android applies these to the main-frame request only. They are attached per request here
+     * because Chromium's `Network.setExtraHTTPHeaders` would also put them on every subresource,
+     * and a custom header on a cross-origin `fetch()` turns it into a CORS preflight the site may
+     * not answer.
+     */
+    private var navigationHeaders: Map<String, String> = emptyMap()
 
     private val bindings = LinkedHashMap<String, Any>()
 
@@ -74,18 +90,16 @@ open class WebView(context: Context?) : View() {
         val session = ensurePage()
         currentUrl = url
         pendingDocument = null
+        navigationHeaders = additionalHttpHeaders
         startCookiePolling()
+        if (additionalHttpHeaders.isNotEmpty()) {
+            trace("loadUrl $url headers=${additionalHttpHeaders.keys}")
+        }
 
         // Navigation waits for the session's interception to be armed. Issuing it alongside
         // `Fetch.enable` lets the document escape to the network, which for `loadDataWithBaseURL`
         // means the served HTML is replaced by a DNS error page.
         afterSetup {
-            if (additionalHttpHeaders.isNotEmpty()) {
-                session.send(
-                    "Network.setExtraHTTPHeaders",
-                    JsonObject(mapOf("headers" to JsonObject(additionalHttpHeaders.mapValues { JsonPrimitive(it.value) }))),
-                )
-            }
             pushCookiesToBrowser(url)
             navigate(session, url)
         }
@@ -101,6 +115,7 @@ open class WebView(context: Context?) : View() {
         val session = ensurePage()
         val origin = baseUrl ?: "about:blank"
         currentUrl = origin
+        navigationHeaders = emptyMap()
         startCookiePolling()
 
         // The document is served by intercepting the first navigation instead of by fetching the
@@ -236,6 +251,7 @@ open class WebView(context: Context?) : View() {
 
         session.on("Page.loadEventFired") {
             trace("loadEventFired ${currentUrl.orEmpty()}")
+            navigationHeaders = emptyMap()
             syncCookiesFromBrowser()
             armChallengeSolver(session)
             val url = currentUrl.orEmpty()
@@ -245,7 +261,15 @@ open class WebView(context: Context?) : View() {
         }
 
         session.on("Network.loadingFailed") { params ->
-            if (params["type"]?.jsonPrimitive?.content != "Document") return@on
+            val type = params["type"]?.jsonPrimitive?.content.orEmpty()
+            if (type != "Document") {
+                if (TRACE) {
+                    val error = params["errorText"]?.jsonPrimitive?.content.orEmpty()
+                    val blocked = params["blockedReason"]?.jsonPrimitive?.content
+                    trace("loadingFailed $type $error blocked=$blocked")
+                }
+                return@on
+            }
             if (params["frameId"]?.jsonPrimitive?.content != mainFrameId) return@on
             val description = params["errorText"]?.jsonPrimitive?.content ?: "net::ERR_FAILED"
             val url = currentUrl.orEmpty()
@@ -257,6 +281,19 @@ open class WebView(context: Context?) : View() {
         }
 
         session.on("Fetch.requestPaused") { params -> onRequestPaused(session, params) }
+
+        session.on("Network.responseReceived") { params ->
+            if (!TRACE) return@on
+            val response = params["response"]?.jsonObject ?: return@on
+            val status = response["status"]?.jsonPrimitive?.content.orEmpty()
+            trace("response +${sinceStartMs()}ms $status ${response["url"]?.jsonPrimitive?.content.orEmpty()}")
+        }
+
+        session.on("Network.loadingFinished") { params ->
+            if (!TRACE) return@on
+            val length = params["encodedDataLength"]?.jsonPrimitive?.content.orEmpty()
+            trace("finished +${sinceStartMs()}ms $length ${params["requestId"]?.jsonPrimitive?.content.orEmpty()}")
+        }
 
         session.on("Runtime.bindingCalled") { params ->
             val payload = params["payload"]?.jsonPrimitive?.content ?: return@on
@@ -396,7 +433,7 @@ open class WebView(context: Context?) : View() {
         val resourceType = params["resourceType"]?.jsonPrimitive?.content.orEmpty()
         val frameId = params["frameId"]?.jsonPrimitive?.content
 
-        trace("requestPaused $resourceType $url")
+        trace("requestPaused +${sinceStartMs()}ms $resourceType $method $url")
 
         if (settings.blockNetworkImage && resourceType == "Image") {
             session.send("Fetch.failRequest", JsonObject(mapOf(
@@ -435,7 +472,12 @@ open class WebView(context: Context?) : View() {
         }
 
         if (response == null) {
-            continueRequest(session, requestId, request)
+            val extraHeaders = if (resourceType == "Document" && frameId != null && frameId == mainFrameId) {
+                navigationHeaders
+            } else {
+                emptyMap()
+            }
+            continueRequest(session, requestId, request, extraHeaders)
             return
         }
 
@@ -499,17 +541,53 @@ open class WebView(context: Context?) : View() {
     /**
      * Resumes a paused request.
      *
-     * The request body has to be handed back explicitly: `Fetch.continueRequest` without
-     * `postData` resumes a POST with an empty body, which silently breaks every GraphQL/form
-     * request the page makes.
+     * The request body has to be handed back explicitly: `Fetch.continueRequest` without a body
+     * resumes a POST with an empty one, which silently breaks every GraphQL/form request the page
+     * makes. `postDataEntries` is preferred over `postData` because it is the browser's own bytes,
+     * base64-encoded; re-encoding the decoded text is not byte-identical for every body, and a
+     * body Chromium considers changed is aborted at the network layer - Comikey's Firebase App
+     * Check exchange came back empty that way and left its reader waiting for a token that never
+     * arrived.
+     *
+     * `extraHeaders` is merged over the browser's own headers, because `continueRequest` replaces
+     * the header list outright when it is given one.
      */
-    private fun continueRequest(session: Page, requestId: String, request: JsonObject) {
+    private fun continueRequest(
+        session: Page,
+        requestId: String,
+        request: JsonObject,
+        extraHeaders: Map<String, String> = emptyMap(),
+    ) {
+        val postDataEntries = request["postDataEntries"]?.jsonArray
         val postData = request["postData"]?.jsonPrimitive?.content
         val params = buildMap {
             put("requestId", JsonPrimitive(requestId))
-            if (postData != null) put("postData", JsonPrimitive(postData))
+            if (postDataEntries != null && postDataEntries.isNotEmpty()) {
+                put("postDataEntries", postDataEntries)
+            } else if (postData != null) {
+                put("postData", JsonPrimitive(postData))
+            }
+            if (extraHeaders.isNotEmpty()) {
+                val headers = request["headers"]?.jsonObject
+                    ?.mapValues { (_, value) -> value.jsonPrimitive.content }
+                    .orEmpty() + extraHeaders
+                put(
+                    "headers",
+                    JsonArray(
+                        headers.map { (name, value) ->
+                            JsonObject(
+                                mapOf(
+                                    "name" to JsonPrimitive(name),
+                                    "value" to JsonPrimitive(value),
+                                ),
+                            )
+                        },
+                    ),
+                )
+            }
         }
         session.send("Fetch.continueRequest", JsonObject(params))
+        trace("continued +${sinceStartMs()}ms $requestId")
     }
 
     private fun buildBridgeScript(name: String, obj: Any): String {

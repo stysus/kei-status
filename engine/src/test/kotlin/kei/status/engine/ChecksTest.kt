@@ -6,6 +6,7 @@ import eu.kanade.tachiyomi.source.model.MangasPage
 import eu.kanade.tachiyomi.source.model.Page
 import eu.kanade.tachiyomi.source.model.SManga
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.io.IOException
@@ -120,6 +121,26 @@ class ChecksTest {
         assertEquals(Status.BLOCKED, diagnosis.status)
         assertTrue(diagnosis.message.contains("Cloudflare"))
         assertTrue(diagnosis.chain.single().startsWith("eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException"))
+    }
+
+    @Test
+    fun `a chapter that needs an unlock is recognised`() {
+        // The exact wording is the source's own; these are the messages in the extensions tree.
+        listOf(
+            "Locked chapter, unlock in WebView.",
+            "Chapter locked. Open in WebView to unlock.",
+            "Chapter is locked",
+            "This chapter is locked. Use WebView to purchase it.",
+            "Log in via WebView and unlock this chapter with coins to read.",
+        ).forEach { message -> assertTrue(message, Checks.lockedChapter(message)) }
+
+        // A chapter being locked is a property of the content. Failing to open the lock is not.
+        listOf(
+            null,
+            "Timed out decrypting image links",
+            "Could not unlock the decryption key",
+            "HTTP 404",
+        ).forEach { message -> assertFalse(message.toString(), Checks.lockedChapter(message)) }
     }
 
     @Test

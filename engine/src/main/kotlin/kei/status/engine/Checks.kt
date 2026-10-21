@@ -82,6 +82,20 @@ object Checks {
         return notes
     }
 
+    /**
+     * True when a source refused a chapter because it has to be unlocked first.
+     *
+     * `SChapter` carries no lock flag, so a paywalled chapter is only identifiable once the source
+     * declines to serve it. Around a dozen extensions report it in their own words - "Locked
+     * chapter, unlock in WebView", "Chapter is locked", "Chapter locked (coins required)" - and all
+     * of them name the chapter. Matching on both words keeps a decryption failure such as "could
+     * not unlock the key" classified as the failure it is.
+     */
+    fun lockedChapter(message: String?): Boolean {
+        val text = message?.lowercase() ?: return false
+        return "lock" in text && "chapter" in text
+    }
+
     fun metadata(id: Long, name: String, lang: String, baseUrl: String): List<String> = buildList {
         if (id <= 0) add("source id is not positive")
         if (name.isBlank()) add("source name is blank")

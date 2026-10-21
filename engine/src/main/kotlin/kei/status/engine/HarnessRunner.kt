@@ -162,7 +162,18 @@ class HarnessRunner(private val config: HarnessConfig) {
                 scenarios += ScenarioResult("pages", Status.SKIP, 0, "no chapters available")
             } else {
                 val pages = capture("pages", ::pageNotes, ::pageSamples) { source.getPageList(firstChapter) }
-                scenarios += pages.result
+                scenarios += if (Checks.lockedChapter(pages.result.message)) {
+                    // The chapter list carries no lock flag, so a premium chapter is only visible
+                    // once the source refuses to serve it. That refusal says the content needs an
+                    // account, not that the extension is broken, and probing further chapters to
+                    // find a free one would multiply the page loads a sweep already makes.
+                    pages.result.copy(
+                        status = Status.SKIP,
+                        notes = pages.result.notes + "pages are only checked on a chapter that needs no unlock",
+                    )
+                } else {
+                    pages.result
+                }
 
                 if (config.probeImages && pages.value != null) {
                     scenarios += capture("images") { probeImages(source, pages.value) }.result

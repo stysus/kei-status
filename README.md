@@ -219,7 +219,7 @@ Exit codes: `0` no failures, `1` at least one source failed, `2` bad arguments, 
 | `PASS` | ran and met the contract |
 | `WARN` | ran, but something is off (blank thumbnail, empty list, relative URL) |
 | `FAIL` | exception, timeout, or broken contract |
-| `SKIP` | the source does not support that entry point |
+| `SKIP` | the source does not support that entry point, or its newest chapter has to be unlocked first |
 | `UNSUPPORTED` | needs an Android class the harness does not provide |
 | `BLOCKED` | anti-bot challenge; not the source's fault |
 
@@ -383,6 +383,17 @@ The page is published to `https://<owner>.github.io/kei-status/`. Enable it once
   language would otherwise fetch the same filter page once per language, and the background fetch
   failing never fails the source: `getFilterList()` falls back to the static list, so a broken
   dynamic filter fetch still reports `PASS`.
+- `pages` asks for the newest chapter. A chapter list carries no lock flag, so a paywalled chapter
+  is only recognisable once the source refuses to serve it; that refusal is reported as `SKIP` with
+  the source's own message, and the rest of the source is still checked. The alternative - walking
+  the list until a free chapter appears - was rejected: it multiplies the page loads a sweep makes
+  and can hang on the first chapter that never settles. The cost is that a source whose newest
+  chapter is always premium has its `pages` path left unexercised.
+- A source that mints a token in its WebView and reads it back from browser storage on a later
+  visit (Comikey's App Check token) fails on a cold profile with its own "open chapter in WebView,
+  then try again" message. A reader's WebView has that state built up over many visits; the harness
+  starts from an empty profile for every run, so the source reports `FAIL` with a real message
+  rather than a timeout.
 - OkHttp sometimes reports `A connection to … was leaked. Did you forget to close a
   response body?`. That is an extension dropping a `Response` instead of closing it: a geo-block
   interceptor that throws mid-chain, an image interceptor that swaps the body without closing the
