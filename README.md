@@ -403,6 +403,14 @@ The page is published to `https://<owner>.github.io/kei-status/`. Enable it once
   closed, so this is the extension's bug, not the harness's. OkHttp logs it once per connection when
   it notices at GC time and then returns the connection to the pool, so it costs one line in the log
   and does not change a verdict.
+- `--timeout` is enforced from outside the extension, not by coroutine cancellation. Extension code
+  blocks: a source calls OkHttp's `execute()`, waits on a monitor, sleeps. `withTimeout` only takes
+  effect at a suspension point, so a blocked scenario ran to its own end instead — a 0.3s budget
+  around a 3s blocking call returned after 3.0s and did not report a timeout, and one module held a
+  shard for 27 minutes parked in `Http2Stream.waitForIo`. Each scenario therefore runs on its own
+  thread and the deadline interrupts it, which stops both blocking and suspending work. A block that
+  swallows the interrupt is abandoned rather than waited for: the report records the timeout and the
+  sweep moves on, and the thread is a daemon so it cannot hold the JVM open.
 - A Cloudflare challenge can be clicked through, but `cf_clearance` is bound to the client that
   earned it, so a zone that enforces that binding refuses the replayed request. Six sampled zones
   all earned the cookie and all still refused the replay; those extensions report `BLOCKED` after

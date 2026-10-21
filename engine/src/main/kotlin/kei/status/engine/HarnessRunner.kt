@@ -13,11 +13,11 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
-import kotlinx.coroutines.withTimeout
 import okhttp3.Request
 import java.nio.file.Path
 import java.time.Instant
 import java.time.Duration as JavaDuration
+import java.util.concurrent.TimeoutException
 
 data class HarnessConfig(
     val sourceRoot: Path,
@@ -52,11 +52,23 @@ class HarnessRunner(private val config: HarnessConfig) {
         HarnessBootstrap.install(config.scratchRoot)
 
         val loader = SourceLoader(config.sourceRoot, layout)
-        val sources = try {
-            loader.createSources().filter { config.langs.isEmpty() || it.lang in config.langs }
-        } catch (e: Throwable) {
-            // A missing host class must not abort the run: report it and stop here.
-            return@runBlocking buildReport(listOf(loadFailureReport(e)))
+        // Loading runs extension code too - constructors and static initialisers - so it gets the
+        // same deadline as a scenario rather than being the one place that can hang forever.
+        val sources = when (val loaded = withDeadline(config.timeout) { loader.createSources() }) {
+            is DeadlineOutcome.Value ->
+                loaded.value.filter { config.langs.isEmpty() || it.lang in config.langs }
+
+            is DeadlineOutcome.Failed ->
+                // A missing host class must not abort the run: report it and stop here.
+                return@runBlocking buildReport(listOf(loadFailureReport(loaded.error)))
+
+            DeadlineOutcome.Expired -> return@runBlocking buildReport(
+                listOf(
+                    loadFailureReport(
+                        TimeoutException("loading the extension timed out after ${config.timeout.seconds}s"),
+                    ),
+                ),
+            )
         }
 
         if (sources.isEmpty() && config.langs.isNotEmpty()) {
@@ -364,38 +376,44 @@ class HarnessRunner(private val config: HarnessConfig) {
         block: suspend () -> T,
     ): Captured<T> {
         val start = System.nanoTime()
-        return try {
-            val value = withTimeout(config.timeout.toMillis()) { block() }
-            val findings = notes(value)
-            Captured(
-                value = value,
-                result = ScenarioResult(
-                    name = name,
-                    status = if (findings.isEmpty()) Status.PASS else Status.WARN,
-                    durationMs = elapsedMs(start),
-                    notes = findings,
-                    samples = samples(value),
-                ),
-            )
-        } catch (e: CancellationException) {
-            if (e !is kotlinx.coroutines.TimeoutCancellationException) throw e
-            Captured(
+        return when (val outcome = withDeadline(config.timeout, block)) {
+            DeadlineOutcome.Expired -> Captured(
                 null,
                 ScenarioResult(name, Status.FAIL, elapsedMs(start), "timed out after ${config.timeout.seconds}s"),
             )
-        } catch (e: Throwable) {
-            if (TRACE) e.printStackTrace()
-            val diagnosis = Checks.diagnose(e)
-            Captured(
-                null,
-                ScenarioResult(
-                    name = name,
-                    status = diagnosis.status,
-                    durationMs = elapsedMs(start),
-                    message = diagnosis.message,
-                    notes = diagnosis.chain,
-                ),
-            )
+
+            is DeadlineOutcome.Failed -> {
+                val e = outcome.error
+                // A cancelled coroutine is the run being torn down, not this scenario failing.
+                if (e is CancellationException) throw e
+                if (TRACE) e.printStackTrace()
+                val diagnosis = Checks.diagnose(e)
+                Captured(
+                    null,
+                    ScenarioResult(
+                        name = name,
+                        status = diagnosis.status,
+                        durationMs = elapsedMs(start),
+                        message = diagnosis.message,
+                        notes = diagnosis.chain,
+                    ),
+                )
+            }
+
+            is DeadlineOutcome.Value -> {
+                val value = outcome.value
+                val findings = notes(value)
+                Captured(
+                    value = value,
+                    result = ScenarioResult(
+                        name = name,
+                        status = if (findings.isEmpty()) Status.PASS else Status.WARN,
+                        durationMs = elapsedMs(start),
+                        notes = findings,
+                        samples = samples(value),
+                    ),
+                )
+            }
         }
     }
 
