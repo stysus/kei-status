@@ -6,6 +6,7 @@ import eu.kanade.tachiyomi.source.CatalogueSource
 import eu.kanade.tachiyomi.source.ConfigurableSource
 import eu.kanade.tachiyomi.source.model.MangasPage
 import eu.kanade.tachiyomi.source.model.Page
+import eu.kanade.tachiyomi.source.model.SChapter
 import eu.kanade.tachiyomi.source.model.SMangaUpdate
 import eu.kanade.tachiyomi.source.online.HttpSource
 import kotlinx.coroutines.CancellationException
@@ -181,11 +182,11 @@ class HarnessRunner(private val config: HarnessConfig) {
             }
             scenarios += update.result
 
-            val firstChapter = update.value?.chapters?.firstOrNull()
-            if (firstChapter == null) {
+            val chapter = chapterToProbe(update.value?.chapters.orEmpty())
+            if (chapter == null) {
                 scenarios += ScenarioResult("pages", Status.SKIP, 0, "no chapters available")
             } else {
-                val pages = capture("pages", ::pageNotes, ::pageSamples) { source.getPageList(firstChapter) }
+                val pages = capture("pages", ::pageNotes, ::pageSamples) { source.getPageList(chapter) }
                 scenarios += if (Checks.lockedChapter(pages.result.message)) {
                     // The chapter list carries no lock flag, so a premium chapter is only visible
                     // once the source refuses to serve it. That refusal says the content needs an
@@ -333,6 +334,19 @@ class HarnessRunner(private val config: HarnessConfig) {
     private fun chapterNotes(update: SMangaUpdate) = Checks.chapters(update.chapters)
 
     private fun pageNotes(pages: List<Page>) = Checks.pages(pages)
+
+    /**
+     * The chapter the `pages` scenario asks for: the earliest numbered one.
+     *
+     * A site's newest chapter is the one most often behind a paywall - a free promo chapter ages
+     * into a paid one, which is exactly what happened to Comikey's - while a first chapter is the
+     * sample a site tends to leave open. Ordering is not part of the source contract, so the pick
+     * is by `chapter_number` rather than by list position, and unnumbered entries (specials,
+     * oneshots) only stand in when the list has nothing numbered at all.
+     */
+    private fun chapterToProbe(chapters: List<SChapter>): SChapter? =
+        chapters.filter { it.chapter_number > 0 }.minByOrNull { it.chapter_number }
+            ?: chapters.firstOrNull()
 
     private fun mangaSamples(page: MangasPage) = page.mangas.take(config.mangaLimit)
         .map { "${it.title} -> ${it.url}" }

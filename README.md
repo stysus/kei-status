@@ -219,7 +219,7 @@ Exit codes: `0` no failures, `1` at least one source failed, `2` bad arguments, 
 | `PASS` | ran and met the contract |
 | `WARN` | ran, but something is off (blank thumbnail, empty list, relative URL) |
 | `FAIL` | exception, timeout, or broken contract |
-| `SKIP` | the source does not support that entry point, its newest chapter has to be unlocked first, or it runs against a server you host yourself |
+| `SKIP` | the source does not support that entry point, its oldest chapter has to be unlocked too, or it runs against a server you host yourself |
 | `UNSUPPORTED` | needs an Android class the harness does not provide |
 | `BLOCKED` | anti-bot challenge; not the source's fault |
 
@@ -383,17 +383,13 @@ The page is published to `https://<owner>.github.io/kei-status/`. Enable it once
   language would otherwise fetch the same filter page once per language, and the background fetch
   failing never fails the source: `getFilterList()` falls back to the static list, so a broken
   dynamic filter fetch still reports `PASS`.
-- `pages` asks for the newest chapter. A chapter list carries no lock flag, so a paywalled chapter
-  is only recognisable once the source refuses to serve it; that refusal is reported as `SKIP` with
-  the source's own message, and the rest of the source is still checked. The alternative - walking
-  the list until a free chapter appears - was rejected: it multiplies the page loads a sweep makes
-  and can hang on the first chapter that never settles. The cost is that a source whose newest
-  chapter is always premium has its `pages` path left unexercised.
-- A source that mints a token in its WebView and reads it back from browser storage on a later
-  visit (Comikey's App Check token) fails on a cold profile with its own "open chapter in WebView,
-  then try again" message. A reader's WebView has that state built up over many visits; the harness
-  starts from an empty profile for every run, so the source reports `FAIL` with a real message
-  rather than a timeout.
+- `pages` asks for the **earliest numbered chapter**. A site's newest chapter is the one most often
+  behind a paywall (a free promo chapter ages into a paid one, which is what happened to Comikey),
+  while a first chapter is the sample a site tends to leave open. The pick is by `chapter_number`,
+  not list position, because ordering is not part of the source contract. A chapter that still has
+  to be unlocked is reported as `SKIP` with the source's own message, and the rest of the source is
+  still checked. The alternative - walking the list until a free chapter appears - was rejected: it
+  multiplies the page loads a sweep makes and can hang on the first chapter that never settles.
 - A source that talks to a server the reader hosts themselves is reported `SKIP` without being
   probed: Komga (which has no address until one is typed into its settings), LANraragi, StashApp,
   Mango, FoolSlide Customizable and Bakkin Self-hosted all default to loopback. Every network
