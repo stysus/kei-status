@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:30.902115073Z",
+    "generatedAt": "2026-10-21T08:49:04.092849234Z",
     "module": ":src:id:Luvyaa",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "Luvyaa",
             "lang": "id",
             "baseUrl": "https://v5.luvyaa.co",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 563,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 2890,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from v5.luvyaa.co (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1508,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Flowers Are Bait -> /flowers-are-bait/",
-                        "Dirty Strawberry Milk -> /dirty-strawberry-milk/",
-                        "Try Begging -> /try-begging/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 17,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from v5.luvyaa.co (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1615,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Don’t Concern Yourself With That Book -> /dont-concern-yourself-with-that-book/",
-                        "The Female Professor’s Secret Account -> /the-female-professors-secret-account/",
-                        "I Will Protect You -> /i-will-protect-you/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 15,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from v5.luvyaa.co (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,39 +62,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 251,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 56 - END Season 2 -> /flowers-are-bait-chapter-56/",
-                        "Chapter 55 -> /flowers-are-bait-chapter-55/",
-                        "Chapter 54 -> /flowers-are-bait-chapter-54/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 254,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img2.cdn-nyaa.link/i/80620C56/01.webp?v=673d9743",
-                        "https://img2.cdn-nyaa.link/i/80620C56/02.webp?v=b2d1cee7",
-                        "https://img2.cdn-nyaa.link/i/80620C56/03.webp?v=f5840cab"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3739,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:30.902115073Z",
+    "changes": [
+        {
+            "source": "Luvyaa",
+            "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Luvyaa",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Luvyaa",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Luvyaa",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Luvyaa",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Luvyaa",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:44:37.241962637Z",
+    "generatedAt": "2026-10-21T08:43:01.371766250Z",
     "module": ":src:tr:lunascans",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "Luna Scans",
             "lang": "tr",
             "baseUrl": "https://tuhafscans.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 984,
+                    "durationMs": 1863,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 742,
+                    "durationMs": 1176,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 652,
+                    "durationMs": 770,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 675,
+                    "durationMs": 1511,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,25 +76,30 @@
                 },
                 {
                     "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 712,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
-                    "samples": []
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 0,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 221,
+                    "message": "HTTP error 429",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:44:37.241962637Z",
+    "changes": [
+        {
+            "source": "Luna Scans",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "Luna Scans",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

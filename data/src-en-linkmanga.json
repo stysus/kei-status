@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:50:54.856810067Z",
+    "generatedAt": "2026-10-21T08:48:02.363585866Z",
     "module": ":src:en:linkmanga",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "LinkManga",
             "lang": "en",
             "baseUrl": "https://linkmanga.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "BLOCKED",
-                    "durationMs": 3001,
+                    "durationMs": 2974,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from linkmanga.com (HTTP 403)"
@@ -32,19 +32,27 @@
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 414,
-                    "message": "HTTP error 500",
+                    "status": "PASS",
+                    "durationMs": 569,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Magic Emperor -> 362",
+                        "Kimi ga Hoeru Tame no Uta wo -> 1730",
+                        "The Lazy Prince Becomes a Genius -> 8"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 138,
-                    "message": "HTTP error 500",
+                    "status": "PASS",
+                    "durationMs": 566,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "I’m a Middle-Aged Man Who Got My Adventurer License Revoked -> 7140",
+                        "Boku no Kanojo Sensei -> 6636",
+                        "Summer Time Render -> 7138"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -58,23 +66,75 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 658,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "chapter 924 -> ch-924",
+                        "chapter 923 -> ch-923",
+                        "chapter 922 -> ch-922"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 680,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://linkmanga.com/wp-content/uploads/WP-manga/data/manga_6a3813a7170b0/ch-924/t001_001.jpg",
+                        "https://linkmanga.com/wp-content/uploads/WP-manga/data/manga_6a3813a7170b0/ch-924/t001_002.jpg",
+                        "https://linkmanga.com/wp-content/uploads/WP-manga/data/manga_6a3813a7170b0/ch-924/t001_003.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1135,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:50:54.856810067Z",
+    "changes": [
+        {
+            "source": "LinkManga",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ]
 }

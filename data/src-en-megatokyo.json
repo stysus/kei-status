@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:39.844432033Z",
+    "generatedAt": "2026-10-21T08:44:41.698126779Z",
     "module": ":src:en:megatokyo",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "Megatokyo",
             "lang": "en",
             "baseUrl": "https://megatokyo.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1772,
+                    "durationMs": 184,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -58,37 +58,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 178,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 18,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "1619 - Beautiful -> ./strip/1619",
-                        "1618 - all I can see are the bad ends -> ./strip/1618",
-                        "1617 - my humanity-long experience -> ./strip/1617"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 374,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://megatokyo.com/strips/1619.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 471,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:39.844432033Z",
+    "changes": [
+        {
+            "source": "Megatokyo",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Megatokyo",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Megatokyo",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

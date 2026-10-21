@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:40.330576791Z",
+    "generatedAt": "2026-10-21T08:45:45.737329039Z",
     "module": ":src:id:roseveil",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "Roseveil",
             "lang": "id",
             "baseUrl": "https://roseveil.org",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1594,
+                    "durationMs": 1122,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1266,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 782,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "Adult Reading Club [ROSEVEIL] -> adult-reading-club-roseveil",
-                        "ADULT READING CLUB (Moymoyxi) -> adult-reading-club-moymoyxi",
-                        "Dream Soul [ROSEVEIL] -> drop-dream-soul-roseveil"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 5602,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 191,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "Biting, Tearing, and Deceiving [ROSEVEIL] -> biting-tearing-and-deceiving",
-                        "Even A Shaman Sister is New to incubus [ROSEVEIL] -> even-a-shaman-sister-is-new-to-incubus",
-                        "Between Two Men's Secretary [ROSEVEIL] -> between-two-mens-secretary"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,37 +56,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 825,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 62 -> /comic/adult-reading-club-roseveil/chapter/chapter-62",
-                        "Chapter 61 -> /comic/adult-reading-club-roseveil/chapter/chapter-61",
-                        "Chapter 60 -> /comic/adult-reading-club-roseveil/chapter/chapter-60"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 238,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "pages",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:40.330576791Z",
+    "changes": [
+        {
+            "source": "Roseveil",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Roseveil",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Roseveil",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Roseveil",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Roseveil",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

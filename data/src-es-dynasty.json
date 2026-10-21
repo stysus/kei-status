@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:50:53.564308954Z",
+    "generatedAt": "2026-10-21T08:47:23.239032704Z",
     "module": ":src:es:dynasty",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "Dynasty",
             "lang": "es",
             "baseUrl": "https://manhuako.net",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,36 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 5533,
+                    "durationMs": 466,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 176,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 138,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "El mercenario regresado tiene un plan -> 378|el-mercenario-regresado-tiene-un-plan",
-                        "El matrimonio es con tu hermano -> 317|el-matrimonio-es-con-tu-hermano",
-                        "Taida na Akujoku Kizoku ni Tensei shita Ore, Scenario wo Bukkowashitara Kikakugai no Maryoku de Saikyou ni Natta -> 224|taida-na-akujoku-kizoku-ni-tensei-shita-ore-scenario-wo-bukkowashitara-kikakugai-no-maryoku-de-saikyou-ni-natta"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 165,
-                    "message": null,
-                    "notes": [
-                        "manga[1] has no thumbnail"
-                    ],
-                    "samples": [
-                        "Mimosa -> 427|mimosa",
-                        "testeo 2 -> 481|testeo-2",
-                        "El matrimonio es con tu hermano -> 317|el-matrimonio-es-con-tu-hermano"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 332,
+                    "message": "HTTP error 502",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -66,39 +56,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 488,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 103 -> 156324",
-                        "Capítulo 102 -> 156322",
-                        "Capítulo 101 -> 154420"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 151,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img.manhuako.net/manga/el-mercenario-regresado-tiene-un-plan/103/src_15019/001.webp",
-                        "https://img.manhuako.net/manga/el-mercenario-regresado-tiene-un-plan/103/src_15019/002.webp",
-                        "https://img.manhuako.net/manga/el-mercenario-regresado-tiene-un-plan/103/src_15019/003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1614,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:50:53.564308954Z",
+    "changes": [
+        {
+            "source": "Dynasty",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Dynasty",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "Dynasty",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Dynasty",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Dynasty",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:51:10.555337667Z",
+    "generatedAt": "2026-10-21T08:47:12.976751219Z",
     "module": ":src:en:nuxscans",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "Nux Scans",
             "lang": "en",
             "baseUrl": "https://nuxscans-comics.blogspot.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,18 +23,22 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 402,
+                    "durationMs": 424,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 247,
-                    "message": "HTTP error 429",
+                    "status": "PASS",
+                    "durationMs": 290,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "I'm An Evil God -> /2021/04/1141-sypnosis-bored-with-his-life-on.html?m=0",
+                        "My House of Horror -> /2021/06/my-house-of-horror.html?m=0",
+                        "Tales Of Herding Gods -> /2020/11/sypnosis-daxu-ancestors-abandoned-by.html?m=0"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -56,23 +60,72 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 817,
+                    "message": null,
+                    "notes": [
+                        "duplicate chapter urls: [https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html]"
+                    ],
+                    "samples": [
+                        "Chapter 148 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html",
+                        "Chapter 147 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html",
+                        "Chapter 146 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "WARN",
+                    "durationMs": 641,
+                    "message": null,
+                    "notes": [
+                        "duplicate page urls: [https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9lh3K4Z6dHoaSZTkAbVWrUSq4hNiD0OJU_A_7udV2vDMxNXi0Zt1CZ_bNhISYJr0SPcsHzLVewhb9i93VYXNWHH5_xBl9LjbnTFq9PWqArAemazBFNzi4i-nrKIm9x9nJ8v72yAkvrQkT/s0/download.jpg.png]"
+                    ],
+                    "samples": [
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9lh3K4Z6dHoaSZTkAbVWrUSq4hNiD0OJU_A_7udV2vDMxNXi0Zt1CZ_bNhISYJr0SPcsHzLVewhb9i93VYXNWHH5_xBl9LjbnTFq9PWqArAemazBFNzi4i-nrKIm9x9nJ8v72yAkvrQkT/s0/download.jpg.png",
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9lh3K4Z6dHoaSZTkAbVWrUSq4hNiD0OJU_A_7udV2vDMxNXi0Zt1CZ_bNhISYJr0SPcsHzLVewhb9i93VYXNWHH5_xBl9LjbnTFq9PWqArAemazBFNzi4i-nrKIm9x9nJ8v72yAkvrQkT/s0/download.jpg.png",
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjFUzhVZ97Won8rewfqo8fPwLmAAbSsykCzA9t05rVtA5xGwi4WDRwxcMn33KRHh_Qc4hvQJEfUuh6SUmvsLb37_JBGivDYpT1GCQ6fn0dkQgsg8F-pI-piTUqovmr4_J3mISzQx87SWQ/s0/000019.jpg.png"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1643,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:51:10.555337667Z",
+    "changes": [
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ]
 }

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T21:28:52.218576920Z",
+    "generatedAt": "2026-10-21T08:46:32.276700469Z",
     "module": ":src:en:comix",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -22,29 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 3279,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from comix.to (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 216,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 45004,
-                    "message": "Timed out waiting for WebView after Infinity",
+                    "status": "PASS",
+                    "durationMs": 768,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "On the Way to Meet Mom -> /g2rk-on-the-way-to-meet-mom",
+                        "The Greatest Estate Developer -> /8wgym-the-greatest-estate-developer",
+                        "Omniscient Reader -> /w2399-omniscient-reader"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 45002,
-                    "message": "Timed out waiting for WebView after Infinity",
+                    "status": "PASS",
+                    "durationMs": 628,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "The Heart is Blue -> /w5x2r-the-heart-is-blue",
+                        "Assistant Manager Lee's Survival Story -> /j6jm3-assistant-manager-lees-survival-story",
+                        "Otto no Yuigon ga \"Doujinshi Kake\" Datta Mono de -> /77952-otto-no-yuigon-ga-doujinshi-kake-datta-mono-de"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -58,9 +64,9 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 10617,
+                    "message": "Could not find the site's chapters API",
                     "notes": [],
                     "samples": []
                 },
@@ -68,13 +74,42 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:47:14.335121462Z",
-    "changes": []
+    "comparedTo": "2026-10-20T21:28:52.218576920Z",
+    "changes": [
+        {
+            "source": "Comix",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Comix",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Comix",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Comix",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "FAIL"
+        }
+    ]
 }

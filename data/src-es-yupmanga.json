@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T21:34:06.410964096Z",
+    "generatedAt": "2026-10-21T08:51:42.673757136Z",
     "module": ":src:es:yupmanga",
     "sourceRoot": "",
     "extensionCommit": "ff521c17",
@@ -10,7 +10,7 @@
             "name": "Yupmanga",
             "lang": "es",
             "baseUrl": "https://www.yupmanga.com",
-            "status": "BLOCKED",
+            "status": "UNSUPPORTED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1013,
+                    "durationMs": 405,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,19 +31,19 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 385,
+                    "durationMs": 958,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "La metamorfosis de la salvación -> 9WGCCBUFP16A9",
-                        "Grande + Grande -> 5KAKXSH3GXPA1",
-                        "¡Oh, Mi Hotel! -> LV49B1AG0LA92"
+                        "¡Oh, Mi Hotel! -> LV49B1AG0LA92",
+                        "Grande + Grande -> 5KAKXSH3GXPA1"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1007,
+                    "durationMs": 996,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,35 +65,36 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1973,
+                    "durationMs": 1992,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Epílogo -> YmQ6k4MCvqJqNtH_p1wtTlt2AvRyXcrSaRrK_xMxQtKrRLHej00EHZqKeEd7KPeBldM1-FGars744SBMHs_t#9WGCCBUFP16A9",
-                        "Tomo - 01 -> 4PxgXvjHXXxXIYdMUwRuiHwl5O_b6XEQLlMvOJtPqxGS0hc3yFoUQivCpRej2A-oVNLI0-6W9eCFh24fAYtM#9WGCCBUFP16A9"
+                        "Epílogo -> AE07A_w-eGw2KNieruynSvF8rpITsbLYOut1jIZI6W4APSetJUjIgYseezbUqZdWeF4hS4lc5uPAFqD310gl#9WGCCBUFP16A9",
+                        "Tomo - 01 -> aAa4wperRzyKIL6jrIwME0LVvFkEv7d5QOEEurblDl3ss5j9FMAldO2KIjQn8ju0AOvP9g6LhHiyyjzJNemw#9WGCCBUFP16A9"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 21253,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "UNSUPPORTED",
+                    "durationMs": 1989,
+                    "message": "requires the native QuickJS library, which has no JVM build: app.cash.quickjs.QuickJs",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.yupmanga.com (HTTP 403)"
+                        "java.lang.NoClassDefFoundError: app/cash/quickjs/QuickJs",
+                        "java.lang.ClassNotFoundException: app.cash.quickjs.QuickJs"
                     ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:53:53.188270322Z",
+    "comparedTo": "2026-10-20T21:34:06.410964096Z",
     "changes": [
         {
             "source": "Yupmanga",
             "lang": "es",
             "scenario": "pages",
-            "from": "UNSUPPORTED",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "UNSUPPORTED"
         }
     ]
 }
