@@ -16,6 +16,7 @@ dependencies {
     api(libs.jsoup)
     api(libs.injekt.core)
     api(libs.webp.imageio)
+    api(libs.bouncycastle)
 
     testImplementation(libs.junit)
 }

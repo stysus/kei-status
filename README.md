@@ -18,6 +18,7 @@ and stands in for the host.
 | `HttpSource`, `NetworkHelper`, `SManga`, `SChapter`, `Page`, filters | reimplemented in `host-shim` |
 | `android.*`, `androidx.preference` | reimplemented in `android-shim`, only what is needed |
 | `android.webkit.WebView` | real headless Chromium, driven over the DevTools protocol |
+| crypto providers | the JDK's, plus BouncyCastle for the transformations Android's copy supplies |
 | `Bitmap`/`BitmapFactory`/`Canvas` | real image I/O via ImageIO (+ WebP plugin), `Canvas` on `Graphics2D` |
 | Cloudflare challenge solving | attempted the way the app does it; a challenge that cannot be cleared is reported, not faked |
 
@@ -377,6 +378,11 @@ The page is published to `https://<owner>.github.io/kei-status/`. Enable it once
   measurement) is not implemented, so sources that compose text onto images report `UNSUPPORTED`.
 - `androidx.preference` covers the settings API surface extensions call, but nothing is rendered, so
   preference-driven behaviour is only exercised with default values.
+- Crypto goes through the JVM's own providers plus BouncyCastle, which Android also bundles. Without
+  it, `AES/CBC/PKCS7PADDING` (`lib/cryptoaes`) and `AES/CBC/ZEROBYTEPADDING` (Mangago) do not exist
+  and the libraries swallow the failure, so the extension looked broken while it works on Android.
+  BouncyCastle is appended after the JDK providers, so an algorithm that already resolved keeps
+  resolving the same way.
 - Header/cookie behaviour is close to the app but not identical, so a `PASS` here is strong evidence,
   not a guarantee.
 - `filters` is checked once per extension class and site. A module that declares one source per
@@ -396,6 +402,12 @@ The page is published to `https://<owner>.github.io/kei-status/`. Enable it once
   scenario would only report `connection refused`, which says the server is absent, not that the
   extension is broken. The rule is the base URL itself - a loopback host, or no address at all on a
   configurable source - so a self-hosted extension added upstream is covered without touching a list.
+- A source that gates its pages behind a Turnstile captcha is reported with the site's own verdict,
+  not `UNSUPPORTED`: the harness provides the `Activity`/`Context` hierarchy core code needs, so the
+  captcha is attempted. A widget that wants a click fails fast with "Captcha needs interaction, but
+  the app isn't in the foreground" - there is no foreground - and a widget that never resolves ends
+  in the source's own 2-minute WebView timeout, or in the harness's shorter `--timeout`, whichever
+  comes first. Both are `FAIL` on the site, not a missing platform class.
 - OkHttp sometimes reports `A connection to … was leaked. Did you forget to close a
   response body?`. That is an extension dropping a `Response` instead of closing it: a geo-block
   interceptor that throws mid-chain, an image interceptor that swaps the body without closing the

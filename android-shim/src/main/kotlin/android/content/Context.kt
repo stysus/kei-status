@@ -1,5 +1,6 @@
 package android.content
 
+import android.content.res.Resources
 import java.io.File
 
 /**
@@ -18,6 +19,10 @@ open class Context {
     }
 
     private fun root(): File = root ?: error("Context not attached")
+
+    open fun getResources(): Resources = Resources.getSystem()
+
+    open fun getApplicationContext(): Context = this
 
     open fun getCacheDir(): File = root().resolve("cache").apply { mkdirs() }
 

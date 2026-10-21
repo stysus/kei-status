@@ -12,6 +12,8 @@ open class Resources {
 
     val displayMetrics: DisplayMetrics = DisplayMetrics()
 
+    val configuration: Configuration = Configuration()
+
     open fun getDimension(resId: Int): Float = 0f
 
     open fun getString(resId: Int): String = "string-$resId"
