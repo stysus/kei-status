@@ -7,7 +7,51 @@ It is not a Mihon plugin. Extensions cannot call each other inside the app, so t
 JVM tool that compiles a module from an `extensions-source` checkout, loads the resulting classes,
 and stands in for the host.
 
-## What is real and what is simulated
+## Contents
+
+- [Quick start](#quick-start)
+- [How it works](#how-it-works)
+- [Statuses](#statuses)
+- [Running checks](#running-checks)
+- [Environment](#environment)
+- [The published page](#the-published-page)
+- [Continuous integration](#continuous-integration)
+- [Known gaps](#known-gaps)
+- [Layout](#layout)
+- [Verdicts on real sources](#verdicts-on-real-sources)
+
+## Quick start
+
+### Requirements
+
+- JDK 21+
+- An `extensions-source` checkout next to this project (default `./extensions-source`)
+- `extensions-source/local.properties` pointing at your Android SDK
+- A Chromium-based browser for WebView sources. Chromium is started headlessly on first use and
+  stopped at the end of the run; sources that never open a WebView do not pay for it.
+
+### Run one extension
+
+```bash
+# 1. compile the extension (this also builds :core, themes, and libs it depends on)
+cd extensions-source
+./gradlew :src:en:aurora:compileDebugKotlin
+
+# 2. record where its compiled classes live
+./gradlew -I ../tools/harness.init.gradle.kts \
+  -PharnessModule=:src:en:aurora :src:en:aurora:dumpHarnessClasspath
+
+# 3. build and run the checker
+cd ..
+./gradlew :cli:installDist
+./cli/build/install/cli/bin/cli --module :src:en:aurora
+```
+
+Step 2 only needs to be repeated when you switch modules or after `clean`.
+
+## How it works
+
+### What is real and what is simulated
 
 | Layer | Status |
 |---|---|
@@ -34,6 +78,16 @@ data rather than just fetch it:
   DevTools commands, and callbacks are delivered on the main thread as on Android. `loadData` is
   served by intercepting the first navigation, so the base URL becomes the page origin and
   `localStorage` works without a network request.
+
+### Loading an extension
+
+The extension is loaded by a `URLClassLoader` whose parent is the harness class loader, so both
+sides share one copy of OkHttp, coroutines, and the model interfaces. The child classpath is the
+module's compiled classes, every compiled `core`/`lib`/`lib-multisrc` module, and any module root
+that has an `assets/` tree (themes read i18n messages through the class loader as
+`assets/i18n/...`, which is how the app merges assets).
+
+A module that cannot link is reported as `UNSUPPORTED`/`FAIL` instead of aborting the run.
 
 ### Cloudflare challenges
 
@@ -75,34 +129,24 @@ source's own WebView does pass some challenges with the same click.
 
 Set `KEI_STATUS_NO_CF_SOLVE=1` to skip the attempt entirely and report the challenge immediately.
 
-## Requirements
+## Statuses
 
-- JDK 21+
-- An `extensions-source` checkout next to this project (default `./extensions-source`)
-- `extensions-source/local.properties` pointing at your Android SDK
-- A Chromium-based browser for WebView sources. Chromium is started headlessly on first use and
-  stopped at the end of the run; sources that never open a WebView do not pay for it.
+Every scenario, source and module ends in one of these:
 
-## Usage
+| Status | Meaning |
+|---|---|
+| `PASS` | ran and met the contract |
+| `WARN` | ran, but something is off (blank thumbnail, empty list, relative URL) |
+| `FAIL` | exception, timeout, or broken contract |
+| `SKIP` | the source does not support that entry point, its oldest chapter has to be unlocked too, or it runs against a server you host yourself |
+| `UNSUPPORTED` | needs an Android class the harness does not provide |
+| `BLOCKED` | anti-bot challenge; not the source's fault |
 
-```bash
-# 1. compile the extension (this also builds :core, themes, and libs it depends on)
-cd extensions-source
-./gradlew :src:en:aurora:compileDebugKotlin
-
-# 2. record where its compiled classes live
-./gradlew -I ../tools/harness.init.gradle.kts \
-  -PharnessModule=:src:en:aurora :src:en:aurora:dumpHarnessClasspath
-
-# 3. build and run the checker
-cd ..
-./gradlew :cli:installDist
-./cli/build/install/cli/bin/cli --module :src:en:aurora
-```
-
-Step 2 only needs to be repeated when you switch modules or after `clean`.
+## Running checks
 
 `cli --help` lists every option with its default; the examples below are the common shapes.
+
+### Choosing what to run
 
 A module list line is `<Gradle module> [extra flags]`, so a module with many language variants can
 be kept to a slice: `:src:all:mangadex --lang en` runs one source instead of sixty-one.
@@ -119,40 +163,6 @@ be kept to a slice: `:src:all:mangadex --lang en` runs one source instead of six
 ./ci/discover.sh extensions-source shards 4
 ./cli/build/install/cli/bin/cli --module-list shards/shard-1.txt --store data
 ```
-
-Publishing several runs as one page:
-
-```bash
-# each run writes its own JSON report
-./cli/build/install/cli/bin/cli --module :src:en:aurora \
-  --output site/en-aurora/report.json
-
-# aggregate every report under a directory into one static page
-./cli/build/install/cli/bin/cli --site site --out site --title "Extension status"
-
-# ... optionally publishing only the modules that exist right now, so a module deleted upstream
-# does not linger on a page that claims it was just checked
-./cli/build/install/cli/bin/cli --site site --out site --only modules.txt
-```
-
-`--site` reads only the JSON files, so it needs no browser and no extension sources. The page is
-plain HTML with no external assets: it works from `file://` and on GitHub Pages, filters by source,
-module, URL or message. Everything starts collapsed — the first screen is the list of modules — and
-opening a module shows its sources, which open in turn. The status tallies at the top are filters as
-well: clicking `FAIL 2` narrows the page to those two sources, clicking it again clears the filter, and
-the text box narrows the result further. Filtering only changes which modules are listed — it opens
-nothing, so a status view is the same collapsed list as the page itself.
-Each extension is one collapsible block headed by the name the extension reports for
-itself (`AllManga`, not `:src:en:allanime`); clicking the header hides or shows the sources inside
-it, and the full module path stays available to the filter without being displayed. The
-`extensions-source` revision the reports were built from is shown once in the page header, where it
-links to that commit, instead of being repeated in every module header.
-
-An extension with a single source has nothing to keep apart, so it is one row: the header carries
-that source's language and URL, and the scenario table follows it directly — inside the same card a
-multi-source module puts around each of its sources, so the two shapes read the same when opened.
-Only a multi-source extension (one Gradle module shipping several sites, such as a `webtoons`
-bundle) gets a collapsible row per source.
 
 ### Keeping state between runs
 
@@ -186,56 +196,70 @@ return, the checkout path, the clock — are excluded from the comparison. A sce
 failing but for a *different reason* still counts as a change, because the reason is what a reader
 needs.
 
+## Environment
 
-Environment:
-
-- `KEI_STATUS_TRACE=1` prints stack traces for every classified failure.
-- `KEI_STATUS_USER_AGENT` overrides the default User-Agent.
-- `KEI_STATUS_CHROME=/path/to/chrome` picks the browser binary. Without it the harness looks for
-  `google-chrome-stable`, `google-chrome`, `chromium`, `chromium-browser` on `PATH`, then a few
-  well-known install locations.
-- `KEI_STATUS_WEBVIEW_TRACE=1` logs every DevTools event, request and evaluated script to stderr.
-  This is the first thing to turn on when a WebView source misbehaves.
-- `KEI_STATUS_NO_CF_SOLVE=1` reports anti-bot challenges without trying to clear them, which is
-  useful when you want to know whether a block is real rather than self-inflicted.
-
-Exit codes: `0` no failures, `1` at least one source failed, `2` bad arguments, `3` harness error.
-
-## Statuses
-
-| Status | Meaning |
+| Variable | Effect |
 |---|---|
-| `PASS` | ran and met the contract |
-| `WARN` | ran, but something is off (blank thumbnail, empty list, relative URL) |
-| `FAIL` | exception, timeout, or broken contract |
-| `SKIP` | the source does not support that entry point, its oldest chapter has to be unlocked too, or it runs against a server you host yourself |
-| `UNSUPPORTED` | needs an Android class the harness does not provide |
-| `BLOCKED` | anti-bot challenge; not the source's fault |
+| `KEI_STATUS_TRACE=1` | Prints stack traces for every classified failure. |
+| `KEI_STATUS_WEBVIEW_TRACE=1` | Logs every DevTools event, request and evaluated script to stderr. This is the first thing to turn on when a WebView source misbehaves. |
+| `KEI_STATUS_USER_AGENT` | Overrides the default User-Agent. |
+| `KEI_STATUS_CHROME=/path/to/chrome` | Picks the browser binary. Without it the harness looks for `google-chrome-stable`, `google-chrome`, `chromium`, `chromium-browser` on `PATH`, then a few well-known install locations. |
+| `KEI_STATUS_NO_CF_SOLVE=1` | Reports anti-bot challenges without trying to clear them, which is useful when you want to know whether a block is real rather than self-inflicted. |
 
-## How loading works
+Exit codes:
 
-The extension is loaded by a `URLClassLoader` whose parent is the harness class loader, so both
-sides share one copy of OkHttp, coroutines, and the model interfaces. The child classpath is the
-module's compiled classes, every compiled `core`/`lib`/`lib-multisrc` module, and any module root
-that has an `assets/` tree (themes read i18n messages through the class loader as
-`assets/i18n/...`, which is how the app merges assets).
+| Code | Meaning |
+|---|---|
+| `0` | no failures |
+| `1` | at least one source failed |
+| `2` | bad arguments |
+| `3` | harness error |
 
-A module that cannot link is reported as `UNSUPPORTED`/`FAIL` instead of aborting the run.
+## The published page
 
-## Layout
+### Publishing
 
+Several runs can be aggregated into one page:
+
+```bash
+# each run writes its own JSON report
+./cli/build/install/cli/bin/cli --module :src:en:aurora \
+  --output site/en-aurora/report.json
+
+# aggregate every report under a directory into one static page
+./cli/build/install/cli/bin/cli --site site --out site --title "Extension status"
+
+# ... optionally publishing only the modules that exist right now, so a module deleted upstream
+# does not linger on a page that claims it was just checked
+./cli/build/install/cli/bin/cli --site site --out site --only modules.txt
 ```
-android-shim/   android.* and androidx.preference stand-ins, plus the Chromium DevTools client
-host-shim/      eu.kanade.tachiyomi.* and the keiyoushi host contract
-engine/         loader, scenarios, checks, report, HTML page
-cli/            argument parsing, console report, site publishing
-ci/             shell steps the workflows call: discover, run a shard, verify, publish, commit
-data/           stored per-module reports, committed so runs can be compared
-tools/          Gradle init script that records a module's compiled classes
-.github/        the CI and status workflows
-```
+
+`--site` reads only the JSON files, so it needs no browser and no extension sources.
+
+### What the page shows
+
+- Plain HTML with no external assets, so it works from `file://` and on GitHub Pages. It filters by
+  source, module, URL or message.
+- Everything starts collapsed — the first screen is the list of modules. Opening a module shows its
+  sources, which open in turn.
+- The status tallies at the top are filters too: clicking `FAIL 2` narrows the page to those two
+  sources, clicking it again clears the filter, and the text box narrows the result further.
+  Filtering only changes which modules are listed — it opens nothing, so a status view is the same
+  collapsed list as the page itself.
+- Each extension is one collapsible block headed by the name the extension reports for itself
+  (`AllManga`, not `:src:en:allanime`); clicking the header hides or shows the sources inside it,
+  and the full module path stays available to the filter without being displayed.
+- The `extensions-source` revision the reports were built from is shown once in the page header,
+  where it links to that commit, instead of being repeated in every module header.
+- An extension with a single source has nothing to keep apart, so it is one row: the header carries
+  that source's language and URL, and the scenario table follows it directly — inside the same card
+  a multi-source module puts around each of its sources, so the two shapes read the same when
+  opened. Only a multi-source extension (one Gradle module shipping several sites, such as a
+  `webtoons` bundle) gets a collapsible row per source.
 
 ## Continuous integration
+
+### The two workflows
 
 Two workflows, split by what they can prove:
 
@@ -254,19 +278,6 @@ gh workflow run status.yml
 
 Its `modules` input narrows a run to a few extensions, which is the cheap way to try a change to the
 sweep itself without checking all 1,444.
-
-The shell steps live in `ci/` rather than in YAML, so the same commands can be run locally:
-
-```
-ci/discover.sh <extensions-source> <out-dir> <shard-count> [list-file]
-ci/environment.sh [extensions-source]
-ci/run-shard.sh <shard-file> [store-dir] [source-root]
-ci/collect.sh <shard-id> <store-dir> <out-dir>
-ci/apply.sh <incoming-dir> [store-dir]
-ci/verify.sh <store-dir> <incoming-dir> <matrix.json>
-ci/publish.sh <all-modules-file> [out-dir] [store-dir]
-ci/commit.sh [store-dir] [message-prefix]
-```
 
 ### There is no module list
 
@@ -352,7 +363,24 @@ the history of what broke when is the commit log, and a stale entry is one
 The page is published to `https://<owner>.github.io/kei-status/`. Enable it once under
 **Settings -> Pages -> Build and deployment -> Source: GitHub Actions**.
 
+### Running the steps locally
+
+The shell steps live in `ci/` rather than in YAML, so the same commands can be run locally:
+
+```
+ci/discover.sh <extensions-source> <out-dir> <shard-count> [list-file]
+ci/environment.sh [extensions-source]
+ci/run-shard.sh <shard-file> [store-dir] [source-root]
+ci/collect.sh <shard-id> <store-dir> <out-dir>
+ci/apply.sh <incoming-dir> [store-dir]
+ci/verify.sh <store-dir> <incoming-dir> <matrix.json>
+ci/publish.sh <all-modules-file> [out-dir] [store-dir]
+ci/commit.sh [store-dir] [message-prefix]
+```
+
 ## Known gaps
+
+### WebView and the browser
 
 - WebView runs a real browser, but sites that gate on device fingerprinting still refuse it. A
   source that reports `FAIL` with the site's own "solve the captcha" message or a WebView timeout
@@ -365,6 +393,9 @@ The page is published to `https://<owner>.github.io/kei-status/`. Enable it once
 - `injectAtDocumentStart` falls back to the documented `onPageStarted` path: the Chromium glue is
   stubbed to advertise no optional WebView features, so document-start timing is unavailable.
   Sources that need a script to run before the page's own code may miss that window.
+
+### Platform coverage
+
 - Native QuickJS has no JVM build, so sources that evaluate JavaScript through it report
   `UNSUPPORTED` when a scenario needs it. A background prefetch that needs it prints a one-line note
   and does not fail the run.
@@ -378,8 +409,21 @@ The page is published to `https://<owner>.github.io/kei-status/`. Enable it once
   and the libraries swallow the failure, so the extension looked broken while it works on Android.
   BouncyCastle is appended after the JDK providers, so an algorithm that already resolved keeps
   resolving the same way.
+
+### Network behaviour
+
 - Header/cookie behaviour is close to the app but not identical, so a `PASS` here is strong evidence,
   not a guarantee.
+- OkHttp sometimes reports `A connection to … was leaked. Did you forget to close a
+  response body?`. That is an extension dropping a `Response` instead of closing it: a geo-block
+  interceptor that throws mid-chain, an image interceptor that swaps the body without closing the
+  original, a DDos-Guard probe that reads one header and returns. Everything the harness opens is
+  closed, so this is the extension's bug, not the harness's. OkHttp logs it once per connection when
+  it notices at GC time and then returns the connection to the pool, so it costs one line in the log
+  and does not change a verdict.
+
+### What the scenarios do and do not prove
+
 - `filters` is checked once per extension class and site. A module that declares one source per
   language would otherwise fetch the same filter page once per language, and the background fetch
   failing never fails the source: `getFilterList()` falls back to the static list, so a broken
@@ -389,43 +433,51 @@ The page is published to `https://<owner>.github.io/kei-status/`. Enable it once
   while a first chapter is the sample a site tends to leave open. The pick is by `chapter_number`,
   not list position, because ordering is not part of the source contract. A chapter that still has
   to be unlocked is reported as `SKIP` with the source's own message, and the rest of the source is
-  still checked. The alternative - walking the list until a free chapter appears - was rejected: it
+  still checked. The alternative — walking the list until a free chapter appears — was rejected: it
   multiplies the page loads a sweep makes and can hang on the first chapter that never settles.
 - A source that talks to a server the reader hosts themselves is reported `SKIP` without being
   probed: Komga (which has no address until one is typed into its settings), LANraragi, StashApp,
   Mango, FoolSlide Customizable and Bakkin Self-hosted all default to loopback. Every network
   scenario would only report `connection refused`, which says the server is absent, not that the
-  extension is broken. The rule is the base URL itself - a loopback host, or no address at all on a
-  configurable source - so a self-hosted extension added upstream is covered without touching a list.
+  extension is broken. The rule is the base URL itself — a loopback host, or no address at all on a
+  configurable source — so a self-hosted extension added upstream is covered without touching a list.
 - A source that gates its pages behind a Turnstile captcha is reported with the site's own verdict,
   not `UNSUPPORTED`: the harness provides the `Activity`/`Context` hierarchy core code needs, so the
   captcha is attempted. A widget that wants a click fails fast with "Captcha needs interaction, but
-  the app isn't in the foreground" - there is no foreground - and a widget that never resolves ends
+  the app isn't in the foreground" — there is no foreground — and a widget that never resolves ends
   in the source's own 2-minute WebView timeout, or in the harness's shorter `--timeout`, whichever
   comes first. Both are `FAIL` on the site, not a missing platform class.
-- OkHttp sometimes reports `A connection to … was leaked. Did you forget to close a
-  response body?`. That is an extension dropping a `Response` instead of closing it: a geo-block
-  interceptor that throws mid-chain, an image interceptor that swaps the body without closing the
-  original, a DDos-Guard probe that reads one header and returns. Everything the harness opens is
-  closed, so this is the extension's bug, not the harness's. OkHttp logs it once per connection when
-  it notices at GC time and then returns the connection to the pool, so it costs one line in the log
-  and does not change a verdict.
-- `--timeout` is enforced from outside the extension, not by coroutine cancellation. Extension code
-  blocks: a source calls OkHttp's `execute()`, waits on a monitor, sleeps. `withTimeout` only takes
-  effect at a suspension point, so a blocked scenario ran to its own end instead — a 0.3s budget
-  around a 3s blocking call returned after 3.0s and did not report a timeout, and one module held a
-  shard for 27 minutes parked in `Http2Stream.waitForIo`. Each scenario therefore runs on its own
-  thread and the deadline interrupts it, which stops both blocking and suspending work. A block that
-  swallows the interrupt is abandoned rather than waited for: the report records the timeout and the
-  sweep moves on, and the thread is a daemon so it cannot hold the JVM open.
-- A Cloudflare challenge can be clicked through, but `cf_clearance` is bound to the client that
-  earned it, so a zone that enforces that binding refuses the replayed request. Six sampled zones
-  all earned the cookie and all still refused the replay; those extensions report `BLOCKED` after
-  one attempt rather than retrying.
+- A Cloudflare challenge can be clicked through, but a zone that enforces the `cf_clearance` binding
+  refuses the replayed request; those extensions report `BLOCKED` after one attempt rather than
+  retrying. The measurements behind that are in [Cloudflare challenges](#cloudflare-challenges).
+
+### Timeouts
+
+`--timeout` is enforced from outside the extension, not by coroutine cancellation. Extension code
+blocks: a source calls OkHttp's `execute()`, waits on a monitor, sleeps. `withTimeout` only takes
+effect at a suspension point, so a blocked scenario ran to its own end instead — a 0.3s budget
+around a 3s blocking call returned after 3.0s and did not report a timeout, and one module held a
+shard for 27 minutes parked in `Http2Stream.waitForIo`. Each scenario therefore runs on its own
+thread and the deadline interrupts it, which stops both blocking and suspending work. A block that
+swallows the interrupt is abandoned rather than waited for: the report records the timeout and the
+sweep moves on, and the thread is a daemon so it cannot hold the JVM open.
+
+## Layout
+
+```
+android-shim/   android.* and androidx.preference stand-ins, plus the Chromium DevTools client
+host-shim/      eu.kanade.tachiyomi.* and the keiyoushi host contract
+engine/         loader, scenarios, checks, report, HTML page
+cli/            argument parsing, console report, site publishing
+ci/             shell steps the workflows call: discover, run a shard, verify, publish, commit
+data/           stored per-module reports, committed so runs can be compared
+tools/          Gradle init script that records a module's compiled classes
+.github/        the CI and status workflows
+```
 
 ## Verdicts on real sources
 
-A run over ten modules, recorded while building the shims, produced all four outcomes:
+A run over eleven modules, recorded while building the shims, produced `PASS`, `FAIL` and `BLOCKED`:
 
 | Module | Verdict | Why |
 |---|---|---|
