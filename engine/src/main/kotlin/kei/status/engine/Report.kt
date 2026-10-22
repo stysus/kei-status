@@ -111,10 +111,6 @@ data class RunReport(
             ?.get(1)
             ?: ""
 
-    /** File name used in the store: `:src:en:aurora` becomes `src-en-aurora`. */
-    val slug: String
-        get() = module.removePrefix(":").replace(':', '-')
-
     private fun humanise(path: String): String =
         path.substringAfterLast(':')
             .replace('-', ' ')

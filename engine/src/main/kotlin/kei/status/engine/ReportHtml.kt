@@ -10,16 +10,18 @@ package kei.status.engine
  */
 object ReportHtml {
 
+    /** The page's title unless a caller names one. */
+    const val DEFAULT_TITLE = "Keiyoushi extension status"
+
     private const val EXTENSIONS_REPO = "https://github.com/keiyoushi/extensions-source"
 
-    private val STATUS_ORDER = listOf(
-        Status.FAIL,
-        Status.BLOCKED,
-        Status.UNSUPPORTED,
-        Status.WARN,
-        Status.PASS,
-        Status.SKIP,
-    )
+    /**
+     * Worst first, which is the order the tally chips and the module list both use.
+     *
+     * Derived from [Status.severity] rather than written out again: a hand-written copy would keep
+     * compiling when a status is added, and the new status would simply lose its chip.
+     */
+    private val STATUS_ORDER = Status.entries.sortedByDescending { it.severity }
 
     fun escape(value: String): String = buildString(value.length + 16) {
         value.forEach { char ->
@@ -34,8 +36,9 @@ object ReportHtml {
         }
     }
 
-    /** Renders every report into a single page, worst modules first. */
     /**
+     * Renders every report into a single page, worst modules first.
+     *
      * [checkedAt] is when this page's run happened, not when a module's state was first seen.
      * A nightly job refreshes the page every night while most modules keep the state they had for
      * weeks, so a single "last checked" line describes the page honestly and no per-module
@@ -43,7 +46,7 @@ object ReportHtml {
      */
     fun site(
         reports: List<RunReport>,
-        title: String = "Keiyoushi extension status",
+        title: String = DEFAULT_TITLE,
         checkedAt: String = java.time.Instant.now().toString(),
     ): String {
         val ordered = reports.sortedWith(

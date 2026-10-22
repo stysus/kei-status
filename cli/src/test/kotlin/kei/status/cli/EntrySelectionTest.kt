@@ -1,5 +1,6 @@
 package kei.status.cli
 
+import kei.status.engine.HarnessConfig
 import kei.status.engine.ModuleList
 import java.nio.file.Files
 import java.nio.file.Path
@@ -73,6 +74,30 @@ class EntrySelectionTest {
         val entries = resolveEntries(Options.parse(arrayOf("--module-list", list.toString(), "--shard", "2/2")))
 
         assertEquals((6..10).map { ModuleList.Entry(":src:en:m$it") }, entries)
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `a plan without a shard count is rejected`() {
+        // `ci/discover.sh` always has a count; a default here would be a third place for it to live.
+        Options.parse(arrayOf("--discover", "--plan", "shards"))
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `a shard count without a plan is rejected`() {
+        Options.parse(arrayOf("--discover", "--shards", "4"))
+    }
+
+    @Test
+    fun `an unset option takes the harness default`() {
+        // The defaults used to be written twice, in `HarnessConfig` and again in the option parser,
+        // so a change to one left the other reporting something else.
+        val options = Options.parse(arrayOf("--module", ":src:en:aurora"))
+        val config = configFor(options, ModuleList.Entry(":src:en:aurora"), temporary.newFolder().toPath())
+
+        assertEquals(HarnessConfig.DEFAULT_TIMEOUT, config.timeout)
+        assertEquals(HarnessConfig.DEFAULT_MANGA_LIMIT, config.mangaLimit)
+        assertEquals(HarnessConfig.DEFAULT_PAGE_LIMIT, config.pageLimit)
+        assertEquals(HarnessConfig.DEFAULT_PROBE_IMAGES, config.probeImages)
     }
 
     @Test

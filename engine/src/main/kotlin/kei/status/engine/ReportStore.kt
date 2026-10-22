@@ -27,6 +27,8 @@ object ReportStore {
         val report: RunReport,
         val written: Boolean,
         val changes: List<StatusChange>,
+        /** The store file this save targeted, whether or not it was rewritten. */
+        val path: Path,
     )
 
     fun path(dir: Path, module: String): Path = dir.resolve(module.slugOf() + ".json")
@@ -63,6 +65,7 @@ object ReportStore {
      */
     fun save(dir: Path, report: RunReport): Saved {
         Files.createDirectories(dir)
+        val target = path(dir, report.module)
         val previous = read(dir, report.module)
         val changes = previous?.let { changes(it, report) } ?: emptyList()
         val next = report.copy(comparedTo = previous?.generatedAt, changes = changes)
@@ -72,10 +75,10 @@ object ReportStore {
             // The checkout path is machine-specific and means nothing in a committed store; the
             // module path and the extension commit are what identify where the report came from.
             val stored = next.copy(sourceRoot = "")
-            Files.writeString(path(dir, report.module), json.encodeToString(RunReport.serializer(), stored))
+            Files.writeString(target, json.encodeToString(RunReport.serializer(), stored))
         }
 
-        return Saved(next, written, changes)
+        return Saved(next, written, changes, target)
     }
 
     /**

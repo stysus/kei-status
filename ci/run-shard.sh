@@ -47,6 +47,9 @@ if ! "$source_root/gradlew" \
   echo "::warning::some modules in this shard did not compile; they will be reported as failed loads"
 fi
 
+# `--timeout` is not passed: the checker's own default is the value a sweep wants, and repeating it
+# here meant the same number lived in two places.
+#
 # Exit 1 means "at least one source failed", which is a finding the page records. In a sweep of
 # 1,400 modules that is the normal case, so it is not a warning. Anything else is the checker
 # itself breaking, and that must fail the job.
@@ -54,8 +57,7 @@ set +e
 ./cli/build/install/cli/bin/cli \
   --module-list "$shard_file" \
   --source-root "$source_root" \
-  --store "$store" \
-  --timeout 45
+  --store "$store"
 code=$?
 set -e
 

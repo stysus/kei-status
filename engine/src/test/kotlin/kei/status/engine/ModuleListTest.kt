@@ -84,6 +84,44 @@ class ModuleListTest {
     }
 
     @Test
+    fun `a plan writes every shard and keeps entry flags`() {
+        // The CI shard lists and the local `--shard` used to be computed by two different pieces of
+        // code: this one, and a `find` + `awk` in `ci/discover.sh`. A plan file is the shared output
+        // both now agree on, so this pins its exact shape.
+        val out = temporary.newFolder("shards").toPath()
+        val entries = listOf(
+            ModuleList.Entry(":src:all:mangadex", listOf("--lang", "en")),
+            ModuleList.Entry(":src:en:aurora"),
+            ModuleList.Entry(":src:tr:hattorimanga"),
+            ModuleList.Entry(":src:zh:dynasty"),
+        )
+
+        ModuleList.plan(entries, count = 3, outDir = out)
+
+        assertEquals(
+            listOf(
+                ":src:all:mangadex --lang en",
+                ":src:en:aurora",
+                ":src:tr:hattorimanga",
+                ":src:zh:dynasty",
+            ),
+            Files.readAllLines(out.resolve("all.txt")),
+        )
+        assertEquals(
+            listOf(":src:all:mangadex --lang en", ":src:en:aurora"),
+            Files.readAllLines(out.resolve("shard-1.txt")),
+        )
+        assertEquals(
+            listOf(":src:tr:hattorimanga", ":src:zh:dynasty"),
+            Files.readAllLines(out.resolve("shard-2.txt")),
+        )
+        // A shard past the end still exists and is empty: the matrix loop tells "empty" from
+        // "missing", and a missing file would look like a shard that failed to report in.
+        assertTrue(Files.exists(out.resolve("shard-3.txt")))
+        assertTrue(Files.readAllLines(out.resolve("shard-3.txt")).isEmpty())
+    }
+
+    @Test
     fun `shards split the modules evenly without losing or repeating one`() {
         val entries = (1..10).map { ModuleList.Entry(":src:en:m$it") }
 

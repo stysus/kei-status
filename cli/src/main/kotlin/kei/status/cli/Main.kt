@@ -31,6 +31,14 @@ fun main(args: Array<String>) {
         return
     }
 
+    // A plan is the shard list a sweep runs, written out and nothing else. It is the one
+    // implementation of "what is a module" and "how the list is split", which `ci/discover.sh`
+    // calls instead of repeating the rules in `find` and `awk`.
+    val planDir = options.plan
+    if (planDir != null) {
+        exitProcess(writePlan(options, planDir))
+    }
+
     // Aggregation reads reports that other runs already wrote, so it needs no browser or source.
     if (options.site != null) {
         exitProcess(publish(options.site, options.out ?: options.site, options.title, options.only))
@@ -65,7 +73,7 @@ fun main(args: Array<String>) {
             results += report to saved
 
             if (entries.size == 1) printTable(report) else printSummary(position + 1, entries.size, report, saved)
-            saved?.let { println(savingsLine(it, report.module)) }
+            saved?.let { println(savingsLine(it)) }
         }
     } finally {
         // The browser outlives any single scenario; stop it here so the run leaves no process or
@@ -98,23 +106,50 @@ fun main(args: Array<String>) {
 }
 
 /**
- * Turns the options into the modules to run.
+ * The modules a run selects, before any shard narrowing.
  *
  * `--module-list` is a file of modules, either a hand-written subset or the output of
  * `--discover`; `--module` is the single-module form kept for debugging one extension.
  */
+internal fun selectedEntries(options: Options): List<ModuleList.Entry> = when {
+    options.discover -> ModuleList.discover(options.sourceRoot)
+    options.moduleList != null -> ModuleList.read(options.moduleList)
+    options.module != null -> listOf(ModuleList.Entry(options.module))
+    else -> throw IllegalArgumentException("--module, --module-list or --discover is required")
+}
+
+/** The modules to run, narrowed to [Options.shard] when one was asked for. */
 internal fun resolveEntries(options: Options): List<ModuleList.Entry> {
-    val all = when {
-        options.discover -> ModuleList.discover(options.sourceRoot)
-        options.moduleList != null -> ModuleList.read(options.moduleList)
-        options.module != null -> listOf(ModuleList.Entry(options.module))
-        else -> throw IllegalArgumentException("--module, --module-list or --discover is required")
+    val all = selectedEntries(options)
+    val (index, count) = options.shard ?: return all
+    return ModuleList.shard(all, index, count)
+}
+
+/**
+ * Writes the shard plan and reports how much it covers.
+ *
+ * The shard count is required rather than defaulted: the only caller is `ci/discover.sh`, which
+ * always has one, and a default here would be a third place for that number to live.
+ */
+private fun writePlan(options: Options, out: Path): Int {
+    val count = options.shards ?: return 2
+
+    val entries = try {
+        selectedEntries(options)
+    } catch (e: IllegalArgumentException) {
+        System.err.println("kei-status: ${e.message}")
+        return 2
     }
 
-    if (options.shard == null) return all
+    if (entries.isEmpty()) {
+        val where = if (options.discover) options.sourceRoot else options.moduleList
+        System.err.println("kei-status: no modules found in $where")
+        return 2
+    }
 
-    val (index, count) = options.shard
-    return ModuleList.shard(all, index, count)
+    val used = ModuleList.plan(entries, count, out).count { it.isNotEmpty() }
+    println("discovered ${entries.size} module(s) in $used shard(s)")
+    return 0
 }
 
 internal fun configFor(options: Options, entry: ModuleList.Entry, scratch: Path): HarnessConfig {
@@ -138,15 +173,12 @@ internal fun configFor(options: Options, entry: ModuleList.Entry, scratch: Path)
     )
 }
 
-private fun savingsLine(saved: ReportStore.Saved, module: String): String {
-    val target = ReportStore.path(Path.of("data"), module)
-    return when {
-        !saved.written -> "  state unchanged; ${target.fileName} left alone"
-        saved.report.comparedTo == null -> "  new module recorded; wrote ${target.fileName}"
-        else -> buildString {
-            append("  state changed (${saved.changes.size} transition(s)); wrote ${target.fileName}")
-            saved.changes.forEach { append("\n    ${it.render()}") }
-        }
+private fun savingsLine(saved: ReportStore.Saved): String = when {
+    !saved.written -> "  state unchanged; ${saved.path} left alone"
+    saved.report.comparedTo == null -> "  new module recorded; wrote ${saved.path}"
+    else -> buildString {
+        append("  state changed (${saved.changes.size} transition(s)); wrote ${saved.path}")
+        saved.changes.forEach { append("\n    ${it.render()}") }
     }
 }
 
@@ -203,23 +235,18 @@ private fun publish(siteDir: Path, outDir: Path, title: String?, only: Path?): I
 
     Files.createDirectories(outDir)
     val index = outDir.resolve("index.html")
-    Files.writeString(index, ReportHtml.site(reports, title ?: DEFAULT_TITLE))
+    Files.writeString(index, ReportHtml.site(reports, title ?: ReportHtml.DEFAULT_TITLE))
     println("published ${reports.size} report(s) to $index")
     return 0
 }
 
 private fun titleOf(title: String?, module: String): String =
-    title ?: "$DEFAULT_TITLE - $module"
-
-private const val DEFAULT_TITLE = "Keiyoushi extension status"
+    title ?: "${ReportHtml.DEFAULT_TITLE} - $module"
 
 private val json = Json {
     prettyPrint = true
     encodeDefaults = true
 }
-
-/** Tolerates fields added by a newer harness than the one reading the file. */
-private val decode = Json { ignoreUnknownKeys = true }
 
 /**
  * Extensions start fire-and-forget work (e.g. `KeiSource`'s filter prefetch on `GlobalScope`).
@@ -261,6 +288,8 @@ internal class Options(
     val moduleList: Path?,
     val discover: Boolean,
     val shard: Pair<Int, Int>?,
+    val plan: Path?,
+    val shards: Int?,
     val sourceRoot: Path,
     val output: Path?,
     val html: Path?,
@@ -298,11 +327,16 @@ internal class Options(
               --store <dir>         keep the report in a directory of per-module files, so the
                                     next run can report what changed
               --html <file>         write a standalone HTML page for this run
-              --timeout <seconds>   per-scenario timeout (default: 45)
-              --manga-limit <n>     manga sampled in the report (default: 3)
-              --page-limit <n>      pages probed (default: 3)
+              --timeout <seconds>   per-scenario timeout (default: ${HarnessConfig.DEFAULT_TIMEOUT.seconds})
+              --manga-limit <n>     manga sampled in the report (default: ${HarnessConfig.DEFAULT_MANGA_LIMIT})
+              --page-limit <n>      pages probed (default: ${HarnessConfig.DEFAULT_PAGE_LIMIT})
               --no-images           skip downloading and decoding page images
               --lang <codes>        only run these languages, comma separated (multi-source modules)
+
+            Plan options:
+              --plan <dir>          write the shard plan to <dir> and exit, instead of running;
+                                    needs --discover or --module-list, and --shards
+              --shards <n>          shards to split the plan into
 
             Publish options:
               --site <dir>          aggregate every JSON report under <dir> into index.html
@@ -320,6 +354,8 @@ internal class Options(
             var moduleList: Path? = null
             var discover = false
             var shard: Pair<Int, Int>? = null
+            var plan: Path? = null
+            var shards: Int? = null
             var sourceRoot = Path.of("extensions-source")
             var output: Path? = null
             var html: Path? = null
@@ -328,10 +364,10 @@ internal class Options(
             var out: Path? = null
             var only: Path? = null
             var title: String? = null
-            var timeout = Duration.ofSeconds(45)
-            var mangaLimit = 3
-            var pageLimit = 3
-            var probeImages = true
+            var timeout = HarnessConfig.DEFAULT_TIMEOUT
+            var mangaLimit = HarnessConfig.DEFAULT_MANGA_LIMIT
+            var pageLimit = HarnessConfig.DEFAULT_PAGE_LIMIT
+            var probeImages = HarnessConfig.DEFAULT_PROBE_IMAGES
             var langs = emptySet<String>()
             var help = false
 
@@ -342,6 +378,9 @@ internal class Options(
                     "--module-list" -> moduleList = Path.of(args.requireValue(++i, arg))
                     "--discover" -> discover = true
                     "--shard" -> shard = parseShard(args.requireValue(++i, arg))
+                    "--plan" -> plan = Path.of(args.requireValue(++i, arg))
+                    "--shards" -> shards = args.requireValue(++i, arg).toIntOrNull()
+                        ?: throw IllegalArgumentException("--shards expects a number")
                     "--source-root" -> sourceRoot = Path.of(args.requireValue(++i, arg))
                     "--output" -> output = Path.of(args.requireValue(++i, arg))
                     "--html" -> html = Path.of(args.requireValue(++i, arg))
@@ -369,11 +408,30 @@ internal class Options(
                 throw IllegalArgumentException("--module, --module-list, --discover or --site is required")
             }
 
+            if (plan != null) {
+                if (!discover && moduleList == null) {
+                    throw IllegalArgumentException("--plan needs --discover or --module-list")
+                }
+                if (site != null) {
+                    throw IllegalArgumentException("--plan cannot be combined with --site")
+                }
+                if (shards == null) {
+                    throw IllegalArgumentException("--plan requires --shards <n>")
+                }
+            } else if (shards != null) {
+                throw IllegalArgumentException("--shards only applies to --plan")
+            }
+            if (shards != null && shards!! < 1) {
+                throw IllegalArgumentException("--shards must be positive")
+            }
+
             return Options(
                 module = module,
                 moduleList = moduleList,
                 discover = discover,
                 shard = shard,
+                plan = plan,
+                shards = shards,
                 sourceRoot = sourceRoot,
                 output = output,
                 html = html,

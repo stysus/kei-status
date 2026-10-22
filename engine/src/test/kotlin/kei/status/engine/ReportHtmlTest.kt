@@ -146,6 +146,15 @@ class ReportHtmlTest {
     }
 
     @Test
+    fun `the default title is the one the constant names`() {
+        // The CLI and the publish script each used to spell the title out, so a rename in one place
+        // left the page titled something the other never mentioned.
+        val html = ReportHtml.site(emptyList())
+        assertTrue(html.contains("<title>${ReportHtml.DEFAULT_TITLE}</title>"))
+        assertTrue(html.contains("<h1>${ReportHtml.DEFAULT_TITLE}</h1>"))
+    }
+
+    @Test
     fun `every status has a pill class and a rule for it`() {
         // A status with no rule falls back to the plain pill: a coloured badge with no colour.
         val html = ReportHtml.site(Status.entries.map { report(":src:en:$it", it) })
@@ -155,6 +164,20 @@ class ReportHtmlTest {
             assertTrue("no pill for $status", html.contains("class=\"pill $css\""))
             assertTrue("no stylesheet rule for $status", html.contains(".pill.$css"))
         }
+    }
+
+    @Test
+    fun `the tally chips are ordered worst first`() {
+        // The chips double as the page's filters, so their order is the order a reader triages in.
+        // It comes from `Status.severity` rather than a second hand-written list, which is what this
+        // pins: adding a status must place it here without anyone editing the renderer.
+        val html = ReportHtml.site(Status.entries.map { report(":src:en:$it", it) })
+        val filters = Regex("""data-filter="(\w+)"""")
+            .findAll(html)
+            .map { it.groupValues[1] }
+            .toList()
+
+        assertEquals(listOf("fail", "blocked", "unsupported", "warn", "pass", "skip"), filters)
     }
 
     @Test

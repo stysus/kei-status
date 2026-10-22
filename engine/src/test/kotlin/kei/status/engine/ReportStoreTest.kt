@@ -58,6 +58,17 @@ class ReportStoreTest {
     }
 
     @Test
+    fun `a save reports the file it targeted, not a guessed one`() {
+        // The CLI used to print a path rebuilt from a hardcoded `data`, so `--store out` reported a
+        // file it never touched. The save knows where it wrote; that is what it hands back.
+        val dir = temporary.newFolder("somewhere-else").toPath()
+
+        val saved = ReportStore.save(dir, report())
+
+        assertEquals(dir.resolve("src-en-aurora.json"), saved.path)
+    }
+
+    @Test
     fun `an unchanged module is not rewritten`() {
         val dir = store()
         ReportStore.save(dir, report(generatedAt = "2026-01-01T00:00:00Z"))

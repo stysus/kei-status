@@ -74,6 +74,23 @@ jobs:
         id: source
         run: echo "sha=$(git -C extensions-source rev-parse HEAD)" >>"$GITHUB_OUTPUT"
 
+      - name: Set up JDK 21
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      # This job owns the dependency cache: it restores it, and its post-job save runs before the
+      # shards start, so a cold run downloads Maven once rather than once per shard.
+      - name: Cache Gradle dependencies
+        uses: ./.github/actions/gradle-deps-cache
+
+      - name: Build the harness
+        run: ./gradlew :cli:installDist --stacktrace
+
+      # Discovery is the checker's job, not the shell's: `ci/discover.sh` calls it, so the rule for
+      # "what is a module" and the split into shards have exactly one implementation, the one the
+      # tests cover. That is why the harness is built first.
       - name: Split the tree into shards
         id: discover
         env:
@@ -94,27 +111,6 @@ jobs:
           name: shards
           path: shards/
           retention-days: 1
-
-      - name: Set up JDK 21
-        uses: actions/setup-java@v6
-        with:
-          distribution: temurin
-          java-version: "21"
-
-      # This job owns the dependency cache: it restores it, and its post-job save runs before the
-      # shards start, so a cold run downloads Maven once rather than once per shard.
-      - name: Cache Gradle dependencies
-        uses: actions/cache@v6
-        with:
-          path: |
-            ~/.gradle/caches/modules-2
-            ~/.gradle/wrapper
-          key: gradle-deps-${{ runner.os }}-${{ hashFiles('gradle/libs.versions.toml', 'extensions-source/gradle/libs.versions.toml', 'extensions-source/gradle/wrapper/gradle-wrapper.properties') }}
-          restore-keys: |
-            gradle-deps-${{ runner.os }}-
-
-      - name: Build the harness
-        run: ./gradlew :cli:installDist --stacktrace
 
       - name: Upload the harness
         uses: actions/upload-artifact@v7
@@ -152,13 +148,15 @@ jobs:
           java-version: "21"
 
       # Two caches, on purpose. Dependencies are identical in every shard, so one shared key keeps
-      # twenty copies out of the cache budget. The Gradle build cache is per shard: each shard
-      # compiles the same modules every run, so its entries are only useful to itself, and twenty
-      # jobs saving to one key would leave nineteen of them discarded.
+      # twenty copies out of the cache budget; that key and its paths live in one place, the
+      # `gradle-deps-cache` action, so `prepare` and the shards cannot disagree about them. The
+      # Gradle build cache is per shard: each shard compiles the same modules every run, so its
+      # entries are only useful to itself, and twenty jobs saving to one key would leave nineteen
+      # of them discarded.
       #
-      # `prepare` owns the dependency cache and saves it before any shard starts, so a cold run
-      # downloads Maven once instead of twenty times. The shards only restore it: a shard that
-      # tried to save would be uploading the same bytes to a key that already exists.
+      # `prepare` runs first and saves the dependency entry, so a cold run downloads Maven once
+      # instead of twenty times. A shard restoring that entry is a hit, and a hit means its own
+      # save is skipped rather than the same bytes uploaded again.
       #
       # The build-cache key carries the upstream revision, so there is exactly one entry per shard
       # per upstream change: a second run on the same revision restores the same entry for free,
@@ -166,14 +164,7 @@ jobs:
       # The revision is the one `prepare` pinned, not a fresh read, so the key cannot disagree with
       # the tree this shard compiled.
       - name: Restore the Gradle dependency cache
-        uses: actions/cache/restore@v6
-        with:
-          path: |
-            ~/.gradle/caches/modules-2
-            ~/.gradle/wrapper
-          key: gradle-deps-${{ runner.os }}-${{ hashFiles('gradle/libs.versions.toml', 'extensions-source/gradle/libs.versions.toml', 'extensions-source/gradle/wrapper/gradle-wrapper.properties') }}
-          restore-keys: |
-            gradle-deps-${{ runner.os }}-
+        uses: ./.github/actions/gradle-deps-cache
 
       - name: Restore this shard's build cache
         uses: actions/cache@v6

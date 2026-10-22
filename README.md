@@ -102,23 +102,7 @@ cd ..
 
 Step 2 only needs to be repeated when you switch modules or after `clean`.
 
-Options:
-
-```
---module <path>       Gradle module path, e.g. :src:en:aurora
---module-list <file>  run every module listed in <file>, one per line
---discover            run every module in the source tree
---shard <i>/<n>       run only shard i of n, so several jobs can split the work
---source-root <dir>   extensions-source checkout (default: ./extensions-source)
---output <file>       write a JSON report
---html <file>         write a standalone HTML page for this run
---store <dir>         keep one file per module, so the next run can report what changed
---timeout <seconds>   per-scenario timeout (default: 45)
---manga-limit <n>     manga sampled in the report (default: 3)
---page-limit <n>      pages probed (default: 3)
---no-images           skip downloading and decoding page images
---lang <codes>        only run these languages, comma separated (multi-source modules)
-```
+`cli --help` lists every option with its default; the examples below are the common shapes.
 
 A module list line is `<Gradle module> [extra flags]`, so a module with many language variants can
 be kept to a slice: `:src:all:mangadex --lang en` runs one source instead of sixty-one.
@@ -130,6 +114,10 @@ be kept to a slice: `:src:all:mangadex --lang en` runs one source instead of six
 
 # the same work split across four machines
 ./cli/build/install/cli/bin/cli --discover --shard 1/4 --store data
+
+# exactly what CI does: write the shard plan once, then run one shard of it
+./ci/discover.sh extensions-source shards 4
+./cli/build/install/cli/bin/cli --module-list shards/shard-1.txt --store data
 ```
 
 Publishing several runs as one page:
@@ -287,6 +275,11 @@ as a Gradle module (`loadAllIndividualExtensions()` in `extensions-source/settin
 every real extension carries a `build.gradle.kts` — that file is what tells an extension from a
 stray directory. An extension added upstream is checked by the next run without anyone editing a
 file here; a hand-written list would go stale the day after it was written.
+
+That rule, and the split into shards, live in the checker (`ModuleList`): `ci/discover.sh` calls
+`--plan`, which writes `all.txt` and the shard files. Only the GitHub Actions matrix is built by the
+script, because that shape belongs to GitHub rather than to the harness. A local `--shard` and the
+CI matrix therefore cannot disagree about which modules a shard holds.
 
 `--module-list` still exists for a one-off run, and the `modules` input on the `workflow_dispatch`
 trigger feeds one in without committing it.

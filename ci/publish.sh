@@ -17,5 +17,4 @@ store="${3:-data}"
 ./cli/build/install/cli/bin/cli \
   --site "$store" \
   --out "$out" \
-  --only "$modules" \
-  --title "Keiyoushi extension status"
+  --only "$modules"

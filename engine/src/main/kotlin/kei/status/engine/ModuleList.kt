@@ -61,6 +61,39 @@ object ModuleList {
     fun modules(file: Path): Set<String> = read(file).map { it.module }.toSet()
 
     /**
+     * Writes the shard plan a sweep runs, and returns the shards it wrote.
+     *
+     * This is the only implementation of both rules: which directories are modules (above), and how
+     * the list is split ([shard]). `ci/discover.sh` calls it rather than repeating them in `find`
+     * and `awk`, so the local `--shard` and the CI matrix cannot drift apart.
+     *
+     * Every shard index in `1..count` gets a file, empty when the list is shorter than the shard
+     * count: the workflow tells "this shard has nothing to do" from "this shard never reported in"
+     * by the file existing at all.
+     */
+    fun plan(entries: List<Entry>, count: Int, outDir: Path): List<List<Entry>> {
+        require(count > 0) { "shard count must be positive" }
+
+        // Sorted by the line as written, in code-unit order rather than the locale's collation. The
+        // shell `sort` this replaced depended on the runner's locale, so the same tree could produce
+        // a different shard assignment on a different machine and silently invalidate its cache.
+        val ordered = entries.sortedBy { it.line() }
+        Files.createDirectories(outDir)
+        Files.writeString(outDir.resolve("all.txt"), ordered.joinToString("") { it.line() + "\n" })
+
+        val shards = (1..count).map { index -> shard(ordered, index, count) }
+        shards.forEachIndexed { offset, shard ->
+            val body = shard.joinToString("") { it.line() + "\n" }
+            Files.writeString(outDir.resolve("shard-${offset + 1}.txt"), body)
+        }
+        return shards
+    }
+
+    /** `:src:all:mangadex --lang en` — a module and the flags that narrow it. */
+    private fun Entry.line(): String =
+        if (args.isEmpty()) module else (listOf(module) + args).joinToString(" ")
+
+    /**
      * Splits [entries] into [count] contiguous, evenly sized shards and returns shard [index]
      * (1-based), so several jobs can cover the whole list without overlapping.
      */
