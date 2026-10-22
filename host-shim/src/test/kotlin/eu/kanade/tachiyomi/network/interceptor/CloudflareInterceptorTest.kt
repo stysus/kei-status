@@ -32,6 +32,10 @@ class CloudflareInterceptorTest {
     @Volatile
     private var headers = emptyMap<String, String>()
 
+    /** The body served while a challenge is up, so tests can imitate a real interstitial. */
+    @Volatile
+    private var challengeBody = "challenge"
+
     /** True while the server answers with a challenge, as a zone does until it is cleared. */
     @Volatile
     private var challenging = false
@@ -49,7 +53,7 @@ class CloudflareInterceptorTest {
             if (challenged) {
                 headers.forEach { (name, value) -> exchange.responseHeaders.add(name, value) }
             }
-            val body = (if (challenged) "challenge" else "ok").toByteArray()
+            val body = (if (challenged) challengeBody else "ok").toByteArray()
             exchange.sendResponseHeaders(if (challenged) challengeCode else 200, body.size.toLong())
             exchange.responseBody.use { it.write(body) }
         }
@@ -154,5 +158,49 @@ class CloudflareInterceptorTest {
         assertEquals("AWS WAF", (thrown as AntiBotChallengeException).provider)
         assertEquals("the solver ran for a challenge no click can clear", 0, solveCalls.get())
         assertEquals("the challenged request was retried", 1, requests.get())
+    }
+
+    @Test
+    fun `a site's own 403 behind Cloudflare is left to the extension`() {
+        challenging = true
+        // Every response from a Cloudflare-fronted site carries `cf-ray`, including the site's own.
+        headers = mapOf("cf-ray" to "a4ec14878c293f98-SIN", "server" to "cloudflare")
+        challengeBody = """<div class="mhcl-lock-box">This chapter is locked</div>"""
+
+        client().newCall(request()).execute().use { response ->
+            assertEquals("the site's answer was replaced by a challenge", 403, response.code)
+            assertTrue("the site's body was not delivered", response.body.string().contains("mhcl-lock-box"))
+        }
+        assertEquals("the solver ran for a 403 that is not a challenge", 0, solveCalls.get())
+        assertEquals("the site's answer was retried", 1, requests.get())
+    }
+
+    @Test
+    fun `a challenge page without the mitigated header is still solved`() {
+        challenging = true
+        headers = mapOf("cf-ray" to "a4ec14878c293f98-SIN", "server" to "cloudflare")
+        challengeBody = """<html><head><title>Just a moment...</title></head>
+            <body><script>window._cf_chl_opt = {}</script></body></html>"""
+
+        val thrown = runCatching { client().newCall(request()).execute() }.exceptionOrNull()
+
+        assertNotNull("challenge response was not reported", thrown)
+        assertTrue("wrong exception: $thrown", thrown is AntiBotChallengeException)
+        assertEquals("the challenge page was not solved", 1, solveCalls.get())
+    }
+
+    @Test
+    fun `a firewall block is reported without solving`() {
+        challenging = true
+        headers = mapOf("cf-ray" to "a4ec14878c293f98-SIN", "server" to "cloudflare")
+        challengeBody = """<html><head><title>Attention Required! | Cloudflare</title></head>
+            <body><div id="cf-error-details">Sorry, you have been blocked</div></body></html>"""
+
+        val thrown = runCatching { client().newCall(request()).execute() }.exceptionOrNull()
+
+        assertNotNull("block response was not reported", thrown)
+        assertTrue("wrong exception: $thrown", thrown is AntiBotChallengeException)
+        assertEquals("the solver ran for a block no browser can clear", 0, solveCalls.get())
+        assertEquals("the blocked request was retried", 1, requests.get())
     }
 }

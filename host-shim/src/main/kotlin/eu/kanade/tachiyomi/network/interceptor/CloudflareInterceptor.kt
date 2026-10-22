@@ -32,7 +32,13 @@ class AntiBotChallengeException(
  * used again.
  *
  * Anything that cannot be replayed (a request with a body), and challenges no browser can clear
- * (AWS WAF), are reported as [AntiBotChallengeException] without being solved.
+ * (AWS WAF, a Cloudflare firewall block), are reported as [AntiBotChallengeException] without
+ * being solved.
+ *
+ * A response is only treated as a barrier when Cloudflare identifies itself as the author: a
+ * `cf-mitigated` header, or a page Cloudflare served. A site that merely sits behind Cloudflare
+ * answers 403 for its own reasons - a chapter that needs an unlock, an age gate - and those
+ * responses are returned untouched so the source can say what it meant.
  *
  * Named `CloudflareInterceptor` because `KeiSource.client` asserts on that exact simple name and
  * moves the interceptor to the end of the chain, which is what lets it see the final user agent
@@ -52,13 +58,13 @@ class CloudflareInterceptor(
             ?: original
         val response = chain.proceed(request)
 
-        val provider = challengeProvider(response) ?: return response
+        val barrier = barrierOf(response) ?: return response
 
         val code = response.code
         val host = request.url.host
         response.close()
 
-        if (provider == CLOUDFLARE && request.body == null) {
+        if (barrier.solvable && request.body == null) {
             val cookies = solve(request.url.toString())
             if (cookies != null) {
                 save(request.url, cookies)
@@ -68,12 +74,14 @@ class CloudflareInterceptor(
                     ?.let { request.newBuilder().header("User-Agent", it).build() }
                     ?: request
                 val retried = chain.proceed(replay)
-                if (challengeProvider(retried) == null) return retried
+                // A replay that comes back as the site's own answer is the extension's to report,
+                // which is why only a barrier counts as still being blocked.
+                if (barrierOf(retried) == null) return retried
                 retried.close()
             }
         }
 
-        throw AntiBotChallengeException(code, host, provider)
+        throw AntiBotChallengeException(code, host, barrier.provider)
     }
 
     /** Writes the browser's cookies into the jar, which is what the replay reads from. */
@@ -85,20 +93,64 @@ class CloudflareInterceptor(
         cookieJar.saveFromResponse(url, cookies)
     }
 
-    private fun challengeProvider(response: Response): String? = when {
-        response.header("cf-mitigated").equals("challenge", ignoreCase = true) -> CLOUDFLARE
+    /**
+     * What stopped the response, or null when nothing did.
+     *
+     * `cf-ray` alone is not evidence: it is on every response from a Cloudflare-fronted site,
+     * including the site's own 403s, so it cannot say who produced the body. A barrier is only
+     * reported when Cloudflare says so itself - through a `cf-mitigated` header, or through a page
+     * Cloudflare served. Everything else is the site's answer, and reporting it as a challenge
+     * would hide what the site actually said: a chapter lock, an age gate, a login wall.
+     */
+    private fun barrierOf(response: Response): Barrier? {
+        if (response.header("cf-mitigated").equals("challenge", ignoreCase = true)) {
+            return Barrier(CLOUDFLARE, solvable = true)
+        }
 
         // AWS WAF answers with 202 and an empty body, tagged by this header.
-        response.header("x-amzn-waf-action").equals("challenge", ignoreCase = true) -> AWS_WAF
+        if (response.header("x-amzn-waf-action").equals("challenge", ignoreCase = true)) {
+            return Barrier(AWS_WAF, solvable = false)
+        }
 
-        // Cloudflare blocks without `cf-mitigated` on older zones.
-        response.header("cf-ray") != null && response.code in setOf(403, 503) -> CLOUDFLARE
+        if (response.code !in INTERSTITIAL_CODES) return null
 
-        else -> null
+        val body = response.prefix().lowercase()
+        return when {
+            // A firewall block can embed the challenge script, so it is checked first: no browser
+            // can turn a block into a puzzle.
+            CLOUDFLARE_BLOCK_MARKERS.any { it in body } -> Barrier(CLOUDFLARE, solvable = false)
+            CLOUDFLARE_CHALLENGE_MARKERS.any { it in body } -> Barrier(CLOUDFLARE, solvable = true)
+            else -> null
+        }
     }
+
+    /** The start of the body without consuming it, for recognising a page Cloudflare served. */
+    private fun Response.prefix(): String =
+        runCatching { peekBody(PEEK_BYTES).string() }.getOrDefault("")
+
+    /** A response Cloudflare produced, and whether a browser could clear it. */
+    private data class Barrier(val provider: String, val solvable: Boolean)
 
     private companion object {
         const val CLOUDFLARE = "Cloudflare"
         const val AWS_WAF = "AWS WAF"
+
+        /** Only these codes carry an interstitial; a 200 is the site's own page. */
+        val INTERSTITIAL_CODES = setOf(403, 503)
+
+        /** Enough for any interstitial; Cloudflare's own pages are a few kilobytes. */
+        const val PEEK_BYTES = 64L * 1024
+
+        val CLOUDFLARE_CHALLENGE_MARKERS = listOf(
+            "_cf_chl_opt",
+            "/cdn-cgi/challenge-platform/",
+            "cf-browser-verification",
+        )
+
+        val CLOUDFLARE_BLOCK_MARKERS = listOf(
+            "cf-error-details",
+            "you have been blocked",
+            "attention required",
+        )
     }
 }

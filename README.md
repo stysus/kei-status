@@ -106,6 +106,15 @@ A site that answers with a challenge is handled the way the app handles it, in t
   after the loaded page has been confirmed to be an interstitial, so ordinary pages are never
   clicked.
 
+A response only counts as a barrier when Cloudflare says so: a `cf-mitigated: challenge` header, an
+`x-amzn-waf-action` header for AWS WAF, or a page Cloudflare itself served, recognised by the
+challenge bootstrap (`_cf_chl_opt`, `/cdn-cgi/challenge-platform/`) or by its error page
+(`cf-error-details`). `cf-ray` alone is not evidence: it is on every response from a
+Cloudflare-fronted site, including the site's own 403s. A site that answers 403 for its own reasons
+— a chapter that needs an unlock, an age gate — keeps that answer, so the source reports what it
+meant instead of the run inventing a challenge. A firewall block is still `BLOCKED`, but it is not
+solved: no browser can turn a block into a puzzle.
+
 Two properties of the live widget shape the clicker:
 
 - The checkbox is an iframe inside a **closed** shadow root, so page JavaScript cannot see it:
