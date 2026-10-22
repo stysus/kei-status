@@ -1,5 +1,6 @@
 package android.webkit
 
+import android.view.MotionEvent
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -174,6 +175,111 @@ class WebViewTest {
         )
 
         assertTrue("the load never finished with images blocked", finished.await(30, TimeUnit.SECONDS))
+        view.destroy()
+    }
+
+    @Test
+    fun `postVisualStateCallback reports the page's next frame`() {
+        // `Comix` waits for this before sending touches: a touch that arrives before the page has
+        // painted is dropped. Without a resolving frame signal the source silently loses every
+        // captcha attempt.
+        val view = webView()
+        view.loadDataWithBaseURL(
+            "https://example.test/",
+            "<html><body><p>drawn</p></body></html>",
+            "text/html",
+            "UTF-8",
+            null,
+        )
+        assertTrue("the load never finished", finished.await(30, TimeUnit.SECONDS))
+
+        val reported = CountDownLatch(1)
+        val requestId = AtomicReference<Long>()
+        view.postVisualStateCallback(
+            7L,
+            object : WebView.VisualStateCallback() {
+                override fun onComplete(id: Long) {
+                    requestId.set(id)
+                    reported.countDown()
+                }
+            },
+        )
+
+        assertTrue("the callback never fired", reported.await(10, TimeUnit.SECONDS))
+        assertEquals(7L, requestId.get() ?: -1L)
+        view.destroy()
+    }
+
+    @Test
+    fun `dispatchTouchEvent lands a touch where the page drew it`() {
+        // Sources build touches in physical pixels (`x * density`); the browser takes CSS pixels.
+        // Getting the conversion wrong sends the captcha's swipe somewhere else entirely.
+        val touch = AtomicReference<String>()
+        val received = CountDownLatch(1)
+        val view = webView()
+
+        view.addJavascriptInterface(
+            object {
+                @Suppress("unused")
+                fun post(value: String) {
+                    touch.set(value)
+                    received.countDown()
+                }
+            },
+            "android",
+        )
+
+        view.loadDataWithBaseURL(
+            "https://example.test/",
+            """
+            <html><body style="margin:0"><script>
+              addEventListener("touchstart", (event) => {
+                const point = event.changedTouches[0];
+                window.android.post(`${'$'}{point.clientX},${'$'}{point.clientY}`);
+              }, { passive: true });
+            </script></body></html>
+            """.trimIndent(),
+            "text/html",
+            "UTF-8",
+            null,
+        )
+        assertTrue("the load never finished", finished.await(30, TimeUnit.SECONDS))
+
+        // A touch sent before the page has painted is dropped, which is exactly why `Comix` waits
+        // for the visual-state callback first.
+        val drawn = CountDownLatch(1)
+        view.postVisualStateCallback(
+            0L,
+            object : WebView.VisualStateCallback() {
+                override fun onComplete(requestId: Long) = drawn.countDown()
+            },
+        )
+        assertTrue("the page never reported a frame", drawn.await(10, TimeUnit.SECONDS))
+
+        val density = view.getResources().displayMetrics.density
+        val down = MotionEvent.obtain(
+            0L,
+            0L,
+            MotionEvent.ACTION_DOWN,
+            1,
+            arrayOf(
+                MotionEvent.PointerProperties().apply {
+                    id = 0
+                    toolType = MotionEvent.TOOL_TYPE_FINGER
+                },
+            ),
+            arrayOf(
+                MotionEvent.PointerCoords().apply {
+                    x = 100f * density
+                    y = 200f * density
+                },
+            ),
+            0, 0, 1f, 1f, 0, 0, 0, 0,
+        )
+
+        assertTrue("the touch was not consumed", view.dispatchTouchEvent(down))
+        assertTrue("the page never saw the touch", received.await(10, TimeUnit.SECONDS))
+        assertEquals("100,200", touch.get())
         view.destroy()
     }
 }

@@ -364,9 +364,11 @@ The page is published to `https://<owner>.github.io/kei-status/`. Enable it once
 - WebView runs a real browser, but sites that gate on device fingerprinting still refuse it. A
   source that reports `FAIL` with the site's own "solve the captcha" message or a WebView timeout
   has been executed correctly — the site declined, the harness did not stub anything.
-- `withNativeWebView` hands out a real `WebView` object, but touch synthesis
-  (`dispatchTouchEvent`, `MotionEvent`) is inert, so sources that solve a challenge by dragging a
-  slider cannot succeed.
+- `withNativeWebView` hands out a real `WebView` object, and `dispatchTouchEvent` forwards
+  `MotionEvent`s to the browser as real touch input, so a captcha answered by tapping or swiping is
+  attempted. `postVisualStateCallback` reports the page's next frame, which is when a touch starts
+  being accepted; a page that never paints leaves it pending, and the source's own fallback takes
+  over.
 - `injectAtDocumentStart` falls back to the documented `onPageStarted` path: the Chromium glue is
   stubbed to advertise no optional WebView features, so document-start timing is unavailable.
   Sources that need a script to run before the page's own code may miss that window.

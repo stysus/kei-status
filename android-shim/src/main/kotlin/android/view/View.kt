@@ -1,5 +1,6 @@
 package android.view
 
+import android.content.res.Resources
 import android.os.Handler
 import android.os.Looper
 
@@ -22,6 +23,9 @@ open class View {
     private val handler: Handler by lazy { Handler(Looper.getMainLooper()) }
 
     open fun getParent(): ViewGroup? = parentView
+
+    /** Android resolves this through the view's context; sources read `displayMetrics` off it. */
+    open fun getResources(): Resources = context?.getResources() ?: Resources.getSystem()
 
     internal fun attachTo(parent: ViewGroup?) {
         parentView = parent

@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import android.os.Handler
 import android.os.Looper
+import android.view.MotionEvent
 import android.view.View
 import kei.status.webkit.ChallengeSolver
 import kei.status.webkit.Chrome
@@ -210,6 +211,93 @@ open class WebView(context: Context?) : View() {
 
     fun removeJavascriptInterface(name: String) {
         bindings.remove(name)
+    }
+
+    // endregion
+
+    // region input
+
+    /** Stand-in for android.webkit.WebView.VisualStateCallback. */
+    abstract class VisualStateCallback {
+        abstract fun onComplete(requestId: Long)
+    }
+
+    /**
+     * Reports the page's next frame, as Android reports the WebView's next draw.
+     *
+     * `Comix` waits for this before sending the touches that answer a captcha, because a touch that
+     * arrives before the page has painted is dropped. A page that never paints (or a browser that
+     * throttles it) leaves the callback pending; sources that need it arm their own fallback, which
+     * is why this does not invent a timeout.
+     */
+    fun postVisualStateCallback(requestId: Long, callback: VisualStateCallback) {
+        val session = page
+        if (session == null || destroyed) {
+            mainHandler.post { if (!destroyed) callback.onComplete(requestId) }
+            return
+        }
+
+        session.send(
+            "Runtime.evaluate",
+            JsonObject(
+                mapOf(
+                    "expression" to JsonPrimitive(NEXT_FRAME),
+                    "awaitPromise" to JsonPrimitive(true),
+                    "returnByValue" to JsonPrimitive(true),
+                ),
+            ),
+        ).whenComplete { _, _ ->
+            mainHandler.post { if (!destroyed) callback.onComplete(requestId) }
+        }
+    }
+
+    /**
+     * Delivers a synthetic touch to the page, which is how `Comix` answers a captcha's swipe.
+     *
+     * Android hands the WebView touch coordinates in physical pixels while the browser takes CSS
+     * pixels, and one CSS pixel is one dp in a WebView, so the density is what converts between
+     * them. Sources already did the opposite conversion to build the event.
+     */
+    override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
+        if (event == null) return false
+        val session = page ?: return false
+
+        val type = when (event.action) {
+            MotionEvent.ACTION_DOWN -> "touchStart"
+            MotionEvent.ACTION_MOVE -> "touchMove"
+            MotionEvent.ACTION_UP -> "touchEnd"
+            MotionEvent.ACTION_CANCEL -> "touchCancel"
+            else -> return false
+        }
+
+        val density = getResources().displayMetrics.density.takeIf { it > 0f } ?: 1f
+        val points = (0 until event.getPointerCount()).map { index ->
+            val point = mutableMapOf<String, JsonPrimitive>(
+                "x" to JsonPrimitive(event.getX(index) / density),
+                "y" to JsonPrimitive(event.getY(index) / density),
+                "id" to JsonPrimitive(event.getPointerId(index)),
+                "force" to JsonPrimitive(event.getPressure(index)),
+            )
+            // Chromium wants radii, Android reports the contact's diameter
+            val major = event.getTouchMajor(index) / 2 / density
+            val minor = event.getTouchMinor(index) / 2 / density
+            if (major > 0f) point["radiusX"] = JsonPrimitive(major)
+            if (minor > 0f) point["radiusY"] = JsonPrimitive(minor)
+            JsonObject(point)
+        }
+
+        session.send(
+            "Input.dispatchTouchEvent",
+            JsonObject(
+                mapOf(
+                    "type" to JsonPrimitive(type),
+                    "touchPoints" to JsonArray(points),
+                ),
+            ),
+        ).whenComplete { _, error ->
+            if (error != null) trace("dispatchTouchEvent $type failed: ${error.message}")
+        }
+        return true
     }
 
     // endregion
@@ -777,6 +865,9 @@ open class WebView(context: Context?) : View() {
         private const val CHALLENGE_POLL_MS = 500L
         private const val NAVIGATE_RETRIES = 3
         private const val NAVIGATE_RETRY_MS = 150L
+
+        /** Resolves after the browser has committed the page's next frame. */
+        private const val NEXT_FRAME = "new Promise(resolve => requestAnimationFrame(() => resolve(1)))"
 
         /** Set KEI_STATUS_WEBVIEW_TRACE=1 to log every DevTools event to stderr. */
         internal val TRACE = System.getenv("KEI_STATUS_WEBVIEW_TRACE") != null

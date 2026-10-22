@@ -50,26 +50,3 @@ open class ViewGroup : View() {
         @JvmField var bottomMargin: Int = 0,
     ) : LayoutParams(width, height)
 }
-
-/** Stand-in for android.view.MotionEvent: enough for sources that synthesise touch events. */
-class MotionEvent {
-
-    var action: Int = 0
-    var x: Float = 0f
-    var y: Float = 0f
-
-    companion object {
-        const val ACTION_DOWN: Int = 0
-        const val ACTION_UP: Int = 1
-        const val ACTION_MOVE: Int = 2
-        const val ACTION_CANCEL: Int = 3
-
-        @JvmStatic
-        fun obtain(downTime: Long, eventTime: Long, action: Int, x: Float, y: Float): MotionEvent =
-            MotionEvent().apply {
-                this.action = action
-                this.x = x
-                this.y = y
-            }
-    }
-}
