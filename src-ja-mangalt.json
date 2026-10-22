@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:46:46.390041864Z",
+    "generatedAt": "2026-10-22T08:52:26.272741764Z",
     "module": ":src:ja:mangalt",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 1153097454471755439,
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 624,
+                    "durationMs": 378,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 621,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 115,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "ビジャの女王 -> 8053bcc536380",
-                        "江戸の不倫は死の香り -> aa3af9c623b5e",
-                        "フェイバリッツ FAVORITES -> b0ec76ec9e73d"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 612,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 34,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "龍子 RYUKO -> 9a787fbe6583a",
-                        "獅子と牡丹 -> 480cea6661155",
-                        "はにま通信 -> 3d66e323cc58b"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,27 +56,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 960,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 第54回　馬ウイルス -> d9a9cf3e0de2a",
-                        "🔒 第53回　ラジンの提案 -> 9d15a009c1699",
-                        "🔒 第52回　ジファルの独り言 -> 0e3a74dc6b914"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 541,
-                    "message": "Log in via WebView and purchase this chapter to read.",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:46:46.390041864Z",
+    "changes": [
+        {
+            "source": "Mangalt",
+            "lang": "ja",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mangalt",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mangalt",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangalt",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
+        }
+    ]
 }

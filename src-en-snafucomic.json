@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:21.671883615Z",
+    "generatedAt": "2026-10-22T08:53:14.469581043Z",
     "module": ":src:en:snafucomic",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 5425488988830744299,
             "name": "Snafu Comics",
             "lang": "en",
             "baseUrl": "https://www.snafu-comics.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 599,
+                    "durationMs": 487,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 94,
+                    "durationMs": 89,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,37 +60,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1064,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 977,
+                    "message": "HTTP error 500",
                     "notes": [],
-                    "samples": [
-                        "ppg-chapter-1 -> /powerpuffgirls/ppg-chapter-1",
-                        "ppg-chapter-2 -> /powerpuffgirls/ppg-chapter-2",
-                        "chapter-3 -> /powerpuffgirls/chapter-3"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 720,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.snafu-comics.com/comics/powerpuffgirls_00001_46773736127d2d2c1ce013de9f4583b28e0804d35943acf98354cfc95682b4f12a138334.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 330,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:21.671883615Z",
+    "changes": [
+        {
+            "source": "Snafu Comics",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Snafu Comics",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Snafu Comics",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:47:58.655587156Z",
+    "generatedAt": "2026-10-22T08:55:52.680542916Z",
     "module": ":src:ar:mangaspark",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 2436176998646301840,
             "name": "MangaSpark",
             "lang": "ar",
             "baseUrl": "https://sparkmanga.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1185,
+                    "durationMs": 809,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1551,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 657,
+                    "message": "HTTP error 400",
                     "notes": [],
-                    "samples": [
-                        "Otherworldly Evil Monarch -> 775",
-                        "lady Baby -> 417",
-                        "cultivation return on campus -> 2311"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1467,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 692,
+                    "message": "HTTP error 400",
                     "notes": [],
-                    "samples": [
-                        "The Shepherd Wizard -> 170828",
-                        "Is It Bad That the Main Character’s a Roleplayer? -> 181532",
-                        "The Chairman Who Just Wants to Slack Off -> 179032"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,38 +56,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 634,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "258 -> 258",
-                        "257 -> 257",
-                        "256 -> 256"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 530,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://s2sparkio.sparkmanga.net/manga/arb4/data/manga_5ef28f62ab9b0/9e02b07dbf666b0d814bbaedf6b1600e/image-1.jpg",
-                        "https://s2sparkio.sparkmanga.net/manga/arb4/data/manga_5ef28f62ab9b0/9e02b07dbf666b0d814bbaedf6b1600e/image-2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1951,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:47:58.655587156Z",
+    "changes": [
+        {
+            "source": "MangaSpark",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaSpark",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaSpark",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaSpark",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaSpark",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

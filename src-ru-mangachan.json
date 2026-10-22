@@ -1,21 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:53:14.810404971Z",
+    "generatedAt": "2026-10-22T09:00:26.225076534Z",
     "module": ":src:ru:mangachan",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 7,
             "name": "MangaChan",
             "lang": "ru",
             "baseUrl": "https://im.manga-chan.me",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 4281,
+                    "durationMs": 794,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2226,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 292,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "Girl the Wild's -> /manga/33-girl-the-wilds.html",
-                        "The Breaker: New waves -> /manga/5335-the-breaker-new-waves.html",
-                        "Monster Musume no Iru Nichijou -> /manga/13614-monster-musume-no-iru-nichijou.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 3474,
+                    "durationMs": 4414,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Yukseong Game-i Hyeonsiri Dwaetda -> /manga/175100-yukseong-game-i-hyeonsiri-dwaetda.html",
                         "Girl's Interstellar Adventure -> /manga/175079-girls-interstellar-adventure.html",
-                        "My Possession Became a Ghost Story -> /manga/175075-my-possession-became-a-ghost-story.html",
-                        "Odalisque -> /manga/175055-odalisque.html"
+                        "My Possession Became a Ghost Story -> /manga/175075-my-possession-became-a-ghost-story.html"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,39 +60,54 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 3076,
+                    "status": "WARN",
+                    "durationMs": 5865,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Том 2 Глава 260 -> /online/391162-girl-the-wilds_v2_ch260.html",
-                        "Том 2 Глава 259 -> /online/391154-girl-the-wilds_v2_ch259.html",
-                        "Том 2 Глава 258 -> /online/373978-girl-the-wilds_v2_ch258.html"
-                    ]
+                    "notes": [
+                        "chapter list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1278,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img2.manga-chan.me/manga/-9new/g/1479027368_girl-the-wild-ch-260/1.jpg",
-                        "https://img2.manga-chan.me/manga/-9new/g/1479027368_girl-the-wild-ch-260/2.jpg",
-                        "https://img2.manga-chan.me/manga/-9new/g/1479027368_girl-the-wild-ch-260/3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2208,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:53:14.810404971Z",
+    "changes": [
+        {
+            "source": "MangaChan",
+            "lang": "ru",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaChan",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "MangaChan",
+            "lang": "ru",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaChan",
+            "lang": "ru",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

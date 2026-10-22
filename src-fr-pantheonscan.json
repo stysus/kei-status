@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:46:13.680127074Z",
+    "generatedAt": "2026-10-22T08:56:23.337082895Z",
     "module": ":src:fr:pantheonscan",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 1615599506055429686,
             "name": "Pantheon Scan",
             "lang": "fr",
             "baseUrl": "https://pantheon-scan.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 851,
+                    "durationMs": 841,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1379,
+                    "durationMs": 736,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 760,
+                    "durationMs": 498,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,39 +64,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1021,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 261,
+                    "message": "HTTP error 503",
                     "notes": [],
-                    "samples": [
-                        "chapitre 194 -> chapitre-194",
-                        "chapitre 193 -> chapitre-193",
-                        "chapitre 192 -> chapitre-192"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 139,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://pantheon-scan.com/wp-content/uploads/WP-manga/data/manga_6356a8df2c883/e245f039d2e0a9ec032b858446a3d33d/01.jpg",
-                        "https://pantheon-scan.com/wp-content/uploads/WP-manga/data/manga_6356a8df2c883/e245f039d2e0a9ec032b858446a3d33d/02.jpg",
-                        "https://pantheon-scan.com/wp-content/uploads/WP-manga/data/manga_6356a8df2c883/e245f039d2e0a9ec032b858446a3d33d/03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 4104,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:46:13.680127074Z",
+    "changes": [
+        {
+            "source": "Pantheon Scan",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Pantheon Scan",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Pantheon Scan",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

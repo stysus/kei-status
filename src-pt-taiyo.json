@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:58.976273788Z",
+    "generatedAt": "2026-10-22T08:56:03.046746476Z",
     "module": ":src:pt:taiyo",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 7387610647818309943,
             "name": "Taiyō",
             "lang": "pt-BR",
             "baseUrl": "https://taiyo.moe",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,17 +23,19 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 443,
+                    "durationMs": 1081,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 454,
-                    "message": "HTTP error 526",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 842,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from meilisearch.taiyo.moe (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
@@ -73,6 +75,14 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:58.976273788Z",
+    "changes": [
+        {
+            "source": "Taiyō",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        }
+    ]
 }

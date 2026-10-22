@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:52:07.906259216Z",
+    "generatedAt": "2026-10-22T08:56:00.328444613Z",
     "module": ":src:ja:sugocomics",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 4036523004624942398,
             "name": "Sugo Comics",
             "lang": "ja",
             "baseUrl": "https://nadeshiko-shoten.jp",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1732,
+                    "durationMs": 1014,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 750,
+                    "status": "WARN",
+                    "durationMs": 151,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "月刊ヤングマガジン -> 1162167",
-                        "ヤングチャンピオン烈 -> 1161891",
-                        "アプリでマッチングした相手は、堅物な担任女教師でした。【コマカ】 -> 539971"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1774,
+                    "status": "WARN",
+                    "durationMs": 147,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "古見さんは、コミュ症です。 -> 1161745",
-                        "レッドムーダン〜皇帝に成り上がった女〜 -> 1147366",
-                        "美少女学園 ダイジェスト 11月号☆井月みき　大空りま　小花真彩　川野りあ　文月珀　黒宮れい　涼風きおり -> 1163363"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,27 +60,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 695,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 月刊ヤングマガジン　2026年No.11 [2026年10月20日発売] -> 1162167",
-                        "🔒 月刊ヤングマガジン　2026年No.10 [2026年9月16日発売] -> 1150590",
-                        "🔒 月刊ヤングマガジン　2026年No.9 [2026年8月20日発売] -> 1138981"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 420,
-                    "message": "Log in via WebView and purchase this product to read.",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:52:07.906259216Z",
+    "changes": [
+        {
+            "source": "Sugo Comics",
+            "lang": "ja",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Sugo Comics",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Sugo Comics",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Sugo Comics",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
+        }
+    ]
 }

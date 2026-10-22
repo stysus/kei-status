@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-21T08:47:33.745318916Z",
+    "generatedAt": "2026-10-22T08:56:04.417883438Z",
     "module": ":src:ja:takecomic",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 5158991361251014104,
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 630,
+                    "durationMs": 327,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 630,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 120,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "うちの会社の小さい先輩の話 -> 9caefd004353a",
-                        "魔法少女にあこがれて -> 0d7dee548d547",
-                        "メイドインアビス -> 3f846451aff2d"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 185,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 118,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "ゴブリンだらけの世界で、俺だけ【チート付与魔術】で自由に生きていく -> aa08dc5ffd7e6",
-                        "研ぎ士のおっさん、異世界を輝かす -> 18e9d4b3321f9",
-                        "異世界の常識は難しい～希少で最弱な人族に転生したけど物理以外で最強になりそうです～ -> bb237f85f48a3"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,42 +56,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1200,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 129話 -> 4a390a930dae3",
-                        "128話 -> fe12994e2858a",
-                        "🔒 127話 -> 858b5c9b96f4b"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 530,
-                    "message": "Log in via WebView and purchase this chapter to read.",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:52:17.224529513Z",
+    "comparedTo": "2026-10-21T08:47:33.745318916Z",
     "changes": [
         {
             "source": "TakeComic",
             "lang": "ja",
-            "scenario": "pages",
+            "scenario": "popular",
             "from": "PASS",
             "to": "FAIL"
         },
         {
             "source": "TakeComic",
             "lang": "ja",
-            "scenario": "images",
+            "scenario": "latest",
             "from": "PASS",
-            "to": null
+            "to": "FAIL"
+        },
+        {
+            "source": "TakeComic",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TakeComic",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ]
 }

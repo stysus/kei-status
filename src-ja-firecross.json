@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:24.075562862Z",
+    "generatedAt": "2026-10-22T08:55:35.766626248Z",
     "module": ":src:ja:firecross",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 6276622162610581454,
             "name": "FireCross",
             "lang": "ja",
             "baseUrl": "https://firecross.jp",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 807,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 106,
+                    "message": "AWS WAF anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: AWS WAF challenge from firecross.jp (HTTP 202)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 482,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "無限魔力の異世界帰還者 -> /ebook/series/608",
-                        "アラフォーおっさんはスローライフの夢を見るか？ -> /ebook/series/558",
-                        "精霊幻想記 -> /ebook/series/235"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 46,
+                    "message": "AWS WAF anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: AWS WAF challenge from firecross.jp (HTTP 202)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -60,39 +60,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 423,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "第7話 -> 21090",
-                        "第6話 -> 20936",
-                        "第5話 -> 20344"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 920,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://firecross.jp/celsys/diazepam_hybrid.php?mode=8&reqtype=0&vm=4&file=0000.xml&param=1T6XoHEliHqVjZKvm%2FobiMljUv7qhn0Dv%2FVWs8eky6Cd0PK3ogjXKXEFsQm7bnCCIKffWaTiZ1dsd%2B6WM38fYTWesdHdU4n6oIy8ZmJ7bP%2FWy2l%2BjGHl6yQjK%2FwnR29NpXAXY1X5vQfMXRPtL4JTmg%3D%3D#csr-page,4,4",
-                        "https://firecross.jp/celsys/diazepam_hybrid.php?mode=8&reqtype=0&vm=4&file=0001.xml&param=1T6XoHEliHqVjZKvm%2FobiMljUv7qhn0Dv%2FVWs8eky6Cd0PK3ogjXKXEFsQm7bnCCIKffWaTiZ1dsd%2B6WM38fYTWesdHdU4n6oIy8ZmJ7bP%2FWy2l%2BjGHl6yQjK%2FwnR29NpXAXY1X5vQfMXRPtL4JTmg%3D%3D#csr-page,4,4",
-                        "https://firecross.jp/celsys/diazepam_hybrid.php?mode=8&reqtype=0&vm=4&file=0002.xml&param=1T6XoHEliHqVjZKvm%2FobiMljUv7qhn0Dv%2FVWs8eky6Cd0PK3ogjXKXEFsQm7bnCCIKffWaTiZ1dsd%2B6WM38fYTWesdHdU4n6oIy8ZmJ7bP%2FWy2l%2BjGHl6yQjK%2FwnR29NpXAXY1X5vQfMXRPtL4JTmg%3D%3D#csr-page,4,4"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2748,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:24.075562862Z",
+    "changes": [
+        {
+            "source": "FireCross",
+            "lang": "ja",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "FireCross",
+            "lang": "ja",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "FireCross",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "FireCross",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "FireCross",
+            "lang": "ja",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

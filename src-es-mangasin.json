@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-21T08:45:16.663224480Z",
+    "generatedAt": "2026-10-22T08:54:59.626855870Z",
     "module": ":src:es:mangasin",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 3344386250058668105,
             "name": "Mangas.in",
             "lang": "es",
             "baseUrl": "https://m440.in",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 30127,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 687,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 2841,
+                    "durationMs": 3187,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from m440.in (HTTP 403)"
@@ -41,13 +41,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 10360,
+                    "durationMs": 433,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Class no Bocchi Gal o Omochikaeri shite Seisokei Bijin ni shiteyatta Hanashi -> /manga/class-no-bocchi-gal-o-omochikaeri-shite-seisokei-bijin-ni-shiteyatta-hanashi",
-                        "Kotou no Futari -> /manga/kotou-no-futari",
-                        "One-Top  Shoujo -> /manga/one-top-shoujo"
+                        "Boku no Maid ga Narikin no Musuko ni NTRreta Hanashi -> /manga/boku-no-maid-ga-narikin-no-musuko-ni-ntrreta-hanashi",
+                        "Fuuzoku Gakuensai e Youkoso! -> /manga/fuuzoku-gakuensai-e-youkoso",
+                        "Taika no Risei -> /manga/taika-no-risei"
                     ]
                 },
                 {
@@ -62,11 +62,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 60001,
-                    "message": "stream was reset: CANCEL",
+                    "status": "UNSUPPORTED",
+                    "durationMs": 2598,
+                    "message": "requires the native QuickJS library, which has no JVM build: app.cash.quickjs.QuickJs",
                     "notes": [
-                        "java.io.InterruptedIOException: timeout"
+                        "java.lang.NoClassDefFoundError: app/cash/quickjs/QuickJs",
+                        "java.lang.ClassNotFoundException: app.cash.quickjs.QuickJs"
                     ],
                     "samples": []
                 },
@@ -81,21 +82,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:47:31.652119972Z",
+    "comparedTo": "2026-10-21T08:45:16.663224480Z",
     "changes": [
         {
             "source": "Mangas.in",
             "lang": "es",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Mangas.in",
             "lang": "es",
             "scenario": "chapters",
-            "from": "UNSUPPORTED",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "UNSUPPORTED"
         }
     ]
 }

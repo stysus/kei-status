@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-21T08:47:07.539252550Z",
+    "generatedAt": "2026-10-22T08:56:54.804882898Z",
     "module": ":src:ja:kimicomi",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 645302785022492537,
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 651,
+                    "durationMs": 113,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 486,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 6,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "ATMおじさん　異世界でモテ期が止まらない！ -> 19a3246898734",
-                        "ドローイング　最強漫画家はお絵描きスキルで異世界無双する！ -> e7d43a4edbf83",
-                        "姫騎士がクラスメート！　THE COMIC -> 5383e7c52dd89"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 133,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 4,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "美女と賢者と魔人の剣 -> c8fe01c17c107",
-                        "暗殺組合の山田さん -> 397963f4f9cfd",
-                        "巨乳ファンタジー　THE COMIC -> b4fa49e614a3c"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,42 +56,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 548,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 第27話 -> cb674f00889d2",
-                        "🔒 第26話 -> 7bcebe3188f45",
-                        "第25話 -> 6d2ac293dbd60"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 663,
-                    "message": "Log in via WebView and purchase this chapter to read.",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:50:35.685758842Z",
+    "comparedTo": "2026-10-21T08:47:07.539252550Z",
     "changes": [
         {
             "source": "KimiComi",
             "lang": "ja",
-            "scenario": "pages",
+            "scenario": "popular",
             "from": "PASS",
             "to": "FAIL"
         },
         {
             "source": "KimiComi",
             "lang": "ja",
-            "scenario": "images",
+            "scenario": "latest",
             "from": "PASS",
-            "to": null
+            "to": "FAIL"
+        },
+        {
+            "source": "KimiComi",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KimiComi",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ]
 }

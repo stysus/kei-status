@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:54:24.336901918Z",
+    "generatedAt": "2026-10-22T09:15:43.646978395Z",
     "module": ":src:all:taddyink",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 2332326521515456967,
             "name": "Taddy INK (Webtoons)",
             "lang": "all",
             "baseUrl": "https://taddy.org",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 724,
+                    "durationMs": 572,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,13 +31,13 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 260,
+                    "durationMs": 212,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "PodMax -> https://taddy.org/feeds/sss/comicseries/ad0ecf08-4125-4cdd-8797-fa0b3df9e9b7",
                         "Jelletti's Baby Slime Adventures -> https://taddy.org/feeds/sss/comicseries/833a1aad-135f-4cad-9793-22c5e5770434",
-                        "The Changeling's Sister -> https://taddy.org/feeds/sss/comicseries/580290b5-771f-4e77-80fb-37cb8b776a81",
-                        "The Wizard Finn -> https://taddy.org/feeds/sss/comicseries/28302e11-bd4c-44bc-a4b9-d183431390bb"
+                        "The Changeling's Sister -> https://taddy.org/feeds/sss/comicseries/580290b5-771f-4e77-80fb-37cb8b776a81"
                     ]
                 },
                 {
@@ -51,7 +51,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,37 +60,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 235,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 210,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Chapter One - Going on Alone -> https://taddy.org/feeds/sss/comicseries/833a1aad-135f-4cad-9793-22c5e5770434#da5714dd-b074-418f-bb0e-f2d7d78ab075"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 59,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://az1.taddy.org/833a1aad-135f-4cad-9793-22c5e5770434/da5714dd-b074-418f-bb0e-f2d7d78ab075/f17aab56-85d6-4c03-9fe3-95876fba8cfe/story.webp",
-                        "https://az1.taddy.org/833a1aad-135f-4cad-9793-22c5e5770434/da5714dd-b074-418f-bb0e-f2d7d78ab075/ab6df965-c85b-4b2a-9687-2e48cd25451d/story.webp",
-                        "https://az1.taddy.org/833a1aad-135f-4cad-9793-22c5e5770434/da5714dd-b074-418f-bb0e-f2d7d78ab075/eda32812-3a69-4a5e-b8b2-00c298182f43/story.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 765,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:54:24.336901918Z",
+    "changes": [
+        {
+            "source": "Taddy INK (Webtoons)",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Taddy INK (Webtoons)",
+            "lang": "all",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Taddy INK (Webtoons)",
+            "lang": "all",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

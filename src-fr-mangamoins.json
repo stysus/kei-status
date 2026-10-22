@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:45:55.476588927Z",
+    "generatedAt": "2026-10-22T08:56:03.913739467Z",
     "module": ":src:fr:mangamoins",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 6508647660473520087,
             "name": "MangaMoins",
             "lang": "fr",
             "baseUrl": "https://mangamoins.com",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,37 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 428,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 2943,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangamoins.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 168,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "One Piece -> one_piece",
-                        "Jujutsu Kaisen -> jujutsu_kaisen",
-                        "My Hero Academia -> my_hero_academia"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 26,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangamoins.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 167,
-                    "message": null,
+                    "status": "BLOCKED",
+                    "durationMs": 15,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "duplicate manga urls: [spy_x_family]"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangamoins.com (HTTP 403)"
                     ],
-                    "samples": [
-                        "Maghreb -> maghreb",
-                        "Someone Hertz -> someone_hertz",
-                        "One Piece -> one_piece"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -66,39 +62,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 409,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapitre 1196 - L'amour de ceux qui veulent mourir n'a aucune valeur -> OP1196",
-                        "Chapitre 1195 - Point faible -> OP1195",
-                        "Chapitre 1194 - Toute chose est vouée au changement -> OP1194"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 546,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mangamoinsScans.mangamoins.com/3b094db1207c/01.webp",
-                        "https://mangamoinsScans.mangamoins.com/3b094db1207c/02.webp",
-                        "https://mangamoinsScans.mangamoins.com/3b094db1207c/03.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 761,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:45:55.476588927Z",
+    "changes": [
+        {
+            "source": "MangaMoins",
+            "lang": "fr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "MangaMoins",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "MangaMoins",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "MangaMoins",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaMoins",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaMoins",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

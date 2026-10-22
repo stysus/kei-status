@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:33.877654668Z",
+    "generatedAt": "2026-10-22T08:55:51.534517777Z",
     "module": ":src:es:mhscans",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 3253304651550496369,
             "name": "MHScans",
             "lang": "es",
             "baseUrl": "https://mhscans.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1457,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 20722,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mhscans.com (HTTP 503)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2731,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 202,
+                    "message": "HTTP error 500",
                     "notes": [],
-                    "samples": [
-                        "El Antiguo Soberano de la Eternidad -> 2429",
-                        "Inicio de Sesión en el Murim -> 2312",
-                        "Me Confundieron con un Monstruoso Actor Genio -> 2644"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 2698,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 3016,
+                    "message": "HTTP error 500",
                     "notes": [],
-                    "samples": [
-                        "El oficial de la Marina Galáctica se convierte en aventurero -> 136214329",
-                        "Invencible a un GOLPE de Morir. -> 136214164",
-                        "Prodigioso Nieto de la Familia Namgung -> 3133"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,38 +58,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 10183,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capitulo 573.2 AVISO IMPORTANTE NO ES CAP -> capitulo-573-2-aviso-importante-no-es-cap",
-                        "Capitulo 569 -Cambio de la Piedra Neón- -> capitulo-569-cambio-de-la-piedra-neon",
-                        "Capitulo 568 -El señor de la ciudad- -> capitulo-568-el-senor-de-la-ciudad"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2878,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mhscans.com/wp-content/uploads/WP-manga/data/manga_6699ee1cefb96/70944d36c87f9c21dd215d890afd618f/0.jpg",
-                        "https://mhscans.com/wp-content/uploads/WP-manga/data/manga_6699ee1cefb96/70944d36c87f9c21dd215d890afd618f/01.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 10518,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:33.877654668Z",
+    "changes": [
+        {
+            "source": "MHScans",
+            "lang": "es",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "MHScans",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MHScans",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MHScans",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MHScans",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MHScans",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }
