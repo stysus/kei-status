@@ -1,0 +1,46 @@
+version: 2
+
+updates:
+  # The harness is one Gradle build and every version lives in `gradle/libs.versions.toml`, so a
+  # single entry covers the catalog, the subproject build files and the wrapper.
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      # Kotlin's plugin and the stdlib it compiles against are released together and only work as a
+      # pair, so they stay in one pull request even across a major version. The two patterns cover
+      # the library group and the plugin marker groups without also swallowing `kotlinx.*`, which
+      # versions independently.
+      kotlin:
+        patterns:
+          - "org.jetbrains.kotlin:*"
+          - "org.jetbrains.kotlin.*"
+      # Routine bumps arrive as one pull request a week. A major stays on its own, because that is
+      # the one that needs to be read rather than skimmed.
+      routine:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+    ignore:
+      # Pinned to a JitPack commit rather than a release, so there is no published version to
+      # compare against and nothing Dependabot could propose that would be an upgrade.
+      - dependency-name: "com.github.null2264.injekt:injekt-core"
+
+  # Every `uses:` in the repository. The composite action is listed as its own directory because a
+  # `/` entry only reaches `.github/workflows` and a root `action.yml`, and that would leave the
+  # `actions/cache` pin inside it frozen at whatever version it was when the workflows moved on.
+  - package-ecosystem: "github-actions"
+    directories:
+      - "/"
+      - "/.github/actions/gradle-deps-cache"
+    schedule:
+      interval: "weekly"
+    groups:
+      # Actions are referenced by major tag, so there is no minor or patch stream to keep separate;
+      # one pull request with the whole set, and CI is what says whether it still builds.
+      actions:
+        patterns:
+          - "*"
