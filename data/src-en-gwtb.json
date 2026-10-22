@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:52:59.024368980Z",
+    "generatedAt": "2026-10-22T08:50:02.378923407Z",
     "module": ":src:en:gwtb",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 4006397036545425884,
             "name": "Gone with the Blastwave",
             "lang": "en",
             "baseUrl": "https://www.blastwave-comic.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,9 +22,9 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 292,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 115,
+                    "message": "www.blastwave-comic.com: Name or service not known",
                     "notes": [],
                     "samples": []
                 },
@@ -58,37 +58,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 54,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 1,
+                    "message": "www.blastwave-comic.com",
                     "notes": [],
-                    "samples": [
-                        "#81 Knife Fight -> /index.php?nro=93",
-                        "#80 You! You? -> /index.php?nro=92",
-                        "#79 Boom -> /index.php?nro=91"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 54,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.blastwave-comic.com/comics/081.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 186,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:52:59.024368980Z",
+    "changes": [
+        {
+            "source": "Gone with the Blastwave",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Gone with the Blastwave",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Gone with the Blastwave",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Gone with the Blastwave",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

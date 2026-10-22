@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:07.524059483Z",
+    "generatedAt": "2026-10-22T08:59:27.466958222Z",
     "module": ":src:vi:moetruyensuicao",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 7257946851767599928,
             "name": "MoeTruyenSuiCao (unoriginal)",
             "lang": "vi",
             "baseUrl": "https://moe.suicaodex.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 807,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 475,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from moe.suicaodex.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 663,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chị em nhà Mikadono dễ đối phó thật đấy -> 219",
-                        "Iruma Giá Đáo! -> 490",
-                        "Kaiten no Albus -> 531"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 81,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from moe.suicaodex.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 665,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Ma vương tái sinh trở thành pháp sư mạnh nhất -> 788",
-                        "Kouishou Radio -> 2504",
-                        "Tôi đứng trên một triệu sinh mạng -> 1981"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 12,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from moe.suicaodex.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,39 +62,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1009,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "222 -> /v2/chapters/84447",
-                        "221 -> /v2/chapters/83497",
-                        "220 -> /v2/chapters/79223"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1252,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://i.truyen.moe/chapters/manga-219/ch-222/001_vlaGM.js?t=1792253582354",
-                        "https://i.truyen.moe/chapters/manga-219/ch-222/002_vlaGM.js?t=1792253582354",
-                        "https://i.truyen.moe/chapters/manga-219/ch-222/003_vlaGM.js?t=1792253582354"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 20315,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:07.524059483Z",
+    "changes": [
+        {
+            "source": "MoeTruyenSuiCao (unoriginal)",
+            "lang": "vi",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "MoeTruyenSuiCao (unoriginal)",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "MoeTruyenSuiCao (unoriginal)",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "MoeTruyenSuiCao (unoriginal)",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MoeTruyenSuiCao (unoriginal)",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MoeTruyenSuiCao (unoriginal)",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

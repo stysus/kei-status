@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:46:05.091731611Z",
+    "generatedAt": "2026-10-22T08:51:54.785534951Z",
     "module": ":src:ja:mangabu",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 1497299793762441095,
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 831,
+                    "durationMs": 849,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 201,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 60,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "爆弾犯の娘 -> e8c43c1991512",
-                        "タイムズ・テテパム -> 6cc74ee4ab789",
-                        "はらいやさん -> 5a7d7d858d412"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 570,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 35,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "IRUKA -> 9cafb6d7119c7",
-                        "後宮-LAST WOMEN STANDING-【リマスター版】 -> e8adb55221f44",
-                        "はらいやさん -> 5a7d7d858d412"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,27 +56,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 532,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 第3話(1) -> e59eedf6f5b1d",
-                        "第2話(2) -> 381837de54521",
-                        "第2話(1) -> 4a937663f57fb"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 226,
-                    "message": "Log in via WebView and purchase this chapter to read.",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:46:05.091731611Z",
+    "changes": [
+        {
+            "source": "MangaBu",
+            "lang": "ja",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaBu",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaBu",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaBu",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
+        }
+    ]
 }

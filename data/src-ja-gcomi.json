@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:42.578939464Z",
+    "generatedAt": "2026-10-22T08:55:49.437380774Z",
     "module": ":src:ja:gcomi",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 7310112963091407823,
             "name": "G-Comi",
             "lang": "ja",
             "baseUrl": "https://g-comi.jp",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 584,
+                    "durationMs": 92,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 461,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 53,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "東東京だべり酒 -> 6393fdbdad7e8",
-                        "多良さんのウワサ -> f5a28c7f5cc1b",
-                        "AR／MS!! (エーアール・マルチプルサヴァイヴ) -> 13dcf7ad305b6"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 449,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 6,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "東東京だべり酒 -> 6393fdbdad7e8",
-                        "ピットスポルム -> c0bdb7535dd82",
-                        "ススム×ミノル -> 1df65113852ec"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,39 +56,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 584,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "【コラム】冴木夏子(&平井絵里)　酒場探索⑤ -> d10ac40136eb9",
-                        "【コラム】冴木夏子(&平井絵里)　酒場探索④  -> e0c6f7c2a97c4",
-                        "【コラム】冴木夏子　酒場探索③ -> af061a9210797"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 563,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn-public.comici.jp/articlevisual/428191/default/202610141602035357F9357B82109B9BD1F076EBD27B80D0F.webp",
-                        "https://cdn.comici.jp/articles/428191/default/2026101416023396138B7F316448BE46548E7EAE71AB0EDB0.png",
-                        "https://cdn.comici.jp/articles/428191/default/202610141603535174EFDD2F969559E8B1C92E99F32DED48E.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3189,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:42.578939464Z",
+    "changes": [
+        {
+            "source": "G-Comi",
+            "lang": "ja",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "G-Comi",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "G-Comi",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "G-Comi",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "G-Comi",
+            "lang": "ja",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

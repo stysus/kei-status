@@ -1,21 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-21T08:46:32.276700469Z",
+    "generatedAt": "2026-10-22T08:56:28.182972147Z",
     "module": ":src:en:comix",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 7537715367149829912,
             "name": "Comix",
             "lang": "en",
             "baseUrl": "https://comix.to",
-            "status": "FAIL",
+            "status": "UNSUPPORTED",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 216,
+                    "durationMs": 213,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 768,
+                    "durationMs": 705,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 628,
+                    "durationMs": 606,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The Heart is Blue -> /w5x2r-the-heart-is-blue",
-                        "Assistant Manager Lee's Survival Story -> /j6jm3-assistant-manager-lees-survival-story",
-                        "Otto no Yuigon ga \"Doujinshi Kake\" Datta Mono de -> /77952-otto-no-yuigon-ga-doujinshi-kake-datta-mono-de"
+                        "The Yellow-Haired Villain in the Female Main Character's Novel Wants Happiness -> /70732-the-yellow-haired-villain-in-the-female-main-characters-novel-wants-happiness",
+                        "Arrogant Otto the 1st -> /5562g-arrogant-otto-the-1st",
+                        "Chiikawa: Nanka Chiisakute Kawaii Yatsu (Webcomic Pages) -> /xyy87-chiikawa-nanka-chiisakute-kawaii-yatsu-webcomic-pages"
                     ]
                 },
                 {
@@ -64,10 +64,13 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 10617,
-                    "message": "Could not find the site's chapters API",
-                    "notes": [],
+                    "status": "UNSUPPORTED",
+                    "durationMs": 836,
+                    "message": "requires an Android class the harness does not provide: android.webkit.WebView$VisualStateCallback",
+                    "notes": [
+                        "java.lang.NoClassDefFoundError: android/webkit/WebView$VisualStateCallback",
+                        "java.lang.ClassNotFoundException: android.webkit.WebView$VisualStateCallback"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,35 +84,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T21:28:52.218576920Z",
+    "comparedTo": "2026-10-21T08:46:32.276700469Z",
     "changes": [
         {
             "source": "Comix",
             "lang": "en",
-            "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "Comix",
-            "lang": "en",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "Comix",
-            "lang": "en",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "Comix",
-            "lang": "en",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "UNSUPPORTED"
         }
     ]
 }

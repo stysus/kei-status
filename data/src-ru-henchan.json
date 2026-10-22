@@ -1,59 +1,53 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:52:42.116761485Z",
+    "generatedAt": "2026-10-22T09:00:02.298620544Z",
     "module": ":src:ru:henchan",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 5504588601186153612,
             "name": "HenChan",
             "lang": "ru",
             "baseUrl": "https://xxl.hentaichan.live",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 3043,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30761,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 1558,
-                    "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 21383,
+                    "message": "HTTP error 502",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 2436,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 174,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "Игрок - часть 8 (стр. 195-217) -> /manga/55773-igrok-chast-8-str.-195-217.html",
-                        "Волнующее похищение -> /manga/55772-volnuyuschee-pohischenie.html",
-                        "С Момо-тян -> /manga/55771-s-momo-tyan.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,39 +56,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 4051,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Игрок - часть 8 (стр. 195-217) -> /manga/55773-igrok-chast-8-str.-195-217.html",
-                        "Игрок - часть 7 (стр. 169-194) -> /manga/55703-igrok-chast-7-str-169-194.html",
-                        "Игрок - часть 6 (стр. 149-168) -> /manga/55669-igrok-chast-6-str-149-168.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 140,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mimg4.imgschan.xyz/manganew_webp/k/1792258519_kizaru3d-igrok-chast-8-str.-195-217/00000.webp",
-                        "https://mimg4.imgschan.xyz/manganew_webp/k/1792258519_kizaru3d-igrok-chast-8-str.-195-217/00195.webp",
-                        "https://mimg4.imgschan.xyz/manganew_webp/k/1792258519_kizaru3d-igrok-chast-8-str.-195-217/00196.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2712,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:52:42.116761485Z",
+    "changes": [
+        {
+            "source": "HenChan",
+            "lang": "ru",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "HenChan",
+            "lang": "ru",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "HenChan",
+            "lang": "ru",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "HenChan",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HenChan",
+            "lang": "ru",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HenChan",
+            "lang": "ru",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

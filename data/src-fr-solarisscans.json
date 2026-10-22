@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:45.119580545Z",
+    "generatedAt": "2026-10-22T08:57:40.099611141Z",
     "module": ":src:fr:solarisscans",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 1172624746268381921,
             "name": "Solaris Scans",
             "lang": "fr",
             "baseUrl": "https://solaris-scans.fr",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,32 +22,26 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 20875,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from solaris-scans.fr (HTTP 503)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 556,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 251,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from solaris-scans.fr (HTTP 503)"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 129,
+                    "message": "HTTP error 526",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 220,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from solaris-scans.fr (HTTP 503)"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 818,
+                    "message": "HTTP error 526",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -79,6 +73,28 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:45.119580545Z",
+    "changes": [
+        {
+            "source": "Solaris Scans",
+            "lang": "fr",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Solaris Scans",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "FAIL"
+        },
+        {
+            "source": "Solaris Scans",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "FAIL"
+        }
+    ]
 }

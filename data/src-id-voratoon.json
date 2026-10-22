@@ -1,61 +1,59 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:50:30.486548717Z",
+    "generatedAt": "2026-10-22T08:58:32.651742442Z",
     "module": ":src:id:voratoon",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 972717448578983812,
             "name": "VoraToon",
             "lang": "id",
             "baseUrl": "https://v8.voratoon.com",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 859,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 422,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from v8.voratoon.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 957,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Magic Emperor -> /series/magic-emperor",
-                        "The Regressed Mercenary’s Machinations -> /series/the-regressed-mercenarys-machinations",
-                        "Leveling In The Future (Apex Future Martial Arts) -> /series/leveling-in-the-future-apex-future-martial-arts"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 382,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.voratoon.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 262,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "My Dragon Girlfriend Has Returned -> /series/my-dragon-girlfriend-has-returned",
-                        "The Regressor and the Blind Saintess -> /series/the-regressor-and-the-blind-saintess",
-                        "I Became the Rogue First Prince -> /series/the-rogue-first-prince"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 31,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.voratoon.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 5,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,41 +62,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 929,
-                    "message": null,
-                    "notes": [
-                        "duplicate chapter urls: [/series/magic-emperor/chapter/146]"
-                    ],
-                    "samples": [
-                        "Chapter 924 -> /series/magic-emperor/chapter/924",
-                        "Chapter 923 -> /series/magic-emperor/chapter/923",
-                        "Chapter 922 -> /series/magic-emperor/chapter/922"
-                    ]
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 264,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.voratoon.com/wp-content/img/M/Magic-Emperor/924-U4ZM833Y40/001-3D5B8D9ED49B919A16E13AAB59F8DF3F.jpg",
-                        "https://cdn.voratoon.com/wp-content/img/M/Magic-Emperor/924-U4ZM833Y40/002-10B8D3277B2516785A3876FC3E89E7D8.jpg",
-                        "https://cdn.voratoon.com/wp-content/img/M/Magic-Emperor/924-U4ZM833Y40/003-F34D73020D8CA8C2F3EED521C9A1C903.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 4236,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:50:30.486548717Z",
+    "changes": [
+        {
+            "source": "VoraToon",
+            "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "VoraToon",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "VoraToon",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "VoraToon",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "VoraToon",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "VoraToon",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

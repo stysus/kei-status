@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:47:55.851948185Z",
+    "generatedAt": "2026-10-22T08:55:20.559703617Z",
     "module": ":src:es:mantrazscan",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 7172992930543738693,
             "name": "Mantraz Scan",
             "lang": "es",
             "baseUrl": "https://mantrazscanss.lat",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,21 +23,23 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 358,
+                    "durationMs": 364,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 255,
+                    "status": "WARN",
+                    "durationMs": 180,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[0] has no thumbnail"
+                    ],
                     "samples": [
-                        "A Couple of Cuckoos -> /manga/a-couple-of-cuckoos/",
-                        "La posada Umine de aquella isla -> /manga/la-posada-umine-de-aquella-isla/",
-                        "Novato de Nivel 99 -> /manga/novato-de-nivel-99/"
+                        "Lord Blackwood es Responsable de la Muerte de la Doncella -> /manga/lord-blackwood-es-responsable-de-la-muerte-de-la-doncella/",
+                        "Dangerous Roomies -> /manga/dangerous-roomies/",
+                        "Detras del Agujero -> /manga/detras-del-agujero/"
                     ]
                 },
                 {
@@ -60,39 +62,54 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 210,
+                    "status": "WARN",
+                    "durationMs": 101,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Capítulo 316 -> /manga/a-couple-of-cuckoos/capitulo-316/",
-                        "Capítulo 315 -> /manga/a-couple-of-cuckoos/capitulo-315/",
-                        "Capítulo 314 -> /manga/a-couple-of-cuckoos/capitulo-314/"
-                    ]
+                    "notes": [
+                        "chapter list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 213,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mantrazscanss.lat/img/WP-manga/data/manga_69ba2573aa898/capitulo-316/1.webp",
-                        "https://mantrazscanss.lat/img/WP-manga/data/manga_69ba2573aa898/capitulo-316/2.webp",
-                        "https://mantrazscanss.lat/img/WP-manga/data/manga_69ba2573aa898/capitulo-316/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 813,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:47:55.851948185Z",
+    "changes": [
+        {
+            "source": "Mantraz Scan",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Mantraz Scan",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Mantraz Scan",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mantraz Scan",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

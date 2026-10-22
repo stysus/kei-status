@@ -1,21 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:47:42.396869073Z",
+    "generatedAt": "2026-10-22T08:55:48.036179148Z",
     "module": ":src:ar:mangalink",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "1d3d7c4b",
     "sources": [
         {
             "sourceId": 3568795724496898351,
             "name": "مانجا لينك",
             "lang": "ar",
             "baseUrl": "https://link-manga.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1687,
+                    "durationMs": 1098,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2269,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 694,
+                    "message": "HTTP error 400",
                     "notes": [],
-                    "samples": [
-                        "Otherworldly Evil Monarch -> 775",
-                        "lady Baby -> 417",
-                        "cultivation return on campus -> 2311"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1781,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 690,
+                    "message": "HTTP error 400",
                     "notes": [],
-                    "samples": [
-                        "The Shepherd Wizard -> 170828",
-                        "Is It Bad That the Main Character’s a Roleplayer? -> 181532",
-                        "The Chairman Who Just Wants to Slack Off -> 179032"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,38 +56,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1036,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "258 -> 258",
-                        "257 -> 257",
-                        "256 -> 256"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 927,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://s2darko.link-manga.net/manga/arb4/data/manga_5ef28f62ab9b0/9e02b07dbf666b0d814bbaedf6b1600e/image-1.jpg",
-                        "https://s2darko.link-manga.net/manga/arb4/data/manga_5ef28f62ab9b0/9e02b07dbf666b0d814bbaedf6b1600e/image-2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3174,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:47:42.396869073Z",
+    "changes": [
+        {
+            "source": "مانجا لينك",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "مانجا لينك",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "مانجا لينك",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "مانجا لينك",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "مانجا لينك",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }
