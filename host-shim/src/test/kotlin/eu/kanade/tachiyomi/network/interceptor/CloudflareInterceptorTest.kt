@@ -59,7 +59,7 @@ class CloudflareInterceptorTest {
     @After
     fun stop() = server.stop(0)
 
-    private fun client(solve: (String, String) -> String? = { _, _ ->
+    private fun client(solve: (String) -> String? = { _ ->
         solveCalls.incrementAndGet()
         null
     }): OkHttpClient = OkHttpClient.Builder()
@@ -90,7 +90,7 @@ class CloudflareInterceptorTest {
             .cookieJar(InMemoryCookieJar())
             .callTimeout(20, TimeUnit.SECONDS)
             .addInterceptor(
-                CloudflareInterceptor(InMemoryCookieJar()) { _, _ ->
+                CloudflareInterceptor(InMemoryCookieJar()) { _ ->
                     solveCalls.incrementAndGet()
                     challenging = false
                     "cf_clearance=token"
@@ -113,7 +113,7 @@ class CloudflareInterceptorTest {
 
         // The browser earns a clearance, but this zone refuses to honour it for the replay.
         val thrown = runCatching {
-            client { _, _ ->
+            client { _ ->
                 solveCalls.incrementAndGet()
                 "cf_clearance=token"
             }.newCall(request()).execute()

@@ -285,24 +285,29 @@ internal object ChallengeSolver {
  * would hop through the single main thread, which a source that is itself blocked on this request
  * may already be occupying.
  *
- * Whether the earned clearance is accepted is up to the zone: `cf_clearance` is bound to the client
- * that earned it, so some zones accept a replay from another client and some refuse it. The caller
- * replays once and reports a block if the challenge comes back; [solve] itself makes a single
- * attempt per host per [COOLDOWN_MS], so an extension the browser cannot clear fails fast instead of
- * spending seconds on every request.
+ * The browser keeps its own identity. Telling it to present the app's user agent while the rest of
+ * the browser still looks like a desktop build is what a zone rejects, and a clearance earned that
+ * way is bound to an identity the replay cannot reproduce. [userAgentFor] reports the user agent
+ * the browser actually used, and the caller sends it again with the replay.
+ *
+ * [solve] makes a single attempt per host per [COOLDOWN_MS], so an extension the browser cannot
+ * clear fails fast instead of spending seconds on every request.
  */
 object CloudflareSolver {
 
     private val lastAttempt = ConcurrentHashMap<String, Long>()
 
+    /** The user agent each host's browser presented when it earned that host's clearance. */
+    private val earnedUserAgent = ConcurrentHashMap<String, String>()
+
+    /** The user agent the clearance for [host] is bound to, or null if none was earned. */
+    fun userAgentFor(host: String): String? = earnedUserAgent[host]
+
     /**
      * Returns the `Cookie` header the browser holds for [url] after clearing its challenge, or
      * null when it was not cleared.
-     *
-     * [userAgent] is applied to the browser because Cloudflare binds `cf_clearance` to the user
-     * agent; the follow-up request has to look like the browser that earned the cookie.
      */
-    fun solve(url: String, userAgent: String, timeout: Duration = 20.seconds): String? {
+    fun solve(url: String, timeout: Duration = 20.seconds): String? {
         if (!autoSolveEnabled) return null
 
         val host = runCatching { java.net.URI(url).host }.getOrNull() ?: return null
@@ -312,21 +317,19 @@ object CloudflareSolver {
         // retrying would only add latency to every request the source makes.
         if (previous != null && now - previous < COOLDOWN_MS) return null
 
-        return runCatching { attempt(url, userAgent, timeout) }.getOrNull()
+        return runCatching { attempt(url, host, timeout) }.getOrNull()
     }
 
-    private fun attempt(url: String, userAgent: String, timeout: Duration): String? {
+    private fun attempt(url: String, host: String, timeout: Duration): String? {
         val page = Chrome.newPage()
         try {
+            // Ordering is per connection, so these are applied before the navigation below even
+            // though they are not awaited.
             page.send("Page.enable")
             page.send("Network.enable")
             page.send("DOM.enable")
             ChallengeSolver.installWatcher(page)
-            page.send(
-                "Network.setUserAgentOverride",
-                JsonObject(mapOf("userAgent" to JsonPrimitive(userAgent))),
-            )
-            page.send("Page.navigate", JsonObject(mapOf("url" to JsonPrimitive(url))))
+            navigate(page, url)
 
             val clicked = mutableSetOf<String>()
             val deadline = System.nanoTime() + timeout.inWholeNanoseconds
@@ -334,7 +337,10 @@ object CloudflareSolver {
             while (System.nanoTime() < deadline) {
                 Thread.sleep(POLL_MS)
 
-                cookiesFor(page, url).takeIf { it.contains("cf_clearance") }?.let { return it }
+                cookiesFor(page, url).takeIf { it.contains("cf_clearance") }?.let { cookies ->
+                    userAgent(page)?.let { earnedUserAgent[host] = it }
+                    return cookies
+                }
 
                 val probe = ChallengeSolver.probe(page)
                 val key = probe.widgetKey
@@ -350,6 +356,34 @@ object CloudflareSolver {
             page.close()
         }
     }
+
+    /**
+     * Navigates the fresh target, retrying while Chrome aborts the first attempt.
+     *
+     * A page created a moment ago is still loading its initial `about:blank`, so the first
+     * `Page.navigate` is answered with `net::ERR_ABORTED` and the target stays blank.
+     */
+    private fun navigate(page: Page, url: String) {
+        repeat(NAVIGATE_ATTEMPTS) { attempt ->
+            val result = runCatching {
+                page.call("Page.navigate", JsonObject(mapOf("url" to JsonPrimitive(url))))
+            }.getOrNull()
+            if (result?.get("errorText") == null) return
+            if (attempt < NAVIGATE_ATTEMPTS - 1) Thread.sleep(NAVIGATE_RETRY_MS)
+        }
+    }
+
+    private fun userAgent(page: Page): String? = runCatching {
+        page.call(
+            "Runtime.evaluate",
+            JsonObject(
+                mapOf(
+                    "expression" to JsonPrimitive("navigator.userAgent"),
+                    "returnByValue" to JsonPrimitive(true),
+                ),
+            ),
+        )["result"]?.jsonObject?.get("value")?.jsonPrimitive?.content
+    }.getOrNull()
 
     /** The `Cookie` header form of every cookie the browser would send to [url]. */
     private fun cookiesFor(page: Page, url: String): String {
@@ -373,4 +407,8 @@ object CloudflareSolver {
 
     /** One solve attempt per host per minute, so a refusal is not paid for on every request. */
     private const val COOLDOWN_MS = 60_000L
+
+    /** Chrome aborts the first navigation of a fresh target, so it is issued again. */
+    private const val NAVIGATE_ATTEMPTS = 3
+    private const val NAVIGATE_RETRY_MS = 700L
 }

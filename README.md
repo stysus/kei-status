@@ -27,8 +27,10 @@ and stands in for the host.
 - JDK 21+
 - An `extensions-source` checkout next to this project (default `./extensions-source`)
 - `extensions-source/local.properties` pointing at your Android SDK
-- A Chromium-based browser for WebView sources. Chromium is started headlessly on first use and
-  stopped at the end of the run; sources that never open a WebView do not pay for it.
+- A Chromium-based browser for WebView sources, plus `xvfb-run` if the machine has no display.
+  Chromium is started on first use and stopped at the end of the run; sources that never open a
+  WebView do not pay for it. It runs on the display when one exists and headlessly otherwise, since
+  a headless browser cannot clear every challenge (see [Cloudflare challenges](#cloudflare-challenges)).
 
 ### Run one extension
 
@@ -61,7 +63,7 @@ Step 2 only needs to be repeated when you switch modules or after `clean`.
 | OkHttp, Jsoup, coroutines | real |
 | `HttpSource`, `NetworkHelper`, `SManga`, `SChapter`, `Page`, filters | reimplemented in `host-shim` |
 | `android.*`, `androidx.preference` | reimplemented in `android-shim`, only what is needed |
-| `android.webkit.WebView` | real headless Chromium, driven over the DevTools protocol |
+| `android.webkit.WebView` | real Chromium, driven over the DevTools protocol (visible when a display exists, headless otherwise) |
 | crypto providers | the JDK's, plus BouncyCastle for the transformations Android's copy supplies |
 | `Bitmap`/`BitmapFactory`/`Canvas` | real image I/O via ImageIO (+ WebP plugin), `Canvas` on `Graphics2D` |
 | Cloudflare challenge solving | attempted the way the app does it; a challenge that cannot be cleared is reported, not faked |
@@ -93,12 +95,13 @@ A module that cannot link is reported as `UNSUPPORTED`/`FAIL` instead of abortin
 
 A site that answers with a challenge is handled the way the app handles it, in two places:
 
-- **Requests** — `CloudflareInterceptor` detects the challenge, opens the page in Chromium, clicks
-  the widget once it accepts input, copies the cookies the browser earned into the OkHttp cookie
-  jar, and replays the request once. The replay reuses the browser's user agent because
-  `cf_clearance` is bound to it. If the challenge comes back, the run reports `BLOCKED`; the solver
-  limits itself to one attempt per host per minute, so an extension this browser cannot clear fails
-  fast instead of paying for a solve on every request.
+- **Requests** — `CloudflareInterceptor` detects the challenge, opens the page in Chromium, lets the
+  challenge settle, copies the cookies the browser earned into the OkHttp cookie jar, and replays
+  the request once. `cf_clearance` is bound to the user agent that earned it, so the interceptor
+  sends that user agent on every later request to the host too; a replay under any other identity is
+  refused. If the challenge comes back, the run reports `BLOCKED`; the solver limits itself to one
+  attempt per host per minute, so an extension this browser cannot clear fails fast instead of
+  paying for a solve on every request.
 - **WebViews** — a source that opens a challenged URL itself gets the same treatment, but only
   after the loaded page has been confirmed to be an interstitial, so ordinary pages are never
   clicked.
@@ -115,17 +118,28 @@ Two properties of the live widget shape the clicker:
 
 The click is a real mouse event dispatched through the DevTools input domain. Each widget is
 clicked at most once: Cloudflare issues a fresh widget id when it replaces a rejected widget, and
-the caller remembers the ids it has clicked. A challenge that renders no widget is left alone and
-reported as `BLOCKED`. Nothing is forged — if the browser does not earn `cf_clearance`, the run says
-so.
+the caller remembers the ids it has clicked. The click is gated on the widget announcing that it
+accepts input, so it is only ever spent on a widget that is actually waiting; pressing one a zone
+would have passed on its own is itself a signal it rejects, measured as Turnstile `fail 600010`. A
+challenge that renders no widget is left alone and reported as `BLOCKED`. Nothing is forged — if the
+browser does not earn `cf_clearance`, the run says so.
 
-A challenge that survives the replay is a real limit, not a missing feature: `cf_clearance` is bound
-to the client that earned it, and a zone that enforces that binding refuses a replayed request even
-with an identical user agent. Of six challenged zones sampled (`hattorimanga.net`, `onisaga.com`,
-`manhuarmtl.com`, `lmtos.net`, `mangasbrasuka.org`, `astral-manga.fr`), all six earned
-`cf_clearance` in about three seconds and all six still answered the replay with a challenge. The
-solver is kept because zones that do not enforce the binding accept the replay, and because a
-source's own WebView does pass some challenges with the same click.
+The browser presents its own identity rather than being told to look like the app. A zone compares
+the user agent with the rest of the browser, so an override contradicts it; and the clearance a
+mismatched browser earns is bound to an identity the replay cannot reproduce. Measured against
+`01.komikzoid.id`, one script, same machine and IP:
+
+| browser | user agent | result |
+| --- | --- | --- |
+| headless | native | stuck at the checkbox |
+| headless | app | stuck at the checkbox |
+| visible | app | stuck at the checkbox; clicking it ends in Turnstile `fail 600010` |
+| visible | native | cleared in about two seconds, no click |
+
+So a display is not optional for challenged zones: `ci/run-shard.sh` runs the checker under
+`xvfb-run` when it is installed, and the browser falls back to headless only when no display can be
+created. Clearance earned by a visible browser is accepted by the replay when the replay presents
+the same user agent, which is what the interceptor does for every request to the host.
 
 Set `KEI_STATUS_NO_CF_SOLVE=1` to skip the attempt entirely and report the challenge immediately.
 
@@ -447,9 +461,10 @@ ci/commit.sh [store-dir] [message-prefix]
   the app isn't in the foreground" — there is no foreground — and a widget that never resolves ends
   in the source's own 2-minute WebView timeout, or in the harness's shorter `--timeout`, whichever
   comes first. Both are `FAIL` on the site, not a missing platform class.
-- A Cloudflare challenge can be clicked through, but a zone that enforces the `cf_clearance` binding
-  refuses the replayed request; those extensions report `BLOCKED` after one attempt rather than
-  retrying. The measurements behind that are in [Cloudflare challenges](#cloudflare-challenges).
+- A Cloudflare challenge that only a visible browser can clear stays `BLOCKED` on a machine with no
+  display: headless Chromium is detectable and the widget does not pass on its own. `ci/run-shard.sh`
+  supplies a display with `xvfb-run`; the measurements are in
+  [Cloudflare challenges](#cloudflare-challenges).
 
 ### Timeouts
 

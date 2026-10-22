@@ -53,8 +53,19 @@ fi
 # Exit 1 means "at least one source failed", which is a finding the page records. In a sweep of
 # 1,400 modules that is the normal case, so it is not a warning. Anything else is the checker
 # itself breaking, and that must fail the job.
+#
+# The challenge solver needs a visible browser. A headless one is detectable and a Cloudflare
+# challenge it refuses never becomes solvable, so a display is supplied when one can be created.
+# Without `xvfb-run` the browser falls back to headless and challenges stay unsolved.
+runner=()
+if command -v xvfb-run >/dev/null 2>&1; then
+  runner=(xvfb-run -a)
+else
+  echo "::warning::xvfb-run is not installed; challenges will be attempted headlessly and may not clear"
+fi
+
 set +e
-./cli/build/install/cli/bin/cli \
+"${runner[@]}" ./cli/build/install/cli/bin/cli \
   --module-list "$shard_file" \
   --source-root "$source_root" \
   --store "$store"

@@ -78,7 +78,19 @@ object Chrome {
 
             val command = buildList {
                 add(binary)
-                add("--headless=new")
+                // A visible browser clears challenges that headless Chromium cannot: headless is
+                // distinguishable to the zone, and a challenge it refuses never becomes solvable.
+                // So a display is used whenever one exists, and headless is only the fallback for
+                // a machine that has none.
+                if (System.getenv("DISPLAY") == null) {
+                    add("--headless=new")
+                } else {
+                    // There is usually no window manager on a virtual display, so Chrome treats
+                    // its window as occluded and throttles the page.
+                    add("--disable-backgrounding-occluded-windows")
+                    add("--disable-renderer-backgrounding")
+                    add("--disable-background-timer-throttling")
+                }
                 add("--disable-gpu")
                 add("--no-sandbox")
                 add("--disable-dev-shm-usage")
@@ -231,6 +243,14 @@ class Page internal constructor(
 
     private val listeners = ConcurrentHashMap<String, MutableList<(JsonObject) -> Unit>>()
 
+    /**
+     * Opens once the DevTools WebSocket is ready.
+     *
+     * `WebSocket.send` returns false before the socket is open and the command is lost, so a page
+     * that is used immediately after creation would silently drop its first commands.
+     */
+    private val opened = java.util.concurrent.CountDownLatch(1)
+
     @Volatile
     private var closed = false
 
@@ -239,12 +259,17 @@ class Page internal constructor(
         .readTimeout(0, TimeUnit.SECONDS)
         .build()
         .newWebSocket(Request.Builder().url(socketUrl).build(), object : WebSocketListener() {
+            override fun onOpen(webSocket: WebSocket, response: Response) {
+                opened.countDown()
+            }
+
             override fun onMessage(webSocket: WebSocket, text: String) {
                 runCatching { dispatch(text) }
             }
 
             override fun onFailure(webSocket: WebSocket, t: Throwable, response: Response?) {
                 closed = true
+                opened.countDown()
                 pending.values.forEach { it.completeExceptionally(t) }
                 pending.clear()
             }
@@ -253,6 +278,15 @@ class Page internal constructor(
                 closed = true
             }
         })
+
+    init {
+        if (!opened.await(15, TimeUnit.SECONDS)) {
+            throw ChromeUnavailableException("DevTools page $targetId did not open its socket within 15s")
+        }
+        if (closed) {
+            throw ChromeUnavailableException("DevTools page $targetId closed while connecting")
+        }
+    }
 
     fun on(event: String, listener: (JsonObject) -> Unit) {
         listeners.getOrPut(event) { mutableListOf() } += listener
