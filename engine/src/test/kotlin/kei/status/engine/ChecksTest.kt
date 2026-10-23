@@ -14,6 +14,21 @@ import java.io.IOException
 class ChecksTest {
 
     @Test
+    fun `sentinel langs are not metadata violations`() {
+        // `all` and `other` are declared by real extensions in the extension repo - Comic Fury's
+        // comics are not in any language, HentaiHand advertises `other` for all 34 of its variants.
+        // Flagging them would report a convention as a violation.
+        listOf("all", "other", "en", "pt-BR", "zh").forEach { lang ->
+            assertTrue("rejected $lang", Checks.metadata(1, "name", lang, "https://example.com").isEmpty())
+        }
+
+        // Everything the regex always rejected stays rejected.
+        assertTrue(Checks.metadata(1, "name", "english", "https://example.com").isNotEmpty())
+        assertTrue(Checks.metadata(1, "name", "other-x-y", "https://example.com").isNotEmpty())
+        assertTrue(Checks.metadata(1, "name", "", "https://example.com").isNotEmpty())
+    }
+
+    @Test
     fun `manga without url or title is reported`() {
         val manga = SManga.create().apply {
             url = ""

@@ -228,7 +228,7 @@ class HarnessRunner(private val config: HarnessConfig) {
             )
         }
 
-        scenarios += capture("metadata") { Checks.metadata(source.id, source.name, source.lang, baseUrlOf(source)) }.result
+        scenarios += capture("metadata", notes = { it }) { Checks.metadata(source.id, source.name, source.lang, baseUrlOf(source)) }.result
 
         scenarios += connectivityScenario(source, host)
 
@@ -277,7 +277,7 @@ class HarnessRunner(private val config: HarnessConfig) {
                 }
 
                 if (config.probeImages && pages.value != null) {
-                    scenarios += capture("images", host = host) { probeImages(source, pages.value) }.result
+                    scenarios += capture("images", notes = { it }, host = host) { probeImages(source, pages.value) }.result
                 }
             }
         }
@@ -312,7 +312,7 @@ class HarnessRunner(private val config: HarnessConfig) {
     /** The home-page probe, once per site, for the same reason. */
     private suspend fun connectivityScenario(source: CatalogueSource, host: String?): ScenarioResult =
         sharedPerSite(source, homeSites) {
-            capture("connectivity", host = host) { probeHome(source) }.result
+            capture("connectivity", notes = { it }, host = host) { probeHome(source) }.result
         }
 
     /**

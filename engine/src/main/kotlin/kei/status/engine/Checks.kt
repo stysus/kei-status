@@ -113,10 +113,20 @@ object Checks {
     fun metadata(id: Long, name: String, lang: String, baseUrl: String): List<String> = buildList {
         if (id <= 0) add("source id is not positive")
         if (name.isBlank()) add("source name is blank")
-        if (!lang.matches(Regex("^[a-zA-Z]{2,3}(-[a-zA-Z0-9]+)?$"))) add("unexpected lang: $lang")
+        if (!isValidLang(lang)) add("unexpected lang: $lang")
         if (!baseUrl.startsWith("https://")) add("baseUrl is not https: $baseUrl")
         if (baseUrl.toHttpUrlOrNull() == null) add("baseUrl is not a valid url: $baseUrl")
     }
+
+    /**
+     * A language code, or one of the two sentinel langs the extension repo uses.
+     *
+     * `all` is a multi-language source against one site, and `other` is a source with no language
+     * at all - Comic Fury's comics are not in any language. Both are declared by real extensions,
+     * so flagging them would report a convention as a violation.
+     */
+    private fun isValidLang(lang: String): Boolean =
+        lang == "all" || lang == "other" || lang.matches(Regex("^[a-zA-Z]{2,3}(-[a-zA-Z0-9]+)?$"))
 
     /**
      * Maps an exception to a status, a one-line reason, and the cause chain.
