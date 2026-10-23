@@ -118,7 +118,7 @@ class BitmapDescrambleTest {
                 0f, 0f, 0f, 1f, 0f,
             ),
         )
-        val paint = Paint().apply { colorFilter = ColorMatrixColorFilter(invert) }
+        val paint = Paint().apply { setColorFilter(ColorMatrixColorFilter(invert)) }
         canvas.drawBitmap(white, null, RectF(0f, 0f, white.width.toFloat(), white.height.toFloat()), paint)
 
         assertEquals(0x000000, colorAt(output, 4, 4))

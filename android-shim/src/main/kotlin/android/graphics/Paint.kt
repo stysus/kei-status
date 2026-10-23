@@ -21,7 +21,7 @@ open class Paint {
 
     var isDither: Boolean = false
 
-    var colorFilter: ColorFilter? = null
+    private var colorFilterValue: ColorFilter? = null
 
     var textSize: Float = 12f
 
@@ -44,13 +44,21 @@ open class Paint {
      *
      * That return type is part of the JVM descriptor, so this cannot be a Kotlin `var`: the setter
      * a property generates is `void`, and extension bytecode compiled against android.jar links
-     * against `setTypeface(Typeface)Typeface`.
+     * against `setTypeface(Typeface)Typeface`. The same holds for every fluent setter in this
+     * class - see [setColorFilter] - which is why they are written as methods, not properties.
      */
     fun getTypeface(): Typeface? = typefaceValue
 
     fun setTypeface(typeface: Typeface?): Typeface? {
         typefaceValue = typeface
         return typeface
+    }
+
+    fun getColorFilter(): ColorFilter? = colorFilterValue
+
+    fun setColorFilter(colorFilter: ColorFilter?): ColorFilter? {
+        colorFilterValue = colorFilter
+        return colorFilter
     }
 
     /**
@@ -73,7 +81,7 @@ open class Paint {
         isAntiAlias = false
         isFilterBitmap = true
         isDither = false
-        colorFilter = null
+        colorFilterValue = null
         textSize = 12f
         typefaceValue = Typeface.DEFAULT
     }

@@ -158,7 +158,7 @@ class Canvas(val bitmap: Bitmap) {
         } catch (_: IllegalStateException) {
             return null
         }
-        return (paint?.colorFilter as? ColorMatrixColorFilter)?.apply(image) ?: image
+        return (paint?.getColorFilter() as? ColorMatrixColorFilter)?.apply(image) ?: image
     }
 
     private fun applyPaint(paint: Paint?) {

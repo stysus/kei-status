@@ -3,6 +3,7 @@ package android
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.graphics.Bitmap
+import android.graphics.ColorFilter
 import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.Typeface
@@ -29,11 +30,22 @@ import java.io.File
 class PlatformLinkageTest {
 
     @Test
-    fun `paint setTypeface returns the typeface instead of void`() {
-        val method = Paint::class.java.getMethod("setTypeface", Typeface::class.java)
+    fun `paint fluent setters return what they were given`() {
+        // `var typeface` / `var colorFilter` would generate `void` setters, while android.jar
+        // declares `Typeface setTypeface(Typeface)` and `ColorFilter setColorFilter(ColorFilter)`.
+        // The return type is part of the JVM descriptor, so a `var` links as NoSuchMethodError.
+        assertEquals(
+            Typeface::class.java,
+            Paint::class.java.getMethod("setTypeface", Typeface::class.java).returnType,
+        )
+        assertEquals(
+            ColorFilter::class.java,
+            Paint::class.java.getMethod("setColorFilter", ColorFilter::class.java).returnType,
+        )
 
-        assertEquals(Typeface::class.java, method.returnType)
+        // The getters stay plain, and the nullable property type does not change the descriptor.
         assertEquals(Typeface::class.java, Paint::class.java.getMethod("getTypeface").returnType)
+        assertEquals(ColorFilter::class.java, Paint::class.java.getMethod("getColorFilter").returnType)
     }
 
     @Test
