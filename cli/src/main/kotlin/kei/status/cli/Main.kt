@@ -122,8 +122,26 @@ internal fun selectedEntries(options: Options): List<ModuleList.Entry> = when {
 internal fun resolveEntries(options: Options): List<ModuleList.Entry> {
     val all = selectedEntries(options)
     val (index, count) = options.shard ?: return all
-    return ModuleList.shard(all, index, count)
+    return ModuleList.shard(all, index, count, moduleCosts(options))
 }
+
+/**
+ * Scenarios each module ran on its last sweep, which is what a shard split balances.
+ *
+ * The store is the only place that knows a module is a hundred-source aggregate rather than a
+ * single extension, and it is checked out wherever a plan is written. A missing entry - a new
+ * module, or one whose state was pruned - is left out rather than guessed at; [ModuleList.split]
+ * falls back to the typical module for those.
+ */
+internal fun moduleCosts(options: Options): Map<String, Int> {
+    val dir = options.store ?: DEFAULT_STORE
+    return ReportStore.readAll(dir).associate { report ->
+        report.module to report.sources.sumOf { it.scenarios.size }
+    }
+}
+
+/** Where a run reads and writes state when `--store` is not given. */
+private val DEFAULT_STORE: Path = Path.of("data")
 
 /**
  * Writes the shard plan and reports how much it covers.
@@ -147,7 +165,7 @@ private fun writePlan(options: Options, out: Path): Int {
         return 2
     }
 
-    val used = ModuleList.plan(entries, count, out).count { it.isNotEmpty() }
+    val used = ModuleList.plan(entries, count, out, moduleCosts(options)).count { it.isNotEmpty() }
     println("discovered ${entries.size} module(s) in $used shard(s)")
     return 0
 }

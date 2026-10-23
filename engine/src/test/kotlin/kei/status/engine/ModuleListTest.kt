@@ -96,8 +96,9 @@ class ModuleListTest {
             ModuleList.Entry(":src:zh:dynasty"),
         )
 
-        ModuleList.plan(entries, count = 3, outDir = out)
+        ModuleList.plan(entries, count = 6, outDir = out)
 
+        val all = Files.readAllLines(out.resolve("all.txt"))
         assertEquals(
             listOf(
                 ":src:all:mangadex --lang en",
@@ -105,35 +106,62 @@ class ModuleListTest {
                 ":src:tr:hattorimanga",
                 ":src:zh:dynasty",
             ),
-            Files.readAllLines(out.resolve("all.txt")),
+            all,
         )
-        assertEquals(
-            listOf(":src:all:mangadex --lang en", ":src:en:aurora"),
-            Files.readAllLines(out.resolve("shard-1.txt")),
-        )
-        assertEquals(
-            listOf(":src:tr:hattorimanga", ":src:zh:dynasty"),
-            Files.readAllLines(out.resolve("shard-2.txt")),
-        )
+        // Every module lands in exactly one shard, and the flags survive the trip.
+        val planned = (1..6).flatMap { Files.readAllLines(out.resolve("shard-$it.txt")) }
+        assertEquals(all.sorted(), planned.sorted())
         // A shard past the end still exists and is empty: the matrix loop tells "empty" from
         // "missing", and a missing file would look like a shard that failed to report in.
-        assertTrue(Files.exists(out.resolve("shard-3.txt")))
-        assertTrue(Files.readAllLines(out.resolve("shard-3.txt")).isEmpty())
+        assertTrue(Files.exists(out.resolve("shard-6.txt")))
+        assertTrue(Files.readAllLines(out.resolve("shard-6.txt")).isEmpty())
     }
 
     @Test
-    fun `shards split the modules evenly without losing or repeating one`() {
+    fun `shards cover every module exactly once`() {
         val entries = (1..10).map { ModuleList.Entry(":src:en:m$it") }
 
         val shards = (1..3).map { ModuleList.shard(entries, it, 3) }
 
-        // Together they are the whole list, in order, each module in exactly one shard.
-        assertEquals(entries, shards.flatten())
-        assertEquals(listOf(4, 4, 2), shards.map { it.size })
-        assertEquals(":src:en:m5", shards[1].first().module)
+        // Together they are the whole list, each module in exactly one shard. With no recorded cost
+        // every module weighs the same, so the split degenerates to round-robin.
+        assertEquals(entries.toSet(), shards.flatten().toSet())
+        assertEquals(10, shards.flatten().size)
+        assertEquals(listOf(4, 3, 3), shards.map { it.size })
 
         // More shards than modules is a normal way to scale down a run.
         assertTrue(ModuleList.shard(entries.take(2), 5, 10).isEmpty())
+    }
+
+    @Test
+    fun `shards are balanced by cost, not by module count`() {
+        // A module is not a unit of work: this one declares 109 sources and costs a full sweep
+        // minute, while each of the others declares one. Splitting by count gave the first two
+        // shards 46% of the work and 58 minutes against 15-24 for the rest.
+        val heavy = ModuleList.Entry(":src:all:xcomic")
+        val light = (1..9).map { ModuleList.Entry(":src:en:m$it") }
+        val costs = mapOf(":src:all:xcomic" to 840) + light.associate { it.module to 8 }
+
+        val shards = (1..3).map { ModuleList.shard(listOf(heavy) + light, it, 3, costs) }
+
+        // The heavy module gets a shard to itself rather than dragging eight light ones with it.
+        assertEquals(listOf(heavy), shards[0])
+        assertEquals(10, shards.flatten().size)
+    }
+
+    @Test
+    fun `a plan and a single shard ask for the same modules`() {
+        // `--plan` writes the files CI runs and `--shard i/n` is the local equivalent of one of
+        // them. They are only interchangeable while both go through the same split.
+        val out = temporary.newFolder("agree").toPath()
+        val entries = (1..7).map { ModuleList.Entry(":src:en:m$it") }
+        val costs = mapOf(":src:en:m3" to 500, ":src:en:m7" to 120)
+
+        val planned = ModuleList.plan(entries, count = 3, outDir = out, costs = costs)
+        val asked = (1..3).map { ModuleList.shard(entries, it, 3, costs) }
+
+        assertEquals(planned, asked)
+        assertEquals(planned[0], ModuleList.read(out.resolve("shard-1.txt")))
     }
 
     @Test(expected = IllegalArgumentException::class)

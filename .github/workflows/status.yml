@@ -5,8 +5,10 @@ name: status
 #
 # The sweep is split into shards that run in parallel. Each shard compiles only its own modules and
 # keeps its own Gradle build cache, so a run after a quiet night restores compiled extensions from
-# cache instead of rebuilding them and spends its time checking sites. A shard's module set is
-# stable (the list is sorted and split contiguously), which is what keeps its cache useful.
+# cache instead of rebuilding them and spends its time checking sites. The split is by cost, not by
+# module count: a module that declares a hundred sources is one module but many minutes, so shards
+# are balanced on the scenarios each module ran last time. Gradle's build cache is content-addressed,
+# so a module moving between shards still restores from the cache it was compiled into.
 #
 # The extension sources are third-party code and are never modified: only their compiled classes
 # are read, which is what the harness does locally too.

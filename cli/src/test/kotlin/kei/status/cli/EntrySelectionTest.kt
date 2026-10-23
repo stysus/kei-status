@@ -70,10 +70,21 @@ class EntrySelectionTest {
     @Test
     fun `a shard narrows the selected list`() {
         val list = file(*(1..10).map { ":src:en:m$it" }.toTypedArray())
+        fun shard(which: String) =
+            resolveEntries(Options.parse(arrayOf("--module-list", list.toString(), "--shard", which)))
 
-        val entries = resolveEntries(Options.parse(arrayOf("--module-list", list.toString(), "--shard", "2/2")))
+        val first = shard("1/2")
+        val second = shard("2/2")
 
-        assertEquals((6..10).map { ModuleList.Entry(":src:en:m$it") }, entries)
+        // The two halves are the whole list with nothing counted twice. Which module lands in which
+        // half is the split's business (it balances on cost), not this test's: five and five summing
+        // to all ten means no module was dropped or repeated.
+        assertEquals(5, first.size)
+        assertEquals(5, second.size)
+        assertEquals(
+            (1..10).map { ":src:en:m$it" }.toSet(),
+            (first + second).map { it.module }.toSet(),
+        )
     }
 
     @Test(expected = IllegalArgumentException::class)

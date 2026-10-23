@@ -339,16 +339,29 @@ file here; a hand-written list would go stale the day after it was written.
 That rule, and the split into shards, live in the checker (`ModuleList`): `ci/discover.sh` calls
 `--plan`, which writes `all.txt` and the shard files. Only the GitHub Actions matrix is built by the
 script, because that shape belongs to GitHub rather than to the harness. A local `--shard` and the
-CI matrix therefore cannot disagree about which modules a shard holds.
+CI matrix therefore cannot disagree about which modules a shard holds, as long as both are pointed at
+the same store: the split reads its weights from there.
 
 `--module-list` still exists for a one-off run, and the `modules` input on the `workflow_dispatch`
 trigger feeds one in without committing it.
 
 ### Sharding
 
-1,400+ modules do not fit in one job, so the discovered list is split into contiguous, evenly sized
-shards (`20` by default, `shards` input to change it) and each shard runs in its own job. Shards are
-independent: `fail-fast: false`, so one bad shard does not cancel the rest.
+1,400+ modules do not fit in one job, so the discovered list is split into `20` shards (`shards`
+input to change it) and each shard runs in its own job. Shards are independent: `fail-fast: false`,
+so one bad shard does not cancel the rest.
+
+The split is by **cost, not by module count**. A module is not a unit of work: `:src:all:xcomic`
+declares 109 sources against one site while `:src:en:aurora` declares one, yet both are one module.
+Splitting the list into equal slices also put every `:src:all:*` module - and they all sort to the
+front - in the same two shards. Measured on the 2026-10-23 sweep, shards 1 and 2 held 10% of the
+modules and 46% of the scenarios, and took 58 and 55 minutes against 15-24 for the other eighteen.
+
+So the checker reads how many scenarios each module ran on its last sweep, out of the committed
+store, and packs the heaviest first onto the emptiest shard. A module the store has never seen is
+weighted like a typical one rather than as free, so a brand-new hundred-source aggregate cannot slip
+onto a shard that happened to look empty. On the same tree that split puts every shard at 21-22
+minutes instead of 58 at the worst, for the same total runner time.
 
 A shard compiles its own modules in one Gradle invocation, so the shared modules (`:core`, `:lib:*`)
 compile once instead of once per extension and compilation runs in parallel. What a shard does *not*
@@ -360,12 +373,14 @@ Compiling an extension is the expensive part of a run and almost nothing changes
 two nights. Each shard therefore keeps its own Gradle build cache (`~/.gradle/caches/build-cache-1`)
 under a key scoped to that shard, plus one shared cache for downloaded dependencies.
 
-The cache is per shard on purpose: a shard always compiles the same modules, so its entries are only
-useful to itself, and twenty jobs saving to one key would leave nineteen of them discarded. The key
-also carries the upstream revision, so a second run on the same revision restores the same entry for
-free. With a warm cache a module whose sources did not change is restored instead of recompiled, so
-a run spends its time checking sites. A module that *did* change upstream misses the cache and is
-rebuilt, which is exactly the wanted behaviour and needs no bookkeeping.
+The cache is per shard on purpose: a shard restores the same modules night after night, so its
+entries are almost always useful to itself, and twenty jobs saving to one key would leave nineteen of
+them discarded. Gradle's build cache is content-addressed, so a module that moves to another shard
+after a cost change still restores from whichever cache compiled it. The key also carries the
+upstream revision, so a second run on the same revision restores the same entry for free. With a
+warm cache a module whose sources did not change is restored instead of recompiled, so a run spends
+its time checking sites. A module that *did* change upstream misses the cache and is rebuilt, which
+is exactly the wanted behaviour and needs no bookkeeping.
 
 The harness itself is not an extension and does not depend on one, so it is built once in the
 `prepare` job and handed to the shards as an artifact. Building it per shard was the same eighty

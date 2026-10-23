@@ -64,14 +64,19 @@ object ModuleList {
      * Writes the shard plan a sweep runs, and returns the shards it wrote.
      *
      * This is the only implementation of both rules: which directories are modules (above), and how
-     * the list is split ([shard]). `ci/discover.sh` calls it rather than repeating them in `find`
+     * the list is split ([split]). `ci/discover.sh` calls it rather than repeating them in `find`
      * and `awk`, so the local `--shard` and the CI matrix cannot drift apart.
      *
      * Every shard index in `1..count` gets a file, empty when the list is shorter than the shard
      * count: the workflow tells "this shard has nothing to do" from "this shard never reported in"
      * by the file existing at all.
      */
-    fun plan(entries: List<Entry>, count: Int, outDir: Path): List<List<Entry>> {
+    fun plan(
+        entries: List<Entry>,
+        count: Int,
+        outDir: Path,
+        costs: Map<String, Int> = emptyMap(),
+    ): List<List<Entry>> {
         require(count > 0) { "shard count must be positive" }
 
         // Sorted by the line as written, in code-unit order rather than the locale's collation. The
@@ -81,7 +86,7 @@ object ModuleList {
         Files.createDirectories(outDir)
         Files.writeString(outDir.resolve("all.txt"), ordered.joinToString("") { it.line() + "\n" })
 
-        val shards = (1..count).map { index -> shard(ordered, index, count) }
+        val shards = split(ordered, count, costs)
         shards.forEachIndexed { offset, shard ->
             val body = shard.joinToString("") { it.line() + "\n" }
             Files.writeString(outDir.resolve("shard-${offset + 1}.txt"), body)
@@ -94,18 +99,77 @@ object ModuleList {
         if (args.isEmpty()) module else (listOf(module) + args).joinToString(" ")
 
     /**
-     * Splits [entries] into [count] contiguous, evenly sized shards and returns shard [index]
-     * (1-based), so several jobs can cover the whole list without overlapping.
+     * Splits [entries] into [count] shards and returns shard [index] (1-based), so several jobs can
+     * cover the whole list without overlapping.
      */
-    fun shard(entries: List<Entry>, index: Int, count: Int): List<Entry> {
+    fun shard(
+        entries: List<Entry>,
+        index: Int,
+        count: Int,
+        costs: Map<String, Int> = emptyMap(),
+    ): List<Entry> {
         require(count > 0) { "shard count must be positive" }
         require(index in 1..count) { "shard index must be between 1 and $count" }
 
-        val size = (entries.size + count - 1) / count
-        val from = (index - 1) * size
-        if (from >= entries.size) return emptyList()
-        return entries.subList(from, minOf(from + size, entries.size))
+        return split(entries, count, costs).getOrElse(index - 1) { emptyList() }
+    }
+
+    /**
+     * Distributes [entries] over [count] shards by cost, not by count.
+     *
+     * A module is not a unit of work. `:src:all:xcomic` declares 109 sources against one site and
+     * `:src:en:aurora` declares one, yet both are one module - and every `:src:all:*` module sorts
+     * to the front of the list, so splitting the list into equal slices handed all of them to the
+     * first shards. Measured on the 2026-10-23 sweep, shards 1 and 2 held 10% of the modules and 46%
+     * of the scenarios, and took 58 and 55 minutes against 15-24 for the other eighteen.
+     *
+     * [costs] is scenarios per module, which the caller reads from the store. A module it does not
+     * know is assumed to be typical rather than free, so a brand-new extension does not land on
+     * whichever shard happens to be emptiest and then turn out to be a hundred-source aggregate.
+     *
+     * Greedy longest-first packing: each module, heaviest first, goes to the lightest shard. It is
+     * deterministic - equal costs are ordered by line, and an equal load goes to the lower shard -
+     * and lands within a few per cent of optimal for this shape of input, without the cost of an
+     * exact partition.
+     */
+    fun split(
+        entries: List<Entry>,
+        count: Int,
+        costs: Map<String, Int> = emptyMap(),
+    ): List<List<Entry>> {
+        require(count > 0) { "shard count must be positive" }
+        if (entries.isEmpty()) return List(count) { emptyList() }
+
+        val known = costs.values.sorted()
+        val fallback = if (known.isEmpty()) 0 else known[known.size / 2]
+        fun cost(entry: Entry) = (costs[entry.module] ?: fallback) + MODULE_COST_IN_SCENARIOS
+
+        val queue = entries.sortedWith(compareByDescending<Entry> { cost(it) }.thenBy { it.line() })
+        val bins = List(count) { mutableListOf<Entry>() }
+        val loads = IntArray(count)
+        for (entry in queue) {
+            var target = 0
+            for (i in 1 until count) if (loads[i] < loads[target]) target = i
+            bins[target] += entry
+            loads[target] += cost(entry)
+        }
+
+        return bins.map { bin -> bin.sortedBy { it.line() } }
     }
 
     private fun Path.isHiddenDir(): Boolean = fileName.toString().startsWith(".")
 }
+
+/**
+ * What a module costs before it checks anything, counted in scenarios.
+ *
+ * Only the ratio to [ModuleList.split]'s weights matters - the split compares costs and never
+ * converts them to seconds - so this survives a faster or slower machine. Measured on a full sweep,
+ * a module spends about 9s compiling and loading itself and about 0.64s per scenario, which makes a
+ * module worth roughly fourteen scenarios on top of its own count.
+ *
+ * Leaving it out is what makes the split look worse than it is: greedy packing then fills one shard
+ * with fifty tiny modules and another with a dozen, and the build cost of the extra modules eats the
+ * balance it gained.
+ */
+private const val MODULE_COST_IN_SCENARIOS = 14

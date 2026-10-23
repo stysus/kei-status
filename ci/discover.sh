@@ -49,10 +49,14 @@ fi
 
 rm -rf "$out"
 
+# `--store data` is what the shard split balances on: the checker reads how many scenarios each
+# module ran last time and spreads the heavy ones out, so the modules that declare a hundred sources
+# do not all land in the same shard. The path is passed rather than defaulted so this dependency on
+# the committed store is visible here instead of hidden in the checker.
 if [ -n "$list_file" ]; then
-  "$cli" --plan "$out" --shards "$count" --module-list "$list_file"
+  "$cli" --plan "$out" --shards "$count" --store data --module-list "$list_file"
 else
-  "$cli" --plan "$out" --shards "$count" --discover --source-root "$source_root"
+  "$cli" --plan "$out" --shards "$count" --store data --discover --source-root "$source_root"
 
   # Marks the list as every module in the tree. `publish.sh` prunes the store only when this file
   # is present: a run limited with the `modules` input writes a list of just those modules, and
