@@ -222,7 +222,7 @@ state changed (1 transition(s)); wrote data/src-en-aurora.json
 ```
 
 The file is only rewritten when the state actually moves, so a module that keeps passing produces
-no diff. The store is meant to be committed: `git diff data/` answers "what broke since the last
+no diff. The store is meant to be committed: `git diff` inside it answers "what broke since the last
 run", and the commit history is the timeline. Each stored report carries `comparedTo` (the run it
 replaced) and `changes` (the transitions), which the page renders under the module heading.
 
@@ -428,11 +428,35 @@ Two details keep a scheduled run useful rather than noisy:
 If every module fails to load, the job fails instead of publishing a page full of "failed to load":
 a single site breaking is a finding, a broken toolchain is not.
 
-The job commits `data/` back to `main` when something changed. That commit cannot start another
-sweep, since `status.yml` has no push trigger; it also carries `[skip ci]` and is pushed with
-`GITHUB_TOKEN`, which GitHub does not use to start workflows either. Because the store is in git,
-the history of what broke when is the commit log, and a stale entry is one
-`git log -p data/<module>.json` away.
+The job commits the state to the `data` branch when something changed, never to `main`. That commit
+cannot start another sweep, since `status.yml` has no push trigger; it also carries `[skip ci]` and is
+pushed with `GITHUB_TOKEN`, which GitHub does not use to start workflows either. Because the store is
+in git, the history of what broke when is the commit log, and a stale entry is one
+`git log -p data -- <module>.json` away.
+
+### Where the recorded state lives
+
+The state moves every night. On `main` that would be a commit per night, and the harness's own
+history would be buried under it, so the state lives on its own branch instead: **`data`**, whose
+only content is the per-module reports at its root. `main` has no `data/` and ignores the directory.
+
+The branches meet at `data/`:
+
+- In CI, the `prepare`, sweep and publish jobs check the `data` branch out a second time at `data`,
+  next to the harness. `prepare` needs it to balance the shards on the load each module produced
+  last time; the shard writes into it and `collect.sh` reads the rewritten entries out of that
+  checkout's `git status`; the publish job merges what the shards sent and commits it back.
+- Locally, set the directory up as a worktree of the branch, so the harness finds a store where it
+  expects one and `main` stays clean:
+
+  ```bash
+  git worktree add data data
+  ```
+
+  Then `--store data` works as before. `git worktree remove data` undoes it.
+
+Because the branch was split from `main` with `git subtree split`, the history of the reports before
+the split is still there: `git log data -- src-en-aurora.json` reaches back past it.
 
 The page is published to `https://<owner>.github.io/kei-status/`. Enable it once under
 **Settings -> Pages -> Build and deployment -> Source: GitHub Actions**.
@@ -449,7 +473,7 @@ ci/collect.sh <shard-id> <store-dir> <out-dir>
 ci/apply.sh <incoming-dir> [store-dir]
 ci/verify.sh <store-dir> <incoming-dir> <matrix.json>
 ci/publish.sh <all-modules-file> [out-dir] [store-dir]
-ci/commit.sh [store-dir] [message-prefix]
+ci/commit.sh [store-dir] [branch] [message-prefix]
 ```
 
 ## Known gaps
@@ -551,7 +575,7 @@ host-shim/      eu.kanade.tachiyomi.* and the keiyoushi host contract
 engine/         loader, scenarios, checks, report, HTML page
 cli/            argument parsing, console report, site publishing
 ci/             shell steps the workflows call: discover, run a shard, verify, publish, commit
-data/           stored per-module reports, committed so runs can be compared
+data/           checkout of the `data` branch: stored per-module reports (git-ignored here)
 tools/          Gradle init script that records a module's compiled classes
 .github/        the CI and status workflows
 ```

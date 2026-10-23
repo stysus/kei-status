@@ -1,22 +1,32 @@
 #!/usr/bin/env bash
 #
-# Commits the state the sweep recorded.
+# Commits the state the sweep recorded, on the branch that holds it.
 #
-# The store is the memory of the project: it is committed so the next run can diff against it and
-# so the history of what broke when lives in git. Nothing is committed when the store did not move,
-# which is the common case on a quiet night. A module deleted upstream moves it too: `publish.sh`
-# prunes the entry, and this records the removal.
+# The store is not part of the code history: it lives on its own branch (`data`), and `data/` is a
+# checkout of that branch that `.gitignore` keeps out of this tree. A nightly state commit therefore
+# never appears in `git log` for the harness itself, which is the whole point of the split.
+#
+# Nothing is committed when the store did not move, which is the common case on a quiet night. A
+# module deleted upstream moves it too: `publish.sh` prunes the entry, and this records the removal.
 #
 # A push can land while the sweep is still running, so the push is retried on a rebase.
 #
-# Usage: commit.sh [store-dir] [message-prefix]
+# Usage: commit.sh [store-dir] [branch] [message-prefix]
 
 set -euo pipefail
 
 store="${1:-data}"
-prefix="${2:-status}"
+branch="${2:-data}"
+prefix="${3:-status}"
 
-if [ -z "$(git status --porcelain -- "$store")" ]; then
+if ! git -C "$store" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo "::error::$store is not a git checkout, so there is no branch to commit the state to" >&2
+  echo "Set the store up as a checkout of the $branch branch first:" >&2
+  echo "  git worktree add $store $branch" >&2
+  exit 1
+fi
+
+if [ -z "$(git -C "$store" status --porcelain)" ]; then
   echo "no status changed; nothing to commit"
   exit 0
 fi
@@ -33,7 +43,7 @@ while IFS= read -r -d '' entry; do
     *D*) removed=$((removed + 1)) ;;
     *) changed=$((changed + 1)) ;;
   esac
-done < <(git status --porcelain -z -- "$store")
+done < <(git -C "$store" status --porcelain -z)
 
 # Name only what moved: a quiet run should not read "0 removed", and a night that only pruned should
 # not read "0 changed". At least one of the two is non-zero, because an empty status returned above.
@@ -45,18 +55,22 @@ else
   summary="$removed removed"
 fi
 
-git config user.name "github-actions[bot]"
-git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-git add -- "$store"
-git commit -m "$prefix: record $summary [skip ci]"
+git -C "$store" config user.name "github-actions[bot]"
+git -C "$store" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+# `actions/checkout` can leave a detached HEAD, and a detached commit has nowhere to push from.
+git -C "$store" checkout -q -B "$branch"
+
+git -C "$store" add --all -- .
+git -C "$store" commit -m "$prefix: record $summary [skip ci]"
 
 for attempt in 1 2 3; do
-  if git push; then
-    echo "pushed $summary"
+  if git -C "$store" push origin "$branch"; then
+    echo "pushed $summary to $branch"
     exit 0
   fi
   echo "push failed (attempt $attempt); rebasing on the new head"
-  git pull --rebase origin "$GITHUB_REF_NAME"
+  git -C "$store" pull --rebase origin "$branch"
 done
 
 echo "::error::could not push the recorded state after 3 attempts"

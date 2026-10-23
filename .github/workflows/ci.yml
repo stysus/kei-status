@@ -5,10 +5,11 @@ name: ci
 
 on:
   pull_request:
+  # `main` only: the recorded state lives on the `data` branch, and that branch is committed to by a
+  # bot, so it must not start a harness build.
   push:
     branches: [main]
     paths-ignore:
-      - "data/**"
       - "**.md"
   workflow_dispatch:
 

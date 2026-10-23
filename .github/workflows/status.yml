@@ -14,9 +14,13 @@ name: status
 # are read, which is what the harness does locally too.
 #
 # This workflow does not run on push. A sweep hits every live site, takes hours of runner time and
-# writes the state it found back to `data/`, so it is not something a commit should set off; it runs
-# on the nightly schedule and when someone asks for it by hand. Changes to the harness are still
+# commits the state it found to the `data` branch, so it is not something a commit should set off; it
+# runs on the nightly schedule and when someone asks for it by hand. Changes to the harness are still
 # guarded on every push, by `ci.yml`.
+#
+# The state is kept off `main` on purpose. It moves every night, and a commit per night on the code
+# branch would bury the harness history; on its own branch it is still there to diff against, and
+# `git log -p data -- <module>.json` still answers "what broke when".
 
 on:
   schedule:
@@ -35,7 +39,7 @@ on:
         type: string
 
 permissions:
-  # Write, because the run commits the state it recorded back to `data/`.
+  # Write, because the run commits the state it recorded to the `data` branch.
   contents: write
   pages: write
   id-token: write
@@ -67,6 +71,16 @@ jobs:
         with:
           repository: keiyoushi/extensions-source
           path: extensions-source
+          fetch-depth: 1
+
+      # The plan balances shards on how many scenarios each module ran last time, and only the store
+      # knows that. Without it every module is costed at the fallback and the shards come out
+      # uneven, so the state branch is checked out here too.
+      - name: Check out the recorded state
+        uses: actions/checkout@v7
+        with:
+          ref: data
+          path: data
           fetch-depth: 1
 
       # Every shard pins its checkout to this commit. Twenty independent checkouts of a moving
@@ -153,6 +167,17 @@ jobs:
           ref: ${{ needs.prepare.outputs.source_sha }}
           fetch-depth: 1
 
+      # The store lives on its own branch, so it arrives as a second checkout rather than as files
+      # in this one. The shard needs it as a git working tree, not just as a directory of JSON:
+      # `collect.sh` reads what the run rewrote from `git status`, which is also what keeps a quiet
+      # shard from uploading the whole store.
+      - name: Check out the recorded state
+        uses: actions/checkout@v7
+        with:
+          ref: data
+          path: data
+          fetch-depth: 1
+
       - name: Set up JDK 21
         uses: actions/setup-java@v6
         with:
@@ -234,9 +259,14 @@ jobs:
     steps:
       - name: Check out the harness
         uses: actions/checkout@v7
+
+      # Full history on the state branch only: the state commit retries its push by rebasing, which
+      # needs the branch it rebases onto. The harness checkout does not need history.
+      - name: Check out the recorded state
+        uses: actions/checkout@v7
         with:
-          # Full history: the state commit retries its push by rebasing, which a shallow clone
-          # cannot do.
+          ref: data
+          path: data
           fetch-depth: 0
 
       # Only a JRE is needed: the harness is downloaded, not built, so this job runs no Gradle.
@@ -278,7 +308,7 @@ jobs:
         run: ./ci/publish.sh shards/all.txt site
 
       - name: Commit the state
-        run: ./ci/commit.sh data
+        run: ./ci/commit.sh data data
 
       - name: Configure Pages
         uses: actions/configure-pages@v6
