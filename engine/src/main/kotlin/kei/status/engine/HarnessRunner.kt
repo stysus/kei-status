@@ -400,10 +400,13 @@ class HarnessRunner(private val config: HarnessConfig) {
                         notes += "page[$index] image returned HTTP ${response.code}"
                         return@use
                     }
-                    // An interceptor-built response (okhttp3's own Response.Builder too) carries the
-                    // media type in the body, not the headers - the header read alone sees "".
-                    val type = response.header("Content-Type")?.takeIf { it.isNotEmpty() }
-                        ?: response.body.contentType()?.toString().orEmpty()
+                    // The body's media type wins over the header. An interceptor that swaps the
+                    // bytes for an image usually leaves the server's header alone - the E4P
+                    // interceptor rewrites an `application/vnd.e4p.qsc` response into WEBP and
+                    // keeps the header - so the header describes what the server sent, while the
+                    // body describes what this source actually handed us to decode. The header is
+                    // still the fallback, because a body built without a media type carries none.
+                    val type = contentTypeOf(response)
                     if (!type.startsWith("image/")) notes += "page[$index] content-type is '$type'"
 
                     val bytes = response.body.bytes()
@@ -551,6 +554,19 @@ class HarnessRunner(private val config: HarnessConfig) {
 }
 
 class Captured<T>(val value: T?, val result: ScenarioResult)
+
+/**
+ * The media type of the bytes a caller is about to read.
+ *
+ * `Response.Builder.body()` does not copy the body's media type into the `Content-Type` header, so
+ * the two can disagree: an interceptor that replaces the bytes keeps the header the server sent.
+ * The body is the honest answer to "what did I just receive", and the header only stands in when
+ * the body carries no media type at all - which is the case for a response built from raw bytes.
+ */
+internal fun contentTypeOf(response: okhttp3.Response): String =
+    response.body.contentType()?.toString()
+        ?: response.header("Content-Type")?.takeIf { it.isNotEmpty() }
+        ?: ""
 
 /** Set KEI_STATUS_TRACE=1 to print stack traces for every classified failure. */
 private val TRACE = System.getenv("KEI_STATUS_TRACE") != null
