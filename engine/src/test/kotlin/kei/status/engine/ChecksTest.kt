@@ -80,6 +80,40 @@ class ChecksTest {
     }
 
     @Test
+    fun `a missing platform member is unsupported`() {
+        // The shim can provide android.net.Uri without providing Uri.encode; the JVM then fails at
+        // link time with a message that names the member, not the class. It is the same gap as a
+        // missing class, so blaming the extension for it would be wrong.
+        val messages = listOf(
+            NoSuchMethodError("'java.lang.String android.net.Uri.encode(java.lang.String)'"),
+            NoSuchMethodError("'android.net.Uri\$Builder android.net.Uri.buildUpon()'"),
+            NoSuchMethodError("'byte[] android.util.Base64.decode(byte[], int)'"),
+            NoSuchFieldError("float android.graphics.Paint.density"),
+            AbstractMethodError("androidx.preference.Preference\$OnPreferenceChangeListener.onPreferenceChange()"),
+        )
+
+        messages.forEach { error ->
+            assertEquals(error.message, Status.UNSUPPORTED, Checks.diagnose(error).status)
+        }
+
+        val diagnosis = Checks.diagnose(NoSuchMethodError("'byte[] android.util.Base64.decode(byte[], int)'"))
+        // HotSpot quotes the whole signature; the reported reason keeps the member, not the quotes.
+        assertEquals(
+            "requires an Android method or field the harness does not provide: android.util.Base64.decode",
+            diagnosis.message,
+        )
+    }
+
+    @Test
+    fun `a missing member on a harness class is a failure`() {
+        // Only the platform is emulated by us; a missing okhttp3 member means the shim links
+        // against the wrong version, which is a real defect worth a FAIL.
+        val status = Checks.diagnose(NoSuchMethodError("'okhttp3.Request\$Builder okhttp3.Request.newBuilder()'")).status
+
+        assertEquals(Status.FAIL, status)
+    }
+
+    @Test
     fun `a challenge is blocked rather than failed`() {
         val status = Checks.diagnose(AntiBotChallengeException(503, "example.com", "Cloudflare")).status
 

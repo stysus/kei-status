@@ -142,8 +142,7 @@ object Checks {
             chain.any { it is AntiBotChallengeException } -> Status.BLOCKED
             chain.any { it is HttpException && it.code == 429 } -> Status.THROTTLED
             chain.any { it is UnsupportedOperationException || it is NotImplementedError } -> Status.SKIP
-            chain.any { it is NoClassDefFoundError || it is ClassNotFoundException } ->
-                if (chain.any { unavailablePlatform(it) != null }) Status.UNSUPPORTED else Status.FAIL
+            chain.any { unavailablePlatform(it) != null } -> Status.UNSUPPORTED
             chain.any { it is TimeoutException } -> Status.FAIL
             else -> Status.FAIL
         }
@@ -204,14 +203,26 @@ object Checks {
         chain.asReversed().firstNotNullOfOrNull { it.message }
 
     /**
-     * Describes a missing class the harness cannot supply, or null if the gap is a real bug.
+     * Describes a platform class or member the harness cannot supply, or null if the gap is a real
+     * bug.
      *
      * The distinction matters: an extension that needs `android.graphics.pdf.PdfRenderer` is not
      * broken, it needs a platform this tool does not emulate. A missing `keiyoushi.*` or
      * `okhttp3.*` class would instead mean the harness classpath is wrong.
+     *
+     * The same reasoning applies one level down. A shim that provides `android.net.Uri` but not
+     * `Uri.encode` fails at link time with [NoSuchMethodError], whose message names the member
+     * rather than a class. It is the same gap and the same verdict: the extension is fine on a
+     * device, and calling it broken would blame it for what the shim does not implement.
      */
-    private fun unavailablePlatform(t: Throwable): String? {
-        val className = (t.message ?: return null).replace('/', '.')
+    private fun unavailablePlatform(t: Throwable): String? = when (t) {
+        is NoClassDefFoundError, is ClassNotFoundException -> missingClass(t.message)
+        is NoSuchMethodError, is NoSuchFieldError, is AbstractMethodError -> missingMember(t.message)
+        else -> null
+    }
+
+    private fun missingClass(message: String?): String? {
+        val className = (message ?: return null).replace('/', '.')
 
         return when {
             className.startsWith("android.") || className.startsWith("androidx.") ->
@@ -219,6 +230,34 @@ object Checks {
 
             className.startsWith("app.cash.quickjs.") ->
                 "requires the native QuickJS library, which has no JVM build: $className"
+
+            else -> null
+        }
+    }
+
+    /**
+     * The platform member a link failure names, or null when the member belongs somewhere else.
+     *
+     * The JVM builds these messages as `<return type> <owner>.<member>` followed by the parameter
+     * list - `'byte[] android.util.Base64.decode(byte[], int)'` - so the owner is the last
+     * space-separated token before `(`, minus its own member name. A field reference has no
+     * parameter list and keeps the same shape without it. HotSpot quotes the whole signature;
+     * the trim removes the quotes from either end of what is left.
+     */
+    private fun missingMember(message: String?): String? {
+        val reference = (message ?: return null)
+            .replace('/', '.')
+            .substringBefore('(')
+            .substringAfterLast(' ')
+            .trim('\'')
+        val owner = reference.substringBeforeLast('.')
+
+        return when {
+            owner.startsWith("android.") || owner.startsWith("androidx.") ->
+                "requires an Android method or field the harness does not provide: $reference"
+
+            owner.startsWith("app.cash.quickjs.") ->
+                "requires the native QuickJS library, which has no JVM build: $reference"
 
             else -> null
         }
