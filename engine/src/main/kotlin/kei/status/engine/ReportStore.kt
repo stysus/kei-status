@@ -82,6 +82,34 @@ object ReportStore {
     }
 
     /**
+     * Deletes the entries whose module is not in [keep], and returns the files it removed.
+     *
+     * A module dropped upstream would otherwise sit in the store forever: no shard sweeps it, so
+     * nothing ever rewrites it, and it stays committed. Filtering it out of the page is not enough
+     * because the store is what grows.
+     *
+     * The file names decide, not the contents, so an entry that cannot be parsed is removed too. It
+     * is equally dead, and [readAll] would have skipped it without reporting which module it held.
+     *
+     * [keep] must be the whole set of modules that still exist. Pruning against a partial list
+     * deletes the rest of the store, which is why the caller has to have established that.
+     */
+    fun prune(dir: Path, keep: Set<String>): List<Path> {
+        if (!Files.isDirectory(dir)) return emptyList()
+
+        val kept = keep.mapTo(HashSet()) { it.slugOf() }
+        val doomed = Files.list(dir).use { stream ->
+            stream.filter { Files.isRegularFile(it) && it.fileName.toString().endsWith(".json") }
+                .filter { it.fileName.toString().removeSuffix(".json") !in kept }
+                .sorted()
+                .toList()
+        }
+
+        doomed.forEach { Files.delete(it) }
+        return doomed
+    }
+
+    /**
      * Fields that are expected to differ between two observations of the same state.
      *
      * `sourceRoot` is a local path, `generatedAt` is the clock, and `comparedTo`/`changes` describe

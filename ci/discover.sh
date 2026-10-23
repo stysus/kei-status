@@ -22,6 +22,9 @@
 #   <out-dir>/all.txt         every module, one per line, sorted
 #   <out-dir>/shard-<n>.txt   shard n (may be empty when there are fewer modules than shards)
 #   <out-dir>/matrix.json     GitHub Actions matrix: {"include":[{"shard":"1","file":"..."}]}
+#   <out-dir>/complete        empty marker, written only when the list came from the tree. With a
+#                             [list-file] the list is a subset, and `publish.sh` would delete every
+#                             module it does not name if it pruned against that
 #
 # When GITHUB_OUTPUT is set, also exports `matrix`, `total` and `shards` to the job.
 
@@ -50,6 +53,11 @@ if [ -n "$list_file" ]; then
   "$cli" --plan "$out" --shards "$count" --module-list "$list_file"
 else
   "$cli" --plan "$out" --shards "$count" --discover --source-root "$source_root"
+
+  # Marks the list as every module in the tree. `publish.sh` prunes the store only when this file
+  # is present: a run limited with the `modules` input writes a list of just those modules, and
+  # pruning against it would delete every other module's stored state.
+  : >"$out/complete"
 fi
 
 total=$(wc -l <"$out/all.txt")

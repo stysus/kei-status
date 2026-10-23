@@ -41,7 +41,7 @@ fun main(args: Array<String>) {
 
     // Aggregation reads reports that other runs already wrote, so it needs no browser or source.
     if (options.site != null) {
-        exitProcess(publish(options.site, options.out ?: options.site, options.title, options.only))
+        exitProcess(publish(options.site, options.out ?: options.site, options.title, options.only, options.prune))
     }
 
     val entries = try {
@@ -210,9 +210,10 @@ private fun StatusChange.render(): String {
  * Reads every JSON report under [siteDir] and writes a single page to [outDir].
  *
  * A report that cannot be parsed is skipped with a note rather than aborting the publish: one
- * malformed module should not take the whole status page down.
+ * malformed module should not take the whole status page down. With [prune] its file goes too: an
+ * entry is named after its module, so the name alone says it is not one that still exists.
  */
-private fun publish(siteDir: Path, outDir: Path, title: String?, only: Path?): Int {
+private fun publish(siteDir: Path, outDir: Path, title: String?, only: Path?, prune: Boolean): Int {
     if (!Files.isDirectory(siteDir)) {
         System.err.println("kei-status: --site expects a directory of JSON reports: $siteDir")
         return 2
@@ -223,9 +224,11 @@ private fun publish(siteDir: Path, outDir: Path, title: String?, only: Path?): I
         System.err.println("kei-status: --only lists no modules: $only")
         return 2
     }
+    if (prune && allowed == null) {
+        System.err.println("kei-status: --prune needs --only: without a list of what exists, everything would go")
+        return 2
+    }
 
-    // A module removed from the list keeps its stored file, but the page must not present it as
-    // checked by the run that is publishing.
     val stored = ReportStore.readAll(siteDir)
     val reports = if (allowed == null) stored else stored.filter { it.module in allowed }
     val dropped = stored.size - reports.size
@@ -237,6 +240,14 @@ private fun publish(siteDir: Path, outDir: Path, title: String?, only: Path?): I
     val index = outDir.resolve("index.html")
     Files.writeString(index, ReportHtml.site(reports, title ?: ReportHtml.DEFAULT_TITLE))
     println("published ${reports.size} report(s) to $index")
+
+    // After the page, not before: a render that fails must leave the store as it found it.
+    if (prune && allowed != null) {
+        val removed = ReportStore.prune(siteDir, allowed)
+        if (removed.isNotEmpty()) {
+            System.err.println("kei-status: removed ${removed.size} store entr(ies) for module(s) no longer listed")
+        }
+    }
     return 0
 }
 
@@ -297,6 +308,7 @@ internal class Options(
     val site: Path?,
     val out: Path?,
     val only: Path?,
+    val prune: Boolean,
     val title: String?,
     val timeout: Duration,
     val mangaLimit: Int,
@@ -343,6 +355,8 @@ internal class Options(
               --out <dir>           where to write index.html (default: the --site directory)
               --only <file>         publish only the modules listed in <file>, so a module that
                                     was dropped from the list does not linger on the page
+              --prune               with --only, also delete the stored reports of modules the
+                                    list no longer names, so the store does not keep them forever
               --title <text>        page title
 
             Other:
@@ -363,6 +377,7 @@ internal class Options(
             var site: Path? = null
             var out: Path? = null
             var only: Path? = null
+            var prune = false
             var title: String? = null
             var timeout = HarnessConfig.DEFAULT_TIMEOUT
             var mangaLimit = HarnessConfig.DEFAULT_MANGA_LIMIT
@@ -388,6 +403,7 @@ internal class Options(
                     "--site" -> site = Path.of(args.requireValue(++i, arg))
                     "--out" -> out = Path.of(args.requireValue(++i, arg))
                     "--only" -> only = Path.of(args.requireValue(++i, arg))
+                    "--prune" -> prune = true
                     "--title" -> title = args.requireValue(++i, arg)
                     "--timeout" -> timeout = Duration.ofSeconds(args.requireValue(++i, arg).toLong())
                     "--manga-limit" -> mangaLimit = args.requireValue(++i, arg).toInt()
@@ -424,6 +440,9 @@ internal class Options(
             if (shards != null && shards!! < 1) {
                 throw IllegalArgumentException("--shards must be positive")
             }
+            if (prune && only == null) {
+                throw IllegalArgumentException("--prune requires --only: the list is what says which modules still exist")
+            }
 
             return Options(
                 module = module,
@@ -439,6 +458,7 @@ internal class Options(
                 site = site,
                 out = out,
                 only = only,
+                prune = prune,
                 title = title,
                 timeout = timeout,
                 mangaLimit = mangaLimit,

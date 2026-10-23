@@ -234,6 +234,54 @@ class ReportStoreTest {
     }
 
     @Test
+    fun `prune removes the entries of modules that no longer exist`() {
+        val dir = store()
+        ReportStore.save(dir, report(module = ":src:en:aurora"))
+        ReportStore.save(dir, report(module = ":src:tr:hattorimanga"))
+
+        val removed = ReportStore.prune(dir, setOf(":src:en:aurora"))
+
+        assertEquals(listOf(dir.resolve("src-tr-hattorimanga.json")), removed)
+        assertTrue("the surviving module was deleted", Files.isRegularFile(dir.resolve("src-en-aurora.json")))
+        assertFalse("the removed module is still in the store", Files.exists(dir.resolve("src-tr-hattorimanga.json")))
+    }
+
+    @Test
+    fun `prune keeps everything when every stored module still exists`() {
+        val dir = store()
+        ReportStore.save(dir, report(module = ":src:en:aurora"))
+        ReportStore.save(dir, report(module = ":src:tr:hattorimanga"))
+
+        val removed = ReportStore.prune(dir, setOf(":src:en:aurora", ":src:tr:hattorimanga"))
+
+        assertTrue("nothing should have been removed", removed.isEmpty())
+        assertEquals(2, ReportStore.readAll(dir).size)
+    }
+
+    @Test
+    fun `prune removes an entry it cannot read, because the name decides`() {
+        // readAll skips a corrupt file without saying which module it held, so pruning on contents
+        // would leave exactly the entries nobody can account for. The file name is the module.
+        val dir = store()
+        Files.writeString(dir.resolve("src-en-gone.json"), "{ this is not json")
+
+        val removed = ReportStore.prune(dir, setOf(":src:en:aurora"))
+
+        assertEquals(listOf(dir.resolve("src-en-gone.json")), removed)
+        assertFalse(Files.exists(dir.resolve("src-en-gone.json")))
+    }
+
+    @Test
+    fun `prune ignores files that are not store entries`() {
+        val dir = store()
+        ReportStore.save(dir, report(module = ":src:en:aurora"))
+        Files.writeString(dir.resolve("index.html"), "<html></html>")
+
+        assertTrue(ReportStore.prune(dir, setOf(":src:en:aurora")).isEmpty())
+        assertTrue("a rendered page is not a store entry", Files.isRegularFile(dir.resolve("index.html")))
+    }
+
+    @Test
     fun `the committed file is readable json with no machine-specific path`() {
         val dir = store()
         ReportStore.save(dir, report(sourceRoot = "/home/someone/Coding/extensions-source"))

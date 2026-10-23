@@ -255,9 +255,18 @@ Several runs can be aggregated into one page:
 # ... optionally publishing only the modules that exist right now, so a module deleted upstream
 # does not linger on a page that claims it was just checked
 ./cli/build/install/cli/bin/cli --site site --out site --only modules.txt
+
+# ... and, when that list is the whole tree, deleting the stored reports it does not name
+./cli/build/install/cli/bin/cli --site data --out site --only modules.txt --prune
 ```
 
 `--site` reads only the JSON files, so it needs no browser and no extension sources.
+
+`--only` filters the page. `--prune` additionally deletes the stored entries the list does not name,
+because a module removed upstream is never swept again: nothing rewrites its file, so filtering it
+out of the page leaves the store growing one dead file per removal. It requires `--only`, since
+without a list of what still exists every entry would go, and it deletes after the page is written
+so a render that fails leaves the store untouched.
 
 ### What the page shows
 
@@ -356,7 +365,9 @@ a failed load. Pinning also keeps the build-cache key in agreement with the tree
 
 Each shard passes `--store data`, so results persist in the repository instead of living only in the
 workspace of that one run. The store only rewrites a file when a module's state actually moves, so a
-quiet night produces no commit; a module that moved gets one, and the page shows the transition.
+quiet night produces no commit; a module that moved gets one, and the page shows the transition. A
+module that disappears upstream is the other case: `--prune` deletes its entry, and that night
+commits a removal instead of a rewrite.
 
 Shards upload only the files they rewrote, plus a marker recording that the shard finished. The
 publish job merges those, refuses to publish unless **every** shard reported in, then renders and
@@ -364,7 +375,14 @@ deploys. A partial sweep would stamp the whole page with a "last checked" time t
 shards that never ran, so it is treated as a failure rather than as a partial success.
 
 `--only shards/all.txt` keeps a module that was deleted upstream from lingering on a page that
-claims it was just checked.
+claims it was just checked, and `--prune` deletes its stored entry as well: nothing sweeps a removed
+module, so nothing would ever rewrite that file.
+
+Pruning is only safe when the list is the whole tree, so `discover.sh` writes a `complete` marker
+next to `all.txt` on the `--discover` path and `publish.sh` passes `--prune` only when it is there.
+A `workflow_dispatch` run limited with the `modules` input produces a list of just those modules;
+pruning against it would delete every other module's state. The marker is also why a local
+`./ci/publish.sh` prunes after a full discovery and stays read-only after a manual one.
 
 Two details keep a scheduled run useful rather than noisy:
 
