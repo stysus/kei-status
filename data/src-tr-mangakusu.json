@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:45:01.754727539Z",
+    "generatedAt": "2026-10-23T08:47:20.763318067Z",
     "module": ":src:tr:mangakusu",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 6479744508771928030,
             "name": "Manga Kusu",
             "lang": "tr",
             "baseUrl": "https://mangakusu.com",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,31 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 6615,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangakusu.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 8273,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 41,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "WARN",
+                    "durationMs": 624,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangakusu.com (HTTP 403)"
+                        "popular/latest returned an empty list"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 126,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "WARN",
+                    "durationMs": 475,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangakusu.com (HTTP 403)"
+                        "popular/latest returned an empty list"
                     ],
                     "samples": []
                 },
@@ -79,6 +77,28 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:45:01.754727539Z",
+    "changes": [
+        {
+            "source": "Manga Kusu",
+            "lang": "tr",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Manga Kusu",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "WARN"
+        },
+        {
+            "source": "Manga Kusu",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "WARN"
+        }
+    ]
 }

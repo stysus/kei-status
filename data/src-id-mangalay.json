@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-22T08:54:06.232852646Z",
+    "generatedAt": "2026-10-23T08:48:20.504685896Z",
     "module": ":src:id:mangalay",
     "sourceRoot": "",
-    "extensionCommit": "1d3d7c4b",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 7859511511298731707,
@@ -23,22 +23,18 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 506,
+                    "durationMs": 200,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 521,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 516,
+                    "message": "HTTP error 429",
                     "notes": [],
-                    "samples": [
-                        "WORST GAIDEN -> /2013/04/list-baca-komik-worst-gaiden-bahasa.html",
-                        "WORST -> /2013/04/list-baca-komik-worst.html",
-                        "Next Crows Supplementary Story -> /2013/05/list-baca-komik-next-crows.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -60,9 +56,9 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 469,
-                    "message": "HTTP error 429",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -70,28 +66,28 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T21:26:18.552486538Z",
+    "comparedTo": "2026-10-22T08:54:06.232852646Z",
     "changes": [
         {
             "source": "Mangalay",
             "lang": "id",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Mangalay",
             "lang": "id",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ]
 }

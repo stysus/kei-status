@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T20:09:34.874457408Z",
+    "generatedAt": "2026-10-23T08:51:06.131234519Z",
     "module": ":src:ar:despairmanga",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 886527590434722171,
             "name": "Despair Manga",
             "lang": "ar",
             "baseUrl": "https://despair-world.com",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,36 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 3343,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from despair-world.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 35738,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 133,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "WARN",
+                    "durationMs": 199,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from despair-world.com (HTTP 403)"
+                        "popular/latest returned an empty list"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 130,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "WARN",
+                    "durationMs": 215,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from despair-world.com (HTTP 403)"
+                        "popular/latest returned an empty list"
                     ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -79,6 +77,28 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T20:09:34.874457408Z",
+    "changes": [
+        {
+            "source": "Despair Manga",
+            "lang": "ar",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Despair Manga",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "WARN"
+        },
+        {
+            "source": "Despair Manga",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "WARN"
+        }
+    ]
 }

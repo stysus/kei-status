@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:46:42.774237168Z",
+    "generatedAt": "2026-10-23T08:49:58.131591743Z",
     "module": ":src:en:hentairead",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 2299981010822511979,
             "name": "HentaiRead",
             "lang": "en",
             "baseUrl": "https://hentairead.com",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 7161,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from hentairead.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 6874,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 120,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from hentairead.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 49,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Torokase Orgasm -> /hentai/torokase-orgasm/",
+                        "HARAMASEX!! -> /hentai/haramasex/",
+                        "Onii-chan to Issho! - Decensored -> /hentai/onii-chan-to-issho-decensored/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 37,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from hentairead.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 35,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Onee-san to Shiyo? ~Echinpo Card de Yaritai Houdai~ 2 -> /hentai/onee-san-to-shiyo-echinpo-card-de-yaritai-houdai/",
+                        "Boku no kanojo wa ue no kai no tsuyo osu ni bokobokoni sa rete NTR re chaimashita -> /hentai/boku-no-kanojo-wa-ue-no-kai-no-tsuyo-osu-ni-bokobokoni-sa-rete-ntr-re-chaimashita/",
+                        "Nukinuki War! -> /hentai/nukinuki-war/"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,23 +64,80 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 45,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter -> /hentai/torokase-orgasm/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 28,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://henread.xyz/16012/52133/hr_0001.jpg",
+                        "https://henread.xyz/16012/52133/hr_0002.jpg",
+                        "https://henread.xyz/16012/52133/hr_0003.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 347,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:46:42.774237168Z",
+    "changes": [
+        {
+            "source": "HentaiRead",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "HentaiRead",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "HentaiRead",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "HentaiRead",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "HentaiRead",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "HentaiRead",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ]
 }

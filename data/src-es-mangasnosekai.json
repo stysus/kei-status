@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:47:35.042952126Z",
+    "generatedAt": "2026-10-23T08:51:37.144678785Z",
     "module": ":src:es:mangasnosekai",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 829053423099062956,
             "name": "Mangas No Sekai",
             "lang": "es",
             "baseUrl": "https://mangasnosekai.com",
-            "status": "BLOCKED",
+            "status": "UNSUPPORTED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 3287,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangasnosekai.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 4362,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 47,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangasnosekai.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 717,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "El Mundo Del Juego Otome Es Muy Difícil Para El... -> /manga/el-mundo-del-juego-otome-es-muy-dificil-para-el-mob/",
+                        "Las chicas que me traumaron me están mirando, pero desafortunadamente... -> /manga/las-chicas-que-me-traumaron-me-estan-mirando-pero-desafortunadamente-es-demasiado-tarde/",
+                        "Haimiya-senpai es aterradora, pero linda -> /manga/haimiya-senpai-es-aterradora-pero-linda/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 40,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangasnosekai.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 510,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "La Orden Anti-bestias del Frente 107 -> /manga/la-orden-anti-bestias-del-frente-107/",
+                        "¡Una santa y una villana se alían para conquistar un... -> /manga/una-santa-y-una-villana-se-alian-para-conquistar-un-juego-otome/",
+                        "Adicto a las súcubos -> /manga/adicto-a-las-sucubos/"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -62,23 +64,55 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "UNSUPPORTED",
+                    "durationMs": 728,
+                    "message": "requires the native QuickJS library, which has no JVM build: app.cash.quickjs.QuickJs",
+                    "notes": [
+                        "java.lang.NoClassDefFoundError: app/cash/quickjs/QuickJs",
+                        "java.lang.ClassNotFoundException: app.cash.quickjs.QuickJs"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:47:35.042952126Z",
+    "changes": [
+        {
+            "source": "Mangas No Sekai",
+            "lang": "es",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Mangas No Sekai",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Mangas No Sekai",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Mangas No Sekai",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "UNSUPPORTED"
+        }
+    ]
 }

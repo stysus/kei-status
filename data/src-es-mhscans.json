@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-22T08:55:51.534517777Z",
+    "generatedAt": "2026-10-23T08:52:26.056948469Z",
     "module": ":src:es:mhscans",
     "sourceRoot": "",
-    "extensionCommit": "1d3d7c4b",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 3253304651550496369,
@@ -22,34 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 20722,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mhscans.com (HTTP 503)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 453,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 202,
-                    "message": "HTTP error 500",
+                    "status": "PASS",
+                    "durationMs": 4088,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "El Antiguo Soberano de la Eternidad -> 2429",
+                        "Inicio de Sesión en el Murim -> 2312",
+                        "Me Confundieron con un Monstruoso Actor Genio -> 2644"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 3016,
-                    "message": "HTTP error 500",
+                    "status": "PASS",
+                    "durationMs": 2723,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "El dragón del sargento -> 136246500",
+                        "Asesino Divino, Yo Soy la Sombra -> 136207637",
+                        "Providencia de PrimerGRADO: Cultivé Durante Miles de Años -> 136213544"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -58,9 +64,9 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 4903,
+                    "message": "HTTP error 503",
                     "notes": [],
                     "samples": []
                 },
@@ -68,56 +74,42 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:33.877654668Z",
+    "comparedTo": "2026-10-22T08:55:51.534517777Z",
     "changes": [
         {
             "source": "MHScans",
             "lang": "es",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "MHScans",
             "lang": "es",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "MHScans",
             "lang": "es",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "MHScans",
             "lang": "es",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "MHScans",
-            "lang": "es",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "MHScans",
-            "lang": "es",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ]
 }

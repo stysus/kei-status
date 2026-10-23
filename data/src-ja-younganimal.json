@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-21T08:48:17.984311448Z",
+    "generatedAt": "2026-10-23T08:57:04.296153418Z",
     "module": ":src:ja:younganimal",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 3590997004623427971,
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 626,
+                    "durationMs": 88,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 547,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 76,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "SNSの怪物 -> 77a1b49776478",
-                        "紫雲寺家の子供たち -> dcdfed915ad70",
-                        "描くなるうえは -> 423d7471396e9"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 578,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 12,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "社交界の毒婦とよばれる私～素敵な辺境伯令息に腕を折られたので、責任とってもらいます～ -> edc2509325617",
-                        "追放悪役令嬢の旦那様 -> 03ffcabaaa062",
-                        "嘘をついた私たち -> 71460b2b6686f"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,42 +56,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1043,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 第41話① -> 7db11981299eb",
-                        "🔒 第40話② -> 18f25c41c4bfd",
-                        "🔒 第40話① -> f1c36d3f9df0f"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 274,
-                    "message": "Log in via WebView and purchase this chapter to read.",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:53:06.769899258Z",
+    "comparedTo": "2026-10-21T08:48:17.984311448Z",
     "changes": [
         {
             "source": "Young Animal",
             "lang": "ja",
-            "scenario": "pages",
+            "scenario": "popular",
             "from": "PASS",
             "to": "FAIL"
         },
         {
             "source": "Young Animal",
             "lang": "ja",
-            "scenario": "images",
+            "scenario": "latest",
             "from": "PASS",
-            "to": null
+            "to": "FAIL"
+        },
+        {
+            "source": "Young Animal",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Young Animal",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ]
 }

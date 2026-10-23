@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-22T08:56:03.913739467Z",
+    "generatedAt": "2026-10-23T08:52:01.638832366Z",
     "module": ":src:fr:mangamoins",
     "sourceRoot": "",
-    "extensionCommit": "1d3d7c4b",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 6508647660473520087,
             "name": "MangaMoins",
             "lang": "fr",
             "baseUrl": "https://mangamoins.com",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,32 +22,30 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 2943,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangamoins.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 32417,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 26,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangamoins.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 8622,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "One Piece -> one_piece",
+                        "Jujutsu Kaisen -> jujutsu_kaisen",
+                        "My Hero Academia -> my_hero_academia"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 15,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangamoins.com (HTTP 403)"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 30001,
+                    "message": "timeout",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -62,9 +60,9 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 30001,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
@@ -72,56 +70,42 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:45:55.476588927Z",
+    "comparedTo": "2026-10-22T08:56:03.913739467Z",
     "changes": [
         {
             "source": "MangaMoins",
             "lang": "fr",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "MangaMoins",
             "lang": "fr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "MangaMoins",
             "lang": "fr",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "FAIL"
         },
         {
             "source": "MangaMoins",
             "lang": "fr",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "MangaMoins",
-            "lang": "fr",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "MangaMoins",
-            "lang": "fr",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ]
 }

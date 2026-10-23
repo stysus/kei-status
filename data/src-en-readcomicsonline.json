@@ -1,59 +1,61 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:55:22.170435296Z",
+    "generatedAt": "2026-10-23T08:49:54.242600462Z",
     "module": ":src:en:readcomicsonline",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 7185601298150078890,
             "name": "Read Comics Online",
             "lang": "en",
             "baseUrl": "https://readcomicsonline.ru",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 3329,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from readcomicsonline.ru (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 16729,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 93,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from readcomicsonline.ru (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 509,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Absolute Batman (2024-) -> /comic/absolute-batman-2024",
+                        "Batman (2016-) -> /comic/batman-2016",
+                        "Saga (2012-) -> /comic/saga-2012"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 75,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from readcomicsonline.ru (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 590,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "X-O Manowar: Black, White & Gold (2026-) -> /comic/x-o-manowar-black-white-gold-2026",
+                        "Valiant Beyond: The X-O Manowar Finale - The Pilgrimage (2026-) -> /comic/valiant-beyond-the-x-o-manowar-finale-the-pilgrimage-2026",
+                        "The Twilight Zone (2025-) -> /comic/the-twilight-zone-2025"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 6,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,23 +64,82 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 462,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "#Annual 2025 -> /comic/absolute-batman-2024/annual2025",
+                        "#24 -> /comic/absolute-batman-2024/24",
+                        "#23 -> /comic/absolute-batman-2024/23"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 235,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://cdn.readcomicsonline.ru/uploads/manga/absolute-batman-2024/chapters/annual2025/01.jpg",
+                        "https://cdn.readcomicsonline.ru/uploads/manga/absolute-batman-2024/chapters/annual2025/02.jpg",
+                        "https://cdn.readcomicsonline.ru/uploads/manga/absolute-batman-2024/chapters/annual2025/03.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 2381,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:55:22.170435296Z",
+    "changes": [
+        {
+            "source": "Read Comics Online",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Read Comics Online",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Read Comics Online",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Read Comics Online",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Read Comics Online",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Read Comics Online",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ]
 }

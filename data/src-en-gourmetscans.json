@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-22T09:00:14.814102670Z",
+    "generatedAt": "2026-10-23T08:57:13.456570709Z",
     "module": ":src:en:gourmetscans",
     "sourceRoot": "",
-    "extensionCommit": "1d3d7c4b",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 3694940277826033657,
             "name": "Gourmet Scans",
             "lang": "en",
             "baseUrl": "https://gourmetsupremacy.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2296,
+                    "durationMs": 608,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1939,
+                    "status": "WARN",
+                    "durationMs": 187,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "It’s Time to Change the Genre -> 2953",
-                        "I Failed to Divorce My Husband -> 6578",
-                        "Lady Baby -> 2092"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 3694,
+                    "status": "WARN",
+                    "durationMs": 187,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "I’m Being Raised by Villains -> 8286",
-                        "I Divorced and Abandoned My Family -> 30007629",
-                        "I Became the Sacrificial Princess -> 4558"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,54 +60,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 479,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The End Notes - Afterword -> the-end-notes",
-                        "Side Story 3 - Ruediger Winterwald (Fin) -> side-story-3",
-                        "Side Story 2 - Ruediger Winterwald -> side-story-2"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 3141,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_01.jpg",
-                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_02.jpg",
-                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 692,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:52:44.120917532Z",
+    "comparedTo": "2026-10-22T09:00:14.814102670Z",
     "changes": [
         {
             "source": "Gourmet Scans",
             "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Gourmet Scans",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Gourmet Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Gourmet Scans",
+            "lang": "en",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Gourmet Scans",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ]
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:46:00.860419383Z",
+    "generatedAt": "2026-10-23T08:49:46.997104325Z",
     "module": ":src:tr:mangawt",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 9068262319581900273,
             "name": "MangaWT",
             "lang": "tr",
             "baseUrl": "https://mangawt.com",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 3377,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangawt.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 3019,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 128,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangawt.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 284,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Süper Tanrı Geni -> super-tanri-geni",
+                        "İlkel Avcı -> ilkel-avci",
+                        "Bir Dağda Başlamak -> bir-dagda-baslamak"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 127,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangawt.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 246,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Farklı Dünyada Devlet Kurma Günlükleri -> farkli-dunyada-devlet-kurma-gunlukleri",
+                        "Douluo Dalu 4 -> douluo-dalu-4",
+                        "SSS Kademe Kutsal Şövalye -> sss-kademe-kutsal-sovalye"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -62,23 +64,82 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 784,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Bölüm 489 -> 6ac8d248341e5c390f97137f",
+                        "Bölüm 488 -> 6abe5350f9ffbd37abbf3f46",
+                        "Bölüm 487 -> 6ab6ccd2f9ffbd37ab9be192"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 233,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://mangawt.com/api/mangas/media/ch/69c09fed20a0291102370908/1/0-1783083262590-2y9b-16u9vtd-0.jpg?exp=1792746000&sig=rgQrcLev3EhNB_t4j8XiXZQVOphiA7xzJOcMWxXgs_s",
+                        "https://mangawt.com/api/mangas/media/ch/69c09fed20a0291102370908/1/1-1783083262590-w8q4-ao0ybc-1.jpg?exp=1792746000&sig=CAzURTBQ0qQUIC4aYNRMcqv3BStJ0xaSrqkSobjW7kA",
+                        "https://mangawt.com/api/mangas/media/ch/69c09fed20a0291102370908/1/2-1783083262590-sdwb-1de202t-2.jpg?exp=1792746000&sig=3o1d8GeYUtv3aEbFKjojPO3XzF3uYvoY_9-BnH0cpsQ"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1780,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:46:00.860419383Z",
+    "changes": [
+        {
+            "source": "MangaWT",
+            "lang": "tr",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaWT",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaWT",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaWT",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaWT",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaWT",
+            "lang": "tr",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ]
 }

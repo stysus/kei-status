@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:44:20.653156989Z",
+    "generatedAt": "2026-10-23T08:48:58.225295813Z",
     "module": ":src:fr:japscan",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 11,
             "name": "Japscan",
             "lang": "fr",
             "baseUrl": "https://www.japscan.foo",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,32 +22,26 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 901,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.japscan.foo (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 229,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 1345,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.japscan.foo (HTTP 403)"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 1935,
+                    "message": "HTTP error 403",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 2016,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.japscan.foo (HTTP 403)"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 2033,
+                    "message": "HTTP error 403",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -79,6 +73,28 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:44:20.653156989Z",
+    "changes": [
+        {
+            "source": "Japscan",
+            "lang": "fr",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Japscan",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "FAIL"
+        },
+        {
+            "source": "Japscan",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "FAIL"
+        }
+    ]
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:47:23.441300038Z",
+    "generatedAt": "2026-10-23T08:51:21.692060047Z",
     "module": ":src:es:mangamx",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 2202687009511923782,
             "name": "MangaOni",
             "lang": "es",
             "baseUrl": "https://manga-oni.com",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 3021,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from manga-oni.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 3527,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 26,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from manga-oni.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 246,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Boku no Hero Academia -> /manga/boku-no-hero-academia/",
+                        "Tokyo 卍 Revengers -> /manga/tokyo-revengers/",
+                        "This doesn't feel like me -> /manhwa/this-doesnt-feel-like-me/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 58,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from manga-oni.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 251,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Cómo Proteger Al Hermano Mayor De La Heroína -> /manhwa/como-proteger-al-hermano-mayor-de-la-heroina/",
+                        "Relación por diversión -> /manga/asobi-no-kankei/",
+                        "The Demon Babysitter -> /manhwa/the-demon-babysitter/"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,23 +64,82 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 609,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Capítulo 431.5 — My Hero Academia: Ultra Age: The Final Fan Book -> /lector/boku-no-hero-academia/710966/",
+                        "Capítulo 431 — Más -> /lector/boku-no-hero-academia/695588/",
+                        "Capítulo 430.5 — Epílogo -> /lector/boku-no-hero-academia/697556/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 186,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://oni.ntr-files.online/public/archivos/mangas/boku-no-hero-academia/10193/1.jpg.webp?up=20200309061203",
+                        "https://oni.ntr-files.online/public/archivos/mangas/boku-no-hero-academia/10193/2.jpg.webp?up=20200309061203",
+                        "https://oni.ntr-files.online/public/archivos/mangas/boku-no-hero-academia/10193/3.jpg.webp?up=20200309061203"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 2136,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:47:23.441300038Z",
+    "changes": [
+        {
+            "source": "MangaOni",
+            "lang": "es",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaOni",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaOni",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaOni",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaOni",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaOni",
+            "lang": "es",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ]
 }

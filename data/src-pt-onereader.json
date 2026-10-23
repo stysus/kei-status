@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:45:13.956287616Z",
+    "generatedAt": "2026-10-23T08:50:53.084161240Z",
     "module": ":src:pt:onereader",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 5026351287650198434,
             "name": "OneReader",
             "lang": "pt-BR",
             "baseUrl": "https://onereader.net",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,35 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 357,
+                    "durationMs": 312,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 20324,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.onereader.net (HTTP 503)"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 123,
+                    "message": "HTTP error 503",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 44,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.onereader.net (HTTP 503)"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 27,
+                    "message": "HTTP error 503",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,6 +73,21 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:45:13.956287616Z",
+    "changes": [
+        {
+            "source": "OneReader",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "FAIL"
+        },
+        {
+            "source": "OneReader",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "FAIL"
+        }
+    ]
 }

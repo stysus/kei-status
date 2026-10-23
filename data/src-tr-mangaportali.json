@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:45:05.532796002Z",
+    "generatedAt": "2026-10-23T08:48:50.927283187Z",
     "module": ":src:tr:mangaportali",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 2022032978410218674,
@@ -22,35 +22,27 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1974,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30144,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 462,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Solo Leveling -> solo-leveling",
-                        "Solo Leveling: Ragnarok -> solo-leveling-ragnarok",
-                        "Son Seviye Çaylak -> son-seviye-caylak"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 420,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30001,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Zombi Avcısı -> zombi-avcisi",
-                        "Şeytani Evrim -> seytani-evrim",
-                        "Yeraltı Dünyasının Efendisi -> yeralti-dunyasinin-efendisi"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,25 +56,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 911,
-                    "message": "Field 'isEarlyAccessLocked' is required for type with serial name 'eu.kanade.tachiyomi.extension.tr.mangaportali.ChapterDto', but it was missing",
-                    "notes": [
-                        "kotlinx.serialization.MissingFieldException: Field 'isEarlyAccessLocked' is required for type with serial name 'eu.kanade.tachiyomi.extension.tr.mangaportali.ChapterDto', but it was missing at path: $.items[0]"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:45:05.532796002Z",
+    "changes": [
+        {
+            "source": "Manga Portalı",
+            "lang": "tr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manga Portalı",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manga Portalı",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manga Portalı",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "SKIP"
+        }
+    ]
 }
