@@ -173,12 +173,7 @@ class Canvas(val bitmap: Bitmap) {
             RenderingHints.KEY_ANTIALIASING,
             if (paint.isAntiAlias) RenderingHints.VALUE_ANTIALIAS_ON else RenderingHints.VALUE_ANTIALIAS_OFF,
         )
-        val typeface = paint.typeface
-        graphics.font = java.awt.Font(
-            typeface?.awtFamily ?: java.awt.Font.SANS_SERIF,
-            java.awt.Font.PLAIN,
-            paint.textSize.toInt().coerceAtLeast(1),
-        )
+        graphics.font = paint.awtFont()
         graphics.stroke = if (paint.style == Paint.Style.FILL) {
             BasicStroke(0f)
         } else {

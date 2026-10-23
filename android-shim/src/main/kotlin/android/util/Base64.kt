@@ -2,7 +2,13 @@ package android.util
 
 import java.util.Base64 as JBase64
 
-/** Matches android.util.Base64 semantics for the flags extensions use. */
+/**
+ * Matches android.util.Base64 semantics for the flags extensions use.
+ *
+ * Both the `String` and the `byte[]` overloads exist because extensions call both: the Arabic and
+ * Chinese CryptoUtils hand AES material over as raw UTF-8 bytes, while ebookjapan passes a String.
+ * A shim that only offers one turns the other into a `NoSuchMethodError` at link time.
+ */
 object Base64 {
 
     const val DEFAULT = 0
@@ -19,16 +25,28 @@ object Base64 {
     }
 
     @JvmStatic
-    fun decode(str: String, flags: Int): ByteArray {
-        val normalized = if (flags and URL_SAFE != 0) {
-            str.replace('-', '+').replace('_', '/')
-        } else {
-            str
-        }
-        return JBase64.getMimeDecoder().decode(normalized)
-    }
+    fun decode(str: String, flags: Int): ByteArray =
+        JBase64.getMimeDecoder().decode(normalize(str.toByteArray(Charsets.US_ASCII), flags))
 
     @JvmStatic
-    fun encode(input: ByteArray, flags: Int): ByteArray =
-        encodeToString(input, flags).toByteArray()
+    fun decode(input: ByteArray, flags: Int): ByteArray =
+        JBase64.getMimeDecoder().decode(normalize(input, flags))
+
+    @JvmStatic
+    fun encode(input: ByteArray, flags: Int): ByteArray = encodeToString(input, flags).toByteArray()
+
+    /** The URL-safe alphabet differs in two characters; the MIME decoder only knows the standard one. */
+    private fun normalize(input: ByteArray, flags: Int): ByteArray {
+        if (flags and URL_SAFE == 0) return input
+
+        val translated = ByteArray(input.size)
+        for (index in input.indices) {
+            translated[index] = when (input[index].toInt().toChar()) {
+                '-' -> '+'.code.toByte()
+                '_' -> '/'.code.toByte()
+                else -> input[index]
+            }
+        }
+        return translated
+    }
 }

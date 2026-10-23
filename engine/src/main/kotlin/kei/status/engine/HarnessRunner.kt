@@ -400,7 +400,10 @@ class HarnessRunner(private val config: HarnessConfig) {
                         notes += "page[$index] image returned HTTP ${response.code}"
                         return@use
                     }
-                    val type = response.header("Content-Type").orEmpty()
+                    // An interceptor-built response (okhttp3's own Response.Builder too) carries the
+                    // media type in the body, not the headers - the header read alone sees "".
+                    val type = response.header("Content-Type")?.takeIf { it.isNotEmpty() }
+                        ?: response.body.contentType()?.toString().orEmpty()
                     if (!type.startsWith("image/")) notes += "page[$index] content-type is '$type'"
 
                     val bytes = response.body.bytes()

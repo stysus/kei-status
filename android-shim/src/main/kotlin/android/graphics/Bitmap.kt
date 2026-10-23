@@ -43,6 +43,51 @@ class Bitmap internal constructor(
         return image ?: error("Bitmap has no backing image")
     }
 
+    /**
+     * Copies an ARGB block out of the bitmap, the way Android's `getPixels` does.
+     *
+     * SoraRaw's descrambler works entirely on `IntArray` pixels - it reads the whole page, permutes
+     * the block AND the channels, then rebuilds a bitmap - so without this the source fails to link
+     * rather than producing a wrong image.
+     */
+    fun getPixels(pixels: IntArray, offset: Int, stride: Int, x: Int, y: Int, width: Int, height: Int) {
+        check(!recycled) { "Can't call getPixels() on a recycled bitmap" }
+        val source = requireImage()
+        if (width == 0 || height == 0) return
+
+        checkPixelsAccess(source, x, y, width, height, offset, stride, pixels)
+        for (row in 0 until height) {
+            for (column in 0 until width) {
+                pixels[offset + row * stride + column] = source.getRGB(x + column, y + row)
+            }
+        }
+    }
+
+    /** Android's own bounds contract, so a bad call fails loudly instead of reading past the row. */
+    private fun checkPixelsAccess(
+        image: BufferedImage,
+        x: Int,
+        y: Int,
+        width: Int,
+        height: Int,
+        offset: Int,
+        stride: Int,
+        pixels: IntArray,
+    ) {
+        if (width < 0 || height < 0) throw IllegalArgumentException("width and height must be >= 0")
+        if (x < 0 || x + width > image.width) {
+            throw IllegalArgumentException("x + width must be <= bitmap.width()")
+        }
+        if (y < 0 || y + height > image.height) {
+            throw IllegalArgumentException("y + height must be <= bitmap.height()")
+        }
+        if (kotlin.math.abs(stride) < width) throw IllegalArgumentException("abs(stride) must be >= width")
+        val lastScanline = offset + (height - 1) * stride
+        if (offset < 0 || offset + width > pixels.size || lastScanline < 0 || lastScanline + width > pixels.size) {
+            throw ArrayIndexOutOfBoundsException()
+        }
+    }
+
     fun copy(config: Config, isMutable: Boolean): Bitmap {
         val source = requireImage()
         val copy = BufferedImage(source.width, source.height, config.imageType)
@@ -114,6 +159,33 @@ class Bitmap internal constructor(
             require(width > 0 && height > 0) { "width and height must be > 0" }
             val type = if (hasAlpha) config.imageType else BufferedImage.TYPE_INT_RGB
             return Bitmap(BufferedImage(width, height, type), config, mutable = true)
+        }
+
+        /**
+         * Wraps an ARGB pixel array. SoraRaw builds its descrambled page this way: it permutes an
+         * `IntArray` and hands it back, so the array form is the whole point of its interceptor.
+         */
+        @JvmStatic
+        fun createBitmap(pixels: IntArray, width: Int, height: Int, config: Config): Bitmap =
+            createBitmap(pixels, 0, width, width, height, config)
+
+        /**
+         * The strided array overload Android also exposes: `colors[offset + row * stride + column]`
+         * fills pixel (column, row). [BufferedImage.setRGB] takes the same offset and scanline
+         * stride, so the mapping is direct and no copy of the array is needed.
+         */
+        @JvmStatic
+        fun createBitmap(colors: IntArray, offset: Int, stride: Int, width: Int, height: Int, config: Config): Bitmap {
+            require(width > 0 && height > 0) { "width and height must be > 0" }
+            require(offset >= 0) { "offset must be >= 0" }
+            require(stride >= width) { "stride must be >= width" }
+            require(offset + (height - 1) * stride + width <= colors.size) {
+                "colors array is too small: ${colors.size} < ${offset + (height - 1) * stride + width}"
+            }
+
+            val image = BufferedImage(width, height, config.imageType)
+            image.setRGB(0, 0, width, height, colors, offset, stride)
+            return Bitmap(image, config, mutable = true)
         }
 
         @JvmStatic

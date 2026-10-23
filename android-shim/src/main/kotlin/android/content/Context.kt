@@ -1,5 +1,6 @@
 package android.content
 
+import android.content.pm.ApplicationInfo
 import android.content.res.Resources
 import java.io.File
 
@@ -25,6 +26,23 @@ open class Context {
     open fun getApplicationContext(): Context = this
 
     open fun getCacheDir(): File = root().resolve("cache").apply { mkdirs() }
+
+    /**
+     * The app-private external cache, where the Kemono theme puts its OkHttp cache.
+     *
+     * Android returns null when external storage is unavailable; a run always has a writable
+     * scratch tree, so it is never null here.
+     */
+    open fun getExternalCacheDir(): File = root().resolve("cache/external").apply { mkdirs() }
+
+    /**
+     * Only `dataDir` is meaningful here: TCB Scans joins it with `shared_prefs` to migrate a legacy
+     * preference file, and nothing else in the tree reads an ApplicationInfo.
+     */
+    open fun getApplicationInfo(): ApplicationInfo = ApplicationInfo().apply {
+        dataDir = root().absolutePath
+        packageName = getPackageName()
+    }
 
     open fun getFilesDir(): File = root().resolve("files").apply { mkdirs() }
 

@@ -34,6 +34,16 @@ open class Rect(
 
     fun centerY(): Int = (top + bottom) shr 1
 
+    /**
+     * The float centre Android exposes next to the integer one.
+     *
+     * ebookjapan rotates every tile around `dst.exactCenterX()`, so without it the descrambler
+     * fails to link rather than drawing a rotated page.
+     */
+    fun exactCenterX(): Float = (left + right) * 0.5f
+
+    fun exactCenterY(): Float = (top + bottom) * 0.5f
+
     fun isEmpty(): Boolean = left >= right || top >= bottom
 
     override fun equals(other: Any?): Boolean =

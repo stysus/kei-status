@@ -25,7 +25,7 @@ open class Paint {
 
     var textSize: Float = 12f
 
-    var typeface: Typeface? = Typeface.DEFAULT
+    private var typefaceValue: Typeface? = Typeface.DEFAULT
 
     var strokeCap: Cap = Cap.BUTT
 
@@ -39,6 +39,32 @@ open class Paint {
         isDither = flags and DITHER_FLAG != 0
     }
 
+    /**
+     * Android's `setTypeface` returns the typeface it was given, not `void`.
+     *
+     * That return type is part of the JVM descriptor, so this cannot be a Kotlin `var`: the setter
+     * a property generates is `void`, and extension bytecode compiled against android.jar links
+     * against `setTypeface(Typeface)Typeface`.
+     */
+    fun getTypeface(): Typeface? = typefaceValue
+
+    fun setTypeface(typeface: Typeface?): Typeface? {
+        typefaceValue = typeface
+        return typeface
+    }
+
+    /**
+     * The `java.awt` font this paint describes.
+     *
+     * Shared with [android.text.StaticLayout], which must measure with exactly the font the canvas
+     * later draws with; two independent mappings would wrap the text at the wrong column.
+     */
+    internal fun awtFont(): java.awt.Font = java.awt.Font(
+        typefaceValue?.awtFamily ?: java.awt.Font.SANS_SERIF,
+        java.awt.Font.PLAIN,
+        textSize.toInt().coerceAtLeast(1),
+    )
+
     fun reset() {
         color = Color.BLACK
         alpha = 255
@@ -49,7 +75,7 @@ open class Paint {
         isDither = false
         colorFilter = null
         textSize = 12f
-        typeface = Typeface.DEFAULT
+        typefaceValue = Typeface.DEFAULT
     }
 
     fun setARGB(a: Int, r: Int, g: Int, b: Int) {
