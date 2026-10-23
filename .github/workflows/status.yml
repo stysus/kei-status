@@ -90,6 +90,16 @@ jobs:
       - name: Build the harness
         run: ./gradlew :cli:installDist --stacktrace
 
+      # host-shim reimplements the classes extensions compile against, so a member whose JVM
+      # descriptor drifted from the pinned extensions-lib links as NoSuchMethodError at run time.
+      # The snapshot in host-shim/src/test/resources records that contract, and this regenerates it
+      # from the artifact to prove the two still agree. It sits here rather than in `ci.yml` because
+      # the pin lives in `extensions-source/`, which is not part of this repository: only a job that
+      # has checked it out can see the version `prepare` is about to compile against. One check for
+      # the whole sweep, and a stale snapshot stops it before twenty shards spend hours on it.
+      - name: Verify the host-shim contract snapshot
+        run: python3 tools/upstream-contract.py --check
+
       # Discovery is the checker's job, not the shell's: `ci/discover.sh` calls it, so the rule for
       # "what is a module" and the split into shards have exactly one implementation, the one the
       # tests cover. That is why the harness is built first.
