@@ -57,7 +57,16 @@ class HarnessRunner(private val config: HarnessConfig) {
      * background and caches it per source id, so without this every variant would download the
      * same filter page.
      */
-    private val filterSites = mutableMapOf<String, FilterSite>()
+    private val filterSites = mutableMapOf<String, SiteResult>()
+
+    /**
+     * One connectivity probe per extension class and site, for the same reason as [filterSites].
+     *
+     * A module can declare one source per language against a single base URL - HentaiHand has 34,
+     * MangaDot 108 - and whether the home page answers is a property of the site, not of the
+     * variant. Probing it 34 times spent 255s of HentaiHand's 672s arriving at one answer.
+     */
+    private val homeSites = mutableMapOf<String, SiteResult>()
 
     /**
      * Hosts that answered HTTP 429 during this run, so the rest of the sources on them are not asked
@@ -221,7 +230,7 @@ class HarnessRunner(private val config: HarnessConfig) {
 
         scenarios += capture("metadata") { Checks.metadata(source.id, source.name, source.lang, baseUrlOf(source)) }.result
 
-        scenarios += capture("connectivity", host = host) { probeHome(source) }.result
+        scenarios += connectivityScenario(source, host)
 
         val popular = capture("popular", ::mangaNotes, ::mangaSamples, host = host) { source.getPopularManga(1) }
         scenarios += popular.result
@@ -295,8 +304,30 @@ class HarnessRunner(private val config: HarnessConfig) {
      * and fail the same way, since the fetch is a property of the site, not of the variant. The
      * first source's result is reported for the rest, with a note saying so.
      */
-    private suspend fun filtersScenario(source: CatalogueSource): ScenarioResult {
-        val site = filterSites.getOrPut("${sourceType(source).name}|${baseUrlOf(source)}") { FilterSite() }
+    private suspend fun filtersScenario(source: CatalogueSource): ScenarioResult =
+        sharedPerSite(source, filterSites) {
+            capture("filters", samples = { listOf("${it.size} filters") }) { source.getFilterList() }.result
+        }
+
+    /** The home-page probe, once per site, for the same reason. */
+    private suspend fun connectivityScenario(source: CatalogueSource, host: String?): ScenarioResult =
+        sharedPerSite(source, homeSites) {
+            capture("connectivity", host = host) { probeHome(source) }.result
+        }
+
+    /**
+     * Reports [scenario]'s result for the first source on a site and replays it for the rest.
+     *
+     * The verdict is copied, not recomputed: the extra note explains why the duration is zero, and
+     * a scenario that passed for the site passes for each variant of it. Recomputing would turn
+     * every replayed `PASS` into a `WARN` on the strength of a note.
+     */
+    private suspend fun sharedPerSite(
+        source: CatalogueSource,
+        cache: MutableMap<String, SiteResult>,
+        scenario: suspend () -> ScenarioResult,
+    ): ScenarioResult {
+        val site = cache.getOrPut("${sourceType(source).name}|${baseUrlOf(source)}") { SiteResult() }
 
         site.result?.let { leader ->
             return leader.copy(
@@ -305,10 +336,8 @@ class HarnessRunner(private val config: HarnessConfig) {
             )
         }
 
-        val captured = capture("filters", samples = { listOf("${it.size} filters") }) { source.getFilterList() }
         site.leader = "${source.name} [${source.lang}]"
-        site.result = captured.result
-        return captured.result
+        return scenario().also { site.result = it }
     }
 
     /**
@@ -321,7 +350,7 @@ class HarnessRunner(private val config: HarnessConfig) {
         return type
     }
 
-    private class FilterSite {
+    private class SiteResult {
         var leader: String = ""
         var result: ScenarioResult? = null
     }

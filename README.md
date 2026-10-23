@@ -502,6 +502,12 @@ ci/commit.sh [store-dir] [message-prefix]
   language would otherwise fetch the same filter page once per language, and the background fetch
   failing never fails the source: `getFilterList()` falls back to the static list, so a broken
   dynamic filter fetch still reports `PASS`.
+- `connectivity` is checked once per extension class and site, for the same reason: whether the home
+  page answers is a property of the site, not of the language variant. The other sources report the
+  same verdict with a note saying it was not probed again. HentaiHand declares 34 sources on one
+  host and spent 255s of a 672s module asking the same URL 34 times; it now spends 1.3s. The cost is
+  fidelity at the margin: a site that goes down mid-module still reports `PASS` for the sources
+  checked after it, until the next run.
 - `pages` asks for the **earliest numbered chapter**. A site's newest chapter is the one most often
   behind a paywall (a free promo chapter ages into a paid one, which is what happened to Comikey),
   while a first chapter is the sample a site tends to leave open. The pick is by `chapter_number`,
