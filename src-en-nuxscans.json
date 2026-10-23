@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-22T08:56:01.437660907Z",
+    "generatedAt": "2026-10-23T08:53:46.746632866Z",
     "module": ":src:en:nuxscans",
     "sourceRoot": "",
-    "extensionCommit": "1d3d7c4b",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 5854986367394591788,
@@ -23,18 +23,22 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 237,
+                    "durationMs": 343,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 494,
-                    "message": "HTTP error 429",
+                    "status": "PASS",
+                    "durationMs": 102,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "I'm An Evil God -> /2021/04/1141-sypnosis-bored-with-his-life-on.html?m=0",
+                        "My House of Horror -> /2021/06/my-house-of-horror.html?m=0",
+                        "Tales Of Herding Gods -> /2020/11/sypnosis-daxu-ancestors-abandoned-by.html?m=0"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -56,52 +60,51 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 826,
+                    "message": null,
+                    "notes": [
+                        "duplicate chapter urls: [https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html]"
+                    ],
+                    "samples": [
+                        "Chapter 148 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html",
+                        "Chapter 147 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html",
+                        "Chapter 146 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 464,
+                    "message": "HTTP error 429",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-21T08:47:12.976751219Z",
+    "comparedTo": "2026-10-22T08:56:01.437660907Z",
     "changes": [
         {
             "source": "Nux Scans",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Nux Scans",
             "lang": "en",
             "scenario": "chapters",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
         },
         {
             "source": "Nux Scans",
             "lang": "en",
             "scenario": "pages",
-            "from": "WARN",
-            "to": "SKIP"
-        },
-        {
-            "source": "Nux Scans",
-            "lang": "en",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ]
 }

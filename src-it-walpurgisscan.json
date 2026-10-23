@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:46:12.949767641Z",
+    "generatedAt": "2026-10-23T08:54:09.365282376Z",
     "module": ":src:it:walpurgisscan",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 6566957355096372149,
             "name": "Walpurgi Scan",
             "lang": "it",
             "baseUrl": "https://www.walpurgiscan.it",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 6049,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.walpurgiscan.it (HTTP 503)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 4067,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 1135,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.walpurgiscan.it (HTTP 503)"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 779,
+                    "message": "HTTP error 503",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 831,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.walpurgiscan.it (HTTP 503)"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 808,
+                    "message": "HTTP error 503",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 6,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -79,6 +73,28 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:46:12.949767641Z",
+    "changes": [
+        {
+            "source": "Walpurgi Scan",
+            "lang": "it",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Walpurgi Scan",
+            "lang": "it",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "FAIL"
+        },
+        {
+            "source": "Walpurgi Scan",
+            "lang": "it",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "FAIL"
+        }
+    ]
 }

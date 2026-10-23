@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:46:41.160014719Z",
+    "generatedAt": "2026-10-23T08:52:30.578929315Z",
     "module": ":src:en:xoxocomics",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 2385956107618754468,
             "name": "XOXO Comics",
             "lang": "en",
             "baseUrl": "https://xoxocomic.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 59,
+                    "durationMs": 123,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,20 +42,22 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 253,
+                    "status": "WARN",
+                    "durationMs": 326,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "duplicate manga urls: [/comic/nightwing-2016, /comic/catwoman-2018, /comic/miles-morales-spider-man-2026]"
+                    ],
                     "samples": [
-                        "Doctor Strange (2025) -> /comic/doctor-strange-2025",
-                        "Punisher (2026) -> /comic/punisher-2026",
-                        "Spider-Man: Long Way Home -> /comic/spider-man-long-way-home"
+                        "Nightwing (2016) -> /comic/nightwing-2016",
+                        "Catwoman (2018) -> /comic/catwoman-2018",
+                        "Witchblade (2024) -> /comic/witchblade-2024"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +67,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 53,
+                    "durationMs": 106,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +79,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 119,
+                    "durationMs": 105,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -89,7 +91,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 321,
+                    "durationMs": 317,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -97,6 +99,14 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:46:41.160014719Z",
+    "changes": [
+        {
+            "source": "XOXO Comics",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ]
 }

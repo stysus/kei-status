@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:50:01.132945320Z",
+    "generatedAt": "2026-10-23T08:55:28.806068770Z",
     "module": ":src:cs:evilproduction",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 1108925046016173676,
             "name": "Evil production",
             "lang": "cs",
             "baseUrl": "https://evil-manga.eu",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,31 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 3245,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from evil-manga.eu (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 5256,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 32,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "WARN",
+                    "durationMs": 1579,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from evil-manga.eu (HTTP 403)"
+                        "popular/latest returned an empty list"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 45,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "WARN",
+                    "durationMs": 1034,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from evil-manga.eu (HTTP 403)"
+                        "popular/latest returned an empty list"
                     ],
                     "samples": []
                 },
@@ -79,6 +77,28 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:50:01.132945320Z",
+    "changes": [
+        {
+            "source": "Evil production",
+            "lang": "cs",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Evil production",
+            "lang": "cs",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "WARN"
+        },
+        {
+            "source": "Evil production",
+            "lang": "cs",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "WARN"
+        }
+    ]
 }

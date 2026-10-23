@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:55:17.587150684Z",
+    "generatedAt": "2026-10-23T08:56:51.538748116Z",
     "module": ":src:tr:hayalistic",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 546920749196078093,
             "name": "Hayalistic",
             "lang": "tr",
             "baseUrl": "https://hayalistic.online",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 2707,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from hayalistic.online (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 4021,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 33,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from hayalistic.online (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 607,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Nihayetin Ardındaki Başlangıç -> 5321",
+                        "Yalnız Yükseliş -> 5363",
+                        "Görünüşçülük -> 3389"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 13,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from hayalistic.online (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 655,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Çalınan Kocam -> 10858",
+                        "Erkek Başrolle Hapishanede Tanıştım -> 4205",
+                        "Pamuk Prensesin Üvey Annesi -> 4180"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -62,23 +64,80 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 1107,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Bölüm 236 -> bolum-236",
+                        "Bölüm 235 -> bolum-235",
+                        "Bölüm 234 -> bolum-234"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
+                    "status": "WARN",
+                    "durationMs": 2242,
+                    "message": null,
+                    "notes": [
+                        "page list is empty"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:55:17.587150684Z",
+    "changes": [
+        {
+            "source": "Hayalistic",
+            "lang": "tr",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Hayalistic",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Hayalistic",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Hayalistic",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Hayalistic",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Hayalistic",
+            "lang": "tr",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ]
 }

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-22T08:58:30.579476054Z",
+    "generatedAt": "2026-10-23T08:52:38.438934862Z",
     "module": ":src:id:tooncubus",
     "sourceRoot": "",
-    "extensionCommit": "1d3d7c4b",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 8493327683322555504,
@@ -23,23 +23,27 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 302,
+                    "durationMs": 1530,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 639,
-                    "message": "HTTP error 429",
+                    "status": "PASS",
+                    "durationMs": 139,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Aunt Hina -> /2024/11/aunt-hina.html",
+                        "Konoha Shinobi Affair -> /2023/01/konoha-shinobi-affair.html",
+                        "Konoha Spring -> /2024/03/konohaspring.html"
+                    ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 160,
+                    "durationMs": 205,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,33 +64,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 274,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 601,
+                    "message": "HTTP error 429",
                     "notes": [],
-                    "samples": [
-                        "Baca Chapter 01 -> https://www.tooncubus-read.my.id/2026/03/love-for-amalthea-1.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 71,
-                    "message": "www.tooncubus-read.my.id: Name or service not known",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:50:20.975671771Z",
+    "comparedTo": "2026-10-22T08:58:30.579476054Z",
     "changes": [
         {
             "source": "Tooncubus",
             "lang": "id",
             "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Tooncubus",
+            "lang": "id",
+            "scenario": "chapters",
             "from": "PASS",
             "to": "FAIL"
+        },
+        {
+            "source": "Tooncubus",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ]
 }

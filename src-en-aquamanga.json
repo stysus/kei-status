@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:50:39.091704597Z",
+    "generatedAt": "2026-10-23T08:56:19.813025316Z",
     "module": ":src:en:aquamanga",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 626267698662819838,
             "name": "Aqua Manga",
             "lang": "en",
             "baseUrl": "https://aquareader.org",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,31 +23,41 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 360,
+                    "durationMs": 889,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30,
-                    "message": "HTTP error 404",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 315,
+                    "message": null,
+                    "notes": [
+                        "manga[2] has no thumbnail"
+                    ],
+                    "samples": [
+                        "White Dragon Duke: Pendragon -> /manga/white-dragon-duke-pendragon/",
+                        "Damn Reincarnation -> /manga/damn-reincarnation/",
+                        "Martial Inverse (Wu Ni) – Manhuaus -> /manga/martial-inverse-wu-ni-manhuaus/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 27,
-                    "message": "HTTP error 404",
+                    "status": "PASS",
+                    "durationMs": 209,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "The Demon King Who Lost His Job -> /manga/the-demon-king-who-lost-his-job/",
+                        "Hunter Academy’s Strongest Battle God -> /manga/hunter-academys-strongest-battle-god/",
+                        "I Have Twin Girlfriends -> /manga/i-have-twin-girlfriends/"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -56,23 +66,75 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 177,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 131 -> chapter-131",
+                        "Chapter 130 -> chapter-130",
+                        "Chapter 129 -> chapter-129"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 664,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://aquareader.org/wp-content/uploads/WP-manga/data//dcdd942a204b15c00ed7f518c76e2654/01.webp",
+                        "https://aquareader.org/wp-content/uploads/WP-manga/data//dcdd942a204b15c00ed7f518c76e2654/02.webp",
+                        "https://aquareader.org/wp-content/uploads/WP-manga/data//dcdd942a204b15c00ed7f518c76e2654/03.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 2865,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:50:39.091704597Z",
+    "changes": [
+        {
+            "source": "Aqua Manga",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "WARN"
+        },
+        {
+            "source": "Aqua Manga",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Aqua Manga",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Aqua Manga",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Aqua Manga",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ]
 }

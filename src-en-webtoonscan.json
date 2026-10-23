@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:45:51.672533737Z",
+    "generatedAt": "2026-10-23T08:50:27.907079807Z",
     "module": ":src:en:webtoonscan",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 3062846066388633553,
             "name": "WebtoonScan",
             "lang": "en",
             "baseUrl": "https://webtoonscan.com",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,18 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 3692,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from webtoonscan.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 3993,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 745,
+                    "durationMs": 431,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -45,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 440,
+                    "durationMs": 413,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "College Grades Skyrocketing -> 17307",
-                        "The Alpha Blueprint -> 21332",
-                        "The National Length Crisis -> 21330"
+                        "Swingers (Gimong) (Uncensored) -> 21524",
+                        "The Knight and the Witch (Uncensored) -> 21284",
+                        "Yes Ma’am (Uncensored) -> 21522"
                     ]
                 },
                 {
@@ -66,25 +64,68 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "BLOCKED",
-                    "durationMs": 12,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from webtoonscan.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 412,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Chapter 321 -> chapter-321",
+                        "Chapter 320 -> chapter-320",
+                        "Chapter 319 -> chapter-319"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 334,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://cdn4.webtoonscan.cc/secret-class-1434/chapter-321/1.jpg",
+                        "https://cdn4.webtoonscan.cc/secret-class-1434/chapter-321/2.jpg",
+                        "https://cdn4.webtoonscan.cc/secret-class-1434/chapter-321/3.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1675,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:45:51.672533737Z",
+    "changes": [
+        {
+            "source": "WebtoonScan",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "WebtoonScan",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "WebtoonScan",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "WebtoonScan",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ]
 }

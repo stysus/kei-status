@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:47:20.466586262Z",
+    "generatedAt": "2026-10-23T08:52:52.046665621Z",
     "module": ":src:fr:scanhentaimenu",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 4153742697148883998,
             "name": "X-Manga",
             "lang": "fr",
             "baseUrl": "https://x-manga.org",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 3714,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from x-manga.org (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 5684,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 61,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from x-manga.org (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 722,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Sex Study Group -> 2756",
+                        "Secret Class -> 2140",
+                        "Panty Note -> 2042"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 40,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from x-manga.org (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 691,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "I’ll never give in! -> 8021",
+                        "Like father, Like son -> 7893",
+                        "I’m a Vampire -> 7994"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -62,23 +64,82 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 694,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapitre 110 - Fin -> chapitre-110",
+                        "Chapitre 109 -> chapitre-109",
+                        "Chapitre 108 -> chapitre-108"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 477,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://reader.hentai.gifts/manga_633e8bea451ad/chapitre-110/SSG-110-01.webp",
+                        "https://reader.hentai.gifts/manga_633e8bea451ad/chapitre-110/SSG-110-02.webp",
+                        "https://reader.hentai.gifts/manga_633e8bea451ad/chapitre-110/SSG-110-03.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 7599,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:47:20.466586262Z",
+    "changes": [
+        {
+            "source": "X-Manga",
+            "lang": "fr",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "X-Manga",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "X-Manga",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "X-Manga",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "X-Manga",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "X-Manga",
+            "lang": "fr",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ]
 }

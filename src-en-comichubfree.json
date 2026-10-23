@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:46:10.758948983Z",
+    "generatedAt": "2026-10-23T08:51:00.999951157Z",
     "module": ":src:en:comichubfree",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 2310489567413492709,
             "name": "ComicHubFree",
             "lang": "en",
             "baseUrl": "https://comichubfree.com",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 3024,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from comichubfree.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 2951,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 29,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from comichubfree.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 150,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Invincible (2003) -> /comic/invincible",
+                        "Spawn -> /comic/spawn",
+                        "The Amazing Spider-Man (1963) -> /comic/the-amazing-spider-man-1963"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 14,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from comichubfree.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 132,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Origins of the Hood: Marvel Rivals (2026-) -> /comic/origins-of-the-hood-marvel-rivals-2026",
+                        "X-Men of Apocalypse Omega (2026-) -> /comic/x-men-of-apocalypse-omega-2026",
+                        "What If...? Captain America (2026-) -> /comic/what-if-captain-america-2026"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -62,23 +64,82 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 295,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Invincible (2003) _TPB_25_-_The_End_of_All_Things_Part_Two -> /invincible/tpb-25-the-end-of-all-things-part-two",
+                        "Invincible (2003) _TPB_24_-_The_End_Of_All_Things_Part_One -> /invincible/tpb-24-the-end-of-all-things-part-one",
+                        "Invincible (2003) _TPB_23_-_Full_House -> /invincible/tpb-23-full-house"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 63,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://comichubfree.com/invincible/tpb-25-the-end-of-all-things-part-two/210285/1.jpg",
+                        "https://comichubfree.com/invincible/tpb-25-the-end-of-all-things-part-two/210285/2.jpg",
+                        "https://comichubfree.com/invincible/tpb-25-the-end-of-all-things-part-two/210285/3.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 173,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:46:10.758948983Z",
+    "changes": [
+        {
+            "source": "ComicHubFree",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "ComicHubFree",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "ComicHubFree",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "ComicHubFree",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "ComicHubFree",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "ComicHubFree",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ]
 }

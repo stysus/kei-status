@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:46:28.018793624Z",
+    "generatedAt": "2026-10-23T08:46:48.314821939Z",
     "module": ":src:ja:bigcomics",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 2944603286439592172,
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 673,
+                    "durationMs": 199,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 481,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 78,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "アオアシ -> 55780851b65d5",
-                        "還暦姫 -> d1f006349e9b2",
-                        "れぎをん -> 36b261d1c2ee7"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 487,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 16,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "はじめてのセフレ -> 4848464811e38",
-                        "ブループランター -> 5c363e8a00186",
-                        "釣りバカ日誌 -> eefd782c099a3"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,27 +56,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1360,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 最終話 Presence -> bfe53c3c3b244",
-                        "🔒 第409話 カラー・リリィの恋文 -> 93d208402ce8f",
-                        "第408話 Blue Diary -> 173616ebec341"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 249,
-                    "message": "Log in via WebView and purchase this chapter to read.",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:46:28.018793624Z",
+    "changes": [
+        {
+            "source": "Big Comics",
+            "lang": "ja",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Big Comics",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Big Comics",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Big Comics",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
+        }
+    ]
 }

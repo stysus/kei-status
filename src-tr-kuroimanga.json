@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:55:38.062947374Z",
+    "generatedAt": "2026-10-23T08:57:25.284949043Z",
     "module": ":src:tr:kuroimanga",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 8755089223917220341,
             "name": "Kuroi Manga",
             "lang": "tr",
             "baseUrl": "https://kuroimanga.site",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 2751,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from kuroimanga.site (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 6103,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 16,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from kuroimanga.site (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1446,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Kod Adı Anastasia -> 5197",
+                        "Solan Çiçeğin Gözyaşları -> 8391",
+                        "Kalp Merhemi -> 9422"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 14,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from kuroimanga.site (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1318,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Bitiş Çizgisi -> 19415",
+                        "The Drifting Star -> 6833",
+                        "Don’t Say You Love Me -> 3076"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,23 +64,63 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 4406,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Bölüm 74 -> bolum-74",
+                        "Bölüm 73 -> bolum-73",
+                        "Bölüm 72 -> bolum-72"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 2441,
+                    "message": "Bu seriyi okumak için abone olmalısınız",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:55:38.062947374Z",
+    "changes": [
+        {
+            "source": "Kuroi Manga",
+            "lang": "tr",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Kuroi Manga",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Kuroi Manga",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Kuroi Manga",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Kuroi Manga",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "FAIL"
+        }
+    ]
 }

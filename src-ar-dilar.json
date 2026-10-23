@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T20:09:39.829740608Z",
+    "generatedAt": "2026-10-23T08:51:21.164391359Z",
     "module": ":src:ar:dilar",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 7634600808243438399,
             "name": "Dilar",
             "lang": "ar",
             "baseUrl": "https://dilar.tube",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 1477,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from dilar.tube (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 1650,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 195,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from dilar.tube (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 219,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "The Broken Ring: This Marriage Will Fail Anyway -> 3926/The Broken Ring: This Marriage Will Fail Anyway",
+                        "Ties that Bind Us -> 12205/Ties that Bind Us",
+                        "Lord Blackwood Promised Me Death -> 13808/Lord Blackwood Promised Me Death"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 158,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from dilar.tube (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 221,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Soul Land V - The Rebirth of Tang San -> 6563/Soul Land V - The Rebirth of Tang San",
+                        "Soul Land -> 6585/Soul Land",
+                        "‏The Northern Warrior's Beloved Bride -> 9555/‏The Northern Warrior's Beloved Bride"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -62,23 +64,63 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 369,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "123 -> 3926/The Broken Ring: This Marriage Will Fail Anyway/123#189661",
+                        "122 -> 3926/The Broken Ring: This Marriage Will Fail Anyway/122#189660",
+                        "121.50 - حلقة خاصة: بمناسبة العودة بعد التوقف -> 3926/The Broken Ring: This Marriage Will Fail Anyway/121.50#189659"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 352,
+                    "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T20:09:39.829740608Z",
+    "changes": [
+        {
+            "source": "Dilar",
+            "lang": "ar",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Dilar",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Dilar",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Dilar",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Dilar",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "FAIL"
+        }
+    ]
 }

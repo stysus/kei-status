@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:54.286106096Z",
+    "generatedAt": "2026-10-23T08:56:14.118924043Z",
     "module": ":src:es:celestialmoon",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "4ba2c827",
     "sources": [
         {
             "sourceId": 7771256386177960897,
             "name": "Celestial Moon",
             "lang": "es",
             "baseUrl": "https://celestialmoonscan.es",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 642,
+                    "durationMs": 184,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 400,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 90,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "Amor de Prisión -> /amor-de-prision/",
-                        "Suplica Ante Mí -> /suplica-ante-mi/",
-                        "El Apareamiento de los Elfos -> /el-apareamiento-de-los-elfos/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 410,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 25,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "La Villana Rebelde ha Regresado -> /la-villana-rebelde-ha-regresado/",
-                        "Sin Nombre -> /sin-nombre/",
-                        "El Desnudo -> /el-desnudo/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,39 +56,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 610,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 100 - Final -> /amor-de-prision-capitulo-100/",
-                        "Chapter 99 - Extra 8 -> /amor-de-prision-capitulo-99/",
-                        "Chapter 98 - Extra 7 -> /amor-de-prision-capitulo-98/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 974,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://celestialmoonscan.es/wp-content/uploads/2026/01/01_celestialmoon-97.webp",
-                        "https://celestialmoonscan.es/wp-content/uploads/2026/01/02_celestialmoon-97.webp",
-                        "https://celestialmoonscan.es/wp-content/uploads/2026/01/03_celestialmoon-97.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1516,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:54.286106096Z",
+    "changes": [
+        {
+            "source": "Celestial Moon",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Celestial Moon",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Celestial Moon",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Celestial Moon",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Celestial Moon",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }
