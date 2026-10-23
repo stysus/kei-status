@@ -15,6 +15,15 @@ data class ModuleLayout(
     val module: String,
     val classesDir: String,
     val moduleDir: String,
+    /**
+     * External jars the module needs at run time, resolved from its `debugRuntimeClasspath`.
+     *
+     * The app gets these by bundling them into the extension jar; the harness loads a classes
+     * directory instead, so they have to be named separately. Defaulted because a layout file
+     * written before this field existed still describes a usable module - a module without
+     * third-party dependencies, which is most of them.
+     */
+    val runtimeJars: List<String> = emptyList(),
 )
 
 object ModuleLayouts {
