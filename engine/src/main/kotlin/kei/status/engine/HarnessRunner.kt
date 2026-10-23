@@ -1,6 +1,7 @@
 package kei.status.engine
 
 import android.graphics.BitmapFactory
+import eu.kanade.tachiyomi.network.HttpException
 import eu.kanade.tachiyomi.network.await
 import eu.kanade.tachiyomi.source.CatalogueSource
 import eu.kanade.tachiyomi.source.ConfigurableSource
@@ -11,8 +12,10 @@ import eu.kanade.tachiyomi.source.model.SMangaUpdate
 import eu.kanade.tachiyomi.source.online.HttpSource
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.Request
 import java.nio.file.Path
 import java.time.Instant
@@ -55,6 +58,21 @@ class HarnessRunner(private val config: HarnessConfig) {
      * same filter page.
      */
     private val filterSites = mutableMapOf<String, FilterSite>()
+
+    /**
+     * Hosts that answered HTTP 429 during this run, so the rest of the sources on them are not asked
+     * again.
+     *
+     * A module can declare the same site once per language - MangaDot declares 108 sources, all on
+     * `mangadot.net` - and the sweep walks them one after another. Once the site starts throttling,
+     * every later source gets a 429 that says nothing about the extension and costs another request
+     * that keeps the throttle alive. One trip per host turns dozens of identical failures into one
+     * finding and a skip for the rest, without asking again.
+     *
+     * Scoped to this runner, which is one module: a shard checks many modules in one JVM, and a
+     * throttle on one site must not silence a different one that happens to share a host.
+     */
+    private val throttledHosts = mutableSetOf<String>()
 
     fun run(): RunReport = runBlocking {
         // A module that was never compiled has no layout file. Report that as a failed load instead
@@ -179,15 +197,37 @@ class HarnessRunner(private val config: HarnessConfig) {
 
         val scenarios = mutableListOf<ScenarioResult>()
 
+        // The host, not the base URL: a site reached at both `example.com` and `www.example.com` is
+        // one server with one budget. Null when there is nothing to key on, so a source with no
+        // address neither trips the breaker nor gets skipped by it.
+        val host: String? = (baseUrl.toHttpUrlOrNull()?.host ?: baseUrl).takeIf { it.isNotBlank() }
+        if (host != null && host in throttledHosts) {
+            return SourceReport(
+                sourceId = source.id,
+                name = source.name,
+                lang = source.lang,
+                baseUrl = baseUrl,
+                status = Status.SKIP,
+                scenarios = listOf(
+                    ScenarioResult(
+                        "throttled",
+                        Status.SKIP,
+                        0,
+                        "$host answered HTTP 429 earlier in this run; this source was not checked",
+                    ),
+                ),
+            )
+        }
+
         scenarios += capture("metadata") { Checks.metadata(source.id, source.name, source.lang, baseUrlOf(source)) }.result
 
-        scenarios += capture("connectivity") { probeHome(source) }.result
+        scenarios += capture("connectivity", host = host) { probeHome(source) }.result
 
-        val popular = capture("popular", ::mangaNotes, ::mangaSamples) { source.getPopularManga(1) }
+        val popular = capture("popular", ::mangaNotes, ::mangaSamples, host = host) { source.getPopularManga(1) }
         scenarios += popular.result
 
         val latest = if (source.supportsLatest) {
-            capture("latest", ::mangaNotes, ::mangaSamples) { source.getLatestUpdates(1) }
+            capture("latest", ::mangaNotes, ::mangaSamples, host = host) { source.getLatestUpdates(1) }
         } else {
             null
         }
@@ -204,7 +244,7 @@ class HarnessRunner(private val config: HarnessConfig) {
             scenarios += ScenarioResult("chapters", Status.SKIP, 0, "no manga available from popular or latest")
             scenarios += ScenarioResult("pages", Status.SKIP, 0, "no manga available from popular or latest")
         } else {
-            val update = capture("chapters", ::chapterNotes, ::chapterSamples) {
+            val update = capture("chapters", ::chapterNotes, ::chapterSamples, host = host) {
                 source.getMangaUpdate(firstManga, emptyList(), fetchDetails = true, fetchChapters = true)
             }
             scenarios += update.result
@@ -213,7 +253,7 @@ class HarnessRunner(private val config: HarnessConfig) {
             if (chapter == null) {
                 scenarios += ScenarioResult("pages", Status.SKIP, 0, "no chapters available")
             } else {
-                val pages = capture("pages", ::pageNotes, ::pageSamples) { source.getPageList(chapter) }
+                val pages = capture("pages", ::pageNotes, ::pageSamples, host = host) { source.getPageList(chapter) }
                 scenarios += if (Checks.lockedChapter(pages.result.message)) {
                     // The chapter list carries no lock flag, so a premium chapter is only visible
                     // once the source refuses to serve it. That refusal says the content needs an
@@ -228,7 +268,7 @@ class HarnessRunner(private val config: HarnessConfig) {
                 }
 
                 if (config.probeImages && pages.value != null) {
-                    scenarios += capture("images") { probeImages(source, pages.value) }.result
+                    scenarios += capture("images", host = host) { probeImages(source, pages.value) }.result
                 }
             }
         }
@@ -384,14 +424,43 @@ class HarnessRunner(private val config: HarnessConfig) {
     private fun pageSamples(pages: List<Page>) = pages.take(config.pageLimit)
         .map { it.imageUrl ?: it.url }
 
+    /**
+     * Runs [block], and asks again once if the site answered HTTP 429.
+     *
+     * A single 429 is usually a burst limit that clears immediately - three of the modules that
+     * reported one passed untouched on a re-run minutes later - so one bounded retry removes the
+     * noise without hiding a site that is genuinely refusing the sweep. That case still ends as
+     * `THROTTLED`, and the retry is what tells the two apart.
+     *
+     * The wait prefers the server's own `Retry-After` and is capped, so a site asking for an hour
+     * cannot stretch a shard. Both attempts share the scenario's deadline, so a retry can never
+     * double the time a scenario is allowed.
+     */
+    private suspend fun <T> retryingThrottle(block: suspend () -> T): T = try {
+        block()
+    } catch (e: HttpException) {
+        if (e.code != 429) throw e
+        delay(e.retryAfterSeconds?.times(1000)?.coerceIn(0, MAX_THROTTLE_BACKOFF_MS) ?: DEFAULT_THROTTLE_BACKOFF_MS)
+        block()
+    }
+
     private suspend fun <T> capture(
         name: String,
         notes: (T) -> List<String> = { emptyList() },
         samples: (T) -> List<String> = { emptyList() },
+        /** The site this scenario talks to, so a throttle on it stops the rest of the run asking. */
+        host: String? = null,
         block: suspend () -> T,
     ): Captured<T> {
+        if (host != null && host in throttledHosts) {
+            return Captured(
+                null,
+                ScenarioResult(name, Status.SKIP, 0, "$host answered HTTP 429 earlier in this run"),
+            )
+        }
+
         val start = System.nanoTime()
-        return when (val outcome = withDeadline(config.timeout, block)) {
+        return when (val outcome = withDeadline(config.timeout) { retryingThrottle(block) }) {
             DeadlineOutcome.Expired -> Captured(
                 null,
                 ScenarioResult(name, Status.FAIL, elapsedMs(start), "timed out after ${config.timeout.seconds}s"),
@@ -403,6 +472,7 @@ class HarnessRunner(private val config: HarnessConfig) {
                 if (e is CancellationException) throw e
                 if (TRACE) e.printStackTrace()
                 val diagnosis = Checks.diagnose(e)
+                if (diagnosis.status == Status.THROTTLED && host != null) throttledHosts += host
                 Captured(
                     null,
                     ScenarioResult(
@@ -452,3 +522,13 @@ class Captured<T>(val value: T?, val result: ScenarioResult)
 
 /** Set KEI_STATUS_TRACE=1 to print stack traces for every classified failure. */
 private val TRACE = System.getenv("KEI_STATUS_TRACE") != null
+
+/**
+ * How long to wait before the single retry that follows an HTTP 429.
+ *
+ * Used only when the site sends no `Retry-After`. The cap applies either way: a site that asks for
+ * an hour would otherwise park a shard, and the point of the retry is to absorb a burst limit, not
+ * to wait out a real one.
+ */
+private const val DEFAULT_THROTTLE_BACKOFF_MS = 1_000L
+private const val MAX_THROTTLE_BACKOFF_MS = 10_000L

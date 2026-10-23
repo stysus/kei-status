@@ -177,7 +177,10 @@ class ReportHtmlTest {
             .map { it.groupValues[1] }
             .toList()
 
-        assertEquals(listOf("fail", "blocked", "unsupported", "warn", "pass", "skip"), filters)
+        assertEquals(
+            listOf("fail", "blocked", "throttled", "unsupported", "warn", "pass", "skip"),
+            filters,
+        )
     }
 
     @Test

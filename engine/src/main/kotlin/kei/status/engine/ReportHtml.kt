@@ -243,7 +243,11 @@ object ReportHtml {
         val parts = buildList {
             scenario.message?.takeIf { it.isNotBlank() }?.let {
                 // A skip explains itself ("supportsLatest = false"); only real trouble reads red.
-                val tone = if (scenario.status == Status.SKIP || scenario.status == Status.PASS) "note" else "message"
+                // A throttle is the same shape of "not checked", so it stays neutral too.
+                val quiet = scenario.status == Status.SKIP ||
+                    scenario.status == Status.PASS ||
+                    scenario.status == Status.THROTTLED
+                val tone = if (quiet) "note" else "message"
                 add("<span class=\"$tone\">${escape(it)}</span>")
             }
             if (scenario.notes.isNotEmpty()) {
@@ -287,6 +291,7 @@ object ReportHtml {
           --warn: #a16207; --warn-bg: #fef9c3;
           --fail: #b91c1c; --fail-bg: #fee2e2;
           --blocked: #7c2d12; --blocked-bg: #ffedd5;
+          --throttled: #0f766e; --throttled-bg: #ccfbf1;
           --unsupported: #6b21a8; --unsupported-bg: #f3e8ff;
           --skip: #4b5563; --skip-bg: #f3f4f6;
         }
@@ -298,6 +303,7 @@ object ReportHtml {
             --warn: #d29922; --warn-bg: #3a2d0c;
             --fail: #f85149; --fail-bg: #3d1418;
             --blocked: #db6d28; --blocked-bg: #3a2110;
+            --throttled: #2dd4bf; --throttled-bg: #0d2f2b;
             --unsupported: #bc8cff; --unsupported-bg: #2a1c3d;
             --skip: #8b949e; --skip-bg: #21262d;
           }
@@ -394,6 +400,7 @@ object ReportHtml {
         .pill.warn { color: var(--warn); background: var(--warn-bg); }
         .pill.fail { color: var(--fail); background: var(--fail-bg); }
         .pill.blocked { color: var(--blocked); background: var(--blocked-bg); }
+        .pill.throttled { color: var(--throttled); background: var(--throttled-bg); }
         .pill.unsupported { color: var(--unsupported); background: var(--unsupported-bg); }
         .pill.skip { color: var(--skip); background: var(--skip-bg); }
         /* The card a source's scenarios live in. A multi-source module gets one per source; a

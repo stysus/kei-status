@@ -19,6 +19,23 @@ class DeadlineTest {
     }
 
     @Test
+    fun `a suspending wait inside the block is honoured, not treated as a stall`() = runBlocking {
+        // The 429 retry waits inside the scenario, on the thread `withDeadline` owns. If a delay
+        // there were cut short or reported as expiry, the retry would ask again immediately and the
+        // backoff would silently do nothing.
+        val start = System.nanoTime()
+
+        val outcome = withDeadline(Duration.ofSeconds(5)) {
+            kotlinx.coroutines.delay(300)
+            "asked again"
+        }
+
+        val elapsedMs = (System.nanoTime() - start) / 1_000_000
+        assertEquals(DeadlineOutcome.Value("asked again"), outcome)
+        assertTrue("the wait should have been 300ms, took ${elapsedMs}ms", elapsedMs >= 300)
+    }
+
+    @Test
     fun `a failure is reported as itself, not as a timeout`() = runBlocking {
         val outcome = withDeadline(Duration.ofSeconds(5)) { throw IllegalStateException("HTTP 404") }
 

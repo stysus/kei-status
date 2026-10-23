@@ -87,6 +87,39 @@ class ChecksTest {
     }
 
     @Test
+    fun `an http 429 is throttling, not a failure`() {
+        // The sweep walks one source per language against the same site, so a rate limit shows up
+        // as dozens of identical failures that say nothing about the extension.
+        val diagnosis = Checks.diagnose(HttpException(429))
+
+        assertEquals(Status.THROTTLED, diagnosis.status)
+        assertTrue(diagnosis.message.contains("429"))
+        assertTrue(diagnosis.message.contains("rate-limiting"))
+    }
+
+    @Test
+    fun `a throttled response reports the retry-after the site sent`() {
+        val diagnosis = Checks.diagnose(HttpException(429, retryAfterSeconds = 30))
+
+        assertEquals(Status.THROTTLED, diagnosis.status)
+        assertTrue(diagnosis.message.contains("retry after 30s"))
+    }
+
+    @Test
+    fun `throttled sits below blocked and above unsupported`() {
+        // The order decides two things: which verdict a module rolls up to, and where the page's
+        // filter chips put it. A throttle outranks PASS on purpose - the local checks still pass
+        // while a site is refusing the sweep, and letting them win would report it as healthy.
+        assertTrue(Status.FAIL.severity > Status.BLOCKED.severity)
+        assertTrue(Status.BLOCKED.severity > Status.THROTTLED.severity)
+        assertTrue(Status.THROTTLED.severity > Status.UNSUPPORTED.severity)
+        assertTrue(Status.THROTTLED.severity > Status.PASS.severity)
+        assertTrue(Status.UNSUPPORTED.severity > Status.WARN.severity)
+        assertTrue(Status.WARN.severity > Status.PASS.severity)
+        assertTrue(Status.PASS.severity > Status.SKIP.severity)
+    }
+
+    @Test
     fun `a wrapped cause is classified`() {
         val wrapped = RuntimeException("wrapped", AntiBotChallengeException(403, "example.com", "Cloudflare"))
 

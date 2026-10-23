@@ -1,5 +1,6 @@
 package kei.status.engine
 
+import eu.kanade.tachiyomi.network.HttpException
 import eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException
 import eu.kanade.tachiyomi.source.model.MangasPage
 import eu.kanade.tachiyomi.source.model.Page
@@ -129,6 +130,7 @@ object Checks {
 
         val status = when {
             chain.any { it is AntiBotChallengeException } -> Status.BLOCKED
+            chain.any { it is HttpException && it.code == 429 } -> Status.THROTTLED
             chain.any { it is UnsupportedOperationException || it is NotImplementedError } -> Status.SKIP
             chain.any { it is NoClassDefFoundError || it is ClassNotFoundException } ->
                 if (chain.any { unavailablePlatform(it) != null }) Status.UNSUPPORTED else Status.FAIL
@@ -153,6 +155,12 @@ object Checks {
             .firstOrNull()
             ?.let { "${it.provider} anti-bot challenge; the source needs a browser session that passes it" }
             ?: "anti-bot challenge; the source needs a browser session that passes it"
+
+        Status.THROTTLED -> chain.filterIsInstance<HttpException>()
+            .firstOrNull { it.code == 429 }
+            ?.retryAfterSeconds
+            ?.let { "the site is rate-limiting this sweep (HTTP 429, retry after ${it}s); the source was not checked" }
+            ?: "the site is rate-limiting this sweep (HTTP 429); the source was not checked"
 
         Status.SKIP -> "not supported by this source"
 

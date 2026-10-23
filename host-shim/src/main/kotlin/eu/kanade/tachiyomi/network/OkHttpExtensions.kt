@@ -37,8 +37,12 @@ suspend fun Call.await(): Response = withContext(Dispatchers.IO) {
 suspend fun Call.awaitSuccess(): Response {
     val response = await()
     if (!response.isSuccessful) {
+        // `Retry-After` is how the server says when to come back. Only the delta-seconds form is
+        // read: the HTTP-date form needs a clock and a parser, and every site that throttles a
+        // sweep so far sends the number.
+        val retryAfter = response.header("Retry-After")?.trim()?.toLongOrNull()
         response.close()
-        throw HttpException(response.code)
+        throw HttpException(response.code, retryAfter)
     }
     return response
 }

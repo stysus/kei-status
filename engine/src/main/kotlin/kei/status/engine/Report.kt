@@ -10,6 +10,7 @@ enum class Status {
     SKIP,
     UNSUPPORTED,
     BLOCKED,
+    THROTTLED,
     ;
 
     /**
@@ -17,11 +18,18 @@ enum class Status {
      *
      * `SKIP` ranks lowest: a source that simply has no "latest" endpoint is not in worse shape than
      * one that passed every check it supports.
+     *
+     * `THROTTLED` ranks below `BLOCKED` and above `UNSUPPORTED`: the site asked us to slow down, so
+     * the source was not checked - that is not the extension failing, but it is not a pass either.
+     * It outranks `PASS` on purpose. The local checks (`metadata`, `filters`) still pass when a
+     * sweep is throttled, and a roll-up that let them win would report an unchecked source as
+     * healthy.
      */
     val severity: Int
         get() = when (this) {
-            FAIL -> 5
-            BLOCKED -> 4
+            FAIL -> 6
+            BLOCKED -> 5
+            THROTTLED -> 4
             UNSUPPORTED -> 3
             WARN -> 2
             PASS -> 1

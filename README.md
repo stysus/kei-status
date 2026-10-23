@@ -164,6 +164,23 @@ Every scenario, source and module ends in one of these:
 | `SKIP` | the source does not support that entry point, its oldest chapter has to be unlocked too, or it runs against a server you host yourself |
 | `UNSUPPORTED` | needs an Android class the harness does not provide |
 | `BLOCKED` | anti-bot challenge; not the source's fault |
+| `THROTTLED` | the site is rate-limiting the sweep (`HTTP 429`); the source was not checked |
+
+`THROTTLED` exists because a sweep is a burst no reader produces. A module can declare one source per
+language against a single site - MangaDot declares 108, all on `mangadot.net` - and the runner walks
+them one after another, so the site's rate limit arrives as dozens of identical failures that say
+nothing about the extension. It ranks below `BLOCKED` and above `UNSUPPORTED`: not the extension's
+fault, but not a pass either, and it outranks `PASS` so the local checks cannot make an unchecked
+source look healthy.
+
+Two things keep it from spreading:
+
+- **One bounded retry.** A single 429 is usually a burst limit that clears at once, so the scenario
+  asks again after the site's own `Retry-After` (capped at 10s, 1s when the site sends none). Both
+  attempts share the scenario's deadline, so a retry can never double the time a scenario may take.
+- **A breaker per host, per module.** Once a host has answered 429 even after the retry, every later
+  source on it is reported `SKIP` with that reason and makes no request at all, so the rest of the
+  run neither repeats the failure nor keeps the throttle alive.
 
 ## Running checks
 
@@ -388,7 +405,8 @@ Two details keep a scheduled run useful rather than noisy:
 
 - A `FAIL` verdict is a finding, not a build failure, so the run does not go red when a site breaks.
   The page is the result. Only a broken harness, a missing browser, or a missing Android SDK fails
-  the job.
+  the job. `THROTTLED` is not a build failure either: a sweep that got rate-limited recorded what it
+  could, and the page says so.
 - A module that does not compile still gets a report: the harness records the missing layout as a
   failed load, so the module appears on the page with its reason instead of disappearing.
 
