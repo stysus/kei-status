@@ -3,9 +3,12 @@ package android
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.ColorFilter
+import android.graphics.Matrix
 import android.graphics.Paint
 import android.graphics.Rect
+import android.graphics.RectF
 import android.graphics.Typeface
 import android.net.Uri
 import android.text.Html
@@ -14,8 +17,12 @@ import android.text.Spanned
 import android.text.StaticLayout
 import android.text.TextPaint
 import android.util.Base64
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewParent
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.io.File
 
@@ -153,6 +160,65 @@ class PlatformLinkageTest {
 
         assertEquals(Int::class.javaPrimitiveType, StaticLayout::class.java.getMethod("getHeight").returnType)
         assertNotNull(constructor)
+    }
+
+    @Test
+    fun `canvas clipRect answers with the boolean Android declares`() {
+        val f = Float::class.javaPrimitiveType
+
+        assertEquals(
+            Boolean::class.javaPrimitiveType,
+            Canvas::class.java.getMethod("clipRect", RectF::class.java).returnType,
+        )
+        assertEquals(
+            Boolean::class.javaPrimitiveType,
+            Canvas::class.java.getMethod("clipRect", f, f, f, f).returnType,
+        )
+    }
+
+    @Test
+    fun `matrix composing calls and mapRect return the boolean Android declares`() {
+        val matrix = Matrix::class.java
+        val f = Float::class.javaPrimitiveType
+        val boolean = Boolean::class.javaPrimitiveType
+
+        assertEquals(boolean, matrix.getMethod("postScale", f, f).returnType)
+        assertEquals(boolean, matrix.getMethod("postScale", f, f, f, f).returnType)
+        assertEquals(boolean, matrix.getMethod("preScale", f, f).returnType)
+        assertEquals(boolean, matrix.getMethod("postTranslate", f, f).returnType)
+        assertEquals(boolean, matrix.getMethod("preTranslate", f, f).returnType)
+        assertEquals(boolean, matrix.getMethod("postRotate", f).returnType)
+        assertEquals(boolean, matrix.getMethod("postRotate", f, f, f).returnType)
+        assertEquals(boolean, matrix.getMethod("postConcat", Matrix::class.java).returnType)
+        assertEquals(boolean, matrix.getMethod("preConcat", Matrix::class.java).returnType)
+        assertEquals(boolean, matrix.getMethod("mapRect", RectF::class.java).returnType)
+        assertEquals(boolean, matrix.getMethod("rectStaysRect").returnType)
+    }
+
+    @Test
+    fun `view hands out a ViewParent and keeps the animation callbacks void`() {
+        // android.jar: `ViewParent getParent()`, `void postOnAnimation(Runnable)`,
+        // `boolean removeCallbacks(Runnable)`. The shim narrowed the first to ViewGroup and
+        // widened the second to boolean, which links as NoSuchMethodError from extension bytecode.
+        assertEquals(ViewParent::class.java, View::class.java.getMethod("getParent").returnType)
+        assertEquals(
+            Void.TYPE,
+            View::class.java.getMethod("postOnAnimation", Runnable::class.java).returnType,
+        )
+        assertEquals(
+            Void.TYPE,
+            View::class.java.getMethod("postOnAnimationDelayed", Runnable::class.java, Long::class.javaPrimitiveType)
+                .returnType,
+        )
+        assertEquals(
+            Boolean::class.javaPrimitiveType,
+            View::class.java.getMethod("removeCallbacks", Runnable::class.java).returnType,
+        )
+    }
+
+    @Test
+    fun `a view group is a view parent, so the cast sources perform succeeds`() {
+        assertTrue(ViewParent::class.java.isAssignableFrom(ViewGroup::class.java))
     }
 
     @Test

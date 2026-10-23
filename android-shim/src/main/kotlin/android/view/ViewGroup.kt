@@ -1,7 +1,7 @@
 package android.view
 
 /** Stand-in for android.view.ViewGroup. */
-open class ViewGroup : View() {
+open class ViewGroup : View(), ViewParent {
 
     private val children = mutableListOf<View>()
 

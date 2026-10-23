@@ -22,7 +22,7 @@ open class View {
 
     private val handler: Handler by lazy { Handler(Looper.getMainLooper()) }
 
-    open fun getParent(): ViewGroup? = parentView
+    open fun getParent(): ViewParent? = parentView
 
     /** Android resolves this through the view's context; sources read `displayMetrics` off it. */
     open fun getResources(): Resources = context?.getResources() ?: Resources.getSystem()
@@ -53,12 +53,19 @@ open class View {
 
     open fun postDelayed(action: Runnable, delayMillis: Long): Boolean = handler.postDelayed(action, delayMillis)
 
-    open fun postOnAnimation(action: Runnable): Boolean = handler.postDelayed(action, 16)
+    open fun postOnAnimation(action: Runnable) {
+        handler.postDelayed(action, 16)
+    }
 
-    open fun postOnAnimationDelayed(action: Runnable, delayMillis: Long): Boolean =
+    open fun postOnAnimationDelayed(action: Runnable, delayMillis: Long) {
         handler.postDelayed(action, delayMillis + 16)
+    }
 
-    open fun removeCallbacks(action: Runnable) = handler.removeCallbacks(action)
+    /** Android answers `true` for every action, including null, which it silently ignores. */
+    open fun removeCallbacks(action: Runnable?): Boolean {
+        if (action != null) handler.removeCallbacks(action)
+        return true
+    }
 
     open fun dispatchTouchEvent(event: MotionEvent?): Boolean = false
 

@@ -47,12 +47,24 @@ class Canvas(val bitmap: Bitmap) {
     fun rotate(degrees: Float, px: Float, py: Float) =
         graphics.rotate(Math.toRadians(degrees.toDouble()), px.toDouble(), py.toDouble())
 
-    fun clipRect(rect: RectF) {
-        graphics.clip(Rectangle2D.Float(rect.left, rect.top, rect.width(), rect.height()))
-    }
+    fun clipRect(rect: RectF): Boolean =
+        clipTo(Rectangle2D.Float(rect.left, rect.top, rect.width(), rect.height()))
 
-    fun clipRect(left: Float, top: Float, right: Float, bottom: Float) {
-        graphics.clip(Rectangle2D.Float(left, top, right - left, bottom - top))
+    fun clipRect(left: Float, top: Float, right: Float, bottom: Float): Boolean =
+        clipTo(Rectangle2D.Float(left, top, right - left, bottom - top))
+
+    /**
+     * Intersects the clip with [shape] and reports whether anything is still visible.
+     *
+     * Android's answer is "true if the resulting clip is non-empty", not "whether the clip
+     * changed" - clipping to a superset of the current clip still returns true. Java2D reports an
+     * empty intersection as a zero-sized [java.awt.Rectangle] and an unclipped canvas as null, so
+     * the two cases stay distinguishable.
+     */
+    private fun clipTo(shape: Shape): Boolean {
+        graphics.clip(shape)
+        val bounds = graphics.clipBounds ?: return true
+        return !bounds.isEmpty
     }
 
     fun drawColor(color: Int) {
