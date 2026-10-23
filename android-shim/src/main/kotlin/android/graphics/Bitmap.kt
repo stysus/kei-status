@@ -63,6 +63,30 @@ class Bitmap internal constructor(
         }
     }
 
+    /**
+     * Writes an ARGB block into the bitmap, the way Android's `setPixels` does.
+     *
+     * `:lib:e4p` composites decoded WebP patches into a page with this call, which is what J-Novel
+     * and the other e4p-based sources need to finish a page. The rows are copied one at a time
+     * because java.awt rejects the negative stride Android documents (`abs(stride) >= width` is
+     * the only rule Android applies); a padded or reversed array would otherwise write the wrong
+     * pixels instead of failing.
+     */
+    fun setPixels(pixels: IntArray, offset: Int, stride: Int, x: Int, y: Int, width: Int, height: Int) {
+        check(!recycled) { "Can't call setPixels() on a recycled bitmap" }
+        if (!mutable) throw IllegalStateException()
+        if (width == 0 || height == 0) return
+
+        val target = requireImage()
+        checkPixelsAccess(target, x, y, width, height, offset, stride, pixels)
+
+        val row = IntArray(width)
+        for (index in 0 until height) {
+            System.arraycopy(pixels, offset + index * stride, row, 0, width)
+            target.setRGB(x, y + index, width, 1, row, 0, width)
+        }
+    }
+
     /** Android's own bounds contract, so a bad call fails loudly instead of reading past the row. */
     private fun checkPixelsAccess(
         image: BufferedImage,

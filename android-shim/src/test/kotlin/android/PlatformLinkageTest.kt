@@ -104,6 +104,10 @@ class PlatformLinkageTest {
 
         assertNotNull(bitmap.getMethod("getPixels", IntArray::class.java, ints, ints, ints, ints, ints, ints))
         assertEquals(
+            Void.TYPE,
+            bitmap.getMethod("setPixels", IntArray::class.java, ints, ints, ints, ints, ints, ints).returnType,
+        )
+        assertEquals(
             Bitmap::class.java,
             bitmap.getMethod("createBitmap", IntArray::class.java, ints, ints, Bitmap.Config::class.java).returnType,
         )
