@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T08:24:12.086818620Z",
+    "generatedAt": "2026-10-24T21:57:20.321980947Z",
     "module": ":src:en:nyanukafe",
     "sourceRoot": "",
-    "extensionCommit": "d64b4dea",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 3025454996745441538,
             "name": "Nyanu Kafe",
             "lang": "en",
             "baseUrl": "https://nyanukafe.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 8717,
+                    "durationMs": 278,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 9087,
+                    "durationMs": 87,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,16 +42,20 @@
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 88,
-                    "message": "HTTP error 502",
+                    "status": "PASS",
+                    "durationMs": 105,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Revolution in production with the blessings of the gods -> /series/47dbc1d3bfa/",
+                        "Too Many Losing Heroines! -> /series/062ed884e41/",
+                        "Demon Lord City -> /series/63f559b92c0/"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +65,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 9651,
+                    "durationMs": 139,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -72,37 +76,53 @@
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 82,
-                    "message": "HTTP error 502",
+                    "status": "PASS",
+                    "durationMs": 96,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://cdn.meowing.org/uploads/65e57df23ed.avif",
+                        "https://cdn.meowing.org/uploads/65e57df4f6f.avif",
+                        "https://cdn.meowing.org/uploads/65e57df7d42.avif"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 306,
+                    "message": null,
+                    "notes": [
+                        "page[0] image is AVIF, which the harness cannot decode; Android decodes it natively",
+                        "page[1] image is AVIF, which the harness cannot decode; Android decodes it natively",
+                        "page[2] image is AVIF, which the harness cannot decode; Android decodes it natively"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:55:35.053913571Z",
+    "comparedTo": "2026-10-24T08:24:12.086818620Z",
     "changes": [
         {
             "source": "Nyanu Kafe",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Nyanu Kafe",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Nyanu Kafe",
             "lang": "en",
             "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ]
 }

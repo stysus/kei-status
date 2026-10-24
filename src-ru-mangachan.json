@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T08:37:20.461337314Z",
+    "generatedAt": "2026-10-24T22:01:07.026230648Z",
     "module": ":src:ru:mangachan",
     "sourceRoot": "",
-    "extensionCommit": "d64b4dea",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 7,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 366,
+                    "durationMs": 535,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 502"
@@ -33,23 +33,27 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 179,
+                    "durationMs": 232,
                     "message": "HTTP error 502",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 735,
-                    "message": "HTTP error 502",
+                    "status": "PASS",
+                    "durationMs": 863,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Yukseong Game-i Hyeonsiri Dwaetda -> /manga/175100-yukseong-game-i-hyeonsiri-dwaetda.html",
+                        "Girl's Interstellar Adventure -> /manga/175079-girls-interstellar-adventure.html",
+                        "My Possession Became a Ghost Story -> /manga/175075-my-possession-became-a-ghost-story.html"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -58,9 +62,9 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 117,
+                    "message": "HTTP error 502",
                     "notes": [],
                     "samples": []
                 },
@@ -68,35 +72,28 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T01:00:40.332027006Z",
+    "comparedTo": "2026-10-24T08:37:20.461337314Z",
     "changes": [
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ]
 }

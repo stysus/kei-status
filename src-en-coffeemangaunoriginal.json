@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:44:50.959346967Z",
+    "generatedAt": "2026-10-24T21:56:13.840477541Z",
     "module": ":src:en:coffeemangaunoriginal",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 2571489285618757730,
             "name": "Coffee Manga (Unoriginal)",
             "lang": "en",
             "baseUrl": "https://coffeemanga.net",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 336,
+                    "durationMs": 575,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 414,
+                    "status": "WARN",
+                    "durationMs": 600,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Flowers Are Bait -> /manga/flowers-are-bait/",
-                        "Under the Oak Tree -> /manga/under-the-oak-tree/",
-                        "Death Is The Only Ending For The Villainess -> /manga/death-is-the-only-ending-for-the-villainess/"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 285,
+                    "status": "WARN",
+                    "durationMs": 579,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "I Still Don’t Know About My Favourite Character’s Unwavering Obsession -> /manga/i-still-dont-know-about-my-favourite-characters-unwavering-obsession/",
-                        "My Husband Was Stolen Twice -> /manga/my-husband-was-stolen-twice/",
-                        "Merry Psycho -> /manga/ocveobera7alg81/"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,39 +60,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 402,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 56 -> chapter-56",
-                        "Chapter 55 -> chapter-55",
-                        "Chapter 54 -> chapter-54"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 279,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://coffeemanga.net/wp-content/uploads/WP-manga/data/manga_693193beaeab4/chapter-56/001.jpg",
-                        "https://coffeemanga.net/wp-content/uploads/WP-manga/data/manga_693193beaeab4/chapter-56/002.jpg",
-                        "https://coffeemanga.net/wp-content/uploads/WP-manga/data/manga_693193beaeab4/chapter-56/003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2040,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:44:50.959346967Z",
+    "changes": [
+        {
+            "source": "Coffee Manga (Unoriginal)",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Coffee Manga (Unoriginal)",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Coffee Manga (Unoriginal)",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Coffee Manga (Unoriginal)",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Coffee Manga (Unoriginal)",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

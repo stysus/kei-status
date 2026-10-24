@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:16.260055564Z",
+    "generatedAt": "2026-10-24T22:07:09.755053014Z",
     "module": ":src:en:infinityscans",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 7769612119788415733,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 816,
+                    "durationMs": 448,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,23 +31,25 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 15233,
-                    "message": "Timed out waiting for WebView after 15s",
+                    "durationMs": 30329,
+                    "message": "/usr/bin/google-chrome-stable did not open a DevTools port within 30s",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 15147,
-                    "message": "Timed out waiting for WebView after 15s",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 27043,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 15s"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -73,6 +75,14 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:16.260055564Z",
+    "changes": [
+        {
+            "source": "InfinityScans",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        }
+    ]
 }

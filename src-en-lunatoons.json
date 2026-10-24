@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T08:28:05.385275926Z",
+    "generatedAt": "2026-10-24T21:58:12.599432358Z",
     "module": ":src:en:lunatoons",
     "sourceRoot": "",
-    "extensionCommit": "d64b4dea",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 4513668905743562887,
             "name": "Luna Toons",
             "lang": "en",
             "baseUrl": "https://lunatoons.net",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 33058,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from lunatoons.net (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 3693,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 12,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from lunatoons.net (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 245,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Tears on a Withered Flower -> /tears-on-a-withered-flower",
+                        "The Mating of Elves -> /the-mating-of-elves",
+                        "Cry, or Better Yet, Beg -> /cry-or-better-yet-beg"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 9,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from lunatoons.net (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 130,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "The Dragon’s Fragments -> /the-dragons-fragments",
+                        "Operation Heart-Pounding -> /operation-heart-pounding",
+                        "The Little Cotton Ball Of The White Tiger family -> /the-little-cotton-ball-of-the-white-tiger-family"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -62,66 +64,88 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 187,
+                    "message": null,
+                    "notes": [
+                        "duplicate chapter urls: [/tears-on-a-withered-flower-chapter-97]"
+                    ],
+                    "samples": [
+                        "Chapter 124 - S2 -> /tears-on-a-withered-flower-chapter-124",
+                        "Chapter 123 - S2 -> /tears-on-a-withered-flower-chapter-123",
+                        "Chapter 122 - S2 -> /tears-on-a-withered-flower-chapter-122"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 103,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://cdn.meowing.org/uploads/65e8379e4cf.avif",
+                        "https://cdn.meowing.org/uploads/65e837a1c63.avif",
+                        "https://cdn.meowing.org/uploads/65e837a532b.avif"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 314,
+                    "message": null,
+                    "notes": [
+                        "page[0] image is AVIF, which the harness cannot decode; Android decodes it natively",
+                        "page[1] image is AVIF, which the harness cannot decode; Android decodes it natively",
+                        "page[2] image is AVIF, which the harness cannot decode; Android decodes it natively"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:54:53.294721592Z",
+    "comparedTo": "2026-10-24T08:28:05.385275926Z",
     "changes": [
         {
             "source": "Luna Toons",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Luna Toons",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Luna Toons",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Luna Toons",
             "lang": "en",
             "scenario": "chapters",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
         },
         {
             "source": "Luna Toons",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Luna Toons",
             "lang": "en",
             "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ]
 }

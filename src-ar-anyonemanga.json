@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:53:10.206483387Z",
+    "generatedAt": "2026-10-24T21:58:09.479755172Z",
     "module": ":src:ar:anyonemanga",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 2056490261402651047,
             "name": "Anyone Manga",
             "lang": "ar",
             "baseUrl": "https://anyonemanga.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,31 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 715,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30119,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 3983,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Start With Gu Huo Bird -> start-with-gu-huo-bird",
-                        "Above the Dome -> above-the-dome",
-                        "Sinister Immortal Path -> sinister-immortal-path"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 20257,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from anyonemanga.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 177,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Start With Gu Huo Bird -> start-with-gu-huo-bird",
-                        "Above the Dome -> above-the-dome",
-                        "Sinister Immortal Path -> sinister-immortal-path"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 42,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from anyonemanga.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,51 +60,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1086,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "الفصل 128 -> -128",
-                        "الفصل 127 -> -127",
-                        "الفصل 126 -> -126"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 133,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://anyonemanga.com/images/lh3.googleusercontent.com/lr/AAJ1LKcITEzvINvaDl_Kbll3A5pM55Tp8NUXBt-s1ocpH-Rp27HdbZWUyN8Wpkzck9KjXv0_vbG8Y_YhGpKYcPMq0Yx3NjdbfEPlPN8UXNmZNQ3YDwCAqoiXtOFfIh_A-CffK585MPCL5YUY9IlvZ8UKfpcRbWb2oCFpMeRN256xF7Z1-YVpvdPWFCXAU_9YqRT_3kfXzjboao12qxLNXrjnGsTg3j_WCHi85K1srZZJ0Mr5xkgaUizVuC-tzBBY09fvZSZQIrmG60NYU2yyMetXaJbX2oXOwUB1e7OMMW3ABRwSob3h9zG67NGVTufcBVUgR57h22YDvX2NAA2s5lzsU2e-sIGocffcXX5pOFzlWogCzz2xFhy4MiON_kEJMqUUEZ9xeDdzWNvQ8-BsbOjBNwFj9mjuqpHXIfxWcdXC8Cesc_JhEZ2LHd6qrc2aroqKxzlbpM23977dn86F1ojYB1zeoKv_p884mLn0qvc_lxw_G1eSPgfs36n82gV4pib7fn3pIB80WQO4Y2OuhnIpzZNTDlJoyRORD4RK9eaAPYT628zl2U8NR4mshKJ28HZYr2mp8bHhdOr_IC_ZbxL5exfSCR5UKoZ0RIXN2mbJx811qHhruimSofbq89517VJaY6Tde07LNGx-LiUQYrgzz4ji0oCpgrjxco0MGckjZ_upWCNMrjXpw_r4Udn-VvuGsnm8-6Ci5m49qzCDb2H9_vLZmDeU6o1ixxHmZT4M8ZZ9_eeBhbSvBrn_KYGwE_QtIMOUqQ86ja6WyS0OdG8c5P_mngn04MMbpRdyLsB4i4eY9wrypb-8_kMJzu_DHNSfhegoRZ_5go9hwBY7_ww4ieAic9zmgLLmuNoTUyJYWynBduh-4cHX72Zg6bPmgHZy1E4g0x-8MNpSxpNXz6aVyFRLwhYvF2FZBTjwxGBIVz5JjGtb_IFd4ZnIHkSq0eFz2AD-SKgJAyjogWuAy9ufv2AXxOJQ0kcAQZvVPyHg1IeCFT4xYaoiCnqNxjdjRO1aDcY=w1000-h16383",
-                        "https://anyonemanga.com/images/lh3.googleusercontent.com/lr/AAJ1LKe2M052wcPCK10jgdpop2k01rGqxkk14DJVXAeAi7aEpnx_YxUrE4vPNzErT3SNHivyYgjGvfC3RGL0WvXnqxphkro3t8kcMo52pobXtnGbNIMn5gEgYVHyPH_PKB6NUo5I7e6_CZ4sB_Yp1qDLlnqD1yyc711jmJS1QjjkM5YTgeFzpQQt37OKTZUc5Sv9P4eJyttbWR3ogkp_y9rRnplhOQVYEQNc2suLODi8E6s0mvkEBpAKHVGa-DAf_4ggTs-qXhuBMRdSLElXfQ2dKIKC1YyIg6gwsUMFQsWIopxOjYDEGqoGbiFIThD3jnoY5aaLrQB20jZqz2N_0GJnAvsoHKZ1anKiWa6jk9iBSlvUS9QbVeHT965V5lr87ZKcLC-CEppFxwXB_lL10hYyA6qmnqJMCZLJF8G77vFPY2dyBQMTHJXQ6upbdwIX_0S_asoPLStu7U0zsNmhUyhYQP8xuvaQHTv7ulGBEpUtBhLF8fBs9ICJ-0LkmxNAlmY9BXEuSt2CJ2M-1pYTzowiGIOZBoxfgIq4aIhCIPTCr3FfvITQEusriCg53VFcuISF3crPsvPjomymBB7jSMw9GzzPm-E_wZ-68barJC-yFVRy9cEAOTEzcc9VczRSVSwwr3ex0p4yMBoYhoQRGoqWNv-Ne_qE8H03hzuoVdGxQMdgPqhuhC2vaqfN7Z0nfIYwRfZmPZANYqxi3Wi2PEL9lVFD_GGpE2kTLZnzsmMzdVVEnO3JsXe9IqG64uMvzmIct_S82rwZvyhGwTo9g7VsA1fJcZWPHElGdZBV7wvZkpmUqpgxDMn9UwUOhXprXEBLGvLuIASIRTZ_J2oQl_A1TG1163l2Hm-DBIraLy7DkBzHUIPWePHI41ZSw3r6c73hArhsJisnwKAJbNqHFK1JshFuFqp-Nmf-xlw5a3osXaftIogSFEZoY6ynVKXEUb3efb47NAPP8kmtdGmwDFXgSqTlNxHXL5qIu4GeEdAkIn6w4pWxkMgjdkG6AVOGTRP46_8=w1000-h16383",
-                        "https://anyonemanga.com/images/lh3.googleusercontent.com/lr/AAJ1LKeReGq0JhJgX8FtuJNQ6flDcvhlGgR-XuHS6ZW1CZ6QFB3K6aQZUPkPjH0P0OGhTz9v9Lup8238QzE-8ejgFs0xU3Uc0UcByf55Uk8O_rmOu-7EQsDQHZ5dF81Vbqz6YAA5cT8yK5FQxuw2B4dOtNoGn5QJuy-k4HPG7r9oDzWQtSu1h-JVCtLPukU7_2ZSHBWATNkIi6l2Ord1fu824Ot5SdKnwKOrZLQjTUCbL1XIV3PHTufyVv3XXVoZSid9zHj5dC10P7kAqoAL0tdV8I6k2JSpoD5LztV5UsEOouq5QRcaOQ3c_agsQ9dRGp6CCDb2hMhnZLHl22OKHycRP185C3wOlAOWZbdcTBDliMedRVhiTCnGHTFX6OOP8dcaYpj11Lne3tUtOCo2nKAn8Vuzq1qTOM0w0gNoKbrMCiNdShwHGW4jlYfox9GLm7RNtNLhwvSIa0Lq5uYBK-8PTwnhCjfVyE63wQePWQ8Pj1ajtQ2dPGvenUcLaT4q3rquF6VcP4IxrB6LXH_wzhEUB-lFWScgpgyDIvU_osrFPLHaffWo7MRcvaVZBfdNbBKOObCL1Yuv89IB3OWfdrKrmTWaHZG0xErHAwOwgVgDVQ3FEk7H3CIkvsBM3UQuvvZeO2InoLZ4v7DiFw9XL9n7cq2XIIYeRn6Q72c_PZZUruW7PqJse0neiNkcPhDY25CbIFAyhWZhzTOY9NG6ZvQd_Wt-MnQeUqbwchm6IZfxM_MihLS9CHZykkmN83hnj8vwIsEaDeWFXTFFd8CJUNbk4zva2yakxAzNYJ3vZSu-iJoS3tvJMFlk1pvrk--oLwEvApINzrhz9AUkSWKMEuyWG7o_GSg-zpJBo2HCO6KlDsgS8U1CraIjHvFrrBIIc84TNuiOPpDSnfxiTJOrONnSYjS8wefbr8p0Bj7x0nRvZv-xoZCXtWJnJXIOcB3S3Hzs3zE7tL4ww6jcotoaAo7cY6GBr7YP2N3RC5XsgxK0eHphB9zy7RqzGKB7ZOtKFD102Tg=w1000-h16383"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 519,
-                    "message": null,
-                    "notes": [
-                        "page[0] image returned HTTP 403",
-                        "page[1] image returned HTTP 403",
-                        "page[2] image returned HTTP 403"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-23T09:33:01.700934389Z",
+    "comparedTo": "2026-10-24T00:53:10.206483387Z",
     "changes": [
         {
             "source": "Anyone Manga",
             "lang": "ar",
-            "scenario": "images",
+            "scenario": "connectivity",
             "from": "PASS",
-            "to": "WARN"
+            "to": "FAIL"
+        },
+        {
+            "source": "Anyone Manga",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Anyone Manga",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Anyone Manga",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Anyone Manga",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Anyone Manga",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
     ]
 }

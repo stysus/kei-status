@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T08:32:46.906042757Z",
+    "generatedAt": "2026-10-24T21:57:04.617802285Z",
     "module": ":src:en:kewnscans",
     "sourceRoot": "",
-    "extensionCommit": "d64b4dea",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 2816768640766208312,
             "name": "Kewn Scans",
             "lang": "en",
             "baseUrl": "https://kewnscans.org",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,26 +23,36 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 9576,
+                    "durationMs": 477,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 58,
-                    "message": "HTTP error 502",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 122,
+                    "message": null,
+                    "notes": [
+                        "duplicate manga urls: [/series/snow-mountain-monster-princess-season-1/]"
+                    ],
+                    "samples": [
+                        "Snow Mountain Monster Princess - Season 1 -> /series/snow-mountain-monster-princess-season-1/",
+                        "The Villainess Just Wants to Live in Peace! -> /series/the-villainess-just-wants-to-live-in-peace/",
+                        "Food Truck Owner Inside the Dungeon -> /series/food-truck-owner-inside-the-dungeon/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 56,
-                    "message": "HTTP error 502",
+                    "status": "PASS",
+                    "durationMs": 117,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Bitter Side Cranberries -> /series/bitter-side-cranberries/",
+                        "Even if this Becomes Sea Foam -> /series/even-if-this-becomes-sea-foam/",
+                        "Food Truck Owner Inside the Dungeon -> /series/food-truck-owner-inside-the-dungeon/"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -56,59 +66,79 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 237,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 35 (S1 Conclusion) -> /chapter/74caf5685eb-3350a4a63ef/",
+                        "Chapter 34 -> /chapter/74caf5685eb-b20fd4aaa4a/",
+                        "Chapter 33 -> /chapter/74caf5685eb-c15b860f780/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 116,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://cdn.meowing.org/uploads/21f072f1180",
+                        "https://cdn.meowing.org/uploads/cbf4150c5eb",
+                        "https://cdn.meowing.org/uploads/b216e2a7e2f"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 915,
+                    "message": null,
+                    "notes": [
+                        "page[0] content-type is 'text/plain'",
+                        "page[1] content-type is 'text/plain'",
+                        "page[2] content-type is 'text/plain'"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:56:11.074754128Z",
+    "comparedTo": "2026-10-24T08:32:46.906042757Z",
     "changes": [
         {
             "source": "Kewn Scans",
             "lang": "en",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
             "source": "Kewn Scans",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Kewn Scans",
             "lang": "en",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Kewn Scans",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Kewn Scans",
             "lang": "en",
             "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ]
 }

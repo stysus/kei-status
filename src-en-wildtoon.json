@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:59:47.258838293Z",
+    "generatedAt": "2026-10-24T21:59:56.649625761Z",
     "module": ":src:en:wildtoon",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 4082152694771839662,
             "name": "Wildtoon",
             "lang": "en",
             "baseUrl": "https://wildtoon.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,28 +22,24 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 40896,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 15094,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "The Boss’s Wife (Official) -> /webtoon/the-bosss-wife-official/",
-                        "Power Play (Siren) (Official) -> /webtoon/power-play-siren-official/",
-                        "Synced for Pleasure (Official) -> /webtoon/synced-for-pleasure-official/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 9408,
+                    "durationMs": 19092,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +51,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,34 +60,32 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 8189,
+                    "status": "PASS",
+                    "durationMs": 17396,
                     "message": null,
-                    "notes": [
-                        "duplicate chapter urls: [/the-bosss-wife-official-chapter-53/, /the-bosss-wife-official-chapter-52/, /the-bosss-wife-official-chapter-51/]"
-                    ],
+                    "notes": [],
                     "samples": [
-                        "Chapter 81 -> /the-bosss-wife-official-chapter-81/",
-                        "Chapter 82 -> /the-bosss-wife-official-chapter-82/",
-                        "Chapter 80 -> /the-bosss-wife-official-chapter-80/"
+                        "Chapter 254 -> /pampered-prisoners-elves-among-orcs-chapter-254/",
+                        "Chapter 253 -> /pampered-prisoners-elves-among-orcs-chapter-253/",
+                        "Chapter 252 -> /pampered-prisoners-elves-among-orcs-chapter-252/"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 1283,
+                    "durationMs": 1879,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://wildtoon.com/wp-content/uploads/focus/en_03/the-bosss-wife-official/chapter-81/0001.jpg",
-                        "https://wildtoon.com/wp-content/uploads/focus/en_03/the-bosss-wife-official/chapter-81/0002.jpg",
-                        "https://wildtoon.com/wp-content/uploads/focus/en_03/the-bosss-wife-official/chapter-81/0003.jpg"
+                        "https://wildtoon.com/wp-content/uploads/focus/en_03/pampered-prisoners-elves-among-orcs/chapter-254/0001.jpg",
+                        "https://wildtoon.com/wp-content/uploads/focus/en_03/pampered-prisoners-elves-among-orcs/chapter-254/0002.jpg",
+                        "https://wildtoon.com/wp-content/uploads/focus/en_03/pampered-prisoners-elves-among-orcs/chapter-254/0003.jpg"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 4071,
+                    "durationMs": 4992,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -99,13 +93,27 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:52:13.066244033Z",
+    "comparedTo": "2026-10-24T00:59:47.258838293Z",
     "changes": [
         {
             "source": "Wildtoon",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "FAIL",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Wildtoon",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Wildtoon",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "WARN",
             "to": "PASS"
         }
     ]

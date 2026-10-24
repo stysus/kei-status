@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:56:01.768812750Z",
+    "generatedAt": "2026-10-24T21:59:05.212709326Z",
     "module": ":src:fr:lelscan",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 8620544519921042006,
             "name": "Lelscan",
             "lang": "fr",
             "baseUrl": "https://lelscans.net",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 824,
+                    "status": "WARN",
+                    "durationMs": 406,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 404"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 277,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 279,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Assassination Classroom -> /lecture-ligne-assassination-classroom.php",
-                        "Beelzebub -> /lecture-en-ligne-beelzebub.php",
-                        "Black Clover -> /lecture-en-ligne-black-clover.php"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 291,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 252,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Kingdom -> /lecture-en-ligne-kingdom.php",
-                        "One Punch Man -> /lecture-ligne-one-punch-man.php",
-                        "Blue Lock -> /lecture-en-ligne-blue-lock"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,51 +58,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 293,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapitre 180 -> /scan-assassination-classroom/180",
-                        "Chapitre 179 -> /scan-assassination-classroom/179",
-                        "Chapitre 178 -> /scan-assassination-classroom/178"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 247,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://lelscan.net/scan-assassination-classroom/51/1",
-                        "https://lelscan.net/scan-assassination-classroom/51/2",
-                        "https://lelscan.net/scan-assassination-classroom/51/3"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request could not be built: null",
-                        "page[1] image request could not be built: null",
-                        "page[2] image request could not be built: null"
-                    ],
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:44:28.676960537Z",
+    "comparedTo": "2026-10-24T00:56:01.768812750Z",
     "changes": [
         {
             "source": "Lelscan",
             "lang": "fr",
-            "scenario": "images",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "WARN"
+        },
+        {
+            "source": "Lelscan",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Lelscan",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Lelscan",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Lelscan",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Lelscan",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
     ]
 }
