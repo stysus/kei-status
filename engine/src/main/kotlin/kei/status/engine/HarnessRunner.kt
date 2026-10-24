@@ -430,7 +430,9 @@ class HarnessRunner(private val config: HarnessConfig) {
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                notes += "page[$index] image request failed: ${e.message}"
+                // The class matters: an IIOException here is a decode/encode failure, not a
+                // network failure, and the bare message ("Bogus input colorspace") reads like one.
+                notes += "page[$index] image request failed: ${e::class.java.simpleName}: ${e.message}"
             }
         }
 

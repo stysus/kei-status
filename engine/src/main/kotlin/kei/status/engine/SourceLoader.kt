@@ -84,6 +84,9 @@ class SourceLoader(
         internal fun classpathOf(sourceRoot: Path, layout: ModuleLayout): List<Path> {
             val modules = listOf(Path.of(layout.moduleDir)) + ModuleLayouts.sharedModuleDirs(sourceRoot)
             return buildList {
+                // Layouts written before the java dir was recorded name only the Kotlin one, which
+                // classesDirs then duplicates; distinct drops the duplicate.
+                addAll(layout.classesDirs.map(Path::of))
                 add(Path.of(layout.classesDir))
                 addAll(ModuleLayouts.classDirsOf(modules))
                 addAll(layout.runtimeJars.map { Path.of(it) })

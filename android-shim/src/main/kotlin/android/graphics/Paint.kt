@@ -25,6 +25,17 @@ open class Paint {
 
     var textSize: Float = 12f
 
+    /**
+     * Horizontal glyph stretch, as `setTextScaleX(float)` on the framework.
+     *
+     * Rawkuma's text overlay measures a line and sets this to the ratio that stretches it to the
+     * SVG's exact `textLength`, so both the member and its effect on [measureText] are modelled.
+     * [Canvas.drawText] ignores the stretch - the harness verifies that an image is produced and
+     * decodes, not that its glyphs land on the same pixels - but measuring has to agree with the
+     * scale or the computed ratio would be wrong by the previous scale factor.
+     */
+    var textScaleX: Float = 1f
+
     private var typefaceValue: Typeface? = Typeface.DEFAULT
 
     var strokeCap: Cap = Cap.BUTT
@@ -37,6 +48,26 @@ open class Paint {
         isAntiAlias = flags and ANTI_ALIAS_FLAG != 0
         isFilterBitmap = flags and FILTER_BITMAP_FLAG != 0
         isDither = flags and DITHER_FLAG != 0
+    }
+
+    /**
+     * Android's copy constructor, `Paint(from)`. Rawkuma derives its stroke paint from the fill
+     * one this way; missing it turned into a `NoSuchMethodError` mid-scenario.
+     */
+    constructor(from: Paint) {
+        color = from.color
+        alpha = from.alpha
+        style = from.style
+        strokeWidth = from.strokeWidth
+        isAntiAlias = from.isAntiAlias
+        isFilterBitmap = from.isFilterBitmap
+        isDither = from.isDither
+        colorFilterValue = from.colorFilterValue
+        textSize = from.textSize
+        textScaleX = from.textScaleX
+        typefaceValue = from.typefaceValue
+        strokeCap = from.strokeCap
+        strokeJoin = from.strokeJoin
     }
 
     /**
@@ -83,6 +114,7 @@ open class Paint {
         isDither = false
         colorFilterValue = null
         textSize = 12f
+        textScaleX = 1f
         typefaceValue = Typeface.DEFAULT
     }
 
@@ -91,6 +123,25 @@ open class Paint {
     }
 
     fun setShadowLayer(radius: Float, dx: Float, dy: Float, shadowColor: Int) = Unit
+
+    /**
+     * The advance width of [text] in the font this paint draws with, scaled by [textScaleX].
+     *
+     * Measures through the same `awtFont()` [android.text.StaticLayout] lays out with, so a line
+     * measured here and one wrapped there agree. The metrics need a graphics context for a moment,
+     * which is created and dropped per call - a shared one would be a race for the background work
+     * sources start.
+     */
+    fun measureText(text: String): Float {
+        if (text.isEmpty()) return 0f
+        val graphics = java.awt.image.BufferedImage(1, 1, java.awt.image.BufferedImage.TYPE_INT_ARGB).createGraphics()
+        val width = try {
+            graphics.getFontMetrics(awtFont()).stringWidth(text).toFloat()
+        } finally {
+            graphics.dispose()
+        }
+        return width * textScaleX
+    }
 
     enum class Style { FILL, STROKE, FILL_AND_STROKE }
 

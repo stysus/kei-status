@@ -1,5 +1,7 @@
 package android.content
 
+import android.os.Parcelable
+
 /**
  * Minimal stand-in for android.content.Intent.
  *
@@ -49,6 +51,9 @@ open class Intent {
     open fun putExtra(name: String, value: Int): Intent = apply { extras[name] = value }
 
     open fun putExtra(name: String, value: Boolean): Intent = apply { extras[name] = value }
+
+    /** Anything Parcelable an extension passes - MangaLivre's verification receiver - lands here. */
+    open fun putExtra(name: String, value: Parcelable?): Intent = apply { extras[name] = value }
 
     companion object {
         const val FLAG_ACTIVITY_CLEAR_TOP = 0x04000000

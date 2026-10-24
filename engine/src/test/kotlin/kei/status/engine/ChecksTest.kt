@@ -1,5 +1,6 @@
 package kei.status.engine
 
+import android.content.ActivityNotFoundException
 import eu.kanade.tachiyomi.network.HttpException
 import eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException
 import eu.kanade.tachiyomi.source.model.MangasPage
@@ -368,5 +369,24 @@ class ChecksTest {
 
         assertTrue(diagnosis.message.contains("android.webkit.WebView"))
         assertEquals(listOf("java.lang.NoClassDefFoundError: android/webkit/WebView"), diagnosis.chain)
+    }
+
+    @Test
+    fun `a source that opens its own verification activity is blocked`() {
+        // MangaLivre launches its in-app ReaderVerificationActivity (a WebView captcha step) via
+        // startActivity. The harness refuses every intent, and on a real device this exception
+        // cannot happen because the activity ships inside the APK - so it is a demand the sweep
+        // cannot meet, not a broken source.
+        val diagnosis = Checks.diagnose(
+            ActivityNotFoundException("no activity to handle ComponentInfo{br.net.mangalivre/ReaderVerificationActivity}"),
+        )
+
+        assertEquals(Status.BLOCKED, diagnosis.status)
+        assertTrue(diagnosis.message, diagnosis.message.contains("verification or captcha step"))
+        assertEquals(
+            listOf("android.content.ActivityNotFoundException: " +
+                "no activity to handle ComponentInfo{br.net.mangalivre/ReaderVerificationActivity}"),
+            diagnosis.chain,
+        )
     }
 }

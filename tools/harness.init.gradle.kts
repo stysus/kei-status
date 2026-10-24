@@ -83,9 +83,15 @@ if (gradle.parent == null) {
 
             // The harness loads these classes, so make sure they exist before recording the path.
             dependsOn("compileDebugKotlin")
+            // Java sources compile separately (ToonLivre's ReaderVerificationActivity,
+            // lib/secretstream). The task is registered for every Android module; matching is
+            // live, so a stack without it simply contributes no dependency.
+            dependsOn(tasks.matching { it.name == "compileDebugJavaWithJavac" })
 
             val classesDir = layout.buildDirectory
                 .dir("intermediates/built_in_kotlinc/debug/compileDebugKotlin/classes")
+            val javaClassesDir = layout.buildDirectory
+                .dir("intermediates/javac/debug/compileDebugJavaWithJavac/classes")
             val outputFile = layout.buildDirectory.file("harness-classpath.json")
             val moduleDir = projectDir.absolutePath
 
@@ -104,12 +110,18 @@ if (gradle.parent == null) {
                     .map { quote(it.absolutePath) }
                     .sorted()
                     .joinToString(",\n    ")
+                val dirs = listOf(classesDir, javaClassesDir)
+                    .map { quote(it.get().asFile.absolutePath) }
+                    .joinToString(",\n    ")
 
                 out.writeText(
                     buildString {
                         appendLine("{")
                         appendLine("  \"module\": ${quote(projectPath)},")
                         appendLine("  \"classesDir\": ${quote(classesDir.get().asFile.absolutePath)},")
+                        appendLine("  \"classesDirs\": [")
+                        appendLine("    $dirs")
+                        appendLine("  ],")
                         appendLine("  \"moduleDir\": ${quote(moduleDir)},")
                         if (jars.isEmpty()) {
                             appendLine("  \"runtimeJars\": []")

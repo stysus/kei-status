@@ -129,11 +129,11 @@ class Bitmap internal constructor(
      * without it Android-only sources would fail on an otherwise healthy descramble.
      */
     fun compress(format: CompressFormat, quality: Int, stream: OutputStream): Boolean {
-        val source = requireImage()
         val writer = ImageIO.getImageWritersByFormatName(format.imageIoName).let {
             if (it.hasNext()) it.next() else null
         } ?: return false
 
+        val source = writableImage(format, requireImage())
         val output = ImageIO.createImageOutputStream(stream)
         try {
             writer.output = output
@@ -155,6 +155,24 @@ class Bitmap internal constructor(
         return true
     }
 
+    /**
+     * The image handed to the encoder, made encodable.
+     *
+     * Android's JPEG encoder takes any bitmap and simply drops the alpha. The JDK's one refuses
+     * the alpha-backed types outright - `writer.write` on a `TYPE_INT_ARGB` image throws
+     * `IIOException: Bogus input colorspace` - so an overlay interceptor that decodes an alpha
+     * image and re-encodes it as JPEG would fail where the app succeeds. Flattening onto opaque
+     * RGB is what the app's output looks like anyway: JPEG has no alpha channel.
+     */
+    private fun writableImage(format: CompressFormat, source: BufferedImage): BufferedImage {
+        if (format != CompressFormat.JPEG || source.type in JPEG_WRITABLE_TYPES) return source
+        val flattened = BufferedImage(source.width, source.height, BufferedImage.TYPE_INT_RGB)
+        val graphics = flattened.createGraphics()
+        graphics.drawImage(source, 0, 0, null)
+        graphics.dispose()
+        return flattened
+    }
+
     override fun toString(): String = "Bitmap(${width}x${height}, $config)"
 
     enum class Config(internal val imageType: Int) {
@@ -173,6 +191,17 @@ class Bitmap internal constructor(
     }
 
     companion object {
+
+        /** Types the JDK's JPEG writer accepts directly; everything else gets flattened first. */
+        private val JPEG_WRITABLE_TYPES = setOf(
+            BufferedImage.TYPE_INT_RGB,
+            BufferedImage.TYPE_INT_BGR,
+            BufferedImage.TYPE_3BYTE_BGR,
+            BufferedImage.TYPE_BYTE_GRAY,
+            BufferedImage.TYPE_BYTE_INDEXED,
+            BufferedImage.TYPE_BYTE_BINARY,
+            BufferedImage.TYPE_USHORT_565_RGB,
+        )
 
         @JvmStatic
         fun createBitmap(width: Int, height: Int, config: Config): Bitmap =

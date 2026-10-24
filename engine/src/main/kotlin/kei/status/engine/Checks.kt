@@ -1,5 +1,6 @@
 package kei.status.engine
 
+import android.content.ActivityNotFoundException
 import eu.kanade.tachiyomi.network.HttpException
 import eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException
 import eu.kanade.tachiyomi.source.model.MangasPage
@@ -144,6 +145,7 @@ object Checks {
         val status = when {
             chain.any { it is AntiBotChallengeException } -> Status.BLOCKED
             chain.any { needsWebViewSession(it) } -> Status.BLOCKED
+            chain.any { it is ActivityNotFoundException } -> Status.BLOCKED
             chain.any { it is HttpException && it.code == 429 } -> Status.THROTTLED
             chain.any { it is UnsupportedOperationException || it is NotImplementedError } -> Status.SKIP
             chain.any { unavailablePlatform(it) != null } -> Status.UNSUPPORTED
@@ -170,6 +172,9 @@ object Checks {
                     .firstOrNull()
                     ?.let { "${it.provider} anti-bot challenge; the source needs a browser session that passes it" }
                     ?: "anti-bot challenge; the source needs a browser session that passes it"
+
+            chain.any { it is ActivityNotFoundException } ->
+                "the source opens one of its own activities (a verification or captcha step) that the sweep cannot run"
 
             else -> "the site requires a WebView session the sweep's browser did not complete; the source is not broken"
         }

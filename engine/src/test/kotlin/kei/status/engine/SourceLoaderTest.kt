@@ -68,8 +68,55 @@ class SourceLoaderTest {
         }
     }
 
+    @Test
+    fun `a layout names the java classes dir beside the kotlin one`() {
+        // ToonLivre ships ReaderVerificationActivity.java, which javac compiles into its own
+        // directory; a layout that records only the Kotlin one leaves the class unloadable.
+        val root = temporary.newFolder("extensions-source").toPath()
+
+        val layout = layoutOf(root, runtimeJars = null, classesDirs = listOf(kotlinDir(root), javacDir(root)))
+
+        assertEquals(listOf(kotlinDir(root), javacDir(root)), layout.classesDirs)
+    }
+
+    @Test
+    fun `a layout written before the java dir was recorded still parses`() {
+        val root = temporary.newFolder("extensions-source").toPath()
+
+        val layout = layoutOf(root, runtimeJars = null)
+
+        assertTrue(layout.classesDirs.isEmpty())
+    }
+
+    @Test
+    fun `the java classes dir is on the class path without duplicating the kotlin one`() {
+        val root = temporary.newFolder("extensions-source").toPath()
+
+        val classpath = SourceLoader.classpathOf(
+            root,
+            layoutOf(root, null, classesDirs = listOf(kotlinDir(root), javacDir(root))),
+        )
+
+        assertEquals(1, classpath.count { it.endsWith("built_in_kotlinc/debug/compileDebugKotlin/classes") })
+        assertTrue(classpath.any { it.endsWith("javac/debug/compileDebugJavaWithJavac/classes") })
+    }
+
+    @Test
+    fun `a shared module's java classes are on the class path`() {
+        // lib/secretstream is all Java files, and dilar links against it; the shared-module walk
+        // has to look where javac puts its output too.
+        val root = temporary.newFolder("extensions-source").toPath()
+        val sharedJava = root.resolve("lib/secretstream")
+            .resolve("build/intermediates/javac/debug/compileDebugJavaWithJavac/classes")
+        Files.createDirectories(sharedJava)
+
+        val classpath = SourceLoader.classpathOf(root, layoutOf(root, null))
+
+        assertTrue("missing $sharedJava", classpath.contains(sharedJava))
+    }
+
     /** Writes a real layout file, the way `dumpHarnessClasspath` does. */
-    private fun layoutOf(root: Path, runtimeJars: List<String>?): ModuleLayout {
+    private fun layoutOf(root: Path, runtimeJars: List<String>?, classesDirs: List<String>? = null): ModuleLayout {
         val module = root.resolve("src/en/probe")
         val classes = module.resolve("build/classes")
         Files.createDirectories(classes)
@@ -78,6 +125,11 @@ class SourceLoaderTest {
             appendLine("{")
             appendLine("  \"module\": \":src:en:probe\",")
             appendLine("  \"classesDir\": \"$classes\",")
+            if (classesDirs != null) {
+                appendLine("  \"classesDirs\": [")
+                appendLine("    ${classesDirs.joinToString(",\n    ") { "\"$it\"" }}")
+                appendLine("  ],")
+            }
             if (runtimeJars == null) {
                 // The shape written before the jars were recorded: three keys, no more.
                 appendLine("  \"moduleDir\": \"$module\"")
@@ -101,4 +153,12 @@ class SourceLoaderTest {
             out.closeEntry()
         }
     }
+
+    private fun kotlinDir(root: Path) = root
+        .resolve("src/en/probe/build/intermediates/built_in_kotlinc/debug/compileDebugKotlin/classes")
+        .toString()
+
+    private fun javacDir(root: Path) = root
+        .resolve("src/en/probe/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes")
+        .toString()
 }

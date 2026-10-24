@@ -16,6 +16,15 @@ data class ModuleLayout(
     val classesDir: String,
     val moduleDir: String,
     /**
+     * Every classes directory the module compiles into: the Kotlin one first, then javac's.
+     *
+     * ToonLivre ships a Java source next to its Kotlin ones, and `lib/secretstream` is all Java;
+     * a layout that recorded only the Kotlin output left those classes unloadable. Defaulted
+     * because a layout written before this field existed still names a usable module through
+     * [classesDir] - which duplicates the Kotlin entry and is deduplicated away on read.
+     */
+    val classesDirs: List<String> = emptyList(),
+    /**
      * External jars the module needs at run time, resolved from its `debugRuntimeClasspath`.
      *
      * The app gets these by bundling them into the extension jar; the harness loads a classes
@@ -76,7 +85,7 @@ object ModuleLayouts {
     }
 
     fun classDirsOf(modules: List<Path>): List<Path> = modules
-        .map { it.resolve(CLASSES_SUBDIR) }
+        .flatMap { module -> CLASSES_SUBDIRS.map { module.resolve(it) } }
         .filter { it.exists() }
 
     /**
@@ -87,6 +96,8 @@ object ModuleLayouts {
     fun resourceRootsOf(modules: List<Path>): List<Path> = modules
         .filter { it.resolve("assets").exists() }
 
-    private const val CLASSES_SUBDIR =
-        "build/intermediates/built_in_kotlinc/debug/compileDebugKotlin/classes"
+    private val CLASSES_SUBDIRS = listOf(
+        "build/intermediates/built_in_kotlinc/debug/compileDebugKotlin/classes",
+        "build/intermediates/javac/debug/compileDebugJavaWithJavac/classes",
+    )
 }

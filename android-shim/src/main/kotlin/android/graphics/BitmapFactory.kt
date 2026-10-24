@@ -67,7 +67,13 @@ object BitmapFactory {
             return null
         }
 
-        val decoded = ImageIO.read(java.io.ByteArrayInputStream(data, offset, length)) ?: return null
+        // Android's contract: a body that cannot be decoded is a null return, never a throw.
+        // ImageIO throws IIOException on bodies it recognises but cannot parse (a corrupt JPEG
+        // lands as "Bogus Huffman table definition"), which would surface as "image request
+        // failed" and hide both the network success and the format note callers write for a null.
+        val decoded = runCatching {
+            ImageIO.read(java.io.ByteArrayInputStream(data, offset, length))
+        }.getOrNull() ?: return null
 
         val config = options?.inPreferredConfig ?: Bitmap.Config.ARGB_8888
         val sample = options?.inSampleSize?.coerceAtLeast(1) ?: 1
