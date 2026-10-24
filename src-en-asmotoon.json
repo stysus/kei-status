@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:58:18.523803639Z",
+    "generatedAt": "2026-10-24T08:31:22.476076018Z",
     "module": ":src:en:asmotoon",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "d64b4dea",
     "sources": [
         {
             "sourceId": 2076371496779298312,
             "name": "Asmodeus Scans",
             "lang": "en",
             "baseUrl": "https://asmotoon.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 318,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30110,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 81,
+                    "durationMs": 8532,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,15 +42,13 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 86,
+                    "status": "WARN",
+                    "durationMs": 16927,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "I Reincarnated as a Lazy Villainous Prince and Built an Evil Boob Kingdom: I Was Living Freely in the Game World, So Why Won't the Beautiful Girls Leave Me Alone? -> /i-reincarnated-as-a-lazy-villainous-prince-and-built-an-evil-boob-kingdom-i-was-living-freely-in-the-game-world-so-why-wont-the-beautiful-girls-leave-me-alone",
-                        "An Otherworldly Summoner Unrivaled in the Modern World Against Mythical Monsters: The Love of the Strongest Summoned Beasts Who Made a Contract with Me is Too Strong -> /an-otherworldly-summoner-unrivaled-in-the-modern-world-against-mythical-monsters-the-love-of-the-strongest-summoned-beasts-who-made-a-contract-with-me-is-too-strong",
-                        "When You Push the Switch -> /when-you-push-the-switch"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,51 +62,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 85,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 24689,
+                    "message": "Series not found",
                     "notes": [],
-                    "samples": [
-                        "Chapter 15 -> /the-lazy-aristocrat-chapter-15",
-                        "Chapter 14 -> /the-lazy-aristocrat-chapter-14",
-                        "Chapter 13 -> /the-lazy-aristocrat-chapter-13"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 71,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
-                    "samples": [
-                        "https://cdn.meowing.org/uploads/659dd7b959d.avif",
-                        "https://cdn.meowing.org/uploads/659dd7c38df.avif",
-                        "https://cdn.meowing.org/uploads/659dd7ca645.avif"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 243,
-                    "message": null,
-                    "notes": [
-                        "page[0] image bytes did not decode (117191 bytes, 'image/avif')",
-                        "page[1] image bytes did not decode (196221 bytes, 'image/avif')",
-                        "page[2] image bytes did not decode (141431 bytes, 'image/avif')"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:50:48.646002935Z",
+    "comparedTo": "2026-10-24T00:58:18.523803639Z",
     "changes": [
         {
             "source": "Asmodeus Scans",
             "lang": "en",
-            "scenario": "images",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Asmodeus Scans",
+            "lang": "en",
+            "scenario": "latest",
             "from": "PASS",
             "to": "WARN"
+        },
+        {
+            "source": "Asmodeus Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Asmodeus Scans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Asmodeus Scans",
+            "lang": "en",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
     ]
 }

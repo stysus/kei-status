@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:43:21.191212002Z",
+    "generatedAt": "2026-10-24T08:47:48.549751235Z",
     "module": ":src:id:komikindo",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "d64b4dea",
     "sources": [
         {
             "sourceId": 1210328269637877420,
             "name": "Komikindo",
             "lang": "id",
             "baseUrl": "https://2.komikindo.shop",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 937,
+                    "durationMs": 12253,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1212,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30003,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Secret Class -> /manga/secret-class/",
-                        "MILF Hunting In Another World -> /manga/milf-hunting-in-another-world/",
-                        "Queen Bee (Andrew) -> /manga/queen-bee-andrew/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 712,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30001,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Geneki Joshikousei no Ninki Joyuu ga Shashinka -> /manga/geneki-joshikousei-no-ninki-joyuu-ga-shashinka/",
-                        "Harem Sekai no Summer Resort (Torifune) -> /manga/harem-sekai-no-summer-resort-torifune/",
-                        "Himekime (Manneri Kaishou Project) -> /manga/himekime-manneri-kaishou-project/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,39 +56,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 425,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 321 -> /secret-class-chapter-321/",
-                        "Chapter 320 -> /secret-class-chapter-320/",
-                        "Chapter 319 -> /secret-class-chapter-319/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 888,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img8.linksaya.com/storage/drive/user-1/asdKJdsdff23420908.jpg",
-                        "https://img8.linksaya.com/storage/drive/komikindo-1/dh9Ku/2ELjC/dbMtc/secret class chapter 321 (1).jpg",
-                        "https://img8.linksaya.com/storage/drive/komikindo-1/dh9Ku/2ELjC/dbMtc/secret class chapter 321 (2).jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3120,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:43:21.191212002Z",
+    "changes": [
+        {
+            "source": "Komikindo",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Komikindo",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Komikindo",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Komikindo",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Komikindo",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

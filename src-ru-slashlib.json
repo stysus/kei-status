@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:57:29.945307089Z",
+    "generatedAt": "2026-10-24T08:43:02.676164710Z",
     "module": ":src:ru:slashlib",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "d64b4dea",
     "sources": [
         {
             "sourceId": 2730544188738947015,
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 743,
+                    "durationMs": 958,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 8380,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 10036,
+                    "message": "Timed out waiting for WebView after 10s",
                     "notes": [],
-                    "samples": [
-                        "Secret Alliance -> /23435--secret-alliance",
-                        "Surviving Romance -> /60127--a-surviving-romance-",
-                        "Wolf and dog -> /24394--wolf-and-dog"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 704,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 10054,
+                    "message": "Timed out waiting for WebView after 10s",
                     "notes": [],
-                    "samples": [
-                        "My Deer Friend Nokotan -> /53435--shikanoko-nokonoko-koshitantan",
-                        "Coquette -> /266262--koketto",
-                        "My Favorite Carrera EV -> /62910--kanojo-no-carrera"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,9 +56,9 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 2930,
-                    "message": "HTTP error 404. Проверьте сайт. Попробуйте авторизоваться через WebView🌎︎ и обновите список. Для завершения авторизации может потребоваться перезапустить приложение с полной остановкой.",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -74,21 +66,35 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:42:58.935522943Z",
+    "comparedTo": "2026-10-23T08:57:29.945307089Z",
     "changes": [
         {
             "source": "SlashLib",
             "lang": "ru",
-            "scenario": "chapters",
-            "from": "WARN",
+            "scenario": "popular",
+            "from": "PASS",
             "to": "FAIL"
+        },
+        {
+            "source": "SlashLib",
+            "lang": "ru",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "SlashLib",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ]
 }

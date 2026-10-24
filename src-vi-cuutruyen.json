@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:56:11.929237055Z",
+    "generatedAt": "2026-10-24T08:39:15.779997081Z",
     "module": ":src:vi:cuutruyen",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "d64b4dea",
     "sources": [
         {
             "sourceId": 8222087175453285202,
             "name": "CuuTruyen",
             "lang": "vi",
             "baseUrl": "https://cuutruyen.net",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 716,
+                    "status": "WARN",
+                    "durationMs": 19642,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 234,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19551,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Spy x Family (FULL HD) -> 152",
-                        "Sakamoto Days (FULL HD) -> 106",
-                        "Dandadan -> 203"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 253,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19361,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Nhỏ Healer này phiền quá đi -> 4182",
-                        "Là một hầu gái, đây là chuyện đương nhiên ạ!! -> 5128",
-                        "Cô gái vô cảm và bạn trai đa cảm -> 3819"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,51 +58,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 235,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chương 141 -> 97844",
-                        "Chương Short Mission 19 -> 96103",
-                        "Chương 140 -> 95695"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 496,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://storage-bravo.cuutruyen.net/file/cuutruyen/uploads/page/2423751/image/scrambled-8f5a9cf80ac00eab8b8a5a9ee3e2508f.jpg#drm_data=EEcATQwJAhsEBgVECAIJHgIEBE0FFAMDBU8BDQkaCAYDTQIBBRQDAwVPBggJ%0AGggGA00FAQAJHwcFAUkPDAcUAgYB%0A",
-                        "https://storage-bravo.cuutruyen.net/file/cuutruyen/uploads/page/2423752/image/scrambled-6c2c70a9dbed7ddaa24c89bb5d9b3680.jpg#drm_data=EEcATQQMAhsEBgVEDwcJHgIEBE0CDAIbBAYFRAoHCR4CBARNAQwCGwQGBUQJ%0AGggGA00NAQUUAwMFTwQIDAcUAgMD%0A",
-                        "https://storage-bravo.cuutruyen.net/file/cuutruyen/uploads/page/2423753/image/scrambled-e617cd55a0ca211a8b59c2e99a35aa43.jpg#drm_data=EEcATQMJAhsEBgVECAIJHgIEBE0BDAIbBAYFRAkaCAYDTQUCAAkfBwRPBggJ%0AGggGA00FAQAJHwcAA0kPDAcUAgYBSAAHCQIbBAYFRAAHCR4CBAQ=%0A"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 831,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request failed: Bogus input colorspace",
-                        "page[1] image request failed: Bogus input colorspace",
-                        "page[2] image request failed: Bogus input colorspace"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:54:19.329294482Z",
+    "comparedTo": "2026-10-24T00:56:11.929237055Z",
     "changes": [
         {
             "source": "CuuTruyen",
             "lang": "vi",
-            "scenario": "images",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "WARN"
+        },
+        {
+            "source": "CuuTruyen",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "CuuTruyen",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "CuuTruyen",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "CuuTruyen",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "CuuTruyen",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
     ]
 }

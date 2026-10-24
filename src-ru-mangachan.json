@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T01:00:40.332027006Z",
+    "generatedAt": "2026-10-24T08:37:20.461337314Z",
     "module": ":src:ru:mangachan",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "d64b4dea",
     "sources": [
         {
             "sourceId": 7,
@@ -22,28 +22,26 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 563,
+                    "status": "WARN",
+                    "durationMs": 366,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 502"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 278,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 179,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "Girl the Wild's -> /manga/33-girl-the-wilds.html",
-                        "The Breaker: New waves -> /manga/5335-the-breaker-new-waves.html",
-                        "Monster Musume no Iru Nichijou -> /manga/13614-monster-musume-no-iru-nichijou.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 547,
+                    "durationMs": 735,
                     "message": "HTTP error 502",
                     "notes": [],
                     "samples": []
@@ -51,7 +49,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,9 +58,9 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 261,
-                    "message": "HTTP error 502",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -70,26 +68,26 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:56:04.913605310Z",
+    "comparedTo": "2026-10-24T01:00:40.332027006Z",
     "changes": [
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "latest",
+            "scenario": "popular",
             "from": "PASS",
             "to": "FAIL"
         },
@@ -97,22 +95,8 @@
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "pages",
-            "from": "PASS",
+            "from": "FAIL",
             "to": "SKIP"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
         }
     ]
 }

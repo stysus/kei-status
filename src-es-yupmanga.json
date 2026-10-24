@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:58:09.192927646Z",
+    "generatedAt": "2026-10-24T08:31:44.489965621Z",
     "module": ":src:es:yupmanga",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "d64b4dea",
     "sources": [
         {
             "sourceId": 4437245120973625796,
             "name": "Yupmanga",
             "lang": "es",
             "baseUrl": "https://www.yupmanga.com",
-            "status": "FAIL",
+            "status": "UNSUPPORTED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 315,
+                    "durationMs": 980,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 965,
+                    "durationMs": 409,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 981,
+                    "durationMs": 1001,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,32 +65,35 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1988,
+                    "durationMs": 1975,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Tomo - 01 -> XJ8SvZyYcgzOqmgcUPgFm2yYemdSLvNbqtPDK-wWjemUV8ARUaSF0KNCROszYRcoCrqhV_CHHgeJk8QuBpVW#LV49B1AG0LA92"
+                        "Tomo - 01 -> wP6PZ2cDcgu3FLN_WU8m-DKnUoIUOo2aK0AM1JumGO9aNTmeSXz0j2QBAf0xKSuqMidFZKf8R-dXFmwCPqcE#LV49B1AG0LA92"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 1005,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "UNSUPPORTED",
+                    "durationMs": 1986,
+                    "message": "requires the native QuickJS library, which has no JVM build: app.cash.quickjs.QuickJs",
+                    "notes": [
+                        "java.lang.NoClassDefFoundError: app/cash/quickjs/QuickJs",
+                        "java.lang.ClassNotFoundException: app.cash.quickjs.QuickJs"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:56:43.026045169Z",
+    "comparedTo": "2026-10-24T00:58:09.192927646Z",
     "changes": [
         {
             "source": "Yupmanga",
             "lang": "es",
             "scenario": "pages",
-            "from": "UNSUPPORTED",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "UNSUPPORTED"
         }
     ]
 }

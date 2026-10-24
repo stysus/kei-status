@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:42:39.402985220Z",
+    "generatedAt": "2026-10-24T08:29:37.456606994Z",
     "module": ":src:en:readhorimiyaonline",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "d64b4dea",
     "sources": [
         {
             "sourceId": 855674716623999161,
             "name": "Read Horimiya Online",
             "lang": "en",
             "baseUrl": "https://read-horimiya.online",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 636,
+                    "durationMs": 460,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 219,
+                    "durationMs": 149,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,7 +59,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 185,
+                    "durationMs": 84,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -71,7 +71,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 162,
+                    "durationMs": 94,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -82,15 +82,25 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3829,
+                    "status": "WARN",
+                    "durationMs": 30220,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[2] image request failed: timeout"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:42:39.402985220Z",
+    "changes": [
+        {
+            "source": "Read Horimiya Online",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ]
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:52:30.699750635Z",
+    "generatedAt": "2026-10-24T08:26:01.610369097Z",
     "module": ":src:en:kaizenscan",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "d64b4dea",
     "sources": [
         {
             "sourceId": 1145415569668934781,
             "name": "Kaizen Scan",
             "lang": "en",
             "baseUrl": "https://kaizenscan.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,25 +23,23 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 189,
+                    "durationMs": 25325,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 8,
-                    "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 94,
+                    "message": "HTTP error 404",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 60,
+                    "durationMs": 24793,
                     "message": null,
                     "notes": [
                         "popular/latest returned an empty list"
@@ -51,7 +49,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,28 +75,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:37.142541300Z",
+    "comparedTo": "2026-10-23T08:52:30.699750635Z",
     "changes": [
         {
             "source": "Kaizen Scan",
             "lang": "en",
-            "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "Kaizen Scan",
-            "lang": "en",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "WARN"
-        },
-        {
-            "source": "Kaizen Scan",
-            "lang": "en",
-            "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "FAIL"
         }
     ]
 }

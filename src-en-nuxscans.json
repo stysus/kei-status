@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T01:01:23.601098871Z",
+    "generatedAt": "2026-10-24T08:31:56.955687815Z",
     "module": ":src:en:nuxscans",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "d64b4dea",
     "sources": [
         {
             "sourceId": 5854986367394591788,
             "name": "Nux Scans",
             "lang": "en",
             "baseUrl": "https://nuxscans-comics.blogspot.com",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 448,
+                    "durationMs": 206,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 270,
+                    "durationMs": 86,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,40 +60,65 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "THROTTLED",
-                    "durationMs": 1886,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "status": "WARN",
+                    "durationMs": 278,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                        "duplicate chapter urls: [https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html]"
                     ],
-                    "samples": []
+                    "samples": [
+                        "Chapter 148 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html",
+                        "Chapter 147 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html",
+                        "Chapter 146 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "WARN",
+                    "durationMs": 486,
+                    "message": null,
+                    "notes": [
+                        "duplicate page urls: [https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9lh3K4Z6dHoaSZTkAbVWrUSq4hNiD0OJU_A_7udV2vDMxNXi0Zt1CZ_bNhISYJr0SPcsHzLVewhb9i93VYXNWHH5_xBl9LjbnTFq9PWqArAemazBFNzi4i-nrKIm9x9nJ8v72yAkvrQkT/s0/download.jpg.png]"
+                    ],
+                    "samples": [
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9lh3K4Z6dHoaSZTkAbVWrUSq4hNiD0OJU_A_7udV2vDMxNXi0Zt1CZ_bNhISYJr0SPcsHzLVewhb9i93VYXNWHH5_xBl9LjbnTFq9PWqArAemazBFNzi4i-nrKIm9x9nJ8v72yAkvrQkT/s0/download.jpg.png",
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9lh3K4Z6dHoaSZTkAbVWrUSq4hNiD0OJU_A_7udV2vDMxNXi0Zt1CZ_bNhISYJr0SPcsHzLVewhb9i93VYXNWHH5_xBl9LjbnTFq9PWqArAemazBFNzi4i-nrKIm9x9nJ8v72yAkvrQkT/s0/download.jpg.png",
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjFUzhVZ97Won8rewfqo8fPwLmAAbSsykCzA9t05rVtA5xGwi4WDRwxcMn33KRHh_Qc4hvQJEfUuh6SUmvsLb37_JBGivDYpT1GCQ6fn0dkQgsg8F-pI-piTUqovmr4_J3mISzQx87SWQ/s0/000019.jpg.png"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1366,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:53:46.746632866Z",
+    "comparedTo": "2026-10-24T01:01:23.601098871Z",
     "changes": [
         {
             "source": "Nux Scans",
             "lang": "en",
             "scenario": "chapters",
-            "from": "WARN",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "WARN"
         },
         {
             "source": "Nux Scans",
             "lang": "en",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ]
 }

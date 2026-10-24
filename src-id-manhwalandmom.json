@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T01:01:04.497114395Z",
+    "generatedAt": "2026-10-24T08:33:19.758755658Z",
     "module": ":src:id:manhwalandmom",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "d64b4dea",
     "sources": [
         {
             "sourceId": 4281611327457686416,
             "name": "ManhwaLand.mom",
             "lang": "id",
             "baseUrl": "https://02.manhwaland.land",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 19936,
+                    "durationMs": 19750,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 522",
@@ -33,24 +33,28 @@
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 485,
-                    "message": "Too many follow-up requests: 21",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 569,
+                    "message": null,
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 68,
-                    "message": "Too many follow-up requests: 21",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 24,
+                    "message": null,
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,13 +80,20 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:48:38.922724269Z",
+    "comparedTo": "2026-10-24T01:01:04.497114395Z",
     "changes": [
         {
             "source": "ManhwaLand.mom",
             "lang": "id",
-            "scenario": "connectivity",
-            "from": "PASS",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "WARN"
+        },
+        {
+            "source": "ManhwaLand.mom",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "FAIL",
             "to": "WARN"
         }
     ]
