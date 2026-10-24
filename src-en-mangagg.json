@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:38.941770932Z",
+    "generatedAt": "2026-10-24T00:55:16.485385820Z",
     "module": ":src:en:mangagg",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 8173282214298911566,
             "name": "MangaGG",
             "lang": "en",
             "baseUrl": "https://mangagg.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1119,
+                    "durationMs": 1156,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 546,
+                    "durationMs": 563,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 515,
+                    "durationMs": 490,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 4465,
+                    "durationMs": 5049,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +77,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 679,
+                    "durationMs": 311,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,15 +88,27 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1185,
+                    "status": "WARN",
+                    "durationMs": 381,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image returned HTTP 526",
+                        "page[1] image returned HTTP 526",
+                        "page[2] image returned HTTP 526"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:38.941770932Z",
+    "changes": [
+        {
+            "source": "MangaGG",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ]
 }

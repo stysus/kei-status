@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:51:48.778381564Z",
+    "generatedAt": "2026-10-24T00:56:02.387890078Z",
     "module": ":src:id:softkomik",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 4398521787288838980,
             "name": "Softkomik",
             "lang": "id",
-            "baseUrl": "https://softkomik.co",
-            "status": "BLOCKED",
+            "baseUrl": "https://softkomik.app",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 139,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from softkomik.co (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 1581,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 12,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from softkomik.co (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1286,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Nano Machine -> nano-machine-bahasa-indonesia",
+                        "Tomb Raider King (Yoonz) -> tomb-raider-king-yoonz-bahasa-indonesia",
+                        "Tensei Shitara Slime Datta Ken -> tensei-shitara-slime-datta-ken-bahasa-indonesia"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 29,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from softkomik.co (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 752,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "[Enormous Outburst Anthology] Functional Retest -> enormous-outburst-anthology-functional-retest-bahasa-indonesia",
+                        "Confessional of Betrayal -> confessional-of-betrayal-bahasa-indonesia",
+                        "Karetsu na Seijo-sama -> karetsu-na-seijo-sama-bahasa-indonesia"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,59 +64,84 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 2203,
+                    "message": null,
+                    "notes": [
+                        "duplicate chapter urls: [/nano-machine-bahasa-indonesia/chapter/321, /nano-machine-bahasa-indonesia/chapter/314]"
+                    ],
+                    "samples": [
+                        "Chapter 335 -> /nano-machine-bahasa-indonesia/chapter/335",
+                        "Chapter 334 -> /nano-machine-bahasa-indonesia/chapter/334",
+                        "Chapter 333 -> /nano-machine-bahasa-indonesia/chapter/333"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 978,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://psy1.komik.im/uploads/nano-machine/chapter-001/softkomik-0010.webp?id=T4Kmwztku",
+                        "https://psy1.komik.im/uploads/nano-machine/chapter-001/softkomik-0011.webp?id=T4Kmwztku",
+                        "https://psy1.komik.im/uploads/nano-machine/chapter-001/softkomik-0012.webp?id=T4Kmwztku"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 525,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-22T08:58:14.247280003Z",
+    "comparedTo": "2026-10-23T08:51:48.778381564Z",
     "changes": [
         {
             "source": "Softkomik",
             "lang": "id",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Softkomik",
             "lang": "id",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Softkomik",
             "lang": "id",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Softkomik",
             "lang": "id",
             "scenario": "chapters",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
         },
         {
             "source": "Softkomik",
             "lang": "id",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Softkomik",
+            "lang": "id",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ]
 }

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:52:48.474051839Z",
+    "generatedAt": "2026-10-24T00:59:52.168379672Z",
     "module": ":src:ru:hentailib",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 6425650164840473547,
@@ -22,35 +22,27 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 462,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30115,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1273,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 10034,
+                    "message": "Timed out waiting for WebView after 10s",
                     "notes": [],
-                    "samples": [
-                        "Adabana -> /33052--adabana",
-                        "Tokyo Ghoul -> /566--toukyou-kushu",
-                        "Please don't bully me, Nagatoro -> /3757--ijiranaide-nagatoro-san"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 633,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 10033,
+                    "message": "Timed out waiting for WebView after 10s",
                     "notes": [],
-                    "samples": [
-                        "Survival Instinct -> /273154--saengjon-yog",
-                        "Collection from Wannaw -> /216250--dirty-fantasies",
-                        "Mind Reader -> /109130--mind-reader"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,27 +56,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 3028,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Том 3. Глава 28.6 - Ранние эскизы персонажей -> /33052--adabana/chapter?&volume=3&number=28.6",
-                        "Том 3. Глава 28.5 - Экстра -> /33052--adabana/chapter?&volume=3&number=28.5",
-                        "Том 3. Глава 28 - Эпилог -> /33052--adabana/chapter?&volume=3&number=28"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 945,
-                    "message": "HTTP error 404. Проверьте сайт. Попробуйте авторизоваться через WebView🌎︎ и обновите список. Для завершения авторизации может потребоваться перезапустить приложение с полной остановкой.",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:52:48.474051839Z",
+    "changes": [
+        {
+            "source": "HentaiLib",
+            "lang": "ru",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "HentaiLib",
+            "lang": "ru",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "HentaiLib",
+            "lang": "ru",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "HentaiLib",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiLib",
+            "lang": "ru",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
+        }
+    ]
 }

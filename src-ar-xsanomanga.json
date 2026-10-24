@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:28.446576772Z",
+    "generatedAt": "2026-10-24T00:55:40.293177222Z",
     "module": ":src:ar:xsanomanga",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 6170348197605244575,
             "name": "XSano Manga",
             "lang": "ar",
             "baseUrl": "https://www.xsano-manga.com",
-            "status": "PASS",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 501,
+                    "durationMs": 152,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 165,
+                    "durationMs": 196,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +61,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 989,
+                    "durationMs": 313,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -72,27 +72,32 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 338,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYGUQg3PX7fkK7_U6EsxVGhv2QmJ5RzrI5ECAjdFEJXV-aHAtAN2vwGZLLz76cv0RkJ6HoIC1Sv29NjHaHcQFOszQBRsO1akDQJRJQbRPildaAQM9f8_e3CSYa-Ytk_HeOLBoJni_DBCkqDOIuIeC8o1cvKTSCDjivwwk53G4NmLeosltiYVtotdTNI-z-/s0/0.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6mYOhMUTwByYGJjFosFQJ6Eo9Btdxu0SPv3BG7Xm78I3yIH3_qM1BqUHdaAmpdVokFxcQKcaNIpkbnCs-U6j_ce8M6ChG1BCAdyjh3wDBCMfbtH75uFbWnl8cUgL-M8SeAdhAeo3lWZWGC9725dayHXIu3UX1QYo__ispKmruII-CRilzJHq2AUll_H4q/s0/VOL-22-CHP-217-002.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCIVVd3XCiTVRvPa2Oa6qKe27ERtr5Wfwv_iKkb848YOm2d2XVKntabDejeF9sb0b67F6tpiam3PYSQBWV-fJhuQjshg0g356CJBvGvZ7sYWs-sV8A7emoR2efE2XlgVHiq61md3_QK5q8r_QdbKO1wA1Ogaxtn8jpKZy514rQkoPS9Oy48UVzvAt7Kp6V/s0/VOL-22-CHP-217-003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3549,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 1850,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:28.446576772Z",
+    "changes": [
+        {
+            "source": "XSano Manga",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "XSano Manga",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

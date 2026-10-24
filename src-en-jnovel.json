@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-22T08:52:55.609397627Z",
+    "generatedAt": "2026-10-24T00:55:20.762786737Z",
     "module": ":src:en:jnovel",
     "sourceRoot": "",
-    "extensionCommit": "1d3d7c4b",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 2482510125735992610,
             "name": "J-Novel",
             "lang": "en",
             "baseUrl": "https://j-novel.club",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,22 +23,20 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 543,
+                    "durationMs": 658,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 117,
+                    "status": "WARN",
+                    "durationMs": 10322,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Crybaby Love Song -> crybaby-love-song",
-                        "Last Summer Sparkle -> last-summer-sparkle",
-                        "Reset / Reboot -> resetreboot"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -51,7 +49,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,30 +58,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 109,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 Chapter 6 -> crybaby-love-song-chapter-6",
-                        "🔒 Chapter 5 -> crybaby-love-song-chapter-5",
-                        "🔒 Chapter 4 -> crybaby-love-song-chapter-4"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 2168,
-                    "message": "missing class: org/kotlincrypto/hash/blake2/BLAKE2b",
-                    "notes": [
-                        "java.lang.NoClassDefFoundError: org/kotlincrypto/hash/blake2/BLAKE2b",
-                        "java.lang.ClassNotFoundException: org.kotlincrypto.hash.blake2.BLAKE2b"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:31.840703914Z",
-    "changes": []
+    "comparedTo": "2026-10-22T08:52:55.609397627Z",
+    "changes": [
+        {
+            "source": "J-Novel",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "J-Novel",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "J-Novel",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
+        }
+    ]
 }

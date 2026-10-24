@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:58:20.190056552Z",
+    "generatedAt": "2026-10-24T00:56:55.851572009Z",
     "module": ":src:es:ikuhentai",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 7567013997438852760,
             "name": "Ikuhentai",
             "lang": "es",
             "baseUrl": "https://ikuhentai.net",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 563,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 155,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ikuhentai.net (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 547,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Ikura de Yaremasu ka? -> /mangas-hentai/ikura-de-yaremasu-ka/",
-                        "Aoi Kajitsu to Shiroi Hada -> /mangas-hentai/aoi-kajitsu-to-shiroi-hada/",
-                        "Otou-San No Onna Ni Natta Boku -> /mangas-hentai/otou-san-no-onna-ni-natta-boku/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 77,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ikuhentai.net (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 579,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Otonari no Darashina Onee san ni Nagusamerareru Hanashi -> /mangas-hentai/otonari-no-darashina-onee-san-ni-nagusamerareru-hanashi/",
-                        "Docchi To Suru? | ¿A Quién Eliges? -> /mangas-hentai/docchi-to-suru-a-quien-eliges/",
-                        "Amor De Dos Caras -> /mangas-hentai/amor-de-dos-caras/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 27,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ikuhentai.net (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,80 +62,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 345,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Leer Ikura de Yaremasu ka? -> /mangas-hentai/ikura-de-yaremasu-ka/leer-ikura-de-yaremasu-ka/?style=list"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 464,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://ikuhentai.net/wp-content/uploads/WP-manga/data/manga_5bb7ad6fb01bc/0ddd1b20d73366b4698071d813ba77e3/01_69888958_p0.jpg",
-                        "https://ikuhentai.net/wp-content/uploads/WP-manga/data/manga_5bb7ad6fb01bc/0ddd1b20d73366b4698071d813ba77e3/02_69888958_p1.jpg",
-                        "https://ikuhentai.net/wp-content/uploads/WP-manga/data/manga_5bb7ad6fb01bc/0ddd1b20d73366b4698071d813ba77e3/03_69888958_p2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2304,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:54:47.334285407Z",
+    "comparedTo": "2026-10-23T08:58:20.190056552Z",
     "changes": [
         {
             "source": "Ikuhentai",
             "lang": "es",
             "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Ikuhentai",
             "lang": "es",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Ikuhentai",
             "lang": "es",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Ikuhentai",
             "lang": "es",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Ikuhentai",
             "lang": "es",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Ikuhentai",
             "lang": "es",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ]
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:52:52.046665621Z",
+    "generatedAt": "2026-10-24T00:56:51.400074095Z",
     "module": ":src:fr:scanhentaimenu",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 4153742697148883998,
             "name": "X-Manga",
             "lang": "fr",
             "baseUrl": "https://x-manga.org",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 5684,
+                    "status": "WARN",
+                    "durationMs": 4009,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 404"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 722,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 243,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Sex Study Group -> 2756",
-                        "Secret Class -> 2140",
-                        "Panty Note -> 2042"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 691,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 257,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "I’ll never give in! -> 8021",
-                        "Like father, Like son -> 7893",
-                        "I’m a Vampire -> 7994"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,82 +58,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 694,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapitre 110 - Fin -> chapitre-110",
-                        "Chapitre 109 -> chapitre-109",
-                        "Chapitre 108 -> chapitre-108"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 477,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://reader.hentai.gifts/manga_633e8bea451ad/chapitre-110/SSG-110-01.webp",
-                        "https://reader.hentai.gifts/manga_633e8bea451ad/chapitre-110/SSG-110-02.webp",
-                        "https://reader.hentai.gifts/manga_633e8bea451ad/chapitre-110/SSG-110-03.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 7599,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:47:20.466586262Z",
+    "comparedTo": "2026-10-23T08:52:52.046665621Z",
     "changes": [
         {
             "source": "X-Manga",
             "lang": "fr",
             "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "X-Manga",
             "lang": "fr",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "X-Manga",
             "lang": "fr",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "X-Manga",
             "lang": "fr",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "X-Manga",
             "lang": "fr",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "X-Manga",
             "lang": "fr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ]
 }

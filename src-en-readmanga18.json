@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:42:49.769326697Z",
+    "generatedAt": "2026-10-24T00:55:51.561133335Z",
     "module": ":src:en:readmanga18",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 8341261297497729714,
             "name": "ReadManga18",
             "lang": "en",
             "baseUrl": "https://readmanga18.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 616,
+                    "durationMs": 565,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 228,
+                    "durationMs": 218,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 208,
+                    "durationMs": 214,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "XX Dungeon -> /manga/xx-dungeon/",
-                        "Thrust & Conquer -> /manga/thrust-conquer/",
-                        "Under My Spell -> /manga/under-my-spell/"
+                        "An Idol Manager's Diary -> /manga/an-idol-managers-diary/",
+                        "Common Sense Manipulation Program -> /manga/common-sense-manipulation-program/",
+                        "MILF Exchange Plan -> /manga/milf-exchange-plan/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 305,
+                    "durationMs": 251,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +77,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 275,
+                    "durationMs": 259,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,15 +88,27 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 867,
+                    "status": "WARN",
+                    "durationMs": 896,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image returned HTTP 404",
+                        "page[1] image returned HTTP 404",
+                        "page[2] image returned HTTP 404"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:42:49.769326697Z",
+    "changes": [
+        {
+            "source": "ReadManga18",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ]
 }

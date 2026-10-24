@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:56:03.143358561Z",
+    "generatedAt": "2026-10-24T00:55:44.938762475Z",
     "module": ":src:es:catharsisworld",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 2240276887816651754,
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 898,
+                    "durationMs": 381,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 891,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 125,
+                    "message": "HTTP error 500",
                     "notes": [],
-                    "samples": [
-                        "Lágrimas entre Flores Marchitas -> 83",
-                        "Amor Accidental -> 82",
-                        "Demasiado cercanos para ser solo amigos -> 85"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 422,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 142,
+                    "message": "HTTP error 500",
                     "notes": [],
-                    "samples": [
-                        "Comencé A Gobernar A Los Seis Años -> 1487",
-                        "Mi 5to Matrimonio Político Es Con Un Hombre Que Me 0dia. -> 1481",
-                        "Estoy Embarazada Y Escaparé En 5 Meses -> 2184"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,35 +56,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 380,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 123 -> 83/123",
-                        "Capítulo 122 -> 83/122",
-                        "Capítulo 121 -> 83/121"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 584,
-                    "message": "HTTP error 403",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-22T08:56:57.945811792Z",
+    "comparedTo": "2026-10-23T08:56:03.143358561Z",
     "changes": [
         {
             "source": "Catharsis World",
             "lang": "es",
-            "scenario": "pages",
-            "from": "BLOCKED",
+            "scenario": "popular",
+            "from": "PASS",
             "to": "FAIL"
+        },
+        {
+            "source": "Catharsis World",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Catharsis World",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Catharsis World",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ]
 }

@@ -1,37 +1,39 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:53:29.533004138Z",
+    "generatedAt": "2026-10-24T01:02:09.084524278Z",
     "module": ":src:ru:mangalib",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 6111047689498497237,
             "name": "MangaLib",
             "lang": "ru",
             "baseUrl": "https://mangalib.me",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 731,
+                    "status": "WARN",
+                    "durationMs": 790,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1999,
+                    "durationMs": 1543,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +45,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 696,
+                    "durationMs": 824,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "I’m a Priest Banished from the Holy Church for Having the Blood of an Evil God – When I Was Kicked Out for Unreasonable Reasons, the Goddess I Worshipped Came With Me -> /276753--jashin-no-chi-ga-nagareteiru-to-iware-shinsei-kyoukai-wo-tsuihou-sareta-shinpu-desu-rifujin-na-riyuu-de-kyoukai-wo-oida-saretara-shinkou-taishou-no-megami-sama-mo-issho-ni-tsuite-kichaimashita",
-                        "That piece of trash was me -> /250734--geu-sseulegiga-na-yeoss-eo-yo",
-                        "One Last God Kubera -> /609--kubera"
+                        "I Will Become the Ex-Wife of the Beast -> /272748--yasuui-jeonbuini-doegetseupnida",
+                        "JUMBO MAX -> /117324--jumbo-max",
+                        "The Villainess Gets Her Sponsorship -> /268649--agnyeoga-huwon-eul-deulkim"
                     ]
                 },
                 {
@@ -65,7 +67,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 2917,
+                    "durationMs": 2905,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,26 +79,45 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 1139,
+                    "durationMs": 989,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "//manga/ag-yeog-uiending-eunjug-eumppun/chapters/4296102/2e99cec3-4597-4b7e-bcac-b82e3332d26a.jpg",
-                        "//manga/ag-yeog-uiending-eunjug-eumppun/chapters/4296102/a09b814f-72fd-44b9-bc80-9df95d76d9a7.jpg",
-                        "//manga/ag-yeog-uiending-eunjug-eumppun/chapters/4296102/4a165fcd-8a8c-42fb-ae39-15c4b0f650a0.jpg"
+                        "//manga/ag-yeog-uiending-eunjug-eumppun/chapters/635736/01_ApDO.png",
+                        "//manga/ag-yeog-uiending-eunjug-eumppun/chapters/635736/02_Ve5g.png",
+                        "//manga/ag-yeog-uiending-eunjug-eumppun/chapters/635736/03_6MAw.png"
                     ]
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
+                    "status": "WARN",
                     "durationMs": 0,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request could not be built: null",
+                        "page[1] image request could not be built: null",
+                        "page[2] image request could not be built: null"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:53:29.533004138Z",
+    "changes": [
+        {
+            "source": "MangaLib",
+            "lang": "ru",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "MangaLib",
+            "lang": "ru",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ]
 }

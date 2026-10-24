@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T21:47:55.214735164Z",
+    "generatedAt": "2026-10-24T00:53:14.632193249Z",
     "module": ":src:all:yskcomics",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 9170389107417152397,
             "name": "YSK Comics",
             "lang": "ar",
             "baseUrl": "https://www.ysk-comics.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1355,
+                    "durationMs": 1419,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 340,
+                    "durationMs": 226,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 270,
+                    "durationMs": 336,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 425,
+                    "durationMs": 231,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +77,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 256,
+                    "durationMs": 213,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,10 +88,14 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2816,
+                    "status": "WARN",
+                    "durationMs": 4872,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image returned HTTP 403",
+                        "page[1] image returned HTTP 403",
+                        "page[2] image returned HTTP 403"
+                    ],
                     "samples": []
                 }
             ]
@@ -101,7 +105,7 @@
             "name": "YSK Comics",
             "lang": "en",
             "baseUrl": "https://www.ysk-comics.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -114,15 +118,17 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1036,
+                    "durationMs": 0,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "same site as YSK Comics [ar]; not checked again"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 438,
+                    "durationMs": 371,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -134,7 +140,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 553,
+                    "durationMs": 517,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -158,7 +164,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1399,
+                    "durationMs": 1551,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -170,7 +176,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 232,
+                    "durationMs": 150,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -181,86 +187,34 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2160,
+                    "status": "WARN",
+                    "durationMs": 3366,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image returned HTTP 403",
+                        "page[1] image returned HTTP 403",
+                        "page[2] image returned HTTP 403"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T20:08:56.084607630Z",
+    "comparedTo": "2026-10-20T21:47:55.214735164Z",
     "changes": [
         {
             "source": "YSK Comics",
             "lang": "ar",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "YSK Comics",
-            "lang": "ar",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "YSK Comics",
-            "lang": "ar",
-            "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "YSK Comics",
-            "lang": "ar",
-            "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "YSK Comics",
-            "lang": "ar",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
-        },
-        {
-            "source": "YSK Comics",
-            "lang": "en",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "YSK Comics",
-            "lang": "en",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "YSK Comics",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "YSK Comics",
-            "lang": "en",
-            "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "YSK Comics",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         }
     ]
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:58:34.742909261Z",
+    "generatedAt": "2026-10-24T00:59:13.686732294Z",
     "module": ":src:pt:mangasbrasuka",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 9021069622172695017,
             "name": "Mangas Brasuka",
             "lang": "pt-BR",
             "baseUrl": "https://mangasbrasuka.org",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,26 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 741,
+                    "durationMs": 1116,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 287,
-                    "message": "HTTP error 403",
+                    "status": "PASS",
+                    "durationMs": 625,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Blue Lock -> blue-lock",
+                        "Ao Ashi -> ao-ashi",
+                        "Complexo de Amigos de Infância -> complexo-de-amigos-de-infancia"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 291,
-                    "message": "HTTP error 403",
+                    "status": "PASS",
+                    "durationMs": 606,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Imperador Demoníaco -> imperador-demoniaco",
+                        "Jinsei Gyakuten: Uwaki Sare, Enzai o Kiserareta Ore ga, Gakuen Ichi no Bishoujo ni Natsukareru -> jinsei-gyakuten-uwaki-sare-enzai-o-kiserareta-ore-ga-gakuen-ichi-no-bishoujo-ni-natsukareru",
+                        "Gerente Kim -> gerente-kim"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -56,45 +64,73 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 500,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Capítulo 365 -> chp_1792593541923",
+                        "Capítulo 364.2 -> chp_1791766373821",
+                        "Capítulo 364 -> chp_1791766357483"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
+                    "status": "WARN",
+                    "durationMs": 348,
+                    "message": null,
+                    "notes": [
+                        "page list is empty"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:56:00.314434959Z",
+    "comparedTo": "2026-10-23T08:58:34.742909261Z",
     "changes": [
         {
             "source": "Mangas Brasuka",
             "lang": "pt-BR",
-            "scenario": "connectivity",
-            "from": "BLOCKED",
+            "scenario": "popular",
+            "from": "FAIL",
             "to": "PASS"
         },
         {
             "source": "Mangas Brasuka",
             "lang": "pt-BR",
-            "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "FAIL"
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Mangas Brasuka",
             "lang": "pt-BR",
-            "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "FAIL"
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Mangas Brasuka",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Mangas Brasuka",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ]
 }

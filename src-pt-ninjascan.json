@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:44:38.252382098Z",
+    "generatedAt": "2026-10-24T01:04:34.587310234Z",
     "module": ":src:pt:ninjascan",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 4392067503694697213,
             "name": "Ninja Scan",
             "lang": "pt-BR",
             "baseUrl": "https://ninjacomics.xyz",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 393,
+                    "status": "WARN",
+                    "durationMs": 436,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 404"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 551,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 207,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Princípe Dragão Sagrado -> 1845",
-                        "Espírito de Batalha Inigualável -> 1903",
-                        "O Antigo Soberano da Eternidade -> 2047"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 698,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 711,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "O Antigo Soberano da Eternidade -> 2047",
-                        "Apotheosis -> 2095",
-                        "Mestre de Bestas Número Um -> 2122"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,39 +58,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1685,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 652.5 - Final! -> capitulo-652-5",
-                        "Capítulo 652 -> capitulo-652",
-                        "Capítulo 651.5 -> capitulo-651-5"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 510,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://ninjacomics.xyz/wp-content/uploads/WP-manga/data/manga_664e57f6f25cf/58ea6856bdb3a8f1588a31ca13659630/00.jpg",
-                        "https://ninjacomics.xyz/wp-content/uploads/WP-manga/data/manga_664e57f6f25cf/58ea6856bdb3a8f1588a31ca13659630/01.jpg",
-                        "https://ninjacomics.xyz/wp-content/uploads/WP-manga/data/manga_664e57f6f25cf/58ea6856bdb3a8f1588a31ca13659630/02.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 784,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:44:38.252382098Z",
+    "changes": [
+        {
+            "source": "Ninja Scan",
+            "lang": "pt-BR",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Ninja Scan",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Ninja Scan",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Ninja Scan",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ninja Scan",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ninja Scan",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

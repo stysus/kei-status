@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:48:50.927283187Z",
+    "generatedAt": "2026-10-24T00:56:00.372128791Z",
     "module": ":src:tr:mangaportali",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 2022032978410218674,
@@ -22,27 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 30144,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 965,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30002,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 333,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Solo Leveling -> solo-leveling",
+                        "Solo Leveling: Ragnarok -> solo-leveling-ragnarok",
+                        "Son Seviye Çaylak -> son-seviye-caylak"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 30001,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 311,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Tembel Soylunun Değişimi -> tembel-soylunun-degisimi",
+                        "Şeytani Çağ -> seytani-cag",
+                        "Paralı Askerin Eve Dönüşü -> parali-askerin-eve-donusu"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -56,52 +64,54 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 948,
+                    "message": "Field 'isEarlyAccessLocked' is required for type with serial name 'eu.kanade.tachiyomi.extension.tr.mangaportali.ChapterDto', but it was missing",
+                    "notes": [
+                        "kotlinx.serialization.MissingFieldException: Field 'isEarlyAccessLocked' is required for type with serial name 'eu.kanade.tachiyomi.extension.tr.mangaportali.ChapterDto', but it was missing at path: $.items[0]"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:45:05.532796002Z",
+    "comparedTo": "2026-10-23T08:48:50.927283187Z",
     "changes": [
         {
             "source": "Manga Portalı",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Manga Portalı",
             "lang": "tr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Manga Portalı",
             "lang": "tr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Manga Portalı",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ]
 }

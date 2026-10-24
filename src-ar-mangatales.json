@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:20.743856816Z",
+    "generatedAt": "2026-10-24T00:51:48.551243611Z",
     "module": ":src:ar:mangatales",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 5218550345649535189,
             "name": "Manga Tales",
             "lang": "ar",
             "baseUrl": "https://www.mangatales.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,35 +23,43 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 804,
+                    "durationMs": 707,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 923,
-                    "message": "'byte[] android.util.Base64.decode(byte[], int)'",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 568,
+                    "message": null,
+                    "notes": [
+                        "manga[0] has no thumbnail",
+                        "manga[1] has no thumbnail",
+                        "manga[2] has no thumbnail"
+                    ],
+                    "samples": [
+                        "أكاديمية u.m.k -> /mangas/250",
+                        "حفيد المملكة -> /mangas/1337",
+                        "Bataille de Lyon -> /mangas/1769"
+                    ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 468,
+                    "durationMs": 511,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "مانجا كازوكي -> /mangas/2648",
                         "الساراي  -> /mangas/2674",
-                        "RishanXFouladh -> /mangas/1284",
-                        "مانجا كازوكي -> /mangas/2648"
+                        "RishanXFouladh -> /mangas/1284"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 6,
+                    "durationMs": 5,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,37 +68,54 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 303,
+                    "status": "WARN",
+                    "durationMs": 256,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "1 - الأفول -> /r/3239"
-                    ]
+                    "notes": [
+                        "chapter list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 518,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://media.mangatales.com/uploads/releases/2023/001-2026102016232720232HZTN7UOE/IMG_20261020_193528_751.png?ak=tn81rs",
-                        "https://media.mangatales.com/uploads/releases/2023/001-2026102016232720232HZTN7UOE/IMG_20261020_193532_984.png?ak=tn81rs",
-                        "https://media.mangatales.com/uploads/releases/2023/001-2026102016232720232HZTN7UOE/IMG_20261020_193535_144.png?ak=tn81rs"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3845,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:20.743856816Z",
+    "changes": [
+        {
+            "source": "Manga Tales",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "WARN"
+        },
+        {
+            "source": "Manga Tales",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manga Tales",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Tales",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

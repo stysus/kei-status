@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:47:51.207692054Z",
+    "generatedAt": "2026-10-24T00:57:28.427065947Z",
     "module": ":src:th:manhuabug",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 1111043926688521377,
             "name": "ManhuaBug",
             "lang": "th",
             "baseUrl": "https://www.manhuabug.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 313,
+                    "durationMs": 327,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 651,
+                    "durationMs": 571,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -51,7 +51,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +61,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 264,
+                    "durationMs": 250,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -73,7 +73,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 520,
+                    "durationMs": 503,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -84,15 +84,26 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1576,
+                    "status": "WARN",
+                    "durationMs": 366,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[1] image request failed: Bogus input colorspace",
+                        "page[2] image request failed: Bogus input colorspace"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:47:51.207692054Z",
+    "changes": [
+        {
+            "source": "ManhuaBug",
+            "lang": "th",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ]
 }

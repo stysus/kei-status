@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:43:07.895232600Z",
+    "generatedAt": "2026-10-24T00:59:55.186420006Z",
     "module": ":src:ru:unicomics",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 6859623422196397486,
             "name": "UniComics",
             "lang": "ru",
             "baseUrl": "https://unicomics.ru",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1215,
+                    "durationMs": 1204,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 251,
+                    "durationMs": 187,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 151,
+                    "durationMs": 163,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 738,
+                    "durationMs": 983,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,7 +75,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 650,
+                    "durationMs": 466,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -86,15 +86,27 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
+                    "status": "WARN",
                     "durationMs": 0,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request could not be built: null",
+                        "page[1] image request could not be built: null",
+                        "page[2] image request could not be built: null"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:43:07.895232600Z",
+    "changes": [
+        {
+            "source": "UniComics",
+            "lang": "ru",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ]
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:44.294699245Z",
+    "generatedAt": "2026-10-24T01:00:01.403782695Z",
     "module": ":src:ja:ohtawebcomic",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 1056568527385317039,
             "name": "Ohta Web Comic",
             "lang": "ja",
             "baseUrl": "https://webcomic.ohtabooks.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1152,
+                    "durationMs": 1173,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 394,
+                    "durationMs": 391,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +61,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 175,
+                    "durationMs": 174,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -72,7 +72,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 3526,
+                    "durationMs": 4022,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -83,15 +83,27 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1831,
+                    "status": "WARN",
+                    "durationMs": 1450,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: Bogus input colorspace",
+                        "page[1] image request failed: Bogus input colorspace",
+                        "page[2] image request failed: Bogus input colorspace"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:44.294699245Z",
+    "changes": [
+        {
+            "source": "Ohta Web Comic",
+            "lang": "ja",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ]
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-21T08:42:54.578174466Z",
+    "generatedAt": "2026-10-24T00:57:44.054136322Z",
     "module": ":src:es:leermangaesp",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 8196066207928937350,
             "name": "LeerMangaEsp",
             "lang": "es",
             "baseUrl": "https://mangalect.org",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 869,
+                    "status": "WARN",
+                    "durationMs": 19626,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 405,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19544,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Grupo De Estudio -> grupo-de-estudio",
-                        "Regresor De La Familia Caída -> regresor-de-la-familia-caida",
-                        "Jugador De Nivel Máximo -> jugador-de-nivel-maximo"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 513,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19878,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "No Quiero Ser Una Chica Mágica -> no-quiero-ser-una-chica-magica",
-                        "Kono Yo No Owari E No Tabi -> kono-yo-no-owari-e-no-tabi",
-                        "El Séptimo Príncipe Quiere Escapar -> el-septimo-principe-quiere-escapar"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,47 +58,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 920,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 26744.00 -> /lectura/grupo-de-estudio/26744.00/",
-                        "Capítulo 18273.00 -> /lectura/grupo-de-estudio/18273.00/",
-                        "Capítulo 17573.00 -> /lectura/grupo-de-estudio/17573.00/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 360,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://images.mangalect.org/file/leermangaesp/mangas/1738455027833/capitulo_26744.00/pagina_001.webp",
-                        "https://images.mangalect.org/file/leermangaesp/mangas/1738455027833/capitulo_26744.00/pagina_002.webp",
-                        "https://images.mangalect.org/file/leermangaesp/mangas/1738455027833/capitulo_26744.00/pagina_003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3040,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:46:50.937485471Z",
+    "comparedTo": "2026-10-21T08:42:54.578174466Z",
     "changes": [
         {
             "source": "LeerMangaEsp",
             "lang": "es",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "LeerMangaEsp",
+            "lang": "es",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "LeerMangaEsp",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "LeerMangaEsp",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "LeerMangaEsp",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "LeerMangaEsp",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ]
 }

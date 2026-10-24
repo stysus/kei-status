@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:47:48.296094600Z",
+    "generatedAt": "2026-10-24T00:59:07.953965509Z",
     "module": ":src:id:lepoytl",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 1601772753251290758,
             "name": "LepoyTL",
             "lang": "id",
             "baseUrl": "https://www.lepoytl.my.id",
-            "status": "FAIL",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,23 +23,27 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 666,
+                    "durationMs": 2250,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 395,
-                    "message": "HTTP error 429",
+                    "status": "PASS",
+                    "durationMs": 1524,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Wolf Falls in Love with Moon -> /2024/10/wolf-falls-in-love-with-moon.html?m=1",
+                        "Uesugi-kun wa Onnanoko wo Yametai -> /2024/08/uesugi-kun-wa-onnanoko-wo-yametai.html?m=1",
+                        "Ogami Tsumiki To Kinichijou -> /2024/04/ogami-tsumiki-to-kinichijou.html?m=1"
+                    ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 237,
+                    "durationMs": 89,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,46 +65,50 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 474,
+                    "durationMs": 411,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Ore Wa Bishoujo V-Tuber Chapter 14 -> /2026/09/ore-wa-bishoujo-v-tuber-chapter-14.html",
-                        "Ore Wa Bishoujo V-Tuber Chapter 13 -> /2026/09/ore-wa-bishoujo-v-tuber-chapter-13.html",
-                        "Ore Wa Bishoujo V-Tuber Chapter 12 -> /2026/09/ore-wa-bishoujo-v-tuber-chapter-12.html"
+                        "Wolf Falls in Love with Moon Chapter 45 -> /2025/11/wolf-falls-in-love-with-moon-chapter-45.html",
+                        "Wolf Falls in Love with Moon Chapter 44 -> /2025/11/wolf-falls-in-love-with-moon-chapter-44.html",
+                        "Wolf Falls in Love with Moon Chapter 43 -> /2025/10/wolf-falls-in-love-with-moon-chapter-43.html"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 233,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://galeri-lepoy.my.id/images/2026/09/23/chapter_14_001.jpg",
-                        "https://galeri-lepoy.my.id/images/2026/09/23/chapter_14_002.jpg",
-                        "https://galeri-lepoy.my.id/images/2026/09/23/chapter_14_003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 4027,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 1779,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-22T08:53:41.592168393Z",
+    "comparedTo": "2026-10-23T08:47:48.296094600Z",
     "changes": [
         {
             "source": "LepoyTL",
             "lang": "id",
             "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "LepoyTL",
+            "lang": "id",
+            "scenario": "pages",
             "from": "PASS",
-            "to": "FAIL"
+            "to": "THROTTLED"
+        },
+        {
+            "source": "LepoyTL",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ]
 }

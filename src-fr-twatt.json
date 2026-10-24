@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:07.107098273Z",
+    "generatedAt": "2026-10-24T00:55:20.708719710Z",
     "module": ":src:fr:twatt",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 5157242904926355900,
             "name": "Twatt",
             "lang": "fr",
             "baseUrl": "https://twatt.fr",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 352,
-                    "message": "Connection refused",
-                    "notes": [
-                        "java.net.ConnectException: Failed to connect to twatt.fr/194.34.232.214:443"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 859,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 123,
-                    "message": "Connection refused",
-                    "notes": [
-                        "java.net.ConnectException: Failed to connect to twatt.fr/194.34.232.214:443"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1148,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Nation Class Dungeon Architect -> /serie/7a119403-a88c-42d8-9fe0-9fba6c1849ac",
+                        "SSS Grade Saint-Knight -> /serie/7dc5753f-6bc0-45a3-8ef4-cc22b5925c11",
+                        "The Baby Divine Beast -> /serie/3ae42a20-e175-4b38-ad77-d3e232145e4b"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -60,23 +60,47 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 166,
+                    "message": null,
+                    "notes": [
+                        "chapter list is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:07.107098273Z",
+    "changes": [
+        {
+            "source": "Twatt",
+            "lang": "fr",
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Twatt",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Twatt",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "WARN"
+        }
+    ]
 }

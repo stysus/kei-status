@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-22T08:51:52.215644523Z",
+    "generatedAt": "2026-10-24T00:55:51.751743757Z",
     "module": ":src:en:revivalscans",
     "sourceRoot": "",
-    "extensionCommit": "1d3d7c4b",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 6875037148225675112,
             "name": "Revival Scans",
             "lang": "en",
             "baseUrl": "https://www.revivalscans.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 366,
+                    "status": "WARN",
+                    "durationMs": 3114,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 523"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 252,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 3290,
+                    "message": "HTTP error 523",
                     "notes": [],
-                    "samples": [
-                        "Beautiful days -> beautiful-days",
-                        "Brothel -> brothel",
-                        "CCTV -> cctv"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -60,47 +58,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 165,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 90 -> /read/beautiful-days/90",
-                        "Chapter 89 -> /read/beautiful-days/89",
-                        "Chapter 88 -> /read/beautiful-days/88"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 146,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.revivalscans.com/api/images/chapters/beautiful-days/29/1.jpg",
-                        "https://www.revivalscans.com/api/images/chapters/beautiful-days/29/2.jpg",
-                        "https://www.revivalscans.com/api/images/chapters/beautiful-days/29/3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 4290,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T21:26:23.422008683Z",
+    "comparedTo": "2026-10-22T08:51:52.215644523Z",
     "changes": [
         {
             "source": "Revival Scans",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Revival Scans",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Revival Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Revival Scans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Revival Scans",
+            "lang": "en",
             "scenario": "images",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ]
 }

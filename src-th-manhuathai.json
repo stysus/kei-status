@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:47:54.319106033Z",
+    "generatedAt": "2026-10-24T00:58:52.456535984Z",
     "module": ":src:th:manhuathai",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 7916744898099174736,
             "name": "ManhuaThai",
             "lang": "th",
             "baseUrl": "https://www.manhuathai.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 291,
+                    "durationMs": 445,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 610,
+                    "durationMs": 648,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +61,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 258,
+                    "durationMs": 287,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -73,7 +73,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 535,
+                    "durationMs": 553,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -84,15 +84,26 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1403,
+                    "status": "WARN",
+                    "durationMs": 428,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[1] image request failed: Bogus input colorspace",
+                        "page[2] image request failed: Bogus input colorspace"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:47:54.319106033Z",
+    "changes": [
+        {
+            "source": "ManhuaThai",
+            "lang": "th",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ]
 }

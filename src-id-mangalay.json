@@ -1,40 +1,48 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:48:20.504685896Z",
+    "generatedAt": "2026-10-24T01:01:02.949126703Z",
     "module": ":src:id:mangalay",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "f285631c",
     "sources": [
         {
             "sourceId": 7859511511298731707,
             "name": "Mangalay",
             "lang": "id",
             "baseUrl": "http://mangalay.blogspot.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
-                    "status": "PASS",
+                    "status": "WARN",
                     "durationMs": 0,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "baseUrl is not https: http://mangalay.blogspot.com"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 200,
+                    "status": "WARN",
+                    "durationMs": 494,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 516,
-                    "message": "HTTP error 429",
+                    "status": "PASS",
+                    "durationMs": 352,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "WORST GAIDEN -> /2013/04/list-baca-komik-worst-gaiden-bahasa.html",
+                        "WORST -> /2013/04/list-baca-komik-worst.html",
+                        "Next Crows Supplementary Story -> /2013/05/list-baca-komik-next-crows.html"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -56,38 +64,82 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 301,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Worst Gaiden Chapter The Begining of T.F.O.A Bagian Keempat Bahasa Indonesia -> /2013/08/worst-gaiden-chapter-6-bahasa-indonesia.html",
+                        "Worst Gaiden Chapter The Begining of T.F.O.A Bagian Ketiga Bahasa Indonesia -> /2013/05/worst-gaiden-chapter-5-page1.html",
+                        "Worst Gaiden Chapter The Begining of T.F.O.A Bagian Kedua Bahasa Indonesia -> /2013/05/worst-gaiden-chapter-4-bahasa-indonesia.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 1495,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijThKuJEDiaPMuJDgDTlJlUXn_ve2Nlp5p4_DHt_2PVUcpP8bX5Bi_xbLrBf25eIPHp1BkSOKliFBOB8pOEPu5U11yKIbtL51-YuE36LxgjMy0lRhgVFy16Bmv3TLEh1NNSTkb3aoMsDP1/s1600/1_0.jpg",
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvZqwpAT0gOBpYCUUe0VUOMpkVJqDCr0mFcWXUJumoriJ20Gx9yQECUIOc4Gg3oYxuFBm7MbUoaQ1gbgIZsev06fJpgEuT3hwx3oFtCwabVR5OH6Dm7gYJJAVmPk_zIBFYMSc2Sv60iIqF/s1600/1_1.jpg",
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvXP9RrL-ZFh0RvdZgEhOvfZ3MFr5O4B67-3sM2TclZucWLqkD_w7mpswsgFaGQKmmpwEolJszHM3mk4V21-mnO0Ys16xchjWv0BICtBoitGULbbbc8S8W9LwOlMuWNKRpCcSu0Br60jKj/s1600/2+%25281%2529.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1459,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-22T08:54:06.232852646Z",
+    "comparedTo": "2026-10-23T08:48:20.504685896Z",
     "changes": [
         {
             "source": "Mangalay",
             "lang": "id",
-            "scenario": "popular",
+            "scenario": "metadata",
             "from": "PASS",
-            "to": "FAIL"
+            "to": "WARN"
+        },
+        {
+            "source": "Mangalay",
+            "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Mangalay",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Mangalay",
             "lang": "id",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Mangalay",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Mangalay",
+            "lang": "id",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ]
 }
