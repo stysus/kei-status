@@ -95,10 +95,18 @@ object Checks {
      * chapter, unlock in WebView", "Chapter is locked", "Chapter locked (coins required)" - and all
      * of them name the chapter. Matching on both words keeps a decryption failure such as "could
      * not unlock the key" classified as the failure it is.
+     *
+     * The same refusal also arrives without the word "lock": the Kadokawa family answers "this
+     * chapter is either unavailable or must be purchased", and several others ask the reader to
+     * "log in via WebView and purchase this chapter to read". Both say the content needs an
+     * account, so they skip the same way - guarded so a parse error that happens to quote a
+     * `purchaseUrl` field stays a failure.
      */
     fun lockedChapter(message: String?): Boolean {
         val text = message?.lowercase() ?: return false
-        return "lock" in text && "chapter" in text
+        return ("lock" in text && "chapter" in text) ||
+            ("purchas" in text && "to read" in text) ||
+            "must be purchased" in text
     }
 
     /**

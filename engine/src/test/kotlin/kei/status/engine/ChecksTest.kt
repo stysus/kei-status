@@ -329,6 +329,13 @@ class ChecksTest {
             "Chapter is locked",
             "This chapter is locked. Use WebView to purchase it.",
             "Log in via WebView and unlock this chapter with coins to read.",
+            // The same refusal without the word "lock": the Kadokawa family and the login-first
+            // ones the 2026-10-24 sweep surfaced.
+            "This chapter is either unavailable or must be purchased.",
+            "Log in via WebView and purchase this chapter to read.",
+            "Log in via WebView and rent or purchase this chapter to read.",
+            "Log in via WebView and purchase this product to read.",
+            "Log in via WebView and get premium or purchase this chapter to read.",
         ).forEach { message -> assertTrue(message, Checks.lockedChapter(message)) }
 
         // A chapter being locked is a property of the content. Failing to open the lock is not.
@@ -338,6 +345,13 @@ class ChecksTest {
             "Could not unlock the decryption key",
             "HTTP 404",
         ).forEach { message -> assertFalse(message.toString(), Checks.lockedChapter(message)) }
+
+        // A parse error quoting a paywall-adjacent field name is not a paywall.
+        assertFalse(
+            Checks.lockedChapter(
+                "Unexpected JSON token at offset 0: Unknown key 'purchaseUrl' at path: $.data",
+            ),
+        )
     }
 
     @Test

@@ -93,8 +93,6 @@ fun main(args: Array<String>) {
         runCatching { kei.status.webkit.Chrome.stop() }
     }
 
-    val worst = results.map { it.first }.maxByOrNull { it.status.severity }
-
     // A single module can still write a standalone page; a sweep publishes through --site.
     if (results.size == 1) {
         val effective = results.single().second?.report ?: results.single().first
@@ -114,8 +112,24 @@ fun main(args: Array<String>) {
     val transitions = results.sumOf { it.second?.changes?.size ?: 0 }
     println("\n${results.size} module(s) checked, $changed changed, $transitions transition(s)")
 
-    exitProcess(if (worst?.status == Status.FAIL) 1 else 0)
+    exitProcess(exitCode(results))
 }
+
+/**
+ * The process exit code a run reports.
+ *
+ * A run that checked nothing did not succeed: every module was dropped by an error before it could
+ * produce a verdict. The exit code alone cannot say so - 1 is already the sweep's normal finding -
+ * so `ci/run-shard.sh` also rejects the "0 module(s) checked" summary line this run prints, and
+ * that is what fails the CI job instead of recording its marker. With results in hand the rule is
+ * the worst verdict seen.
+ */
+internal fun exitCode(results: List<Pair<RunReport, ReportStore.Saved?>>): Int =
+    when (results.map { it.first }.maxByOrNull { it.status.severity }?.status) {
+        null -> 1
+        Status.FAIL -> 1
+        else -> 0
+    }
 
 /**
  * The modules a run selects, before any shard narrowing.

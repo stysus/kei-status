@@ -605,7 +605,10 @@ internal fun imageDecodeNote(index: Int, bytes: ByteArray, type: String): String
         return if (format != null) {
             "page[$index] image is $format, which the harness cannot decode; Android decodes it natively"
         } else {
-            "page[$index] image bytes did not decode (${bytes.size} bytes, '$type')"
+            // No byte count on purpose: an error page's size moves on every fetch (ad slots,
+            // rotating banners), and a note that changes every run rewrites the store entry each
+            // night while the state behind it has not moved. The type is what describes the bytes.
+            "page[$index] image bytes did not decode ('$type')"
         }
     }
     bitmap.recycle()

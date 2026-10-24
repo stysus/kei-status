@@ -69,15 +69,21 @@ fi
 # its cleanup fails (exit 5, "problem while cleaning up temporary directory"), and that once marked
 # a shard whose 76 modules had all just finished checking, so the publish job refused the whole
 # sweep. The wrapper's parting failure must not mask what the checker found.
+#
+# The checker's output is teed to a log for the same reason: its exit code cannot reject a run
+# that checked nothing, because 1 is already the sweep's normal finding. The summary line is the
+# only place that says how many modules survived.
 status_file=$(mktemp)
+log_file=$(mktemp)
 
 set +e
 "${runner[@]}" bash -c '
-  st=0
-  "$@" || st=$?
+  log="$1"; shift
+  "$@" 2>&1 | tee "$log"
+  st=${PIPESTATUS[0]}
   printf "%s\n" "$st" >"$0"
   exit "$st"
-' "$status_file" ./cli/build/install/cli/bin/cli \
+' "$status_file" "$log_file" ./cli/build/install/cli/bin/cli \
   --module-list "$shard_file" \
   --source-root "$source_root" \
   --store "$store"
@@ -90,6 +96,11 @@ fi
 code="$(cat "$status_file")"
 rm -f "$status_file"
 
+# Read once, then drop: every exit below uses the summary, and the temp log should not outlive
+# this script on a local machine where the workspace is not cleaned up for us.
+summary=$(grep '^0 module(s) checked' "$log_file" || true)
+rm -f "$log_file"
+
 case "$code" in
   0 | 1) ;;
   *)
@@ -97,3 +108,12 @@ case "$code" in
     exit "$code"
     ;;
 esac
+
+# Exit 1 tolerates "at least one source failed", so an empty run reaches here as a success. The
+# summary line is what distinguishes it: 0 checked means every entry was dropped before producing
+# a verdict (a malformed list, a checker bug), and recording a marker for that would let a broken
+# harness look like a quiet night.
+if [ -n "$summary" ]; then
+  echo "::error::the checker ran but checked 0 module(s); every entry was dropped before producing a verdict"
+  exit 1
+fi

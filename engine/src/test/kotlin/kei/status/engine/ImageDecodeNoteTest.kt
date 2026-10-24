@@ -38,7 +38,9 @@ class ImageDecodeNoteTest {
 
         val note = imageDecodeNote(2, corrupt, "text/html")
 
-        assertEquals("page[2] image bytes did not decode (5 bytes, 'text/html')", note)
+        // No byte count: an error page's size moves on every fetch, and a note that changes every
+        // run rewrites the store entry each night while the state behind it has not moved.
+        assertEquals("page[2] image bytes did not decode ('text/html')", note)
     }
 
     @Test
