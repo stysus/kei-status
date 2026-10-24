@@ -7,6 +7,7 @@ import java.nio.file.Path
 import kotlin.io.path.createDirectories
 import kotlin.io.path.writeText
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
@@ -50,6 +51,36 @@ class EntrySelectionTest {
         val entries = resolveEntries(Options.parse(arrayOf("--module", ":src:all:mangadex", "--lang", "en")))
 
         assertEquals(listOf(ModuleList.Entry(":src:all:mangadex")), entries)
+    }
+
+    @Test
+    fun `a narrowed run does not write the store`() {
+        // The store records the state of a full run: one entry per module, every source. A --lang
+        // run reports a subset, and saving it would rewrite the entry with the other sources
+        // missing - the kei-status example `run :src:all:mangadex --lang en --store data` used to
+        // do exactly that to the nightly sweep's 61-source entry.
+        val options = Options.parse(arrayOf("--module", ":src:all:mangadex", "--lang", "en", "--store", "data"))
+        val config = configFor(options, ModuleList.Entry(":src:all:mangadex"), Path.of("scratch"))
+
+        assertNull(storeToWrite(options, config))
+    }
+
+    @Test
+    fun `a run without narrowing writes the store`() {
+        val options = Options.parse(arrayOf("--module", ":src:all:mangadex", "--store", "data"))
+        val config = configFor(options, ModuleList.Entry(":src:all:mangadex"), Path.of("scratch"))
+
+        assertEquals(Path.of("data"), storeToWrite(options, config))
+    }
+
+    @Test
+    fun `narrowing on a module-list line reaches the same guard`() {
+        // The command line may be bare while the entry carries the flags, so the effective config
+        // is what decides - not the options the user typed.
+        val options = Options.parse(arrayOf("--module", ":src:all:mangadex", "--store", "data"))
+        val config = configFor(options, ModuleList.Entry(":src:all:mangadex", listOf("--lang", "en")), Path.of("scratch"))
+
+        assertNull(storeToWrite(options, config))
     }
 
     @Test

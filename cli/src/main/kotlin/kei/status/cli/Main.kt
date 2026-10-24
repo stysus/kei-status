@@ -61,15 +61,20 @@ fun main(args: Array<String>) {
     val results = mutableListOf<Pair<RunReport, ReportStore.Saved?>>()
     try {
         entries.forEachIndexed { position, entry ->
+            val config = configFor(options, entry, scratch)
             val report = try {
-                HarnessRunner(configFor(options, entry, scratch)).run()
+                HarnessRunner(config).run()
             } catch (e: Throwable) {
                 System.err.println("kei-status: ${entry.module}: ${e.message}")
                 if (System.getenv("KEI_STATUS_TRACE") != null) e.printStackTrace()
                 return@forEachIndexed
             }
 
-            val saved = options.store?.let { ReportStore.save(it, report) }
+            val storeToUse = storeToWrite(options, config)
+            val saved = storeToUse?.let { ReportStore.save(it, report) }
+            if (options.store != null && storeToUse == null) {
+                println("  narrowed run (--lang); the store keeps the full sweep's entry for ${entry.module}")
+            }
             results += report to saved
 
             if (entries.size == 1) printTable(report) else printSummary(position + 1, entries.size, report, saved)
@@ -142,6 +147,18 @@ internal fun moduleCosts(options: Options): Map<String, Int> {
 
 /** Where a run reads and writes state when `--store` is not given. */
 private val DEFAULT_STORE: Path = Path.of("data")
+
+/**
+ * The store directory this run may write, or null when it must not.
+ *
+ * The store records the state of a *full* run: one entry per module, every source the module
+ * declares. A run narrowed with `--lang` reports a subset, and saving that would rewrite the entry
+ * with the other sources missing - the nightly sweep's 61-source MangaDex entry reduced to one by
+ * the local debugging session that followed it. The narrowing can come from the command line or
+ * from flags on a `--module-list` line, so the effective config decides, not the options alone.
+ */
+internal fun storeToWrite(options: Options, config: HarnessConfig): Path? =
+    options.store?.takeIf { config.langs.isEmpty() }
 
 /**
  * Writes the shard plan and reports how much it covers.
