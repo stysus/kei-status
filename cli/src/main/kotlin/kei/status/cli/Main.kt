@@ -61,7 +61,14 @@ fun main(args: Array<String>) {
     val results = mutableListOf<Pair<RunReport, ReportStore.Saved?>>()
     try {
         entries.forEachIndexed { position, entry ->
-            val config = configFor(options, entry, scratch)
+            // Entry flags are parsed per module, so one malformed line is reported and skipped the
+            // same way a failing module is, rather than aborting the modules behind it.
+            val config = try {
+                configFor(options, entry, scratch)
+            } catch (e: IllegalArgumentException) {
+                System.err.println("kei-status: ${e.message}")
+                return@forEachIndexed
+            }
             val report = try {
                 HarnessRunner(config).run()
             } catch (e: Throwable) {

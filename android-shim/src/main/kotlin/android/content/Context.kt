@@ -50,7 +50,6 @@ open class Context {
         sharedPrefs.getOrPut(name) {
             FileSharedPreferences(root().resolve("shared_prefs/$name.xml"))
         }
-
     open fun getString(resId: Int): String = "string-$resId"
 
     /**
@@ -72,5 +71,11 @@ open class Context {
         throw ActivityNotFoundException("no activity to handle $target")
     }
 
-    private val sharedPrefs = mutableMapOf<String, SharedPreferences>()
+    /**
+     * Concurrent: one Application serves every module in the JVM, and a module's background work
+     * can still be running while the next module resolves its own preferences, so this map is read
+     * and written from more than one thread. A plain map handed two callers two views of the same
+     * preference file, and each view then clobbered the other's writes on persist.
+     */
+    private val sharedPrefs = java.util.concurrent.ConcurrentHashMap<String, SharedPreferences>()
 }

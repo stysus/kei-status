@@ -242,7 +242,7 @@ class HarnessRunner(private val config: HarnessConfig) {
         }
         scenarios += latest?.result ?: ScenarioResult("latest", Status.SKIP, 0, "supportsLatest = false")
 
-        scenarios += filtersScenario(source)
+        scenarios += filtersScenario(source, host)
 
         // Some sources have no content for every language they advertise (MangaDex has no
         // "popular in Japanese" because the original language is not a translated language), so
@@ -304,9 +304,9 @@ class HarnessRunner(private val config: HarnessConfig) {
      * and fail the same way, since the fetch is a property of the site, not of the variant. The
      * first source's result is reported for the rest, with a note saying so.
      */
-    private suspend fun filtersScenario(source: CatalogueSource): ScenarioResult =
+    private suspend fun filtersScenario(source: CatalogueSource, host: String?): ScenarioResult =
         sharedPerSite(source, filterSites) {
-            capture("filters", samples = { listOf("${it.size} filters") }) { source.getFilterList() }.result
+            capture("filters", samples = { listOf("${it.size} filters") }, host = host) { source.getFilterList() }.result
         }
 
     /** The home-page probe, once per site, for the same reason. */
