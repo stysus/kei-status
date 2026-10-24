@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+#
+# Runs one extension with one command.
+#
+# The three steps it replaces are mechanical and easy to get half-right: compile the module, record
+# where its classes and run-time jars landed, then build and run the checker. Missing any one of them
+# fails inside the checker, after it has already started, with a message naming a command you then
+# have to run and repeat. Doing it here also means a `clean` upstream cannot leave the harness
+# pointing at a classes directory that no longer exists.
+#
+# Usage:
+#   ./kei-status run <gradle-module> [checker options...]
+#   ./kei-status <checker options...>
+#
+# Examples:
+#   ./kei-status run :src:en:aurora
+#   ./kei-status run :src:all:mangadex --lang en --store data
+#   ./kei-status --discover --store data
+#
+# The checker runs in your current directory, so relative paths you pass it (`--store`, `--output`)
+# are relative to where you invoked this, not to the repository.
+
+set -euo pipefail
+
+root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source_root="${KEI_STATUS_SOURCE_ROOT:-$root/extensions-source}"
+cli="$root/cli/build/install/cli/bin/cli"
+
+usage() {
+  cat <<'EOF'
+usage: ./kei-status run <gradle-module> [checker options...]
+       ./kei-status <checker options...>
+       ./kei-status help
+
+  run <module>   compile the module, record its classpath, build the harness, check it
+  help           this message
+  <options>      everything else goes to the checker, whose own --help lists the flags
+
+environment:
+  KEI_STATUS_SOURCE_ROOT   extensions-source checkout (default: ./extensions-source)
+  ANDROID_HOME             Android SDK, written to <source>/local.properties when it is missing
+EOF
+}
+
+# Only the subcommands are claimed here. A leading dash is the checker's, so `--help` reaches it.
+case "${1:-}" in
+  help)
+    usage
+    exit 0
+    ;;
+esac
+
+module=""
+if [ "${1:-}" = "run" ]; then
+  shift
+  module="${1:-}"
+  if [ -z "$module" ] || [ "${module#:}" = "$module" ]; then
+    echo "kei-status: run needs a Gradle module path, e.g. :src:en:aurora" >&2
+    usage >&2
+    exit 2
+  fi
+  shift
+fi
+
+if [ ! -x "$source_root/gradlew" ]; then
+  echo "kei-status: no extensions-source checkout at $source_root" >&2
+  echo "  clone it there, or point KEI_STATUS_SOURCE_ROOT at the one you have:" >&2
+  echo "    git clone --depth 1 https://github.com/keiyoushi/extensions-source" >&2
+  exit 2
+fi
+
+if [ -n "$module" ]; then
+  # One implementation of "what the extension build needs": the CI step that already writes the SDK
+  # path and reports the browser. Only run it when the file is missing, so a checkout that is already
+  # set up does not depend on ANDROID_HOME being exported in this shell.
+  if [ ! -f "$source_root/local.properties" ]; then
+    "$root/ci/environment.sh" "$source_root"
+  fi
+
+  # `dumpHarnessClasspath` depends on `compileDebugKotlin`, so one invocation compiles the module and
+  # writes the layout. Gradle's up-to-date checks make the second run of the day a no-op.
+  echo "kei-status: building $module"
+  "$source_root/gradlew" -p "$source_root" \
+    -I "$root/tools/harness.init.gradle.kts" \
+    -PharnessModule="$module" \
+    "$module:dumpHarnessClasspath"
+fi
+
+# The checker itself, also through Gradle so an edited harness is picked up rather than a stale jar.
+"$root/gradlew" -p "$root" -q :cli:installDist
+
+if [ -n "$module" ]; then
+  exec "$cli" --module "$module" --source-root "$source_root" "$@"
+fi
+exec "$cli" "$@"
