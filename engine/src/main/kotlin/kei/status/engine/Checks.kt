@@ -177,9 +177,30 @@ object Checks {
             ?: "requires a platform class the harness does not provide"
 
         else -> when (val missing = chain.firstOrNull { it is NoClassDefFoundError || it is ClassNotFoundException }) {
-            null -> rootMessage(chain) ?: t::class.java.simpleName
+            null -> rootMessage(chain) ?: reasonWithoutMessage(t)
             else -> "missing class: ${missing.message}"
         }
+    }
+
+    /**
+     * The one-line reason for an exception whose chain carries no message at all.
+     *
+     * Kotlin's `!!` throws a NullPointerException with no message, and a report that says only
+     * "NullPointerException" is unusable for triage: locating the failure would take a local re-run
+     * with tracing on. The extension's own stack frame names the file and line, so the recorded
+     * state is actionable on its own - the same purpose the cause chain serves for wrapped
+     * exceptions.
+     */
+    private fun reasonWithoutMessage(t: Throwable): String {
+        val frame = t.stackTrace.firstOrNull {
+            it.className.startsWith("eu.kanade.tachiyomi.") || it.className.startsWith("keiyoushi.")
+        } ?: return t::class.java.simpleName
+
+        val location = when (val file = frame.fileName) {
+            null -> "${frame.className.substringAfterLast('.')}.${frame.methodName}()"
+            else -> "${frame.className.substringAfterLast('.')}.${frame.methodName}($file:${frame.lineNumber})"
+        }
+        return "${t::class.java.simpleName} at $location"
     }
 
     /** Walks causes, including the ones reflection and static initialisers hide. */

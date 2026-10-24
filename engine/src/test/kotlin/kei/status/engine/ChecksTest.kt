@@ -196,6 +196,55 @@ class ChecksTest {
     }
 
     @Test
+    fun `a message-less exception names the extension frame that threw it`() {
+        // Kotlin's `!!` throws a NullPointerException with no message, and the recorded state used
+        // to say just "NullPointerException" - unusable for triage, since the same failure needs a
+        // local re-run with tracing to locate. The extension's own stack frame is the location.
+        val npe = NullPointerException().apply {
+            stackTrace = arrayOf(
+                StackTraceElement(
+                    "eu.kanade.tachiyomi.extension.ja.piccoma.Piccoma\$fetchMangaUpdate\$2\$details\$1",
+                    "invokeSuspend",
+                    "Piccoma.kt",
+                    104,
+                ),
+                StackTraceElement("kotlinx.coroutines.DispatchedTask", "run", "DispatchedTask.kt", 100),
+            )
+        }
+
+        val diagnosis = Checks.diagnose(npe)
+
+        assertEquals(
+            "NullPointerException at Piccoma\$fetchMangaUpdate\$2\$details\$1.invokeSuspend(Piccoma.kt:104)",
+            diagnosis.message,
+        )
+    }
+
+    @Test
+    fun `a message-less exception with no extension frame stays plain`() {
+        // An NPE raised by harness or platform code has no frame worth naming; the class name is
+        // still the best one-line reason there is.
+        val npe = NullPointerException().apply {
+            stackTrace = arrayOf(
+                StackTraceElement("kotlinx.coroutines.DispatchedTask", "run", "DispatchedTask.kt", 100),
+            )
+        }
+
+        assertEquals("NullPointerException", Checks.diagnose(npe).message)
+    }
+
+    @Test
+    fun `an exception with a message is never augmented with a frame`() {
+        val npe = NullPointerException("Cannot invoke String.length() because x is null").apply {
+            stackTrace = arrayOf(
+                StackTraceElement("eu.kanade.tachiyomi.extension.ja.piccoma.Piccoma", "getPopularManga", "Piccoma.kt", 90),
+            )
+        }
+
+        assertEquals("Cannot invoke String.length() because x is null", Checks.diagnose(npe).message)
+    }
+
+    @Test
     fun `a challenge keeps the class that raised it`() {
         // The reason is the harness's own wording here, so the exception still adds the provider.
         val diagnosis = Checks.diagnose(AntiBotChallengeException(503, "example.com", "Cloudflare"))
