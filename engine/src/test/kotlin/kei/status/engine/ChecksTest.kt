@@ -4,6 +4,7 @@ import eu.kanade.tachiyomi.network.HttpException
 import eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException
 import eu.kanade.tachiyomi.source.model.MangasPage
 import eu.kanade.tachiyomi.source.model.Page
+import eu.kanade.tachiyomi.source.model.SChapter
 import eu.kanade.tachiyomi.source.model.SManga
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -39,6 +40,47 @@ class ChecksTest {
 
         assertTrue(notes.any { it.contains("blank url") })
         assertTrue(notes.any { it.contains("blank title") })
+    }
+
+    @Test
+    fun `blank urls are not counted as duplicates`() {
+        // A blank url is already its own finding. Grouping blanks as "duplicates" renders a list
+        // whose only element is the empty string - literally "duplicate page urls: []" - which
+        // reads as duplicates found with none named.
+        val notes = Checks.mangaPage(
+            MangasPage(
+                listOf(SManga.create().apply { url = "" }, SManga.create().apply { url = "" }),
+                hasNextPage = false,
+            ),
+        )
+
+        assertTrue(notes.none { it.startsWith("duplicate manga urls") })
+    }
+
+    @Test
+    fun `blank chapter urls are not counted as duplicates`() {
+        val notes = Checks.chapters(listOf(SChapter.create().apply { url = "" }, SChapter.create().apply { url = "" }))
+
+        assertTrue(notes.none { it.startsWith("duplicate chapter urls") })
+    }
+
+    @Test
+    fun `blank page image urls are not counted as duplicates`() {
+        val notes = Checks.pages(listOf(Page(0), Page(1)))
+
+        assertTrue(notes.none { it.startsWith("duplicate page urls") })
+    }
+
+    @Test
+    fun `real duplicates are still reported`() {
+        val notes = Checks.mangaPage(
+            MangasPage(
+                listOf(SManga.create().apply { url = "/manga/a" }, SManga.create().apply { url = "/manga/a" }),
+                hasNextPage = false,
+            ),
+        )
+
+        assertTrue(notes.any { it.startsWith("duplicate manga urls") })
     }
 
     @Test
@@ -118,6 +160,29 @@ class ChecksTest {
         val status = Checks.diagnose(AntiBotChallengeException(503, "example.com", "Cloudflare")).status
 
         assertEquals(Status.BLOCKED, status)
+    }
+
+    @Test
+    fun `a webview session that never finished is blocked rather than failed`() {
+        // keiyoushi.utils.WebViewTimeoutException is not on the engine class path, so the chain is
+        // matched on the message the core util throws - the same text extensions re-throw in their
+        // own words ("Timed out waiting for WebView", Comix). The source needs a browser session
+        // that finished; that is a block, not a broken extension.
+        val timeout = Exception("Timed out waiting for WebView after 15s")
+
+        val diagnosis = Checks.diagnose(timeout)
+
+        assertEquals(Status.BLOCKED, diagnosis.status)
+        assertTrue(diagnosis.message.contains("WebView"))
+    }
+
+    @Test
+    fun `a site verification the sweep cannot pass is blocked rather than failed`() {
+        // The pam and templescan themes throw this exact text when the site's JS verification
+        // stays up - the extension works in the app, where a real WebView passes it.
+        val verification = Exception("Open in WebView to pass the site's verification")
+
+        assertEquals(Status.BLOCKED, Checks.diagnose(verification).status)
     }
 
     @Test

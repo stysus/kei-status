@@ -386,11 +386,12 @@ class HarnessRunner(private val config: HarnessConfig) {
 
         pages.take(config.pageLimit).forEachIndexed { index, page ->
             val request = try {
+                httpSource.resolveImageUrl(page)
                 httpSource.getImageRequest(page)
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                notes += "page[$index] image request could not be built: ${e.message}"
+                notes += "page[$index] image request could not be built: ${e.message ?: e::class.java.simpleName}"
                 return@forEachIndexed
             }
 
@@ -416,7 +417,12 @@ class HarnessRunner(private val config: HarnessConfig) {
                     }
                     val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
                     if (bitmap == null) {
-                        notes += "page[$index] image bytes did not decode (${bytes.size} bytes, '$type')"
+                        val format = imageFormatName(bytes)
+                        notes += if (format != null) {
+                            "page[$index] image is $format, which the harness cannot decode; Android decodes it natively"
+                        } else {
+                            "page[$index] image bytes did not decode (${bytes.size} bytes, '$type')"
+                        }
                     } else {
                         bitmap.recycle()
                     }
@@ -554,6 +560,48 @@ class HarnessRunner(private val config: HarnessConfig) {
 }
 
 class Captured<T>(val value: T?, val result: ScenarioResult)
+
+/**
+ * Resolves a page's image URL the way the reader does before it downloads.
+ *
+ * Several extensions fill only `page.url` in `getPageList` and resolve the image lazily in
+ * `getImageUrl` - Dragon Ball Multiverse, Akuma and NovelCool all lean on this. The reader's own
+ * loader checks `imageUrl.isNullOrEmpty()` first and resolves there; building the image request
+ * without that step crashes on the missing URL and reports the source as broken.
+ *
+ * The resolved URL is written back onto the page so the image request is built against it. The
+ * `pages` scenario's samples were captured before this runs, so they still name the page path;
+ * the resolved address only shows up in the recorded image requests themselves.
+ */
+internal suspend fun HttpSource.resolveImageUrl(page: Page) {
+    if (page.imageUrl.isNullOrEmpty()) {
+        page.imageUrl = getImageUrl(page)
+    }
+}
+
+/**
+ * The AVIF or HEIF brand an undecodable payload carries, or null when it is not one.
+ *
+ * Android decodes AVIF and HEIF natively, the JVM stack does not, so a source that serves those
+ * formats reports "did not decode" here while working fine in the app - the same verdict gap a
+ * missing platform class is. Naming the brand turns the note from "the source sent garbage" into
+ * the platform gap it actually is.
+ *
+ * An ISO base media file opens with a `ftyp` box: four size bytes, the literal `ftyp`, then the
+ * major brand. `avis` is the AVIF sequence brand; `heic` and `mif1`/`msf1` are the HEIF brands -
+ * still images commonly ship as `heic` inside an `mif1` container, so both are named.
+ */
+internal fun imageFormatName(data: ByteArray): String? {
+    if (data.size < 12) return null
+    if (data.sliceArray(4..7).toString(Charsets.US_ASCII) != "ftyp") return null
+
+    return when (val brand = data.sliceArray(8..11).toString(Charsets.US_ASCII)) {
+        "avif" -> "AVIF"
+        "avis" -> "AVIF sequence"
+        "heic", "mif1", "msf1" -> "HEIF ($brand)"
+        else -> null
+    }
+}
 
 /**
  * The media type of the bytes a caller is about to read.

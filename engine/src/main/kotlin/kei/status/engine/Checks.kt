@@ -36,7 +36,8 @@ object Checks {
             if (manga.thumbnail_url.isNullOrBlank()) notes += "manga[$index] has no thumbnail"
         }
 
-        val duplicates = page.mangas.groupBy { it.url }.filterValues { it.size > 1 }.keys
+        val duplicates = page.mangas.map { it.url }.filter { it.isNotBlank() }
+            .groupBy { it }.filterValues { it.size > 1 }.keys
         if (duplicates.isNotEmpty()) notes += "duplicate manga urls: ${duplicates.take(3)}"
 
         return notes
@@ -53,7 +54,8 @@ object Checks {
             if (chapter.date_upload < 0) notes += "chapter[$index] has a negative date_upload"
         }
 
-        val duplicates = chapters.groupBy { it.url }.filterValues { it.size > 1 }.keys
+        val duplicates = chapters.map { it.url }.filter { it.isNotBlank() }
+            .groupBy { it }.filterValues { it.size > 1 }.keys
         if (duplicates.isNotEmpty()) notes += "duplicate chapter urls: ${duplicates.take(3)}"
 
         return notes
@@ -77,7 +79,8 @@ object Checks {
             }
         }
 
-        val duplicates = pages.mapNotNull { it.imageUrl }.groupBy { it }.filterValues { it.size > 1 }.keys
+        val duplicates = pages.mapNotNull { it.imageUrl?.takeIf(String::isNotBlank) }
+            .groupBy { it }.filterValues { it.size > 1 }.keys
         if (duplicates.isNotEmpty()) notes += "duplicate page urls: ${duplicates.take(3)}"
 
         return notes
@@ -140,6 +143,7 @@ object Checks {
 
         val status = when {
             chain.any { it is AntiBotChallengeException } -> Status.BLOCKED
+            chain.any { needsWebViewSession(it) } -> Status.BLOCKED
             chain.any { it is HttpException && it.code == 429 } -> Status.THROTTLED
             chain.any { it is UnsupportedOperationException || it is NotImplementedError } -> Status.SKIP
             chain.any { unavailablePlatform(it) != null } -> Status.UNSUPPORTED
@@ -160,10 +164,15 @@ object Checks {
     }
 
     private fun reason(status: Status, chain: List<Throwable>, t: Throwable): String = when (status) {
-        Status.BLOCKED -> chain.filterIsInstance<AntiBotChallengeException>()
-            .firstOrNull()
-            ?.let { "${it.provider} anti-bot challenge; the source needs a browser session that passes it" }
-            ?: "anti-bot challenge; the source needs a browser session that passes it"
+        Status.BLOCKED -> when {
+            chain.any { it is AntiBotChallengeException } ->
+                chain.filterIsInstance<AntiBotChallengeException>()
+                    .firstOrNull()
+                    ?.let { "${it.provider} anti-bot challenge; the source needs a browser session that passes it" }
+                    ?: "anti-bot challenge; the source needs a browser session that passes it"
+
+            else -> "the site requires a WebView session the sweep's browser did not complete; the source is not broken"
+        }
 
         Status.THROTTLED -> chain.filterIsInstance<HttpException>()
             .firstOrNull { it.code == 429 }
@@ -202,6 +211,21 @@ object Checks {
         }
         return "${t::class.java.simpleName} at $location"
     }
+
+    /**
+     * True when the exception says the site demands a WebView session the sweep could not finish.
+     *
+     * `keiyoushi.utils.WebViewTimeoutException` is not on the engine class path - it lives in the
+     * extension repo's core, which the harness only ever reads compiled - so the chain is matched
+     * on the class name and on the message that class throws. Extensions re-throw the same text in
+     * their own words (Comix), and the pam and templescan themes throw the verification sentence
+     * verbatim, so the message carries the verdict the app would reach: the site answers a real
+     * browser, and this sweep's browser did not pass it.
+     */
+    private fun needsWebViewSession(t: Throwable): Boolean =
+        t::class.java.name == "keiyoushi.utils.WebViewTimeoutException" ||
+            t.message?.startsWith("Timed out waiting for WebView") == true ||
+            t.message?.contains("pass the site's verification", ignoreCase = true) == true
 
     /** Walks causes, including the ones reflection and static initialisers hide. */
     private fun flatten(t: Throwable): List<Throwable> {
