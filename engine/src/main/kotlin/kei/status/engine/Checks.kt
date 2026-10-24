@@ -176,6 +176,9 @@ object Checks {
             chain.any { it is ActivityNotFoundException } ->
                 "the source opens one of its own activities (a verification or captcha step) that the sweep cannot run"
 
+            chain.any { it.message?.startsWith("Captcha needs interaction") == true } ->
+                "the site's captcha needs a human the sweep cannot provide; the source is not broken"
+
             else -> "the site requires a WebView session the sweep's browser did not complete; the source is not broken"
         }
 
@@ -230,7 +233,8 @@ object Checks {
     private fun needsWebViewSession(t: Throwable): Boolean =
         t::class.java.name == "keiyoushi.utils.WebViewTimeoutException" ||
             t.message?.startsWith("Timed out waiting for WebView") == true ||
-            t.message?.contains("pass the site's verification", ignoreCase = true) == true
+            t.message?.contains("pass the site's verification", ignoreCase = true) == true ||
+            t.message?.startsWith("Captcha needs interaction") == true
 
     /** Walks causes, including the ones reflection and static initialisers hide. */
     private fun flatten(t: Throwable): List<Throwable> {

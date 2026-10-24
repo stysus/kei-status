@@ -408,24 +408,8 @@ class HarnessRunner(private val config: HarnessConfig) {
                     // body describes what this source actually handed us to decode. The header is
                     // still the fallback, because a body built without a media type carries none.
                     val type = contentTypeOf(response)
-                    if (!type.startsWith("image/")) notes += "page[$index] content-type is '$type'"
-
                     val bytes = response.body.bytes()
-                    if (bytes.isEmpty()) {
-                        notes += "page[$index] image body is empty"
-                        return@use
-                    }
-                    val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
-                    if (bitmap == null) {
-                        val format = imageFormatName(bytes)
-                        notes += if (format != null) {
-                            "page[$index] image is $format, which the harness cannot decode; Android decodes it natively"
-                        } else {
-                            "page[$index] image bytes did not decode (${bytes.size} bytes, '$type')"
-                        }
-                    } else {
-                        bitmap.recycle()
-                    }
+                    imageDecodeNote(index, bytes, type)?.let { notes += it }
                 }
             } catch (e: CancellationException) {
                 throw e
@@ -603,6 +587,29 @@ internal fun imageFormatName(data: ByteArray): String? {
         "heic", "mif1", "msf1" -> "HEIF ($brand)"
         else -> null
     }
+}
+
+/**
+ * The note a downloaded image body earns, or null when it decoded and there is nothing to say.
+ *
+ * The header's content-type deliberately does not get its own note on a body that decoded: CDNs
+ * mislabel images all the time (octet-stream for real JPEG, e4p's rewritten WEBP keeping its old
+ * header), and a note on a healthy body degraded fourteen perfectly working sources to WARN. The
+ * type still travels inside the did-not-decode note, where it describes the bytes that failed.
+ */
+internal fun imageDecodeNote(index: Int, bytes: ByteArray, type: String): String? {
+    if (bytes.isEmpty()) return "page[$index] image body is empty"
+
+    val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size) ?: run {
+        val format = imageFormatName(bytes)
+        return if (format != null) {
+            "page[$index] image is $format, which the harness cannot decode; Android decodes it natively"
+        } else {
+            "page[$index] image bytes did not decode (${bytes.size} bytes, '$type')"
+        }
+    }
+    bitmap.recycle()
+    return null
 }
 
 /**

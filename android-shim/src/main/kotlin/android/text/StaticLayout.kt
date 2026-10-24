@@ -1,6 +1,7 @@
 package android.text
 
 import android.graphics.Canvas
+import android.graphics.text.LineBreaker
 import java.awt.FontMetrics
 import java.awt.image.BufferedImage
 import kotlin.math.roundToInt
@@ -62,6 +63,44 @@ class StaticLayout(
             }
         }
         return wrapped
+    }
+
+    /**
+     * The builder the framework added in M, which is what extensions reach for now.
+     *
+     * Nested rather than top-level on purpose: bytecode names `android.text.StaticLayout$Builder`,
+     * so the nesting is part of the link contract. `setBreakStrategy` and
+     * `setHyphenationFrequency` are accepted and recorded - the greedy wrapper above does not
+     * hyphenate or balance, and no source observed depends on the difference - while alignment
+     * and includePad do what the framework does with them.
+     */
+    class Builder private constructor(
+        private val text: CharSequence,
+        private val paint: TextPaint,
+        private val width: Int,
+    ) {
+        private var alignmentValue = Layout.Alignment.ALIGN_NORMAL
+        private var breakStrategy = LineBreaker.BREAK_STRATEGY_HIGH_QUALITY
+        private var hyphenationFrequency = Layout.HYPHENATION_FREQUENCY_FULL
+        private var includePad = true
+
+        companion object {
+            @JvmStatic
+            fun obtain(source: CharSequence, start: Int, end: Int, paint: TextPaint, sourceWidth: Int): Builder {
+                val sliced = if (start == 0 && end == source.length) source else source.subSequence(start, end)
+                return Builder(sliced, paint, sourceWidth)
+            }
+        }
+
+        fun setAlignment(alignment: Layout.Alignment): Builder = apply { alignmentValue = alignment }
+
+        fun setBreakStrategy(strategy: Int): Builder = apply { breakStrategy = strategy }
+
+        fun setHyphenationFrequency(frequency: Int): Builder = apply { hyphenationFrequency = frequency }
+
+        fun setIncludePad(include: Boolean): Builder = apply { includePad = include }
+
+        fun build(): StaticLayout = StaticLayout(text, paint, width, alignmentValue, 1f, 0f, includePad)
     }
 
     /** Greedy wrap on spaces, which is what Android does for a run of un-styled text. */

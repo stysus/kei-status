@@ -372,6 +372,19 @@ class ChecksTest {
     }
 
     @Test
+    fun `a captcha that demands a human is blocked`() {
+        val diagnosis = Checks.diagnose(
+            IllegalStateException("Captcha needs interaction, but the app isn't in the foreground"),
+        )
+
+        // TurnstileHelper runs the challenge headless and only rejects with this when Cloudflare
+        // decided the puzzle needs a human - which no sweep can provide, though any device with a
+        // person at it could pass it, so the source is not broken.
+        assertEquals(Status.BLOCKED, diagnosis.status)
+        assertTrue(diagnosis.message, diagnosis.message.contains("captcha needs a human"))
+    }
+
+    @Test
     fun `a source that opens its own verification activity is blocked`() {
         // MangaLivre launches its in-app ReaderVerificationActivity (a WebView captcha step) via
         // startActivity. The harness refuses every intent, and on a real device this exception
