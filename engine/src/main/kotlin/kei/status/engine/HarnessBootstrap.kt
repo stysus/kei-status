@@ -2,6 +2,7 @@ package kei.status.engine
 
 import android.app.Application
 import eu.kanade.tachiyomi.network.NetworkHelper
+import kei.status.platform.PlatformAgent
 import kei.status.platform.PlatformCrypto
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.protobuf.ProtoBuf
@@ -48,6 +49,8 @@ object HarnessBootstrap {
 
             val app = Application()
             app.attachRoot(scratchDir.toFile())
+
+            PlatformAgent.install()
 
             // Before any source is constructed: extensions ask the JCE for transformations only
             // Android's BouncyCastle provides, and fail with their own decrypt errors without it.
