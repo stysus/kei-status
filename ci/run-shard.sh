@@ -64,13 +64,31 @@ else
   echo "::warning::xvfb-run is not installed; challenges will be attempted headlessly and may not clear"
 fi
 
+# The checker's verdict is written to a file by the shell that runs it, not taken from the exit
+# status of this pipeline: Debian's `xvfb-run` overwrites the child's exit code with its own when
+# its cleanup fails (exit 5, "problem while cleaning up temporary directory"), and that once marked
+# a shard whose 76 modules had all just finished checking, so the publish job refused the whole
+# sweep. The wrapper's parting failure must not mask what the checker found.
+status_file=$(mktemp)
+
 set +e
-"${runner[@]}" ./cli/build/install/cli/bin/cli \
+"${runner[@]}" bash -c '
+  st=0
+  "$@" || st=$?
+  printf "%s\n" "$st" >"$0"
+  exit "$st"
+' "$status_file" ./cli/build/install/cli/bin/cli \
   --module-list "$shard_file" \
   --source-root "$source_root" \
   --store "$store"
-code=$?
 set -e
+
+if [ ! -s "$status_file" ]; then
+  echo "::error::the checker never ran; the display wrapper failed before starting it"
+  exit 1
+fi
+code="$(cat "$status_file")"
+rm -f "$status_file"
 
 case "$code" in
   0 | 1) ;;
