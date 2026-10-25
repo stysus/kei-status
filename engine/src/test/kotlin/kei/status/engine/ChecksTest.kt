@@ -187,6 +187,78 @@ class ChecksTest {
     }
 
     @Test
+    fun `a login demand in any language is blocked rather than failed`() {
+        // Real sweep failures, verbatim. Each source is working: it refuses the anonymous access
+        // the sweep cannot lift, which is a block, not a broken extension.
+        val demands = listOf(
+            "Open webview to refresh token", // hdoujin
+            "Open chapter in WebView, then try again (token not found).", // comikey
+            "V2PH Session expired. Please log in via WebView to view more than 20 images.",
+            "Для просмотра контента необходима авторизация через WebView или включите автоматическую авторизацию в настройках расширения", // mintmanga family
+            "Okumak için WebView üzerinden giriş yapın", // lavinia fansub family
+            "Faça login no WebView ou insira email e senha nas configurações e tente novamente.", // kuromangas
+            "Configure e-mail e senha nas preferências da extensão", // mediocre toons
+            "Nguồn này cần đăng nhập bằng webview để xem", // yurigarden
+            "請在擴充套件設定中輸入帳號與密碼，或在 WebView 中登入", // noyacg
+            "请先在插件设置中登录", // hanabimanga
+            "请先在 WebView 中登录", // hikarinagi
+            "请在扩展设置界面输入用户名和密码", // picacomic - password without "log in"
+            "Autentique-se através da WebView e tente novamente.", // pink sea unicorn
+            "Acesso negado. É necessário estar autenticado e ter VIP ativo para acessar este conteúdo.", // verdinha
+            "Oturum açmanız, WebView'ı açmanız ve oturum açmanız gerekir", // hattori manga
+            "يرجى تسجيل الدخول من إعدادات الإضافة", // arabic
+            "Login wajib untuk membuka konten ini. Buka di WebView dan login dengan Google.", // comicaso
+            "Username or password cannot be empty.\nGo to Extensions > Details to input your credentials.", // madokami
+        )
+
+        for (message in demands) {
+            assertEquals(message, Status.BLOCKED, Checks.diagnose(Exception(message)).status)
+        }
+    }
+
+    @Test
+    fun `the login verdict names the credentials the sweep cannot give`() {
+        val diagnosis = Checks.diagnose(Exception("Open webview to refresh token"))
+
+        assertEquals(
+            "the source requires login or credentials the sweep cannot provide; the source is not broken",
+            diagnosis.message,
+        )
+    }
+
+    @Test
+    fun `a parse error quoting a login field is not a login demand`() {
+        // kotlinx quotes the offending JSON in its message; a DTO that grew a `loginUrl` field is
+        // a parse drift to fix, and must keep failing. Word boundaries keep "login" from matching
+        // inside "loginUrl".
+        val parseError = Exception(
+            "Unexpected JSON token at offset 4: Unknown key 'loginUrl' at path \$\n" +
+                "JSON input: {\"loginUrl\":\"abcd\"}",
+        )
+
+        assertEquals(Status.FAIL, Checks.diagnose(parseError).status)
+    }
+
+    @Test
+    fun `ordinary words that merely contain log in or sign in are not login demands`() {
+        // "log in" is a substring of "catalog in" and "sign in" of "designed in"; only the whole
+        // words count, and a bare HTTP status stays a failure.
+        assertEquals(Status.FAIL, Checks.diagnose(Exception("catalog in progress: 0 entries")).status)
+        assertEquals(Status.FAIL, Checks.diagnose(Exception("designed in Tokyo, shipped worldwide")).status)
+        assertEquals(Status.FAIL, Checks.diagnose(HttpException(404)).status)
+    }
+
+    @Test
+    fun `a purchase wall that demands login still skips as a locked chapter`() {
+        // diagnose() reads the thrown exception, the pages check reads the recorded message; the
+        // runner consults lockedChapter last, so the skip wins over this block.
+        val message = "Log in via WebView and purchase this chapter to read."
+
+        assertEquals(Status.BLOCKED, Checks.diagnose(Exception(message)).status)
+        assertTrue(Checks.lockedChapter(message))
+    }
+
+    @Test
     fun `an unsupported operation is skipped`() {
         val status = Checks.diagnose(UnsupportedOperationException()).status
 

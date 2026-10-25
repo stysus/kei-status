@@ -153,6 +153,7 @@ object Checks {
         val status = when {
             chain.any { it is AntiBotChallengeException } -> Status.BLOCKED
             chain.any { needsWebViewSession(it) } -> Status.BLOCKED
+            chain.any { needsLogin(it) } -> Status.BLOCKED
             chain.any { it is ActivityNotFoundException } -> Status.BLOCKED
             chain.any { it is HttpException && it.code == 429 } -> Status.THROTTLED
             chain.any { it is UnsupportedOperationException || it is NotImplementedError } -> Status.SKIP
@@ -186,6 +187,14 @@ object Checks {
 
             chain.any { it.message?.startsWith("Captcha needs interaction") == true } ->
                 "the site's captcha needs a human the sweep cannot provide; the source is not broken"
+
+            // Attribution mirrors diagnose(): a message that asks for a WebView session can also
+            // mention a session or token, and that verdict is about the browser, not credentials.
+            chain.any { needsWebViewSession(it) } ->
+                "the site requires a WebView session the sweep's browser did not complete; the source is not broken"
+
+            chain.any { needsLogin(it) } ->
+                "the source requires login or credentials the sweep cannot provide; the source is not broken"
 
             else -> "the site requires a WebView session the sweep's browser did not complete; the source is not broken"
         }
@@ -243,6 +252,44 @@ object Checks {
             t.message?.startsWith("Timed out waiting for WebView") == true ||
             t.message?.contains("pass the site's verification", ignoreCase = true) == true ||
             t.message?.startsWith("Captcha needs interaction") == true
+
+    /**
+     * True when the exception says the source demands an account the sweep cannot provide.
+     *
+     * Roughly forty sources refuse anonymous access with a message in their own language, so
+     * this is keyword matching - the same approach `needsWebViewSession` and `lockedChapter`
+     * already take. The Latin keywords are matched on word boundaries, because "log in" is a
+     * substring of "catalog in", "sign in" of "designed in", and a parse error can quote a
+     * `loginUrl` field whose drift is a real failure, not a demand. The token clause covers
+     * sources that word the demand without "login" at all (hdoujin: "Open webview to refresh
+     * token"). Inflections get their own spellings rather than a stem: Portuguese drops the
+     * h, so "autentic"/"autentiqu" (autenticado, autentique) never touch English
+     * "authentication", and Turkish conjugates "oturum aç" apart from "giriş yap". Chinese
+     * names the password (密码) without ever saying 登录, and Madokami's English demand
+     * ("input your credentials") says neither login nor sign in. Two texts deserve a note: a
+     * 404 that the extension re-throws with "authorize via WebView" advice (hentailib,
+     * slashlib) is the author's own verdict that the path refuses anonymous access, and the
+     * Arabic message reaches this check through "تسجيل الدخول" even when it ships no English
+     * aside.
+     */
+    private fun needsLogin(t: Throwable): Boolean {
+        val text = t.message?.lowercase() ?: return false
+        if (loginDemand.containsMatchIn(text)) return true
+        return ("webview" in text && ("token" in text || "refresh" in text || "session" in text)) ||
+            "авториз" in text ||
+            "giriş yap" in text ||
+            "oturum aç" in text ||
+            "đăng nhập" in text ||
+            "登入" in text ||
+            "登录" in text ||
+            "密码" in text ||
+            "تسجيل الدخول" in text ||
+            "autentic" in text ||
+            "autentiqu" in text ||
+            (("e-mail" in text || "email" in text) && "senha" in text)
+    }
+
+    private val loginDemand = Regex("""\b(?:login|log\s+in|sign\s+in|password|credentials)\b""")
 
     /** Walks causes, including the ones reflection and static initialisers hide. */
     private fun flatten(t: Throwable): List<Throwable> {
