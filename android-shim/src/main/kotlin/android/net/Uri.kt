@@ -21,20 +21,27 @@ class Uri private constructor(private val value: String) {
 
     fun getScheme(): String? = value.substringBefore("://", "").takeIf { it.isNotEmpty() && value.contains("://") }
 
-    fun getAuthority(): String? = value.substringAfter("://", "").substringBefore('/').takeIf { it.isNotEmpty() }
+    fun getAuthority(): String? = value.substringAfter("://", "")
+        .substringBefore('/').substringBefore('?').substringBefore('#')
+        .takeIf { it.isNotEmpty() }
 
     fun getEncodedPath(): String? = getPath()
 
-    fun getEncodedQuery(): String? = value.substringAfter('?', "").takeIf { value.contains('?') }
+    fun getEncodedQuery(): String? {
+        val withoutFragment = value.substringBefore('#')
+        if (!withoutFragment.contains('?')) return null
+        return withoutFragment.substringAfter('?')
+    }
 
     fun getQuery(): String? = getEncodedQuery()
 
-    fun getHost(): String? = value.substringAfter("://", "").substringBefore('/').substringBefore(':')
+    fun getHost(): String? = value.substringAfter("://", "")
+        .substringBefore('/').substringBefore('?').substringBefore('#').substringBefore(':')
         .takeIf { it.isNotEmpty() }
 
     fun getPath(): String? = value.substringAfter("://", value).let {
         val slash = it.indexOf('/')
-        if (slash < 0) null else it.substring(slash)
+        if (slash < 0) null else it.substring(slash).substringBefore('?').substringBefore('#')
     }
 
     fun buildUpon(): Builder {

@@ -113,17 +113,21 @@ object BitmapFactory {
     /** Reads dimensions without decoding pixels. */
     private fun readSize(data: ByteArray, offset: Int, length: Int): Pair<Int, Int>? = try {
         val stream = ImageIO.createImageInputStream(java.io.ByteArrayInputStream(data, offset, length))
-        val readers = ImageIO.getImageReaders(stream)
-        if (readers.hasNext()) {
-            val reader = readers.next()
-            reader.input = stream
-            try {
-                Pair(reader.getWidth(0), reader.getHeight(0))
-            } finally {
-                reader.dispose()
+        try {
+            val readers = ImageIO.getImageReaders(stream)
+            if (readers.hasNext()) {
+                val reader = readers.next()
+                reader.input = stream
+                try {
+                    Pair(reader.getWidth(0), reader.getHeight(0))
+                } finally {
+                    reader.dispose()
+                }
+            } else {
+                null
             }
-        } else {
-            null
+        } finally {
+            stream?.close()
         }
     } catch (_: Exception) {
         null

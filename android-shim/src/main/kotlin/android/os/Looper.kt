@@ -2,9 +2,9 @@ package android.os
 
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.Executors
+import java.util.concurrent.Future
 import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.ScheduledExecutorService
-import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
 
 /**
@@ -18,7 +18,7 @@ class Looper private constructor(private val main: Boolean) {
     /** Tasks posted to this looper; the main looper's queue is drained by [MainThread]. */
     internal val queue = LinkedBlockingQueue<() -> Unit>()
 
-    internal val scheduled = ConcurrentHashMap<Runnable, ScheduledFuture<*>>()
+    internal val scheduled = ConcurrentHashMap<Runnable, Future<*>>()
 
     @Volatile
     private var quitting = false
@@ -34,6 +34,12 @@ class Looper private constructor(private val main: Boolean) {
 
     internal fun enqueueDelayed(runnable: Runnable, delayMillis: Long): Boolean {
         if (quitting) return false
+        // Register a placeholder before scheduling so the lambda's remove() always finds the
+        // entry — even when delayMillis is 0 and the scheduler fires before this method returns.
+        // Without it, the lambda's remove is a no-op and the real future (written after schedule)
+        // stays in the map as a stale entry that leaks memory and misleads removeCallbacks.
+        val placeholder = java.util.concurrent.CompletableFuture<Void>()
+        scheduled[runnable] = placeholder
         val future = scheduler.schedule(
             {
                 scheduled.remove(runnable)
@@ -42,7 +48,10 @@ class Looper private constructor(private val main: Boolean) {
             delayMillis.coerceAtLeast(0),
             TimeUnit.MILLISECONDS,
         )
-        scheduled[runnable] = future
+        // Atomically swap the placeholder for the real future only if the lambda has not already
+        // removed it. If replace returns false the task already ran and cleaned up — do not
+        // re-insert the spent future.
+        scheduled.replace(runnable, placeholder, future)
         return true
     }
 
@@ -54,7 +63,12 @@ class Looper private constructor(private val main: Boolean) {
         quitting = true
         scheduled.values.forEach { it.cancel(false) }
         scheduled.clear()
-        if (!main) queue.clear()
+        if (!main) {
+            queue.clear()
+            // Wake a thread blocked in queue.take() inside loop() so it re-checks quitting and
+            // exits, the same role Android's MSG_QUIT plays for MessageQueue.next().
+            queue.put {}
+        }
     }
 
     fun isCurrentThread(): Boolean =

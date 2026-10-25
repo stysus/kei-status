@@ -75,4 +75,40 @@ class UriTest {
 
         assertEquals("api/v1/manga?page=1", built.toString())
     }
+
+    @Test
+    fun `getPath strips query and fragment`() {
+        val uri = Uri.parse("https://example.com/manga/12345?ref=home#ch1")
+
+        assertEquals("/manga/12345", uri.getPath())
+        assertEquals("/manga/12345", uri.getEncodedPath())
+    }
+
+    @Test
+    fun `getEncodedQuery strips the fragment`() {
+        val uri = Uri.parse("https://example.com/path?q=1&page=2#top")
+
+        assertEquals("q=1&page=2", uri.getEncodedQuery())
+        assertEquals("q=1&page=2", uri.getQuery())
+    }
+
+    @Test
+    fun `getEncodedQuery returns null when there is no query`() {
+        assertEquals(null, Uri.parse("https://example.com/path#frag").getEncodedQuery())
+        assertEquals(null, Uri.parse("https://example.com/path").getEncodedQuery())
+    }
+
+    @Test
+    fun `getAuthority strips query and fragment when no path is present`() {
+        // A URI like "https://example.com?q=1" has no path; the authority must not leak the query.
+        assertEquals("example.com", Uri.parse("https://example.com?q=1").getAuthority())
+        assertEquals("example.com", Uri.parse("https://example.com#frag").getAuthority())
+        assertEquals("example.com:8080", Uri.parse("https://example.com:8080?q=1").getAuthority())
+    }
+
+    @Test
+    fun `getHost strips query and fragment when no path is present`() {
+        assertEquals("example.com", Uri.parse("https://example.com?q=1").getHost())
+        assertEquals("example.com", Uri.parse("https://example.com#frag").getHost())
+    }
 }
