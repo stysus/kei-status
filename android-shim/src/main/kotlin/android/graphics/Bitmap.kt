@@ -76,10 +76,16 @@ class Bitmap internal constructor(
         val target = requireImage()
         checkPixelsAccess(target, x, y, width, height, offset, stride, pixels)
 
-        val row = IntArray(width)
-        for (index in 0 until height) {
-            System.arraycopy(pixels, offset + index * stride, row, 0, width)
-            target.setRGB(x, y + index, width, 1, row, 0, width)
+        if (stride > 0) {
+            target.setRGB(x, y, width, height, pixels, offset, stride)
+        } else {
+            // Negative stride: row 0 lives at a higher offset than row 1, which
+            // BufferedImage cannot express. Copy one row at a time to reverse the order.
+            val row = IntArray(width)
+            for (index in 0 until height) {
+                System.arraycopy(pixels, offset + index * stride, row, 0, width)
+                target.setRGB(x, y + index, width, 1, row, 0, width)
+            }
         }
     }
 
