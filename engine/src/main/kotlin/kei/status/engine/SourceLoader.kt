@@ -5,6 +5,7 @@ import eu.kanade.tachiyomi.source.Source
 import eu.kanade.tachiyomi.source.SourceFactory
 import java.net.URLClassLoader
 import java.nio.file.Path
+import java.util.concurrent.ConcurrentHashMap
 import kotlin.io.path.exists
 
 /**
@@ -74,6 +75,21 @@ class SourceLoader(
         private const val GENERATED_CLASS = "keiyoushi.source.Generated"
 
         /**
+         * Shared module directories and their derived class/resource paths, cached per source
+         * root. These do not change between modules in the same run — `core/`, `lib/`, and
+         * `lib-multisrc/` are properties of the extension tree, not of the individual extension
+         * — so scanning them once avoids thousands of redundant stat calls over a shard of
+         * seventy modules.
+         */
+        private val sharedCache = ConcurrentHashMap<Path, SharedPaths>()
+
+        private class SharedPaths(sourceRoot: Path) {
+            val dirs: List<Path> = ModuleLayouts.sharedModuleDirs(sourceRoot)
+            val classDirs: List<Path> = ModuleLayouts.classDirsOf(dirs)
+            val resourceRoots: List<Path> = ModuleLayouts.resourceRootsOf(dirs)
+        }
+
+        /**
          * The module's own classes first, then the shared modules it links against, then the jars
          * those modules declare, then the `assets/` roots.
          *
@@ -82,15 +98,23 @@ class SourceLoader(
          * itself.
          */
         internal fun classpathOf(sourceRoot: Path, layout: ModuleLayout): List<Path> {
-            val modules = listOf(Path.of(layout.moduleDir)) + ModuleLayouts.sharedModuleDirs(sourceRoot)
+            val shared = sharedCache.computeIfAbsent(sourceRoot.toAbsolutePath().normalize()) {
+                SharedPaths(sourceRoot)
+            }
+            val moduleDir = Path.of(layout.moduleDir)
+            val ownClassDirs = ModuleLayouts.classDirsOf(listOf(moduleDir))
+            val ownResources = ModuleLayouts.resourceRootsOf(listOf(moduleDir))
+
             return buildList {
                 // Layouts written before the java dir was recorded name only the Kotlin one, which
                 // classesDirs then duplicates; distinct drops the duplicate.
                 addAll(layout.classesDirs.map(Path::of))
                 add(Path.of(layout.classesDir))
-                addAll(ModuleLayouts.classDirsOf(modules))
+                addAll(ownClassDirs)
+                addAll(shared.classDirs)
                 addAll(layout.runtimeJars.map { Path.of(it) })
-                addAll(ModuleLayouts.resourceRootsOf(modules))
+                addAll(ownResources)
+                addAll(shared.resourceRoots)
             }.distinct()
         }
     }

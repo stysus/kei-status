@@ -5,6 +5,8 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.runInterruptible
 import java.time.Duration
 import java.util.concurrent.CompletableFuture
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
 
@@ -15,6 +17,18 @@ internal sealed interface DeadlineOutcome<out T> {
     data class Failed(val error: Throwable) : DeadlineOutcome<Nothing>
 
     data object Expired : DeadlineOutcome<Nothing>
+}
+
+/**
+ * Cached thread pool for scenario threads.
+ *
+ * A new thread per scenario spends 0.1–0.5ms in OS thread creation, which adds up across
+ * hundreds of scenarios in a shard. A cached pool reuses threads that finished their previous
+ * scenario and are still warm, so only the first handful of calls ever create a thread. Threads
+ * are daemon so they cannot hold the JVM open, matching the previous behaviour.
+ */
+private val scenarioPool: ExecutorService = Executors.newCachedThreadPool { runnable ->
+    Thread(runnable, "kei-status-scenario").also { it.isDaemon = true }
 }
 
 /**
@@ -38,7 +52,7 @@ internal sealed interface DeadlineOutcome<out T> {
  */
 internal suspend fun <T> withDeadline(timeout: Duration, block: suspend () -> T): DeadlineOutcome<T> {
     val result = CompletableFuture<DeadlineOutcome<T>>()
-    val thread = Thread({
+    val future = scenarioPool.submit {
         result.complete(
             try {
                 DeadlineOutcome.Value(runBlocking { block() })
@@ -46,21 +60,19 @@ internal suspend fun <T> withDeadline(timeout: Duration, block: suspend () -> T)
                 DeadlineOutcome.Failed(t)
             },
         )
-    }, "kei-status-scenario")
-    thread.isDaemon = true
-    thread.start()
+    }
 
     try {
         return runInterruptible { result.get(timeout.toMillis(), TimeUnit.MILLISECONDS) }
     } catch (e: TimeoutException) {
-        thread.interrupt()
+        future.cancel(true)
         return DeadlineOutcome.Expired
     } catch (e: CancellationException) {
         // The caller was cancelled - a shard shutting down, say. Nothing is waiting for this
         // answer, so stop the work instead of leaving it running behind a dead run.
-        thread.interrupt()
+        future.cancel(true)
         throw e
     } finally {
-        if (!result.isDone) thread.interrupt()
+        if (!result.isDone) future.cancel(true)
     }
 }
