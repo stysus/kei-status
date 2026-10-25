@@ -154,6 +154,7 @@ object Checks {
             chain.any { it is AntiBotChallengeException } -> Status.BLOCKED
             chain.any { needsWebViewSession(it) } -> Status.BLOCKED
             chain.any { needsLogin(it) } -> Status.BLOCKED
+            chain.any { geoRestricted(it) } -> Status.BLOCKED
             chain.any { it is ActivityNotFoundException } -> Status.BLOCKED
             chain.any { it is HttpException && it.code == 429 } -> Status.THROTTLED
             chain.any { it is UnsupportedOperationException || it is NotImplementedError } -> Status.SKIP
@@ -195,6 +196,9 @@ object Checks {
 
             chain.any { needsLogin(it) } ->
                 "the source requires login or credentials the sweep cannot provide; the source is not broken"
+
+            chain.any { geoRestricted(it) } ->
+                "the site restricts by region and the sweep runs outside the allowed area; the source is not broken"
 
             else -> "the site requires a WebView session the sweep's browser did not complete; the source is not broken"
         }
@@ -290,6 +294,25 @@ object Checks {
     }
 
     private val loginDemand = Regex("""\b(?:login|log\s+in|sign\s+in|password|credentials)\b""")
+
+    /**
+     * True when the site refuses the request because the sweep's IP is outside the region it
+     * serves.
+     *
+     * The Japanese services in the repo answer an outside IP with one of three English
+     * sentences, so the literals are exact. Broader keywords ("country", "region") were
+     * rejected: a parse error can quote a field or URL that carries them, and the geo refusal
+     * is the only site behavior here that is permanent - unlike a login demand, no
+     * configuration the sweep could fake would lift it. A source whose refusal reads
+     * differently joins these literals when the data shows the sentence, the same way the
+     * other message checks grew.
+     */
+    private fun geoRestricted(t: Throwable): Boolean {
+        val text = t.message?.lowercase() ?: return false
+        return "country is not supported" in text ||
+            "only available in japan" in text ||
+            "only be used from japan" in text
+    }
 
     /** Walks causes, including the ones reflection and static initialisers hide. */
     private fun flatten(t: Throwable): List<Throwable> {

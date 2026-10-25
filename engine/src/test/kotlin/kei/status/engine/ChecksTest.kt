@@ -227,6 +227,37 @@ class ChecksTest {
     }
 
     @Test
+    fun `a geo restriction is blocked rather than failed`() {
+        // Real sweep failures, verbatim. The sites answer from outside Japan with a refusal, the
+        // extension is working as designed.
+        val refusals = listOf(
+            "Your country is not supported.", // DMM (and FANZA)
+            "This service is only available in Japan.", // FOD, Music Book Japan
+            "This service can only be used from Japan.", // Line Manga, U-NEXT
+        )
+
+        for (message in refusals) {
+            assertEquals(message, Status.BLOCKED, Checks.diagnose(Exception(message)).status)
+        }
+    }
+
+    @Test
+    fun `the geo verdict names the region the sweep runs from`() {
+        val diagnosis = Checks.diagnose(Exception("Your country is not supported."))
+
+        assertEquals(
+            "the site restricts by region and the sweep runs outside the allowed area; the source is not broken",
+            diagnosis.message,
+        )
+    }
+
+    @Test
+    fun `a chapter that is merely unavailable is not a geo restriction`() {
+        // Goraku Web serves this for a single removed chapter; the rest of the source passes.
+        assertEquals(Status.FAIL, Checks.diagnose(Exception("This chapter is not available.")).status)
+    }
+
+    @Test
     fun `a parse error quoting a login field is not a login demand`() {
         // kotlinx quotes the offending JSON in its message; a DTO that grew a `loginUrl` field is
         // a parse drift to fix, and must keep failing. Word boundaries keep "login" from matching
