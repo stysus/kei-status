@@ -56,11 +56,7 @@ class Bitmap internal constructor(
         if (width == 0 || height == 0) return
 
         checkPixelsAccess(source, x, y, width, height, offset, stride, pixels)
-        for (row in 0 until height) {
-            for (column in 0 until width) {
-                pixels[offset + row * stride + column] = source.getRGB(x + column, y + row)
-            }
-        }
+        source.getRGB(x, y, width, height, pixels, offset, stride)
     }
 
     /**

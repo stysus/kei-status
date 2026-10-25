@@ -65,31 +65,31 @@ class ColorMatrixColorFilter(matrix: ColorMatrix) : ColorFilter() {
 
     /** Applies the matrix to a copy of [source], leaving the original untouched. */
     internal fun apply(source: BufferedImage): BufferedImage {
-        val out = BufferedImage(source.width, source.height, BufferedImage.TYPE_INT_ARGB)
+        val w = source.width
+        val h = source.height
+        val out = BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB)
         val v = values
-        for (y in 0 until source.height) {
-            for (x in 0 until source.width) {
-                val argb = source.getRGB(x, y)
-                val a = (argb ushr 24) and 0xFF
-                val r = (argb ushr 16) and 0xFF
-                val g = (argb ushr 8) and 0xFF
-                val b = argb and 0xFF
 
-                val na = (v[15] * r + v[16] * g + v[17] * b + v[18] * a + v[19]).toInt()
-                val nr = (v[0] * r + v[1] * g + v[2] * b + v[3] * a + v[4]).toInt()
-                val ng = (v[5] * r + v[6] * g + v[7] * b + v[8] * a + v[9]).toInt()
-                val nb = (v[10] * r + v[11] * g + v[12] * b + v[13] * a + v[14]).toInt()
+        val pixels = source.getRGB(0, 0, w, h, null, 0, w)
+        for (i in pixels.indices) {
+            val argb = pixels[i]
+            val a = (argb ushr 24) and 0xFF
+            val r = (argb ushr 16) and 0xFF
+            val g = (argb ushr 8) and 0xFF
+            val b = argb and 0xFF
 
-                out.setRGB(
-                    x,
-                    y,
-                    (na.coerceIn(0, 255) shl 24) or
-                        (nr.coerceIn(0, 255) shl 16) or
-                        (ng.coerceIn(0, 255) shl 8) or
-                        nb.coerceIn(0, 255),
-                )
-            }
+            val na = (v[15] * r + v[16] * g + v[17] * b + v[18] * a + v[19]).toInt()
+            val nr = (v[0] * r + v[1] * g + v[2] * b + v[3] * a + v[4]).toInt()
+            val ng = (v[5] * r + v[6] * g + v[7] * b + v[8] * a + v[9]).toInt()
+            val nb = (v[10] * r + v[11] * g + v[12] * b + v[13] * a + v[14]).toInt()
+
+            pixels[i] = (na.coerceIn(0, 255) shl 24) or
+                (nr.coerceIn(0, 255) shl 16) or
+                (ng.coerceIn(0, 255) shl 8) or
+                nb.coerceIn(0, 255)
         }
+
+        out.setRGB(0, 0, w, h, pixels, 0, w)
         return out
     }
 }
