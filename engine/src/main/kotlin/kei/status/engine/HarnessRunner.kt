@@ -541,13 +541,16 @@ class HarnessRunner(private val config: HarnessConfig) {
     private fun elapsedMs(startNanos: Long) = (System.nanoTime() - startNanos) / 1_000_000
 
     private fun gitCommit(root: Path): String? = runCatching {
-        ProcessBuilder("git", "-C", root.toString(), "rev-parse", "--short", "HEAD")
+        val process = ProcessBuilder("git", "-C", root.toString(), "rev-parse", "--short", "HEAD")
             .redirectErrorStream(true)
             .start()
-            .inputStream.bufferedReader()
-            .readText()
-            .trim()
-            .ifBlank { null }
+        try {
+            process.inputStream.bufferedReader().readText().trim().ifBlank { null }
+        } finally {
+            // A no-op on the happy path - EOF means git already exited - but it keeps a read that
+            // was interrupted mid-flight from leaving the child running out its natural life.
+            process.destroyForcibly()
+        }
     }.getOrNull()
 }
 

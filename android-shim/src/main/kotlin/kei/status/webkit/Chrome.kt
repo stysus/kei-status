@@ -138,8 +138,9 @@ object Chrome {
                     )
                 }
                 val line = runCatching { activePort.readLines().firstOrNull() }.getOrNull()
-                if (!line.isNullOrBlank()) {
-                    port = line.trim().toInt()
+                val portNumber = line?.trim()?.toIntOrNull()
+                if (portNumber != null) {
+                    port = portNumber
                     return port
                 }
                 Thread.sleep(100)
