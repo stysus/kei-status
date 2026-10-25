@@ -91,6 +91,10 @@ fun main(args: Array<String>) {
         // The browser outlives any single scenario; stop it here so the run leaves no process or
         // temporary profile behind even if the JVM is kept alive by a stray extension thread.
         runCatching { kei.status.webkit.Chrome.stop() }
+        // The scratch root holds the extension data (prefs, HTTP cache) this run mounted under
+        // Application.attachRoot. With the browser down nothing else writes to it, so one
+        // recursive delete retires it; runs otherwise shed one of these into /tmp per invocation.
+        runCatching { scratch.toFile().deleteRecursively() }
     }
 
     // A single module can still write a standalone page; a sweep publishes through --site.
