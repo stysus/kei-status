@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T21:57:34.164635959Z",
+    "generatedAt": "2026-10-25T08:38:12.960310908Z",
     "module": ":src:en:heytoon",
     "sourceRoot": "",
     "extensionCommit": "b2f43180",
@@ -10,7 +10,7 @@
             "name": "ToonHey",
             "lang": "en",
             "baseUrl": "https://toonhey.com",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,42 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 20352,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from toonhey.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 4163,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 28,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "WARN",
+                    "durationMs": 653,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from toonhey.com (HTTP 403)"
+                        "duplicate manga urls: [/en/osaka/eXs49xSa.html, /en/lets-get-physical/ZyzEETtE.html, /en/shes-driving-me-crazy/3MTtihkS.html]"
                     ],
-                    "samples": []
+                    "samples": [
+                        "Osaka -> /en/osaka/eXs49xSa.html",
+                        "Let's Get Physical -> /en/lets-get-physical/ZyzEETtE.html",
+                        "She's Driving Me Crazy -> /en/shes-driving-me-crazy/3MTtihkS.html"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 35,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from toonhey.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 342,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "The new ceo's management diaries -> /en/the-new-ceos-management-diaries/EQoiPU23.html",
+                        "Rekindled heat -> /en/rekindled-heat/8ihDwmuj.html",
+                        "Sun-kissed seduction -> /en/sun-kissed-seduction/oyH2UwH3.html"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,66 +66,82 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 368,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Osaka - 40 -> /en/osaka/episode-41-2MjZk8ce.html",
+                        "Osaka - 39 -> /en/osaka/episode-40-ZIlpmaTR.html",
+                        "Osaka - 38 -> /en/osaka/episode-39-RRfedS7l.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 316,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://hcgcontent.com/uploads/comics-single/c1248/e29538/9fa3544e-c994-483a-b0ca-a1d9f9d812a4-1757938941-89.webp?sda4=1",
+                        "https://hcgcontent.com/uploads/comics-single/c1248/e29538/6233f444-87ba-42ae-b265-07fca06846e7-1757938941-52.webp?sda4=1",
+                        "https://hcgcontent.com/uploads/comics-single/c1248/e29538/b896ff02-7f83-40b2-9cc8-352a91debfd6-1757938941-27.webp?sda4=1"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 700,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:50:23.028830788Z",
+    "comparedTo": "2026-10-24T21:57:34.164635959Z",
     "changes": [
         {
             "source": "ToonHey",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "ToonHey",
             "lang": "en",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "WARN"
         },
         {
             "source": "ToonHey",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "ToonHey",
             "lang": "en",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "ToonHey",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "ToonHey",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ]
 }

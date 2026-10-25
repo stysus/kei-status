@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-22T08:55:09.405946590Z",
+    "generatedAt": "2026-10-25T08:40:36.642099096Z",
     "module": ":src:en:todaymanga",
     "sourceRoot": "",
-    "extensionCommit": "1d3d7c4b",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 1147556681248758139,
             "name": "TodayManga",
             "lang": "en",
             "baseUrl": "https://todaymanga.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 2484,
+                    "status": "WARN",
+                    "durationMs": 330,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 985,
+                    "durationMs": 3499,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,20 +44,16 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 571,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 264,
+                    "message": "HTTP error 500",
                     "notes": [],
-                    "samples": [
-                        "Gokufuri Kyohi Shite Tesaguri Sutato! Toku-ka Shinai Hira, Nakama to Wakarete Tabi ni Deru -> /book/gokufuri-kyohi-shite-tesaguri-sutato-toku-ka-shinai-hira-nakama-to-wakarete-tabi-ni-deru",
-                        "Mairimashita! Iruma-kun -> /book/mairimashita-iruma-kun",
-                        "Tales of Demons and Gods -> /book/tales-of-demons-and-gods"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +63,7 @@
                 {
                     "name": "chapters",
                     "status": "WARN",
-                    "durationMs": 844,
+                    "durationMs": 4673,
                     "message": null,
                     "notes": [
                         "duplicate chapter urls: [/book/boku-no-hero-academia/ch-367, /book/boku-no-hero-academia/ch-366, /book/boku-no-hero-academia/ch-231]"
@@ -78,35 +76,44 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 373,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://i1.todaymanga.com/15366/1480104/0",
-                        "https://i1.todaymanga.com/15366/1480104/1",
-                        "https://i1.todaymanga.com/15366/1480104/2"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1583,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 257,
+                    "message": "HTTP error 500",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-21T08:49:49.203070107Z",
+    "comparedTo": "2026-10-22T08:55:09.405946590Z",
     "changes": [
         {
             "source": "TodayManga",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "TodayManga",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "TodayManga",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "TodayManga",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ]
 }

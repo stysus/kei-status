@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T08:30:33.878459963Z",
+    "generatedAt": "2026-10-25T08:39:00.249329073Z",
     "module": ":src:ar:mangadar",
     "sourceRoot": "",
-    "extensionCommit": "d64b4dea",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 3975276517041363504,
@@ -23,37 +23,33 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3910,
+                    "durationMs": 3704,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 312,
+                    "status": "PASS",
+                    "durationMs": 308,
                     "message": null,
-                    "notes": [
-                        "manga[0] has no thumbnail"
-                    ],
+                    "notes": [],
                     "samples": [
-                        "Saigo no Manga Kyoushitsu -> saigo-no-manga-kyoushitsu",
-                        "Chronicles of the Heavens I -> chronicles-of-the-heavens-i",
-                        "Wanna Go Grocery Shopping Together -> wanna-go-grocery-shopping-together"
+                        "Ghost Fixers -> ghost-fixers",
+                        "The Terminally-Ill Apothecary Villainess -> the-terminally-ill-apothecary-villainess",
+                        "Becoming A Family With The Duke and His Dear Son -> becoming-a-family-with-the-duke-and-his-dear-son"
                     ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 243,
+                    "status": "PASS",
+                    "durationMs": 162,
                     "message": null,
-                    "notes": [
-                        "manga[0] has no thumbnail"
-                    ],
+                    "notes": [],
                     "samples": [
-                        "Saigo no Manga Kyoushitsu -> saigo-no-manga-kyoushitsu",
-                        "Chronicles of the Heavens I -> chronicles-of-the-heavens-i",
-                        "Wanna Go Grocery Shopping Together -> wanna-go-grocery-shopping-together"
+                        "Ghost Fixers -> ghost-fixers",
+                        "The Terminally-Ill Apothecary Villainess -> the-terminally-ill-apothecary-villainess",
+                        "Becoming A Family With The Duke and His Dear Son -> becoming-a-family-with-the-duke-and-his-dear-son"
                     ]
                 },
                 {
@@ -68,39 +64,80 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 856,
+                    "status": "PASS",
+                    "durationMs": 946,
                     "message": null,
-                    "notes": [
-                        "chapter list is empty"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "الفصل 10 -> /manga/ghost-fixers/10/",
+                        "الفصل 9 -> /manga/ghost-fixers/9/",
+                        "الفصل 8 -> /manga/ghost-fixers/8/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
+                    "status": "WARN",
+                    "durationMs": 300,
+                    "message": null,
+                    "notes": [
+                        "duplicate page urls: [data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==]"
+                    ],
+                    "samples": [
+                        "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
+                        "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
+                        "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
                     "durationMs": 0,
-                    "message": "no chapters available",
-                    "notes": [],
+                    "message": null,
+                    "notes": [
+                        "page[0] image request could not be built: Expected URL scheme 'http' or 'https' but was 'data'",
+                        "page[1] image request could not be built: Expected URL scheme 'http' or 'https' but was 'data'",
+                        "page[2] image request could not be built: Expected URL scheme 'http' or 'https' but was 'data'"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:52:44.200749782Z",
+    "comparedTo": "2026-10-24T08:30:33.878459963Z",
     "changes": [
         {
             "source": "MangaDar",
             "lang": "ar",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "MangaDar",
             "lang": "ar",
             "scenario": "latest",
-            "from": "PASS",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaDar",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaDar",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "MangaDar",
+            "lang": "ar",
+            "scenario": "images",
+            "from": null,
             "to": "WARN"
         }
     ]

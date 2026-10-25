@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T08:28:35.370667251Z",
+    "generatedAt": "2026-10-25T08:39:14.996890417Z",
     "module": ":src:en:rosesquadscans",
     "sourceRoot": "",
-    "extensionCommit": "d64b4dea",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 5475936177780301452,
             "name": "Rose Squad Scans",
             "lang": "en",
             "baseUrl": "https://rosesquadscans.aishiteru.org",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,28 +22,30 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 1549,
-                    "message": "It's necessary to login via WebView to access this source.",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 2300,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: It's necessary to login via WebView to access this source."
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1049,
+                    "durationMs": 766,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "In an Empty Classroom -> 162",
-                        "Koi wo Suru ni wa Toumei Sugiru -> 286",
-                        "Caligula no Koi -> 369"
+                        "Ice Man -> 74",
+                        "Sayonara Alpha Extra Edition -> 266",
+                        "Salty and Sweet -> 352"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1984,
+                    "durationMs": 2005,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,10 +66,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 4481,
-                    "message": "It's necessary to login via WebView to access this source.",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 4148,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: It's necessary to login via WebView to access this source."
+                    ],
                     "samples": []
                 },
                 {
@@ -81,35 +85,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:54:52.928223386Z",
+    "comparedTo": "2026-10-24T08:28:35.370667251Z",
     "changes": [
         {
             "source": "Rose Squad Scans",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Rose Squad Scans",
-            "lang": "en",
-            "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Rose Squad Scans",
-            "lang": "en",
-            "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "FAIL",
+            "to": "BLOCKED"
         },
         {
             "source": "Rose Squad Scans",
             "lang": "en",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ]
 }

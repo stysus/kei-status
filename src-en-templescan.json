@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T21:58:35.970801610Z",
+    "generatedAt": "2026-10-25T08:49:33.080533298Z",
     "module": ":src:en:templescan",
     "sourceRoot": "",
     "extensionCommit": "b2f43180",
@@ -10,7 +10,7 @@
             "name": "Temple Scan",
             "lang": "en",
             "baseUrl": "https://templetoons.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 461,
+                    "durationMs": 766,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 958,
+                    "durationMs": 881,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1137,
+                    "durationMs": 717,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Blues for Dandelion -> /comic/blues-for-dandelion",
-                        "Sanho's Coffin -> /comic/sanhos-coffin",
-                        "Love:Zero (Complete Edition) -> /comic/lovezero-complete-edition"
+                        "Lex Talionis -> /comic/lex-talionis",
+                        "My Beautiful Brother In Law -> /comic/my-beautiful-brother-in-law",
+                        "Childhood Friends Romance -> /comic/childhood-friends-romance"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1465,
+                    "durationMs": 1429,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +77,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 627,
+                    "durationMs": 614,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,23 +88,27 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2206,
+                    "status": "WARN",
+                    "durationMs": 2045,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from media.templetoons.com (HTTP 403)",
+                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from media.templetoons.com (HTTP 403)",
+                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from media.templetoons.com (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:55:57.559153974Z",
+    "comparedTo": "2026-10-24T21:58:35.970801610Z",
     "changes": [
         {
             "source": "Temple Scan",
             "lang": "en",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         }
     ]
 }

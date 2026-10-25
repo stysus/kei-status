@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T22:01:39.369227436Z",
+    "generatedAt": "2026-10-25T08:41:53.224036101Z",
     "module": ":src:tr:lunascans",
     "sourceRoot": "",
     "extensionCommit": "b2f43180",
@@ -10,7 +10,7 @@
             "name": "Luna Scans",
             "lang": "tr",
             "baseUrl": "https://tuhafscans.com",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1530,
+                    "durationMs": 3390,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 720,
+                    "durationMs": 1269,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 589,
+                    "durationMs": 1139,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 649,
+                    "durationMs": 1600,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,32 +76,40 @@
                 },
                 {
                     "name": "pages",
-                    "status": "THROTTLED",
-                    "durationMs": 10825,
-                    "message": "the site is rate-limiting this sweep (HTTP 429, retry after 60s); the source was not checked",
+                    "status": "WARN",
+                    "durationMs": 1338,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                        "page list is empty"
                     ],
+                    "samples": []
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T01:01:12.331951301Z",
+    "comparedTo": "2026-10-24T22:01:39.369227436Z",
     "changes": [
         {
             "source": "Luna Scans",
             "lang": "tr",
             "scenario": "pages",
-            "from": "WARN",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "WARN"
         },
         {
             "source": "Luna Scans",
             "lang": "tr",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ]
 }

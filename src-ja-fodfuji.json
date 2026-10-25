@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T01:00:23.413405905Z",
+    "generatedAt": "2026-10-25T08:41:34.339225472Z",
     "module": ":src:ja:fodfuji",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 813084616937908482,
             "name": "FOD",
             "lang": "ja",
             "baseUrl": "https://manga.fod.fujitv.co.jp",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 1128,
+                    "durationMs": 1139,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 403"
@@ -32,18 +32,22 @@
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 149,
-                    "message": "This service is only available in Japan.",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 160,
+                    "message": "the site restricts by region and the sweep runs outside the allowed area; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: This service is only available in Japan."
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 148,
-                    "message": "This service is only available in Japan.",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 159,
+                    "message": "the site restricts by region and the sweep runs outside the allowed area; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: This service is only available in Japan."
+                    ],
                     "samples": []
                 },
                 {
@@ -75,14 +79,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:49:26.509837963Z",
+    "comparedTo": "2026-10-24T01:00:23.413405905Z",
     "changes": [
         {
             "source": "FOD",
             "lang": "ja",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "FOD",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ]
 }

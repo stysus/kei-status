@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T22:03:39.877168909Z",
+    "generatedAt": "2026-10-25T08:45:58.330172056Z",
     "module": ":src:vi:tusachxinhxinh",
     "sourceRoot": "",
     "extensionCommit": "b2f43180",
@@ -10,7 +10,7 @@
             "name": "TuSachXinhXinh",
             "lang": "vi",
             "baseUrl": "https://tusachxinhxinh12.online",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1112,
+                    "durationMs": 967,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1012,
+                    "durationMs": 870,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,14 +42,16 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 349,
+                    "status": "WARN",
+                    "durationMs": 312,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "duplicate manga urls: [/truyen-tranh/danh-cho-cac-nu-than-danh-cho-nang-daphne/]"
+                    ],
                     "samples": [
-                        "Trêu Nhầm -> /truyen-tranh/treu-nham/",
-                        "Đứa Nhỏ Không Phải Là Con Anh -> /truyen-tranh/dua-nho-khong-phai-la-con-anh/",
-                        "Kiếp Này Ta Sẽ Trở Thành Gia Chủ -> /truyen-tranh/kiep-nay-ta-se-tro-thanh-gia-chu/"
+                        "Dành Cho Các Nữ Thần: Dành cho Nàng Daphne -> /truyen-tranh/danh-cho-cac-nu-than-danh-cho-nang-daphne/",
+                        "Chào Mừng Đến Với Dinh Thự Hoa Hồng -> /truyen-tranh/chao-mung-den-voi-dinh-thu-hoa-hong/",
+                        "Dành Cho Các Nữ Thần: Dành cho Nàng Psyche -> /truyen-tranh/danh-cho-cac-nu-than-danh-cho-nang-psyche/"
                     ]
                 },
                 {
@@ -65,7 +67,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 374,
+                    "durationMs": 312,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,30 +78,32 @@
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 210,
-                    "message": "Chương này cần đăng nhập vào tài khoản phù hợp bằng webview để xem",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 1016,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Chương này cần đăng nhập vào tài khoản phù hợp bằng webview để xem"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:53:59.058162452Z",
+    "comparedTo": "2026-10-24T22:03:39.877168909Z",
     "changes": [
         {
             "source": "TuSachXinhXinh",
             "lang": "vi",
-            "scenario": "pages",
-            "from": "WARN",
-            "to": "FAIL"
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "TuSachXinhXinh",
             "lang": "vi",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ]
 }

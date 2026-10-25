@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T22:07:09.755053014Z",
+    "generatedAt": "2026-10-25T08:38:10.935899329Z",
     "module": ":src:en:infinityscans",
     "sourceRoot": "",
     "extensionCommit": "b2f43180",
@@ -10,7 +10,7 @@
             "name": "InfinityScans",
             "lang": "en",
             "baseUrl": "https://infinityscans.org",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,23 +23,25 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 448,
+                    "durationMs": 767,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30329,
-                    "message": "/usr/bin/google-chrome-stable did not open a DevTools port within 30s",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 15304,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 15s"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "BLOCKED",
-                    "durationMs": 27043,
+                    "durationMs": 15203,
                     "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
                     "notes": [
                         "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 15s"
@@ -75,12 +77,12 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:16.260055564Z",
+    "comparedTo": "2026-10-24T22:07:09.755053014Z",
     "changes": [
         {
             "source": "InfinityScans",
             "lang": "en",
-            "scenario": "latest",
+            "scenario": "popular",
             "from": "FAIL",
             "to": "BLOCKED"
         }

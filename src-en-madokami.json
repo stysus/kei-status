@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:51:48.206110722Z",
+    "generatedAt": "2026-10-25T08:38:39.376780907Z",
     "module": ":src:en:madokami",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 7291521832235473745,
             "name": "Madokami",
             "lang": "en",
             "baseUrl": "https://manga.madokami.al",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,18 +22,22 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
+                    "status": "BLOCKED",
                     "durationMs": 2,
-                    "message": "Username or password cannot be empty.\nGo to Extensions > Details to input your credentials.",
-                    "notes": [],
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: Username or password cannot be empty.\nGo to Extensions > Details to input your credentials."
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 0,
-                    "message": "Username or password cannot be empty.\nGo to Extensions > Details to input your credentials.",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 1,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: Username or password cannot be empty.\nGo to Extensions > Details to input your credentials."
+                    ],
                     "samples": []
                 },
                 {
@@ -73,6 +77,21 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:51:48.206110722Z",
+    "changes": [
+        {
+            "source": "Madokami",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Madokami",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        }
+    ]
 }

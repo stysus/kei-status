@@ -1,21 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:54:02.773283941Z",
+    "generatedAt": "2026-10-25T08:42:58.097432071Z",
     "module": ":src:ru:mintmanga",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 6,
             "name": "MintManga",
             "lang": "ru",
             "baseUrl": "https://2.mintmanga.one",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1080,
+                    "durationMs": 766,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 341,
+                    "durationMs": 285,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 500,
+                    "durationMs": 523,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Перевоплощение в девушку мечты (друга) -> /perevoplochenie_v_devushku_mechty__druga_",
-                        "Разрушитель рода -> /razrushitel_roda",
-                        "Лимон и кофе -> /limon_i_kofe"
+                        "Комната без окон -> /komnata_bez_okon",
+                        "Любовный триумф -> /liubovnyi_triumf",
+                        "Стать заменой невесты тирана -> /stat_zamenoi_nevesty_tirana"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,10 +64,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 955,
-                    "message": "Для просмотра контента необходима авторизация через WebView🌍 или включите автоматическую авторизацию в настройках расширения",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 1401,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Для просмотра контента необходима авторизация через WebView🌍 или включите автоматическую авторизацию в настройках расширения"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,6 +83,14 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:54:02.773283941Z",
+    "changes": [
+        {
+            "source": "MintManga",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        }
+    ]
 }

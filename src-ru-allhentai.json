@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T22:11:11.499526366Z",
+    "generatedAt": "2026-10-25T08:55:31.940233224Z",
     "module": ":src:ru:allhentai",
     "sourceRoot": "",
     "extensionCommit": "b2f43180",
@@ -10,7 +10,7 @@
             "name": "AllHentai",
             "lang": "ru",
             "baseUrl": "https://20.allhen.online",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 954,
+                    "durationMs": 1041,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1220,
+                    "durationMs": 1333,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,15 +43,15 @@
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 424,
+                    "durationMs": 357,
                     "message": null,
                     "notes": [
-                        "manga[1] has no thumbnail"
+                        "manga[2] has no thumbnail"
                     ],
                     "samples": [
+                        "Идеальная половинка -> /perfect_half",
                         "Тайный друг -> /tainyi_drug",
-                        "GSX-Ab.C_d~e+f@g -> /gsx_ab_c_d_e_f_g",
-                        "Сборник артов от Doppel -> /sbornik_artov_ot_doppel"
+                        "GSX-Ab.C_d~e+f@g -> /gsx_ab_c_d_e_f_g"
                     ]
                 },
                 {
@@ -67,7 +67,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1297,
+                    "durationMs": 1587,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -78,23 +78,25 @@
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 708,
-                    "message": "Для просмотра главы необходима авторизация через WebView🌎 (Ошибка 404). Авторизуйтесь в WebView и обновите мангу.",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 800,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Для просмотра главы необходима авторизация через WebView🌎 (Ошибка 404). Авторизуйтесь в WebView и обновите мангу."
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:55:48.257065211Z",
+    "comparedTo": "2026-10-24T22:11:11.499526366Z",
     "changes": [
         {
             "source": "AllHentai",
             "lang": "ru",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "WARN"
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ]
 }

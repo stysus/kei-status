@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T08:31:56.840475020Z",
+    "generatedAt": "2026-10-25T08:41:00.829921530Z",
     "module": ":src:id:westmanga",
     "sourceRoot": "",
-    "extensionCommit": "d64b4dea",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 8883916630998758688,
             "name": "West Manga",
             "lang": "id",
             "baseUrl": "https://v1.westmanga.my",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,25 +23,29 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3236,
+                    "durationMs": 303,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 1551,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 21083,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from v1.westmanga.my (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 154,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 23,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from v1.westmanga.my (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
@@ -73,42 +77,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-24T01:03:40.542332029Z",
+    "comparedTo": "2026-10-24T08:31:56.840475020Z",
     "changes": [
         {
             "source": "West Manga",
             "lang": "id",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "BLOCKED"
         },
         {
             "source": "West Manga",
             "lang": "id",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "West Manga",
-            "lang": "id",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "West Manga",
-            "lang": "id",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "West Manga",
-            "lang": "id",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ]
 }

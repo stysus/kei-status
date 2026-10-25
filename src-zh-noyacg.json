@@ -1,21 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:02.733453762Z",
+    "generatedAt": "2026-10-25T08:40:03.989015475Z",
     "module": ":src:zh:noyacg",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 6492346234228542735,
             "name": "NoyAcg",
             "lang": "zh-Hant",
             "baseUrl": "https://api.noyteam.online",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,25 +23,29 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 235,
+                    "durationMs": 323,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 503,
-                    "message": "請在擴充套件設定中輸入帳號與密碼，或在 WebView 中登入",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 340,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: 請在擴充套件設定中輸入帳號與密碼，或在 WebView 中登入"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 226,
-                    "message": "請在擴充套件設定中輸入帳號與密碼，或在 WebView 中登入",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 130,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: 請在擴充套件設定中輸入帳號與密碼，或在 WebView 中登入"
+                    ],
                     "samples": []
                 },
                 {
@@ -73,6 +77,21 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:02.733453762Z",
+    "changes": [
+        {
+            "source": "NoyAcg",
+            "lang": "zh-Hant",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "NoyAcg",
+            "lang": "zh-Hant",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        }
+    ]
 }

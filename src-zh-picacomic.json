@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:02.745873544Z",
+    "generatedAt": "2026-10-25T08:42:50.323021831Z",
     "module": ":src:zh:picacomic",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 5768337869316468367,
             "name": "哔咔漫画",
             "lang": "zh",
             "baseUrl": "https://manhuabika.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,32 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 0,
-                    "message": "请在扩展设置界面输入用户名和密码",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 3,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: 请在扩展设置界面输入用户名和密码"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 3,
-                    "message": "请在扩展设置界面输入用户名和密码",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 15,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: 请在扩展设置界面输入用户名和密码"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 0,
-                    "message": "请在扩展设置界面输入用户名和密码",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 1,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: 请在扩展设置界面输入用户名和密码"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -73,6 +79,28 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:02.745873544Z",
+    "changes": [
+        {
+            "source": "哔咔漫画",
+            "lang": "zh",
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "哔咔漫画",
+            "lang": "zh",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "哔咔漫画",
+            "lang": "zh",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        }
+    ]
 }

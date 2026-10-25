@@ -1,21 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:54:24.112111920Z",
+    "generatedAt": "2026-10-25T08:44:04.406427455Z",
     "module": ":src:ru:seimanga",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 6340120447386662351,
             "name": "SeiManga",
             "lang": "ru",
             "baseUrl": "https://1.seimanga.me",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 952,
+                    "durationMs": 1040,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 819,
+                    "durationMs": 892,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 301,
+                    "durationMs": 339,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "О совершенной мести -> /o_sovershennoi_mesti",
-                        "Элисед -> /elised",
-                        "От герцога мне нужен только ребёнок -> /ot_gercoga_mne_nujen_tolko_rebenok"
+                        "Будучи отвергнутым, я стал миллиардером -> /buduchi_otvergnutym__ia_stal_milliarderom",
+                        "Такой хороший -> /takoi_horoshii",
+                        "Достижение богатства с помощью системы лояльности -> /dostijenie_bogatstva_s_pomochiu_sistemy_loialnosti"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,10 +64,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 770,
-                    "message": "Для просмотра контента необходима авторизация через WebView🌍 или включите автоматическую авторизацию в настройках расширения",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 718,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Для просмотра контента необходима авторизация через WebView🌍 или включите автоматическую авторизацию в настройках расширения"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,6 +83,14 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:54:24.112111920Z",
+    "changes": [
+        {
+            "source": "SeiManga",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        }
+    ]
 }

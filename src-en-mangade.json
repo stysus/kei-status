@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:47:41.790854805Z",
+    "generatedAt": "2026-10-25T08:38:31.772161489Z",
     "module": ":src:en:mangade",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 3447999145778061665,
             "name": "MangaDE",
             "lang": "en",
             "baseUrl": "https://mangade.io",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 671,
+                    "durationMs": 828,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1035,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "One Piece -> /one-piece?mid=45719",
-                        "Maou to Ryuuou ni Sodaterareta Shounen wa Gakuen Seikatsu wo Musou suru You desu -> /maou-to-ryuuou-ni-sodaterareta-shounen-wa-gakuen-seikatsu-wo-musou-suru-you-desu?mid=46546",
-                        "Secret Class -> /secret-class?mid=43659"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 295,
+                    "message": "NotAfter: Sun Oct 25 03:38:28 UTC 2026",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertPathValidatorException: validity check failed"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 371,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Lovable Maid -> /the-lovable-maid?mid=48820",
-                        "The Broken Star -> /the-broken-star?mid=48818",
-                        "Houketsu no Ronnie -> /houketsu-no-ronnie?mid=48817"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 264,
+                    "message": "NotAfter: Sun Oct 25 03:38:28 UTC 2026",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertPathValidatorException: validity check failed"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,39 +64,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 748,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 1157 -> /one-piece/chapter-1157?cid=779347&mid=45719",
-                        "Chapter 1156 -> /one-piece/chapter-1156?cid=779343&mid=45719",
-                        "Chapter 1155 -> /one-piece/chapter-1155?cid=779339&mid=45719"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 333,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://s3-load.ttr.group/manga/en-uploads/45719/2292903/1755925716312_467_image.jpg",
-                        "https://s3-load.ttr.group/manga/en-uploads/45719/2292903/1755925718511_634_image.jpg",
-                        "https://s3-load.ttr.group/manga/en-uploads/45719/2292903/17559257198_97_image.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 5189,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:47:41.790854805Z",
+    "changes": [
+        {
+            "source": "MangaDE",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaDE",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaDE",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaDE",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaDE",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

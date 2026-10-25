@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T08:28:53.506996036Z",
+    "generatedAt": "2026-10-25T08:37:49.053061521Z",
     "module": ":src:ar:xsanomanga",
     "sourceRoot": "",
-    "extensionCommit": "d64b4dea",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 6170348197605244575,
             "name": "XSano Manga",
             "lang": "ar",
             "baseUrl": "https://www.xsano-manga.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 457,
+                    "status": "WARN",
+                    "durationMs": 491,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 247,
+                    "durationMs": 57,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +63,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 708,
+                    "durationMs": 880,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -73,7 +75,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 219,
+                    "durationMs": 313,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -85,7 +87,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 1514,
+                    "durationMs": 5990,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -93,21 +95,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:55:40.293177222Z",
+    "comparedTo": "2026-10-24T08:28:53.506996036Z",
     "changes": [
         {
             "source": "XSano Manga",
             "lang": "ar",
-            "scenario": "pages",
-            "from": "THROTTLED",
-            "to": "PASS"
-        },
-        {
-            "source": "XSano Manga",
-            "lang": "ar",
-            "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
         }
     ]
 }

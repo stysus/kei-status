@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:50:49.520738504Z",
+    "generatedAt": "2026-10-25T08:43:05.496592464Z",
     "module": ":src:en:theduckwebcomics",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 5361143498571709507,
             "name": "The Duck Webcomics",
             "lang": "en",
             "baseUrl": "https://www.theduckwebcomics.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 823,
+                    "durationMs": 581,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,25 +31,25 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 497,
+                    "durationMs": 399,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "Familiar -> /Familiar/",
-                        "Abejitas -> /Abejitas/",
-                        "Powerup Comics -> /Powerup_Comics/"
+                        "Charby the Vampirate -> /Charby_the_Vampirate/",
+                        "Amber Mage -> /Amber_Mage/"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 443,
+                    "durationMs": 262,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Abejitas -> /Abejitas/",
                         "Adam the Martian -> /Adam_the_Martian/",
-                        "Mildreth of the ... -> /Mildreth_of_the_Night/"
+                        "Exposure -> /Exposure/",
+                        "Stick Figure Apocalypse -> /Stick_Figure_Apocalypse/"
                     ]
                 },
                 {
@@ -64,10 +64,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 352,
-                    "message": "this comic is only viewable to 18+ please login to view",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 249,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.IllegalStateException: this comic is only viewable to 18+ please login to view"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,6 +83,14 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:50:49.520738504Z",
+    "changes": [
+        {
+            "source": "The Duck Webcomics",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        }
+    ]
 }

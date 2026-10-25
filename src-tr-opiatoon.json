@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:11.524069904Z",
+    "generatedAt": "2026-10-25T08:47:54.222556171Z",
     "module": ":src:tr:opiatoon",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 2266890064732906146,
             "name": "Opiatoon",
             "lang": "tr",
             "baseUrl": "https://opiatoon.shop",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1152,
+                    "durationMs": 1108,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 501,
+                    "durationMs": 490,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 675,
+                    "durationMs": 520,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,10 +64,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 1074,
-                    "message": "Okumak için WebView üzerinden giriş yapın",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 764,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: Okumak için WebView üzerinden giriş yapın"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,6 +83,14 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:11.524069904Z",
+    "changes": [
+        {
+            "source": "Opiatoon",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        }
+    ]
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:47:24.254954848Z",
+    "generatedAt": "2026-10-25T08:42:21.823191488Z",
     "module": ":src:tr:milasub",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 5672794736121634742,
             "name": "MilaSub",
             "lang": "tr",
             "baseUrl": "https://millascan.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1508,
+                    "durationMs": 1601,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 808,
+                    "durationMs": 935,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 893,
+                    "durationMs": 877,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Unutulmuş Toprak -> 58569",
-                        "Annemin Sözleşmeli Evliliği -> 56457",
-                        "Bayan Pendleton -> 9552"
+                        "Benim Tatlı Düşmanım -> 56429",
+                        "Feromon Tuzağı -> 69589",
+                        "Erkek Başrolü Tavlamak! -> 66692"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,10 +64,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 609,
-                    "message": "Bu bölümü görüntülemek için WebView'da giriş yapın",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 593,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Bu bölümü görüntülemek için WebView'da giriş yapın"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,6 +83,14 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:47:24.254954848Z",
+    "changes": [
+        {
+            "source": "MilaSub",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        }
+    ]
 }

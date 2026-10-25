@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T22:01:43.015909049Z",
+    "generatedAt": "2026-10-25T08:54:34.257871768Z",
     "module": ":src:ja:mangaone",
     "sourceRoot": "",
     "extensionCommit": "b2f43180",
@@ -10,7 +10,7 @@
             "name": "Manga One",
             "lang": "ja",
             "baseUrl": "https://manga-one.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 626,
+                    "durationMs": 611,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 525,
+                    "durationMs": 556,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 184,
+                    "durationMs": 192,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 206,
+                    "durationMs": 221,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,30 +75,25 @@
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 110,
-                    "message": "Log in via WebView and rent or purchase this chapter to read.",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 116,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Log in via WebView and rent or purchase this chapter to read."
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:59:54.181914143Z",
+    "comparedTo": "2026-10-24T22:01:43.015909049Z",
     "changes": [
         {
             "source": "Manga One",
             "lang": "ja",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Manga One",
-            "lang": "ja",
-            "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ]
 }

@@ -1,21 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:54:26.949347558Z",
+    "generatedAt": "2026-10-25T08:41:52.601705723Z",
     "module": ":src:ru:selfmanga",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "b2f43180",
     "sources": [
         {
             "sourceId": 5227602742162454547,
             "name": "SelfManga",
             "lang": "ru",
             "baseUrl": "https://1.selfmanga.live",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1093,
+                    "durationMs": 1154,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 802,
+                    "durationMs": 787,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 340,
+                    "durationMs": 322,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Лемур -> /lemur",
-                        "Грязный -> /griaznyi",
-                        "Перерождение Короля Демонов: как я стал младшим братом героя -> /pererojdenie_korolia_demonov__kak_ia_stal_mladshim_bratom_geroia"
+                        "Пёсий Squad -> /pesii_squad",
+                        "Плутс -> /pluts",
+                        "Открыть / Закрыть -> /otkryt___zakryt"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,10 +64,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 589,
-                    "message": "Для просмотра контента необходима авторизация через WebView🌍 или включите автоматическую авторизацию в настройках расширения",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 646,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Для просмотра контента необходима авторизация через WebView🌍 или включите автоматическую авторизацию в настройках расширения"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,6 +83,14 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:54:26.949347558Z",
+    "changes": [
+        {
+            "source": "SelfManga",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        }
+    ]
 }
