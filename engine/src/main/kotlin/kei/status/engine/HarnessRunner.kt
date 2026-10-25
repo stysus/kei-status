@@ -471,7 +471,8 @@ class HarnessRunner(private val config: HarnessConfig) {
         block()
     }
 
-    private suspend fun <T> capture(
+    // internal for tests: the cancellation-vs-teardown distinction is tested directly.
+    internal suspend fun <T> capture(
         name: String,
         notes: (T) -> List<String> = { emptyList() },
         samples: (T) -> List<String> = { emptyList() },
@@ -495,8 +496,13 @@ class HarnessRunner(private val config: HarnessConfig) {
 
             is DeadlineOutcome.Failed -> {
                 val e = outcome.error
-                // A cancelled coroutine is the run being torn down, not this scenario failing.
-                if (e is CancellationException) throw e
+                // A CancellationException here came from the block itself - an extension's own
+                // withTimeout, say, whose TimeoutCancellationException is one. The block runs on
+                // its own thread under its own runBlocking, so its cancellation is isolated from
+                // the run's; and the run being torn down never reaches this branch, because
+                // withDeadline rethrows caller-side cancellation before it becomes a Failed
+                // outcome. Rethrowing it anyway used to kill the whole module, silently dropping
+                // every other source in it.
                 if (TRACE) e.printStackTrace()
                 val diagnosis = Checks.diagnose(e)
                 if (diagnosis.status == Status.THROTTLED && host != null) throttledHosts += host
