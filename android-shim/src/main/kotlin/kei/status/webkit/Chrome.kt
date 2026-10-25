@@ -35,7 +35,12 @@ object Chrome {
 
     private val json = Json { ignoreUnknownKeys = true }
 
-    private val http = OkHttpClient.Builder()
+    /**
+     * Shared client for the DevTools HTTP endpoints: [newPage]'s target creation and the
+     * target close every [Page.close] issues. One client means one pool, instead of a new
+     * one per close whose threads never shut down.
+     */
+    internal val HTTP = OkHttpClient.Builder()
         .connectTimeout(10, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
         .build()
@@ -151,7 +156,7 @@ object Chrome {
             .put(okhttp3.RequestBody.create(null, ByteArray(0)))
             .build()
 
-        val target = http.newCall(request).execute().use { response ->
+        val target = HTTP.newCall(request).execute().use { response ->
             if (!response.isSuccessful) {
                 throw ChromeUnavailableException("DevTools rejected a new page: HTTP ${response.code}")
             }
@@ -339,15 +344,24 @@ class Page internal constructor(
         listeners[method]?.toList()?.forEach { listener -> runCatching { listener(params) } }
     }
 
+    /**
+     * Closes the page and retires its Chromium target.
+     *
+     * The HTTP target close is attempted even when the socket already failed. A WebSocket failure
+     * marks [closed] without telling the browser anything - the flag describes the socket, never
+     * the target - and a close that trusted it would leave an orphan tab in the browser for every
+     * failure. Closing a target that is already gone only answers with an error, which the
+     * runCatching swallows.
+     */
     fun close() {
-        if (closed) return
+        val wasOpen = !closed
         closed = true
-        runCatching { socket.close(1000, "done") }
+        if (wasOpen) runCatching { socket.close(1000, "done") }
         runCatching {
             val request = Request.Builder()
                 .url("http://127.0.0.1:$devtoolsPort/json/close/$targetId")
                 .build()
-            OkHttpClient().newCall(request).execute().close()
+            Chrome.HTTP.newCall(request).execute().close()
         }
     }
 }
