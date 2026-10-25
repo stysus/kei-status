@@ -21,11 +21,20 @@ class InMemoryCookieJar : CookieJar {
     }
 
     override fun loadForRequest(url: HttpUrl): List<Cookie> {
-        val jar = store[url.host] ?: return emptyList()
-        synchronized(jar) {
-            val now = System.currentTimeMillis()
-            jar.removeAll { it.expiresAt < now }
-            return jar.filter { it.matches(url) }
+        val now = System.currentTimeMillis()
+        val result = mutableListOf<Cookie>()
+
+        // A cookie set with Domain=.example.com is stored under the host that received the
+        // Set-Cookie response (e.g. "example.com"), but Cookie.matches(url) returns true for
+        // any subdomain (api.example.com, www.example.com). Walking every bucket is the only
+        // way to find those cross-host matches - the same lookup a browser performs.
+        for ((_, jar) in store) {
+            synchronized(jar) {
+                jar.removeAll { it.expiresAt < now }
+                result.addAll(jar.filter { it.matches(url) })
+            }
         }
+
+        return result
     }
 }
