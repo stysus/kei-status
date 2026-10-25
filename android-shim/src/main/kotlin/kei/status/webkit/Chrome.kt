@@ -279,8 +279,12 @@ class Page internal constructor(
     @Volatile
     private var closed = false
 
-    private val socket: WebSocket = OkHttpClient.Builder()
-        .connectTimeout(10, TimeUnit.SECONDS)
+    // One client per page would carry its own Dispatcher and ConnectionPool, which outlive the
+    // socket by their idle timeouts and pile up over a sweep of hundreds of pages. Deriving from
+    // Chrome.HTTP shares those instead: newBuilder() copies the references, it does not rebuild
+    // them. The read timeout is still cleared - websocket frames arrive on their own schedule,
+    // not as an answer to a request - while the connect timeout is inherited unchanged.
+    private val socket: WebSocket = Chrome.HTTP.newBuilder()
         .readTimeout(0, TimeUnit.SECONDS)
         .build()
         .newWebSocket(Request.Builder().url(socketUrl).build(), object : WebSocketListener() {
