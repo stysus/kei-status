@@ -114,6 +114,13 @@ class CloudflareInterceptor(
 
         if (response.code !in INTERSTITIAL_CODES) return null
 
+        // A Cloudflare-served interstitial always carries `server: cloudflare`.  A 403 or 503
+        // from a site that is not behind Cloudflare at all cannot be a Cloudflare challenge, so
+        // reading the body is wasted work.
+        if (response.header("server")?.contains("cloudflare", ignoreCase = true) != true) {
+            return null
+        }
+
         val body = response.prefix().lowercase()
         return when {
             // A firewall block can embed the challenge script, so it is checked first: no browser

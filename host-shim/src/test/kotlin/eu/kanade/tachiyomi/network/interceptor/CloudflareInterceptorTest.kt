@@ -203,4 +203,19 @@ class CloudflareInterceptorTest {
         assertEquals("the solver ran for a block no browser can clear", 0, solveCalls.get())
         assertEquals("the blocked request was retried", 1, requests.get())
     }
+
+    @Test
+    fun `a 403 from a non-Cloudflare site passes through without body peek`() {
+        challenging = true
+        // No server: cloudflare header — this is a site that does not use Cloudflare at all.
+        headers = mapOf("server" to "nginx")
+        challengeBody = "Forbidden"
+
+        client().newCall(request()).execute().use { response ->
+            assertEquals("the site's answer was replaced", 403, response.code)
+            assertEquals("Forbidden", response.body.string())
+        }
+        assertEquals("the solver ran for a non-Cloudflare 403", 0, solveCalls.get())
+        assertEquals("the request was retried", 1, requests.get())
+    }
 }

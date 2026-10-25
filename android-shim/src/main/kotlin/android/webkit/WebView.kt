@@ -835,15 +835,24 @@ open class WebView(context: Context?) : View() {
     }
 
     /**
-     * Mirrors the browser's cookie jar into [CookieManager].
+     * Mirrors the browser's cookies for the current page into [CookieManager].
      *
      * Sources solve a challenge inside the page and then read the resulting cookie from
      * `CookieManager` to reuse it on OkHttp requests. Polling is the only way to see cookies set
      * by JavaScript, which produce no network response to listen to.
+     *
+     * The fetch is scoped to the current page's URL rather than the whole profile: one Chromium
+     * serves the whole sweep, so `getAllCookies` would round-trip every site's cookies — hundreds
+     * by mid-shard — four times a second per live WebView, and would copy cookies this source's
+     * WebView never touched into the shared jar.
      */
     private fun syncCookiesFromBrowser() {
         val session = page ?: return
-        session.send("Network.getAllCookies").whenComplete { result, error ->
+        val url = currentUrl ?: return
+        session.send(
+            "Network.getCookies",
+            JsonObject(mapOf("urls" to JsonArray(listOf(JsonPrimitive(url))))),
+        ).whenComplete { result, error ->
             if (error != null || result == null) return@whenComplete
             val cookies = result["cookies"] as? JsonArray ?: return@whenComplete
             cookies.forEach { element ->
