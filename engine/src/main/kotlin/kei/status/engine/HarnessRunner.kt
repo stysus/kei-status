@@ -9,6 +9,7 @@ import eu.kanade.tachiyomi.source.model.Page
 import eu.kanade.tachiyomi.source.model.SChapter
 import eu.kanade.tachiyomi.source.model.SMangaUpdate
 import eu.kanade.tachiyomi.source.online.HttpSource
+import kei.status.webkit.Chrome
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -86,12 +87,23 @@ class HarnessRunner(private val config: HarnessConfig) {
     private val throttledHosts = mutableSetOf<String>()
 
     fun run(): RunReport = runBlocking {
+        try {
+            runModule()
+        } finally {
+            // Whatever WebViews this module's extensions opened and never destroyed are
+            // retired here: one Chromium serves the whole sweep, so leaked tabs and their
+            // cookie pollers would otherwise accumulate across every module that follows.
+            runCatching { Chrome.closeAllPages() }
+        }
+    }
+
+    private suspend fun runModule(): RunReport {
         // A module that was never compiled has no layout file. Report that as a failed load instead
         // of throwing: a CI run over many modules must still publish what the other modules said.
         val layout = try {
             ModuleLayouts.read(config.sourceRoot, config.module)
         } catch (e: Throwable) {
-            return@runBlocking buildReport(listOf(loadFailureReport(e)))
+            return buildReport(listOf(loadFailureReport(e)))
         }
         HarnessBootstrap.install(config.scratchRoot)
 
@@ -104,9 +116,9 @@ class HarnessRunner(private val config: HarnessConfig) {
 
             is DeadlineOutcome.Failed ->
                 // A missing host class must not abort the run: report it and stop here.
-                return@runBlocking buildReport(listOf(loadFailureReport(loaded.error)))
+                return buildReport(listOf(loadFailureReport(loaded.error)))
 
-            DeadlineOutcome.Expired -> return@runBlocking buildReport(
+            DeadlineOutcome.Expired -> return buildReport(
                 listOf(
                     loadFailureReport(
                         TimeoutException("loading the extension timed out after ${config.timeout.seconds}s"),
@@ -116,7 +128,7 @@ class HarnessRunner(private val config: HarnessConfig) {
         }
 
         if (sources.isEmpty() && config.langs.isNotEmpty()) {
-            return@runBlocking buildReport(
+            return buildReport(
                 listOf(
                     loadFailureReport(
                         IllegalArgumentException("no source matched --lang ${config.langs.joinToString()}"),
@@ -127,7 +139,7 @@ class HarnessRunner(private val config: HarnessConfig) {
 
         val reports = sources.map { runGuarded(it) }
 
-        buildReport(reports)
+        return buildReport(reports)
     }
 
     /** Keeps one source's unexpected failure from discarding the results of the others. */

@@ -829,6 +829,8 @@ open class WebView(context: Context?) : View() {
     private val cookiePoller = object : Runnable {
         override fun run() {
             if (destroyed) return
+            val session = page
+            if (session == null || !session.isOpen) return
             syncCookiesFromBrowser()
             mainHandler.postDelayed(this, COOKIE_POLL_MS)
         }

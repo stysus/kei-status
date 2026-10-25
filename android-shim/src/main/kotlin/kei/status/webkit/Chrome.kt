@@ -8,6 +8,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.File
 import java.nio.file.Files
+import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.TimeUnit
 
 /** Thrown when no usable Chromium binary can be found or it fails to start. */
@@ -36,6 +37,41 @@ object Chrome {
         .connectTimeout(10, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
         .build()
+
+    /**
+     * DevTools targets this JVM created and has not retired.
+     *
+     * Extensions do not always destroy their WebViews — a source that throws inside
+     * `runWebView` before its own cleanup, or one that never destroys at all, leaves the
+     * browser holding the tab. The registry lets the end of a module retire every page it
+     * leaked, so one Chromium can serve a whole sweep without accumulating tabs.
+     */
+    private val liveTargets = ConcurrentHashMap<String, Unit>()
+
+    internal fun registerTarget(id: String) { liveTargets[id] = Unit }
+
+    internal fun unregisterTarget(id: String) { liveTargets.remove(id) }
+
+    /**
+     * Retires every live page, whatever holds it.
+     *
+     * Closing over HTTP makes the browser drop each page's WebSocket, so any poller or
+     * watcher riding that socket winds down on its next tick. Called at module boundaries;
+     * closing a target that already went away only answers with an error, which is swallowed.
+     */
+    fun closeAllPages() {
+        val ids = liveTargets.keys.toList()
+        liveTargets.clear()
+        val base = if (isRunning()) port else return
+        ids.forEach { id ->
+            runCatching {
+                val request = Request.Builder()
+                    .url("http://127.0.0.1:$base/json/close/$id")
+                    .build()
+                HTTP.newCall(request).execute().close()
+            }
+        }
+    }
 
     private val candidates = listOf(
         "google-chrome-stable",
@@ -164,7 +200,7 @@ object Chrome {
         val id = target.getValue("id").jsonPrimitive.content
         val socketUrl = target.getValue("webSocketDebuggerUrl").jsonPrimitive.content
         return try {
-            pageFactory(devtoolsPort, id, socketUrl)
+            pageFactory(devtoolsPort, id, socketUrl).also { registerTarget(id) }
         } catch (e: Throwable) {
             // The target was created before the constructor ran, so a failure there happens
             // before any close() could retire it. The browser-side target needs an explicit

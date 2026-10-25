@@ -46,6 +46,9 @@ class Page internal constructor(
     @Volatile
     private var closed = false
 
+    /** False once the socket failed or the target was retired by [close]. */
+    val isOpen: Boolean get() = !closed
+
     // One client per page would carry its own Dispatcher and ConnectionPool, which outlive the
     // socket by their idle timeouts and pile up over a sweep of hundreds of pages. Deriving from
     // Chrome.HTTP shares those instead: newBuilder() copies the references, it does not rebuild
@@ -154,5 +157,6 @@ class Page internal constructor(
                 .build()
             Chrome.HTTP.newCall(request).execute().close()
         }
+        Chrome.unregisterTarget(targetId)
     }
 }
