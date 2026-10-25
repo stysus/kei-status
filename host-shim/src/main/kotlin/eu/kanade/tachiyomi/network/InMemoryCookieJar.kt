@@ -11,7 +11,7 @@ class InMemoryCookieJar : CookieJar {
     private val store = ConcurrentHashMap<String, MutableList<Cookie>>()
 
     override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
-        val jar = store.getOrPut(url.host) { mutableListOf() }
+        val jar = store.computeIfAbsent(url.host) { mutableListOf() }
         synchronized(jar) {
             cookies.forEach { cookie ->
                 jar.removeAll { it.name == cookie.name && it.path == cookie.path }

@@ -319,7 +319,7 @@ class Page internal constructor(
     }
 
     fun on(event: String, listener: (JsonObject) -> Unit) {
-        listeners.getOrPut(event) { mutableListOf() } += listener
+        listeners.computeIfAbsent(event) { mutableListOf() } += listener
     }
 
     fun send(method: String, params: JsonObject = JsonObject(emptyMap())): CompletableFuture<JsonObject> {

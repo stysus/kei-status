@@ -47,7 +47,7 @@ open class Context {
     open fun getFilesDir(): File = root().resolve("files").apply { mkdirs() }
 
     open fun getSharedPreferences(name: String, mode: Int): SharedPreferences =
-        sharedPrefs.getOrPut(name) {
+        sharedPrefs.computeIfAbsent(name) {
             FileSharedPreferences(root().resolve("shared_prefs/$name.xml"))
         }
     open fun getString(resId: Int): String = "string-$resId"
