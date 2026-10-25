@@ -367,7 +367,15 @@ class HarnessRunner(private val config: HarnessConfig) {
         httpSource.client.newCall(request).await().use { response ->
             val notes = mutableListOf<String>()
             if (!response.isSuccessful) notes += "home page returned HTTP ${response.code}"
-            if (response.body.contentLength() == 0L) notes += "home page body is empty"
+            // contentLength() is -1 when the body is chunked, so an empty chunked response
+            // slips past a == 0L check.  A one-byte peek answers "did anything arrive" for
+            // the unknown case without downloading the page.
+            val empty = when (val length = response.body.contentLength()) {
+                0L -> true
+                in 1..Long.MAX_VALUE -> false
+                else -> runCatching { response.peekBody(1).string().isEmpty() }.getOrDefault(false)
+            }
+            if (empty) notes += "home page body is empty"
             if (response.header("cf-mitigated") != null) notes += "challenge header present"
             return notes
         }
