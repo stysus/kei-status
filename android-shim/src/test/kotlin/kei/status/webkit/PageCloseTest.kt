@@ -45,4 +45,29 @@ class PageCloseTest {
         }
         assertTrue("target ${page.targetId} survived close()", gone)
     }
+
+    @Test
+    fun `a failed page constructor retires its target`() {
+        // The target exists the moment /json/new answers; the Page constructor then fails before
+        // close() could ever be called. The factory stands in for a constructor that cannot get
+        // its socket: the same shape as the 15s open timeout on a loaded runner.
+        var created: String? = null
+        val error = runCatching {
+            Chrome.newPage { _, id, _ ->
+                created = id
+                throw ChromeUnavailableException("DevTools page $id did not open its socket within 15s")
+            }
+        }.exceptionOrNull()
+
+        assertTrue("the constructor did not fail", error is ChromeUnavailableException)
+        val targetId = created
+        assertTrue("no target was created", targetId != null)
+
+        var gone = false
+        repeat(20) {
+            gone = !listedTargets().contains(targetId!!)
+            if (!gone) Thread.sleep(100)
+        }
+        assertTrue("target $targetId survived the constructor failure", gone)
+    }
 }

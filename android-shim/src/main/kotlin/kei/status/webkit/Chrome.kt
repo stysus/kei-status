@@ -148,8 +148,13 @@ object Chrome {
         }
     }
 
-    /** Opens a blank page and connects a [Page] session to it. */
-    fun newPage(): Page {
+    /**
+     * Opens a blank page and connects a [Page] session to it.
+     *
+     * [pageFactory] builds the session; it exists so tests can fail the build the way the real
+     * constructor does when its socket never opens.
+     */
+    internal fun newPage(pageFactory: (devtoolsPort: Int, targetId: String, socketUrl: String) -> Page = ::Page): Page {
         val devtoolsPort = port()
         val request = Request.Builder()
             .url("http://127.0.0.1:$devtoolsPort/json/new?about:blank")
@@ -165,7 +170,22 @@ object Chrome {
 
         val id = target.getValue("id").jsonPrimitive.content
         val socketUrl = target.getValue("webSocketDebuggerUrl").jsonPrimitive.content
-        return Page(devtoolsPort, id, socketUrl)
+        return try {
+            pageFactory(devtoolsPort, id, socketUrl)
+        } catch (e: Throwable) {
+            // The target was created before the constructor ran, so a failure there happens
+            // before any close() could retire it. The browser-side target needs an explicit
+            // close, or every failure leaves an orphan tab in a browser a long sweep keeps
+            // running; for a socket that is still limbo (the 15s open timeout), that close is
+            // also what makes the server drop the WebSocket and let OkHttp clean its side up.
+            runCatching {
+                val close = Request.Builder()
+                    .url("http://127.0.0.1:$devtoolsPort/json/close/$id")
+                    .build()
+                HTTP.newCall(close).execute().close()
+            }
+            throw e
+        }
     }
 
     private fun findBinary(): String {
