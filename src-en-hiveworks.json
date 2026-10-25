@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T08:37:20.739990151Z",
+    "generatedAt": "2026-10-25T16:20:18.445297992Z",
     "module": ":src:en:hiveworks",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "f1edb034",
     "sources": [
         {
             "sourceId": 6620819060709781499,
             "name": "Hiveworks Comics",
             "lang": "en",
             "baseUrl": "https://hiveworkscomics.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 457,
+                    "durationMs": 330,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,19 +31,19 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 112,
+                    "durationMs": 85,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Godslave -> https://godslavecomic.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
-                        "Come Hell or High Water -> https://chohwcomic.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
-                        "Alice and the Nightmare -> https://aliceandthenightmare.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes"
+                        "El Goonish Shive -> https://egscomics.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
+                        "Star Impact -> https://starimpactcomic.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
+                        "Spinnerette -> https://spinnyverse.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 67,
+                    "durationMs": 44,
                     "message": null,
                     "notes": [
                         "popular/latest returned an empty list"
@@ -53,7 +53,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,31 +62,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 784,
-                    "message": "HiveWorks Comics HTTP Error 500",
+                    "status": "PASS",
+                    "durationMs": 971,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "falsekings-200 -> https://www.egscomics.com/comic/falsekings-200",
+                        "falsekings-199 -> https://www.egscomics.com/comic/falsekings-199",
+                        "falsekings-198 -> https://www.egscomics.com/comic/falsekings-198"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 217,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://www.egscomics.com/comics/1792605491-2610-19-200-announcezz2.png"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 167,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:54:06.403885282Z",
+    "comparedTo": "2026-10-25T08:37:20.739990151Z",
     "changes": [
         {
             "source": "Hiveworks Comics",
             "lang": "en",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "WARN"
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Hiveworks Comics",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Hiveworks Comics",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ]
 }

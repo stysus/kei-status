@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T01:02:46.609173120Z",
+    "generatedAt": "2026-10-25T16:26:22.356642821Z",
     "module": ":src:es:ragnascans",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "f1edb034",
     "sources": [
         {
             "sourceId": 6003330990591348231,
             "name": "Ragna Scans",
             "lang": "es",
             "baseUrl": "https://lector.ragnascan.xyz",
-            "status": "PASS",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 515,
+                    "durationMs": 242,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 172,
+                    "durationMs": 49,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 87,
+                    "durationMs": 35,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Primera trampa amorosa -> /manga.php?id=98",
                         "Rata de alcantarilla -> /manga.php?id=97",
-                        "Años de un amor no correspondido -> /manga.php?id=96",
-                        "Dios Ijin (M3rc3n4ri0) -> /manga.php?id=95"
+                        "Años de un amor no correspondido -> /manga.php?id=96"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,61 +64,47 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 164,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Capítulo 85 -> /leer/ha-llegado-el-final/capitulo-85.00",
-                        "Capítulo 84 -> /leer/ha-llegado-el-final/capitulo-84.00",
-                        "Capítulo 83 -> /leer/ha-llegado-el-final/capitulo-83.00"
-                    ]
+                    "status": "THROTTLED",
+                    "durationMs": 1097,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 102,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-85/1.webp",
-                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-85/2.webp",
-                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-85/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 695,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-22T08:57:02.138061678Z",
+    "comparedTo": "2026-10-24T01:02:46.609173120Z",
     "changes": [
         {
             "source": "Ragna Scans",
             "lang": "es",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
             "source": "Ragna Scans",
             "lang": "es",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Ragna Scans",
             "lang": "es",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ]
 }

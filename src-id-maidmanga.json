@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T08:40:41.667082971Z",
+    "generatedAt": "2026-10-25T16:21:28.107617117Z",
     "module": ":src:id:maidmanga",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "f1edb034",
     "sources": [
         {
             "sourceId": 5716614438725518956,
             "name": "Maid - Manga",
             "lang": "id",
             "baseUrl": "https://www.maid.my.id",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 328,
+                    "durationMs": 475,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 583,
+                    "status": "WARN",
+                    "durationMs": 631,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Lust Geass -> /manga/lust-geass/",
-                        "Maou Gakuen no Hangyakusha -> /manga/maou-gakuen-no-hangyakusha/",
-                        "Isekai de Cheat Skill wo te ni Shita ore wa, Genjitsu Sekai wo mo Musou Suru ~Level Up wa Jinsei wo Kaeta~ -> /manga/isekai-de-cheat-skill-wo-te-ni-shita-ore-wa-genjitsu-sekai-wo-mo-musou-suru-level-up-wa-jinsei-wo-kaeta/"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 469,
+                    "status": "WARN",
+                    "durationMs": 466,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Osananajimi(♂) wo Onnanoko ni Shiteshimatta Hanashi -> /manga/osananajimi%e2%99%82-wo-onnanoko-ni-shiteshimatta-hanashi/",
-                        "Tsuki no Joou no Nekashitsukekata -> /manga/tsuki-no-joou-no-nekashitsukekata/",
-                        "Yuusha Ni Zenbu Ubawareta Ore Wa Yuusha No Hahaoya To Party Wo Kumimashita! -> /manga/yuusha-ni-zenbu-ubawareta-ore-wa-yuusha-no-hahaoya-to-party-wo-kumimashita/"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,42 +60,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 43,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 45 -> /lust-geass-chapter-45-bahasa-indonesia/",
-                        "Chapter 44 -> /lust-geass-chapter-44-bahasa-indonesia/",
-                        "Chapter 43 -> /lust-geass-chapter-43-bahasa-indonesia/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 407,
-                    "message": "HTTP error 404",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T22:00:19.547183893Z",
+    "comparedTo": "2026-10-25T08:40:41.667082971Z",
     "changes": [
         {
             "source": "Maid - Manga",
             "lang": "id",
-            "scenario": "pages",
+            "scenario": "popular",
             "from": "PASS",
-            "to": "FAIL"
+            "to": "WARN"
         },
         {
             "source": "Maid - Manga",
             "lang": "id",
-            "scenario": "images",
+            "scenario": "latest",
             "from": "PASS",
-            "to": null
+            "to": "WARN"
+        },
+        {
+            "source": "Maid - Manga",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Maid - Manga",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ]
 }

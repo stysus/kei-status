@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T08:40:36.642099096Z",
+    "generatedAt": "2026-10-25T16:23:02.250972675Z",
     "module": ":src:en:todaymanga",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "f1edb034",
     "sources": [
         {
             "sourceId": 1147556681248758139,
             "name": "TodayManga",
             "lang": "en",
             "baseUrl": "https://todaymanga.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,17 +23,17 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 330,
+                    "durationMs": 16617,
                     "message": null,
                     "notes": [
-                        "home page returned HTTP 500"
+                        "home page returned HTTP 502"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 3499,
+                    "durationMs": 3416,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,11 +44,15 @@
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 264,
-                    "message": "HTTP error 500",
+                    "status": "PASS",
+                    "durationMs": 4198,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Jikan Teishi Yuusha -> /book/jikan-teishi-yuusha",
+                        "Global Martial Arts -> /book/global-martial-arts",
+                        "Lost Man -> /book/lost-man"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -63,7 +67,7 @@
                 {
                     "name": "chapters",
                     "status": "WARN",
-                    "durationMs": 4673,
+                    "durationMs": 4674,
                     "message": null,
                     "notes": [
                         "duplicate chapter urls: [/book/boku-no-hero-academia/ch-367, /book/boku-no-hero-academia/ch-366, /book/boku-no-hero-academia/ch-231]"
@@ -76,44 +80,49 @@
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 257,
-                    "message": "HTTP error 500",
+                    "status": "PASS",
+                    "durationMs": 713,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://i1.todaymanga.com/15366/1480104/0",
+                        "https://i1.todaymanga.com/15366/1480104/1",
+                        "https://i1.todaymanga.com/15366/1480104/2"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1935,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-22T08:55:09.405946590Z",
+    "comparedTo": "2026-10-25T08:40:36.642099096Z",
     "changes": [
         {
             "source": "TodayManga",
             "lang": "en",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "TodayManga",
-            "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "TodayManga",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "TodayManga",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ]
 }

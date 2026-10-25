@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:51:49.416852865Z",
+    "generatedAt": "2026-10-25T16:22:40.280458968Z",
     "module": ":src:all:pawchive",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "f1edb034",
     "sources": [
         {
             "sourceId": 4284527942812494681,
             "name": "Pawchive",
             "lang": "all",
             "baseUrl": "https://pawchive.pw",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 303,
+                    "status": "WARN",
+                    "durationMs": 131,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 530"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 444,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 40,
+                    "message": "HTTP error 530",
                     "notes": [],
-                    "samples": [
-                        "Anna Anon -> /fanbox/user/37736420",
-                        "Maplestar -> /patreon/user/3295915",
-                        "theobrobine -> /patreon/user/5564244"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 335,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 17,
+                    "message": "HTTP error 530",
                     "notes": [],
-                    "samples": [
-                        "LadyLuckFate -> /patreon/user/71436748",
-                        "The First Defier -> /patreon/user/21149764",
-                        "iroha -> /patreon/user/37562141"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,37 +58,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 86,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Mummy Paizuri -> /fanbox/user/37736420/post/12792182",
-                        "Pumpkin Inspection -> /fanbox/user/37736420/post/12741962",
-                        "Extra Animation -> /fanbox/user/37736420/post/12637115"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 221,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://file.pawchive.pw/data/df/50/df50102f8b961aee6d6656e9dfa87f1e6bd6cc8e07c8fdbb4e7077bb88931cb7.jpeg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 914,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:51:49.416852865Z",
+    "changes": [
+        {
+            "source": "Pawchive",
+            "lang": "all",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Pawchive",
+            "lang": "all",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Pawchive",
+            "lang": "all",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Pawchive",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Pawchive",
+            "lang": "all",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Pawchive",
+            "lang": "all",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T08:39:55.489234113Z",
+    "generatedAt": "2026-10-25T16:21:26.746894630Z",
     "module": ":src:fr:mangahubfr",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "f1edb034",
     "sources": [
         {
             "sourceId": 3294884430139323314,
             "name": "MangaHub.fr",
             "lang": "fr",
             "baseUrl": "https://mangahub.fr",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 32944,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangahub.fr (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 7517,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 16,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangahub.fr (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1125,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "BJ Alex -> 15483",
+                        "Love is an Illusion -> 16019",
+                        "19 days -> 685"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 73,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangahub.fr (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1211,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Log in to Lust-a-Land -> 64381",
+                        "I’m No Heroine! -> 64287",
+                        "I Accidentally Tamed the Duke -> 64330"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -62,66 +64,82 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 3575,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapitre 10 -> chapitre-10",
+                        "Chapitre 9 -> chapitre-9",
+                        "Chapitre 8 -> chapitre-8"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 593,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://mangahub.fr/wp-admin/admin-ajax.php?action=load_img_data&token=d760739d28ddcbd7c85c1d6496424bb9",
+                        "https://mangahub.fr/wp-admin/admin-ajax.php?action=load_img_data&token=502e65009bd3d06a21df702868e795dc",
+                        "https://mangahub.fr/wp-admin/admin-ajax.php?action=load_img_data&token=d448bec644cd17e1b4d14b2aa38f6fcc"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1610,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:45:30.499078820Z",
+    "comparedTo": "2026-10-25T08:39:55.489234113Z",
     "changes": [
         {
             "source": "MangaHub.fr",
             "lang": "fr",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "MangaHub.fr",
             "lang": "fr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "MangaHub.fr",
             "lang": "fr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "MangaHub.fr",
             "lang": "fr",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MangaHub.fr",
             "lang": "fr",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MangaHub.fr",
             "lang": "fr",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ]
 }
