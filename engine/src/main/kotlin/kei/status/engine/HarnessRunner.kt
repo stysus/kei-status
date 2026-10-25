@@ -12,6 +12,9 @@ import eu.kanade.tachiyomi.source.model.SMangaUpdate
 import eu.kanade.tachiyomi.source.online.HttpSource
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
@@ -382,45 +385,53 @@ class HarnessRunner(private val config: HarnessConfig) {
      */
     private suspend fun probeImages(source: CatalogueSource, pages: List<Page>): List<String> {
         val httpSource = source as? HttpSource ?: return emptyList()
-        val notes = mutableListOf<String>()
+        val buildFailures = mutableListOf<String>()
 
-        pages.take(config.pageLimit).forEachIndexed { index, page ->
-            val request = try {
-                httpSource.resolveImageUrl(page)
-                httpSource.getImageRequest(page)
-            } catch (e: CancellationException) {
-                throw e
-            } catch (e: Exception) {
-                notes += "page[$index] image request could not be built: ${e.message ?: e::class.java.simpleName}"
-                return@forEachIndexed
-            }
-
+        // Resolve image URLs sequentially — several sources call a server endpoint here
+        // (MangaDex's At-Home), and that endpoint may be rate-limited. The resolved URL is
+        // written back onto the page so the image request is built against it.
+        val resolved = pages.take(config.pageLimit).mapIndexedNotNull { index, page ->
             try {
-                httpSource.client.newCall(request).await().use { response ->
-                    if (!response.isSuccessful) {
-                        notes += "page[$index] image returned HTTP ${response.code}"
-                        return@use
-                    }
-                    // The body's media type wins over the header. An interceptor that swaps the
-                    // bytes for an image usually leaves the server's header alone - the E4P
-                    // interceptor rewrites an `application/vnd.e4p.qsc` response into WEBP and
-                    // keeps the header - so the header describes what the server sent, while the
-                    // body describes what this source actually handed us to decode. The header is
-                    // still the fallback, because a body built without a media type carries none.
-                    val type = contentTypeOf(response)
-                    val bytes = response.body.bytes()
-                    imageDecodeNote(index, bytes, type)?.let { notes += it }
-                }
+                httpSource.resolveImageUrl(page)
+                index to httpSource.getImageRequest(page)
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                // The class matters: an IIOException here is a decode/encode failure, not a
-                // network failure, and the bare message ("Bogus input colorspace") reads like one.
-                notes += "page[$index] image request failed: ${e::class.java.simpleName}: ${e.message}"
+                buildFailures += "page[$index] image request could not be built: ${e.message ?: e::class.java.simpleName}"
+                null
             }
         }
 
-        return notes
+        // Download and decode concurrently — the images are independent resources, and OkHttp's
+        // dispatcher plus any source rate-limiter still governs the actual HTTP calls, so
+        // concurrent launch does not bypass per-host limits. pageLimit (default 3) caps the
+        // concurrency to a handful of calls.
+        return buildFailures + coroutineScope {
+            resolved.map { (index, request) ->
+                async(Dispatchers.IO) {
+                    probeOneImage(httpSource, index, request)
+                }
+            }.awaitAll().filterNotNull()
+        }
+    }
+
+    private suspend fun probeOneImage(
+        httpSource: HttpSource,
+        index: Int,
+        request: Request,
+    ): String? = try {
+        httpSource.client.newCall(request).await().use { response ->
+            if (!response.isSuccessful) {
+                return "page[$index] image returned HTTP ${response.code}"
+            }
+            val type = contentTypeOf(response)
+            val bytes = response.body.bytes()
+            imageDecodeNote(index, bytes, type)
+        }
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        "page[$index] image request failed: ${e::class.java.simpleName}: ${e.message}"
     }
 
     private fun mangaNotes(page: MangasPage) = Checks.mangaPage(page)
@@ -609,19 +620,20 @@ internal fun imageFormatName(data: ByteArray): String? {
 internal fun imageDecodeNote(index: Int, bytes: ByteArray, type: String): String? {
     if (bytes.isEmpty()) return "page[$index] image body is empty"
 
-    val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size) ?: run {
-        val format = imageFormatName(bytes)
-        return if (format != null) {
-            "page[$index] image is $format, which the harness cannot decode; Android decodes it natively"
-        } else {
-            // No byte count on purpose: an error page's size moves on every fetch (ad slots,
-            // rotating banners), and a note that changes every run rewrites the store entry each
-            // night while the state behind it has not moved. The type is what describes the bytes.
-            "page[$index] image bytes did not decode ('$type')"
-        }
+    // Probe the header only — proving the format is recognised and the dimensions are
+    // readable is enough to confirm the source delivered a real image. A full pixel decode
+    // would allocate a multi-megabyte BufferedImage per page just to throw it away, and the
+    // harness is testing the extension's wiring, not the CDN's integrity.
+    val opts = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+    BitmapFactory.decodeByteArray(bytes, 0, bytes.size, opts)
+    if (opts.outWidth > 0 && opts.outHeight > 0) return null
+
+    val format = imageFormatName(bytes)
+    return if (format != null) {
+        "page[$index] image is $format, which the harness cannot decode; Android decodes it natively"
+    } else {
+        "page[$index] image bytes did not decode ('$type')"
     }
-    bitmap.recycle()
-    return null
 }
 
 /**
