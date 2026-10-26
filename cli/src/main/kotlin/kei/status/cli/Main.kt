@@ -295,12 +295,16 @@ private fun writePlan(options: Options, out: Path): Int {
 }
 
 internal fun configFor(options: Options, entry: ModuleList.Entry, scratch: Path): HarnessConfig {
-    // Entry flags are parsed with the same rules as the command line, so `--lang en` on one line of
-    // a list means the same as `--lang en` on the command line.
-    val overrides = try {
-        Options.parse(options.runArgs.toTypedArray() + entry.args.toTypedArray() + arrayOf("--module", entry.module))
-    } catch (e: IllegalArgumentException) {
-        throw IllegalArgumentException("${entry.module}: ${e.message}")
+    // When the entry carries no flags of its own, the command-line options already hold every
+    // value and re-parsing would reach the same result.
+    val overrides = if (entry.args.isEmpty()) {
+        options
+    } else {
+        try {
+            Options.parse(options.runArgs.toTypedArray() + entry.args.toTypedArray() + arrayOf("--module", entry.module))
+        } catch (e: IllegalArgumentException) {
+            throw IllegalArgumentException("${entry.module}: ${e.message}")
+        }
     }
 
     return HarnessConfig(

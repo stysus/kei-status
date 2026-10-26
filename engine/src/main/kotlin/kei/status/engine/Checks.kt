@@ -126,8 +126,10 @@ object Checks {
      * at all - Comic Fury's comics are not in any language. Both are declared by real extensions,
      * so flagging them would report a convention as a violation.
      */
+    private val LANG_PATTERN = Regex("^[a-zA-Z]{2,3}(-[a-zA-Z0-9]+)?$")
+
     private fun isValidLang(lang: String): Boolean =
-        lang == "all" || lang == "other" || lang.matches(Regex("^[a-zA-Z]{2,3}(-[a-zA-Z0-9]+)?$"))
+        lang == "all" || lang == "other" || lang.matches(LANG_PATTERN)
 
     /** Delegates to [ExceptionDiagnosis] so existing callers need not change their import. */
     fun diagnose(t: Throwable): Diagnosis = ExceptionDiagnosis.diagnose(t)

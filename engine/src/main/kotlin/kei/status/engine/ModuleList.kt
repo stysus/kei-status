@@ -17,6 +17,8 @@ import java.nio.file.Path
  */
 object ModuleList {
 
+    private val WHITESPACE = Regex("\\s+")
+
     data class Entry(val module: String, val args: List<String> = emptyList())
 
     /**
@@ -51,7 +53,7 @@ object ModuleList {
             .map { it.substringBefore('#').trim() }
             .filter { it.isNotEmpty() }
             .map { line ->
-                val parts = line.split(Regex("\\s+")).filter { it.isNotEmpty() }
+                val parts = line.split(WHITESPACE).filter { it.isNotEmpty() }
                 // The flags are passed through as written; the checker's own parser validates them,
                 // so there is no second grammar to keep in sync here.
                 Entry(parts.first(), parts.drop(1))

@@ -36,9 +36,12 @@ internal suspend fun HttpSource.resolveImageUrl(page: Page) {
  */
 internal fun imageFormatName(data: ByteArray): String? {
     if (data.size < 12) return null
-    if (data.sliceArray(4..7).toString(Charsets.US_ASCII) != "ftyp") return null
+    if (data[4] != 'f'.code.toByte() || data[5] != 't'.code.toByte() ||
+        data[6] != 'y'.code.toByte() || data[7] != 'p'.code.toByte()
+    ) return null
 
-    return when (val brand = data.sliceArray(8..11).toString(Charsets.US_ASCII)) {
+    val brand = String(data, 8, 4, Charsets.US_ASCII)
+    return when (brand) {
         "avif" -> "AVIF"
         "avis" -> "AVIF sequence"
         "heic", "mif1", "msf1" -> "HEIF ($brand)"
