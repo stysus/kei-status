@@ -98,7 +98,6 @@ class Page internal constructor(
     fun send(method: String, params: JsonObject = JsonObject(emptyMap())): CompletableFuture<JsonObject> {
         val id = nextId.getAndIncrement()
         val future = CompletableFuture<JsonObject>()
-        pending[id] = future
 
         val message = JsonObject(
             mapOf(
@@ -108,7 +107,26 @@ class Page internal constructor(
             ),
         )
 
-        if (closed || !socket.send(message.toString())) {
+        if (closed) {
+            future.completeExceptionally(
+                ChromeUnavailableException("DevTools session is closed"),
+            )
+            return future
+        }
+
+        pending[id] = future
+
+        // Re-check after put: if onFailure ran between the first check and the put, the future
+        // sits in pending uncompleted (onFailure already iterated and cleared).  The second
+        // check catches it; completeExceptionally is idempotent if onFailure got there first.
+        if (closed) {
+            pending.remove(id)?.completeExceptionally(
+                ChromeUnavailableException("DevTools session is closed"),
+            )
+            return future
+        }
+
+        if (!socket.send(message.toString())) {
             pending.remove(id)
             future.completeExceptionally(
                 ChromeUnavailableException("DevTools session is closed"),
