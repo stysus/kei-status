@@ -84,4 +84,15 @@ class CookieManagerTest {
         assertNull(cm.getCookie("https://example.com/"))
         assertNull(cm.getCookie("https://other.com/"))
     }
+
+    @Test
+    fun `a leading-dot domain attribute is still a domain cookie`() {
+        cm.setCookie("https://api.example.com/", "cdn=q; Domain=.Example.com; Path=/")
+
+        val result = cm.getCookie("https://example.com/")
+        assertTrue(
+            "case-insensitive dotted domain must reach the parent, got: $result",
+            result?.contains("cdn=q") == true,
+        )
+    }
 }

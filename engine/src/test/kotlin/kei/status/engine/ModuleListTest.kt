@@ -169,4 +169,22 @@ class ModuleListTest {
     fun `an out of range shard is rejected`() {
         ModuleList.shard(listOf(ModuleList.Entry(":src:en:a")), 4, 3)
     }
+
+    @Test
+    fun `an unmeasured module is priced at the median, not free`() {
+        val heavy = ModuleList.Entry(":src:all:xcomic")
+        val unknown = ModuleList.Entry(":src:en:brandnew")
+
+        val bins = ModuleList.split(
+            listOf(heavy, unknown),
+            count = 2,
+            costs = mapOf(":src:all:xcomic" to 500_000),
+        )
+
+        // fallback = median(500_000) = 500_000, so both are equally heavy and land in separate shards
+        assertTrue(
+            "new module must not share a shard with the heavy one",
+            bins[0].size == 1 && bins[1].size == 1,
+        )
+    }
 }

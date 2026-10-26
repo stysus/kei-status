@@ -315,4 +315,70 @@ class ReportStoreTest {
         assertEquals("Aurora", outsideTree.displayName)
         assertEquals("", outsideTree.lang)
     }
+
+    @Test
+    fun `a vanished source is recorded`() {
+        val dir = store()
+        ReportStore.save(dir, report(sources = listOf(
+            source(name = "MangaDex", lang = "en"), source(name = "MangaDex", lang = "id"))))
+
+        val saved = ReportStore.save(dir, report(sources = listOf(source(name = "MangaDex", lang = "en"))))
+
+        val gone = saved.changes.single { it.lang == "id" }
+        assertEquals(Status.PASS, gone.from)
+        assertNull(gone.to)
+        assertNull(gone.scenario)
+    }
+
+    @Test
+    fun `a changed source id is appeared and vanished, not a transition`() {
+        val dir = store()
+        ReportStore.save(dir, report(sources = listOf(
+            SourceReport(1, "Aurora", "en", "https://example.test", Status.PASS,
+                listOf(ScenarioResult("pages", Status.PASS, 10))))))
+
+        val saved = ReportStore.save(dir, report(sources = listOf(
+            SourceReport(2, "Aurora", "en", "https://example.test", Status.PASS,
+                listOf(ScenarioResult("pages", Status.PASS, 10))))))
+
+        // key() is "$sourceId|$lang|$name", so changing sourceId means the old key vanished
+        // and a new key appeared — not a silent transition on the same source.
+        val vanished = saved.changes.filter { it.to == null }
+        val appeared = saved.changes.filter { it.from == null }
+        assertEquals("old source id must vanish", 1, vanished.size)
+        assertEquals("new source id must appear", 1, appeared.size)
+    }
+
+    @Test
+    fun `a source verdict moving without a scenario change is still recorded`() {
+        val dir = store()
+        ReportStore.save(dir, report(sources = listOf(
+            source(status = Status.PASS, scenarios = listOf(ScenarioResult("pages", Status.PASS, 10))))))
+
+        // Source verdict changes PASS→FAIL while all scenarios stay PASS — a roll-up mismatch
+        // the store records rather than hiding.
+        val saved = ReportStore.save(dir, report(sources = listOf(
+            source(status = Status.FAIL, scenarios = listOf(ScenarioResult("pages", Status.PASS, 10))))))
+
+        val sourceLevel = saved.changes.single { it.scenario == null }
+        assertEquals(Status.PASS, sourceLevel.from)
+        assertEquals(Status.FAIL, sourceLevel.to)
+    }
+
+    @Test
+    fun `scenario order does not dirty the store`() {
+        val dir = store()
+        ReportStore.save(dir, report(sources = listOf(
+            source(scenarios = listOf(
+                ScenarioResult("metadata", Status.PASS, 5),
+                ScenarioResult("pages", Status.PASS, 10))))))
+
+        val saved = ReportStore.save(dir, report(sources = listOf(
+            source(scenarios = listOf(
+                ScenarioResult("pages", Status.PASS, 10),
+                ScenarioResult("metadata", Status.PASS, 5))))))
+
+        assertFalse("reordered scenarios must not rewrite the store", saved.written)
+        assertEquals(emptyList<StatusChange>(), saved.changes)
+    }
 }

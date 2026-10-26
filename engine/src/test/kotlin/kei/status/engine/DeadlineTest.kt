@@ -94,4 +94,28 @@ class DeadlineTest {
         assertEquals(DeadlineOutcome.Expired, outcome)
         assertTrue("returned after ${elapsedMs}ms", elapsedMs < 5_000)
     }
+
+    @Test
+    fun `caller cancellation cancels the block and rethrows`() = runBlocking {
+        val started = java.util.concurrent.CountDownLatch(1)
+        var threw = false
+
+        val thread = Thread {
+            try {
+                runBlocking {
+                    withDeadline<Unit>(Duration.ofSeconds(5)) {
+                        started.countDown()
+                        awaitCancellation()
+                    }
+                }
+            } catch (_: kotlinx.coroutines.CancellationException) {
+                threw = true
+            }
+        }
+        thread.start()
+        assertTrue("block should start", started.await(5, TimeUnit.SECONDS))
+        thread.interrupt()
+        thread.join(5_000)
+        assertTrue("caller cancellation must rethrow CancellationException", threw)
+    }
 }

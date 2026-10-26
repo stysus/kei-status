@@ -51,4 +51,20 @@ class ExitCodeTest {
         )
         assertEquals(0, exitCode(listOf(healthy to null)))
     }
+
+    @Test
+    fun `blocked and throttled modules do not fail the run`() {
+        val report = RunReport(
+            generatedAt = "2026-10-25T00:00:00Z",
+            module = ":src:en:example",
+            sourceRoot = "/extensions-source",
+            extensionCommit = null,
+            sources = listOf(
+                SourceReport(1, "Blocked", "en", "https://example.com", Status.BLOCKED, emptyList()),
+                SourceReport(2, "Throttled", "en", "https://example.com", Status.THROTTLED, emptyList()),
+                SourceReport(3, "Unsupported", "en", "https://example.com", Status.UNSUPPORTED, emptyList()),
+            ),
+        )
+        assertEquals(0, exitCode(listOf(report to null)))
+    }
 }
