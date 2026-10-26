@@ -54,6 +54,41 @@ data class HarnessConfig(
 
 class HarnessRunner(private val config: HarnessConfig) {
 
+    companion object {
+        /**
+         * A module-level failure the runner itself could not survive.
+         *
+         * Without this, the caller's only option is to skip the module — it vanishes from the
+         * results, the summary count shrinks silently, and the store keeps advertising whatever
+         * the last successful sweep said.  Building a report instead makes the crash visible in
+         * the same format everything else uses.
+         *
+         * Scenario name `"run"` distinguishes this from the engine's own `"load"` failures.
+         */
+        fun crashReport(config: HarnessConfig, e: Throwable): RunReport {
+            if (TRACE) e.printStackTrace()
+            val diagnosis = Checks.diagnose(e)
+            return RunReport(
+                generatedAt = Instant.now().toString(),
+                module = config.module,
+                sourceRoot = "",
+                extensionCommit = null,
+                sources = listOf(
+                    SourceReport(
+                        sourceId = 0,
+                        name = config.module,
+                        lang = "",
+                        baseUrl = "",
+                        status = diagnosis.status,
+                        scenarios = listOf(
+                            ScenarioResult("run", diagnosis.status, 0, diagnosis.message, diagnosis.chain),
+                        ),
+                    ),
+                ),
+            )
+        }
+    }
+
     /**
      * One entry per (extension class, site). A module that declares one source per language runs
      * the same class against the same site once per language; core fetches filter data in the

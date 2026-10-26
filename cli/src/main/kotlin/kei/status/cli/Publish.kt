@@ -3,6 +3,7 @@ package kei.status.cli
 import kei.status.engine.ModuleList
 import kei.status.engine.ReportHtml
 import kei.status.engine.ReportStore
+import kei.status.engine.writeAtomically
 import java.nio.file.Files
 import java.nio.file.Path
 
@@ -38,7 +39,7 @@ internal fun publish(siteDir: Path, outDir: Path, title: String?, only: Path?, p
 
     Files.createDirectories(outDir)
     val index = outDir.resolve("index.html")
-    Files.writeString(index, ReportHtml.site(reports, title ?: ReportHtml.DEFAULT_TITLE))
+    writeAtomically(index, ReportHtml.site(reports, title ?: ReportHtml.DEFAULT_TITLE))
     println("published ${reports.size} report(s) to $index")
 
     // After the page, not before: a render that fails must leave the store as it found it.

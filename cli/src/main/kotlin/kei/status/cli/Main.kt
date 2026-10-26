@@ -3,11 +3,13 @@ package kei.status.cli
 import kei.status.engine.HarnessConfig
 import kei.status.engine.ModuleList
 import kei.status.engine.HarnessRunner
+import kotlinx.coroutines.CancellationException
 import kei.status.engine.ReportHtml
 import kei.status.engine.ReportStore
 import kei.status.engine.RunReport
 import kei.status.engine.Status
 import kei.status.engine.StatusChange
+import kei.status.engine.writeAtomically
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.nio.file.Files
@@ -70,14 +72,22 @@ fun main(args: Array<String>) {
             }
             val report = try {
                 HarnessRunner(config).run()
+            } catch (e: CancellationException) {
+                throw e
             } catch (e: Throwable) {
-                System.err.println("kei-status: ${entry.module}: ${e.message}")
-                if (System.getenv("KEI_STATUS_TRACE") != null) e.printStackTrace()
-                return@forEachIndexed
+                HarnessRunner.crashReport(config, e)
             }
 
             val storeToUse = storeToWrite(options, config)
-            val saved = storeToUse?.let { ReportStore.save(it, report) }
+            val saved = storeToUse?.let { store ->
+                try {
+                    ReportStore.save(store, report)
+                } catch (e: Exception) {
+                    System.err.println("kei-status: could not save state for ${entry.module} to $store: ${e.message}")
+                    if (System.getenv("KEI_STATUS_TRACE") != null) e.printStackTrace()
+                    null
+                }
+            }
             if (options.store != null && storeToUse == null) {
                 println("  narrowed run (--lang); the store keeps the full sweep's entry for ${entry.module}")
             }
@@ -101,12 +111,12 @@ fun main(args: Array<String>) {
         val effective = results.single().second?.report ?: results.single().first
         options.output?.let { path ->
             path.parent?.let { Files.createDirectories(it) }
-            Files.writeString(path, json.encodeToString(effective))
+            writeAtomically(path, json.encodeToString(effective))
             println("\nreport written to $path")
         }
         options.html?.let { path ->
             path.parent?.let { Files.createDirectories(it) }
-            Files.writeString(path, ReportHtml.site(listOf(effective), titleOf(options.title, effective.module)))
+            writeAtomically(path, ReportHtml.site(listOf(effective), titleOf(options.title, effective.module)))
             println("page written to $path")
         }
     }

@@ -12,7 +12,9 @@ import okhttp3.WebSocketListener
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.CountDownLatch
+import java.util.concurrent.ExecutionException
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.TimeoutException
 import java.util.concurrent.atomic.AtomicLong
 
 /**
@@ -117,8 +119,17 @@ class Page internal constructor(
     }
 
     /** Sends [method] and blocks for its result. Never call this from the main thread. */
-    fun call(method: String, params: JsonObject = JsonObject(emptyMap())): JsonObject =
-        send(method, params).get(30, TimeUnit.SECONDS)
+    fun call(method: String, params: JsonObject = JsonObject(emptyMap())): JsonObject = try {
+        send(method, params).get(CALL_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+    } catch (e: TimeoutException) {
+        throw TimeoutException("DevTools $method on page $targetId timed out after ${CALL_TIMEOUT_SECONDS}s")
+    } catch (e: ExecutionException) {
+        throw (e.cause ?: e)
+    }
+
+    private companion object {
+        const val CALL_TIMEOUT_SECONDS = 30L
+    }
 
     private fun dispatch(text: String) {
         val message = json.parseToJsonElement(text).jsonObject
