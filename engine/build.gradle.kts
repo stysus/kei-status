@@ -5,5 +5,6 @@ plugins {
 
 dependencies {
     api(project(":host-shim"))
+    implementation(libs.serialization.protobuf)
     testImplementation(libs.junit)
 }

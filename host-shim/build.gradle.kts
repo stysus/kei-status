@@ -4,5 +4,6 @@ plugins {
 
 dependencies {
     api(project(":android-shim"))
+    api(libs.injekt.core)
     testImplementation(libs.junit)
 }
