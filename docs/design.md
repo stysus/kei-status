@@ -64,6 +64,14 @@ weighted like a typical one rather than as free, so a brand-new hundred-source a
 onto a shard that happened to look empty. On the same tree that split puts every shard at 21-22
 minutes instead of 58 at the worst, for the same total runner time.
 
+Store durations were the first weights and balanced the 58-minute shards to 21-22, but they are
+frozen at each module's last status change, so a module that kept passing for a month was weighted
+by a month-old number. The costs file makes the weights at most one night old: every run writes
+wall-clock per module, the publish job unions the per-shard views into the store, and the next
+prepare balances on that. The plan now also prints the projected load per shard, so a split is
+judged before twenty runners are spent, and `run-shard.sh` prints the build/check time split so the
+projection can be checked against reality.
+
 ### The build cache is per shard
 
 Compiling an extension is the expensive part of a run and almost nothing changes upstream between

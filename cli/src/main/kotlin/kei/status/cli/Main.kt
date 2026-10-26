@@ -119,11 +119,14 @@ fun main(args: Array<String>) {
 
     // Write a costs file so the next run's shard split uses measured wall-clock time instead of
     // the store's stale durationMs.  A module that stays PASS for a month still gets a fresh
-    // timing every night.  The file sits next to the store reports but uses a name that readAll's
-    // "*.json" filter does not match, so it is never parsed as a RunReport.
+    // timing every night.  The measurements merge into (rather than replace) the file: a
+    // single-module or narrowed run would otherwise erase every other module's timing until the
+    // next full sweep re-measured it.  The file sits next to the store reports but uses a name
+    // that readAll's "*.json" filter does not match, so it is never parsed as a RunReport.
     if (moduleTimes.isNotEmpty()) {
         options.store?.let { store ->
-            val body = moduleTimes.entries
+            val merged = mergedCosts(store, moduleTimes)
+            val body = merged.entries
                 .sortedBy { it.key }
                 .joinToString(",\n  ", prefix = "{\n  ", postfix = "\n}") { (module, ms) ->
                     "\"${module}\": $ms"
@@ -252,6 +255,32 @@ internal fun moduleCosts(options: Options): Map<String, Int> {
         }
     }
     return moduleCostsFromStore(dir)
+}
+
+/**
+ * This run's measured wall-clock times merged into the store's costs file.
+ *
+ * The merge, not a replace, is what lets a single-module run write costs at all: the nightly
+ * sweep is the only run that measures every module, and a debugging session in between must not
+ * erase the other 1,400 timings the plan depends on. This run's entries win per module — the
+ * same rule the publish job unions the per-shard views by. An unreadable file is dropped with a
+ * warning, the same recovery apply.sh uses.
+ */
+internal fun mergedCosts(dir: Path, measured: Map<String, Long>): Map<String, Long> {
+    val costsFile = dir.resolve("costs")
+    val existing = if (Files.isRegularFile(costsFile)) {
+        runCatching {
+            Json.parseToJsonElement(Files.readString(costsFile))
+                .let { it as JsonObject }
+                .mapValues { it.value.jsonPrimitive.long }
+        }.getOrElse {
+            System.err.println("kei-status: ignoring unreadable costs file $costsFile: ${it.message}")
+            emptyMap()
+        }
+    } else {
+        emptyMap()
+    }
+    return existing + measured
 }
 
 private fun moduleCostsFromStore(dir: Path): Map<String, Int> =

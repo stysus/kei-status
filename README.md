@@ -163,6 +163,7 @@ The measurements and the rejected alternatives behind each of these are in
 | [docs/ci.md](docs/ci.md) | the two workflows, sharding, caching, the `data` branch |
 | [docs/cloudflare.md](docs/cloudflare.md) | how anti-bot challenges are detected and cleared |
 | [docs/design.md](docs/design.md) | what is real and what is simulated, and why it is built this way |
+| [docs/optimizations.md](docs/optimizations.md) | the October 2026 optimization campaign: what changed, what it measured, what was rejected |
 
 ## Layout
 

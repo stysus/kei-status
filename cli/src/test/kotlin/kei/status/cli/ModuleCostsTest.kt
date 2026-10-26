@@ -64,4 +64,26 @@ class ModuleCostsTest {
         val costs = moduleCosts(options(dir))
         assertEquals(mapOf(":src:en:aurora" to 300), costs)
     }
+
+    @Test
+    fun `a run's measurements merge into the existing costs file`() {
+        // A single-module run must not erase the sweep's other timings: the nightly sweep is the
+        // one that measures everything, and a debugging session in between still costs one module.
+        val dir = temporary.newFolder().toPath()
+        Files.writeString(dir.resolve("costs"), """{":src:en:old": 42000, ":src:en:aurora": 100000}""")
+
+        val merged = mergedCosts(dir, mapOf(":src:en:aurora" to 123000))
+
+        assertEquals(mapOf(":src:en:old" to 42000L, ":src:en:aurora" to 123000L), merged)
+    }
+
+    @Test
+    fun `an unreadable costs file merges into nothing rather than failing the run`() {
+        val dir = temporary.newFolder().toPath()
+        Files.writeString(dir.resolve("costs"), "not json")
+
+        val merged = mergedCosts(dir, mapOf(":src:en:aurora" to 123000))
+
+        assertEquals(mapOf(":src:en:aurora" to 123000L), merged)
+    }
 }

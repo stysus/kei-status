@@ -73,10 +73,15 @@ state changed (1 transition(s)); wrote data/src-en-aurora.json
 ```
 
 The file is only rewritten when the state actually moves, so a module that keeps passing produces
-no diff. The store is meant to be committed (on its own branch, see [ci.md](ci.md#where-the-recorded-state-lives)):
-`git diff` inside it answers "what broke since the last run", and the commit history is the timeline.
-Each stored report carries `comparedTo` (the run it replaced) and `changes` (the transitions), which
-the page renders under the module heading.
+no diff. Next to the reports, every run writes a `costs` file: wall-clock per module, used to split
+a run into balanced shards. The name deliberately does not match the reports' `*.json`, so it is
+never parsed as one, and unlike the reports it is rewritten on every run — merged into what is
+already there, so a single-module debugging run never erases the sweep's other timings. Freshness
+is its whole point. `--plan` prints the projected load per shard from these weights; `slowest:` at
+the end of a run names the outliers. The store is meant to be committed (on its own branch, see
+[ci.md](ci.md#where-the-recorded-state-lives)): `git diff` inside it answers "what broke since the
+last run", and the commit history is the timeline. Each stored report carries `comparedTo` (the run
+it replaced) and `changes` (the transitions), which the page renders under the module heading.
 
 The page itself is timestamped once, at the top, with when the run happened. A nightly job
 refreshes the page every night while most modules keep the state they have had for weeks, so a

@@ -43,9 +43,18 @@ trigger feeds one in without committing it.
 input to change it) and each shard runs in its own job. Shards are independent: `fail-fast: false`,
 so one bad shard does not cancel the rest.
 
-The split is by **cost, not by module count**: the checker reads how many scenarios each module ran
-on its last sweep, out of the committed store, and packs the heaviest first onto the emptiest shard.
-The measurements behind that decision are in [design.md](design.md#sharding-balances-cost-not-module-count).
+The split is by **cost, not by module count**: the checker packs the heaviest first onto the
+emptiest shard. The measurements behind that decision are in
+[design.md](design.md#sharding-balances-cost-not-module-count).
+
+The weights have two sources, in order: the `costs` file in the store — wall-clock per module from
+the last sweep — and, for a module it does not name (first run, a fresh checkout), the store's
+scenario durations. The file never travels with the reports: each shard's `collect.sh` copies its
+own view out as `costs-<shard>` so the artifact merge cannot let one shard clobber another,
+`apply.sh` unions them into one `costs` in the publish job (tonight's timing wins per module; a
+module a manual run did not check keeps its last timing), and `commit.sh` counts it separately from
+real state changes. Shards are disjoint by construction and `verify.sh` refuses to publish unless
+every shard reported, so the nightly union is complete for the modules the night measured.
 
 A shard compiles its own modules in one Gradle invocation, so the shared modules (`:core`, `:lib:*`)
 compile once instead of once per extension and compilation runs in parallel. What a shard does *not*
@@ -66,10 +75,13 @@ and handed to the shards as an artifact. The reasoning and the numbers are in
 ## What gets published
 
 Each shard passes `--store data`, so results persist in the repository instead of living only in the
-workspace of that one run. The store only rewrites a file when a module's state actually moves, so a
-quiet night produces no commit; a module that moved gets one, and the page shows the transition. A
-module that disappears upstream is the other case: `--prune` deletes its entry, and that night
-commits a removal instead of a rewrite.
+workspace of that one run. The store only rewrites a report when a module's state actually moves.
+The one file that moves every night is `costs` — measured wall-clock per module is never identical —
+so a quiet night now produces one commit that says `measured costs updated` instead of none.
+`git log data` therefore reads `status: record N changed` on an active night and
+`status: record measured costs updated` on a quiet one, and `git log -p data -- costs` is the
+wall-clock timeline. A module that disappears upstream is the other case: `--prune` deletes its
+entry, and that night commits a removal instead of a rewrite.
 
 Shards upload only the files they rewrote, plus a marker recording that the shard finished. The
 publish job merges those, refuses to publish unless **every** shard reported in, then renders and
@@ -142,9 +154,14 @@ ci/run-shard.sh <shard-file> [store-dir] [source-root]
 ci/collect.sh <shard-id> <store-dir> <out-dir>
 ci/apply.sh <incoming-dir> [store-dir]
 ci/verify.sh <store-dir> <incoming-dir> <matrix.json>
+ci/healthcheck.sh <store-dir> <incoming-dir>
 ci/publish.sh <all-modules-file> [out-dir] [store-dir]
 ci/commit.sh [store-dir] [branch] [message-prefix]
 ```
 
 All of them require the store to be a git checkout of the `data` branch, since that is what tells
 them which entries a run rewrote.
+
+`healthcheck.sh` is designed for CI — without `GITHUB_STEP_SUMMARY` set it writes its summary to
+`/dev/null` and prints only a one-liner — but it can summarize any store and incoming directory, so
+it is usable locally to see what a sweep actually found.
