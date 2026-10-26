@@ -1,37 +1,39 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T16:23:43.604606225Z",
+    "generatedAt": "2026-10-26T09:19:13.119252128Z",
     "module": ":src:pt:apenasumafa",
     "sourceRoot": "",
-    "extensionCommit": "f1edb034",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 6897166867127039489,
             "name": "Apenas Uma Fã",
             "lang": "pt-BR",
             "baseUrl": "https://apenasuma-fa.blogspot.com",
-            "status": "PASS",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 8,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 340,
+                    "status": "WARN",
+                    "durationMs": 447,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 96,
+                    "durationMs": 181,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +63,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 488,
+                    "durationMs": 652,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -72,35 +74,39 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 329,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkr7n-TRcFP1LYEvda-hi1Ow1BWNogV-QvrWwxS6nbStQLWwBjPgvar5b68tX22RgYgeQsEb9zV6iYej60_oEB9ozQ22JHyTyyzZoFQ-w6WK-BBybELfOmmdpub2nK_JFYnKtq430PAWNQqhpJYMyuCtbQtJMcVN8-bi0KTERd2taslOWW46YekJtMANg/s1600/00%20-%20introvertidos%20%282%29.png",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggFwvatg9z_2vmYUH-g-NiAIxPWeG3irod3nLJVOadWKPSeqm3KO417mQIK99Vq28337GOrVNCSEwx5fwt6U6kbopUNU-bv4dkcdqOQYkZqy88dRdu7W0wgsp-cmvt1VY1BkREEV2k_tm8oihjKyaXRhAcigmXNjXyctj4iNtEPjF9z-VSdUOTZEppW3E/s16000/01.png",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhV9uW-fvEVKoggfhDZD38uc8Nshqa_0hTQiM0VtkAELkMwT5GEdA5gDXrzXG6D-6jbzjGRU7bwDzeKw7A2VmHmePVe5oZaiV0e5jFtW1O5C1i-THN5myoE12jESkhlXYmBC994-LKN_swcfNiL2pTh_wCpVKGjCzCEKwPEs7JmtcJ3RybWWxUJlSfs0oA/s16000/02.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 8635,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 1844,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-25T08:41:54.922213712Z",
+    "comparedTo": "2026-10-25T16:23:43.604606225Z",
     "changes": [
         {
             "source": "Apenas Uma Fã",
             "lang": "pt-BR",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Apenas Uma Fã",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "Apenas Uma Fã",
+            "lang": "pt-BR",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ]
 }

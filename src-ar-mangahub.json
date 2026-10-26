@@ -1,21 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:52:47.602369892Z",
+    "generatedAt": "2026-10-26T09:15:15.252773185Z",
     "module": ":src:ar:mangahub",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 1214953877894211809,
             "name": "MangaHub",
             "lang": "ar",
             "baseUrl": "https://mangaxhentai.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 901,
+                    "durationMs": 906,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 243,
+                    "durationMs": 263,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,53 +60,44 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 662,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 286,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "الفصل 17 -> chapter-17",
-                        "الفصل 16 -> chapter-16",
-                        "الفصل 15 -> chapter-15"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 657,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.arabmanhwa.com/manga/5a03cd326c1042f48d503a60559adef673d460c61dcda0ededa7a0a1b5a36a79/chapters/350d890da32a80940346e05279c438041145c04e8e948c65790b9fba72a5f646/001.webp",
-                        "https://cdn.arabmanhwa.com/manga/5a03cd326c1042f48d503a60559adef673d460c61dcda0ededa7a0a1b5a36a79/chapters/350d890da32a80940346e05279c438041145c04e8e948c65790b9fba72a5f646/002.webp",
-                        "https://cdn.arabmanhwa.com/manga/5a03cd326c1042f48d503a60559adef673d460c61dcda0ededa7a0a1b5a36a79/chapters/350d890da32a80940346e05279c438041145c04e8e948c65790b9fba72a5f646/003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 917,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:47:26.019418558Z",
+    "comparedTo": "2026-10-23T08:52:47.602369892Z",
     "changes": [
         {
             "source": "MangaHub",
             "lang": "ar",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "MangaHub",
             "lang": "ar",
-            "scenario": null,
-            "from": "FAIL",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaHub",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ]

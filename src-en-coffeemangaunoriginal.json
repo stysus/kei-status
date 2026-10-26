@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T21:56:13.840477541Z",
+    "generatedAt": "2026-10-26T09:15:54.314640602Z",
     "module": ":src:en:coffeemangaunoriginal",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 2571489285618757730,
             "name": "Coffee Manga (Unoriginal)",
             "lang": "en",
             "baseUrl": "https://coffeemanga.net",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,96 +23,100 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 575,
+                    "durationMs": 600,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 600,
+                    "status": "PASS",
+                    "durationMs": 373,
                     "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Naughty Things with My Young Wife -> /manga/9wmyhkzjo5qlmxp/",
+                        "Burning for You -> /manga/burning-for-you/",
+                        "Three Months of Summer -> /manga/three-months-of-summer/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 579,
+                    "status": "PASS",
+                    "durationMs": 420,
                     "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Akane-banashi -> /manga/akane-banashi/",
+                        "The Legendary Assassin Reincarnated as the Beloved Youngest Daughter of a Royal Family -> /manga/the-legendary-assassin-reincarnated-as-the-beloved-youngest-daughter-of-a-royal-family/",
+                        "The Supporting Female Is Reborn, She Will No Longer Serve This Broken Plot -> /manga/4qsn2uump3cherk/"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "3 filters"
+                        "5 filters"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 929,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 24 -> /manga/9wmyhkzjo5qlmxp/chapter-24/",
+                        "Chapter 23 -> /manga/9wmyhkzjo5qlmxp/chapter-23/",
+                        "Chapter 22 -> /manga/9wmyhkzjo5qlmxp/chapter-22/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 30676,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: Timed out waiting for WebView after 30s",
+                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 30s"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:44:50.959346967Z",
+    "comparedTo": "2026-10-24T21:56:13.840477541Z",
     "changes": [
         {
             "source": "Coffee Manga (Unoriginal)",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Coffee Manga (Unoriginal)",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Coffee Manga (Unoriginal)",
             "lang": "en",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Coffee Manga (Unoriginal)",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Coffee Manga (Unoriginal)",
-            "lang": "en",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ]
 }

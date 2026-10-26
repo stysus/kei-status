@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:57:55.144879900Z",
+    "generatedAt": "2026-10-26T09:13:01.610504045Z",
     "module": ":src:ar:manhatok",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 743599002989616408,
             "name": "Manhatok",
             "lang": "ar",
             "baseUrl": "https://manhatok.blogspot.com",
-            "status": "WARN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 291,
+                    "durationMs": 179,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 165,
+                    "durationMs": 1452,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 79,
+                    "durationMs": 233,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,69 +64,47 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 1005,
-                    "message": null,
+                    "status": "THROTTLED",
+                    "durationMs": 1715,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
-                        "chapter[0] has a blank name",
-                        "chapter[1] has a blank name"
-                    ],
-                    "samples": [
-                        " -> /2026/01/image-host_4.html",
-                        " -> /2026/01/image-host.html",
-                        "مانجا ون بيس الفصل Chapter 1131 -> /2024/11/chapter-1131.html"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 257,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "pages",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:53:52.075936652Z",
+    "comparedTo": "2026-10-24T00:57:55.144879900Z",
     "changes": [
         {
             "source": "Manhatok",
             "lang": "ar",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "Manhatok",
-            "lang": "ar",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "THROTTLED"
         },
         {
             "source": "Manhatok",
             "lang": "ar",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "SKIP"
         },
         {
             "source": "Manhatok",
             "lang": "ar",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ]
 }

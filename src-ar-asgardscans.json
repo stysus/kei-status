@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T21:56:17.394494412Z",
+    "generatedAt": "2026-10-26T09:13:12.764862142Z",
     "module": ":src:ar:asgardscans",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 1271101147092894805,
             "name": "AsgardScans",
             "lang": "ar",
             "baseUrl": "https://asgardscans.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1299,
+                    "durationMs": 1103,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1998,
+                    "status": "WARN",
+                    "durationMs": 1747,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Mia Is Back -> /manga/mia-is-back",
-                        "The Martial Genius Who Remembers Everything -> /manga/the-martial-genius-who-remembers-everything",
-                        "The Scorched Desert's Sand Mage -> /manga/the-scorched-deserts-sand-mage"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1710,
+                    "status": "WARN",
+                    "durationMs": 1258,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Talker -> /manga/the-talker",
-                        "Serpent Ancestor -> /manga/serpent-ancestor",
-                        "The Newbie Civil Servant Hunts Villains Before Going Home -> /manga/the-newbie-civil-servant-hunts-villains-before-going-home"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,61 +60,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1106,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "الفصل 44 -> /manga/mia-is-back/44",
-                        "الفصل 43 -> /manga/mia-is-back/43",
-                        "الفصل 42 -> /manga/mia-is-back/42"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1643,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://asgardscans.com/api/public/page/e466b495-2a8a-4b43-954b-43fa758b0007",
-                        "https://asgardscans.com/api/public/page/010609d2-d235-45f8-b1a6-215d868b68f6",
-                        "https://asgardscans.com/api/public/page/a4a7c5e0-f61b-42b7-8cd5-0a5d494dfd99"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 8020,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:52:54.268883251Z",
+    "comparedTo": "2026-10-24T21:56:17.394494412Z",
     "changes": [
         {
             "source": "AsgardScans",
             "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "AsgardScans",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "AsgardScans",
+            "lang": "ar",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "AsgardScans",
             "lang": "ar",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "AsgardScans",
             "lang": "ar",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ]
 }

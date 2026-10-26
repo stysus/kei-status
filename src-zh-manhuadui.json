@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T16:29:23.539759508Z",
+    "generatedAt": "2026-10-26T09:21:48.121739540Z",
     "module": ":src:zh:manhuadui",
     "sourceRoot": "",
-    "extensionCommit": "f1edb034",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 1637952806167036168,
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 440,
+                    "status": "WARN",
+                    "durationMs": 219,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 69,
+                    "durationMs": 72,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +45,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 2995,
+                    "durationMs": 883,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "达哈伦的修女 -> /manhua/dahalundexiunv/",
-                        "蓝兰岛漂流记 -> /manhua/lanlandaopiaoliuji/",
-                        "女友的朋友 -> /manhua/nvyoudepengyou/"
+                        "狗狗走在路上也能遇见公主 -> /manhua/gougouzouzailushangyenengyujiangongzhu/",
+                        "芳香之恋 -> /manhua/fangxiangzhilian/",
+                        "夜中呢喃 -> /manhua/yezhongninan/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,42 +66,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 160,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 976,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "October 3rd Set Patreon HxD -> /manhua/Fatexyuejibenziheji/122911.html",
-                        "绝 -> /manhua/Fatexyuejibenziheji/122910.html",
-                        "October 2nd Set Patreon HxD -> /manhua/Fatexyuejibenziheji/122909.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 893,
-                    "message": "HTTP error 403",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T22:03:42.319790333Z",
+    "comparedTo": "2026-10-25T16:29:23.539759508Z",
     "changes": [
         {
             "source": "优酷漫画",
             "lang": "zh",
-            "scenario": "pages",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "优酷漫画",
+            "lang": "zh",
+            "scenario": "chapters",
             "from": "PASS",
             "to": "FAIL"
         },
         {
             "source": "优酷漫画",
             "lang": "zh",
-            "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ]
 }

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:57:43.601391303Z",
+    "generatedAt": "2026-10-26T09:15:55.418217895Z",
     "module": ":src:fr:mangamoins",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 6508647660473520087,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3549,
+                    "durationMs": 3190,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 238,
+                    "durationMs": 221,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,14 +43,14 @@
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 243,
+                    "durationMs": 233,
                     "message": null,
                     "notes": [
                         "duplicate manga urls: [spy_x_family]"
                     ],
                     "samples": [
-                        "Maghreb -> maghreb",
                         "Someone Hertz -> someone_hertz",
+                        "Maghreb -> maghreb",
                         "One Piece -> one_piece"
                     ]
                 },
@@ -67,7 +67,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 807,
+                    "durationMs": 456,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -79,7 +79,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 921,
+                    "durationMs": 728,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -90,44 +90,26 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 8302,
+                    "status": "WARN",
+                    "durationMs": 2441,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from mangamoinsscans.mangamoins.com (HTTP 403)",
+                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from mangamoinsscans.mangamoins.com (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:52:01.638832366Z",
+    "comparedTo": "2026-10-24T00:57:43.601391303Z",
     "changes": [
         {
             "source": "MangaMoins",
             "lang": "fr",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "WARN"
-        },
-        {
-            "source": "MangaMoins",
-            "lang": "fr",
-            "scenario": "chapters",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaMoins",
-            "lang": "fr",
-            "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaMoins",
-            "lang": "fr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         }
     ]
 }

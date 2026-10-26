@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T16:20:18.445297992Z",
+    "generatedAt": "2026-10-26T09:35:54.282375637Z",
     "module": ":src:en:hiveworks",
     "sourceRoot": "",
-    "extensionCommit": "f1edb034",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 6620819060709781499,
             "name": "Hiveworks Comics",
             "lang": "en",
             "baseUrl": "https://hiveworkscomics.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 330,
+                    "durationMs": 434,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,24 +31,26 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 85,
+                    "durationMs": 107,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "El Goonish Shive -> https://egscomics.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
-                        "Star Impact -> https://starimpactcomic.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
-                        "Spinnerette -> https://spinnyverse.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes"
+                        "The Golden Boar -> https://thegoldenboar.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
+                        "Spinnerette -> https://spinnyverse.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
+                        "How to be a Werewolf -> https://howtobeawerewolf.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes"
                     ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 44,
+                    "status": "PASS",
+                    "durationMs": 68,
                     "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "The Mash -> https://mashcomic.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
+                        "The Glass Scientists -> https://theglassscientists.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
+                        "Parisa -> https://parisacomic.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -62,59 +64,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 971,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 1021,
+                    "message": "This comic has a unsupported chapter list",
                     "notes": [],
-                    "samples": [
-                        "falsekings-200 -> https://www.egscomics.com/comic/falsekings-200",
-                        "falsekings-199 -> https://www.egscomics.com/comic/falsekings-199",
-                        "falsekings-198 -> https://www.egscomics.com/comic/falsekings-198"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 217,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.egscomics.com/comics/1792605491-2610-19-200-announcezz2.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 167,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-25T08:37:20.739990151Z",
+    "comparedTo": "2026-10-25T16:20:18.445297992Z",
     "changes": [
         {
             "source": "Hiveworks Comics",
             "lang": "en",
-            "scenario": "chapters",
-            "from": "FAIL",
+            "scenario": "latest",
+            "from": "WARN",
             "to": "PASS"
+        },
+        {
+            "source": "Hiveworks Comics",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Hiveworks Comics",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Hiveworks Comics",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ]
 }

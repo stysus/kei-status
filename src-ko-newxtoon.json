@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:58:06.284860328Z",
+    "generatedAt": "2026-10-26T09:16:33.069996040Z",
     "module": ":src:ko:newxtoon",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 1562897350957827542,
             "name": "NewXToon",
             "lang": "ko",
             "baseUrl": "https://newxtoon1.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 973,
-                    "message": null,
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 212,
+                    "message": "Connection refused",
+                    "notes": [
+                        "java.net.ConnectException: Failed to connect to newxtoon1.com/162.215.226.7:443"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 802,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "외모지상주의 -> 8067",
-                        "화산귀환 -> 1876",
-                        "나 혼자만 레벨업 -> 4492"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 32,
+                    "message": "Connection refused",
+                    "notes": [
+                        "java.net.ConnectException: Failed to connect to newxtoon1.com/162.215.226.7:443"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 534,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "차원이동 레벨업 -> 334",
-                        "나는 최약체 드래곤 테이머 -> 164",
-                        "선무제존 -> 41"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 36,
+                    "message": "Connection refused",
+                    "notes": [
+                        "java.net.ConnectException: Failed to connect to newxtoon1.com/162.215.226.7:443"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,68 +62,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 14582,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "624화 -> /comics/8067/chapters/1062999",
-                        "623화 -> /comics/8067/chapters/1062993",
-                        "622화 -> /comics/8067/chapters/1062991"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 647,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://user281.quicksharefiles.top/chapters/2184735/624/605d7ef51cb9795cbfdb99261b555900.webp",
-                        "https://user281.quicksharefiles.top/chapters/2184735/624/8ff7dbb5b0158f614d74d99d7ff7c8e9.webp",
-                        "https://user281.quicksharefiles.top/chapters/2184735/624/b0bdf43bcbd9cbdb5c9c150d3c8a2e35.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1067,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-22T08:54:20.297328517Z",
+    "comparedTo": "2026-10-23T08:58:06.284860328Z",
     "changes": [
         {
             "source": "NewXToon",
             "lang": "ko",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "NewXToon",
+            "lang": "ko",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "NewXToon",
+            "lang": "ko",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "NewXToon",
             "lang": "ko",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "NewXToon",
             "lang": "ko",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "NewXToon",
             "lang": "ko",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ]
 }

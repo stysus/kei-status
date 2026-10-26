@@ -1,21 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:49:54.242600462Z",
+    "generatedAt": "2026-10-26T09:22:37.082111814Z",
     "module": ":src:en:readcomicsonline",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 7185601298150078890,
             "name": "Read Comics Online",
             "lang": "en",
             "baseUrl": "https://readcomicsonline.ru",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 16729,
+                    "durationMs": 3938,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 509,
+                    "durationMs": 590,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 590,
+                    "durationMs": 618,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "X-O Manowar: Black, White & Gold (2026-) -> /comic/x-o-manowar-black-white-gold-2026",
-                        "Valiant Beyond: The X-O Manowar Finale - The Pilgrimage (2026-) -> /comic/valiant-beyond-the-x-o-manowar-finale-the-pilgrimage-2026",
-                        "The Twilight Zone (2025-) -> /comic/the-twilight-zone-2025"
+                        "The Last Starfighter: Beta (2026-) -> /comic/the-last-starfighter-beta-2026",
+                        "Terrorbytes (2025-) -> /comic/terrorbytes-2025",
+                        "Flash Gordon Quarterly (2024-) -> /comic/flash-gordon-quarterly-2024"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 6,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 462,
+                    "durationMs": 408,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +77,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 235,
+                    "durationMs": 257,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,58 +88,26 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2381,
+                    "status": "WARN",
+                    "durationMs": 521,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.readcomicsonline.ru (HTTP 403)",
+                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.readcomicsonline.ru (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:55:22.170435296Z",
+    "comparedTo": "2026-10-23T08:49:54.242600462Z",
     "changes": [
         {
             "source": "Read Comics Online",
             "lang": "en",
-            "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "Read Comics Online",
-            "lang": "en",
-            "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "Read Comics Online",
-            "lang": "en",
-            "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "Read Comics Online",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Read Comics Online",
-            "lang": "en",
-            "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Read Comics Online",
-            "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         }
     ]
 }

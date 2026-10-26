@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:35.194211547Z",
+    "generatedAt": "2026-10-26T09:17:25.258210780Z",
     "module": ":src:en:manhwaz",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 651625426989893977,
             "name": "ManhwaZ",
             "lang": "en",
             "baseUrl": "https://manhwaz.cc",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2506,
+                    "durationMs": 1516,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 7,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 118,
+                    "durationMs": 33,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 2238,
+                    "durationMs": 2488,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +77,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 1437,
+                    "durationMs": 2566,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,15 +88,25 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2126,
+                    "status": "WARN",
+                    "durationMs": 11663,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image returned HTTP 429"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:35.194211547Z",
+    "changes": [
+        {
+            "source": "ManhwaZ",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ]
 }

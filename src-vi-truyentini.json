@@ -1,61 +1,55 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:53:13.130914329Z",
+    "generatedAt": "2026-10-26T09:20:53.140305884Z",
     "module": ":src:vi:truyentini",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 7837268511554362907,
             "name": "TruyenTini",
             "lang": "vi",
             "baseUrl": "https://truyentini.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1044,
+                    "status": "WARN",
+                    "durationMs": 829,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 622,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 393,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "Vụng trộm không thể giấu -> 263",
-                        "Tôi Yêu Amy -> 274",
-                        "Tôi Thích Tin Tức Tố Của Cậu -> 164"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 585,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 179,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "Bản sao hoàn hảo -> 2005",
-                        "Tôi đã cướp mất đêm đầu tiên của hoàng thái tử rác rưởi -> 2144",
-                        "Cuộc hôn nhân ấm áp 100 ngày -> 2048"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,39 +58,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 895,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chương 139.2 - End -> chuong-139-2",
-                        "Chương 139.1 -> chuong-139-1",
-                        "Chương 138.2 -> chuong-138-2"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 622,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://truyentini.net/wp-content/uploads/WP-manga/data/vung-trom-khong-the-giau/877642c70e51f7d16584002f7e057a6e/000_result.webp",
-                        "https://truyentini.net/wp-content/uploads/WP-manga/data/vung-trom-khong-the-giau/877642c70e51f7d16584002f7e057a6e/001_result.webp",
-                        "https://truyentini.net/wp-content/uploads/WP-manga/data/vung-trom-khong-the-giau/877642c70e51f7d16584002f7e057a6e/002_result.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1138,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:53:13.130914329Z",
+    "changes": [
+        {
+            "source": "TruyenTini",
+            "lang": "vi",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "TruyenTini",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "TruyenTini",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "TruyenTini",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TruyenTini",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TruyenTini",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ]
 }

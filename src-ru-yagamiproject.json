@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T21:59:24.312870871Z",
+    "generatedAt": "2026-10-26T09:24:37.748760017Z",
     "module": ":src:ru:yagamiproject",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 5458965504724393093,
             "name": "YagamiProject",
             "lang": "ru",
             "baseUrl": "https://read.yagami.me",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,42 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1319,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 31491,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 324,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30001,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Up Up Balloon -> /series/up_up_balloon/",
-                        "NCT: Dream Contact -> /series/nct_dream_contact/",
-                        "Momo Kanchou no Himitsu Kichi -> /series/momo_kanchou_no_himitsu_kichi/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 375,
-                    "message": null,
-                    "notes": [
-                        "duplicate manga urls: [/series/tower_of_god/]"
-                    ],
-                    "samples": [
-                        "Up Up Balloon -> /series/up_up_balloon/",
-                        "Goodbye Dragon Life, Hello Human Life -> /series/goodbye_dragon_life_hello_human_life/",
-                        "Tower of God -> /series/tower_of_god/"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 30001,
+                    "message": "timeout",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,45 +56,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 318,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Том 1. Глава 1 -> /read/up_up_balloon/1/1/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 313,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://read.yagami.me/read/up_up_balloon/1/1/page/1",
-                        "https://read.yagami.me/read/up_up_balloon/1/1/page/2",
-                        "https://read.yagami.me/read/up_up_balloon/1/1/page/3"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3200,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T01:02:36.108554018Z",
+    "comparedTo": "2026-10-24T21:59:24.312870871Z",
     "changes": [
         {
             "source": "YagamiProject",
             "lang": "ru",
-            "scenario": "images",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "YagamiProject",
+            "lang": "ru",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "YagamiProject",
+            "lang": "ru",
+            "scenario": "latest",
             "from": "WARN",
-            "to": "PASS"
+            "to": "FAIL"
+        },
+        {
+            "source": "YagamiProject",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "YagamiProject",
+            "lang": "ru",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "YagamiProject",
+            "lang": "ru",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ]
 }
