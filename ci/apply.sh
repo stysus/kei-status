@@ -21,6 +21,30 @@ fi
 
 mkdir -p "$store"
 
+# Union the per-shard costs files into a single costs file in the store.  Tonight's measurement
+# wins per module; a module that was not checked tonight (a manual run, say) keeps the timing
+# from the last night that did check it.
+python3 - "$store/costs" "$incoming" <<'PY'
+import glob, json, os, sys
+
+store_costs, incoming = sys.argv[1:3]
+merged = {}
+if os.path.isfile(store_costs):
+    try:
+        merged = json.load(open(store_costs))
+    except ValueError as e:
+        print(f"::warning::existing costs file unreadable, starting fresh: {e}", file=sys.stderr)
+for path in sorted(glob.glob(os.path.join(incoming, "**", "costs-*"), recursive=True)):
+    try:
+        merged.update(json.load(open(path)))
+    except ValueError as e:
+        print(f"::warning::ignoring unreadable {path}: {e}", file=sys.stderr)
+if merged:
+    with open(store_costs, "w") as f:
+        json.dump(merged, f, indent=2, sort_keys=True)
+        f.write("\n")
+PY
+
 applied=0
 while IFS= read -r file; do
   cp -f "$file" "$store/"

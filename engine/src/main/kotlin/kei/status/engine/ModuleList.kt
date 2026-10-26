@@ -142,8 +142,7 @@ object ModuleList {
         require(count > 0) { "shard count must be positive" }
         if (entries.isEmpty()) return List(count) { emptyList() }
 
-        val known = costs.values.sorted()
-        val fallback = if (known.isEmpty()) 1 else maxOf(1, known[known.size / 2])
+        val fallback = fallbackCost(costs)
         fun cost(entry: Entry) = (costs[entry.module] ?: fallback) + MODULE_OVERHEAD_MS
 
         val queue = entries.sortedWith(compareByDescending<Entry> { cost(it) }.thenBy { it.line() })
@@ -157,6 +156,12 @@ object ModuleList {
         }
 
         return bins.map { bin -> bin.sortedBy { it.line() } }
+    }
+
+    /** The price assumed for a module with no measured cost: the median of the known ones. */
+    fun fallbackCost(costs: Map<String, Int>): Int {
+        val known = costs.values.sorted()
+        return if (known.isEmpty()) 1 else maxOf(1, known[known.size / 2])
     }
 
     private fun Path.isHiddenDir(): Boolean = fileName.toString().startsWith(".")

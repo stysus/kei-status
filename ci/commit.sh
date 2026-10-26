@@ -33,11 +33,20 @@ fi
 
 changed=0
 removed=0
+costs=0
 while IFS= read -r -d '' entry; do
   code="${entry:0:2}"
   # A rename or copy carries its original path as the next record, which is not a second change.
   case "$code" in
     R* | C*) IFS= read -r -d '' _original || true ;;
+  esac
+  # The costs file moves every night (wall-clock is never identical); count it separately so a
+  # quiet night reads "measured costs updated" instead of "1 changed".
+  case "${entry:3}" in
+    costs)
+      costs=1
+      continue
+      ;;
   esac
   case "$code" in
     *D*) removed=$((removed + 1)) ;;
@@ -46,13 +55,16 @@ while IFS= read -r -d '' entry; do
 done < <(git -C "$store" status --porcelain -z)
 
 # Name only what moved: a quiet run should not read "0 removed", and a night that only pruned should
-# not read "0 changed". At least one of the two is non-zero, because an empty status returned above.
+# not read "0 changed". At least one of changed, removed, or costs is non-zero, because an empty
+# status returned above.
 if [ "$changed" -gt 0 ] && [ "$removed" -gt 0 ]; then
   summary="$changed changed, $removed removed"
 elif [ "$changed" -gt 0 ]; then
   summary="$changed changed"
-else
+elif [ "$removed" -gt 0 ]; then
   summary="$removed removed"
+elif [ "$costs" -gt 0 ]; then
+  summary="measured costs updated"
 fi
 
 git -C "$store" config user.name "github-actions[bot]"

@@ -173,6 +173,14 @@ fun main(args: Array<String>) {
     }
     println("checked in ${formatDuration(System.nanoTime() - startedAt)}")
 
+    moduleTimes.entries.sortedByDescending { it.value }.take(5)
+        .takeIf { it.size > 1 }
+        ?.let { slowest ->
+            println("slowest: " + slowest.joinToString(", ") { (module, ms) ->
+                "$module ${formatDuration(ms * 1_000_000)}"
+            })
+        }
+
     exitProcess(exitCode(results))
 }
 
@@ -290,8 +298,18 @@ private fun writePlan(options: Options, out: Path): Int {
         return 2
     }
 
-    val used = ModuleList.plan(entries, count, out, moduleCosts(options)).count { it.isNotEmpty() }
+    val costs = moduleCosts(options)
+    val bins = ModuleList.plan(entries, count, out, costs)
+    val used = bins.count { it.isNotEmpty() }
     println("discovered ${entries.size} module(s) in $used shard(s)")
+    if (used > 1) {
+        // The costs mix wall-clock (from the costs file) and scenario time (from the store
+        // fallback), so these are relative balance indicators, not absolute wall-clock estimates.
+        val fallback = ModuleList.fallbackCost(costs)
+        val loads = bins.filter { it.isNotEmpty() }
+            .map { bin -> bin.sumOf { (costs[it.module] ?: fallback).toLong() } }
+        println("projected load: ${loads.joinToString(" / ") { formatDuration(it * 1_000_000) }}")
+    }
     return 0
 }
 
