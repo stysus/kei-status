@@ -83,11 +83,16 @@ if [ -n "$module" ]; then
   "$source_root/gradlew" -p "$source_root" \
     -I "$root/tools/harness.init.gradle.kts" \
     -PharnessModule="$module" \
-    "$module:dumpHarnessClasspath"
+    "$module:dumpHarnessClasspath" &
+  ext_pid=$!
 fi
 
 # The checker itself, also through Gradle so an edited harness is picked up rather than a stale jar.
 "$root/gradlew" -p "$root" -q :cli:installDist
+
+if [ -n "$module" ]; then
+  wait "$ext_pid" || exit $?
+fi
 
 if [ -n "$module" ]; then
   exec "$cli" --module "$module" --source-root "$source_root" "$@"
