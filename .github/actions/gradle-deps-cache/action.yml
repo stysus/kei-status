@@ -3,9 +3,9 @@ description: >-
   Restores the downloaded-dependency and wrapper caches every job needs, keyed on the two version
   catalogs and the extension build's Gradle wrapper.
 
-# One definition on purpose: `prepare` and each shard need exactly these paths and this key, and a
-# key edited in one job but not the other is a silent cache miss rather than a failure, so it would
-# only show up as a sweep that got slower.
+# One definition on purpose: every job that runs Gradle needs exactly these paths and this key,
+# and a key edited in one job but not the other is a silent cache miss rather than a failure, so
+# it would only show up as a sweep that got slower.
 #
 # `prepare` runs first and saves the entry; a shard restores it, and a hit means its own save is
 # skipped instead of uploading the same bytes again. That ordering is what `needs: prepare` on the

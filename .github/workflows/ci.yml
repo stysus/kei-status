@@ -35,8 +35,19 @@ jobs:
           distribution: temurin
           java-version: "21"
 
+      # setup-gradle's auto-cache salts its keys per run, so every run saved a new entry that
+      # never hit again — churn against the 10 GB budget the sweep's caches live under.
+      # Dependencies are managed explicitly instead: the same composite the sweep uses, whose
+      # exact-hit semantics save once per catalog change and skip after. The key differs from the
+      # sweep's (this checkout has no extensions-source catalog for hashFiles to match) but both
+      # share the `gradle-deps-Linux-` restore prefix, so either can seed the other.
+      - name: Restore Gradle dependencies
+        uses: ./.github/actions/gradle-deps-cache
+
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-disabled: true
 
       - name: Build and test
         run: ./gradlew build --stacktrace
