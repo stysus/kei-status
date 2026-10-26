@@ -810,18 +810,24 @@ open class WebView(context: Context?) : View() {
         val header = CookieManager.getInstance().getCookie(url) ?: return
         val session = page ?: return
 
-        header.split(';').map { it.trim() }.filter { it.contains('=') }.forEach { pair ->
-            session.send(
-                "Network.setCookie",
+        val cookies = header.split(';')
+            .map { it.trim() }
+            .filter { it.contains('=') }
+            .map { pair ->
                 JsonObject(
                     mapOf(
                         "name" to JsonPrimitive(pair.substringBefore('=')),
                         "value" to JsonPrimitive(pair.substringAfter('=')),
                         "url" to JsonPrimitive(url),
                     ),
-                ),
-            )
-        }
+                )
+            }
+        if (cookies.isEmpty()) return
+
+        session.send(
+            "Network.setCookies",
+            JsonObject(mapOf("cookies" to JsonArray(cookies))),
+        )
     }
 
     private fun startCookiePolling() {
