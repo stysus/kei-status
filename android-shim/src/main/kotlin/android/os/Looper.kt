@@ -26,7 +26,7 @@ class Looper private constructor(private val main: Boolean) {
     internal fun enqueue(block: () -> Unit) {
         if (quitting) return
         if (main) {
-            MainThread.executor.execute(block)
+            MainThread.post(block)
         } else {
             queue.put(block)
         }

@@ -151,14 +151,30 @@ internal object ChallengeSolver {
     fun probe(page: Page): ChallengeProbe =
         parse(page, runCatching { page.call("Runtime.evaluate", params(detectScript())) }.getOrNull())
 
+    /**
+     * Serialises the parse work that follows the browser round trip.
+     *
+     * `parse` can reach [shadowWidget], whose `page.call` blocks for a response.  That work
+     * must never run on the WebSocket reader thread — the thread that completes the future is
+     * also the only thread that reads the socket, so blocking it there waits for a message
+     * nobody will read, and the whole page session freezes until the call times out.  One
+     * dedicated daemon thread keeps probes ordered and off the reader thread, which then stays
+     * free to dispatch the very responses `shadowWidget` waits for.
+     */
+    private val probeExecutor = java.util.concurrent.Executors.newSingleThreadExecutor { runnable ->
+        Thread(runnable, "kei-status-challenge-probe").apply { isDaemon = true }
+    }
+
     /** Non-blocking probe, for callers that own a thread the browser must not stall. */
     fun probeAsync(page: Page, callback: (ChallengeProbe) -> Unit) {
         page.send("Runtime.evaluate", params(detectScript())).whenComplete { result, error ->
-            if (error != null) {
-                callback(ChallengeProbe(false, false, false, null, null))
-                return@whenComplete
+            probeExecutor.execute {
+                if (error != null) {
+                    callback(ChallengeProbe(false, false, false, null, null))
+                    return@execute
+                }
+                callback(parse(page, result))
             }
-            callback(parse(page, result))
         }
     }
 

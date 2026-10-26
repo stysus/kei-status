@@ -519,4 +519,52 @@ class ChecksTest {
             diagnosis.chain,
         )
     }
+
+    // region browser harness failures → UNSUPPORTED
+
+    @Test
+    fun `a browser socket failure is unsupported, not fail`() {
+        val cause = java.io.IOException("Connection reset by peer")
+        val diagnosis = Checks.diagnose(
+            kei.status.webkit.ChromeUnavailableException("DevTools socket to page abc123 failed: Connection reset by peer", cause),
+        )
+
+        assertEquals(Status.UNSUPPORTED, diagnosis.status)
+        assertTrue(diagnosis.message, diagnosis.message.contains("browser session failed"))
+    }
+
+    @Test
+    fun `a closed devtools session is unsupported`() {
+        val diagnosis = Checks.diagnose(
+            kei.status.webkit.ChromeUnavailableException("DevTools session is closed"),
+        )
+
+        assertEquals(Status.UNSUPPORTED, diagnosis.status)
+        assertTrue(diagnosis.message, diagnosis.message.contains("browser session failed"))
+    }
+
+    @Test
+    fun `a browser failure wrapped by reflection is still unsupported`() {
+        val chrome = kei.status.webkit.ChromeUnavailableException("DevTools session is closed")
+        val wrapped = java.lang.reflect.InvocationTargetException(chrome)
+        val diagnosis = Checks.diagnose(wrapped)
+
+        assertEquals(Status.UNSUPPORTED, diagnosis.status)
+        assertTrue(diagnosis.message, diagnosis.message.contains("browser session failed"))
+    }
+
+    @Test
+    fun `a failed target creation is unsupported`() {
+        // Chromium died between port()'s health check and the HTTP request — ConnectException
+        // wrapped by newPage() as ChromeUnavailableException.
+        val cause = java.net.ConnectException("Connection refused")
+        val diagnosis = Checks.diagnose(
+            kei.status.webkit.ChromeUnavailableException("could not create a DevTools target on port 9222: Connection refused", cause),
+        )
+
+        assertEquals(Status.UNSUPPORTED, diagnosis.status)
+        assertTrue(diagnosis.message, diagnosis.message.contains("browser session failed"))
+    }
+
+    // endregion
 }

@@ -190,15 +190,34 @@ object Chrome {
             .put(okhttp3.RequestBody.create(null, ByteArray(0)))
             .build()
 
-        val target = HTTP.newCall(request).execute().use { response ->
-            if (!response.isSuccessful) {
-                throw ChromeUnavailableException("DevTools rejected a new page: HTTP ${response.code}")
+        // Everything from the HTTP call through parsing is a conversation with the harness's
+        // own browser, not with the extension's site.  Wrapping failures as
+        // ChromeUnavailableException lets the diagnosis map them to UNSUPPORTED instead of
+        // FAIL, which would blame the extension for an infrastructure gap.
+        val target = try {
+            HTTP.newCall(request).execute().use { response ->
+                if (!response.isSuccessful) {
+                    throw ChromeUnavailableException("DevTools rejected a new page: HTTP ${response.code}")
+                }
+                json.parseToJsonElement(response.body.string()).jsonObject
             }
-            json.parseToJsonElement(response.body.string()).jsonObject
+        } catch (e: ChromeUnavailableException) {
+            throw e
+        } catch (e: Exception) {
+            throw ChromeUnavailableException("could not create a DevTools target on port $devtoolsPort: ${e.message}", e)
         }
 
-        val id = target.getValue("id").jsonPrimitive.content
-        val socketUrl = target.getValue("webSocketDebuggerUrl").jsonPrimitive.content
+        val id = try {
+            target.getValue("id").jsonPrimitive.content
+        } catch (e: Exception) {
+            throw ChromeUnavailableException("DevTools target creation answered without an id: $target", e)
+        }
+        val socketUrl = try {
+            target.getValue("webSocketDebuggerUrl").jsonPrimitive.content
+        } catch (e: Exception) {
+            throw ChromeUnavailableException("DevTools target answered without a socket url: $target", e)
+        }
+
         return try {
             pageFactory(devtoolsPort, id, socketUrl).also { registerTarget(id) }
         } catch (e: Throwable) {

@@ -42,8 +42,10 @@ open class WebView(context: Context?) : View() {
 
     private val mainHandler = Handler(Looper.getMainLooper())
 
+    @Volatile
     private var page: Page? = null
 
+    @Volatile
     private var destroyed = false
 
     /** Only used to stamp trace lines; the harness itself never depends on wall-clock timing. */
@@ -51,10 +53,13 @@ open class WebView(context: Context?) : View() {
 
     private fun sinceStartMs(): Long = (System.nanoTime() - pageStartedNanos) / 1_000_000
 
+    @Volatile
     private var currentUrl: String? = null
 
+    @Volatile
     private var mainFrameId: String? = null
 
+    @Volatile
     private var pendingDocument: PendingDocument? = null
 
     /**
@@ -66,9 +71,10 @@ open class WebView(context: Context?) : View() {
      * and a custom header on a cross-origin `fetch()` turns it into a CORS preflight the site may
      * not answer.
      */
+    @Volatile
     private var navigationHeaders: Map<String, String> = emptyMap()
 
-    private val bindings = LinkedHashMap<String, Any>()
+    private val bindings = java.util.concurrent.ConcurrentHashMap<String, Any>()
 
     private val bindingScripts = mutableListOf<String>()
 

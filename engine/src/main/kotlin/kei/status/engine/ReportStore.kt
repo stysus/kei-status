@@ -75,7 +75,22 @@ object ReportStore {
             // The checkout path is machine-specific and means nothing in a committed store; the
             // module path and the extension commit are what identify where the report came from.
             val stored = next.copy(sourceRoot = "")
-            Files.writeString(target, json.encodeToString(RunReport.serializer(), stored))
+            // Write beside the target and move atomically: a run killed mid-write (an OOM, a CI
+            // timeout) must not leave a truncated JSON at the target path.  The store is committed,
+            // and read() skips an unparseable entry silently — a half-written file would not just
+            // fail to record this run, it would make the next save treat the module as new and cut
+            // its comparedTo history.  Same directory, so the rename never crosses a filesystem.
+            val temp = Files.createTempFile(dir, target.fileName.toString(), ".tmp")
+            try {
+                Files.writeString(temp, json.encodeToString(RunReport.serializer(), stored))
+                try {
+                    Files.move(temp, target, java.nio.file.StandardCopyOption.ATOMIC_MOVE)
+                } catch (_: java.nio.file.AtomicMoveNotSupportedException) {
+                    Files.move(temp, target, java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+                }
+            } finally {
+                Files.deleteIfExists(temp)
+            }
         }
 
         return Saved(next, written, changes, target)

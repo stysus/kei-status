@@ -3,6 +3,7 @@ package kei.status.engine
 import android.content.ActivityNotFoundException
 import eu.kanade.tachiyomi.network.HttpException
 import eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException
+import kei.status.webkit.ChromeUnavailableException
 import java.util.concurrent.TimeoutException
 
 /** Outcome of classifying a thrown exception. */
@@ -32,6 +33,7 @@ object ExceptionDiagnosis {
             chain.any { it is ActivityNotFoundException } -> Status.BLOCKED
             chain.any { it is HttpException && it.code == 429 } -> Status.THROTTLED
             chain.any { it is UnsupportedOperationException || it is NotImplementedError } -> Status.SKIP
+            chain.any { it is ChromeUnavailableException } -> Status.UNSUPPORTED
             chain.any { unavailablePlatform(it) != null } -> Status.UNSUPPORTED
             chain.any { it is TimeoutException } -> Status.FAIL
             else -> Status.FAIL
@@ -85,7 +87,9 @@ object ExceptionDiagnosis {
 
         Status.SKIP -> "not supported by this source"
 
-        Status.UNSUPPORTED -> chain.firstNotNullOfOrNull { unavailablePlatform(it) }
+        Status.UNSUPPORTED -> chain.filterIsInstance<ChromeUnavailableException>().firstOrNull()
+            ?.let { "the harness's browser session failed mid-check (${it.message}); the extension was not verified" }
+            ?: chain.firstNotNullOfOrNull { unavailablePlatform(it) }
             ?: "requires a platform class the harness does not provide"
 
         else -> when (val missing = chain.firstOrNull { it is NoClassDefFoundError || it is ClassNotFoundException }) {

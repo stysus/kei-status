@@ -69,7 +69,10 @@ class Page internal constructor(
             override fun onFailure(webSocket: WebSocket, t: Throwable, response: Response?) {
                 closed = true
                 opened.countDown()
-                pending.values.forEach { it.completeExceptionally(t) }
+                val wrapper = ChromeUnavailableException(
+                    "DevTools socket to page $targetId failed: ${t.message}", t,
+                )
+                pending.values.forEach { it.completeExceptionally(wrapper) }
                 pending.clear()
             }
 
@@ -106,7 +109,9 @@ class Page internal constructor(
 
         if (closed || !socket.send(message.toString())) {
             pending.remove(id)
-            future.completeExceptionally(IllegalStateException("DevTools session is closed"))
+            future.completeExceptionally(
+                ChromeUnavailableException("DevTools session is closed"),
+            )
         }
         return future
     }

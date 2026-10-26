@@ -21,28 +21,37 @@ class FileSharedPreferences(private val file: File) : SharedPreferences {
         file.outputStream().use { values.store(it, null) }
     }
 
+    @Synchronized
     override fun getAll(): Map<String, *> = values.entries.associate { it.key.toString() to it.value }
 
+    @Synchronized
     override fun getString(key: String, defValue: String?): String? =
         values.getProperty(key) ?: defValue
 
+    @Synchronized
     override fun getStringSet(key: String, defValues: Set<String>?): Set<String>? =
         values.getProperty(key)?.split('\u0000')?.toSet() ?: defValues
 
+    @Synchronized
     override fun getInt(key: String, defValue: Int): Int =
         values.getProperty(key)?.toIntOrNull() ?: defValue
 
+    @Synchronized
     override fun getLong(key: String, defValue: Long): Long =
         values.getProperty(key)?.toLongOrNull() ?: defValue
 
+    @Synchronized
     override fun getFloat(key: String, defValue: Float): Float =
         values.getProperty(key)?.toFloatOrNull() ?: defValue
 
+    @Synchronized
     override fun getBoolean(key: String, defValue: Boolean): Boolean =
         values.getProperty(key)?.toBooleanStrictOrNull() ?: defValue
 
+    @Synchronized
     override fun contains(key: String): Boolean = values.containsKey(key)
 
+    @Synchronized
     override fun edit(): SharedPreferences.Editor = Editor()
 
     private inner class Editor : SharedPreferences.Editor {
@@ -66,11 +75,13 @@ class FileSharedPreferences(private val file: File) : SharedPreferences {
         }
 
         override fun apply() {
-            if (clearRequested) values.clear()
-            pending.forEach { (key, value) ->
-                if (value == null) values.remove(key) else values.setProperty(key, value)
+            synchronized(this@FileSharedPreferences) {
+                if (clearRequested) values.clear()
+                pending.forEach { (key, value) ->
+                    if (value == null) values.remove(key) else values.setProperty(key, value)
+                }
+                persist()
             }
-            persist()
         }
     }
 }
