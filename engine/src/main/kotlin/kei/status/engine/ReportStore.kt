@@ -132,6 +132,7 @@ object ReportStore {
         extensionCommit = null,
         comparedTo = null,
         changes = emptyList(),
+        throttledHosts = emptyList(),
         sources = report.sources
             .sortedWith(compareBy({ it.sourceId }, { it.lang }, { it.name }))
             .map { source ->

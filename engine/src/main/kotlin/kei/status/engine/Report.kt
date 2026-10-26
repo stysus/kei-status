@@ -88,6 +88,7 @@ data class RunReport(
      */
     val comparedTo: String? = null,
     val changes: List<StatusChange> = emptyList(),
+    val throttledHosts: List<String> = emptyList(),
 ) {
     val status: Status
         get() = sources.maxByOrNull { it.status.severity }?.status ?: Status.SKIP

@@ -192,6 +192,7 @@ class HarnessRunner(private val config: HarnessConfig) {
         sourceRoot = config.sourceRoot.toAbsolutePath().toString(),
         extensionCommit = gitCommit(config.sourceRoot),
         sources = sources,
+        throttledHosts = throttledHosts.sorted(),
     )
 
     /**

@@ -60,6 +60,7 @@ fun main(args: Array<String>) {
     // sweep is thousands of modules.
     val scratch = Files.createTempDirectory("kei-status-")
     val results = mutableListOf<Pair<RunReport, ReportStore.Saved?>>()
+    val startedAt = System.nanoTime()
     try {
         entries.forEachIndexed { position, entry ->
             // Entry flags are parsed per module, so one malformed line is reported and skipped the
@@ -123,7 +124,28 @@ fun main(args: Array<String>) {
 
     val changed = results.count { it.second?.written == true }
     val transitions = results.sumOf { it.second?.changes?.size ?: 0 }
+    // The first line is load-bearing: `ci/run-shard.sh` greps `^0 module(s) checked` to reject a
+    // run that checked nothing, so its shape must not drift.
     println("\n${results.size} module(s) checked, $changed changed, $transitions transition(s)")
+
+    val dropped = entries.size - results.size
+    if (dropped > 0) {
+        println("$dropped module(s) dropped by config errors before producing a verdict")
+    }
+
+    val verdicts = results.groupingBy { it.first.status }.eachCount()
+    if (verdicts.isNotEmpty()) {
+        val breakdown = Status.entries
+            .sortedByDescending { it.severity }
+            .filter { it in verdicts }
+            .joinToString(", ") { "${verdicts[it]} ${it.name}" }
+        println("verdicts: $breakdown")
+    }
+    val refused = results.flatMap { it.first.throttledHosts }.distinct()
+    if (refused.isNotEmpty()) {
+        println("throttled by ${refused.size} host(s): ${refused.joinToString(", ")}")
+    }
+    println("checked in ${formatDuration(System.nanoTime() - startedAt)}")
 
     exitProcess(exitCode(results))
 }
@@ -255,6 +277,8 @@ private fun savingsLine(saved: ReportStore.Saved): String = when {
 private fun printSummary(position: Int, total: Int, report: RunReport, saved: ReportStore.Saved?) {
     val sources = report.sources
     val label = report.module
+    val durationMs = sources.sumOf { source -> source.scenarios.sumOf { it.durationMs } }
+    val duration = formatDuration(durationMs * 1_000_000)
     val detail = when {
         sources.isEmpty() -> "no sources"
         sources.size == 1 -> sources.single().scenarios.joinToString(" ") { it.status.name.first().toString() }
@@ -265,7 +289,10 @@ private fun printSummary(position: Int, total: Int, report: RunReport, saved: Re
         !saved.written -> "  (unchanged)"
         else -> "  (${saved.changes.size} changed)"
     }
-    println("[${position.toString().padStart(4)}/${total}] ${report.status.name.padEnd(11)} $label  $detail$change")
+    println(
+        "[${position.toString().padStart(4)}/${total}] ${report.status.name.padEnd(11)} " +
+            duration.padStart(6) + "  $label  $detail$change",
+    )
 }
 
 private fun StatusChange.render(): String {
@@ -312,5 +339,14 @@ private fun printTable(report: RunReport) {
         }
         println("  -> ${source.status}")
         println()
+    }
+}
+
+private fun formatDuration(nanos: Long): String {
+    val seconds = nanos / 1_000_000_000
+    return when {
+        seconds < 60 -> "${seconds}s"
+        seconds < 3600 -> "${seconds / 60}m${(seconds % 60).toString().padStart(2, '0')}s"
+        else -> "${seconds / 3600}h${((seconds % 3600) / 60).toString().padStart(2, '0')}m"
     }
 }
