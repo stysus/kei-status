@@ -61,17 +61,40 @@ git -C "$store" config user.email "41898282+github-actions[bot]@users.noreply.gi
 # `actions/checkout` can leave a detached HEAD, and a detached commit has nowhere to push from.
 git -C "$store" checkout -q -B "$branch"
 
+# A conflict during rebase leaves a half-applied rebase state behind: the rebase-merge directory,
+# the unmerged conflict markers in the file, and a HEAD that cannot push. A previous run's leftover
+# state would make the next `git add` commit the conflict markers as JSON, silently corrupting the
+# store. Aborting before we start is cheaper than diagnosing that.
+if [ -d "$store/.git/rebase-merge" ] || [ -d "$store/.git/rebase-apply" ]; then
+  echo "::warning::aborting a rebase left over from a previous run"
+  git -C "$store" rebase --abort
+fi
+
 git -C "$store" add --all -- .
 git -C "$store" commit -m "$prefix: record $summary [skip ci]"
 
+push_cleanup() { git -C "$store" rebase --abort 2>/dev/null || true; }
+trap push_cleanup EXIT
+
 for attempt in 1 2 3; do
   if git -C "$store" push origin "$branch"; then
+    trap - EXIT
     echo "pushed $summary to $branch"
     exit 0
   fi
   echo "push failed (attempt $attempt); rebasing on the new head"
-  git -C "$store" pull --rebase origin "$branch"
+  git -C "$store" pull --rebase origin "$branch" || {
+    echo "::error::rebase conflict on attempt $attempt; the same module was rewritten by a concurrent sweep"
+    exit 1
+  }
 done
 
-echo "::error::could not push the recorded state after 3 attempts"
+if git -C "$store" push origin "$branch"; then
+  trap - EXIT
+  echo "pushed $summary to $branch (final attempt after rebase)"
+  exit 0
+fi
+
+trap - EXIT
+echo "::error::could not push the recorded state after all attempts"
 exit 1

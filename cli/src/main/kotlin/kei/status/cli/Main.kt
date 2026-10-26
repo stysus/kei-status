@@ -126,7 +126,7 @@ fun main(args: Array<String>) {
     val transitions = results.sumOf { it.second?.changes?.size ?: 0 }
     // The first line is load-bearing: `ci/run-shard.sh` greps `^0 module(s) checked` to reject a
     // run that checked nothing, so its shape must not drift.
-    println("\n${results.size} module(s) checked, $changed changed, $transitions transition(s)")
+    println("\n${summaryLine(results.size, changed, transitions)}")
 
     val dropped = entries.size - results.size
     if (dropped > 0) {
@@ -165,6 +165,13 @@ internal fun exitCode(results: List<Pair<RunReport, ReportStore.Saved?>>): Int =
         Status.FAIL -> 1
         else -> 0
     }
+
+/**
+ * The summary line `ci/run-shard.sh` greps for.  Extracted so [SummaryFormatTest] can verify the
+ * shape without running a whole sweep.
+ */
+internal fun summaryLine(checked: Int, changed: Int, transitions: Int): String =
+    "$checked module(s) checked, $changed changed, $transitions transition(s)"
 
 /**
  * The modules a run selects, before any shard narrowing.
