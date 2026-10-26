@@ -141,8 +141,8 @@ object ModuleList {
         if (entries.isEmpty()) return List(count) { emptyList() }
 
         val known = costs.values.sorted()
-        val fallback = if (known.isEmpty()) 0 else known[known.size / 2]
-        fun cost(entry: Entry) = (costs[entry.module] ?: fallback) + MODULE_COST_IN_SCENARIOS
+        val fallback = if (known.isEmpty()) 1 else maxOf(1, known[known.size / 2])
+        fun cost(entry: Entry) = (costs[entry.module] ?: fallback) + MODULE_OVERHEAD_MS
 
         val queue = entries.sortedWith(compareByDescending<Entry> { cost(it) }.thenBy { it.line() })
         val bins = List(count) { mutableListOf<Entry>() }
@@ -161,15 +161,11 @@ object ModuleList {
 }
 
 /**
- * What a module costs before it checks anything, counted in scenarios.
+ * Fixed overhead added to every module's cost before the greedy split compares them.
  *
- * Only the ratio to [ModuleList.split]'s weights matters - the split compares costs and never
- * converts them to seconds - so this survives a faster or slower machine. Measured on a full sweep,
- * a module spends about 9s compiling and loading itself and about 0.64s per scenario, which makes a
- * module worth roughly fourteen scenarios on top of its own count.
- *
- * Leaving it out is what makes the split look worse than it is: greedy packing then fills one shard
- * with fifty tiny modules and another with a dozen, and the build cost of the extra modules eats the
- * balance it gained.
+ * When the caller provides wall-clock times (which include compilation, class loading, and JVM
+ * warm-up), the overhead is already in the number and this should be zero.  The store-based
+ * fallback slightly under-counts overhead, but that is a cold-start approximation that improves
+ * after one run writes a costs file; distorting the cost ratios with a hardcoded constant is worse.
  */
-private const val MODULE_COST_IN_SCENARIOS = 14
+private const val MODULE_OVERHEAD_MS = 0

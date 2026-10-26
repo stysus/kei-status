@@ -38,6 +38,10 @@ while IFS= read -r entry; do
   case "$code" in
     *D*) continue ;;
   esac
+  # The costs file is a per-shard view of module wall-clock times; merging partial views from
+  # different shards would give the planning step an incomplete picture.  The file that matters
+  # is the one in the local store checkout, which saw every module this JVM checked.
+  case "$file" in costs) continue ;; esac
   cp "$store/$file" "$out/"
   count=$((count + 1))
 done < <(git -C "$store" status --porcelain -z --untracked-files=all | tr '\0' '\n')

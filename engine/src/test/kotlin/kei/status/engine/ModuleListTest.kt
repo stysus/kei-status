@@ -138,9 +138,10 @@ class ModuleListTest {
         // A module is not a unit of work: this one declares 109 sources and costs a full sweep
         // minute, while each of the others declares one. Splitting by count gave the first two
         // shards 46% of the work and 58 minutes against 15-24 for the rest.
+        // Costs are in milliseconds (the unit moduleCosts now returns).
         val heavy = ModuleList.Entry(":src:all:xcomic")
         val light = (1..9).map { ModuleList.Entry(":src:en:m$it") }
-        val costs = mapOf(":src:all:xcomic" to 840) + light.associate { it.module to 8 }
+        val costs = mapOf(":src:all:xcomic" to 510_000) + light.associate { it.module to 5_000 }
 
         val shards = (1..3).map { ModuleList.shard(listOf(heavy) + light, it, 3, costs) }
 

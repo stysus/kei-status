@@ -12,6 +12,9 @@ import kei.status.engine.StatusChange
 import kei.status.engine.writeAtomically
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.jsonPrimitive
+import kotlinx.serialization.json.long
 import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.system.exitProcess
@@ -60,6 +63,7 @@ fun main(args: Array<String>) {
     // sweep is thousands of modules.
     val scratch = Files.createTempDirectory("kei-status-")
     val results = mutableListOf<Pair<RunReport, ReportStore.Saved?>>()
+    val moduleTimes = mutableMapOf<String, Long>()
     val startedAt = System.nanoTime()
     try {
         entries.forEachIndexed { position, entry ->
@@ -71,6 +75,7 @@ fun main(args: Array<String>) {
                 System.err.println("kei-status: ${e.message}")
                 return@forEachIndexed
             }
+            val moduleStart = System.nanoTime()
             val report = try {
                 HarnessRunner(config).run()
             } catch (e: CancellationException) {
@@ -89,12 +94,16 @@ fun main(args: Array<String>) {
                     null
                 }
             }
+            moduleTimes[report.module] = (System.nanoTime() - moduleStart) / 1_000_000
             if (options.store != null && storeToUse == null) {
                 println("  narrowed run (--lang); the store keeps the full sweep's entry for ${entry.module}")
             }
             results += report to saved
 
-            if (entries.size == 1) printTable(report) else printSummary(position + 1, entries.size, report, saved)
+            if (entries.size == 1) printTable(report) else printSummary(
+                position + 1, entries.size, report, saved,
+                moduleTimes[report.module] ?: 0,
+            )
             saved?.let { println(savingsLine(it)) }
         }
     } finally {
@@ -105,6 +114,21 @@ fun main(args: Array<String>) {
         // Application.attachRoot. With the browser down nothing else writes to it, so one
         // recursive delete retires it; runs otherwise shed one of these into /tmp per invocation.
         runCatching { scratch.toFile().deleteRecursively() }
+    }
+
+    // Write a costs file so the next run's shard split uses measured wall-clock time instead of
+    // the store's stale durationMs.  A module that stays PASS for a month still gets a fresh
+    // timing every night.  The file sits next to the store reports but uses a name that readAll's
+    // "*.json" filter does not match, so it is never parsed as a RunReport.
+    if (moduleTimes.isNotEmpty()) {
+        options.store?.let { store ->
+            val body = moduleTimes.entries
+                .sortedBy { it.key }
+                .joinToString(",\n  ", prefix = "{\n  ", postfix = "\n}") { (module, ms) ->
+                    "\"${module}\": $ms"
+                }
+            runCatching { writeAtomically(store.resolve("costs"), body) }
+        }
     }
 
     // A single module can still write a standalone page; a sweep publishes through --site.
@@ -194,19 +218,38 @@ internal fun resolveEntries(options: Options): List<ModuleList.Entry> {
 }
 
 /**
- * Scenarios each module ran on its last sweep, which is what a shard split balances.
+ * What each module cost on its last sweep, in wall-clock milliseconds.
  *
- * The store is the only place that knows a module is a hundred-source aggregate rather than a
- * single extension, and it is checked out wherever a plan is written. A missing entry - a new
- * module, or one whose state was pruned - is left out rather than guessed at; [ModuleList.split]
- * falls back to the typical module for those.
+ * The primary source is the `costs` file written at the end of every run: it records actual
+ * wall-clock time (compilation + load + scenarios), so the data is at most one night old even for
+ * a module whose status has not changed in months.  Without it, [ReportStore.save] only rewrites
+ * a report on a status change, which freezes the stored `durationMs` at whatever it was on the
+ * night the status last moved.
+ *
+ * When the costs file does not exist (first run, or an old checkout), the store's `durationMs`
+ * is used as a fallback; the split's median-based fallback handles the rest.
  */
 internal fun moduleCosts(options: Options): Map<String, Int> {
     val dir = options.store ?: DEFAULT_STORE
-    return ReportStore.readAll(dir).associate { report ->
-        report.module to report.sources.sumOf { it.scenarios.size }
+    val costsFile = dir.resolve("costs")
+    if (Files.isRegularFile(costsFile)) {
+        return runCatching {
+            val obj = Json.parseToJsonElement(Files.readString(costsFile)) as JsonObject
+            obj.mapValues { it.value.jsonPrimitive.long.toInt() }
+        }.getOrElse {
+            System.err.println("kei-status: ignoring unreadable costs file $costsFile: ${it.message}")
+            moduleCostsFromStore(dir)
+        }
     }
+    return moduleCostsFromStore(dir)
 }
+
+private fun moduleCostsFromStore(dir: Path): Map<String, Int> =
+    ReportStore.readAll(dir).associate { report ->
+        report.module to report.sources.sumOf { source ->
+            source.scenarios.sumOf { it.durationMs.toInt() }
+        }
+    }
 
 /** Where a run reads and writes state when `--store` is not given. */
 private val DEFAULT_STORE: Path = Path.of("data")
@@ -281,11 +324,16 @@ private fun savingsLine(saved: ReportStore.Saved): String = when {
 }
 
 /** One line per module, because a sweep of a thousand modules cannot print a table each. */
-private fun printSummary(position: Int, total: Int, report: RunReport, saved: ReportStore.Saved?) {
+private fun printSummary(
+    position: Int,
+    total: Int,
+    report: RunReport,
+    saved: ReportStore.Saved?,
+    wallClockMs: Long,
+) {
     val sources = report.sources
     val label = report.module
-    val durationMs = sources.sumOf { source -> source.scenarios.sumOf { it.durationMs } }
-    val duration = formatDuration(durationMs * 1_000_000)
+    val duration = formatDuration(wallClockMs * 1_000_000)
     val detail = when {
         sources.isEmpty() -> "no sources"
         sources.size == 1 -> sources.single().scenarios.joinToString(" ") { it.status.name.first().toString() }
