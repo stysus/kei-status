@@ -3,6 +3,7 @@ package kei.status.cli
 import kei.status.engine.HarnessConfig
 import kei.status.engine.ModuleList
 import kei.status.engine.HarnessRunner
+import kei.status.engine.TRACE
 import kotlinx.coroutines.CancellationException
 import kei.status.engine.ReportHtml
 import kei.status.engine.ReportStore
@@ -90,7 +91,7 @@ fun main(args: Array<String>) {
                     ReportStore.save(store, report)
                 } catch (e: Exception) {
                     System.err.println("kei-status: could not save state for ${entry.module} to $store: ${e.message}")
-                    if (System.getenv("KEI_STATUS_TRACE") != null) e.printStackTrace()
+                    if (TRACE) e.printStackTrace()
                     null
                 }
             }
@@ -368,13 +369,12 @@ private val json = Json {
  * note instead; `KEI_STATUS_TRACE=1` restores the full trace for debugging.
  */
 private fun installBackgroundFailureHandler() {
-    val trace = System.getenv("KEI_STATUS_TRACE") != null
     Thread.setDefaultUncaughtExceptionHandler { thread, error ->
         System.err.println(
             "kei-status: background failure on ${thread.name}: " +
                 "${error::class.java.name}: ${error.message}",
         )
-        if (trace) error.printStackTrace()
+        if (TRACE) error.printStackTrace()
     }
 }
 

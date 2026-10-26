@@ -4,8 +4,6 @@ import android.graphics.BitmapFactory
 import eu.kanade.tachiyomi.source.model.Page
 import eu.kanade.tachiyomi.source.online.HttpSource
 
-class Captured<T>(val value: T?, val result: ScenarioResult)
-
 /**
  * Resolves a page's image URL the way the reader does before it downloads.
  *
