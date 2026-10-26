@@ -37,6 +37,7 @@ mkdir -p "$store"
 # `--continue` keeps one extension that does not compile from hiding the rest of the shard. The
 # harness records a module without a layout file as a failed load, so a broken extension still
 # appears on the page with its reason instead of disappearing.
+build_start=$(date +%s)
 if ! "$source_root/gradlew" \
   -p "$source_root" \
   -I "$PWD/tools/harness.init.gradle.kts" \
@@ -46,6 +47,7 @@ if ! "$source_root/gradlew" \
   --console=plain; then
   echo "::warning::some modules in this shard did not compile; they will be reported as failed loads"
 fi
+build_s=$(( $(date +%s) - build_start ))
 
 # `--timeout` is not passed: the checker's own default is the value a sweep wants, and repeating it
 # here meant the same number lived in two places.
@@ -76,6 +78,7 @@ fi
 status_file=$(mktemp)
 log_file=$(mktemp)
 
+check_start=$(date +%s)
 set +e
 "${runner[@]}" bash -c '
   log="$1"; shift
@@ -88,6 +91,10 @@ set +e
   --source-root "$source_root" \
   --store "$store"
 set -e
+check_s=$(( $(date +%s) - check_start ))
+
+printf 'shard timing: build %dm%02ds, check %dm%02ds\n' \
+  $((build_s / 60)) $((build_s % 60)) $((check_s / 60)) $((check_s % 60))
 
 if [ ! -s "$status_file" ]; then
   echo "::error::the checker never ran; the display wrapper failed before starting it"

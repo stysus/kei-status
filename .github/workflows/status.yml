@@ -304,6 +304,9 @@ jobs:
       - name: Verify the sweep
         run: ./ci/verify.sh data incoming shards/matrix.json
 
+      - name: Summarize the sweep
+        run: ./ci/healthcheck.sh data incoming
+
       - name: Render the page
         run: ./ci/publish.sh shards/all.txt site
 
