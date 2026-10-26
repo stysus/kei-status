@@ -25,77 +25,94 @@ object ExceptionDiagnosis {
         val chain = flatten(t)
         val rendering = chain.map { "${it::class.java.name}: ${it.message ?: "<no message>"}" }
 
+        // Classify each throwable once so the status and reason blocks read flags instead of
+        // re-scanning the chain with the same predicates.
+        var hasAntiBot = false
+        var antiBotProvider: String? = null
+        var hasWebViewSession = false
+        var hasLogin = false
+        var hasGeoRestricted = false
+        var hasActivity = false
+        var hasCaptchaInteraction = false
+        var http429: eu.kanade.tachiyomi.network.HttpException? = null
+        var hasUnsupported = false
+        var chrome: ChromeUnavailableException? = null
+        var firstUnavailablePlatform: String? = null
+        var hasTimeout = false
+        var firstMissingClass: Throwable? = null
+
+        for (ex in chain) {
+            if (ex is AntiBotChallengeException) { hasAntiBot = true; if (antiBotProvider == null) antiBotProvider = ex.provider }
+            if (needsWebViewSession(ex)) hasWebViewSession = true
+            if (needsLogin(ex)) hasLogin = true
+            if (geoRestricted(ex)) hasGeoRestricted = true
+            if (ex is ActivityNotFoundException) hasActivity = true
+            if (ex.message?.startsWith("Captcha needs interaction") == true) hasCaptchaInteraction = true
+            if (ex is HttpException && ex.code == 429 && http429 == null) http429 = ex
+            if (ex is UnsupportedOperationException || ex is NotImplementedError) hasUnsupported = true
+            if (ex is ChromeUnavailableException && chrome == null) chrome = ex
+            if (firstUnavailablePlatform == null) unavailablePlatform(ex)?.let { firstUnavailablePlatform = it }
+            if (ex is TimeoutException) hasTimeout = true
+            if (firstMissingClass == null && (ex is NoClassDefFoundError || ex is ClassNotFoundException)) firstMissingClass = ex
+        }
+
         val status = when {
-            chain.any { it is AntiBotChallengeException } -> Status.BLOCKED
-            chain.any { needsWebViewSession(it) } -> Status.BLOCKED
-            chain.any { needsLogin(it) } -> Status.BLOCKED
-            chain.any { geoRestricted(it) } -> Status.BLOCKED
-            chain.any { it is ActivityNotFoundException } -> Status.BLOCKED
-            chain.any { it is HttpException && it.code == 429 } -> Status.THROTTLED
-            chain.any { it is UnsupportedOperationException || it is NotImplementedError } -> Status.SKIP
-            chain.any { it is ChromeUnavailableException } -> Status.UNSUPPORTED
-            chain.any { unavailablePlatform(it) != null } -> Status.UNSUPPORTED
-            chain.any { it is TimeoutException } -> Status.FAIL
+            hasAntiBot -> Status.BLOCKED
+            hasWebViewSession -> Status.BLOCKED
+            hasLogin -> Status.BLOCKED
+            hasGeoRestricted -> Status.BLOCKED
+            hasActivity -> Status.BLOCKED
+            http429 != null -> Status.THROTTLED
+            hasUnsupported -> Status.SKIP
+            chrome != null -> Status.UNSUPPORTED
+            firstUnavailablePlatform != null -> Status.UNSUPPORTED
+            hasTimeout -> Status.FAIL
             else -> Status.FAIL
         }
 
-        val reason = reason(status, chain, t)
+        val reason = when (status) {
+            Status.BLOCKED -> when {
+                hasAntiBot ->
+                    antiBotProvider
+                        ?.let { "$it anti-bot challenge; the source needs a browser session that passes it" }
+                        ?: "anti-bot challenge; the source needs a browser session that passes it"
+                hasWebViewSession && hasCaptchaInteraction ->
+                    "the site's captcha needs a human the sweep cannot provide; the source is not broken"
+                hasWebViewSession ->
+                    "the site requires a WebView session the sweep's browser did not complete; the source is not broken"
+                hasLogin ->
+                    "the source requires login or credentials the sweep cannot provide; the source is not broken"
+                hasGeoRestricted ->
+                    "the site restricts by region and the sweep runs outside the allowed area; the source is not broken"
+                hasActivity ->
+                    "the source opens one of its own activities (a verification or captcha step) that the sweep cannot run"
+                else ->
+                    "the site requires a WebView session the sweep's browser did not complete; the source is not broken"
+            }
 
-        // When the reason is the exception's own message, the chain entry for that exception only
-        // repeats it ("java.io.IOException: <same text>"). Keep the entries that add context - the
-        // wrapping causes and the class names of a different message - and drop the restatement.
+            Status.THROTTLED -> http429
+                ?.retryAfterSeconds
+                ?.let { "the site is rate-limiting this sweep (HTTP 429, retry after ${it}s); the source was not checked" }
+                ?: "the site is rate-limiting this sweep (HTTP 429); the source was not checked"
+
+            Status.SKIP -> "not supported by this source"
+
+            Status.UNSUPPORTED -> chrome
+                ?.let { "the harness's browser session failed mid-check (${it.message}); the extension was not verified" }
+                ?: firstUnavailablePlatform
+                ?: "requires a platform class the harness does not provide"
+
+            else -> when (firstMissingClass) {
+                null -> rootMessage(chain) ?: reasonWithoutMessage(t)
+                else -> "missing class: ${firstMissingClass.message}"
+            }
+        }
+
         val notes = rendering
             .filterNot { it.substringAfter(": ", "") == reason }
             .distinct()
 
         return Diagnosis(status, reason, notes)
-    }
-
-    private fun reason(status: Status, chain: List<Throwable>, t: Throwable): String = when (status) {
-        Status.BLOCKED -> when {
-            chain.any { it is AntiBotChallengeException } ->
-                chain.filterIsInstance<AntiBotChallengeException>()
-                    .firstOrNull()
-                    ?.let { "${it.provider} anti-bot challenge; the source needs a browser session that passes it" }
-                    ?: "anti-bot challenge; the source needs a browser session that passes it"
-
-            chain.any { it is ActivityNotFoundException } ->
-                "the source opens one of its own activities (a verification or captcha step) that the sweep cannot run"
-
-            chain.any { it.message?.startsWith("Captcha needs interaction") == true } ->
-                "the site's captcha needs a human the sweep cannot provide; the source is not broken"
-
-            // Attribution mirrors diagnose(): a message that asks for a WebView session can also
-            // mention a session or token, and that verdict is about the browser, not credentials.
-            chain.any { needsWebViewSession(it) } ->
-                "the site requires a WebView session the sweep's browser did not complete; the source is not broken"
-
-            chain.any { needsLogin(it) } ->
-                "the source requires login or credentials the sweep cannot provide; the source is not broken"
-
-            chain.any { geoRestricted(it) } ->
-                "the site restricts by region and the sweep runs outside the allowed area; the source is not broken"
-
-            else -> "the site requires a WebView session the sweep's browser did not complete; the source is not broken"
-        }
-
-        Status.THROTTLED -> chain.filterIsInstance<HttpException>()
-            .firstOrNull { it.code == 429 }
-            ?.retryAfterSeconds
-            ?.let { "the site is rate-limiting this sweep (HTTP 429, retry after ${it}s); the source was not checked" }
-            ?: "the site is rate-limiting this sweep (HTTP 429); the source was not checked"
-
-        Status.SKIP -> "not supported by this source"
-
-        Status.UNSUPPORTED -> chain.filterIsInstance<ChromeUnavailableException>().firstOrNull()
-            ?.let { "the harness's browser session failed mid-check (${it.message}); the extension was not verified" }
-            ?: chain.firstNotNullOfOrNull { unavailablePlatform(it) }
-            ?: "requires a platform class the harness does not provide"
-
-        else -> when (val missing = chain.firstOrNull { it is NoClassDefFoundError || it is ClassNotFoundException }) {
-            null -> rootMessage(chain) ?: reasonWithoutMessage(t)
-            else -> "missing class: ${missing.message}"
-        }
     }
 
     /**
