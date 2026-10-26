@@ -115,9 +115,19 @@ internal class Options(
                     "--only" -> only = Path.of(args.requireValue(++i, arg))
                     "--prune" -> prune = true
                     "--title" -> title = args.requireValue(++i, arg)
-                    "--timeout" -> timeout = Duration.ofSeconds(args.requireValue(++i, arg).toLong())
-                    "--manga-limit" -> mangaLimit = args.requireValue(++i, arg).toInt()
-                    "--page-limit" -> pageLimit = args.requireValue(++i, arg).toInt()
+                    "--timeout" -> timeout = args.requireValue(++i, arg).let { value ->
+                        val seconds = value.toLongOrNull()
+                            ?: throw IllegalArgumentException("--timeout expects a number of seconds, got $value")
+                        Duration.ofSeconds(seconds)
+                    }
+                    "--manga-limit" -> mangaLimit = args.requireValue(++i, arg).let { value ->
+                        value.toIntOrNull()
+                            ?: throw IllegalArgumentException("--manga-limit expects a number, got $value")
+                    }
+                    "--page-limit" -> pageLimit = args.requireValue(++i, arg).let { value ->
+                        value.toIntOrNull()
+                            ?: throw IllegalArgumentException("--page-limit expects a number, got $value")
+                    }
                     "--no-images" -> probeImages = false
                     "--lang" -> langs = args.requireValue(++i, arg)
                         .split(',')
@@ -152,6 +162,37 @@ internal class Options(
             }
             if (prune && only == null) {
                 throw IllegalArgumentException("--prune requires --only: the list is what says which modules still exist")
+            }
+
+            val selections = listOfNotNull(
+                "module".takeIf { module != null },
+                "module-list".takeIf { moduleList != null },
+                "discover".takeIf { discover },
+            )
+            if (!help && selections.size > 1) {
+                throw IllegalArgumentException(
+                    "--module, --module-list and --discover are mutually exclusive; got " +
+                        selections.joinToString(" and ") { "--$it" },
+                )
+            }
+
+            if (!help) {
+                if (timeout.isNegative || timeout.isZero) {
+                    throw IllegalArgumentException("--timeout must be positive, got ${timeout.seconds}s")
+                }
+                if (mangaLimit < 1) throw IllegalArgumentException("--manga-limit must be at least 1")
+                if (pageLimit < 1) throw IllegalArgumentException("--page-limit must be at least 1")
+            }
+
+            if (!help && module == null && (output != null || html != null)) {
+                val flags = listOfNotNull(
+                    "--output".takeIf { output != null },
+                    "--html".takeIf { html != null },
+                )
+                throw IllegalArgumentException(
+                    "${flags.joinToString(" and ")} only apply to --module; " +
+                        "use --site to publish a multi-module sweep",
+                )
             }
 
             return Options(

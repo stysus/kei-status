@@ -129,6 +129,56 @@ class EntrySelectionTest {
         Options.parse(arrayOf("--discover", "--shards", "4"))
     }
 
+    @Test(expected = IllegalArgumentException::class)
+    fun `--module and --discover are mutually exclusive`() {
+        Options.parse(arrayOf("--module", ":src:en:aurora", "--discover"))
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `--module and --module-list are mutually exclusive`() {
+        Options.parse(arrayOf("--module", ":src:en:aurora", "--module-list", file(":src:en:b").toString()))
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `--module-list and --discover are mutually exclusive`() {
+        Options.parse(arrayOf("--module-list", file(":src:en:a").toString(), "--discover"))
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `--timeout rejects non-numeric input`() {
+        Options.parse(arrayOf("--module", ":src:en:a", "--timeout", "abc"))
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `--timeout rejects negative values`() {
+        Options.parse(arrayOf("--module", ":src:en:a", "--timeout", "-5"))
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `--timeout rejects zero`() {
+        Options.parse(arrayOf("--module", ":src:en:a", "--timeout", "0"))
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `--manga-limit rejects zero`() {
+        Options.parse(arrayOf("--module", ":src:en:a", "--manga-limit", "0"))
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `--page-limit rejects negative values`() {
+        Options.parse(arrayOf("--module", ":src:en:a", "--page-limit", "-3"))
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `--html without --module is rejected`() {
+        Options.parse(arrayOf("--discover", "--html", "page.html"))
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `--output without --module is rejected`() {
+        Options.parse(arrayOf("--module-list", file(":src:en:a").toString(), "--output", "report.json"))
+    }
+
     @Test
     fun `an unset option takes the harness default`() {
         // The defaults used to be written twice, in `HarnessConfig` and again in the option parser,
