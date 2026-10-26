@@ -86,12 +86,12 @@ object ModuleList {
         // a different shard assignment on a different machine and silently invalidate its cache.
         val ordered = entries.sortedBy { it.line() }
         Files.createDirectories(outDir)
-        Files.writeString(outDir.resolve("all.txt"), ordered.joinToString("") { it.line() + "\n" })
+        writeAtomically(outDir.resolve("all.txt"), ordered.joinToString("") { it.line() + "\n" })
 
         val shards = split(ordered, count, costs)
         shards.forEachIndexed { offset, shard ->
             val body = shard.joinToString("") { it.line() + "\n" }
-            Files.writeString(outDir.resolve("shard-${offset + 1}.txt"), body)
+            writeAtomically(outDir.resolve("shard-${offset + 1}.txt"), body)
         }
         return shards
     }

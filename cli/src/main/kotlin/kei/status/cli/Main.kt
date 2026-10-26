@@ -129,6 +129,7 @@ fun main(args: Array<String>) {
                     "\"${module}\": $ms"
                 }
             runCatching { writeAtomically(store.resolve("costs"), body) }
+                .onFailure { System.err.println("kei-status: could not write costs file to $store: ${it.message}") }
         }
     }
 

@@ -22,6 +22,7 @@ import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.Request
 import java.nio.file.Path
 import java.time.Instant
+import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
 class Captured<T>(val value: T?, val result: ScenarioResult)
 
@@ -29,6 +30,8 @@ class HarnessRunner(private val config: HarnessConfig) {
 
     companion object {
         private val commitCache = java.util.concurrent.ConcurrentHashMap<Path, String?>()
+        private const val COMMIT_TIMEOUT_SECONDS = 10L
+
         /**
          * A module-level failure the runner itself could not survive.
          *
@@ -587,6 +590,7 @@ class HarnessRunner(private val config: HarnessConfig) {
                     .redirectErrorStream(true)
                     .start()
                 try {
+                    if (!process.waitFor(COMMIT_TIMEOUT_SECONDS, TimeUnit.SECONDS)) return@runCatching null
                     process.inputStream.bufferedReader().readText().trim().ifBlank { null }
                 } finally {
                     process.destroyForcibly()

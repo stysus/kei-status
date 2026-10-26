@@ -738,7 +738,7 @@ open class WebView(context: Context?) : View() {
             if (destroyed) return@post
             runCatching {
                 if (method.parameterCount == 0) method.invoke(target) else method.invoke(target, argument)
-            }
+            }.onFailure { trace("bridge $interfaceName.$methodName failed: ${it.message}") }
         }
     }
 
