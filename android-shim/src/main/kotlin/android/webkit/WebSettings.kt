@@ -44,8 +44,10 @@ open class WebSettings internal constructor() {
             overrideUserAgent = value
         }
 
+    @get:JvmName("supportMultipleWindows")
     var supportMultipleWindows: Boolean = false
 
+    @get:JvmName("supportZoom")
     var supportZoom: Boolean = true
 
     var builtInZoomControls: Boolean = false

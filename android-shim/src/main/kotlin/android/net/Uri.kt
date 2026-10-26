@@ -13,8 +13,6 @@ package android.net
  */
 class Uri private constructor(private val value: String) {
 
-    fun toStringValue(): String = value
-
     override fun toString(): String = value
 
     fun isAbsolute(): Boolean = value.contains("://")
