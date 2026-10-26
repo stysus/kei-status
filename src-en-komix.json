@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:18:06.986539528Z",
+    "generatedAt": "2026-10-26T22:56:38.550852832Z",
     "module": ":src:en:komix",
     "sourceRoot": "",
     "extensionCommit": "949dea25",
@@ -10,7 +10,7 @@
             "name": "Komix",
             "lang": "en",
             "baseUrl": "https://komix.to",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 30111,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 318,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 666,
+                    "durationMs": 524,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 193,
+                    "durationMs": 505,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 195,
+                    "durationMs": 564,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,23 +76,54 @@
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 30001,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 594,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://komix.to/api/images?t=2Rn8o1adNOwE76ZoYqU9VuBCLAKyGGLmI74T3Q4NWJntJ_jLbC5AY4aJhA8OBGQz49Wt200DFXfQSMO3nttyyUz4UTEQVpSOtEuqLM0qFDwJILxPuQ1VpThl2rI7CU6pIYpWp2Kc3HkRTrM26XpZzA",
+                        "https://komix.to/api/images?t=vMekmTZ6awqIj1_C5Zv4yHcL7kaKQXTuKp8s09_7N_ZrsUxiSa3OLGLtXFouhWIb6PopsCF8El6RyVk1RLx9jbaKUkXELlbVRSOYnwKhOoKDzZnmh8dk3m9iMyLxi21X4h53ETJodd05CBdTWhkHCA",
+                        "https://komix.to/api/images?t=owx-UeQ25L94etSo1M-Ez-B_lXL6zkD7q5IFWvpcMENiw-rQlhySWo8L_YPOH7lnO5PK4y9aMr0P2yY87dS0pweAYDoMdzL7466-TljL7SNJfJvKlHa9NHwzaE76Vr5CoVVNeTvHEw1GF8yHjNPsTA"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 760,
+                    "message": null,
+                    "notes": [
+                        "page[0] image returned HTTP 404",
+                        "page[1] image returned HTTP 404",
+                        "page[2] image returned HTTP 404"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-25T16:19:33.999707662Z",
+    "comparedTo": "2026-10-26T09:18:06.986539528Z",
     "changes": [
         {
             "source": "Komix",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Komix",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Komix",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "WARN"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

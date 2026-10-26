@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T01:00:52.621791746Z",
+    "generatedAt": "2026-10-26T23:01:08.251912169Z",
     "module": ":src:tr:mangaship",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 7110025728969951060,
             "name": "Manga Bahçesi",
             "lang": "tr",
             "baseUrl": "https://mangabahcesi.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,32 +22,28 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 502,
+                    "status": "WARN",
+                    "durationMs": 625,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 520"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 498,
-                    "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list",
-                        "hasNextPage=true but list is empty"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 434,
+                    "message": "HTTP error 520",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 208,
-                    "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list",
-                        "hasNextPage=true but list is empty"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 450,
+                    "message": "HTTP error 520",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -79,21 +75,29 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:49:27.181997903Z",
+    "comparedTo": "2026-10-24T01:00:52.621791746Z",
     "changes": [
         {
             "source": "Manga Bahçesi",
             "lang": "tr",
-            "scenario": "popular",
-            "from": "FAIL",
+            "scenario": "connectivity",
+            "from": "PASS",
             "to": "WARN"
         },
         {
             "source": "Manga Bahçesi",
             "lang": "tr",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manga Bahçesi",
+            "lang": "tr",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "FAIL"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

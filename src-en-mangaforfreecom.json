@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:06.882518960Z",
+    "generatedAt": "2026-10-26T22:58:28.969349254Z",
     "module": ":src:en:mangaforfreecom",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 1099222169691387069,
             "name": "Mangaforfree.com",
             "lang": "en",
             "baseUrl": "https://mangaforfree.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 529,
+                    "status": "WARN",
+                    "durationMs": 19607,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522",
+                        "home page body is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 319,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19456,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Secret Class -> 350674",
-                        "Stop Smoking -> 359817",
-                        "My Girlfriend Was Already Fully Trained -> 362325"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 424,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19454,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Little Bully -> 362167",
-                        "Pleasure Board Game: Asmodek -> 362294",
-                        "3rd Grade – 5th Class -> 357550"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,39 +59,67 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 278,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 321 raw -> chapter-321-raw",
-                        "Chapter 321 -> chapter-321",
-                        "Chapter 320 raw -> chapter-320-raw"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 213,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mangaforfree.com/wp-content/uploads/WP-manga/data/manga_6a578c5dd2452/8d54a7f99705c6a11efb134699357fc0/000.webp",
-                        "https://mangaforfree.com/wp-content/uploads/WP-manga/data/manga_6a578c5dd2452/8d54a7f99705c6a11efb134699357fc0/001.webp",
-                        "https://mangaforfree.com/wp-content/uploads/WP-manga/data/manga_6a578c5dd2452/8d54a7f99705c6a11efb134699357fc0/002.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1432,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:06.882518960Z",
+    "changes": [
+        {
+            "source": "Mangaforfree.com",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Mangaforfree.com",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mangaforfree.com",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mangaforfree.com",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangaforfree.com",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangaforfree.com",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
+    "throttledHosts": []
 }

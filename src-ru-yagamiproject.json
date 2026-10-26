@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:24:37.748760017Z",
+    "generatedAt": "2026-10-26T23:03:28.564366398Z",
     "module": ":src:ru:yagamiproject",
     "sourceRoot": "",
     "extensionCommit": "949dea25",
@@ -10,7 +10,7 @@
             "name": "YagamiProject",
             "lang": "ru",
             "baseUrl": "https://read.yagami.me",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,32 +22,42 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 31491,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 1384,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30001,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 373,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Up Up Balloon -> /series/up_up_balloon/",
+                        "NCT: Dream Contact -> /series/nct_dream_contact/",
+                        "Momo Kanchou no Himitsu Kichi -> /series/momo_kanchou_no_himitsu_kichi/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 30001,
-                    "message": "timeout",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 457,
+                    "message": null,
+                    "notes": [
+                        "duplicate manga urls: [/series/tower_of_god/]"
+                    ],
+                    "samples": [
+                        "Up Up Balloon -> /series/up_up_balloon/",
+                        "Goodbye Dragon Life, Hello Human Life -> /series/goodbye_dragon_life_hello_human_life/",
+                        "Tower of God -> /series/tower_of_god/"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -56,66 +66,81 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 373,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Том 1. Глава 1 -> /read/up_up_balloon/1/1/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 336,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://read.yagami.me/read/up_up_balloon/1/1/page/1",
+                        "https://read.yagami.me/read/up_up_balloon/1/1/page/2",
+                        "https://read.yagami.me/read/up_up_balloon/1/1/page/3"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 3072,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T21:59:24.312870871Z",
+    "comparedTo": "2026-10-26T09:24:37.748760017Z",
     "changes": [
         {
             "source": "YagamiProject",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "YagamiProject",
             "lang": "ru",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "YagamiProject",
             "lang": "ru",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
             "source": "YagamiProject",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "YagamiProject",
             "lang": "ru",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "YagamiProject",
             "lang": "ru",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

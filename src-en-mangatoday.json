@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:19:18.139180088Z",
+    "generatedAt": "2026-10-26T23:03:01.163789887Z",
     "module": ":src:en:mangatoday",
     "sourceRoot": "",
     "extensionCommit": "949dea25",
@@ -10,28 +10,28 @@
             "name": "MangaToday",
             "lang": "en",
             "baseUrl": "https://mangatoday.fun",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1775,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30178,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 365,
+                    "durationMs": 701,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,16 +42,14 @@
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 267,
+                    "status": "PASS",
+                    "durationMs": 3825,
                     "message": null,
-                    "notes": [
-                        "manga[1] has no thumbnail"
-                    ],
+                    "notes": [],
                     "samples": [
-                        "Hengoku no Schwester -> /manga/hengoku-no-schwester",
-                        "Shi ni Kake Shoujo to Kumo Ouji -> /manga/shi-ni-kake-shoujo-to-kumo-ouji",
-                        "Chronicles of the Lazy Sovereign -> /manga/chronicles-of-the-lazy-sovereign"
+                        "The Wandering Knight’s Survival Manual -> /manga/the-wandering-knight-s-survival-manual",
+                        "How to Survive as a Wandering Knight -> /manga/how-to-survive-as-a-wandering-knight",
+                        "Full-time Hunter: I hunt the world! -> /manga/full-time-hunter-i-hunt-the-world"
                     ]
                 },
                 {
@@ -67,7 +65,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 298,
+                    "durationMs": 1351,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -79,7 +77,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 264,
+                    "durationMs": 1357,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -91,7 +89,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 158,
+                    "durationMs": 196,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -99,6 +97,22 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-25T16:21:09.514703957Z",
-    "changes": []
+    "comparedTo": "2026-10-26T09:19:18.139180088Z",
+    "changes": [
+        {
+            "source": "MangaToday",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaToday",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "PASS"
+        }
+    ],
+    "throttledHosts": []
 }

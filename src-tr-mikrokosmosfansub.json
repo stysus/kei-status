@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:24:51.858895176Z",
+    "generatedAt": "2026-10-26T23:01:10.563252637Z",
     "module": ":src:tr:mikrokosmosfansub",
     "sourceRoot": "",
     "extensionCommit": "949dea25",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 514,
+                    "durationMs": 465,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 429"
@@ -32,85 +32,88 @@
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 148,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Missing Love/ A Married Man -> /2021/09/a-married-man.html",
-                        "Our Omega Leadernim -> /2021/07/our-omega-leadernim_16.html",
-                        "Night Song -> /2022/07/night-song.html"
-                    ]
-                },
-                {
-                    "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 147,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Borderline (GÜNCEL) -> /2026/03/borderline.html",
-                        "Abyss  -> /2021/07/abyss.html",
-                        "Mind The Gap -> /2026/10/0004.html"
-                    ]
-                },
-                {
-                    "name": "filters",
-                    "status": "PASS",
-                    "durationMs": 0,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 619,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Final Bölüm 78 -> /2026/07/bolum-78-son.html",
-                        "Bölüm 77 -> /2026/07/bolum-77.html",
-                        "Bölüm 76 -> /2026/07/bolum-76.html"
-                    ]
-                },
-                {
-                    "name": "pages",
                     "status": "THROTTLED",
-                    "durationMs": 1885,
+                    "durationMs": 1840,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
                     "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "mikrokosmosfb.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "mikrokosmosfb.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T01:00:17.925279511Z",
+    "comparedTo": "2026-10-26T09:24:51.858895176Z",
     "changes": [
         {
             "source": "Mikrokosmos Fansub",
             "lang": "tr",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Mikrokosmos Fansub",
-            "lang": "tr",
-            "scenario": "pages",
+            "scenario": "popular",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "Mikrokosmos Fansub",
             "lang": "tr",
-            "scenario": "images",
+            "scenario": "latest",
             "from": "PASS",
-            "to": null
+            "to": "SKIP"
+        },
+        {
+            "source": "Mikrokosmos Fansub",
+            "lang": "tr",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mikrokosmos Fansub",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mikrokosmos Fansub",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "THROTTLED",
+            "to": "SKIP"
         }
+    ],
+    "throttledHosts": [
+        "mikrokosmosfb.blogspot.com"
     ]
 }

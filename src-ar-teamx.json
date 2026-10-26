@@ -1,21 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:22.889853433Z",
+    "generatedAt": "2026-10-26T22:58:27.945469778Z",
     "module": ":src:ar:teamx",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 4110737012647435874,
             "name": "Team X",
             "lang": "ar",
             "baseUrl": "https://olympustaff.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 797,
+                    "durationMs": 482,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 305,
+                    "status": "WARN",
+                    "durationMs": 26,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "fast break -> /series/fast-break",
-                        "My Disciples Are All Villains -> /series/my-disciples-are-all-villains",
-                        "The demon king's champion -> /series/the-demon-kings-champion"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 289,
+                    "status": "WARN",
+                    "durationMs": 35,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Lord Of The Truth Fan Webtoon -> /series/lord-of-the-truth",
-                        "The Rebel of the Tyrant Noble Family -> /series/the-rebel-of-the-tyrant-noble-family",
-                        "Defiance of the Fall -> /series/defiance-of-the-fall"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,39 +60,60 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 260,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "الفصل 15‏ -> /series/fast-break/15",
-                        "الفصل 14‏ -> /series/fast-break/14",
-                        "الفصل 13‏ -> /series/fast-break/13"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 286,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://olympustaff.com/uploads/manga_41ae3/15/00.png",
-                        "https://olympustaff.com/uploads/manga_41ae3/15/01.png",
-                        "https://olympustaff.com/uploads/manga_41ae3/15/02.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 4539,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:22.889853433Z",
+    "changes": [
+        {
+            "source": "Team X",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Team X",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Team X",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Team X",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Team X",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
+    "throttledHosts": []
 }

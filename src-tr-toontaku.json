@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-22T08:59:22.406337089Z",
+    "generatedAt": "2026-10-26T23:05:07.067474088Z",
     "module": ":src:tr:toontaku",
     "sourceRoot": "",
-    "extensionCommit": "1d3d7c4b",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 8871964332446395715,
             "name": "Toontaku",
             "lang": "tr",
             "baseUrl": "https://toontaku.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 960,
+                    "status": "WARN",
+                    "durationMs": 19464,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 853,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19819,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Öte Âlemin Zindan Hükümdarı -> ote-lemin-zindan-hukumdari",
-                        "I Became a King by Picking up Trash -> i-became-a-king-by-picking-up-trash",
-                        "Nano Makine -> nano-makine"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1596,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19604,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Nano Makine -> nano-makine",
-                        "Çağırıcı: Kıyamet Geri Sarıyor -> the-summoner-apocalypse-rewinds",
-                        "Herkes Ölümsüz Ordusu Sentezleyerek Başlıyor -> herkes-olumsuz-ordusu-sentezleyerek-basliyor"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,54 +58,67 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1639,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 Bölüm 120 -> 01a0fa2e-5ad9-7536-a7e4-4e1cd832dc72",
-                        "🔒 Bölüm 119 -> 01a0fa2f-77c8-7190-b9bf-ba646ff1bea5",
-                        "🔒 Bölüm 118 -> 01a0e280-98dd-7f8b-b127-80f05290f5a2"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 465,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.toontaku.com/series/cmld6lec6001p8vv4f4xkdui7/0-5-cc07/001-e984.webp",
-                        "https://cdn.toontaku.com/series/cmld6lec6001p8vv4f4xkdui7/0-5-cc07/002-b787.webp",
-                        "https://cdn.toontaku.com/series/cmld6lec6001p8vv4f4xkdui7/0-5-cc07/003-1d9d.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2328,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:51:14.202072181Z",
+    "comparedTo": "2026-10-22T08:59:22.406337089Z",
     "changes": [
         {
             "source": "Toontaku",
             "lang": "tr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Toontaku",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Toontaku",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Toontaku",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Toontaku",
+            "lang": "tr",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Toontaku",
             "lang": "tr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
-    ]
+    ],
+    "throttledHosts": []
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:57:04.568388113Z",
+    "generatedAt": "2026-10-26T23:03:37.040274268Z",
     "module": ":src:ru:nudemoon",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 6384784374922886076,
             "name": "Nude-Moon",
             "lang": "ru",
             "baseUrl": "https://nude-moon.org",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,30 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 3385,
+                    "status": "WARN",
+                    "durationMs": 41999,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522",
+                        "home page body is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1007,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 146,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "EroNinja -> /8152-online--witcher000-eroninja.html",
-                        "Debauchery of a Mature Honeypot Princess -> /8875-online--witcher000-debauchery-of-a-mature-honeypot-princess-2.html",
-                        "Narutoon -> /14931-online--zone-narutoon-5.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 416,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19309,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Mippai! -> /34371-online--lacen-mippai-4--polney-vpered.html",
-                        "Mippai! -> /34370-online--lacen-mippai-3--polney-vpered.html",
-                        "Mippai! -> /34369-online--lacen-mippai-2--polney-vpered.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,81 +59,67 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 923,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "EroNinja №2 -> /17751-online--dark-tl-eroninja-2.html",
-                        "EroNinja №1 -> /8152-online--witcher000-eroninja.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 543,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://nude-moon.org/manga/2017/04/094-witcher000-eroninja/101.jpg",
-                        "https://nude-moon.org/manga/2017/04/094-witcher000-eroninja/102.jpg",
-                        "https://nude-moon.org/manga/2017/04/094-witcher000-eroninja/103.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 536,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:54:13.036656272Z",
+    "comparedTo": "2026-10-23T08:57:04.568388113Z",
     "changes": [
         {
             "source": "Nude-Moon",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Nude-Moon",
             "lang": "ru",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Nude-Moon",
             "lang": "ru",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Nude-Moon",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Nude-Moon",
             "lang": "ru",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Nude-Moon",
             "lang": "ru",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
-    ]
+    ],
+    "throttledHosts": []
 }

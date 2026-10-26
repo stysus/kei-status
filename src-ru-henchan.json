@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:22:34.821696289Z",
+    "generatedAt": "2026-10-26T23:03:51.065851323Z",
     "module": ":src:ru:henchan",
     "sourceRoot": "",
     "extensionCommit": "949dea25",
@@ -10,7 +10,7 @@
             "name": "HenChan",
             "lang": "ru",
             "baseUrl": "https://xxl.hentaichan.live",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,29 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 26342,
+                    "status": "PASS",
+                    "durationMs": 637,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 502"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 29173,
-                    "message": "HTTP error 502",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 190,
+                    "message": null,
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 30001,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 946,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Падение Хиэды -> /manga/55788-padenie-hiedy.html",
+                        "Укрощение строптивого - часть 22 (стр. 845-895) -> /manga/55787-ukroschenie-stroptivogo-chast-22-str-845-895.html",
+                        "Укрощение строптивого - часть 22 (стр. 845-895) -> /manga/55786-ukroschenie-stroptivogo-chast-22-str-845-895.html"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -58,29 +62,54 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 780,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Падение Хиэды -> /online/55788-padenie-hiedy.html?cacheId=1792959050"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 324,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://mimg4.imgschan.xyz/manganew_webp/k/1792959050_komamesugata-akure-ekuto-hieda-padenie-hiedy-touhou-project-russian-kira_sas-digital/000.webp",
+                        "https://mimg4.imgschan.xyz/manganew_webp/k/1792959050_komamesugata-akure-ekuto-hieda-padenie-hiedy-touhou-project-russian-kira_sas-digital/001.webp",
+                        "https://mimg4.imgschan.xyz/manganew_webp/k/1792959050_komamesugata-akure-ekuto-hieda-padenie-hiedy-touhou-project-russian-kira_sas-digital/002.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 31777,
+                    "message": null,
+                    "notes": [
+                        "page[0] image request failed: SocketTimeoutException: timeout",
+                        "page[1] image request failed: SocketTimeoutException: timeout",
+                        "page[2] image request failed: SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-25T16:29:12.400106994Z",
+    "comparedTo": "2026-10-26T09:22:34.821696289Z",
     "changes": [
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "connectivity",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "HenChan",
+            "lang": "ru",
+            "scenario": "popular",
             "from": "FAIL",
             "to": "WARN"
         },
@@ -88,29 +117,30 @@
             "source": "HenChan",
             "lang": "ru",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

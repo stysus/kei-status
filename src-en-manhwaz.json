@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:17:25.258210780Z",
+    "generatedAt": "2026-10-26T22:59:54.169512752Z",
     "module": ":src:en:manhwaz",
     "sourceRoot": "",
     "extensionCommit": "949dea25",
@@ -10,7 +10,7 @@
             "name": "ManhwaZ",
             "lang": "en",
             "baseUrl": "https://manhwaz.cc",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1516,
+                    "status": "WARN",
+                    "durationMs": 545,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 3,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 372,
+                    "message": "HTTP error 503",
                     "notes": [],
-                    "samples": [
-                        "Éminence Grise Female Lead Is Trying To Make Me Her Stepmom -> /webtoon/coffee-eminence-grise-female-lead-is-trying-to-make-me-her-stepmom",
-                        "Return of the First Patriarch: The Strongest Reincarnates into His Descendant 1000 Years Later -> /webtoon/coffee-return-of-the-first-patriarch-the-strongest-reincarnates-into-his-descendant-1000-years-later",
-                        "Zombie World -> /webtoon/coffee-zombie-world"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 33,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 515,
+                    "message": "HTTP error 503",
                     "notes": [],
-                    "samples": [
-                        "Éminence Grise Female Lead Is Trying To Make Me Her Stepmom -> /webtoon/coffee-eminence-grise-female-lead-is-trying-to-make-me-her-stepmom",
-                        "Return of the First Patriarch: The Strongest Reincarnates into His Descendant 1000 Years Later -> /webtoon/coffee-return-of-the-first-patriarch-the-strongest-reincarnates-into-his-descendant-1000-years-later",
-                        "Zombie World -> /webtoon/coffee-zombie-world"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,49 +58,67 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 2488,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 117 -> /webtoon/coffee-eminence-grise-female-lead-is-trying-to-make-me-her-stepmom/chapter-117",
-                        "Chapter 116 -> /webtoon/coffee-eminence-grise-female-lead-is-trying-to-make-me-her-stepmom/chapter-116",
-                        "Chapter 115 -> /webtoon/coffee-eminence-grise-female-lead-is-trying-to-make-me-her-stepmom/chapter-115"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2566,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://api.manhwaz.cc/api/v1/source/coffee?url=https%3A%2F%2Fcdn3.zinmanga1.com%2Feminence-grise-female-lead-is-trying-to-make-me-her-stepmom%2F117%2F0.webp",
-                        "https://api.manhwaz.cc/api/v1/source/coffee?url=https%3A%2F%2Fcdn3.zinmanga1.com%2Feminence-grise-female-lead-is-trying-to-make-me-her-stepmom%2F117%2F1.webp",
-                        "https://api.manhwaz.cc/api/v1/source/coffee?url=https%3A%2F%2Fcdn3.zinmanga1.com%2Feminence-grise-female-lead-is-trying-to-make-me-her-stepmom%2F117%2F2.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 11663,
-                    "message": null,
-                    "notes": [
-                        "page[0] image returned HTTP 429"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:35.194211547Z",
+    "comparedTo": "2026-10-26T09:17:25.258210780Z",
     "changes": [
         {
             "source": "ManhwaZ",
             "lang": "en",
-            "scenario": "images",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "WARN"
+        },
+        {
+            "source": "ManhwaZ",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "ManhwaZ",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "ManhwaZ",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ManhwaZ",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ManhwaZ",
+            "lang": "en",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
-    ]
+    ],
+    "throttledHosts": []
 }

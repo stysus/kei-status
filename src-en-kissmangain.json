@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:18:51.270790077Z",
+    "generatedAt": "2026-10-26T23:00:53.196507055Z",
     "module": ":src:en:kissmangain",
     "sourceRoot": "",
     "extensionCommit": "949dea25",
@@ -10,7 +10,7 @@
             "name": "Kissmanga.in",
             "lang": "en",
             "baseUrl": "https://kissmanga.in",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 20406,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from kissmanga.in (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 4081,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 22,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from kissmanga.in (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 733,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Above All Gods -> 34",
+                        "Solo Leveling -> 204",
+                        "The Beginning After the End -> 3716"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 18,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from kissmanga.in (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 674,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Frozen Apocalypse: I Stockpiled 100 Billion Supplies -> 52331",
+                        "The Wolf That Picked Something Up -> 18804",
+                        "Beast Taming Evolution -> 52731"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,66 +64,87 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 699,
+                    "message": null,
+                    "notes": [
+                        "duplicate chapter urls: [chapter-165, chapter-34]"
+                    ],
+                    "samples": [
+                        "Chapter 553.5 -> chapter-553-5_1",
+                        "Chapter 478.5 -> chapter-478-5_1",
+                        "Chapter 478 -> chapter-478_5"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 410,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://dist-01est.imgcdn.co/wp-content/uploads/WP-manga/data/manga_5e1c9343ec2da/c07a95041e5c29c159b38fbf26f74318/0.jpg",
+                        "https://dist-02est.imgcdn.co/wp-content/uploads/WP-manga/data/manga_5e1c9343ec2da/c07a95041e5c29c159b38fbf26f74318/1.jpg",
+                        "https://dist-03est.imgcdn.co/wp-content/uploads/WP-manga/data/manga_5e1c9343ec2da/c07a95041e5c29c159b38fbf26f74318/2.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 19930,
+                    "message": null,
+                    "notes": [
+                        "page[2] image returned HTTP 522"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-25T16:20:05.176458968Z",
+    "comparedTo": "2026-10-26T09:18:51.270790077Z",
     "changes": [
         {
             "source": "Kissmanga.in",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Kissmanga.in",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Kissmanga.in",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Kissmanga.in",
             "lang": "en",
             "scenario": "chapters",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
         },
         {
             "source": "Kissmanga.in",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Kissmanga.in",
             "lang": "en",
             "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

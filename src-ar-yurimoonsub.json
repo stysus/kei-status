@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T08:24:08.531283777Z",
+    "generatedAt": "2026-10-26T22:59:16.200693651Z",
     "module": ":src:ar:yurimoonsub",
     "sourceRoot": "",
-    "extensionCommit": "d64b4dea",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 7833471811016150678,
             "name": "Yuri Moon Sub",
             "lang": "ar",
             "baseUrl": "https://yurimoonsub.blogspot.com",
-            "status": "PASS",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,108 +23,102 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 378,
+                    "durationMs": 308,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 185,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Bad Thinking Diary مانهوا مترجمة -> /2022/08/bad-thinking-diary_23.html",
-                        "lily of the valley مانهوا مترجمة -> /2024/05/lily-of-valley.html",
-                        "i adore you teacher مانهوا مترجمة -> /2024/09/i-adore-you-teacher.html"
-                    ]
+                    "status": "THROTTLED",
+                    "durationMs": 1985,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 351,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "yurimoonsub.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Soul drifters مترجمة -> /2026/02/soul-drifters.html",
-                        "show me your bust مانهوا مترجمة -> /2023/05/show-me-your-bust_01940674042.html",
-                        "I Love Amy مترجمة -> /2026/08/i-love-amy.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "yurimoonsub.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1031,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "جانبي -> /2024/03/remarksbad.html",
-                        "ملاحظات -> /2024/03/AuthorReviewbad.html",
-                        "النهاية -> /2024/03/badchend.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 699,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsN94yGtkGYtWYD9g3Od-hVawIQTrxCzJj6NwkUaRhF6vw-M0ylo6rs9lqfCksrFV_D9TLNwaTysQ1RQiPCy1pVfxWNG15hAfd2k5bZgwWX05ko59CIWYbliNUEe3IP0jP7oLSBbkT1Fg16kuCliSRAKd5nB9YOtYOXQeyJA1w1z6w-K0c8H31J-pfCks/s16000-rw/1.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj01TUxmlf60qz_-KE4ObEajzNZ6Lmq9bqCBMb6q2yKwzDzoW_b2W_qUJFukr1dUDQKr0esRlzwLGcPfHP_xb_zd7RcLW-zisVawU4fNwL3QFAHlSpqykmaP6aviRjXQBL8wBVYufl7YhxLRw9QLK01F3CzJMrYNAXsxATEI48KKbhXb7o9Lwr5hHZ_Zs8/s16000-rw/2.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1877,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:53:37.642126672Z",
+    "comparedTo": "2026-10-24T08:24:08.531283777Z",
     "changes": [
         {
             "source": "Yuri Moon Sub",
             "lang": "ar",
-            "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "Yuri Moon Sub",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Yuri Moon Sub",
+            "lang": "ar",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Yuri Moon Sub",
             "lang": "ar",
             "scenario": "chapters",
-            "from": "THROTTLED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Yuri Moon Sub",
             "lang": "ar",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Yuri Moon Sub",
             "lang": "ar",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
+    ],
+    "throttledHosts": [
+        "yurimoonsub.blogspot.com"
     ]
 }

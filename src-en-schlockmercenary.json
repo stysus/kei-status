@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:04.143203529Z",
+    "generatedAt": "2026-10-26T23:02:14.782525649Z",
     "module": ":src:en:schlockmercenary",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 4705692208637300585,
             "name": "Schlock Mercenary",
             "lang": "en",
             "baseUrl": "https://www.schlockmercenary.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 418,
+                    "durationMs": 291,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 60,
+                    "durationMs": 79,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +61,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 60,
+                    "durationMs": 38,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -72,27 +72,33 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2921,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.schlockmercenary.com/strip/477/0/schlock20011001.jpg?v=1443826485685",
-                        "https://www.schlockmercenary.com/strip/478/0/schlock20011002.jpg?v=1443826485692",
-                        "https://www.schlockmercenary.com/strip/479/0/schlock20011003.jpg?v=1443826485698"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 333,
-                    "message": null,
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 34318,
+                    "message": "Socket closed",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:04.143203529Z",
+    "changes": [
+        {
+            "source": "Schlock Mercenary",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Schlock Mercenary",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
+    "throttledHosts": []
 }

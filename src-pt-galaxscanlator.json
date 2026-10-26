@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:16:24.590788763Z",
+    "generatedAt": "2026-10-26T23:05:56.213766368Z",
     "module": ":src:pt:galaxscanlator",
     "sourceRoot": "",
     "extensionCommit": "949dea25",
@@ -10,7 +10,7 @@
             "name": "GALAX Scans",
             "lang": "pt-BR",
             "baseUrl": "https://galaxscanlator.blogspot.com",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 430,
+                    "durationMs": 206,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 267,
+                    "durationMs": 98,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 401,
+                    "durationMs": 184,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,47 +64,60 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "THROTTLED",
-                    "durationMs": 1755,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "status": "PASS",
+                    "durationMs": 351,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Savage Hero Chapter 34 -> /2026/10/savage-hero-34.html",
+                        "Savage Hero Chapter 33 -> /2026/10/savage-hero-33.html",
+                        "Savage Hero Chapter 32 -> /2026/10/savage-hero-32.html"
+                    ]
+                },
+                {
+                    "name": "pages",
+                    "status": "WARN",
+                    "durationMs": 1525,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                        "page list is empty"
                     ],
                     "samples": []
                 },
                 {
-                    "name": "pages",
-                    "status": "SKIP",
+                    "name": "images",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T22:02:58.677421607Z",
+    "comparedTo": "2026-10-26T09:16:24.590788763Z",
     "changes": [
         {
             "source": "GALAX Scans",
             "lang": "pt-BR",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "GALAX Scans",
             "lang": "pt-BR",
             "scenario": "pages",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
         },
         {
             "source": "GALAX Scans",
             "lang": "pt-BR",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

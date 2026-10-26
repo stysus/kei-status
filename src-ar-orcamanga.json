@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:16:17.051963253Z",
+    "generatedAt": "2026-10-26T23:02:45.442064451Z",
     "module": ":src:ar:orcamanga",
     "sourceRoot": "",
     "extensionCommit": "949dea25",
@@ -10,7 +10,7 @@
             "name": "Orca Manga",
             "lang": "ar",
             "baseUrl": "https://infinity896.blogspot.com",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,95 +22,104 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 473,
+                    "status": "PASS",
+                    "durationMs": 345,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 429"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "THROTTLED",
-                    "durationMs": 1815,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 181,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Legend of Mir: Gold Armored Sword Dragon -> /2021/05/legend-of-mir-gold-armored-sword-dragon.html?m=1",
+                        "Omniscient Reader Viewpoint -> /2021/10/omniscient-reader-viewpoint.html?m=1",
+                        "Dragon Ego -> /2021/05/dragon-ego.html?m=1"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "infinity896.blogspot.com answered HTTP 429 earlier in this run",
+                    "status": "PASS",
+                    "durationMs": 277,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Omniscient Reader Viewpoint -> /2021/10/omniscient-reader-viewpoint.html",
+                        "Tales Of Demons And Gods -> /2021/10/tales-of-demons-and-gods.html",
+                        "The Red Ranger Becomes An Adventurer In Another World -> /2021/08/the-red-ranger-becomes-adventurer-in.html"
+                    ]
                 },
                 {
                     "name": "filters",
-                    "status": "SKIP",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "infinity896.blogspot.com answered HTTP 429 earlier in this run",
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "0 filters"
+                    ]
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 314,
+                    "message": null,
+                    "notes": [
+                        "chapter list is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-21T08:45:26.110929677Z",
+    "comparedTo": "2026-10-26T09:16:17.051963253Z",
     "changes": [
         {
             "source": "Orca Manga",
             "lang": "ar",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Orca Manga",
             "lang": "ar",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "Orca Manga",
             "lang": "ar",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Orca Manga",
             "lang": "ar",
             "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Orca Manga",
             "lang": "ar",
             "scenario": "chapters",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

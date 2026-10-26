@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T08:42:21.145152312Z",
+    "generatedAt": "2026-10-26T23:00:54.774522312Z",
     "module": ":src:pt:roxinha",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "949dea25",
     "sources": [
         {
             "sourceId": 3961079268907869519,
             "name": "Roxinha",
             "lang": "pt-BR",
             "baseUrl": "https://roxinha.online",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 687,
+                    "status": "WARN",
+                    "durationMs": 156,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 530"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 301,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 31,
+                    "message": "HTTP error 530",
                     "notes": [],
-                    "samples": [
-                        "Criando Vilões da Maneira Correta -> 65",
-                        "O Mago do Infinito -> 100",
-                        "Casei-me com o Dragão que Eu Matei -> 2707"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 580,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 44,
+                    "message": "HTTP error 530",
                     "notes": [],
-                    "samples": [
-                        "Senhor Devorador, por favor, aja como um chefe final -> 1559",
-                        "Valquírias do Fim dos Tempos -> 4091",
-                        "A Fada Impiedosa Virou Meu Brinquedo -> 1002"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,37 +58,60 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 343,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 58 -> 277928",
-                        "Capítulo 57 -> 273293",
-                        "Capítulo 56 -> 266511"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 211,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.Exception: Você precisa estar logado para acessar este conteúdo. Informe o e-mail e a senha da sua conta da Roxinha para ler os capítulos"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:59:39.107719027Z",
+    "comparedTo": "2026-10-25T08:42:21.145152312Z",
     "changes": [
         {
             "source": "Roxinha",
             "lang": "pt-BR",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Roxinha",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Roxinha",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Roxinha",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Roxinha",
+            "lang": "pt-BR",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:13:01.610504045Z",
+    "generatedAt": "2026-10-26T22:56:59.590740360Z",
     "module": ":src:ar:manhatok",
     "sourceRoot": "",
     "extensionCommit": "949dea25",
@@ -10,7 +10,7 @@
             "name": "Manhatok",
             "lang": "ar",
             "baseUrl": "https://manhatok.blogspot.com",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 179,
+                    "durationMs": 466,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1452,
+                    "durationMs": 300,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 233,
+                    "durationMs": 148,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,47 +64,63 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "THROTTLED",
-                    "durationMs": 1715,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "status": "WARN",
+                    "durationMs": 865,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                        "chapter[0] has a blank name",
+                        "chapter[1] has a blank name"
+                    ],
+                    "samples": [
+                        " -> /2026/01/image-host_4.html",
+                        " -> /2026/01/image-host.html",
+                        "مانجا ون بيس الفصل Chapter 1131 -> /2024/11/chapter-1131.html"
+                    ]
+                },
+                {
+                    "name": "pages",
+                    "status": "WARN",
+                    "durationMs": 371,
+                    "message": null,
+                    "notes": [
+                        "page list is empty"
                     ],
                     "samples": []
                 },
                 {
-                    "name": "pages",
-                    "status": "SKIP",
+                    "name": "images",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:57:55.144879900Z",
+    "comparedTo": "2026-10-26T09:13:01.610504045Z",
     "changes": [
         {
             "source": "Manhatok",
             "lang": "ar",
             "scenario": "chapters",
-            "from": "WARN",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "WARN"
         },
         {
             "source": "Manhatok",
             "lang": "ar",
             "scenario": "pages",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
         },
         {
             "source": "Manhatok",
             "lang": "ar",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

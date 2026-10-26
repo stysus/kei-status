@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:17:21.912840232Z",
+    "generatedAt": "2026-10-26T23:04:44.790081861Z",
     "module": ":src:fr:hentaiscanreader",
     "sourceRoot": "",
     "extensionCommit": "949dea25",
@@ -10,7 +10,7 @@
             "name": "Hentai Scan Reader",
             "lang": "fr",
             "baseUrl": "https://hentai.scanreader.net",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,29 +23,27 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1042,
+                    "durationMs": 959,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 350,
+                    "status": "PASS",
+                    "durationMs": 439,
                     "message": null,
-                    "notes": [
-                        "manga[3] has no thumbnail"
-                    ],
+                    "notes": [],
                     "samples": [
-                        "Secret Likes ❤️ -> /mangas/secret-likes-%e2%9d%a4%ef%b8%8f/",
-                        "The Eminence in Shadow -「I NEED MORE POWER!」(Doujinshi) -> /mangas/the-eminence-in-shadow-%e3%80%8ci-need-more-power%e3%80%8ddoujinshi/",
-                        "Secret! Orgasm♡Hero -> /mangas/secret-orgasm%e2%99%a1hero/"
+                        "Erreur -> /mangas/i-picked-up-a-landmine-girl-from-the-dump-2/",
+                        "Domination ” One Shot “ -> /mangas/domination-one-shot/",
+                        "Granblue Fantasy – Bea ga Mizugi ni Kigaetara (Doujinshi) -> /mangas/granblue-fantasy-bea-ga-mizugi-ni-kigaetara-doujinshi/"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 329,
+                    "durationMs": 425,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,10 +64,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 511,
-                    "message": "HTTP error 503",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 318,
+                    "message": null,
+                    "notes": [
+                        "chapter list is empty"
+                    ],
                     "samples": []
                 },
                 {
@@ -83,14 +83,22 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-25T08:39:22.440254781Z",
+    "comparedTo": "2026-10-26T09:17:21.912840232Z",
     "changes": [
         {
             "source": "Hentai Scan Reader",
             "lang": "fr",
-            "scenario": "latest",
+            "scenario": "popular",
             "from": "WARN",
             "to": "PASS"
+        },
+        {
+            "source": "Hentai Scan Reader",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "WARN"
         }
-    ]
+    ],
+    "throttledHosts": []
 }
