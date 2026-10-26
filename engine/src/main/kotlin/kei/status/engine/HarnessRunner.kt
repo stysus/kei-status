@@ -28,6 +28,7 @@ class Captured<T>(val value: T?, val result: ScenarioResult)
 class HarnessRunner(private val config: HarnessConfig) {
 
     companion object {
+        private val commitCache = java.util.concurrent.ConcurrentHashMap<Path, String?>()
         /**
          * A module-level failure the runner itself could not survive.
          *
@@ -579,18 +580,19 @@ class HarnessRunner(private val config: HarnessConfig) {
 
     private fun elapsedMs(startNanos: Long) = (System.nanoTime() - startNanos) / 1_000_000
 
-    private fun gitCommit(root: Path): String? = runCatching {
-        val process = ProcessBuilder("git", "-C", root.toString(), "rev-parse", "--short", "HEAD")
-            .redirectErrorStream(true)
-            .start()
-        try {
-            process.inputStream.bufferedReader().readText().trim().ifBlank { null }
-        } finally {
-            // A no-op on the happy path - EOF means git already exited - but it keeps a read that
-            // was interrupted mid-flight from leaving the child running out its natural life.
-            process.destroyForcibly()
+    private fun gitCommit(root: Path): String? =
+        commitCache.computeIfAbsent(root.toAbsolutePath().normalize()) { path ->
+            runCatching {
+                val process = ProcessBuilder("git", "-C", path.toString(), "rev-parse", "--short", "HEAD")
+                    .redirectErrorStream(true)
+                    .start()
+                try {
+                    process.inputStream.bufferedReader().readText().trim().ifBlank { null }
+                } finally {
+                    process.destroyForcibly()
+                }
+            }.getOrNull()
         }
-    }.getOrNull()
 }
 
 

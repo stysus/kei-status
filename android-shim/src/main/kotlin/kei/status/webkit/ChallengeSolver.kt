@@ -111,7 +111,7 @@ internal object ChallengeSolver {
      * The script stage handles a widget that page JavaScript can reach. The second stage covers the
      * closed-shadow layout that Cloudflare actually serves.
      */
-    private fun detectScript(): String = """
+    private val detectScript: String = """
         (function () {
           const WIDGET = 'iframe[src*="challenges.cloudflare.com"], .cf-turnstile';
           const title = document.title || '';
@@ -149,7 +149,7 @@ internal object ChallengeSolver {
 
     /** Blocking probe. Never call from the main thread: the browser round trips can stall. */
     fun probe(page: Page): ChallengeProbe =
-        parse(page, runCatching { page.call("Runtime.evaluate", params(detectScript())) }.getOrNull())
+        parse(page, runCatching { page.call("Runtime.evaluate", params(detectScript)) }.getOrNull())
 
     /**
      * Serialises the parse work that follows the browser round trip.
@@ -167,7 +167,7 @@ internal object ChallengeSolver {
 
     /** Non-blocking probe, for callers that own a thread the browser must not stall. */
     fun probeAsync(page: Page, callback: (ChallengeProbe) -> Unit) {
-        page.send("Runtime.evaluate", params(detectScript())).whenComplete { result, error ->
+        page.send("Runtime.evaluate", params(detectScript)).whenComplete { result, error ->
             probeExecutor.execute {
                 if (error != null) {
                     callback(ChallengeProbe(false, false, false, null, null))
