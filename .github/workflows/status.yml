@@ -55,7 +55,11 @@ jobs:
   # and handed to the shards as an artifact.
   prepare:
     name: Prepare the harness and the shard list
-    runs-on: ubuntu-latest
+    # Pinned while the toolchain is verified on 24.04; the ubuntu-latest label is migrating to
+    # Ubuntu 26 (runner-images#14748), and an image shift would change what environment.sh has
+    # verified — Android SDK, google-chrome-stable, xvfb-run — mid-nightly. Lift after a manual
+    # run on ubuntu-26.04 passes.
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     outputs:
       matrix: ${{ steps.discover.outputs.matrix }}
@@ -149,7 +153,7 @@ jobs:
   sweep:
     name: Shard ${{ matrix.shard }}
     needs: prepare
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 180
     strategy:
       fail-fast: false
@@ -251,7 +255,7 @@ jobs:
     # A single failing shard must not stop the shards that succeeded from being recorded; the
     # verify step below is what refuses to publish a partial sweep.
     if: always() && needs.prepare.result == 'success'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     environment:
       name: github-pages

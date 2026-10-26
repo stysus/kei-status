@@ -23,7 +23,9 @@ concurrency:
 jobs:
   harness:
     name: Build and test
-    runs-on: ubuntu-latest
+    # Pinned with the sweep's jobs: the label this runs on must not shift under it before the
+    # sweep's toolchain has been re-verified (see status.yml).
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - name: Check out the harness
@@ -54,7 +56,7 @@ jobs:
 
   lint:
     name: Lint
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - name: Check out the harness

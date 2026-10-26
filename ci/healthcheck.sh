@@ -17,6 +17,8 @@ incoming="${2:?$usage}"
 
 python3 - "$store" "$incoming" <<'PY'
 import glob, json, os, sys
+from collections import Counter
+from urllib.parse import urlparse
 
 store, incoming = sys.argv[1:3]
 
@@ -39,7 +41,14 @@ for r in all_reports:
 
 changed = list(reports(incoming))
 regressions, fixes, new, gone, other = [], [], [], [], []
+reg_hosts = []
 for r in changed:
+    # A change names a source by (name, lang); the same report carries its baseUrl, so the host
+    # behind each regression is here at classification time — no artifact correlation needed.
+    host_of = {
+        f'{s["name"]}|{s["lang"]}': urlparse(s.get("baseUrl") or "").hostname or "?"
+        for s in r.get("sources", [])
+    }
     for c in r.get("changes", []):
         to, frm = c.get("to"), c.get("from")
         entry = (
@@ -52,6 +61,7 @@ for r in changed:
             new.append(entry)
         elif to in ("FAIL", "BLOCKED"):
             regressions.append(entry)
+            reg_hosts.append(host_of.get(f'{c["source"]}|{c["lang"]}', "?"))
         elif to == "PASS" and frm in ("FAIL", "BLOCKED"):
             fixes.append(entry)
         else:
@@ -71,6 +81,12 @@ lines = [
 ]
 if hosts:
     lines.append(f"Throttled host(s): {', '.join(hosts)}")
+if reg_hosts:
+    by_host = Counter(reg_hosts).most_common(5)
+    lines.append(
+        "Regressions by host: "
+        + " \u00b7 ".join(f"{n} {h}" for h, n in by_host)
+    )
 for title, items in [("Regressions", regressions), ("Fixes", fixes)]:
     if items:
         lines.append(f"\n<details><summary>{title} ({len(items)})</summary>\n")
@@ -86,9 +102,18 @@ with open(os.environ.get("GITHUB_STEP_SUMMARY", os.devnull), "a") as f:
 print(f"{len(all_reports)} modules, {trans} transition(s)")
 
 if len(regressions) >= REGRESSION_BURST:
+    # A dominant host means "site down", not "harness broken": say so in the warning so the
+    # conclusion costs one log line instead of an artifact hunt. Conservative attribution —
+    # only when one host is at least ten sources and at least half the regressions — so a
+    # night spread across many sites reads as the diffuse event it is.
+    burst = ""
+    if reg_hosts:
+        top_host, top_n = Counter(reg_hosts).most_common(1)[0]
+        if top_n >= 10 and top_n * 2 >= len(regressions):
+            burst = f"; {top_n} of {len(regressions)} on {top_host}"
     print(
         f"::warning::{len(regressions)} source(s) went FAIL or BLOCKED tonight — "
-        f"above the usual night; check for a site-side block or a harness change"
+        f"above the usual night{burst}; check for a site-side block or a harness change"
     )
 if trans >= MASS_TRANSITIONS:
     print(
