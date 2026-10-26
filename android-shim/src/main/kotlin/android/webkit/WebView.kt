@@ -10,7 +10,6 @@ import kei.status.webkit.ChallengeSolver
 import kei.status.webkit.Chrome
 import kei.status.webkit.Page
 import kei.status.webkit.autoSolveEnabled
-import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
@@ -38,7 +37,7 @@ open class WebView(context: Context?) : View() {
 
     var webChromeClient: WebChromeClient? = null
 
-    private val json = Json { ignoreUnknownKeys = true }
+    private val json = kei.status.webkit.Chrome.json
 
     private val mainHandler = Handler(Looper.getMainLooper())
 
@@ -588,7 +587,7 @@ open class WebView(context: Context?) : View() {
             } else {
                 emptyMap()
             }
-            continueRequest(session, requestId, request, extraHeaders)
+            continueRequest(session, requestId, request, headers, extraHeaders)
             return
         }
 
@@ -667,6 +666,7 @@ open class WebView(context: Context?) : View() {
         session: Page,
         requestId: String,
         request: JsonObject,
+        parsedHeaders: Map<String, String>,
         extraHeaders: Map<String, String> = emptyMap(),
     ) {
         val postDataEntries = request["postDataEntries"]?.jsonArray
@@ -679,13 +679,11 @@ open class WebView(context: Context?) : View() {
                 put("postData", JsonPrimitive(postData))
             }
             if (extraHeaders.isNotEmpty()) {
-                val headers = request["headers"]?.jsonObject
-                    ?.mapValues { (_, value) -> value.jsonPrimitive.content }
-                    .orEmpty() + extraHeaders
+                val merged = parsedHeaders + extraHeaders
                 put(
                     "headers",
                     JsonArray(
-                        headers.map { (name, value) ->
+                        merged.map { (name, value) ->
                             JsonObject(
                                 mapOf(
                                     "name" to JsonPrimitive(name),

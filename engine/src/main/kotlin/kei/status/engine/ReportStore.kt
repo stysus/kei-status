@@ -33,12 +33,12 @@ object ReportStore {
 
     fun path(dir: Path, module: String): Path = dir.resolve(module.slugOf() + ".json")
 
-    fun read(dir: Path, module: String): RunReport? {
-        val file = path(dir, module)
-        if (!Files.isRegularFile(file)) return null
-        return runCatching { decode.decodeFromString<RunReport>(Files.readString(file)) }
+    fun read(dir: Path, module: String): RunReport? = readFile(path(dir, module))
+
+    private fun readFile(file: Path): RunReport? {
+        val text = runCatching { Files.readString(file) }.getOrNull() ?: return null
+        return runCatching { decode.decodeFromString<RunReport>(text) }
             .getOrElse {
-                // A hand-edited or truncated file should not stop a run; the next save replaces it.
                 System.err.println("kei-status: ignoring unreadable store entry $file: ${it.message}")
                 null
             }
@@ -66,7 +66,7 @@ object ReportStore {
     fun save(dir: Path, report: RunReport): Saved {
         Files.createDirectories(dir)
         val target = path(dir, report.module)
-        val previous = read(dir, report.module)
+        val previous = readFile(target)
         val changes = previous?.let { changes(it, report) } ?: emptyList()
         val next = report.copy(comparedTo = previous?.generatedAt, changes = changes)
 

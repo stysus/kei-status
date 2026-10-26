@@ -1,6 +1,5 @@
 package kei.status.webkit
 
-import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.jsonObject
@@ -29,7 +28,7 @@ class Page internal constructor(
     socketUrl: String,
 ) {
 
-    private val json = Json { ignoreUnknownKeys = true }
+    private val json = Chrome.json
 
     private val nextId = AtomicLong(1)
 

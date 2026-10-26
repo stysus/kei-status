@@ -26,7 +26,7 @@ object Chrome {
 
     private const val CHROME_ENV = "KEI_STATUS_CHROME"
 
-    private val json = Json { ignoreUnknownKeys = true }
+    internal val json = Json { ignoreUnknownKeys = true }
 
     /**
      * Shared client for the DevTools HTTP endpoints: [newPage]'s target creation and the
