@@ -20,36 +20,38 @@ class CookieManager private constructor() {
 
     fun setCookie(url: String, value: String) {
         val host = hostOf(url) ?: return
-        val domain = parseDomain(value)
-        val jar = synchronized(store) { store.getOrPut(host) { mutableMapOf() } }
-        parseCookies(value).forEach { (name, cookieValue) ->
+        val parsed = parseCookieHeader(value)
+        val bucket = parsed.domain ?: host
+        val jar = synchronized(store) { store.getOrPut(bucket) { mutableMapOf() } }
+        parsed.cookies.forEach { (name, cookieValue) ->
             synchronized(jar) {
-                if (cookieValue.isEmpty()) jar.remove(name) else jar[name] = CookieEntry(cookieValue, domain)
+                if (cookieValue.isEmpty()) jar.remove(name) else jar[name] = CookieEntry(cookieValue, parsed.domain)
             }
         }
     }
 
     fun getCookie(url: String): String? {
         val host = hostOf(url) ?: return null
-
-        // Walk every bucket: a cookie stored under "example.com" with domain "example.com"
-        // matches a request to "api.example.com", the same way a browser sends it.
         val result = mutableMapOf<String, String>()
-        synchronized(store) {
-            for ((bucketHost, jar) in store) {
-                synchronized(jar) {
-                    for ((name, entry) in jar) {
-                        if (entry.domain != null) {
-                            // Domain cookie: matches the domain itself and any subdomain.
-                            if (host == entry.domain || host.endsWith(".${entry.domain}")) {
-                                result[name] = entry.value
-                            }
-                        } else {
-                            // Host-only cookie: matches only the exact host it was stored under.
-                            if (host == bucketHost) {
-                                result[name] = entry.value
-                            }
-                        }
+
+        // Host-only cookies: only the exact host bucket.
+        synchronized(store) { store[host] }?.let { jar ->
+            synchronized(jar) {
+                for ((name, entry) in jar) {
+                    if (entry.domain == null) result[name] = entry.value
+                }
+            }
+        }
+
+        // Domain cookies: walk the host and its parents, checking each bucket's entries.
+        for (candidate in hostAndParents(host)) {
+            val jar = synchronized(store) { store[candidate] } ?: continue
+            synchronized(jar) {
+                for ((name, entry) in jar) {
+                    if (entry.domain != null &&
+                        (host == entry.domain || host.endsWith(".${entry.domain}"))
+                    ) {
+                        result.putIfAbsent(name, entry.value)
                     }
                 }
             }
@@ -80,32 +82,38 @@ class CookieManager private constructor() {
         null
     }
 
-    /**
-     * Extracts the `Domain` attribute from a Set-Cookie header value, or null if absent.
-     *
-     * A leading dot is stripped: RFC 6265 §5.2.3 says "If the first character of the
-     * attribute-value string is %x2E ("."), remove it." The result is the bare domain the
-     * cookie applies to.
-     */
-    private fun parseDomain(header: String): String? =
-        header.split(';')
-            .map { it.trim() }
-            .firstOrNull { it.lowercase().startsWith("domain=") }
-            ?.substringAfter('=')
-            ?.trim()
-            ?.removePrefix(".")
-            ?.lowercase()
-            ?.ifEmpty { null }
+    private fun hostAndParents(host: String): List<String> {
+        val parts = host.split('.')
+        if (parts.size <= 1) return listOf(host)
+        return (0 until parts.size - 1).map { i ->
+            parts.subList(i, parts.size).joinToString(".")
+        }
+    }
 
-    /** `"a=1; Path=/; Domain=x"` -> `[a to 1]`, ignoring attributes. */
-    private fun parseCookies(value: String): List<Pair<String, String>> =
-        value.split(';')
-            .map { it.trim() }
-            .filter { it.contains('=') }
-            .map { it.substringBefore('=').trim() to it.substringAfter('=').trim() }
-            .filterNot { (name, _) ->
-                name.lowercase() in setOf("path", "domain", "expires", "max-age", "samesite", "secure", "httponly")
+    private class ParsedHeader(val domain: String?, val cookies: List<Pair<String, String>>)
+
+    private fun parseCookieHeader(header: String): ParsedHeader {
+        var domain: String? = null
+        val cookies = mutableListOf<Pair<String, String>>()
+
+        for (part in header.split(';')) {
+            val trimmed = part.trim()
+            if (!trimmed.contains('=')) continue
+            val name = trimmed.substringBefore('=').trim()
+            val value = trimmed.substringAfter('=').trim()
+            val lower = name.lowercase()
+
+            if (lower == "domain") {
+                domain = value.removePrefix(".").lowercase().ifEmpty { null }
+            } else if (lower !in COOKIE_ATTRIBUTES) {
+                cookies += name to value
             }
+        }
+
+        return ParsedHeader(domain, cookies)
+    }
+
+    private val COOKIE_ATTRIBUTES = setOf("path", "expires", "max-age", "samesite", "secure", "httponly")
 
     companion object {
         private val instance = CookieManager()
