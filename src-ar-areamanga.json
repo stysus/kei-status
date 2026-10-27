@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:16:18.871075804Z",
+    "generatedAt": "2026-10-27T22:26:52.522082115Z",
     "module": ":src:ar:areamanga",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 8112280317896333809,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "BLOCKED",
-                    "durationMs": 20408,
+                    "durationMs": 20416,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ar.kenmanga.com (HTTP 403)"
@@ -33,7 +34,7 @@
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 19,
+                    "durationMs": 22,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ar.kenmanga.com (HTTP 403)"
@@ -43,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "BLOCKED",
-                    "durationMs": 21,
+                    "durationMs": 30,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ar.kenmanga.com (HTTP 403)"
@@ -53,12 +54,20 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "8 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -79,49 +88,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-25T08:45:51.074560869Z",
+    "comparedTo": "2026-10-26T09:16:18.871075804Z",
     "changes": [
         {
             "source": "أريا مانجا",
             "lang": "ar",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "أريا مانجا",
-            "lang": "ar",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "أريا مانجا",
-            "lang": "ar",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "أريا مانجا",
-            "lang": "ar",
-            "scenario": "chapters",
-            "from": "PASS",
+            "scenario": "search",
+            "from": null,
             "to": "SKIP"
-        },
-        {
-            "source": "أريا مانجا",
-            "lang": "ar",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "أريا مانجا",
-            "lang": "ar",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
         }
-    ]
+    ],
+    "throttledHosts": []
 }

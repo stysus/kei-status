@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T16:19:45.923450786Z",
+    "generatedAt": "2026-10-27T22:33:18.930601610Z",
     "module": ":src:id:omicaso",
     "sourceRoot": "",
-    "extensionCommit": "f1edb034",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 7347711054392056906,
             "name": "Omicaso",
             "lang": "id",
             "baseUrl": "https://omicaso.org",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1560,
+                    "durationMs": 1018,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 757,
+                    "durationMs": 751,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +44,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 939,
+                    "durationMs": 700,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The Two-Taste Training -> the-two-taste-training",
-                        "The Duke and Duchess Have a Secret -> the-duke-and-duchess-have-a-secret",
-                        "Ours -> ours"
+                        "Yu Irin in the Park Restroom -> yu-irin-in-the-park-restroom",
+                        "Vivian’s Circumstances -> vivians-circumstances",
+                        "To Your Wingman -> to-your-wingman"
                     ]
                 },
                 {
@@ -63,9 +64,19 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 695,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "ABSOLUTE STATION -> absolute-station"
+                    ]
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1086,
+                    "durationMs": 564,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +88,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 315,
+                    "durationMs": 244,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,51 +99,33 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3775,
+                    "status": "WARN",
+                    "durationMs": 32479,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:05.648464556Z",
+    "comparedTo": "2026-10-25T16:19:45.923450786Z",
     "changes": [
         {
             "source": "Omicaso",
             "lang": "id",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "Omicaso",
-            "lang": "id",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "Omicaso",
-            "lang": "id",
-            "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Omicaso",
-            "lang": "id",
-            "scenario": "pages",
-            "from": "SKIP",
+            "scenario": "search",
+            "from": null,
             "to": "PASS"
         },
         {
             "source": "Omicaso",
             "lang": "id",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

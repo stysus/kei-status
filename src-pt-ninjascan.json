@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:28:25.177269898Z",
+    "generatedAt": "2026-10-27T22:35:20.797330794Z",
     "module": ":src:pt:ninjascan",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 4392067503694697213,
@@ -22,25 +23,27 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 45000,
-                    "message": "timed out after 45s",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 363,
+                    "message": null,
+                    "notes": [
+                        "home page returned HTTP 404"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 45000,
-                    "message": "timed out after 45s",
+                    "durationMs": 195,
+                    "message": "HTTP error 404",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 45000,
-                    "message": "timed out after 45s",
+                    "durationMs": 741,
+                    "message": "HTTP error 404",
                     "notes": [],
                     "samples": []
                 },
@@ -53,6 +56,14 @@
                     "samples": [
                         "8 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -73,14 +84,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-24T01:04:34.587310234Z",
+    "comparedTo": "2026-10-27T09:28:25.177269898Z",
     "changes": [
         {
             "source": "Ninja Scan",
             "lang": "pt-BR",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
+        },
+        {
+            "source": "Ninja Scan",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

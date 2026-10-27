@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:24:50.632433110Z",
+    "generatedAt": "2026-10-27T22:28:25.250310921Z",
     "module": ":src:en:schlockmercenary",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 4705692208637300585,
             "name": "Schlock Mercenary",
             "lang": "en",
             "baseUrl": "https://www.schlockmercenary.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 382,
+                    "durationMs": 401,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 41,
+                    "durationMs": 69,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,9 +60,19 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [
+                        "query \"Book 1: The Tub of H\" matched no results in the first page"
+                    ],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 41,
+                    "durationMs": 71,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -73,7 +84,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 2186,
+                    "durationMs": 3434,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -85,7 +96,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 264,
+                    "durationMs": 439,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -93,21 +104,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-26T23:02:14.782525649Z",
+    "comparedTo": "2026-10-27T09:24:50.632433110Z",
     "changes": [
         {
             "source": "Schlock Mercenary",
             "lang": "en",
-            "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "Schlock Mercenary",
-            "lang": "en",
-            "scenario": "images",
+            "scenario": "search",
             "from": null,
-            "to": "PASS"
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

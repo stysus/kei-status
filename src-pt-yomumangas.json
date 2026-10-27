@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:51:11.473198349Z",
+    "generatedAt": "2026-10-27T22:36:24.719431528Z",
     "module": ":src:pt:yomumangas",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1636954121036022614,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 434,
+                    "durationMs": 287,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 615,
+                    "durationMs": 88,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.yomumangas.com (HTTP 403)"
@@ -41,7 +42,7 @@
                 {
                     "name": "latest",
                     "status": "BLOCKED",
-                    "durationMs": 15,
+                    "durationMs": 33,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.yomumangas.com (HTTP 403)"
@@ -51,12 +52,20 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "6 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -77,6 +86,15 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:51:11.473198349Z",
+    "changes": [
+        {
+            "source": "Yomu Mangás",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        }
+    ],
+    "throttledHosts": []
 }

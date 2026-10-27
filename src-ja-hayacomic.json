@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T01:01:23.606801277Z",
+    "generatedAt": "2026-10-27T22:32:18.883688321Z",
     "module": ":src:ja:hayacomic",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 5820719158683766054,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 121,
+                    "durationMs": 212,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 403"
@@ -33,7 +34,7 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 13,
+                    "durationMs": 110,
                     "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
@@ -41,7 +42,7 @@
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 9,
+                    "durationMs": 121,
                     "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
@@ -55,6 +56,14 @@
                     "samples": [
                         "1 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -75,14 +84,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-22T08:56:25.981127279Z",
+    "comparedTo": "2026-10-24T01:01:23.606801277Z",
     "changes": [
         {
             "source": "HAYA Comic",
             "lang": "ja",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-22T08:57:44.446242432Z",
+    "generatedAt": "2026-10-27T22:27:01.126603811Z",
     "module": ":src:en:eightmuses",
     "sourceRoot": "",
-    "extensionCommit": "1d3d7c4b",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1802675169972965535,
             "name": "8Muses",
             "lang": "en",
             "baseUrl": "https://comics.8muses.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 449,
+                    "durationMs": 831,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 381,
+                    "durationMs": 748,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 354,
+                    "durationMs": 389,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -53,7 +54,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,9 +62,17 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "FAIL",
+                    "durationMs": 0,
+                    "message": "Collection contains no element matching the predicate.",
+                    "notes": [],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 259,
+                    "durationMs": 241,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -73,7 +82,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 258,
+                    "durationMs": 225,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -85,7 +94,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 467,
+                    "durationMs": 136,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -93,28 +102,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:41.365074118Z",
+    "comparedTo": "2026-10-22T08:57:44.446242432Z",
     "changes": [
         {
             "source": "8Muses",
             "lang": "en",
-            "scenario": "chapters",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "8Muses",
-            "lang": "en",
-            "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "8Muses",
-            "lang": "en",
-            "scenario": "images",
+            "scenario": "search",
             "from": null,
-            "to": "PASS"
+            "to": "FAIL"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T21:59:20.446087427Z",
+    "generatedAt": "2026-10-27T22:33:00.530276423Z",
     "module": ":src:en:mangalix",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 2280035516075993115,
             "name": "MangaLix",
             "lang": "en",
             "baseUrl": "https://mangalix.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +24,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 808,
+                    "durationMs": 974,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1252,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 267,
+                    "message": "Manga catalog not found",
                     "notes": [],
-                    "samples": [
-                        "The Breaker -> the-breaker",
-                        "The Swordmaster's Son -> the-swordmasters-son",
-                        "Surviving the Game as a Barbarian -> surviving-the-game-as-a-barbarian"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 218,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 1028,
+                    "message": "Manga catalog not found",
                     "notes": [],
-                    "samples": [
-                        "One-Punch Man -> one-punch-man",
-                        "Kingdom -> kingdom",
-                        "The Extra's Academy Survival Guide -> the-extras-academy-survival-guide"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,76 +56,76 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 963,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The Breaker Chapter 71 -> the-breaker-ch-71",
-                        "The Breaker Chapter 70 -> the-breaker-ch-70",
-                        "The Breaker Chapter 69 -> the-breaker-ch-69"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://scans.lastation.us/manga/The-Breaker/0001-001.png",
-                        "https://scans.lastation.us/manga/The-Breaker/0001-002.png",
-                        "https://scans.lastation.us/manga/The-Breaker/0001-003.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 620,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:51:28.536552883Z",
+    "comparedTo": "2026-10-24T21:59:20.446087427Z",
     "changes": [
         {
             "source": "MangaLix",
             "lang": "en",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "MangaLix",
             "lang": "en",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaLix",
+            "lang": "en",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         },
         {
             "source": "MangaLix",
             "lang": "en",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "MangaLix",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "MangaLix",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
-    ]
+    ],
+    "throttledHosts": []
 }

@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:56:55.851572009Z",
+    "generatedAt": "2026-10-27T22:31:33.972048723Z",
     "module": ":src:es:ikuhentai",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 7567013997438852760,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "BLOCKED",
-                    "durationMs": 155,
+                    "durationMs": 236,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ikuhentai.net (HTTP 403)"
@@ -33,7 +34,7 @@
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 77,
+                    "durationMs": 36,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ikuhentai.net (HTTP 403)"
@@ -43,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "BLOCKED",
-                    "durationMs": 27,
+                    "durationMs": 31,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ikuhentai.net (HTTP 403)"
@@ -59,6 +60,14 @@
                     "samples": [
                         "5 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -79,49 +88,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:58:20.190056552Z",
+    "comparedTo": "2026-10-24T00:56:55.851572009Z",
     "changes": [
         {
             "source": "Ikuhentai",
             "lang": "es",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "Ikuhentai",
-            "lang": "es",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "Ikuhentai",
-            "lang": "es",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "Ikuhentai",
-            "lang": "es",
-            "scenario": "chapters",
-            "from": "PASS",
+            "scenario": "search",
+            "from": null,
             "to": "SKIP"
-        },
-        {
-            "source": "Ikuhentai",
-            "lang": "es",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Ikuhentai",
-            "lang": "es",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
         }
-    ]
+    ],
+    "throttledHosts": []
 }

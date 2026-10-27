@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:59:25.772465451Z",
+    "generatedAt": "2026-10-27T22:34:04.251693526Z",
     "module": ":src:ja:comicride",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 6786869574657969795,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 74,
+                    "durationMs": 108,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 403"
@@ -33,7 +34,7 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 53,
+                    "durationMs": 67,
                     "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
@@ -41,7 +42,7 @@
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 15,
+                    "durationMs": 10,
                     "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
@@ -55,6 +56,14 @@
                     "samples": [
                         "1 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -75,14 +84,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:48:14.862270391Z",
+    "comparedTo": "2026-10-24T00:59:25.772465451Z",
     "changes": [
         {
             "source": "Comic Ride",
             "lang": "ja",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

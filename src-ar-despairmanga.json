@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:51:06.131234519Z",
+    "generatedAt": "2026-10-27T22:26:53.971582172Z",
     "module": ":src:ar:despairmanga",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 886527590434722171,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 35738,
+                    "durationMs": 11119,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 199,
+                    "durationMs": 233,
                     "message": null,
                     "notes": [
                         "popular/latest returned an empty list"
@@ -41,7 +42,7 @@
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 215,
+                    "durationMs": 355,
                     "message": null,
                     "notes": [
                         "popular/latest returned an empty list"
@@ -51,12 +52,20 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "8 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -77,28 +86,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T20:09:34.874457408Z",
+    "comparedTo": "2026-10-23T08:51:06.131234519Z",
     "changes": [
         {
             "source": "Despair Manga",
             "lang": "ar",
-            "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "Despair Manga",
-            "lang": "ar",
-            "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "WARN"
-        },
-        {
-            "source": "Despair Manga",
-            "lang": "ar",
-            "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "WARN"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:55:39.664118395Z",
+    "generatedAt": "2026-10-27T22:31:33.660124067Z",
     "module": ":src:es:celestialmoon",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 7771256386177960897,
             "name": "Celestial Moon",
             "lang": "es",
             "baseUrl": "https://celestialmoonscan.es",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +24,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1093,
+                    "durationMs": 923,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 445,
+                    "status": "WARN",
+                    "durationMs": 448,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Amor de Prisión -> /amor-de-prision/",
-                        "El Apareamiento de los Elfos -> /el-apareamiento-de-los-elfos/",
-                        "Suplica Ante Mí -> /suplica-ante-mi/"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 462,
+                    "status": "WARN",
+                    "durationMs": 449,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Murmullos de Verano -> /murmullos-de-verano/",
-                        "Después de renunciar, no quiero que los protagonistas se obsesionen conmigo -> /despues-de-renunciar-no-quiero-que-los-protagonistas-se-obsesionen-conmigo/",
-                        "Paseo Nocturno -> /paseo-nocturno/"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,76 +60,76 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1598,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 100 - Final -> /amor-de-prision-capitulo-100/",
-                        "Chapter 99 - Extra 8 -> /amor-de-prision-capitulo-99/",
-                        "Chapter 98 - Extra 7 -> /amor-de-prision-capitulo-98/"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 548,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://celestialmoonscan.es/wp-content/uploads/2026/01/01_celestialmoon-97.webp",
-                        "https://celestialmoonscan.es/wp-content/uploads/2026/01/02_celestialmoon-97.webp",
-                        "https://celestialmoonscan.es/wp-content/uploads/2026/01/03_celestialmoon-97.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1105,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:56:14.118924043Z",
+    "comparedTo": "2026-10-24T00:55:39.664118395Z",
     "changes": [
         {
             "source": "Celestial Moon",
             "lang": "es",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Celestial Moon",
             "lang": "es",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Celestial Moon",
+            "lang": "es",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         },
         {
             "source": "Celestial Moon",
             "lang": "es",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Celestial Moon",
             "lang": "es",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Celestial Moon",
             "lang": "es",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
-    ]
+    ],
+    "throttledHosts": []
 }

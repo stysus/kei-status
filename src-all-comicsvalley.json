@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:17:36.434657415Z",
+    "generatedAt": "2026-10-27T22:23:09.889082200Z",
     "module": ":src:all:comicsvalley",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1103204227230640533,
@@ -15,7 +16,7 @@
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,10 +24,10 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 2714,
+                    "durationMs": 19828,
                     "message": null,
                     "notes": [
-                        "home page returned HTTP 523",
+                        "home page returned HTTP 522",
                         "home page body is empty"
                     ],
                     "samples": []
@@ -34,15 +35,15 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 6443,
-                    "message": "HTTP error 523",
+                    "durationMs": 19950,
+                    "message": "HTTP error 522",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 3060,
+                    "durationMs": 5979,
                     "message": "HTTP error 523",
                     "notes": [],
                     "samples": []
@@ -50,12 +51,20 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 5,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "8 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -76,7 +85,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-26T22:55:50.944244074Z",
-    "changes": [],
+    "comparedTo": "2026-10-27T09:17:36.434657415Z",
+    "changes": [
+        {
+            "source": "Comics Valley",
+            "lang": "all",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        }
+    ],
     "throttledHosts": []
 }

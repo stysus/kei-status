@@ -1,21 +1,22 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:20:31.334459569Z",
+    "generatedAt": "2026-10-27T22:29:50.624076984Z",
     "module": ":src:fr:hentaiscanreader",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 8376548397716758785,
             "name": "Hentai Scan Reader",
             "lang": "fr",
             "baseUrl": "https://hentai.scanreader.net",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,17 +24,19 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1059,
+                    "durationMs": 1074,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 372,
+                    "status": "WARN",
+                    "durationMs": 392,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[3] has no thumbnail"
+                    ],
                     "samples": [
                         "The Eminence in Shadow -「I NEED MORE POWER!」(Doujinshi) -> /mangas/the-eminence-in-shadow-%e3%80%8ci-need-more-power%e3%80%8ddoujinshi/",
                         "Secret Likes ❤️ -> /mangas/secret-likes-%e2%9d%a4%ef%b8%8f/",
@@ -43,13 +46,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 332,
+                    "durationMs": 362,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The black knight under the red curse -> /mangas/the-black-knight-under-the-red-curse/",
-                        "Secret Likes ❤️ -> /mangas/secret-likes-%e2%9d%a4%ef%b8%8f/",
-                        "Falling Asleep Together -> /mangas/falling-asleep-together/"
+                        "Solo For Two -> /mangas/solo-for-two/",
+                        "Fugitive at a Dead End -> /mangas/fugitive-at-a-dead-end/",
+                        "The black knight under the red curse -> /mangas/the-black-knight-under-the-red-curse/"
                     ]
                 },
                 {
@@ -63,32 +66,86 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 510,
-                    "message": "HTTP error 503",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 2120,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "The Eminence in Shadow -「I NEED MORE POWER!」(Doujinshi) -> /mangas/the-eminence-in-shadow-%e3%80%8ci-need-more-power%e3%80%8ddoujinshi/",
+                        "The Eminence in Shadow – 「WE NEED MORE POWER!」(Doujinshi) -> /mangas/the-eminence-in-shadow-%e3%80%8cwe-need-more-power%e3%80%8ddoujinshi/"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 1532,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Chapitre 1.5 -> /chapitre/chapitre-1-5-2/",
+                        "Chapitre 1 -> /chapitre/chapitre-1-42/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 284,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://hentai.scanreader.net/wp-content/uploads/sites/2/2026/02/1-3899e3964dad8f4d826c79f55482defe49e7b848168d0624f4c2385266066038.jpg",
+                        "https://hentai.scanreader.net/wp-content/uploads/sites/2/2026/02/2-e0cd73d0597f4e41733fc0e28e165fe7715989cc89df22bad5ea2552f94affbf.jpg",
+                        "https://hentai.scanreader.net/wp-content/uploads/sites/2/2026/02/3-b5bb873633d53291814e1523b82021c85ca1b29df3c0dfbe0b60589b0de2568a.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1995,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T23:04:44.790081861Z",
+    "comparedTo": "2026-10-27T09:20:31.334459569Z",
     "changes": [
         {
             "source": "Hentai Scan Reader",
             "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Hentai Scan Reader",
+            "lang": "fr",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "Hentai Scan Reader",
+            "lang": "fr",
             "scenario": "chapters",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Hentai Scan Reader",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Hentai Scan Reader",
+            "lang": "fr",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

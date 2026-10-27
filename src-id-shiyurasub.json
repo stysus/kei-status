@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:21:01.296848522Z",
+    "generatedAt": "2026-10-27T22:32:57.931763039Z",
     "module": ":src:id:shiyurasub",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 7106013231844823613,
             "name": "ShiyuraSub",
             "lang": "id",
             "baseUrl": "https://shiyurasub.blogspot.com",
-            "status": "THROTTLED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,18 +23,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 681,
+                    "status": "PASS",
+                    "durationMs": 201,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 429"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 91,
+                    "durationMs": 128,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -53,7 +52,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,9 +60,20 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 430,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Detektif Conan -> /2021/10/detektif-conan.html",
+                        "Zero Tea Time -> /2021/12/zero-tea-time.html"
+                    ]
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 545,
+                    "durationMs": 3062,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,28 +84,57 @@
                 },
                 {
                     "name": "pages",
-                    "status": "THROTTLED",
-                    "durationMs": 1873,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 776,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHIVXZOFtxoP0Xby-zM46TkEwLHAphM6shKLGb1CwvE8YVj_mJjUkolOo1m9ErFUuZQFtI0d1WBkP_NLvppcyMyY_-_HGwnAlFmFhiS6c3inS7HoekXxwpT07RCFBnvkHsxSUkxxFfVXj8KMFnD7kNQ3lPcO1HHaPVScD0fpEQiLXrPHFsScZ4rxipq0y1/s1600/01.jpg",
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcuDznRjSddDkBwBFaJr0FVurPt7UxDVANWulzi28MO0RE32qfZ2O8O_t9G0r7gtSfgcdY6vLqEJmcbjSQWlcfkNk2lRR33PlX8krQ5JJvPo2OpeGDmPrQ_eJbMFnGUHEKxZyNJQQ3WJb7_40AEKqZRcemVzHUnVE6hV0pwGUfEWVuT9I17QQVwtm3RrPN/s1600/02.jpg",
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-UQ5dZY991L17WgUxe4Dr92bN1ePUpxU8OZKMHwDm9O_jT0hLXNExQxJYUE4sywDckOdS7JtQHF1g4MLYKkoAEeWcQHbdtQPE1g5qkMG4DQlGNplxcH4CBcq7v4hMvlH8b6TvXSVWZEsiGMFzxBIty1upjGpyl-Ja9oR0tWZJjIUHI9hUHyzomtp85lxE/s1600/03.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 716,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T23:00:59.623191768Z",
+    "comparedTo": "2026-10-27T09:21:01.296848522Z",
     "changes": [
         {
             "source": "ShiyuraSub",
             "lang": "id",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "ShiyuraSub",
+            "lang": "id",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "ShiyuraSub",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "THROTTLED",
+            "to": "PASS"
+        },
+        {
+            "source": "ShiyuraSub",
+            "lang": "id",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
-    "throttledHosts": [
-        "shiyurasub.blogspot.com"
-    ]
+    "throttledHosts": []
 }

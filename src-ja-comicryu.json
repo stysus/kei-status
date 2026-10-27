@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:55:46.802978542Z",
+    "generatedAt": "2026-10-27T22:33:05.558816020Z",
     "module": ":src:ja:comicryu",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1496675570830588004,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 133,
+                    "durationMs": 155,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 403"
@@ -33,7 +34,7 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 73,
+                    "durationMs": 6,
                     "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
@@ -41,7 +42,7 @@
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 22,
+                    "durationMs": 5,
                     "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
@@ -55,6 +56,14 @@
                     "samples": [
                         "1 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -75,14 +84,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-22T08:54:05.202725939Z",
+    "comparedTo": "2026-10-24T00:55:46.802978542Z",
     "changes": [
         {
             "source": "Comic Ryu",
             "lang": "ja",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

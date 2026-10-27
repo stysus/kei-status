@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-22T08:56:00.328444613Z",
+    "generatedAt": "2026-10-27T22:32:40.070044090Z",
     "module": ":src:ja:sugocomics",
     "sourceRoot": "",
-    "extensionCommit": "1d3d7c4b",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 4036523004624942398,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1014,
+                    "durationMs": 1133,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 151,
+                    "durationMs": 160,
                     "message": null,
                     "notes": [
                         "popular/latest returned an empty list"
@@ -41,7 +42,7 @@
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 147,
+                    "durationMs": 150,
                     "message": null,
                     "notes": [
                         "popular/latest returned an empty list"
@@ -57,6 +58,14 @@
                     "samples": [
                         "3 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -77,35 +86,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:52:07.906259216Z",
+    "comparedTo": "2026-10-22T08:56:00.328444613Z",
     "changes": [
         {
             "source": "Sugo Comics",
             "lang": "ja",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Sugo Comics",
-            "lang": "ja",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Sugo Comics",
-            "lang": "ja",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Sugo Comics",
-            "lang": "ja",
-            "scenario": "pages",
-            "from": "FAIL",
+            "scenario": "search",
+            "from": null,
             "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:56:42.728172310Z",
+    "generatedAt": "2026-10-27T22:33:08.680104707Z",
     "module": ":src:zh:baozimanhua",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 5724751873601868259,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 1075,
+                    "durationMs": 1091,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 403"
@@ -33,7 +34,7 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 451,
+                    "durationMs": 456,
                     "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
@@ -41,7 +42,7 @@
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 308,
+                    "durationMs": 446,
                     "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
@@ -55,6 +56,14 @@
                     "samples": [
                         "5 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -75,14 +84,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:42:53.698979783Z",
+    "comparedTo": "2026-10-24T00:56:42.728172310Z",
     "changes": [
         {
             "source": "包子漫画",
             "lang": "zh",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

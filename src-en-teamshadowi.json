@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:54:33.783621712Z",
+    "generatedAt": "2026-10-27T22:26:41.886359068Z",
     "module": ":src:en:teamshadowi",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1326600535134927871,
             "name": "Team Shadowi",
             "lang": "en",
             "baseUrl": "https://www.team-shadowi.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +23,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 4052,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 21051,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.team-shadowi.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 217,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Student, The Witch, and The Academy -> /series/the-student-the-witch-and-the-academy",
-                        "The Regressed Mercenary Has a Plan -> /series/the-regressed-mercenary-has-a-plan",
-                        "The Greatest Estate Developer -> /series/the-greatest-estate-developer"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 47,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.team-shadowi.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 191,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Student, The Witch, and The Academy -> /series/the-student-the-witch-and-the-academy",
-                        "+99 Reinforced Wooden Stick -> /series/99-reinforced-wooden-stick",
-                        "The Extra's Academy Survival Guide -> /series/the-extras-academy-survival-guide"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 102,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.team-shadowi.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,55 +62,83 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 260,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 88: The Semester starts -> /read/the-student-the-witch-and-the-academy/88",
-                        "Chapter 87: Min Ja-rim's Story (The End) -> /read/the-student-the-witch-and-the-academy/87",
-                        "Chapter 86: Min Ja-rim's Story 3 -> /read/the-student-the-witch-and-the-academy/86"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 191,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://images.team-shadowi.com/Series/The%20Student%2C%20The%20Witch%2C%20and%20The%20Academy/1/page_001.webp",
-                        "https://images.team-shadowi.com/Series/The%20Student%2C%20The%20Witch%2C%20and%20The%20Academy/1/page_002.webp",
-                        "https://images.team-shadowi.com/Series/The%20Student%2C%20The%20Witch%2C%20and%20The%20Academy/1/page_003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 753,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:54:08.125504125Z",
+    "comparedTo": "2026-10-24T00:54:33.783621712Z",
     "changes": [
         {
             "source": "Team Shadowi",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Team Shadowi",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Team Shadowi",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Team Shadowi",
+            "lang": "en",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "Team Shadowi",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Team Shadowi",
+            "lang": "en",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Team Shadowi",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
-    ]
+    ],
+    "throttledHosts": []
 }

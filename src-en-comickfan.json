@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:55:53.452337976Z",
+    "generatedAt": "2026-10-27T22:29:20.331551329Z",
     "module": ":src:en:comickfan",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 569821715369244319,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 19812,
+                    "durationMs": 19651,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 522"
@@ -33,7 +34,7 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 19454,
+                    "durationMs": 19455,
                     "message": "HTTP error 522",
                     "notes": [],
                     "samples": []
@@ -41,7 +42,7 @@
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 19456,
+                    "durationMs": 19457,
                     "message": "HTTP error 522",
                     "notes": [],
                     "samples": []
@@ -55,6 +56,14 @@
                     "samples": [
                         "7 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -75,14 +84,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:51:59.699200933Z",
+    "comparedTo": "2026-10-24T00:55:53.452337976Z",
     "changes": [
         {
             "source": "ComicK Fanmade",
             "lang": "en",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

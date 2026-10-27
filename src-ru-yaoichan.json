@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:23:19.596224267Z",
+    "generatedAt": "2026-10-27T22:37:23.919972258Z",
     "module": ":src:ru:yaoichan",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 2466512768990363955,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "FAIL",
-                    "durationMs": 31190,
+                    "durationMs": 30933,
                     "message": "timeout",
                     "notes": [],
                     "samples": []
@@ -31,16 +32,16 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 339,
-                    "message": "HTTP error 502",
+                    "durationMs": 30096,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 30117,
-                    "message": "timeout",
+                    "durationMs": 269,
+                    "message": "HTTP error 502",
                     "notes": [],
                     "samples": []
                 },
@@ -53,6 +54,14 @@
                     "samples": [
                         "3 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -73,14 +82,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-26T23:00:25.505375644Z",
+    "comparedTo": "2026-10-27T09:23:19.596224267Z",
     "changes": [
         {
             "source": "YaoiChan",
             "lang": "ru",
-            "scenario": "connectivity",
-            "from": "WARN",
-            "to": "FAIL"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:36:47.436722785Z",
+    "generatedAt": "2026-10-27T22:29:43.822992801Z",
     "module": ":src:en:todaymanga",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1147556681248758139,
             "name": "TodayManga",
             "lang": "en",
             "baseUrl": "https://todaymanga.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +23,27 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1959,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30113,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 852,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Boku no Hero Academia -> /book/boku-no-hero-academia",
-                        "One Punch-Man -> /book/one-punch-man",
-                        "One Piece -> /book/one-piece"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 560,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30001,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Mairimashita! Iruma-kun -> /book/mairimashita-iruma-kun",
-                        "Tales of Demons and Gods -> /book/tales-of-demons-and-gods",
-                        "Hardcore Leveling Warrior -> /book/hardcore-leveling-warrior"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,50 +56,83 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 910,
-                    "message": null,
-                    "notes": [
-                        "duplicate chapter urls: [/book/boku-no-hero-academia/ch-367, /book/boku-no-hero-academia/ch-366, /book/boku-no-hero-academia/ch-231]"
-                    ],
-                    "samples": [
-                        "Ch.430.6 -> /book/boku-no-hero-academia/ch-430-6",
-                        "Ch.430.5 -> /book/boku-no-hero-academia/ch-430-5",
-                        "Ch.430 -> /book/boku-no-hero-academia/ch-430"
-                    ]
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 333,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://i1.todaymanga.com/15366/1480104/0",
-                        "https://i1.todaymanga.com/15366/1480104/1",
-                        "https://i1.todaymanga.com/15366/1480104/2"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1504,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-25T16:23:02.250972675Z",
+    "comparedTo": "2026-10-26T09:36:47.436722785Z",
     "changes": [
         {
             "source": "TodayManga",
             "lang": "en",
             "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "TodayManga",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "TodayManga",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "TodayManga",
+            "lang": "en",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "TodayManga",
+            "lang": "en",
+            "scenario": "chapters",
             "from": "WARN",
-            "to": "PASS"
+            "to": "SKIP"
+        },
+        {
+            "source": "TodayManga",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TodayManga",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
-    ]
+    ],
+    "throttledHosts": []
 }

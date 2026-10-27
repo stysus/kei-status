@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T16:17:40.676980852Z",
+    "generatedAt": "2026-10-27T22:26:42.248598656Z",
     "module": ":src:all:playmatehunter",
     "sourceRoot": "",
-    "extensionCommit": "f1edb034",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1082062847119890629,
             "name": "Playmate Hunter",
             "lang": "all",
             "baseUrl": "https://pmatehunter.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 187,
+                    "durationMs": 260,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 27,
+                    "durationMs": 63,
                     "message": null,
                     "notes": [
                         "manga[0] has a blank title",
@@ -46,7 +47,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 139,
+                    "durationMs": 131,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,9 +67,19 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "FAIL",
+                    "durationMs": 1,
+                    "message": "NullPointerException at Masonry.getSearchMangaList$suspendImpl(Masonry.kt:63)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 34,
+                    "durationMs": 149,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -78,7 +89,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 22,
+                    "durationMs": 7,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -90,7 +101,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 417,
+                    "durationMs": 419,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -98,21 +109,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:52:14.974300964Z",
+    "comparedTo": "2026-10-25T16:17:40.676980852Z",
     "changes": [
         {
             "source": "Playmate Hunter",
             "lang": "all",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Playmate Hunter",
-            "lang": "all",
-            "scenario": "pages",
-            "from": "WARN",
-            "to": "PASS"
+            "scenario": "search",
+            "from": null,
+            "to": "FAIL"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

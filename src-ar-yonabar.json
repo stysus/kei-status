@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:20:14.606876499Z",
+    "generatedAt": "2026-10-27T22:26:56.563831543Z",
     "module": ":src:ar:yonabar",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 8019959770180418614,
             "name": "Yona Bar",
             "lang": "ar",
             "baseUrl": "https://yonaber.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 6601,
+                    "durationMs": 3990,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 1423,
+                    "durationMs": 1350,
                     "message": null,
                     "notes": [
                         "manga[0] has no thumbnail"
@@ -45,7 +46,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1370,
+                    "durationMs": 1074,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,45 +66,67 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 5907,
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 713,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[0] has no thumbnail"
+                    ],
                     "samples": [
-                        "ch-102.5 -> ch-102-5",
-                        "ch-102 -> ch-102",
-                        "ch-101 -> ch-101"
+                        "Jinx -> 3861",
+                        "Love Jinx -> 3384"
                     ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1803,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
-                    "samples": [
-                        "https://medium1xf.aramang.nom.za/medium1/jinx/ch-102.5/1.webp",
-                        "https://medium1xf.aramang.nom.za/medium1/jinx/ch-102.5/2.webp",
-                        "https://medium1xf.aramang.nom.za/medium1/jinx/ch-102.5/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 1715,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request failed: UnknownHostException: medium1xf.aramang.nom.za",
-                        "page[1] image request failed: UnknownHostException: medium1xf.aramang.nom.za",
-                        "page[2] image request failed: UnknownHostException: medium1xf.aramang.nom.za: Name or service not known"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T22:57:00.244841956Z",
-    "changes": [],
+    "comparedTo": "2026-10-27T09:20:14.606876499Z",
+    "changes": [
+        {
+            "source": "Yona Bar",
+            "lang": "ar",
+            "scenario": "search",
+            "from": null,
+            "to": "WARN"
+        },
+        {
+            "source": "Yona Bar",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Yona Bar",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Yona Bar",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

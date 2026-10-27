@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T23:00:54.774522312Z",
+    "generatedAt": "2026-10-27T22:30:55.981107124Z",
     "module": ":src:pt:roxinha",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 3961079268907869519,
             "name": "Roxinha",
             "lang": "pt-BR",
             "baseUrl": "https://roxinha.online",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,29 +23,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 156,
+                    "status": "PASS",
+                    "durationMs": 822,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 530"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 31,
-                    "message": "HTTP error 530",
+                    "status": "PASS",
+                    "durationMs": 302,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Criando Vilões da Maneira Correta -> 65",
+                        "O Mago do Infinito -> 100",
+                        "Casei-me com o Dragão que Eu Matei -> 2707"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 44,
-                    "message": "HTTP error 530",
+                    "status": "PASS",
+                    "durationMs": 260,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Eu Tenho uma Cidade Subterrânea no Apocalipse -> 596",
+                        "Deus Marcial Celestial -> 4106",
+                        "Shota x Oni -> 4083"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -57,60 +64,83 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 297,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Criando Vilões da Maneira Correta -> 65"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 545,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Capítulo 58 -> 277928",
+                        "Capítulo 57 -> 273293",
+                        "Capítulo 56 -> 266511"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 376,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Você precisa estar logado para acessar este conteúdo. Informe o e-mail e a senha da sua conta da Roxinha para ler os capítulos"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-25T08:42:21.145152312Z",
+    "comparedTo": "2026-10-26T23:00:54.774522312Z",
     "changes": [
         {
             "source": "Roxinha",
             "lang": "pt-BR",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Roxinha",
             "lang": "pt-BR",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Roxinha",
             "lang": "pt-BR",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Roxinha",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
         },
         {
             "source": "Roxinha",
             "lang": "pt-BR",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Roxinha",
             "lang": "pt-BR",
             "scenario": "pages",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

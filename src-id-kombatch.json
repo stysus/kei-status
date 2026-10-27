@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:52:14.831367782Z",
+    "generatedAt": "2026-10-27T22:32:33.104420517Z",
     "module": ":src:id:kombatch",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 911623545095065045,
             "name": "Kombatch",
             "lang": "id",
             "baseUrl": "https://kombatch.cc",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +24,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 414,
+                    "durationMs": 310,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 158,
+                    "status": "WARN",
+                    "durationMs": 126,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Secret Class -> /manga/secret-class/",
-                        "Stepmothers Friends -> /manga/stepmothers-friends/",
-                        "MILF Hunting In Another World -> /manga/milf-hunting-in-another-world/"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 152,
+                    "status": "WARN",
+                    "durationMs": 123,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Taming A Female Bully -> /manga/taming-a-female-bully/",
-                        "My Sex Partners Were Actually Family -> /manga/my-sex-partners-were-actually-family/",
-                        "My Girlfriend Was Already Fully Trained -> /manga/my-girlfriend-was-already-fully-trained/"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,40 +60,76 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 349,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 320 -> /secret-class-chapter-320/",
-                        "Chapter 319 -> /secret-class-chapter-319/",
-                        "Chapter 318 -> /secret-class-chapter-318/"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 188,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "http://cdnasu.xyz/wp-content/uploads/2026/10/00-62.jpg",
-                        "http://cdnasu.xyz/wp-content/uploads/2026/10/1-23.jpg",
-                        "http://cdnasu.xyz/wp-content/uploads/2026/10/2-29.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 6070,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:52:14.831367782Z",
+    "changes": [
+        {
+            "source": "Kombatch",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Kombatch",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Kombatch",
+            "lang": "id",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "Kombatch",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Kombatch",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Kombatch",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
+    "throttledHosts": []
 }

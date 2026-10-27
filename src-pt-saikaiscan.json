@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:47:43.183391661Z",
+    "generatedAt": "2026-10-27T22:36:19.735825281Z",
     "module": ":src:pt:saikaiscan",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 273341846992513187,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "BLOCKED",
-                    "durationMs": 20290,
+                    "durationMs": 207,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from housesaikai.net (HTTP 403)"
@@ -33,7 +34,7 @@
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 20199,
+                    "durationMs": 87,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.housesaikai.net (HTTP 403)"
@@ -43,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "BLOCKED",
-                    "durationMs": 29,
+                    "durationMs": 1985,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.housesaikai.net (HTTP 403)"
@@ -53,12 +54,20 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "5 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -79,6 +88,15 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:47:43.183391661Z",
+    "changes": [
+        {
+            "source": "Saikai Scan",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        }
+    ],
+    "throttledHosts": []
 }

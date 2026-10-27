@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T16:26:22.356642821Z",
+    "generatedAt": "2026-10-27T22:27:43.091616541Z",
     "module": ":src:es:ragnascans",
     "sourceRoot": "",
-    "extensionCommit": "f1edb034",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 6003330990591348231,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 242,
+                    "durationMs": 230,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 49,
+                    "durationMs": 46,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,11 +44,11 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 35,
+                    "durationMs": 41,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Primera trampa amorosa -> /manga.php?id=98",
+                        "La primera trampa amorosa -> /manga.php?id=99",
                         "Rata de alcantarilla -> /manga.php?id=97",
                         "Años de un amor no correspondido -> /manga.php?id=96"
                     ]
@@ -55,7 +56,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,9 +64,19 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 40,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Ha llegado el final -> /manga.php?id=16"
+                    ]
+                },
+                {
                     "name": "chapters",
                     "status": "THROTTLED",
-                    "durationMs": 1097,
+                    "durationMs": 1119,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
@@ -83,28 +94,17 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-24T01:02:46.609173120Z",
+    "comparedTo": "2026-10-25T16:26:22.356642821Z",
     "changes": [
         {
             "source": "Ragna Scans",
             "lang": "es",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "THROTTLED"
-        },
-        {
-            "source": "Ragna Scans",
-            "lang": "es",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Ragna Scans",
-            "lang": "es",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
         }
+    ],
+    "throttledHosts": [
+        "lector.ragnascan.xyz"
     ]
 }

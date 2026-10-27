@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:22:29.392017061Z",
+    "generatedAt": "2026-10-27T22:28:33.661351487Z",
     "module": ":src:en:myadultcomics",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 4116931674173505341,
             "name": "MyAdultComics",
             "lang": "en",
             "baseUrl": "https://myadultcomics.com",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,19 +23,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 10010,
-                    "message": "myadultcomics.com: Temporary failure in name resolution",
+                    "status": "PASS",
+                    "durationMs": 1053,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 1,
-                    "message": "myadultcomics.com",
+                    "status": "PASS",
+                    "durationMs": 155,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Breaking the last fast -> /read.php?i=1637",
+                        "Human Hunter -> /read.php?i=1636",
+                        "Snu-Snu (Remake) -> /read.php?i=1635"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -55,60 +60,91 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 236,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Breaking the last fast -> /read.php?i=1637"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 543,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Gallery -> /read.php?i=1637"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 5,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://myadultcomics.com/books/1637/1.jpg",
+                        "https://myadultcomics.com/books/1637/2.jpg",
+                        "https://myadultcomics.com/books/1637/3.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 974,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:49:19.899418645Z",
+    "comparedTo": "2026-10-27T09:22:29.392017061Z",
     "changes": [
         {
             "source": "MyAdultComics",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "MyAdultComics",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "MyAdultComics",
+            "lang": "en",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
         },
         {
             "source": "MyAdultComics",
             "lang": "en",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MyAdultComics",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MyAdultComics",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

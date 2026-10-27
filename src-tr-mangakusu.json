@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:47:20.763318067Z",
+    "generatedAt": "2026-10-27T22:33:21.773859661Z",
     "module": ":src:tr:mangakusu",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 6479744508771928030,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 8273,
+                    "durationMs": 4263,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 624,
+                    "durationMs": 345,
                     "message": null,
                     "notes": [
                         "popular/latest returned an empty list"
@@ -41,7 +42,7 @@
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 475,
+                    "durationMs": 321,
                     "message": null,
                     "notes": [
                         "popular/latest returned an empty list"
@@ -57,6 +58,14 @@
                     "samples": [
                         "8 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -77,28 +86,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:45:01.754727539Z",
+    "comparedTo": "2026-10-23T08:47:20.763318067Z",
     "changes": [
         {
             "source": "Manga Kusu",
             "lang": "tr",
-            "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "Manga Kusu",
-            "lang": "tr",
-            "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "WARN"
-        },
-        {
-            "source": "Manga Kusu",
-            "lang": "tr",
-            "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "WARN"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

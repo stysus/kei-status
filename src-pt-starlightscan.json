@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:48:29.847689523Z",
+    "generatedAt": "2026-10-27T22:35:28.961653536Z",
     "module": ":src:pt:starlightscan",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 7977736050206547443,
@@ -23,8 +24,8 @@
                 {
                     "name": "connectivity",
                     "status": "FAIL",
-                    "durationMs": 83,
-                    "message": "Connection refused",
+                    "durationMs": 107,
+                    "message": "Connection refused (connect failed)",
                     "notes": [
                         "java.net.ConnectException: Failed to connect to starligthscan.com/127.0.0.1:443"
                     ],
@@ -34,7 +35,7 @@
                     "name": "popular",
                     "status": "FAIL",
                     "durationMs": 2,
-                    "message": "Connection refused",
+                    "message": "Connection refused (connect failed)",
                     "notes": [
                         "java.net.ConnectException: Failed to connect to starligthscan.com/127.0.0.1:443"
                     ],
@@ -44,7 +45,7 @@
                     "name": "latest",
                     "status": "FAIL",
                     "durationMs": 0,
-                    "message": "Connection refused",
+                    "message": "Connection refused (connect failed)",
                     "notes": [
                         "java.net.ConnectException: Failed to connect to starligthscan.com/127.0.0.1:443"
                     ],
@@ -59,6 +60,14 @@
                     "samples": [
                         "1 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -79,6 +88,15 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:48:29.847689523Z",
+    "changes": [
+        {
+            "source": "Starlight Scan",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        }
+    ],
+    "throttledHosts": []
 }

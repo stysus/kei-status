@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:20:18.701414785Z",
+    "generatedAt": "2026-10-27T22:29:59.536536021Z",
     "module": ":src:es:emperorscan",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 4562754350961964148,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 436,
+                    "durationMs": 423,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,25 +32,27 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 199,
+                    "durationMs": 193,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Mundo Maldito: La Era de las Sombras -> /manga/p7vr3agnftuq6ub/",
                         "Martial Peak -> /manga/martial-peak/",
+                        "Mundo Maldito: La Era de las Sombras -> /manga/p7vr3agnftuq6ub/",
                         "Devorador Infinito -> /manga/bjlptoxcp5pajt3/"
                     ]
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 553,
+                    "status": "WARN",
+                    "durationMs": 555,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[3] has no thumbnail"
+                    ],
                     "samples": [
-                        "Sistema de Cultivo del Demonio Celestial -> /manga/4t5istyema6o-del-diuy7t/",
-                        "El Eterno Supremo -> /manga/eternal-deity/",
-                        "Streaming del Arquero Genio -> /manga/streaming-del-arquero-genio/"
+                        "Me Converti en Masajista solo de Mujeres -> /manga/jt3wrxen3ptujq3/",
+                        "Naughty Woman -> /manga/naughty-woman/",
+                        "Dominio Absoluto Del Nivel 0 Soy Invencible Con Mis Habilidades De Analisis -> /manga/dominio-absoluto-del-nivel-0-soy-invencible-con-mis-habilidades-de-analisis/"
                     ]
                 },
                 {
@@ -63,21 +66,33 @@
                     ]
                 },
                 {
-                    "name": "chapters",
+                    "name": "search",
                     "status": "PASS",
-                    "durationMs": 957,
+                    "durationMs": 419,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Capítulo 301 -> /manga/p7vr3agnftuq6ub/capitulo-301/",
-                        "Capítulo 300 -> /manga/p7vr3agnftuq6ub/capitulo-300/",
-                        "Capítulo 299 -> /manga/p7vr3agnftuq6ub/capitulo-299/"
+                        "Martial Peak -> /manga/martial-peak/",
+                        "Martial Inverse -> /manga/martial-inverse/",
+                        "Nine Days of Martial Arts -> /manga/nine-days-of-martial-arts/"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 1008,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "#3862 -> /manga/martial-peak/3862/",
+                        "#3861 -> /manga/martial-peak/3861/",
+                        "#3860 -> /manga/martial-peak/3860/"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "BLOCKED",
-                    "durationMs": 30438,
+                    "durationMs": 30643,
                     "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
                     "notes": [
                         "java.io.IOException: Timed out waiting for WebView after 30s",
@@ -88,21 +103,22 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-21T08:47:27.949287043Z",
+    "comparedTo": "2026-10-26T09:20:18.701414785Z",
     "changes": [
         {
             "source": "Emperor Scan",
             "lang": "es",
-            "scenario": "pages",
+            "scenario": "latest",
             "from": "PASS",
-            "to": "BLOCKED"
+            "to": "WARN"
         },
         {
             "source": "Emperor Scan",
             "lang": "es",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

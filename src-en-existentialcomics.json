@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:12.726345152Z",
+    "generatedAt": "2026-10-27T22:28:13.154144703Z",
     "module": ":src:en:existentialcomics",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 684582342346256208,
             "name": "Existential Comics",
             "lang": "en",
             "baseUrl": "https://existentialcomics.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 359,
+                    "durationMs": 154,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -57,31 +58,43 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [
+                        "query \"Existential Comics\" matched no results in the first page"
+                    ],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 3534,
+                    "durationMs": 2589,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Cartesian Poker -> /comic/678",
                         "Socrates's Treasure -> /comic/677",
-                        "Nietzsche Finds a Genie -> /comic/676",
-                        "Philosophy of Shoplifting a Giant Turkey -> /comic/675"
+                        "Nietzsche Finds a Genie -> /comic/676"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 286,
+                    "durationMs": 24,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://static.existentialcomics.com/comics/SocratessTreasure.png"
+                        "https://static.existentialcomics.com/comics/1-machine.jpg",
+                        "https://static.existentialcomics.com/comics/2-machine.jpg",
+                        "https://static.existentialcomics.com/comics/3-machine.jpg"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 1154,
+                    "durationMs": 176,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -89,6 +102,15 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:12.726345152Z",
+    "changes": [
+        {
+            "source": "Existential Comics",
+            "lang": "en",
+            "scenario": "search",
+            "from": null,
+            "to": "WARN"
+        }
+    ],
+    "throttledHosts": []
 }

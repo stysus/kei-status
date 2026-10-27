@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:26:47.979808760Z",
+    "generatedAt": "2026-10-27T22:35:34.149074987Z",
     "module": ":src:ru:mangachan",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 7,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 596,
+                    "durationMs": 507,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 502"
@@ -32,32 +33,24 @@
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 487,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 185,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "Girl the Wild's -> /manga/33-girl-the-wilds.html",
-                        "The Breaker: New waves -> /manga/5335-the-breaker-new-waves.html",
-                        "Monster Musume no Iru Nichijou -> /manga/13614-monster-musume-no-iru-nichijou.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 599,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 726,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "Yukseong Game-i Hyeonsiri Dwaetda -> /manga/175100-yukseong-game-i-hyeonsiri-dwaetda.html",
-                        "Girl's Interstellar Adventure -> /manga/175079-girls-interstellar-adventure.html",
-                        "My Possession Became a Ghost Story -> /manga/175075-my-possession-became-a-ghost-story.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,10 +58,18 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 132,
-                    "message": "HTTP error 502",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -76,42 +77,42 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T23:04:09.218280795Z",
+    "comparedTo": "2026-10-27T09:26:47.979808760Z",
     "changes": [
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "chapters",
+            "scenario": "popular",
             "from": "PASS",
             "to": "FAIL"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "pages",
+            "scenario": "latest",
             "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaChan",
+            "lang": "ru",
+            "scenario": "search",
+            "from": null,
             "to": "SKIP"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

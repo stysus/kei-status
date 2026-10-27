@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:52:56.075229412Z",
+    "generatedAt": "2026-10-27T22:30:01.582363435Z",
     "module": ":src:en:mangatellers",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 3478835885302345699,
             "name": "Mangatellers",
             "lang": "en",
             "baseUrl": "https://reader.mangatellers.gr",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,42 +23,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 697,
+                    "status": "WARN",
+                    "durationMs": 925,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 185,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 282,
+                    "message": "HTTP error 500",
                     "notes": [],
-                    "samples": [
-                        "Kingdoms of Dreams -> /series/kingdoms-of-dreams/",
-                        "Mythos -> /series/mythos/",
-                        "R.u.N. -> /series/run/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 205,
-                    "message": null,
-                    "notes": [
-                        "manga[0] has no thumbnail",
-                        "manga[1] has no thumbnail",
-                        "manga[2] has no thumbnail",
-                        "manga[3] has no thumbnail",
-                        "manga[4] has no thumbnail",
-                        "duplicate manga urls: [/series/mythos/]"
-                    ],
-                    "samples": [
-                        "Kingdoms of Dreams -> /series/kingdoms-of-dreams/",
-                        "WiFi Wars -> /series/wifi_wars/",
-                        "Mythos -> /series/mythos/"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 299,
+                    "message": "HTTP error 500",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -70,38 +58,83 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 252,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 1: Part #1 (PREVIEW) -> /read/kingdoms-of-dreams/en/1/1/"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 184,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://reader.mangatellers.gr/content/comics/kingdoms-of-dreams_660357aee17a6/1-0-part-1-preview_660357e20656a/Cover01.jpg",
-                        "https://reader.mangatellers.gr/content/comics/kingdoms-of-dreams_660357aee17a6/1-0-part-1-preview_660357e20656a/Cover02.jpg",
-                        "https://reader.mangatellers.gr/content/comics/kingdoms-of-dreams_660357aee17a6/1-0-part-1-preview_660357e20656a/Credits01.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1090,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:52:56.075229412Z",
+    "changes": [
+        {
+            "source": "Mangatellers",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Mangatellers",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mangatellers",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mangatellers",
+            "lang": "en",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangatellers",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangatellers",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangatellers",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
+    "throttledHosts": []
 }

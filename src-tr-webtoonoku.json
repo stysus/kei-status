@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:30:31.908510624Z",
+    "generatedAt": "2026-10-27T22:35:27.035794129Z",
     "module": ":src:tr:webtoonoku",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 5965966687692704047,
             "name": "WebtoonOku",
             "lang": "tr",
             "baseUrl": "https://webtoonoku.org",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,32 +23,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 30669,
-                    "message": "Network is unreachable",
+                    "status": "PASS",
+                    "durationMs": 698,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30528,
-                    "message": "Network is unreachable",
+                    "status": "PASS",
+                    "durationMs": 260,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Martial Peak -> martial-peak",
+                        "Tower of God -> tower-of-god",
+                        "Her Hafta Yeni Bir Meslek -> her-hafta-yeni-bir-meslek"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 30569,
-                    "message": "Network is unreachable",
+                    "status": "PASS",
+                    "durationMs": 664,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Surviving the Apocalypse -> surviving-the-apocalypse-okutoon",
+                        "The Eminence in Shadow -> the-eminence-in-shadow-okutoon",
+                        "I Tamed a Tyrant and Ran Away -> i-tamed-a-tyrant-and-ran-away-okutoon"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,67 +64,106 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 753,
+                    "message": null,
+                    "notes": [
+                        "manga[0] has no thumbnail"
+                    ],
+                    "samples": [
+                        "Martial Peak -> martial-peak"
+                    ]
+                },
+                {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 651,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Ch 3867 -> martial-peak-chapter-3867",
+                        "Ch 3866 -> martial-peak-chapter-3866",
+                        "Ch 3865 -> martial-peak-chapter-3865"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 243,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://cdn-2.webtoon-oku.net/webtoon/manga_5f0ec1891096f/05734ef1905ade14d982a4e8457900b1/003.jpg",
+                        "https://cdn-2.webtoon-oku.net/webtoon/manga_5f0ec1891096f/05734ef1905ade14d982a4e8457900b1/004.jpg",
+                        "https://cdn-2.webtoon-oku.net/webtoon/manga_5f0ec1891096f/05734ef1905ade14d982a4e8457900b1/005.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 1146,
+                    "message": null,
+                    "notes": [
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn-2.webtoon-oku.net (HTTP 403)",
+                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn-2.webtoon-oku.net (HTTP 403)",
+                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn-2.webtoon-oku.net (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T22:04:31.042028337Z",
+    "comparedTo": "2026-10-27T09:30:31.908510624Z",
     "changes": [
         {
             "source": "WebtoonOku",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "WebtoonOku",
             "lang": "tr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "WebtoonOku",
             "lang": "tr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "WebtoonOku",
+            "lang": "tr",
+            "scenario": "search",
+            "from": null,
+            "to": "WARN"
         },
         {
             "source": "WebtoonOku",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "WebtoonOku",
             "lang": "tr",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "WebtoonOku",
             "lang": "tr",
             "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

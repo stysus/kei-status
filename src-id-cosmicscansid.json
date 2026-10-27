@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:15:57.254431279Z",
+    "generatedAt": "2026-10-27T22:32:32.530338704Z",
     "module": ":src:id:cosmicscansid",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 6559481336553833282,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 620,
+                    "durationMs": 522,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 835,
+                    "durationMs": 617,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,14 +43,17 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 180,
+                    "status": "WARN",
+                    "durationMs": 145,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[0] has no thumbnail",
+                        "manga[1] has no thumbnail"
+                    ],
                     "samples": [
-                        "Kage no Jitsuryokusha ni Naritakute -> /series/kage-no-jitsuryokusha-ni-naritakute",
-                        "The Man -> /series/the-man",
-                        "Arelyn Is Sick and Tired -> /series/arelyn-is-sick-and-tired"
+                        "Kaisar Bela Diri yang Melampaui Segalanya -> /series/kaisar-bela-diri-yang-melampaui-segalanya",
+                        "Sang Regressor dan Saintess Buta -> /series/sang-regressor-dan-saintess-buta",
+                        "Negatte mo Nai Tsuihou Go kara no Slow Life? Intai Shita Hazu ga Nariyuki de Bishoujo Gal no Shishou ni Nattara Naze ka Mechakucha Natsukareta -> /series/negatte-mo-nai-tsuihou-go-kara-no-slow-life-intai-shita-hazu-ga-nariyuki-de-bishoujo-gal-no-shishou-ni-nattara-naze-ka-mechakucha-natsukareta"
                     ]
                 },
                 {
@@ -63,9 +67,19 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 372,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Nani no Torie mo Nai Heibon na Ore ga Bijin Futago Shimai wo Inochigake de Tasuketa Kekka, Jitsu wa Yandere datta Futari wo Gachi Bore Sasete Shimatta -> /series/nani-no-torie-mo-nai-heibon-na-ore-ga-bijin-futago-shimai-wo-inochigake-de-tasuketa-kekka-jitsu-wa-yandere-datta-futari-wo-gachi-bore-sasete-shimatta"
+                    ]
+                },
+                {
                     "name": "chapters",
                     "status": "FAIL",
-                    "durationMs": 191,
+                    "durationMs": 228,
                     "message": "HTTP error 404",
                     "notes": [],
                     "samples": []
@@ -81,14 +95,22 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-25T16:25:05.682500753Z",
+    "comparedTo": "2026-10-26T09:15:57.254431279Z",
     "changes": [
         {
             "source": "CosmicScans",
             "lang": "id",
             "scenario": "latest",
-            "from": "WARN",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "CosmicScans",
+            "lang": "id",
+            "scenario": "search",
+            "from": null,
             "to": "PASS"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

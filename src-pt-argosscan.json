@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T08:41:09.525622949Z",
+    "generatedAt": "2026-10-27T22:32:41.602669497Z",
     "module": ":src:pt:argosscan",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 7330216215852925244,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "BLOCKED",
-                    "durationMs": 725,
+                    "durationMs": 754,
                     "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
                     "notes": [
                         "java.io.IOException: Sessão expirada. Faça login novamente no WebView."
@@ -33,7 +34,7 @@
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 760,
+                    "durationMs": 771,
                     "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
                     "notes": [
                         "java.io.IOException: Sessão expirada. Faça login novamente no WebView."
@@ -59,6 +60,14 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "SKIP",
                     "durationMs": 0,
@@ -77,21 +86,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:30.980434786Z",
+    "comparedTo": "2026-10-25T08:41:09.525622949Z",
     "changes": [
         {
             "source": "Argos Scan",
             "lang": "pt-BR",
-            "scenario": "connectivity",
-            "from": "FAIL",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "Argos Scan",
-            "lang": "pt-BR",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "BLOCKED"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

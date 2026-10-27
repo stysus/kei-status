@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:26:56.603666714Z",
+    "generatedAt": "2026-10-27T22:37:02.423364027Z",
     "module": ":src:ru:henchan",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 5504588601186153612,
             "name": "HenChan",
             "lang": "ru",
             "baseUrl": "https://xxl.hentaichan.live",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,32 +23,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 30559,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 647,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 20044,
-                    "message": "HTTP error 502",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 190,
+                    "message": null,
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 30001,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 1024,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Brothel - Бордель -> /manga/55789-brothel-bordel.html",
+                        "Падение Хиэды -> /manga/55788-padenie-hiedy.html",
+                        "Укрощение строптивого - часть 22 (стр. 845-895) -> /manga/55787-ukroschenie-stroptivogo-chast-22-str-845-895.html"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,67 +62,102 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 3010,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Brothel - Бордель -> /manga/55789-brothel-bordel.html"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 328,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Brothel - Бордель -> /online/55789-brothel-bordel.html?cacheId=1793081741"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 768,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://mimg4.imgschan.xyz/manganew_webp/0/1793081741_00/00.webp",
+                        "https://mimg4.imgschan.xyz/manganew_webp/0/1793081741_00/01.webp",
+                        "https://mimg4.imgschan.xyz/manganew_webp/0/1793081741_00/02.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 31722,
+                    "message": null,
+                    "notes": [
+                        "page[0] image request failed: SocketTimeoutException: timeout",
+                        "page[1] image request failed: SocketTimeoutException: timeout",
+                        "page[2] image request failed: SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T23:03:51.065851323Z",
+    "comparedTo": "2026-10-27T09:26:56.603666714Z",
     "changes": [
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "HenChan",
+            "lang": "ru",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

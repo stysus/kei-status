@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:20:35.467455734Z",
+    "generatedAt": "2026-10-27T22:27:44.501227736Z",
     "module": ":src:es:yupmanga",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 4437245120973625796,
             "name": "Yupmanga",
             "lang": "es",
             "baseUrl": "https://www.yupmanga.com",
-            "status": "FAIL",
+            "status": "UNSUPPORTED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 791,
+                    "durationMs": 802,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,25 +32,25 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 545,
+                    "durationMs": 560,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "¡Oh, Mi Hotel! -> LV49B1AG0LA92",
                         "La metamorfosis de la salvación -> 9WGCCBUFP16A9",
-                        "Grande + Grande -> 5KAKXSH3GXPA1"
+                        "En la línea del arrepentimiento -> 87UVR1XORDH1R"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 999,
+                    "durationMs": 1005,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Esos años en busca de mi honor -> 61GNV5LB83IKO",
                         "Seitokai Yakuindomo -> 9DKRUICSH9YF4",
-                        "19 días -> RXE2QDQNR1I01",
-                        "Bad Company -> 0ZE4FR4ZR8SZS"
+                        "19 días -> RXE2QDQNR1I01"
                     ]
                 },
                 {
@@ -63,34 +64,55 @@
                     ]
                 },
                 {
-                    "name": "chapters",
+                    "name": "search",
                     "status": "PASS",
-                    "durationMs": 1976,
+                    "durationMs": 1179,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Tomo - 01 -> cY-A9ceUQvs7jayFFIXvu6-_kno1UjdmeweyMmq7DyvP_ZqE5H3Qb1qhu0QEgZAmcAXCDZ-pg-C2895kk35f#LV49B1AG0LA92"
+                        "¡Oh, Mi Hotel! -> LV49B1AG0LA92"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 1952,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Tomo - 01 -> Qz8xwP63je0e9tOmJUl2uZ2BReejKxI0til6l-PNRZuUfpkxmb39oHGoe4U3iMgTzjj0rOCrveyy8hX5xCZn#LV49B1AG0LA92"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 1001,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "UNSUPPORTED",
+                    "durationMs": 1843,
+                    "message": "requires the native QuickJS library, which has no JVM build: app.cash.quickjs.QuickJs",
+                    "notes": [
+                        "java.lang.NoClassDefFoundError: app/cash/quickjs/QuickJs",
+                        "java.lang.ClassNotFoundException: app.cash.quickjs.QuickJs"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-25T08:41:10.635150731Z",
+    "comparedTo": "2026-10-26T09:20:35.467455734Z",
     "changes": [
         {
             "source": "Yupmanga",
             "lang": "es",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "Yupmanga",
+            "lang": "es",
             "scenario": "pages",
-            "from": "UNSUPPORTED",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "UNSUPPORTED"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T08:38:31.772161489Z",
+    "generatedAt": "2026-10-27T22:27:37.089698642Z",
     "module": ":src:en:mangade",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 3447999145778061665,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 828,
+                    "durationMs": 844,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 295,
+                    "durationMs": 353,
                     "message": "NotAfter: Sun Oct 25 03:38:28 UTC 2026",
                     "notes": [
                         "javax.net.ssl.SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
@@ -43,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 264,
+                    "durationMs": 334,
                     "message": "NotAfter: Sun Oct 25 03:38:28 UTC 2026",
                     "notes": [
                         "javax.net.ssl.SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
@@ -61,6 +62,14 @@
                     "samples": [
                         "7 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -81,42 +90,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:47:41.790854805Z",
+    "comparedTo": "2026-10-25T08:38:31.772161489Z",
     "changes": [
         {
             "source": "MangaDE",
             "lang": "en",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "MangaDE",
-            "lang": "en",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "MangaDE",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "PASS",
+            "scenario": "search",
+            "from": null,
             "to": "SKIP"
-        },
-        {
-            "source": "MangaDE",
-            "lang": "en",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "MangaDE",
-            "lang": "en",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
         }
-    ]
+    ],
+    "throttledHosts": []
 }

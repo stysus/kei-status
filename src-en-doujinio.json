@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T08:40:50.905558257Z",
+    "generatedAt": "2026-10-27T22:24:45.043181360Z",
     "module": ":src:en:doujinio",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 2738692054520731722,
             "name": "Doujin.io - J18",
             "lang": "en",
             "baseUrl": "https://doujin.io",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1048,
+                    "durationMs": 1012,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 475,
+                    "durationMs": 524,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 435,
+                    "durationMs": 629,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +56,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,9 +64,19 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "FAIL",
+                    "durationMs": 3,
+                    "message": "NullPointerException at Doujinio.getSearchMangaList$suspendImpl(Doujinio.kt:74)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1507,
+                    "durationMs": 1447,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,7 +87,7 @@
                 {
                     "name": "pages",
                     "status": "BLOCKED",
-                    "durationMs": 914,
+                    "durationMs": 838,
                     "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
                     "notes": [
                         "java.lang.IllegalStateException: Login through WebView to read"
@@ -86,14 +97,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:06.904356463Z",
+    "comparedTo": "2026-10-25T08:40:50.905558257Z",
     "changes": [
         {
             "source": "Doujin.io - J18",
             "lang": "en",
-            "scenario": "pages",
-            "from": "FAIL",
-            "to": "BLOCKED"
+            "scenario": "search",
+            "from": null,
+            "to": "FAIL"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

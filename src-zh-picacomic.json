@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T08:42:50.323021831Z",
+    "generatedAt": "2026-10-27T22:36:47.357533008Z",
     "module": ":src:zh:picacomic",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 5768337869316468367,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "BLOCKED",
-                    "durationMs": 3,
+                    "durationMs": 1,
                     "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
                     "notes": [
                         "java.io.IOException: 请在扩展设置界面输入用户名和密码"
@@ -33,7 +34,7 @@
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 15,
+                    "durationMs": 8,
                     "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
                     "notes": [
                         "java.io.IOException: 请在扩展设置界面输入用户名和密码"
@@ -43,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "BLOCKED",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
                     "notes": [
                         "java.io.IOException: 请在扩展设置界面输入用户名和密码"
@@ -53,12 +54,20 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "4 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -79,28 +88,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:02.745873544Z",
+    "comparedTo": "2026-10-25T08:42:50.323021831Z",
     "changes": [
         {
             "source": "哔咔漫画",
             "lang": "zh",
-            "scenario": "connectivity",
-            "from": "FAIL",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "哔咔漫画",
-            "lang": "zh",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "哔咔漫画",
-            "lang": "zh",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "BLOCKED"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

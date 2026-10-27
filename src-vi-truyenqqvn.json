@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:28:07.596810596Z",
+    "generatedAt": "2026-10-27T22:38:53.655398569Z",
     "module": ":src:vi:truyenqqvn",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 5606661657341898331,
             "name": "TruyenQQ VN",
             "lang": "vi",
             "baseUrl": "https://truyenqq.com.vn",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 4301,
+                    "durationMs": 4618,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 480,
+                    "durationMs": 396,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +44,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 518,
+                    "durationMs": 525,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Hành Trình Cuối Cùng Của Ngài Anh Hùng -> /hanh-trinh-cuoi-cung-cua-ngai-anh-hung",
                         "Bartender À Tokyo -> /bartender-a-tokyo",
-                        "Yami Sute Ana -> /yami-sute-ana",
-                        "Shirley -> /shirley"
+                        "Yami Sute Ana -> /yami-sute-ana"
                     ]
                 },
                 {
@@ -63,55 +64,65 @@
                     ]
                 },
                 {
-                    "name": "chapters",
+                    "name": "search",
                     "status": "PASS",
-                    "durationMs": 764,
+                    "durationMs": 962,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Chapter 140 -> /nhiep-chinh-vuong-benh-kieu-duoc-sung-ai/chapter-140",
-                        "Chapter 139 -> /nhiep-chinh-vuong-benh-kieu-duoc-sung-ai/chapter-139",
-                        "Chapter 138 -> /nhiep-chinh-vuong-benh-kieu-duoc-sung-ai/chapter-138"
+                        "Nhiếp Chính Vương Bệnh Kiều Được Sủng Ái -> /nhiep-chinh-vuong-benh-kieu-duoc-sung-ai"
                     ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "BLOCKED",
+                    "durationMs": 139,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from truyenqq.com.vn (HTTP 429)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 488,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://s34.cc3t.net/chapters/b20811/chapter-140/nhiep-chinh-vuong-benh-kieu-duoc-sung-ai-0.webp",
-                        "https://s34.cc3t.net/chapters/b20811/chapter-140/nhiep-chinh-vuong-benh-kieu-duoc-sung-ai-1.webp",
-                        "https://s34.cc3t.net/chapters/b20811/chapter-140/nhiep-chinh-vuong-benh-kieu-duoc-sung-ai-2.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "FAIL",
-                    "durationMs": 45000,
-                    "message": "timed out after 45s",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T23:28:00.179757974Z",
+    "comparedTo": "2026-10-27T09:28:07.596810596Z",
     "changes": [
         {
             "source": "TruyenQQ VN",
             "lang": "vi",
-            "scenario": "pages",
-            "from": "BLOCKED",
+            "scenario": "search",
+            "from": null,
             "to": "PASS"
         },
         {
             "source": "TruyenQQ VN",
             "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "TruyenQQ VN",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TruyenQQ VN",
+            "lang": "vi",
             "scenario": "images",
-            "from": null,
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": null
         }
     ],
     "throttledHosts": []

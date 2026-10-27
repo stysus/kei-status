@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:25:58.957415266Z",
+    "generatedAt": "2026-10-27T22:32:19.981409777Z",
     "module": ":src:es:vermanhwas",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 4150746388640244220,
             "name": "Ver Manhwas",
             "lang": "es",
             "baseUrl": "https://vermanhwa.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2700,
+                    "durationMs": 10735,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1118,
+                    "durationMs": 14103,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1170,
+                    "durationMs": 4139,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,9 +64,21 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 11549,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Mi casa es tu casa -> 1270",
+                        "Familia Cercana (Sin censura) -> 4221",
+                        "Rompiendo los límites (Sin censura) -> 4183"
+                    ]
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 996,
+                    "durationMs": 9674,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +90,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 485,
+                    "durationMs": 2683,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,23 +101,33 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1144,
+                    "status": "WARN",
+                    "durationMs": 3339,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn1.vermanhwa.com (HTTP 403)",
+                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn1.vermanhwa.com (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T23:00:54.698662727Z",
+    "comparedTo": "2026-10-27T09:25:58.957415266Z",
     "changes": [
         {
             "source": "Ver Manhwas",
             "lang": "es",
-            "scenario": "images",
-            "from": "WARN",
+            "scenario": "search",
+            "from": null,
             "to": "PASS"
+        },
+        {
+            "source": "Ver Manhwas",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

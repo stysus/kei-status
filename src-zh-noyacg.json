@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T08:40:03.989015475Z",
+    "generatedAt": "2026-10-27T22:34:26.951980103Z",
     "module": ":src:zh:noyacg",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 6492346234228542735,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 323,
+                    "durationMs": 340,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 340,
+                    "durationMs": 362,
                     "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
                     "notes": [
                         "java.io.IOException: 請在擴充套件設定中輸入帳號與密碼，或在 WebView 中登入"
@@ -41,7 +42,7 @@
                 {
                     "name": "latest",
                     "status": "BLOCKED",
-                    "durationMs": 130,
+                    "durationMs": 132,
                     "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
                     "notes": [
                         "java.io.IOException: 請在擴充套件設定中輸入帳號與密碼，或在 WebView 中登入"
@@ -51,12 +52,20 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "3 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -77,21 +86,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:02.733453762Z",
+    "comparedTo": "2026-10-25T08:40:03.989015475Z",
     "changes": [
         {
             "source": "NoyAcg",
             "lang": "zh-Hant",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "NoyAcg",
-            "lang": "zh-Hant",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "BLOCKED"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

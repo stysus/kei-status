@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T20:20:01.503542099Z",
+    "generatedAt": "2026-10-27T22:23:21.808134021Z",
     "module": ":src:all:mangadraft",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 6866320578550428692,
             "name": "MangaDraft",
             "lang": "all",
             "baseUrl": "https://www.mangadraft.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1038,
+                    "durationMs": 878,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 329,
+                    "durationMs": 277,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +44,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 260,
+                    "durationMs": 283,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "-Billions- -> /manga/billions",
-                        "Éro - magia -> /bd/ero-magia",
-                        "G.O.S.: Guardians Of Secret -> /manga/gos-guardians-of-secret"
+                        "FLUX : La Guerre d’Astrya -> /manga/flux-la-guerre-dastrya",
+                        "Haos Verse | One-Shot Collection -> /manga/haos-verse-one-shot-collection",
+                        "L'avenir du passé -> /manga/lavenir-du-passe"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,9 +64,17 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "FAIL",
+                    "durationMs": 2,
+                    "message": "Collection contains no element matching the predicate.",
+                    "notes": [],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 496,
+                    "durationMs": 638,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,17 +86,19 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 536,
+                    "durationMs": 662,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://www.mangadraft.com/image/page/69b9ddc1f00e7?size=full"
+                        "https://www.mangadraft.com/image/page/614f4dd800e5b?size=full",
+                        "https://www.mangadraft.com/image/page/614f47202d92d?size=full",
+                        "https://www.mangadraft.com/image/page/614f471aaed04?size=full"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 349,
+                    "durationMs": 1156,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -95,6 +106,15 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T20:20:01.503542099Z",
+    "changes": [
+        {
+            "source": "MangaDraft",
+            "lang": "all",
+            "scenario": "search",
+            "from": null,
+            "to": "FAIL"
+        }
+    ],
+    "throttledHosts": []
 }

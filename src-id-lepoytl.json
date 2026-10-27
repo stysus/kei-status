@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T22:58:46.401201636Z",
+    "generatedAt": "2026-10-27T22:31:54.321426442Z",
     "module": ":src:id:lepoytl",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1601772753251290758,
             "name": "LepoyTL",
             "lang": "id",
             "baseUrl": "https://www.lepoytl.my.id",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,102 +24,141 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 702,
+                    "durationMs": 924,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "THROTTLED",
-                    "durationMs": 2038,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "status": "PASS",
+                    "durationMs": 312,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Wolf Falls in Love with Moon -> /2024/10/wolf-falls-in-love-with-moon.html?m=1",
+                        "Uesugi-kun wa Onnanoko wo Yametai -> /2024/08/uesugi-kun-wa-onnanoko-wo-yametai.html?m=1",
+                        "Ogami Tsumiki To Kinichijou -> /2024/04/ogami-tsumiki-to-kinichijou.html?m=1"
+                    ]
+                },
+                {
+                    "name": "latest",
+                    "status": "PASS",
+                    "durationMs": 132,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Ore Wa Bishoujo V-Tuber -> /2026/09/ore-wa-bishoujo-v-tuber.html",
+                        "Ogami Tsumiki To Kinichijou -> /2024/04/ogami-tsumiki-to-kinichijou.html",
+                        "A Lazy Guy Woke Up as a Girl One Morning -> /2026/01/a-lazy-guy-woke-up-as-girl-one-morning_92.html"
+                    ]
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "0 filters"
+                    ]
+                },
+                {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 296,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                        "query \"Wolf Falls in Love w\" matched no results in the first page"
                     ],
                     "samples": []
                 },
                 {
-                    "name": "latest",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "www.lepoytl.my.id answered HTTP 429 earlier in this run",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "filters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "www.lepoytl.my.id answered HTTP 429 earlier in this run",
-                    "notes": [],
-                    "samples": []
-                },
-                {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 384,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Wolf Falls in Love with Moon Chapter 45 -> /2025/11/wolf-falls-in-love-with-moon-chapter-45.html",
+                        "Wolf Falls in Love with Moon Chapter 44 -> /2025/11/wolf-falls-in-love-with-moon-chapter-44.html",
+                        "Wolf Falls in Love with Moon Chapter 43 -> /2025/10/wolf-falls-in-love-with-moon-chapter-43.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 545,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://galeri-lepoy.my.id/images/2025/11/17/45_001.jpg",
+                        "https://galeri-lepoy.my.id/images/2025/11/17/45_002.jpg",
+                        "https://galeri-lepoy.my.id/images/2025/11/17/45_003.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 2750,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T22:04:56.927416491Z",
+    "comparedTo": "2026-10-26T22:58:46.401201636Z",
     "changes": [
         {
             "source": "LepoyTL",
             "lang": "id",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "LepoyTL",
             "lang": "id",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "LepoyTL",
             "lang": "id",
             "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "LepoyTL",
+            "lang": "id",
+            "scenario": "search",
+            "from": null,
+            "to": "WARN"
         },
         {
             "source": "LepoyTL",
             "lang": "id",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "LepoyTL",
             "lang": "id",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "LepoyTL",
             "lang": "id",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
-    "throttledHosts": [
-        "www.lepoytl.my.id"
-    ]
+    "throttledHosts": []
 }

@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-23T08:59:10.421636290Z",
+    "generatedAt": "2026-10-27T22:34:32.608448049Z",
     "module": ":src:pt:minitwoscan",
     "sourceRoot": "",
-    "extensionCommit": "4ba2c827",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 8959585632192744096,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3911,
+                    "durationMs": 4089,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 146,
+                    "durationMs": 158,
                     "message": "HTTP error 406",
                     "notes": [],
                     "samples": []
@@ -47,12 +48,20 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "8 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -73,28 +82,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:43:44.257983589Z",
+    "comparedTo": "2026-10-23T08:59:10.421636290Z",
     "changes": [
         {
             "source": "MiniTwo Scan",
             "lang": "pt-BR",
-            "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "MiniTwo Scan",
-            "lang": "pt-BR",
-            "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "FAIL"
-        },
-        {
-            "source": "MiniTwo Scan",
-            "lang": "pt-BR",
-            "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "FAIL"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

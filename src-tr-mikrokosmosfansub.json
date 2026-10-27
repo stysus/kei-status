@@ -1,21 +1,22 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T23:01:10.563252637Z",
+    "generatedAt": "2026-10-27T22:32:41.824236540Z",
     "module": ":src:tr:mikrokosmosfansub",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1959637408417261960,
             "name": "Mikrokosmos Fansub",
             "lang": "tr",
             "baseUrl": "https://mikrokosmosfb.blogspot.com",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 465,
+                    "durationMs": 842,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 429"
@@ -32,88 +33,134 @@
                 },
                 {
                     "name": "popular",
-                    "status": "THROTTLED",
-                    "durationMs": 1840,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "status": "PASS",
+                    "durationMs": 1564,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Missing Love/ A Married Man -> /2021/09/a-married-man.html",
+                        "Our Omega Leadernim -> /2021/07/our-omega-leadernim_16.html",
+                        "Night Song -> /2022/07/night-song.html"
+                    ]
+                },
+                {
+                    "name": "latest",
+                    "status": "PASS",
+                    "durationMs": 196,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Borderline (GÜNCEL) -> /2026/03/borderline.html",
+                        "Abyss  -> /2021/07/abyss.html",
+                        "Mind The Gap -> /2026/10/0004.html"
+                    ]
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "0 filters"
+                    ]
+                },
+                {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 221,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                        "query \"Missing Love/ A Marr\" matched no results in the first page"
                     ],
                     "samples": []
                 },
                 {
-                    "name": "latest",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "mikrokosmosfb.blogspot.com answered HTTP 429 earlier in this run",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "filters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "mikrokosmosfb.blogspot.com answered HTTP 429 earlier in this run",
-                    "notes": [],
-                    "samples": []
-                },
-                {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 904,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Final Bölüm 78 -> /2026/07/bolum-78-son.html",
+                        "Bölüm 77 -> /2026/07/bolum-77.html",
+                        "Bölüm 76 -> /2026/07/bolum-76.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 775,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7Ko_Kj5djjhNpJdKE8HZ0lBnU3Zi58WIWY-Cx08EWoqGAw8M184WlYe6NP3OnFiIQ4ou7HzWpqIfqhDd_zHK5XwVbimi0DWyKZloZe5pY8OuBSShKt9AkzVTJ3dZd8lFnyXvg12f_VwQ1fyTrYDY0tyvuOkk60Vw__D9vO7slEw6onFZbx102bhFuXOM/s1600-rw/1002005946.png",
+                        "https://manhva-worker.mediadepo.workers.dev/img/88888091888e8683db8886958aa280809688c08dc6848192c9cd9d99dcd28b808fd5d7d3d6d5928299d5",
+                        "https://manhva-worker.mediadepo.workers.dev/img/bebeb6a7beb8b0b5edbeb0a3bc94b6b6a0bef6bbf0b2b7a4fffbabafeae4bdb6b9e3e1e5e3e3a4b4afe3"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 770,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T09:24:51.858895176Z",
+    "comparedTo": "2026-10-26T23:01:10.563252637Z",
     "changes": [
         {
             "source": "Mikrokosmos Fansub",
             "lang": "tr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "Mikrokosmos Fansub",
             "lang": "tr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Mikrokosmos Fansub",
             "lang": "tr",
             "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Mikrokosmos Fansub",
+            "lang": "tr",
+            "scenario": "search",
+            "from": null,
+            "to": "WARN"
         },
         {
             "source": "Mikrokosmos Fansub",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Mikrokosmos Fansub",
             "lang": "tr",
             "scenario": "pages",
-            "from": "THROTTLED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Mikrokosmos Fansub",
+            "lang": "tr",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
-    "throttledHosts": [
-        "mikrokosmosfb.blogspot.com"
-    ]
+    "throttledHosts": []
 }

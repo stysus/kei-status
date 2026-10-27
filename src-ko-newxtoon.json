@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T09:16:33.069996040Z",
+    "generatedAt": "2026-10-27T22:34:03.901673848Z",
     "module": ":src:ko:newxtoon",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1562897350957827542,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "FAIL",
-                    "durationMs": 212,
+                    "durationMs": 81,
                     "message": "Connection refused",
                     "notes": [
                         "java.net.ConnectException: Failed to connect to newxtoon1.com/162.215.226.7:443"
@@ -33,7 +34,7 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 32,
+                    "durationMs": 55,
                     "message": "Connection refused",
                     "notes": [
                         "java.net.ConnectException: Failed to connect to newxtoon1.com/162.215.226.7:443"
@@ -43,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 36,
+                    "durationMs": 54,
                     "message": "Connection refused",
                     "notes": [
                         "java.net.ConnectException: Failed to connect to newxtoon1.com/162.215.226.7:443"
@@ -53,12 +54,20 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "7 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -79,49 +88,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:58:06.284860328Z",
+    "comparedTo": "2026-10-26T09:16:33.069996040Z",
     "changes": [
         {
             "source": "NewXToon",
             "lang": "ko",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "NewXToon",
-            "lang": "ko",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "NewXToon",
-            "lang": "ko",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "NewXToon",
-            "lang": "ko",
-            "scenario": "chapters",
-            "from": "PASS",
+            "scenario": "search",
+            "from": null,
             "to": "SKIP"
-        },
-        {
-            "source": "NewXToon",
-            "lang": "ko",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "NewXToon",
-            "lang": "ko",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
         }
-    ]
+    ],
+    "throttledHosts": []
 }

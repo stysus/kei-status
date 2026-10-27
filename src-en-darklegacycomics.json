@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:47:34.627015376Z",
+    "generatedAt": "2026-10-27T22:28:14.681173388Z",
     "module": ":src:en:darklegacycomics",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1650720534254409337,
             "name": "Dark Legacy Comics",
             "lang": "en",
             "baseUrl": "https://www.darklegacycomics.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,9 +23,9 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 258,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30146,
+                    "message": "Connect timed out",
                     "notes": [],
                     "samples": []
                 },
@@ -58,38 +59,72 @@
                     ]
                 },
                 {
-                    "name": "chapters",
+                    "name": "search",
                     "status": "PASS",
-                    "durationMs": 200,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "#1000: Reality Bites: Part Nine -> /1000",
-                        "#999: Reality Bites: Part Eight -> /999",
-                        "#998: Reality Bites: Part Seven -> /998"
+                        "Dark Legacy Comics -> /archive",
+                        "Dark Legacy Comics Specials -> /specials/1.php"
                     ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 30133,
+                    "message": "Connect timed out",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 49,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.darklegacycomics.com/comics/1000.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 168,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:47:34.627015376Z",
+    "changes": [
+        {
+            "source": "Dark Legacy Comics",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Dark Legacy Comics",
+            "lang": "en",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "Dark Legacy Comics",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Dark Legacy Comics",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Dark Legacy Comics",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
+    "throttledHosts": []
 }

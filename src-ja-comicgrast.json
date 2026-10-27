@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:56:07.123477839Z",
+    "generatedAt": "2026-10-27T22:34:39.163726866Z",
     "module": ":src:ja:comicgrast",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 218928749727744731,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 1208,
+                    "durationMs": 1028,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 403"
@@ -33,7 +34,7 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 264,
+                    "durationMs": 301,
                     "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
@@ -57,6 +58,14 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "SKIP",
                     "durationMs": 0,
@@ -75,14 +84,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:47:31.559416223Z",
+    "comparedTo": "2026-10-24T00:56:07.123477839Z",
     "changes": [
         {
             "source": "Comic Grast",
             "lang": "ja",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

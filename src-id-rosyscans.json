@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T23:01:46.608443493Z",
+    "generatedAt": "2026-10-27T22:28:33.301679055Z",
     "module": ":src:id:rosyscans",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 9147884000487951300,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 814,
+                    "durationMs": 762,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 302,
+                    "durationMs": 256,
                     "message": null,
                     "notes": [
                         "popular/latest returned an empty list"
@@ -41,7 +42,7 @@
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 178,
+                    "durationMs": 159,
                     "message": null,
                     "notes": [
                         "popular/latest returned an empty list"
@@ -51,12 +52,20 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "12 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -77,42 +86,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:45.784731887Z",
+    "comparedTo": "2026-10-26T23:01:46.608443493Z",
     "changes": [
         {
             "source": "Rosyscans",
             "lang": "id",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Rosyscans",
-            "lang": "id",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Rosyscans",
-            "lang": "id",
-            "scenario": "chapters",
-            "from": "PASS",
+            "scenario": "search",
+            "from": null,
             "to": "SKIP"
-        },
-        {
-            "source": "Rosyscans",
-            "lang": "id",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Rosyscans",
-            "lang": "id",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
         }
     ],
     "throttledHosts": []

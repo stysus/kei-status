@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:27:59.492317820Z",
+    "generatedAt": "2026-10-27T22:34:59.670793789Z",
     "module": ":src:ru:slashlib",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 2730544188738947015,
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1313,
+                    "durationMs": 860,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 10056,
+                    "durationMs": 10081,
                     "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
                     "notes": [
                         "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
@@ -41,7 +42,7 @@
                 {
                     "name": "latest",
                     "status": "BLOCKED",
-                    "durationMs": 10058,
+                    "durationMs": 10075,
                     "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
                     "notes": [
                         "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
@@ -51,12 +52,20 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "5 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -77,27 +86,13 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-25T08:39:13.253088989Z",
+    "comparedTo": "2026-10-27T09:27:59.492317820Z",
     "changes": [
         {
             "source": "SlashLib",
             "lang": "ru",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "SlashLib",
-            "lang": "ru",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "SlashLib",
-            "lang": "ru",
-            "scenario": "chapters",
-            "from": "BLOCKED",
+            "scenario": "search",
+            "from": null,
             "to": "SKIP"
         }
     ],

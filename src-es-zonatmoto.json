@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:54:06.283813004Z",
+    "generatedAt": "2026-10-27T22:27:52.984568820Z",
     "module": ":src:es:zonatmoto",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1900395790630760038,
             "name": "Zonatmo.to (unoriginal)",
             "lang": "es",
             "baseUrl": "https://zonatmo.to",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +24,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 442,
+                    "durationMs": 998,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2345,
+                    "status": "WARN",
+                    "durationMs": 5136,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Circles -> circles",
-                        "Berserk -> berserk",
-                        "Panty Note -> panty-note"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 204,
+                    "status": "WARN",
+                    "durationMs": 371,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Super Human Era -> super-human-era",
-                        "Star Martial God Technique -> star-martial-god-technique",
-                        "Star Ginseng Store -> star-ginseng-store"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list",
+                        "hasNextPage=true but list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,40 +61,76 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 451,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "#215.50 - Epílogo -> circles/epilogo#510493",
-                        "#215.00 - Gina Baek y Yelena Yerin - FINAL -> circles/gina-baek-y-yelena-yerin-final#510494",
-                        "#214.00 - Gina Baek y Yelena Yerin -> circles/gina-baek-y-yelena-yerin#510495"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 190,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.zonatmo.to/manga/vlwuZ0kac1TM_x_TTT_w_x_TTT_MlA_x_SLz_ZiRfUWfB1kD1P17tWL8KVY5Gv/Wejn9x65WKXmIXBDRnODURlEZfs1lOzKHQOvlfriUbRw/e2e44f06.webp",
-                        "https://cdn.zonatmo.to/manga/vlwuZ0kac1TM_x_TTT_w_x_TTT_MlA_x_SLz_ZiRfUWfB1kD1P17tWL8KVY5Gv/Wejn9x65WKXmIXBDRnODURlEZfs1lOzKHQOvlfriUbRw/32830056.webp",
-                        "https://cdn.zonatmo.to/manga/vlwuZ0kac1TM_x_TTT_w_x_TTT_MlA_x_SLz_ZiRfUWfB1kD1P17tWL8KVY5Gv/Wejn9x65WKXmIXBDRnODURlEZfs1lOzKHQOvlfriUbRw/32d623cc.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3901,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:54:06.283813004Z",
+    "changes": [
+        {
+            "source": "Zonatmo.to (unoriginal)",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Zonatmo.to (unoriginal)",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Zonatmo.to (unoriginal)",
+            "lang": "es",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "Zonatmo.to (unoriginal)",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Zonatmo.to (unoriginal)",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Zonatmo.to (unoriginal)",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
+    "throttledHosts": []
 }

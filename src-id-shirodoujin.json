@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:49:27.103157220Z",
+    "generatedAt": "2026-10-27T22:32:03.365962807Z",
     "module": ":src:id:shirodoujin",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 8468586261171749665,
             "name": "Shiro Doujin",
             "lang": "id",
             "baseUrl": "https://shirodoujin.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +24,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1724,
+                    "durationMs": 1563,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 980,
+                    "status": "WARN",
+                    "durationMs": 3095,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "A bodyguard can’t protect you from this Bahasa Indonesia -> /series/a-bodyguard-cant-protect-you-from-this-bahasa-indonesia/",
-                        "Stepmother’s Friends -> /series/stepmothers-friends/",
-                        "Aniyome to no Himitsu no Kankei Bahasa Indonesia -> /series/aniyome-to-no-himitsu-no-kankei-bahasa-indonesia/"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 813,
+                    "status": "WARN",
+                    "durationMs": 3117,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Female Professor’s Secret Account Bahasa Indonesia -> /series/the-female-professors-secret-account-bahasa-indonesia/",
-                        "The Father-in-Law Fucks Them All Bahasa Indonesia -> /series/the-father-in-law-fucks-them-all-bahasa-indonesia/",
-                        "The Messiah and His Followers -> /series/the-messiah-and-his-followers/"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,38 +60,76 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 804,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 1 -> /a-bodyguard-cant-protect-you-from-this-bahasa-indonesia-chapter-1-bahasa-indonesia/"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2267,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://link.shirolink.my.id/cdn-uploads/manga-images/a/a-bodyguard-cant-protect-you-from-this-bahasa-indonesia/chapter-1/1.webp",
-                        "https://link.shirolink.my.id/cdn-uploads/manga-images/a/a-bodyguard-cant-protect-you-from-this-bahasa-indonesia/chapter-1/2.webp",
-                        "https://link.shirolink.my.id/cdn-uploads/manga-images/a/a-bodyguard-cant-protect-you-from-this-bahasa-indonesia/chapter-1/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2442,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:49:27.103157220Z",
+    "changes": [
+        {
+            "source": "Shiro Doujin",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Shiro Doujin",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Shiro Doujin",
+            "lang": "id",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "Shiro Doujin",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Shiro Doujin",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Shiro Doujin",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
+    "throttledHosts": []
 }

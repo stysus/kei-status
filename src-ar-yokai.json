@@ -1,16 +1,17 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T09:21:17.599859895Z",
+    "generatedAt": "2026-10-27T22:23:45.006085415Z",
     "module": ":src:ar:yokai",
     "sourceRoot": "",
     "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 4337506350787725909,
             "name": "Yokai",
             "lang": "ar",
             "baseUrl": "https://yokai-team.blogspot.com",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +23,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 308,
+                    "status": "WARN",
+                    "durationMs": 2080,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 189,
+                    "durationMs": 1696,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +46,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 209,
+                    "durationMs": 284,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,9 +66,19 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 239,
+                    "message": null,
+                    "notes": [
+                        "query \"Hunter X Hunter - Di\" matched no results in the first page"
+                    ],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1907,
+                    "durationMs": 771,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,35 +89,57 @@
                 },
                 {
                     "name": "pages",
-                    "status": "THROTTLED",
-                    "durationMs": 1913,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 440,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8mW0DaeRShzdTAklKqmnWeL5r8e7RaaF2J1gGOsjgw_NOrhwEROV8I7DGvvfbdevucsW4MYi72-hd_qXfNnfqWYaiH3NrWX8FqpWIhuaGn9-vvHPqQzrZK4VVa0jyFhA1aOq1_GvQREaLaVzKEIjEHC0tM8SdNaviw6TqSiOa8ydWLSqZ2i-6S9mY8tU/s1600/000.jpg",
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4avubVaiYJhkMexj6eHtVVQLiO8WgFdiWLoD4Q4eXll33U2AHfHvHKmPlHXjql-cAFbtCx7JbhsdfUGww59AtNw86HD_UlAhzf6qFuQ7s7A-UGV1AuWz_IkgUrnZas_jk5c_5BINlY0x2WDPF-r54X6INVqiO8NjqmKq1yBfjlQR967ehrILhxIg6K74/s1600/001.jpg",
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioHiFX1L4RyqAkFtVUO8B-XwHU2mFBXeYYZKBR6jZbya8ivxFTss8iqvV2yMoQnEJMs2DXtECsYA2etRhikJdBjSeS79OXg3DoeG63D0CZTxFMya6bQXPLCsYzR0i8JOco6yhaWvPxdrOsQ7sj8JTx5teQqM1J3dmWKp93-A3QDxVab5eHXW4zYP9U0w8/s1600/002.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 719,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:49:32.945297301Z",
+    "comparedTo": "2026-10-27T09:21:17.599859895Z",
     "changes": [
         {
             "source": "Yokai",
             "lang": "ar",
-            "scenario": "pages",
+            "scenario": "connectivity",
             "from": "PASS",
-            "to": "THROTTLED"
+            "to": "WARN"
+        },
+        {
+            "source": "Yokai",
+            "lang": "ar",
+            "scenario": "search",
+            "from": null,
+            "to": "WARN"
+        },
+        {
+            "source": "Yokai",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "Yokai",
             "lang": "ar",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
-    "throttledHosts": [
-        "yokai-team.blogspot.com"
-    ]
+    "throttledHosts": []
 }

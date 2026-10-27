@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:58:52.879024736Z",
+    "generatedAt": "2026-10-27T22:29:54.355277538Z",
     "module": ":src:it:walpurgisscan",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 6566957355096372149,
@@ -23,26 +24,26 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 3700,
+                    "durationMs": 2778,
                     "message": null,
                     "notes": [
-                        "home page returned HTTP 503"
+                        "home page returned HTTP 403"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 763,
-                    "message": "HTTP error 503",
+                    "durationMs": 282,
+                    "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 738,
-                    "message": "HTTP error 503",
+                    "durationMs": 214,
+                    "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
                 },
@@ -55,6 +56,14 @@
                     "samples": [
                         "8 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -75,14 +84,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:54:09.365282376Z",
+    "comparedTo": "2026-10-24T00:58:52.879024736Z",
     "changes": [
         {
             "source": "Walpurgi Scan",
             "lang": "it",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

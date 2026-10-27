@@ -1,9 +1,10 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T22:03:48.260114037Z",
+    "generatedAt": "2026-10-27T22:37:20.503662005Z",
     "module": ":src:zh:manhuawu",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "6768cbc2",
+    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 3279300917142951720,
@@ -15,7 +16,7 @@
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 247,
+                    "durationMs": 175,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 3899,
+                    "durationMs": 5495,
                     "message": "NullPointerException at MCCMSWeb.parseListing(MCCMSWeb.kt:50)",
                     "notes": [
                         "java.lang.NullPointerException: <no message>"
@@ -41,7 +42,7 @@
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 382,
+                    "durationMs": 1766,
                     "message": "NullPointerException at MCCMSWeb.parseListing(MCCMSWeb.kt:50)",
                     "notes": [
                         "java.lang.NullPointerException: <no message>"
@@ -51,12 +52,20 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "5 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -77,28 +86,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-24T08:34:40.567754212Z",
+    "comparedTo": "2026-10-24T22:03:48.260114037Z",
     "changes": [
         {
             "source": "漫画屋",
             "lang": "zh",
-            "scenario": "connectivity",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "漫画屋",
-            "lang": "zh",
-            "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "FAIL"
-        },
-        {
-            "source": "漫画屋",
-            "lang": "zh",
-            "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "FAIL"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }
