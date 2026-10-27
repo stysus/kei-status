@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:44:47.183786125Z",
+    "generatedAt": "2026-10-27T09:21:12.893304455Z",
     "module": ":src:en:cocomic",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "6768cbc2",
     "sources": [
         {
             "sourceId": 3544369893051520689,
             "name": "Cocomic",
             "lang": "en",
             "baseUrl": "https://cocomic.co",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,30 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 494,
+                    "status": "WARN",
+                    "durationMs": 19360,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522",
+                        "home page body is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2499,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19455,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "The Cheat Batter Takes All -> 59528",
-                        "Adult Reading Club -> 74443",
-                        "Low Tide in Twilight「Official」 -> 5662"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1934,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19456,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "The Crown I’ll Claim -> 89240",
-                        "I’m a Sickly Mother, But I’ll Raise My Villainous Son! -> 91139",
-                        "Master Swordsman’s Stream -> 90197"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,37 +59,67 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 3520,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 105 -> chapter-105",
-                        "Chapter 104 -> chapter-104",
-                        "Chapter 103 -> chapter-103"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 4020,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn2.cocomic.co/manga_638600453798366558/0363cc453eda9458e38657d5d83128d2/105.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3288,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:44:47.183786125Z",
+    "changes": [
+        {
+            "source": "Cocomic",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Cocomic",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Cocomic",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Cocomic",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Cocomic",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Cocomic",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
+    "throttledHosts": []
 }

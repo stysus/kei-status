@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T23:07:17.523424255Z",
+    "generatedAt": "2026-10-27T09:28:55.368748959Z",
     "module": ":src:tr:ragnarscans",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
     "sources": [
         {
             "sourceId": 1571842183434448758,
             "name": "Ragnar Scans",
             "lang": "tr",
             "baseUrl": "https://ragnarscans.net",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,69 +23,115 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 915,
+                    "durationMs": 686,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 190,
+                    "status": "PASS",
+                    "durationMs": 410,
                     "message": null,
-                    "notes": [
-                        "duplicate manga urls: [/manga/logging-10000-years-into-the-future/, /manga/a-dragonslayers-peerless-regression/, /manga/star-embracing-swordmaster-1/]"
-                    ],
+                    "notes": [],
                     "samples": [
                         "Logging 10,000 Years into the Future -> /manga/logging-10000-years-into-the-future/",
-                        "Logging 10,000 Years into the Future -> /manga/logging-10000-years-into-the-future/",
-                        "A Dragonslayer’s Peerless Regression -> /manga/a-dragonslayers-peerless-regression/"
+                        "A Dragonslayer’s Peerless Regression -> /manga/a-dragonslayers-peerless-regression/",
+                        "The Star Embracing Swordmaster -> /manga/star-embracing-swordmaster-1/"
                     ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 174,
+                    "status": "PASS",
+                    "durationMs": 130,
                     "message": null,
-                    "notes": [
-                        "duplicate manga urls: [/manga/marron-markizi/, /manga/lucia/, /manga/leviathan/]"
-                    ],
+                    "notes": [],
                     "samples": [
                         "Marron Markizi -> /manga/marron-markizi/",
-                        "Marron Markizi -> /manga/marron-markizi/",
-                        "LUCİA -> /manga/lucia/"
+                        "LUCİA -> /manga/lucia/",
+                        "Leviathan -> /manga/leviathan/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "5 filters"
+                        "1 filters"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 642,
-                    "message": "Unexpected JSON token at offset 7006: Expected string literal but 'null' literal was found at path: $.items[34].title\nUse 'coerceInputValues = true' in 'Json {}' builder to coerce nulls if property has a default value.\nJSON input: .....3814,\"manga_id\":63200,\"title\":null,\"number\":230,\"slug\":\"bolu.....",
+                    "status": "PASS",
+                    "durationMs": 621,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "🔒 Bölüm 314 -> /manga/logging-10000-years-into-the-future/bolum-314/",
+                        "🔒 Bölüm 313 -> /manga/logging-10000-years-into-the-future/bolum-313/",
+                        "🔒 Bölüm 312 -> /manga/logging-10000-years-into-the-future/bolum-312/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
+                    "status": "WARN",
+                    "durationMs": 244,
+                    "message": null,
+                    "notes": [
+                        "page list is empty"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T09:24:37.131399462Z",
-    "changes": [],
+    "comparedTo": "2026-10-26T23:07:17.523424255Z",
+    "changes": [
+        {
+            "source": "Ragnar Scans",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Ragnar Scans",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Ragnar Scans",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Ragnar Scans",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Ragnar Scans",
+            "lang": "tr",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ],
     "throttledHosts": []
 }

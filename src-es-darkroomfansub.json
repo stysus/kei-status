@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-24T00:56:01.313744048Z",
+    "generatedAt": "2026-10-27T09:22:11.224612397Z",
     "module": ":src:es:darkroomfansub",
     "sourceRoot": "",
-    "extensionCommit": "f285631c",
+    "extensionCommit": "6768cbc2",
     "sources": [
         {
             "sourceId": 2769673412724723872,
             "name": "Dark Room Fansub",
             "lang": "es",
             "baseUrl": "https://lector-darkroomfansub.blogspot.com",
-            "status": "PASS",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 256,
+                    "durationMs": 151,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 233,
+                    "durationMs": 113,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,52 +60,50 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 782,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chapter 1 -> /2022/02/ch-6.html"
-                    ]
+                    "status": "THROTTLED",
+                    "durationMs": 1562,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 209,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/a/AVvXsEhNi4BsgJ0fGP4cyD1WmhIn5YDG3XulJ3KdbvQGR7VRHHic3GFQJ2d9Hxtzz4FpTmQT-wg_VsAoKw11Y-FcvJ9ocESRn9N8QrEdt9bWtSeQdRGVHKOtgtye_2h1UcS937rzLeW3oCoLClGQzvbGnio2NR-WZ-T1OxWRCijSjf_oNq_3DiPcqUXvHVo2HQ",
-                        "https://blogger.googleusercontent.com/img/a/AVvXsEgNv9lNDxGG6-U7rugmDr-gjWfLn0-uIs99gwhDsoWmcEzYukKFK0hI1HjNgVbaF820FFQLg_2Xc4FTUqOanW2-26eeFO27WXva0MpP3VkHui6Aqd2nrdcHjFlgiCzrCESNjiXq2DO4BjC6ix9ooSXpnznJ4qvIs6YLGHvsbG7KSmdSFIpo9smG6CavpA",
-                        "https://blogger.googleusercontent.com/img/a/AVvXsEgGNyZf14kzCp13cBzOGqbz-SIDFqEB0TkXx5A9Mz3DnKU3fqtc7tidx9W86b0tZPNw_-LbcaHZ4VXGNT_XjTZrtSfydx0nv1_LEwQV3HbrSBzsC8989AAeB02kEenDEJwBbDOofYsoxXYLSzpFEjdeqJhuVDgR8oaVrqIflGxRULBxUSAbAF1rMvvQAg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2435,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:56:35.025610922Z",
+    "comparedTo": "2026-10-24T00:56:01.313744048Z",
     "changes": [
         {
             "source": "Dark Room Fansub",
             "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "Dark Room Fansub",
+            "lang": "es",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Dark Room Fansub",
             "lang": "es",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
+    ],
+    "throttledHosts": [
+        "lector-darkroomfansub.blogspot.com"
     ]
 }

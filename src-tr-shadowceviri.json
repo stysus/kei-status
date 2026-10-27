@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T23:04:02.447108440Z",
+    "generatedAt": "2026-10-27T09:23:31.228741649Z",
     "module": ":src:tr:shadowceviri",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
     "sources": [
         {
             "sourceId": 3852979672050614736,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 459,
+                    "durationMs": 663,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 429"
@@ -33,7 +33,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 1495,
+                    "durationMs": 1653,
                     "message": null,
                     "notes": [
                         "duplicate manga urls: [/2021/05/hajime-no-ippo_1.html, /2023/03/tower-of-god.html, /2021/05/god-of-war-dusmus-tanr_1.html]"
@@ -47,7 +47,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 140,
+                    "durationMs": 180,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -68,51 +68,40 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 2715,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Raunt 1515 -> /2026/03/hajime-no-ippo-1515.html",
-                        "Raunt 1514 -> /2026/03/hajime-no-ippo-1514.html",
-                        "Raunt 1513 -> /2026/03/hajime-no-ippo-1513.html"
-                    ]
-                },
-                {
-                    "name": "pages",
                     "status": "THROTTLED",
-                    "durationMs": 1706,
+                    "durationMs": 2009,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
                     "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
+                    "notes": [],
+                    "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-25T16:27:58.971503395Z",
+    "comparedTo": "2026-10-26T23:04:02.447108440Z",
     "changes": [
         {
             "source": "Shadow Çeviri",
             "lang": "tr",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Shadow Çeviri",
-            "lang": "tr",
-            "scenario": "pages",
+            "scenario": "chapters",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "Shadow Çeviri",
             "lang": "tr",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "pages",
+            "from": "THROTTLED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": [

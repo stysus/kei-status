@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T08:38:44.853787066Z",
+    "generatedAt": "2026-10-27T09:17:43.864578971Z",
     "module": ":src:en:mangakatana",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "6768cbc2",
     "sources": [
         {
             "sourceId": 3170561626848540385,
             "name": "MangaKatana",
             "lang": "en",
             "baseUrl": "https://mangakatana.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1131,
+                    "durationMs": 1222,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 178,
+                    "status": "WARN",
+                    "durationMs": 158,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "\"Aishiteru\", Uso Dakedo. -> /manga/aishiteru-uso-dakedo.10797",
-                        "\"Aoi\" - Hikaru ga Chikyuu ni Itakoro...... -> /manga/aoi-hikaru-ga-chikyuu-ni-itakoro.2722",
-                        "\"Bungaku Shoujo\" to Ue Kawaku Yuurei -> /manga/bungaku-shoujo-to-ue-kawaku-yuurei.8056"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 175,
+                    "status": "WARN",
+                    "durationMs": 157,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Guy She Was Interested in Wasn't a Guy at All -> /manga/the-guy-she-was-interested-in-wasnt-a-guy-at-all.26626",
-                        "Magical Realm Shopkeeper -> /manga/magical-realm-shopkeeper.27381",
-                        "Gatekeeper Of The Boundless World -> /manga/gatekeeper-of-the-boundless-world.27622"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,46 +60,60 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 178,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 2: Majou wa Geboku ni Koi wo Suru -> /manga/aishiteru-uso-dakedo.10797/c2",
-                        "Chapter 1 : Story 1 -> /manga/aishiteru-uso-dakedo.10797/c1"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 168,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://i1.mangakatana.com/token/c308e592501040872970p%3At%3A37n.68pr19-7c1p0w%3An%3A366%3A4qsp90048p0/0.jpg",
-                        "https://i1.mangakatana.com/token/c2386cd050104087297sp%3At%3A37n.60sr19-7c140w%3An%3A366%3A4qrp9q043s1/1.jpg",
-                        "https://i1.mangakatana.com/token/191a6eb650104087297pp%3At%3A37n.6oqr19-7c1n0w%3An%3A366%3A4q3p9o04372/2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1705,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:59:16.721120157Z",
+    "comparedTo": "2026-10-25T08:38:44.853787066Z",
     "changes": [
         {
             "source": "MangaKatana",
             "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "MangaKatana",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "MangaKatana",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaKatana",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaKatana",
+            "lang": "en",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
-    ]
+    ],
+    "throttledHosts": []
 }

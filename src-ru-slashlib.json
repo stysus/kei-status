@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-25T08:39:13.253088989Z",
+    "generatedAt": "2026-10-27T09:27:59.492317820Z",
     "module": ":src:ru:slashlib",
     "sourceRoot": "",
-    "extensionCommit": "b2f43180",
+    "extensionCommit": "6768cbc2",
     "sources": [
         {
             "sourceId": 2730544188738947015,
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 642,
+                    "durationMs": 1313,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 8554,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Secret Alliance -> /23435--secret-alliance",
-                        "Surviving Romance -> /60127--a-surviving-romance-",
-                        "Wolf and dog -> /24394--wolf-and-dog"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 10056,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 850,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Edomae Elf -> /41170--edomae-erufu",
-                        "The Southern Archives -> /270086--nanbu-dangan",
-                        "Centuria -> /197587--kentourya"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 10058,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,33 +60,46 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "BLOCKED",
-                    "durationMs": 2982,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.io.IOException: HTTP error 404. Проверьте сайт. Попробуйте авторизоваться через WebView🌎︎ и обновите список. Для завершения авторизации может потребоваться перезапустить приложение с полной остановкой."
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T22:02:46.369721954Z",
+    "comparedTo": "2026-10-25T08:39:13.253088989Z",
     "changes": [
         {
             "source": "SlashLib",
             "lang": "ru",
-            "scenario": "chapters",
-            "from": "FAIL",
+            "scenario": "popular",
+            "from": "PASS",
             "to": "BLOCKED"
+        },
+        {
+            "source": "SlashLib",
+            "lang": "ru",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "SlashLib",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "BLOCKED",
+            "to": "SKIP"
         }
-    ]
+    ],
+    "throttledHosts": []
 }

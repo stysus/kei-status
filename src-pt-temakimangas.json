@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T23:02:02.751570171Z",
+    "generatedAt": "2026-10-27T09:26:36.270012626Z",
     "module": ":src:pt:temakimangas",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
     "sources": [
         {
             "sourceId": 677370205708439700,
             "name": "Temaki mangás",
             "lang": "pt-BR",
             "baseUrl": "https://temakimangas.blogspot.com",
-            "status": "WARN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 497,
+                    "durationMs": 645,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 429"
@@ -32,33 +32,29 @@
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 1658,
-                    "message": null,
+                    "status": "THROTTLED",
+                    "durationMs": 1879,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
-                        "popular/latest returned an empty list"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 149,
-                    "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "temakimangas.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "temakimangas.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -79,36 +75,31 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-26T09:23:22.187399999Z",
+    "comparedTo": "2026-10-26T23:02:02.751570171Z",
     "changes": [
         {
             "source": "Temaki mangás",
             "lang": "pt-BR",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Temaki mangás",
-            "lang": "pt-BR",
             "scenario": "popular",
-            "from": "THROTTLED",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "THROTTLED"
         },
         {
             "source": "Temaki mangás",
             "lang": "pt-BR",
             "scenario": "latest",
-            "from": "SKIP",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "SKIP"
         },
         {
             "source": "Temaki mangás",
             "lang": "pt-BR",
             "scenario": "filters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "temakimangas.blogspot.com"
+    ]
 }

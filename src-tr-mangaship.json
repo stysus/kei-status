@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T23:01:08.251912169Z",
+    "generatedAt": "2026-10-27T09:27:16.693168880Z",
     "module": ":src:tr:mangaship",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
     "sources": [
         {
             "sourceId": 7110025728969951060,
             "name": "Manga Bahçesi",
             "lang": "tr",
             "baseUrl": "https://mangabahcesi.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,28 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 625,
+                    "status": "PASS",
+                    "durationMs": 608,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 520"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 434,
-                    "message": "HTTP error 520",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 622,
+                    "message": null,
+                    "notes": [
+                        "popular/latest returned an empty list",
+                        "hasNextPage=true but list is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 450,
-                    "message": "HTTP error 520",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 205,
+                    "message": null,
+                    "notes": [
+                        "popular/latest returned an empty list",
+                        "hasNextPage=true but list is empty"
+                    ],
                     "samples": []
                 },
                 {
@@ -75,28 +79,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-24T01:00:52.621791746Z",
+    "comparedTo": "2026-10-26T23:01:08.251912169Z",
     "changes": [
         {
             "source": "Manga Bahçesi",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Manga Bahçesi",
             "lang": "tr",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
             "source": "Manga Bahçesi",
             "lang": "tr",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-20T19:43:29.513466019Z",
+    "generatedAt": "2026-10-27T09:24:23.613621588Z",
     "module": ":src:id:komikindoid",
     "sourceRoot": "",
-    "extensionCommit": "ff521c17",
+    "extensionCommit": "6768cbc2",
     "sources": [
         {
             "sourceId": 5384836574731339537,
             "name": "KomikIndoID",
             "lang": "id",
             "baseUrl": "https://komikindo.ch",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 844,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30144,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 970,
+                    "durationMs": 22,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 967,
+                    "durationMs": 45,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "I Faked a Pregnancy, but My Husband Returned -> /komik/i-faked-a-pregnancy-but-my-husband-returned/",
-                        "The Crazy Villain Comes to His Sanity -> /komik/the-crazy-villain-comes-to-his-sanity/",
-                        "The Crimson Dragon Martial Emperor -> /komik/the-crimson-dragon-martial-emperor/"
+                        "A Princess Who Reads Fortune -> /komik/a-princess-who-reads-fortune/",
+                        "All Hail the Sect Leader -> /komik/all-hail-the-sect-leader/",
+                        "Ano Shima no Umine-sou -> /komik/ano-shima-no-umine-sou/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,39 +64,53 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 646,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 471,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "Chapter 179 End -> /solo-leveling-chapter-179-end/",
-                        "Chapter 178 -> /solo-leveling-chapter-178/",
-                        "Chapter 177 -> /solo-leveling-chapter-177/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 599,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://imageainewgeneration.lol/data/742688/179 End/427321e46cfdee34277c125dd09d00be/eC42nl2igF6FItvYb1rAsAamtMgP5yMsxp8TYjWk.jpg",
-                        "https://himmga.lat/data/742688/179 End/427321e46cfdee34277c125dd09d00be/fXDyIKTCnpdOlYxcZWVhbX2MHgpxGhuTrVzP2fr7.jpg",
-                        "https://gaimgame.pics/data/742688/179 End/427321e46cfdee34277c125dd09d00be/VS29GKtu0W98kBzr9yBoQtaYVhj5Yy6OnIFuyUvg.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 4279,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": []
+    "comparedTo": "2026-10-20T19:43:29.513466019Z",
+    "changes": [
+        {
+            "source": "KomikIndoID",
+            "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "KomikIndoID",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "KomikIndoID",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KomikIndoID",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
+    "throttledHosts": []
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-26T23:04:09.218280795Z",
+    "generatedAt": "2026-10-27T09:26:47.979808760Z",
     "module": ":src:ru:mangachan",
     "sourceRoot": "",
-    "extensionCommit": "949dea25",
+    "extensionCommit": "6768cbc2",
     "sources": [
         {
             "sourceId": 7,
             "name": "MangaChan",
             "lang": "ru",
             "baseUrl": "https://im.manga-chan.me",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 3750,
+                    "status": "WARN",
+                    "durationMs": 596,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 502"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 4519,
+                    "durationMs": 487,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +45,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 2831,
+                    "durationMs": 599,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,75 +66,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 2236,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 132,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "Том 2 Глава 260 -> /online/391162-girl-the-wilds_v2_ch260.html",
-                        "Том 2 Глава 259 -> /online/391154-girl-the-wilds_v2_ch259.html",
-                        "Том 2 Глава 258 -> /online/373978-girl-the-wilds_v2_ch258.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 3191,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img7.manga-chan.me/manganew/g/1364717603_girl-the-wilds_v1_ch1/0001.jpg",
-                        "https://img7.manga-chan.me/manganew/g/1364717603_girl-the-wilds_v1_ch1/0002.jpg",
-                        "https://img7.manga-chan.me/manganew/g/1364717603_girl-the-wilds_v1_ch1/0003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1613,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T09:20:43.050324789Z",
+    "comparedTo": "2026-10-26T23:04:09.218280795Z",
     "changes": [
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []
