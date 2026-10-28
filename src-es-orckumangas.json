@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:31:03.175824062Z",
+    "generatedAt": "2026-10-28T10:01:50.006139267Z",
     "module": ":src:es:orckumangas",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Orcku Mangas",
             "lang": "es",
             "baseUrl": "https://orckumangas.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3984,
+                    "durationMs": 3213,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1099,
+                    "durationMs": 1193,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 515,
+                    "durationMs": 1140,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,7 +66,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 4509,
+                    "durationMs": 4317,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,7 +76,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 998,
+                    "durationMs": 563,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,7 +88,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 1862,
+                    "durationMs": 369,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -99,30 +99,27 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1002,
+                    "status": "WARN",
+                    "durationMs": 652,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from orckumangas.com (HTTP 403)",
+                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from orckumangas.com (HTTP 403)",
+                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from orckumangas.com (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T21:58:56.985704037Z",
+    "comparedTo": "2026-10-27T22:31:03.175824062Z",
     "changes": [
         {
             "source": "Orcku Mangas",
             "lang": "es",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
-        },
-        {
-            "source": "Orcku Mangas",
-            "lang": "es",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

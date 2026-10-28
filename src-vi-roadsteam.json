@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:35:58.216058442Z",
+    "generatedAt": "2026-10-28T10:38:39.971830440Z",
     "module": ":src:vi:roadsteam",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Roads Team",
             "lang": "vi",
             "baseUrl": "https://nhaduong.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1116,
+                    "durationMs": 8490,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 256,
+                    "durationMs": 20253,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,20 +43,16 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 245,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 39587,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "NOVEL – VÃN SINH CHỦNG -> 542",
-                        "INSTANT X LOVE -> 1193",
-                        "DAZZLING BREATH -> 922"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,7 +62,7 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 750,
+                    "durationMs": 23420,
                     "message": null,
                     "notes": [
                         "query \"KHÚC NGUYỆN CẦU – BI\" matched no results in the first page"
@@ -75,47 +71,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 415,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 40152,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "CHAP 11 - 19+ -> chap-11",
-                        "CHAP 10 - 19+ -> chap-10",
-                        "CHAP 9 -> chap-9"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 775,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img.nhaduong.com/manga_6ab20a4bad73c/fa9dd568faa5bf69a042ee2b17523edf/01.webp#nd-jpeg=https%3A%2F%2Fimg.nhaduong.com%2Fcdn-cgi%2Fimage%2Fformat%3Djpeg%2Fmanga_6ab20a4bad73c%2Ffa9dd568faa5bf69a042ee2b17523edf%2F01.webp",
-                        "https://img.nhaduong.com/manga_6ab20a4bad73c/fa9dd568faa5bf69a042ee2b17523edf/02.webp#nd-jpeg=https%3A%2F%2Fimg.nhaduong.com%2Fcdn-cgi%2Fimage%2Fformat%3Djpeg%2Fmanga_6ab20a4bad73c%2Ffa9dd568faa5bf69a042ee2b17523edf%2F02.webp",
-                        "https://img.nhaduong.com/manga_6ab20a4bad73c/fa9dd568faa5bf69a042ee2b17523edf/03.webp#nd-jpeg=https%3A%2F%2Fimg.nhaduong.com%2Fcdn-cgi%2Fimage%2Fformat%3Djpeg%2Fmanga_6ab20a4bad73c%2Ffa9dd568faa5bf69a042ee2b17523edf%2F03.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 475,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:49:49.627781331Z",
+    "comparedTo": "2026-10-27T22:35:58.216058442Z",
     "changes": [
         {
             "source": "Roads Team",
             "lang": "vi",
-            "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Roads Team",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Roads Team",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Roads Team",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

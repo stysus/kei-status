@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:29:21.555666824Z",
+    "generatedAt": "2026-10-28T10:04:24.435078559Z",
     "module": ":src:en:mangabolt",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "MangaBolt",
             "lang": "en",
             "baseUrl": "https://mangabolt.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 541,
+                    "durationMs": 788,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 336,
+                    "durationMs": 234,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 361,
+                    "durationMs": 233,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,7 +66,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 262,
+                    "durationMs": 281,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,7 +76,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 562,
+                    "durationMs": 568,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,7 +88,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 348,
+                    "durationMs": 311,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -99,23 +99,25 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 388,
+                    "status": "WARN",
+                    "durationMs": 30178,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[1] image request failed: SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:46:59.594028172Z",
+    "comparedTo": "2026-10-27T22:29:21.555666824Z",
     "changes": [
         {
             "source": "MangaBolt",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:31:39.119345065Z",
+    "generatedAt": "2026-10-28T10:08:21.461488117Z",
     "module": ":src:pt:fliptru",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Fliptru",
             "lang": "pt-BR",
             "baseUrl": "https://fliptru.com.br",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 477,
+                    "durationMs": 525,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,11 +32,11 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 86,
+                    "durationMs": 108,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Fé -> /comic/fe",
+                        "Crossday Chronicles -> /comic/crossday-chronicles",
                         "Sense Life -> /comic/sense-life",
                         "Rei de lata -> /comic/rei-de-lata"
                     ]
@@ -44,13 +44,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 95,
+                    "durationMs": 106,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Magic Hero -> /comic/magic-hero",
-                        "As  Loucuras de Soraya -> /comic/as-loucuras-de-soraya",
-                        "Los Caianos -> /comic/los-caianos"
+                        "O Que o Coração já Sabia -> /comic/o-que-o-coracao-ja-sabia",
+                        "THE GREAT GOLDEN TOURNAMENT -> /comic/the-great-golden-tournament",
+                        "Como se tornar humano -> /comic/como-se-tornar-humano-hi00"
                     ]
                 },
                 {
@@ -66,50 +66,53 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 428,
+                    "durationMs": 415,
                     "message": null,
                     "notes": [
-                        "manga[0] has no thumbnail",
-                        "manga[1] has no thumbnail",
-                        "manga[2] has no thumbnail",
-                        "manga[3] has no thumbnail",
-                        "manga[4] has no thumbnail"
+                        "manga[0] has no thumbnail"
                     ],
                     "samples": [
-                        "Café da XP -> /comic/cafe-da-xp",
-                        "Manchas de Café -> /comic/manchas-de-cafe",
-                        "A Fé do Mentiroso -> /comic/a-fe-do-mentiroso-lmw4"
+                        "Crossday Chronicles -> /comic/crossday-chronicles"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 757,
+                    "status": "PASS",
+                    "durationMs": 1618,
                     "message": null,
-                    "notes": [
-                        "chapter list is empty"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "007 - Oque as cartas dizem? -> /comic/crossday-chronicles/007",
+                        "006 - O Despertar -> /comic/crossday-chronicles/006",
+                        "005 - Terra dos Esquecidos - Parte 5 -> /comic/crossday-chronicles/005"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "FAIL",
+                    "durationMs": 8284,
+                    "message": "Connection reset",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T09:27:02.568151170Z",
+    "comparedTo": "2026-10-27T22:31:39.119345065Z",
     "changes": [
         {
             "source": "Fliptru",
             "lang": "pt-BR",
-            "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Fliptru",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

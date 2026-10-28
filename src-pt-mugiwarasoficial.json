@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:30:47.522097757Z",
+    "generatedAt": "2026-10-28T10:28:52.877388125Z",
     "module": ":src:pt:mugiwarasoficial",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Mugiwaras Oficial",
             "lang": "pt-BR",
             "baseUrl": "https://mugiwarasoficial.org",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,39 +24,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1278,
+                    "durationMs": 2879,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 722,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 45001,
+                    "message": "timed out after 45s",
                     "notes": [],
-                    "samples": [
-                        "One Piece -> one-piece",
-                        "O Exilado Cavaleiro Pesado Reencarnado é Incomparável com o Conhecimento do Jogo -> o-exilado-cavaleiro-pesado-reencarnado-e-incomparavel-com-o-conhecimento-do-jogo",
-                        "Blue Lock -> blue-lock"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 525,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Gerente Kim -> gerente-kim",
-                        "Hajimete no Sefure -> hajimete-no-sefure",
-                        "Veletric -> veletric"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,57 +57,74 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 593,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "One Piece -> one-piece",
-                        "One Piece Gakuen!! -> one-piece-gakuen",
-                        "One Piece: Road to Laugh Tale -> one-piece-road-to-laugh-tale"
-                    ]
-                },
-                {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 558,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Capítulo 1197 -> chp_1793117032891",
-                        "Capítulo 1196 -> chp_1792108827867",
-                        "Capítulo 1195 -> chp_1791466442575"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 475,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "chapters",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:59:37.336181719Z",
+    "comparedTo": "2026-10-27T22:30:47.522097757Z",
     "changes": [
         {
             "source": "Mugiwaras Oficial",
             "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mugiwaras Oficial",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mugiwaras Oficial",
+            "lang": "pt-BR",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mugiwaras Oficial",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mugiwaras Oficial",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mugiwaras Oficial",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

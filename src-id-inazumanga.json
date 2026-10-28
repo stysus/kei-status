@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:28:50.625234962Z",
+    "generatedAt": "2026-10-28T10:05:36.325808907Z",
     "module": ":src:id:inazumanga",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "ReYume",
             "lang": "id",
             "baseUrl": "https://www.re-yume.my.id",
-            "status": "WARN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 1261,
+                    "durationMs": 1577,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 429"
@@ -34,7 +34,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 125,
+                    "durationMs": 471,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -46,7 +46,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 112,
+                    "durationMs": 122,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -68,7 +68,7 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 264,
+                    "durationMs": 308,
                     "message": null,
                     "notes": [
                         "query \"Shangri-La Frontier \" matched no results in the first page"
@@ -79,90 +79,50 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1420,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Shangri-La Frontier Chapter 284 -> /2026/10/shangri-la-frontier-chapter-284.html",
-                        "Shangri-La Frontier Chapter 283 -> /2026/10/shangri-la-frontier-chapter-283.html",
-                        "Shangri-La Frontier Chapter 282 -> /2026/10/shangri-la-frontier-chapter-282.html"
-                    ]
+                    "status": "THROTTLED",
+                    "durationMs": 1764,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 374,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5nb2xkTcsEDDyFI9ssLH_hb8VF1dSLYdFlf9xhVagTjSq-3ZB9Dt8cCyvQ4ocic55iZh5E391rdJYRHn3vrtYsqRDg0IzSfQqM4jhJ20cwZuw_Ul0s05ylqRnAKUxuB2q7WdHB17MnYCAZchEjAUA5Nje5FeIlVqoMN-Pka4YkoNkThqfbVnbtXUpdNc/s1600-rw/000-Donn-Maple-Vol28.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-uCE1hcDeVs6O2jGPQ8D5AFzDxgFKTQz2I89Eh6G2jkPKVnKMB0af2z7PHGTEgEu3VFNOZwBTWtNbnNgtVTvBxmJu8pAwdxZB5u3Uj0kuhdQlq9pN9X0dfa11gJUvuksyiuvv_s0mv2bOSrZw-4zbbXx-bN36XUEuCYqQeJUljj1iwR79I6sGzmJyOiQ/s1600-rw/001.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-XxlFT6_F_tApd8eGDLL5dsT6oNAWcK99fN_DHIgJ4tqb6sUEV1CNkrGAQgkBp8d_N7V6WpsK6n76jB2R1LpAb4yXXsbiYQTme6XNoGdf_l7GsCAUfWLlhD-Sd8Y-iTlDScGpPgoZ3prTlZRQa4TQdN81DUKKkZaXDvyZPXgfcB0oOIzWi5zWhggC0vY/s1600-rw/002.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1414,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T09:20:49.098143331Z",
+    "comparedTo": "2026-10-27T22:28:50.625234962Z",
     "changes": [
         {
             "source": "ReYume",
             "lang": "id",
-            "scenario": "popular",
-            "from": "THROTTLED",
-            "to": "PASS"
-        },
-        {
-            "source": "ReYume",
-            "lang": "id",
-            "scenario": "latest",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "ReYume",
-            "lang": "id",
-            "scenario": "filters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "ReYume",
-            "lang": "id",
-            "scenario": "search",
-            "from": null,
-            "to": "WARN"
-        },
-        {
-            "source": "ReYume",
-            "lang": "id",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
             "source": "ReYume",
             "lang": "id",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "ReYume",
             "lang": "id",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "www.re-yume.my.id"
+    ]
 }

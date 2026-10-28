@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:36:24.301374838Z",
+    "generatedAt": "2026-10-28T10:23:40.169408423Z",
     "module": ":src:pt:taimumangas",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Taimu Mangas",
             "lang": "pt-BR",
             "baseUrl": "https://beta.taimumangas.com",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "BLOCKED",
-                    "durationMs": 133,
+                    "durationMs": 138,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from beta.taimumangas.com (HTTP 403)"
@@ -34,7 +34,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 436,
+                    "durationMs": 439,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -46,7 +46,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 815,
+                    "durationMs": 805,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -68,7 +68,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 320,
+                    "durationMs": 316,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -78,7 +78,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1220,
+                    "durationMs": 1067,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -90,7 +90,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 465,
+                    "durationMs": 623,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -101,23 +101,23 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1168,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:58.069393784Z",
+    "comparedTo": "2026-10-27T22:36:24.301374838Z",
     "changes": [
         {
             "source": "Taimu Mangas",
             "lang": "pt-BR",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "images",
+            "from": "PASS",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

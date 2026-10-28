@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:33:47.455742608Z",
+    "generatedAt": "2026-10-28T10:17:50.840208908Z",
     "module": ":src:es:lectormangalat",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "LectorManga.lat",
             "lang": "es",
             "baseUrl": "https://lector-mangas.lat",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,16 +23,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 597,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30776,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 493,
+                    "durationMs": 488,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,13 +44,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 248,
+                    "durationMs": 168,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Mi comida favorita (Vikyuu- Yuri on ice dj) -> 14932",
-                        "¡La Bebé Santa Desea Destruir El Mundo! -> 2453",
-                        "La Bebé Domara a Los Villanos De La Historia -> 4122"
+                        "Ojo de la tormenta -> 36",
+                        "The Tiger Is Descending -> 15795",
+                        "Los principios de Serim -> 706"
                     ]
                 },
                 {
@@ -66,7 +66,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 565,
+                    "durationMs": 525,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,7 +76,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 408,
+                    "durationMs": 448,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,7 +88,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 571,
+                    "durationMs": 518,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -99,23 +99,30 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1784,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:46:05.286583330Z",
+    "comparedTo": "2026-10-27T22:33:47.455742608Z",
     "changes": [
         {
             "source": "LectorManga.lat",
             "lang": "es",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "LectorManga.lat",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

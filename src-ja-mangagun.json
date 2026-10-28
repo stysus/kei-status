@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:34:43.438382629Z",
+    "generatedAt": "2026-10-28T10:23:05.874045116Z",
     "module": ":src:ja:mangagun",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "NihonKuni",
             "lang": "ja",
             "baseUrl": "https://nihonkuni.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,33 +24,29 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 823,
+                    "durationMs": 39639,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 293,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30006,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Pirate King (Manga) -> /manga-one-piece-raw.html",
-                        "PARALLEL PARADISE - RAW -> /manga-parallel-paradise-raw.html",
-                        "In Regards to My Reincarnation as a Slime (Manga) -> /manga-tensei-shitara-slime-datta-ken-raw.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 302,
+                    "durationMs": 322,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "MAINICHI \"KAERE\" TO IWARETA NO NI, KYUU NI DEKIAI SARETE MASU!? -> /manga-mainichi-kaere-to-iwareta-no-ni-kyuu-ni-dekiai-sarete-masu.html",
-                        "SEITOKAI NI MO ANA WA ARU! -> /manga-seitokai-ni-mo-ana-wa-aru.html",
-                        "DEKIAI SAKUSHI NA GOEI KISHI WA JUNSUI BAIYOU REIJOU NI IJIWARU SHITAI. - RAW -> /manga-dekiai-sakushi-na-goei-kishi-wa-junsui-baiyou-reijou-ni-ijiwaru-shitai-raw.html"
+                        "KARESHI GA IRUNO NI -> /manga-kareshi-ga-iruno-ni.html",
+                        "TSUIHOU SOURYO NO KENJA TIME -> /manga-tsuihou-souryo-no-kenja-time.html",
+                        "RE-EMPLOYMENT OF THE FORMER STRONGEST HERO -> /manga-re-employment-of-the-former-strongest-hero.html"
                     ]
                 },
                 {
@@ -66,56 +62,66 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 406,
+                    "durationMs": 392,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Pirate King (Manga) -> /manga-one-piece-raw.html"
+                        "KARESHI GA IRUNO NI -> /manga-kareshi-ga-iruno-ni.html"
                     ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 789,
+                    "durationMs": 628,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Chapter 1196 -> /read-one-piece-raw-chapter-1196.html",
-                        "Chapter 1195 -> /read-one-piece-raw-chapter-1195.html",
-                        "Chapter 1194 -> /read-one-piece-raw-chapter-1194.html"
+                        "Chapter 86 -> /read-kareshi-ga-iruno-ni-chapter-86.html",
+                        "Chapter 85 -> /read-kareshi-ga-iruno-ni-chapter-85.html",
+                        "Chapter 84 -> /read-kareshi-ga-iruno-ni-chapter-84.html"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 477,
+                    "durationMs": 366,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://ihlv1.xyz/images4/20261018/a32bc5bf20e7518d30bf6ad34a424af2071.jpg",
-                        "https://ihlv1.xyz/images4/20261018/b8233e9507f7797c38c2541378c741f4072.jpg",
-                        "https://ihlv1.xyz/images4/20261018/bd24075805f3129564e2586dea2cbc15073.jpg"
+                        "https://s2.ihlv1.xyz/images4/20261028/99e6b88c9b079590fb4a4f1ba05b94c4001.jpg",
+                        "https://s2.ihlv1.xyz/images4/20261028/cbaa6bc9503c8dbac152503d47518cf3002.jpg",
+                        "https://s2.ihlv1.xyz/images4/20261028/e643e54c12db57e652326fb8471991b7003.jpg"
                     ]
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1823,
+                    "status": "WARN",
+                    "durationMs": 43262,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: SocketTimeoutException: timeout",
+                        "page[1] image request failed: SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:46:24.473335511Z",
+    "comparedTo": "2026-10-27T22:34:43.438382629Z",
     "changes": [
         {
             "source": "NihonKuni",
             "lang": "ja",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "NihonKuni",
+            "lang": "ja",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

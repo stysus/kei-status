@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:29:43.822992801Z",
+    "generatedAt": "2026-10-28T10:03:18.324713849Z",
     "module": ":src:en:todaymanga",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -23,32 +23,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 30113,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 3676,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30002,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 1136,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Boku no Hero Academia -> /book/boku-no-hero-academia",
+                        "One Punch-Man -> /book/one-punch-man",
+                        "One Piece -> /book/one-piece"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 30001,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 682,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Isekai Izakaya \"Gen\" -> /book/isekai-izakaya-gen",
+                        "19 Days -> /book/19-days",
+                        "Tsugumomo -> /book/tsugumomo"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -57,81 +65,99 @@
                 },
                 {
                     "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 6,
+                    "message": "Collection contains no element matching the predicate.",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 1619,
+                    "message": null,
+                    "notes": [
+                        "duplicate chapter urls: [/book/boku-no-hero-academia/ch-367, /book/boku-no-hero-academia/ch-366, /book/boku-no-hero-academia/ch-231]"
+                    ],
+                    "samples": [
+                        "Ch.430.6 -> /book/boku-no-hero-academia/ch-430-6",
+                        "Ch.430.5 -> /book/boku-no-hero-academia/ch-430-5",
+                        "Ch.430 -> /book/boku-no-hero-academia/ch-430"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 506,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://i1.todaymanga.com/15366/1480104/0",
+                        "https://i1.todaymanga.com/15366/1480104/1",
+                        "https://i1.todaymanga.com/15366/1480104/2"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1380,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T09:36:47.436722785Z",
+    "comparedTo": "2026-10-27T22:29:43.822992801Z",
     "changes": [
         {
             "source": "TodayManga",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "TodayManga",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "TodayManga",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "TodayManga",
             "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "FAIL"
         },
         {
             "source": "TodayManga",
             "lang": "en",
             "scenario": "chapters",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
         },
         {
             "source": "TodayManga",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "TodayManga",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

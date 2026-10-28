@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:35:00.630880285Z",
+    "generatedAt": "2026-10-28T10:12:18.275833855Z",
     "module": ":src:tr:lunascans",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2186,
+                    "durationMs": 2989,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 791,
+                    "durationMs": 898,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 749,
+                    "durationMs": 788,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,61 +65,55 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 959,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "No Arguing With Mr. Mo -> 4501"
-                    ]
-                },
-                {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 798,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Bölüm 82 [Son] -> bolum-82-son",
-                        "Bölüm 81 -> bolum-81",
-                        "Bölüm 80 -> bolum-80"
-                    ]
-                },
-                {
-                    "name": "pages",
                     "status": "THROTTLED",
-                    "durationMs": 11055,
-                    "message": "the site is rate-limiting this sweep (HTTP 429, retry after 60s); the source was not checked",
+                    "durationMs": 14571,
+                    "message": "the site is rate-limiting this sweep (HTTP 429, retry after 3600s); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "tuhafscans.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-25T08:41:53.224036101Z",
+    "comparedTo": "2026-10-27T22:35:00.630880285Z",
     "changes": [
         {
             "source": "Luna Scans",
             "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
-        },
-        {
-            "source": "Luna Scans",
-            "lang": "tr",
-            "scenario": "pages",
-            "from": "WARN",
+            "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "Luna Scans",
             "lang": "tr",
-            "scenario": "images",
+            "scenario": "chapters",
             "from": "PASS",
-            "to": null
+            "to": "SKIP"
+        },
+        {
+            "source": "Luna Scans",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "THROTTLED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": [

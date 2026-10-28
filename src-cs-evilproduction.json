@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:26:31.865937441Z",
+    "generatedAt": "2026-10-28T10:06:10.864800725Z",
     "module": ":src:cs:evilproduction",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Evil production",
             "lang": "cs",
             "baseUrl": "https://evil-manga.eu",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,36 +23,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 4896,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30495,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 1004,
-                    "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 984,
-                    "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 30001,
+                    "message": "timeout",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -86,14 +82,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-24T22:04:21.597675546Z",
+    "comparedTo": "2026-10-27T22:26:31.865937441Z",
     "changes": [
         {
             "source": "Evil production",
             "lang": "cs",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Evil production",
+            "lang": "cs",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "Evil production",
+            "lang": "cs",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

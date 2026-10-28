@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:32:26.643461820Z",
+    "generatedAt": "2026-10-28T10:31:18.051601251Z",
     "module": ":src:th:reapertrans",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "ReaperTrans",
             "lang": "th",
             "baseUrl": "https://reapertrans.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,34 +24,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2125,
+                    "durationMs": 14860,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 507,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30003,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Revenge of the Iron-Blooded Sword Hound -> /manga/revenge-of-the-iron-blooded-sword-hound/",
-                        "Solo Leveling -> /manga/solo-leveling/",
-                        "Jujutsu Kaisen -> /manga/jujutsu-kaisen/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1084,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30001,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Revenge of the Iron-Blooded Sword Hound -> /manga/revenge-of-the-iron-blooded-sword-hound/",
-                        "Nano Machine -> /manga/nano-machine/",
-                        "Necromancer Academy’s Genius Summoner -> /manga/necromancer-academys-genius-summoner/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -65,58 +57,74 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 516,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Revenge of the Iron-Blooded Sword Hound -> /manga/revenge-of-the-iron-blooded-sword-hound/",
-                        "The Regressed Son of a Duke is an Assassin -> /manga/the-regressed-son-of-a-duke-is-an-assassin/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 252,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 158 -> /revenge-of-the-iron-blooded-sword-hound-%e0%b8%95%e0%b8%ad%e0%b8%99%e0%b8%97%e0%b8%b5%e0%b9%88-158/",
-                        "Chapter 157 -> /revenge-of-the-iron-blooded-sword-hound-%e0%b8%95%e0%b8%ad%e0%b8%99%e0%b8%97%e0%b8%b5%e0%b9%88-157/",
-                        "Chapter 156 -> /revenge-of-the-iron-blooded-sword-hound-%e0%b8%95%e0%b8%ad%e0%b8%99%e0%b8%97%e0%b8%b5%e0%b9%88-156/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 240,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://server1.webtoon168.com/img-api/ifh9H1eLeAEHzSoYRzVqHz.jpeg",
-                        "https://server1.webtoon168.com/img-api/kLwMfDxKUDqSeeMRsM_1FZ.jpeg",
-                        "https://server1.webtoon168.com/img-api/XWwzo6OxveWVOOHHB4nzA5.jpeg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2245,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:32.946276528Z",
+    "comparedTo": "2026-10-27T22:32:26.643461820Z",
     "changes": [
         {
             "source": "ReaperTrans",
             "lang": "th",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "ReaperTrans",
+            "lang": "th",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "ReaperTrans",
+            "lang": "th",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ReaperTrans",
+            "lang": "th",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ReaperTrans",
+            "lang": "th",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ReaperTrans",
+            "lang": "th",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

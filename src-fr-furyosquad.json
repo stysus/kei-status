@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:30:41.425551049Z",
+    "generatedAt": "2026-10-28T10:09:53.142516022Z",
     "module": ":src:fr:furyosquad",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "FuryoSquad",
             "lang": "fr",
             "baseUrl": "https://www.furyosociety.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,35 +23,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 633,
+                    "status": "WARN",
+                    "durationMs": 609,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 751,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 851,
+                    "message": "HTTP error 503",
                     "notes": [],
-                    "samples": [
-                        "A-BOUT! -> /series/about/",
-                        "A-BOUT!! -> /series/a-bout/",
-                        "ANGEL DENSETSU -> /series/angel-densetsu/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1065,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 1001,
+                    "message": "HTTP error 503",
                     "notes": [],
-                    "samples": [
-                        "KYO KARA ORE WA !! -> /series/kyo-kara-ore-wa/",
-                        "ZETTON SENSEI -> /series/zetton-sensei/",
-                        "NANBA MG5 -> /series/nanba-mg5/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -65,58 +59,81 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 924,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "A-BOUT! -> /series/about/",
-                        "A-BOUT!! -> /series/a-bout/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1250,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Vol.19 Chapitre 165: Viré du lycée -> /read/about/fr/19/165/",
-                        "Vol.19 Chapitre 164: Le secret d'une force hors du commun -> /read/about/fr/19/164/",
-                        "Vol.19 Chapitre 163: Les conditions de l'idole -> /read/about/fr/19/163/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1085,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.furyosociety.com/content/comics/about_51daca539aa42/165-0-vire-du-lycee_61fd0de8b1ca1/000-Credits-ABOUTourista13-FuryoSquad.png",
-                        "https://www.furyosociety.com/content/comics/about_51daca539aa42/165-0-vire-du-lycee_61fd0de8b1ca1/A-BOUT!-v19-c165-p01-[FuryoSquad].png",
-                        "https://www.furyosociety.com/content/comics/about_51daca539aa42/165-0-vire-du-lycee_61fd0de8b1ca1/A-BOUT!-v19-c165-p02-[FuryoSquad].png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2790,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:43:20.657773541Z",
+    "comparedTo": "2026-10-27T22:30:41.425551049Z",
     "changes": [
         {
             "source": "FuryoSquad",
             "lang": "fr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "FuryoSquad",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "FuryoSquad",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "FuryoSquad",
+            "lang": "fr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "FuryoSquad",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "FuryoSquad",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "FuryoSquad",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

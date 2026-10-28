@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:32:22.037451839Z",
+    "generatedAt": "2026-10-28T10:35:14.335742162Z",
     "module": ":src:vi:leesincomic",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,12 +11,12 @@
             "name": "LeesinComic",
             "lang": "vi",
             "baseUrl": "https://leesincomic.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -24,33 +24,29 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1203,
+                    "durationMs": 9742,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1961,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
-                    "samples": [
-                        "Tuyển Tập Truyện Ngắn BL Manhwa -> /truyen/tuyen-tap-truyen-ngan-bl-manhwa",
-                        "Tư Duy Ngược BL -> /truyen/tu-duy-nguoc-bl",
-                        "[19+] Khoái Cảm Tội Lỗi -> /truyen/19-khoai-cam-toi-loi"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 47,
+                    "durationMs": 7309,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Đã Là Thời Đại Nào Rồi - Pheromone -> /truyen/da-la-thoi-dai-nao-roi-pheromone",
                         "Nàng Đẹp Như Ngọc [Pheromone] -> /truyen/nang-dep-nhu-ngoc-pheromone",
-                        "Ảnh riêng tư - Pheromone -> /truyen/anh-rieng-tu-pheromone",
-                        "Đừng chạm vào tai tôi [Pheromone] -> /truyen/dung-cham-vao-tai-toi-pheromone"
+                        "Ảnh riêng tư - Pheromone -> /truyen/anh-rieng-tu-pheromone"
                     ]
                 },
                 {
@@ -66,42 +62,41 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 6,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Tuyển Tập Truyện Ngắn BL Manhwa -> /truyen/tuyen-tap-truyen-ngan-bl-manhwa",
-                        "Tuyển tập truyện ngắn của Kim Young Ha -> /truyen/tuyen-tap-truyen-ngan-cua-kim-young-ha"
+                        "Đã Là Thời Đại Nào Rồi - Pheromone -> /truyen/da-la-thoi-dai-nao-roi-pheromone"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 286,
+                    "status": "WARN",
+                    "durationMs": 294,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "duplicate chapter urls: [/truyen/da-la-thoi-dai-nao-roi-pheromone/chap-1]"
+                    ],
                     "samples": [
-                        "Thuần Hóa 8 END -> /truyen/tuyen-tap-truyen-ngan-bl-manhwa/chap-183",
-                        "Thuần Hóa 7 -> /truyen/tuyen-tap-truyen-ngan-bl-manhwa/chap-182",
-                        "Thuần Hóa 6 -> /truyen/tuyen-tap-truyen-ngan-bl-manhwa/chap-181"
+                        "37 -> /truyen/da-la-thoi-dai-nao-roi-pheromone/chap-37",
+                        "36 -> /truyen/da-la-thoi-dai-nao-roi-pheromone/chap-36",
+                        "35 -> /truyen/da-la-thoi-dai-nao-roi-pheromone/chap-35"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 1822,
+                    "durationMs": 4158,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://tachserver.site/cdn3/uploads/minh_hoa/1399/01-1763138630.jpg",
-                        "https://tachserver.site/cdn3/uploads/minh_hoa/1399/02-1763138632.jpg",
-                        "https://tachserver.site/cdn3/uploads/minh_hoa/1399/03-1763138634.jpg"
+                        "https://tachserver.site/cdn3/uploads/minh_hoa/1831/01-1788329807.jpg"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 204,
+                    "durationMs": 256,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -109,14 +104,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-26T09:23:31.982254395Z",
+    "comparedTo": "2026-10-27T22:32:22.037451839Z",
     "changes": [
         {
             "source": "LeesinComic",
             "lang": "vi",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "LeesinComic",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

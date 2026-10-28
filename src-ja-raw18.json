@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:33:37.625011543Z",
+    "generatedAt": "2026-10-28T10:20:03.593126350Z",
     "module": ":src:ja:raw18",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,12 +11,12 @@
             "name": "Raw18",
             "lang": "ja",
             "baseUrl": "https://raw18.pink",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 716,
+                    "durationMs": 9577,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 130,
+                    "durationMs": 12280,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,19 +44,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 101,
+                    "durationMs": 19186,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "孤高なカノジョと、彼女の部屋でシてること -> /manga/gu-gao-nakanoziyoto-bi-nu-nobu-wu-deshiterukoto",
-                        "セブンス -> /manga/sebunsu",
-                        "うちのメイドがクラスの好きな子に似ている -> /manga/uchinomeidogakurasunohao-kinazi-nisi-teiru"
+                        "引きこもり女子は異世界召喚されて女神となる～冷酷王子の妃なんてお断りです!～ -> /manga/yin-kikomorinu-zi-hayi-shi-jie-zhao-huan-saretenu-shen-tonaruleng-ku-wang-zi-nofei-nanteoduan-ridesu",
+                        "若返った!おじさん魔術師は現世で二度目の人生を始める～最強の力と美人姉妹も添えて～ -> /manga/ruo-fan-tsutaozisanmo-shu-shi-haxian-shi-deer-du-mu-noren-sheng-woshi-meruzui-qiang-noli-tomei-ren-zi-mei-motian-ete",
+                        "キラーシッター -> /manga/kirashitsuta"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 5,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,18 +65,16 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 605,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 10279,
+                    "message": "HTTP error 520",
                     "notes": [],
-                    "samples": [
-                        "隠れ転生勇者 ～チートスキルと勇者ジョブを隠して第二の人生を楽しんでやる！～ -> /manga/yin-rezhuan-sheng-yong-zhe-chitosukirutoyong-zhe-ziyobuwoyin-shitedi-er-noren-sheng-wole-shindeyaru"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 125,
+                    "durationMs": 11217,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,35 +85,37 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 565,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://iphotomg.com/yin-rezhuan-sheng-yong-zhe-chitosukirutoyong-zhe-ziyobuwoyin-shitedi-er-noren-sheng-wole-shindeyaru/chapter_24.1/page_0.webp",
-                        "https://iphotomg.com/yin-rezhuan-sheng-yong-zhe-chitosukirutoyong-zhe-ziyobuwoyin-shitedi-er-noren-sheng-wole-shindeyaru/chapter_24.1/page_1.webp",
-                        "https://iphotomg.com/yin-rezhuan-sheng-yong-zhe-chitosukirutoyong-zhe-ziyobuwoyin-shitedi-er-noren-sheng-wole-shindeyaru/chapter_24.1/page_2.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 241,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:50:59.555476922Z",
+    "comparedTo": "2026-10-27T22:33:37.625011543Z",
     "changes": [
         {
             "source": "Raw18",
             "lang": "ja",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Raw18",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Raw18",
+            "lang": "ja",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

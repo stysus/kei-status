@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:27:44.258838023Z",
+    "generatedAt": "2026-10-28T10:10:43.559983359Z",
     "module": ":src:en:manhuaplus",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,12 +11,12 @@
             "name": "Manhua Plus",
             "lang": "en",
             "baseUrl": "https://manhuaplus.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1175,
+                    "durationMs": 34429,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 742,
+                    "durationMs": 4268,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,19 +44,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 676,
+                    "durationMs": 2273,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Tales Of Demons And Gods -> 1857",
                         "Myriad Realms Gatekeeper -> 31763",
-                        "I Am the Fated Villain -> 28594",
-                        "Magic Emperor -> 3222"
+                        "I Am the Fated Villain -> 28594"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 5,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,7 +66,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 524,
+                    "durationMs": 11211,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,47 +76,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 928,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
-                    "samples": [
-                        "Chapter 3862 -> chapter-3862",
-                        "Chapter 3861 -> chapter-3861",
-                        "Chapter 3859 -> chapter-3859"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 738,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.manhuaplus.com/2025/12/22/RFBlEg.jpg",
-                        "https://cdn.manhuaplus.com/2025/12/22/RFBKuT.jpg",
-                        "https://cdn.manhuaplus.com/2025/12/22/RFBi9y.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 423,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:53:23.484907502Z",
+    "comparedTo": "2026-10-27T22:27:44.258838023Z",
     "changes": [
         {
             "source": "Manhua Plus",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manhua Plus",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhua Plus",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

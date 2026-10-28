@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:26:48.681175646Z",
+    "generatedAt": "2026-10-28T10:07:39.946712367Z",
     "module": ":src:en:bbato",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Bbato",
             "lang": "en",
             "baseUrl": "https://bato1.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,27 +24,23 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 370,
+                    "durationMs": 984,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 46,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Half-Demons on the Borderline -> /manga/half-demons-on-the-borderline",
-                        "My Childhood Sweetheart Is a Star -> /manga/my-childhood-sweetheart-is-a-star",
-                        "Jin: Legend of the Fighting Kingbreaker -> /manga/jin-legend-of-the-fighting-kingbreaker"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 885,
+                    "durationMs": 3252,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,58 +62,63 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 451,
+                    "durationMs": 313,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Half-Demons on the Borderline -> /manga/half-demons-on-the-borderline",
-                        "It turns out that I'm a Half-Demon Heir! -> /manga/it-turns-out-that-i-m-a-half-demon-heir",
-                        "‏Boundary Line of the Half-Demons -> /manga/boundary-line-of-the-half-demons"
+                        "Pretty Scoop! - Boy, Fish On Wave (Doujinshi) -> /manga/pretty-scoop-boy-fish-on-wave-doujinshi"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 768,
+                    "status": "WARN",
+                    "durationMs": 807,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chapter 80 -> /read/half-demons-on-the-borderline/chapter-80",
-                        "Chapter 79 -> /read/half-demons-on-the-borderline/chapter-79",
-                        "Chapter 78 -> /read/half-demons-on-the-borderline/chapter-78"
-                    ]
+                    "notes": [
+                        "chapter list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 790,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn5.sags2mobile.com/half-demons-on-the-borderline/80/0.webp",
-                        "https://cdn5.sags2mobile.com/half-demons-on-the-borderline/80/1.webp",
-                        "https://cdn5.sags2mobile.com/half-demons-on-the-borderline/80/2.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1712,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:52:33.134534254Z",
+    "comparedTo": "2026-10-27T22:26:48.681175646Z",
     "changes": [
         {
             "source": "Bbato",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Bbato",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Bbato",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Bbato",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

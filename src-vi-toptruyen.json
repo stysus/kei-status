@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:36:27.277100981Z",
+    "generatedAt": "2026-10-28T10:06:49.421948605Z",
     "module": ":src:vi:toptruyen",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Top Truyen",
             "lang": "vi",
             "baseUrl": "https://www.toptruyenzone13.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,36 +23,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 4112,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 20229,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.toptruyenzone13.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 235,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Ceo Tỷ Phú Chỉ Yêu Người Vợ Thế Thân Của Mình -> /truyen-tranh/ceo-ty-phu-chi-yeu-nguoi-vo-the-than-cua-minh/16212",
-                        "Quỷ Bí Thức Tỉnh: Mở Màn Nắm Giữ Nghìn Tỷ Quỷ Tệ -> /truyen-tranh/quy-bi-thuc-tinh-mo-man-nam-giu-nghin-ty-quy-te/20805",
-                        "Ký Sự Hồi Quy -> /truyen-tranh/ky-su-hoi-quy/7537"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 25,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.toptruyenzone13.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 30002,
-                    "message": "timeout",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 18,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.toptruyenzone13.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,62 +63,81 @@
                 },
                 {
                     "name": "search",
-                    "status": "FAIL",
-                    "durationMs": 30002,
-                    "message": "timeout",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 493,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 163 -> /truyen-tranh/ceo-ty-phu-chi-yeu-nguoi-vo-the-than-cua-minh/chapter-163/3612685",
-                        "Chapter 162 -> /truyen-tranh/ceo-ty-phu-chi-yeu-nguoi-vo-the-than-cua-minh/chapter-162/3609111",
-                        "Chapter 161 -> /truyen-tranh/ceo-ty-phu-chi-yeu-nguoi-vo-the-than-cua-minh/chapter-161/3609112"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 264,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://s15.anhvip.xyz/image_comics/16212/3612685/img_001_1793118646.jpg?data=vipx",
-                        "https://s15.anhvip.xyz/image_comics/16212/3612685/img_002_1793118646.jpg?data=vipx",
-                        "https://s15.anhvip.xyz/image_comics/16212/3612685/img_003_1793118646.jpg?data=vipx"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 604,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T09:29:22.507280701Z",
+    "comparedTo": "2026-10-27T22:36:27.277100981Z",
     "changes": [
         {
             "source": "Top Truyen",
             "lang": "vi",
-            "scenario": "latest",
+            "scenario": "connectivity",
             "from": "PASS",
-            "to": "FAIL"
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Top Truyen",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Top Truyen",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "BLOCKED"
         },
         {
             "source": "Top Truyen",
             "lang": "vi",
             "scenario": "search",
-            "from": null,
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "SKIP"
+        },
+        {
+            "source": "Top Truyen",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Top Truyen",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Top Truyen",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

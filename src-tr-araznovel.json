@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:35:14.042678449Z",
+    "generatedAt": "2026-10-28T10:08:23.843181586Z",
     "module": ":src:tr:araznovel",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "ArazNovel",
             "lang": "tr",
             "baseUrl": "https://manga.araznovel.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,16 +23,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1377,
+                    "status": "WARN",
+                    "durationMs": 19432,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 239,
+                    "durationMs": 445,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +46,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 239,
+                    "durationMs": 157,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,7 +68,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1165,
+                    "durationMs": 171,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,7 +78,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 237,
+                    "durationMs": 177,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,35 +89,37 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 7476,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://manga.araznovel.com/wp-content/uploads/aotori/data/ao_69ced999cf352/bolum-17-7/001_6aa6a38c7f653.png",
-                        "https://manga.araznovel.com/wp-content/uploads/aotori/data/ao_69ced999cf352/bolum-17-7/002_6aa6a38c7f6f7.png",
-                        "https://manga.araznovel.com/wp-content/uploads/aotori/data/ao_69ced999cf352/bolum-17-7/003_6aa6a38c7f751.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 6434,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:55:13.908111474Z",
+    "comparedTo": "2026-10-27T22:35:14.042678449Z",
     "changes": [
         {
             "source": "ArazNovel",
             "lang": "tr",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "ArazNovel",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "ArazNovel",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

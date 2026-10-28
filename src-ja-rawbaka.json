@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:33:33.522704585Z",
+    "generatedAt": "2026-10-28T10:23:54.934726788Z",
     "module": ":src:ja:rawbaka",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "RawBaka",
             "lang": "ja",
             "baseUrl": "https://rawbaka.site",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 4202,
+                    "durationMs": 4137,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 382,
+                    "durationMs": 366,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 372,
+                    "durationMs": 982,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -56,7 +56,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,7 +66,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 343,
+                    "durationMs": 360,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,7 +76,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 350,
+                    "durationMs": 391,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -86,7 +86,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 369,
+                    "durationMs": 326,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -95,23 +95,25 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2111,
+                    "status": "WARN",
+                    "durationMs": 34819,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.rawbaka.site (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T09:14:36.521581998Z",
+    "comparedTo": "2026-10-27T22:33:33.522704585Z",
     "changes": [
         {
             "source": "RawBaka",
             "lang": "ja",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

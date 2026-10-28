@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:25:25.739109214Z",
+    "generatedAt": "2026-10-28T10:00:31.646581888Z",
     "module": ":src:ar:comicverse",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Comic Verse",
             "lang": "ar",
             "baseUrl": "https://arcomixverse.blogspot.com",
-            "status": "WARN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,16 +23,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 581,
+                    "status": "WARN",
+                    "durationMs": 418,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 85,
+                    "durationMs": 940,
                     "message": null,
                     "notes": [
                         "popular/latest returned an empty list"
@@ -42,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 318,
+                    "durationMs": 382,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,7 +66,7 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 280,
+                    "durationMs": 188,
                     "message": null,
                     "notes": [
                         "query \"Midnight Fantastic F\" matched no results in the first page"
@@ -73,53 +75,57 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 500,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "العدد#1 -> /2026/10/1_01332615257.html"
-                    ]
+                    "status": "THROTTLED",
+                    "durationMs": 1794,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 364,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikUDy5gciZqyegfyY90JP9BbbC8kmUYy0USwBUriv6tgOkBRo-Oyi05KxXLja20vPDfSeaItxHyNWlYqHdVe3ONSIVpLkx9YelUp671arNrbaOisRWLvqlsnC-5IlqDONg75DNYgiHB8g_SbdUSUzPyqUBz7gFz60VjIgdip5QJVFNJwASyVOX0q5eESg/s1600/P001.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYTiljtellxnIcYqpN67qNOkp2I3YzUG0Wmu00tMWRkFzlWvnDB0Uml0XmCaFFhfKhXTxLtEG_bUznXZnOpDHXpS50ZBJGDKwOf-bu3nLacZIsEp5E63lRELsEIEP0zpp2U2EjxGV8Eo2LJ9hoV-QE2MbTwvdVD1njEkKf9eRA7Lm57bwq9TzQoagYbOE/s1600/P003.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdaYZXWMZVQvdAwsnYINvTKxnATYcvsxwZTVfh5C_5vN79lioEW_JWACgML6w5DagUoa4CAZmsyyOjxoIExD9e-4L7ijJSSAmKQaz30T83CfenTTKQwaIk1YvU-2A6GDrIVQsD7qvgoX-5NaBGzlmIsfAcU_7CAb1nG6xTa04oWQhczD8_w1cLr_BoLKU/s1600/P004.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 547,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T09:14:37.550824341Z",
+    "comparedTo": "2026-10-27T22:25:25.739109214Z",
     "changes": [
         {
             "source": "Comic Verse",
             "lang": "ar",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Comic Verse",
             "lang": "ar",
-            "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "Comic Verse",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Comic Verse",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "arcomixverse.blogspot.com"
+    ]
 }

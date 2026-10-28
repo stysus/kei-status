@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:22:47.231035709Z",
+    "generatedAt": "2026-10-28T09:53:59.870155002Z",
     "module": ":src:all:comicgrowl",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,47 +11,41 @@
             "name": "Comic Growl",
             "lang": "all",
             "baseUrl": "https://comic-growl.com",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 5,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1026,
+                    "status": "WARN",
+                    "durationMs": 261,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 730,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 68,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "なんでもメイドと侯爵様の子育て論 -> 0b0596ac01887",
-                        "元公爵令嬢フェリシアは前を向く 婚約者がお姉様に恋してしまったので、500年後の世界で幸せになります -> 29160fc523305",
-                        "忠誠心がないと言われたので婚約を解消してあげました。 -> 1f3f7d6efdeff"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 271,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 17,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "みにヴぁん -> 5dde8d2c48ee4",
-                        "悪役令嬢カトリーナの断罪美学 -> 3b9f3c061a493",
-                        "僕のいけずな婚約者 -> fd9075d41e98f"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -65,47 +59,74 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 698,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "なんでもメイドと侯爵様の子育て論 -> 0b0596ac01887"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 912,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 26-② -> 52d672839c9f8",
-                        "🔒 26-① -> c4e29ed990159",
-                        "25-② -> 29e4f73c516a8"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 512,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.Exception: Log in via WebView and purchase this chapter to read."
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-25T08:34:04.156166127Z",
+    "comparedTo": "2026-10-27T22:22:47.231035709Z",
     "changes": [
         {
             "source": "Comic Growl",
             "lang": "all",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Comic Growl",
+            "lang": "all",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Comic Growl",
+            "lang": "all",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Comic Growl",
+            "lang": "all",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Comic Growl",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Comic Growl",
+            "lang": "all",
+            "scenario": "pages",
+            "from": "BLOCKED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

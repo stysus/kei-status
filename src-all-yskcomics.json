@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:24:28.817895190Z",
+    "generatedAt": "2026-10-28T10:02:15.678379067Z",
     "module": ":src:all:yskcomics",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1586,
+                    "durationMs": 1589,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 264,
+                    "durationMs": 348,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 492,
+                    "durationMs": 427,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,7 +66,7 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 629,
+                    "durationMs": 825,
                     "message": null,
                     "notes": [
                         "query \"باتمان: ثلاثة جوكرات\" matched no results in the first page"
@@ -76,7 +76,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 301,
+                    "durationMs": 339,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,7 +88,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 227,
+                    "durationMs": 220,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -99,10 +99,12 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 654,
+                    "status": "WARN",
+                    "durationMs": 34652,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 }
             ]
@@ -112,7 +114,7 @@
             "name": "YSK Comics",
             "lang": "en",
             "baseUrl": "https://www.ysk-comics.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -135,7 +137,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 430,
+                    "durationMs": 802,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -147,7 +149,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 508,
+                    "durationMs": 567,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -171,7 +173,7 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 293,
+                    "durationMs": 265,
                     "message": null,
                     "notes": [
                         "query \"Ghost Pepper (2025)\" matched no results in the first page"
@@ -185,7 +187,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1974,
+                    "durationMs": 1282,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -197,7 +199,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 371,
+                    "durationMs": 242,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -208,30 +210,30 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 627,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T09:18:56.589953233Z",
+    "comparedTo": "2026-10-27T22:24:28.817895190Z",
     "changes": [
         {
             "source": "YSK Comics",
             "lang": "ar",
-            "scenario": "search",
-            "from": null,
+            "scenario": "images",
+            "from": "PASS",
             "to": "WARN"
         },
         {
             "source": "YSK Comics",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "scenario": "images",
+            "from": "PASS",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

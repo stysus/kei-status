@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:35:47.872650621Z",
+    "generatedAt": "2026-10-28T10:13:01.728976736Z",
     "module": ":src:vi:jellycomics",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Jelly Comics",
             "lang": "vi",
             "baseUrl": "https://jellycomics.online",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,40 +23,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1636,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30130,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2284,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 305,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "Tuyển Tập Trôn Có Lài -> /truyen/tuyen-tap-tron-co-lai/",
-                        "Bà Chị Chủ Nhà -> /truyen/ba-chi-chu-nha/",
-                        "Plaything – Món Đồ Chơi Của Đại Công Tước -> /truyen/plaything-mon-do-choi-cua-dai-cong-tuoc/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 2348,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 166,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "Phòng hai người -> /truyen/phong-hai-nguoi/",
-                        "Trả thù -> /truyen/tra-thu-2/",
-                        "Giá trị -> /truyen/gia-tri/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,63 +57,81 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 3156,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Tuyển tập trôn có lài -> /truyen/tuyen-tap-tron-co-lai-2/",
-                        "Tuyển Tập Trôn Có Lài -> /truyen/tuyen-tap-tron-co-lai/",
-                        "Triệu Đông Cơ -> /truyen/trieu-dong-co/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 596,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 122 -> chapter-122",
-                        "Chapter 121 -> chapter-121",
-                        "Chapter 120 -> chapter-120"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 399,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://cdn-jellycomics.mystino.xyz/wp-content/uploads/WP-manga/data/manga_69c94602dc5fa/640b76e899efc7258e088a6134a39596/1.jpg",
-                        "https://cdn-jellycomics.mystino.xyz/wp-content/uploads/WP-manga/data/manga_69c94602dc5fa/640b76e899efc7258e088a6134a39596/2.jpg",
-                        "https://cdn-jellycomics.mystino.xyz/wp-content/uploads/WP-manga/data/manga_69c94602dc5fa/640b76e899efc7258e088a6134a39596/3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 147,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn-jellycomics.mystino.xyz (HTTP 403)",
-                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn-jellycomics.mystino.xyz (HTTP 403)",
-                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn-jellycomics.mystino.xyz (HTTP 403)"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T22:03:30.986739444Z",
+    "comparedTo": "2026-10-27T22:35:47.872650621Z",
     "changes": [
         {
             "source": "Jelly Comics",
             "lang": "vi",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Jelly Comics",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Jelly Comics",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Jelly Comics",
+            "lang": "vi",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Jelly Comics",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Jelly Comics",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Jelly Comics",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

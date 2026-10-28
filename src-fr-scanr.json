@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:28:43.151271533Z",
+    "generatedAt": "2026-10-28T10:16:54.512445742Z",
     "module": ":src:fr:scanr",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "ScanR",
             "lang": "fr",
             "baseUrl": "https://teamscanr.fr",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,22 +24,18 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 247,
+                    "durationMs": 9383,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 9001,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
-                    "samples": [
-                        "Among Us -> /among-us",
-                        "Angel's Halo -> /angel-halo",
-                        "At the End of 4 Minutes -> /at-the-of-4-minutes"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -61,55 +57,67 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Among Us -> /among-us"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 2,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "One Shot – Among Us -> /among-us/0"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 563,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.imgchest.com/files/4nec8kbwrn4.jpeg",
-                        "https://cdn.imgchest.com/files/7bwckx3gqp7.jpeg",
-                        "https://cdn.imgchest.com/files/7pjcq5bxj37.jpeg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 169,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:47:39.465737598Z",
+    "comparedTo": "2026-10-27T22:28:43.151271533Z",
     "changes": [
         {
             "source": "ScanR",
             "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "ScanR",
+            "lang": "fr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ScanR",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ScanR",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ScanR",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

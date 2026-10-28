@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:32:51.752144786Z",
+    "generatedAt": "2026-10-28T10:10:28.983227628Z",
     "module": ":src:en:leslievictims",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Leslie&Victims",
             "lang": "en",
             "baseUrl": "https://leslie-victims.pages.dev",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 129,
+                    "durationMs": 115,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 44,
+                    "durationMs": 21,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,7 +62,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 37,
+                    "durationMs": 35,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -72,7 +72,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 14,
+                    "durationMs": 30,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -84,7 +84,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 41,
+                    "durationMs": 32,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -95,23 +95,25 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 362,
+                    "status": "WARN",
+                    "durationMs": 37275,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:50:01.967664905Z",
+    "comparedTo": "2026-10-27T22:32:51.752144786Z",
     "changes": [
         {
             "source": "Leslie&Victims",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

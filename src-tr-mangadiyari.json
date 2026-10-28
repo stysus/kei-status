@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:32:05.503161137Z",
+    "generatedAt": "2026-10-28T10:04:10.681537983Z",
     "module": ":src:tr:mangadiyari",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,52 +11,47 @@
             "name": "Manga Diyarı",
             "lang": "tr",
             "baseUrl": "https://mangadiyari.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1124,
+                    "status": "WARN",
+                    "durationMs": 20046,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522",
+                        "home page body is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 323,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 499,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Ben Ölümsüzüm -> ben-olumsuzum",
-                        "Yetiştiricinin Dönüşü: Seksen Bin Yıllık Öngörü -> yetistiricinin-donusu-seksen-bin-yillik-ongoru",
-                        "Şeytan Bir Leydi Yetiştiriyor -> seytan-bir-leydi-yetistiriyor"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 334,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 139,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Bir Tiranın Kızı Olarak Hayatta Kalmak -> bir-tirann-kz-olarak-hayatta-kalmak",
-                        "Kötü Yetişimcinin Gizli Dönüşü -> kotu-yetisimcinin-gizli-donusu",
-                        "Dövüş Sanatlarının Zirvesi -> dovus-sanatlarinin-zirvesi"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,57 +60,81 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 569,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Ben Ölümsüzüm -> ben-olumsuzum"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 379,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 794 -> 899",
-                        "Bölüm 793 -> 898",
-                        "Bölüm 792 -> 897"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 631,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.saridiyar.monster/aotori/data/ao_69ecffc140a19/bolum-1/001.jpg",
-                        "https://cdn.saridiyar.monster/aotori/data/ao_69ecffc140a19/bolum-1/002.jpg",
-                        "https://cdn.saridiyar.monster/aotori/data/ao_69ecffc140a19/bolum-1/003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 5023,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:44:50.173401936Z",
+    "comparedTo": "2026-10-27T22:32:05.503161137Z",
     "changes": [
         {
             "source": "Manga Diyarı",
             "lang": "tr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manga Diyarı",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manga Diyarı",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manga Diyarı",
+            "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Diyarı",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Diyarı",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Diyarı",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

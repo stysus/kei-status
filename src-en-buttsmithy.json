@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:26:57.396973705Z",
+    "generatedAt": "2026-10-28T10:02:36.900622910Z",
     "module": ":src:en:buttsmithy",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Buttsmithy",
             "lang": "en",
             "baseUrl": "https://incase.buttsmithy.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,23 +23,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 155,
+                    "status": "WARN",
+                    "durationMs": 273,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 169,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 93,
+                    "message": "HTTP error 500",
                     "notes": [],
-                    "samples": [
-                        "Alfie - chapter 18 -> https://buttsmithy.com/archives/chapter/chapter-18",
-                        "Alfie - chapter 19 -> https://buttsmithy.com/archives/chapter/chapter-19",
-                        "Alfie - misc -> https://buttsmithy.com/archives/chapter/misc"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -63,53 +61,65 @@
                     "name": "search",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "not supported by this source",
-                    "notes": [
-                        "java.lang.UnsupportedOperationException: <no message>"
-                    ],
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 456,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "p 1181 -> https://buttsmithy.com/archives/comic/p-1181",
-                        "p 1182 -> https://buttsmithy.com/archives/comic/p-1182",
-                        "p 1183 -> https://buttsmithy.com/archives/comic/p-1183"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 17,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://buttsmithy.com/wp-content/uploads/2023/09/8.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 26,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:58:20.150022678Z",
+    "comparedTo": "2026-10-27T22:26:57.396973705Z",
     "changes": [
         {
             "source": "Buttsmithy",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Buttsmithy",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Buttsmithy",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
             "to": "SKIP"
+        },
+        {
+            "source": "Buttsmithy",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Buttsmithy",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

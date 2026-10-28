@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:37:20.503662005Z",
+    "generatedAt": "2026-10-28T10:07:10.700077630Z",
     "module": ":src:zh:manhuawu",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,12 +11,12 @@
             "name": "漫画屋",
             "lang": "zh",
             "baseUrl": "https://www.mhua5.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -24,35 +24,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 175,
+                    "durationMs": 212,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 5495,
-                    "message": "NullPointerException at MCCMSWeb.parseListing(MCCMSWeb.kt:50)",
+                    "status": "BLOCKED",
+                    "durationMs": 20322,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "java.lang.NullPointerException: <no message>"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.mhua5.com (HTTP 403)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 1766,
-                    "message": "NullPointerException at MCCMSWeb.parseListing(MCCMSWeb.kt:50)",
+                    "status": "BLOCKED",
+                    "durationMs": 14,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "java.lang.NullPointerException: <no message>"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.mhua5.com (HTTP 403)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 9,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -86,14 +86,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-24T22:03:48.260114037Z",
+    "comparedTo": "2026-10-27T22:37:20.503662005Z",
     "changes": [
         {
             "source": "漫画屋",
             "lang": "zh",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "漫画屋",
+            "lang": "zh",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

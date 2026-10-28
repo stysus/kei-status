@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:34:53.658354669Z",
+    "generatedAt": "2026-10-28T10:05:54.652353234Z",
     "module": ":src:pt:fenixproject",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Fenix Project",
             "lang": "pt-BR",
             "baseUrl": "https://fenixproject.website",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,23 +23,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 867,
+                    "status": "WARN",
+                    "durationMs": 900,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 195,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 477,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "A Filha Mais Nova da Família Snake -> a-filha-mais-nova-da-familia-snake",
-                        "O Campo Esquecido -> o-campo-esquecido",
-                        "Lorde Blackwood Prometeu me Matar -> o-lorde-blackwood-prometeu-me-matar"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -52,7 +50,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,57 +59,74 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 193,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "A Filha Mais Nova da Família Snake -> a-filha-mais-nova-da-familia-snake"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 199,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 06 -> /manga/a-filha-mais-nova-da-familia-snake/capitulo-6",
-                        "Capítulo 05 -> /manga/a-filha-mais-nova-da-familia-snake/capitulo-5",
-                        "Capítulo 04 -> /manga/a-filha-mais-nova-da-familia-snake/capitulo-4"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 200,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://fenixproject.website/storage/manhwas/205/capitulos/6162/01.webp",
-                        "https://fenixproject.website/storage/manhwas/205/capitulos/6162/02.webp",
-                        "https://fenixproject.website/storage/manhwas/205/capitulos/6162/03.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1273,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:50:34.182150311Z",
+    "comparedTo": "2026-10-27T22:34:53.658354669Z",
     "changes": [
         {
             "source": "Fenix Project",
             "lang": "pt-BR",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Fenix Project",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Fenix Project",
+            "lang": "pt-BR",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Fenix Project",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Fenix Project",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Fenix Project",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

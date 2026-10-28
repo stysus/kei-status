@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:33:01.606990655Z",
+    "generatedAt": "2026-10-28T10:19:15.285479431Z",
     "module": ":src:it:juinjutsuteamreader",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 410,
+                    "durationMs": 503,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 265,
+                    "durationMs": 167,
                     "message": null,
                     "notes": [
                         "manga[0] has no thumbnail",
@@ -68,7 +68,7 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 211,
+                    "durationMs": 145,
                     "message": null,
                     "notes": [
                         "query \"Ichi the Witch\" matched no results in the first page"
@@ -78,7 +78,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 720,
+                    "durationMs": 521,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -90,7 +90,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 403,
+                    "durationMs": 289,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -101,22 +101,24 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1697,
+                    "status": "WARN",
+                    "durationMs": 30001,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[2] image request failed: SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:52:14.417933707Z",
+    "comparedTo": "2026-10-27T22:33:01.606990655Z",
     "changes": [
         {
             "source": "Juin Jutsu Team Reader",
             "lang": "it",
-            "scenario": "search",
-            "from": null,
+            "scenario": "images",
+            "from": "PASS",
             "to": "WARN"
         }
     ],

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:36:12.953986590Z",
+    "generatedAt": "2026-10-28T10:28:37.331498575Z",
     "module": ":src:vi:luvevaland",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -23,16 +23,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 3924,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 21948,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from luvevalands2.co (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 474,
+                    "durationMs": 816,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +46,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 435,
+                    "durationMs": 441,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,7 +68,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 403,
+                    "durationMs": 385,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,7 +78,7 @@
                 {
                     "name": "chapters",
                     "status": "FAIL",
-                    "durationMs": 1139,
+                    "durationMs": 852,
                     "message": "NullPointerException at LuvEvaLand.parseMangaDetails(LuvEvaLand.kt:166)",
                     "notes": [
                         "java.lang.NullPointerException: <no message>"
@@ -94,14 +96,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-24T22:07:02.316732368Z",
+    "comparedTo": "2026-10-27T22:36:12.953986590Z",
     "changes": [
         {
             "source": "LuvEvaLand",
             "lang": "vi",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

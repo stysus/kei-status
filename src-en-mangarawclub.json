@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:33:13.374725292Z",
+    "generatedAt": "2026-10-28T10:12:43.535557550Z",
     "module": ":src:en:mangarawclub",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "MangaGeko",
             "lang": "en",
             "baseUrl": "https://www.mgeko.cc",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,39 +24,37 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3529,
+                    "durationMs": 3879,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 609,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Magic Emperor -> /manga/magic-emperor-mg1/",
-                        "The Beginning After the End -> /manga/the-beginning-after-the-end/",
-                        "Logging 10,000 Years into the Future (Apex Future Martial Arts) -> /manga/apex-future-martial-arts2/"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 32803,
+                    "message": "timeout",
+                    "notes": [
+                        "kotlinx.serialization.json.JsonDecodingException: Deserialization failed because of 'timeout' exception in the decoder at path: $.results_html\nJSON input: .....rating\\\">\\n            \\u2b50 4.0\\n          </span>\\n      "
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 566,
+                    "durationMs": 21805,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "Gendai Dungeon Life no Tsuzuki wa Isekai Open World de! -> /manga/gendai-dungeon-life-no-tsuzuki-wa-isekai-open-world/",
-                        "Rosen Garten Saga -> /manga/rosen-garten-saga/",
-                        "Sovereign of the Infinite Clones -> /manga/all-my-alter-egos-are-tycoons/"
+                        "Dominating with the Price Collapse System -> /manga/dominating-with-the-price-collapse-system/",
+                        "I Became the Scoundrel of the Cheon Family -> /manga/i-became-the-scoundrel-of-the-cheon-family/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,41 +64,41 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 316,
+                    "durationMs": 2842,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Magic Emperor -> /manga/magic-emperor-mg1/"
+                        "Gendai Dungeon Life no Tsuzuki wa Isekai Open World de! -> /manga/gendai-dungeon-life-no-tsuzuki-wa-isekai-open-world/"
                     ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 760,
+                    "durationMs": 6545,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Chapter 927 -> /reader/en/magic-emperor-mg1-chapter-927-eng-li/",
-                        "Chapter 926 -> /reader/en/magic-emperor-mg1-chapter-926-eng-li/",
-                        "Chapter 925 -> /reader/en/magic-emperor-mg1-chapter-925-eng-li/"
+                        "Chapter 39-1 -> /reader/en/gendai-dungeon-life-no-tsuzuki-wa-isekai-open-world-chapter-39-1-eng-li/",
+                        "Chapter 38-2 -> /reader/en/gendai-dungeon-life-no-tsuzuki-wa-isekai-open-world-chapter-38-2-eng-li/",
+                        "Chapter 38-1 -> /reader/en/gendai-dungeon-life-no-tsuzuki-wa-isekai-open-world-chapter-38-1-eng-li/"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 768,
+                    "durationMs": 4232,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://imgsrv5.com/sv2/comic/magic-emperor-mg1/chapter-927/0.jpg",
-                        "https://imgsrv5.com/sv2/comic/magic-emperor-mg1/chapter-927/1.jpg",
-                        "https://imgsrv5.com/sv2/comic/magic-emperor-mg1/chapter-927/2.jpg"
+                        "https://imgsrv5.com/sv2/comic/gendai-dungeon-life-no-tsuzuki-wa-isekai-open-world/chapter-39-1/0.jpg",
+                        "https://imgsrv5.com/sv2/comic/gendai-dungeon-life-no-tsuzuki-wa-isekai-open-world/chapter-39-1/1.jpg",
+                        "https://imgsrv5.com/sv2/comic/gendai-dungeon-life-no-tsuzuki-wa-isekai-open-world/chapter-39-1/2.jpg"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 1378,
+                    "durationMs": 4680,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -108,14 +106,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-22T08:55:46.438902316Z",
+    "comparedTo": "2026-10-27T22:33:13.374725292Z",
     "changes": [
         {
             "source": "MangaGeko",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

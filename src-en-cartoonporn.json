@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:27:00.086139377Z",
+    "generatedAt": "2026-10-28T10:21:45.122257209Z",
     "module": ":src:en:cartoonporn",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -24,21 +24,23 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1165,
+                    "durationMs": 1300,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 194,
+                    "status": "WARN",
+                    "durationMs": 12078,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[0] has no thumbnail"
+                    ],
                     "samples": [
+                        "Iron Giantits Animated Porn Comic (The Iron Giant) [MILFToon] -> /porncomic/iron-giantits-the-iron-giant-milftoon-animated/",
                         "McD’s Family Visiting America porn comic -> /porncomic/mcds-family-visiting-america-porn-comic/",
-                        "Getting Sidetracked During Lessons porn comic -> /porncomic/getting-sidetracked-during-lessons-porn-comic/",
-                        "A Husband’s Mistake [Helltoyou] NTR comic part 1 + 2 porn comic -> /porncomic/a-husbands-mistake-helltoyou-ntr-comic-part-1-2-porn-comic/"
+                        "Getting Sidetracked During Lessons porn comic -> /porncomic/getting-sidetracked-during-lessons-porn-comic/"
                     ]
                 },
                 {
@@ -52,7 +54,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,10 +64,11 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 757,
+                    "durationMs": 1414,
                     "message": null,
                     "notes": [
-                        "query \"McD’s Family Visitin\" matched no results in the first page"
+                        "manga[0] has no thumbnail",
+                        "query \"Iron Giantits Animat\" matched no results in the first page"
                     ],
                     "samples": [
                         "CartoonPorn -> /porncomic/"
@@ -74,29 +77,27 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 318,
+                    "durationMs": 740,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Mcds family visiting america chapter 1 -> mcds-family-visiting-america-chapter-1"
+                        "Chapter 1 -> chapter-1"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 207,
+                    "status": "WARN",
+                    "durationMs": 1583,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cartoonporn.to/wp-content/uploads/WP-manga/data/manga_6ae02841b23b0/6171781bd96fd22eeeff7e7802bfd005/image-1.jpg",
-                        "https://cartoonporn.to/wp-content/uploads/WP-manga/data/manga_6ae02841b23b0/6171781bd96fd22eeeff7e7802bfd005/image-2.jpg",
-                        "https://cartoonporn.to/wp-content/uploads/WP-manga/data/manga_6ae02841b23b0/6171781bd96fd22eeeff7e7802bfd005/image-3.jpg"
-                    ]
+                    "notes": [
+                        "page list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 31,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -104,13 +105,20 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-27T09:21:19.846648164Z",
+    "comparedTo": "2026-10-27T22:27:00.086139377Z",
     "changes": [
         {
             "source": "CartoonPorn",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "CartoonPorn",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
             "to": "WARN"
         }
     ],

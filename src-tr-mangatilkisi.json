@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:36:06.566094622Z",
+    "generatedAt": "2026-10-28T10:33:43.693317169Z",
     "module": ":src:tr:mangatilkisi",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "MangaTilkisi",
             "lang": "tr",
             "baseUrl": "https://www.tilkiscans.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,16 +23,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1315,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 31391,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 577,
+                    "durationMs": 12259,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 621,
+                    "durationMs": 6073,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,7 +66,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 745,
+                    "durationMs": 7749,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,46 +75,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 826,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 31959,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 251 -> bolum-251",
-                        "Bölüm 250 -> bolum-250",
-                        "Bölüm 249 -> bolum-249"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 839,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.tilkiscans.com/wp-content/uploads/WP-manga/data/manga_66ca429d8e73d/bolum-251/01.webp",
-                        "https://cdn.tilkiscans.com/wp-content/uploads/WP-manga/data/manga_66ca429d8e73d/bolum-251/02.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 126,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:45:49.847246325Z",
+    "comparedTo": "2026-10-27T22:36:06.566094622Z",
     "changes": [
         {
             "source": "MangaTilkisi",
             "lang": "tr",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaTilkisi",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaTilkisi",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaTilkisi",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

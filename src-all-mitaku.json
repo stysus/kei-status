@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:26:11.455629069Z",
+    "generatedAt": "2026-10-28T10:20:25.383496340Z",
     "module": ":src:all:mitaku",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -24,22 +24,18 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 562,
+                    "durationMs": 1173,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 364,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30409,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "CreamySpot – 2B Officer (Video) -> /ero-cosplay/creamyspot-2b-officer/",
-                        "MercyMorg – Yor Forger (Video) -> /ero-cosplay/mercymorg-yor-forger/",
-                        "Neroko Kaigan – Nico Robin Baroque Works -> /ero-cosplay/neroko-kaigan-nico-robin-baroque-works/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -52,7 +48,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,41 +57,60 @@
                 },
                 {
                     "name": "search",
-                    "status": "FAIL",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": "Collection contains no element matching the predicate.",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 74,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "This post is video-only, watch it in WebView -> /ero-cosplay/creamyspot-2b-officer/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 48,
-                    "message": "Page list not found",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T09:12:08.156273517Z",
+    "comparedTo": "2026-10-27T22:26:11.455629069Z",
     "changes": [
         {
             "source": "Mitaku",
             "lang": "all",
-            "scenario": "search",
-            "from": null,
+            "scenario": "popular",
+            "from": "PASS",
             "to": "FAIL"
+        },
+        {
+            "source": "Mitaku",
+            "lang": "all",
+            "scenario": "search",
+            "from": "FAIL",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mitaku",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mitaku",
+            "lang": "all",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

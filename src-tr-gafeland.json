@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:37:40.769550165Z",
+    "generatedAt": "2026-10-28T10:24:50.969011869Z",
     "module": ":src:tr:gafeland",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "gafeland",
             "lang": "tr",
             "baseUrl": "https://gafeland.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,28 +23,24 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 5637,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 39548,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 196,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Kana Susamış Erkek Başrolün Annesi Oldum -> /manga/kana-susamis-erkek-basrolun-annesi-oldum/",
-                        "Lütfen Kocacığım Yeniden Evlenelim! -> /manga/lutfen-kocacigim-yeniden-evlenelim/",
-                        "Vampir Ve Sevgili Avcısı -> /manga/vampir-ve-sevgili-avcisi/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 186,
+                    "durationMs": 44352,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -56,7 +52,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,56 +62,70 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 2802,
+                    "durationMs": 20295,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Kana Susamış Erkek Başrolün Annesi Oldum -> /manga/kana-susamis-erkek-basrolun-annesi-oldum/"
+                        "Başrollerin Çocuklarını Yetiştirdim -> /manga/basrollerin-cocuklarini-yetistirdim/"
                     ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 803,
+                    "durationMs": 33676,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Bölüm 33 -> /kana-susamis-erkek-basrolun-annesi-oldum-bolum-33/",
-                        "Bölüm 32 -> /kana-susamis-erkek-basrolun-annesi-oldum-bolum-32/",
-                        "Bölüm 31 -> /kana-susamis-erkek-basrolun-annesi-oldum-bolum-31/"
+                        "Bölüm 25 -> /basrollerin-cocuklarini-yetistirdim-bolum-25/",
+                        "Bölüm 24 -> /basrollerin-cocuklarini-yetistirdim-bolum-24/",
+                        "Bölüm 23 -> /basrollerin-cocuklarini-yetistirdim-bolum-23/"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 1277,
+                    "durationMs": 7435,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://gafeland.com/wp-content/uploads/2026/02/0.jpg",
-                        "https://gafeland.com/wp-content/uploads/2026/02/1.jpg",
-                        "https://gafeland.com/wp-content/uploads/2026/02/2.jpg"
+                        "https://gafeland.com/wp-content/uploads/2026/10/1-10.jpeg",
+                        "https://gafeland.com/wp-content/uploads/2026/10/2-10.jpeg",
+                        "https://gafeland.com/wp-content/uploads/2026/10/3-10.jpeg"
                     ]
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 98,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:55:34.944869289Z",
+    "comparedTo": "2026-10-27T22:37:40.769550165Z",
     "changes": [
         {
             "source": "gafeland",
             "lang": "tr",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "gafeland",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "gafeland",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

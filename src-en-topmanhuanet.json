@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:29:15.958212534Z",
+    "generatedAt": "2026-10-28T10:09:59.584014256Z",
     "module": ":src:en:topmanhuanet",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "TopManhua.net",
             "lang": "en",
             "baseUrl": "https://topmanhua.net",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 773,
+                    "durationMs": 5514,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 565,
+                    "durationMs": 10317,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 496,
+                    "durationMs": 1546,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,7 +66,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 459,
+                    "durationMs": 26846,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,47 +77,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 493,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30005,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Chapter 192.5 -> chapter-192-5",
-                        "Chapter 192 -> chapter-192",
-                        "Chapter 191 -> chapter-191"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 556,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
-                    "samples": [
-                        "https://cdn.topmanhua.net/storage/media/423107/conversions/01KJPJ7233C4XP1WQVE99DSXG0-optimized.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 314,
-                    "message": null,
-                    "notes": [
-                        "page[0] image returned HTTP 526"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T00:55:53.415317415Z",
+    "comparedTo": "2026-10-27T22:29:15.958212534Z",
     "changes": [
         {
             "source": "TopManhua.net",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "TopManhua.net",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TopManhua.net",
+            "lang": "en",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

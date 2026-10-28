@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:30:04.478814602Z",
+    "generatedAt": "2026-10-28T10:30:51.736660628Z",
     "module": ":src:es:mundomanhwa",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Mundo Manhwa",
             "lang": "es",
             "baseUrl": "https://mundomanhwa.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +24,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1029,
+                    "durationMs": 13476,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +32,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 681,
+                    "durationMs": 1855,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +44,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1195,
+                    "durationMs": 7590,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -56,7 +56,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,65 +65,60 @@
                 },
                 {
                     "name": "search",
-                    "status": "WARN",
-                    "durationMs": 772,
-                    "message": null,
-                    "notes": [
-                        "manga[4] has no thumbnail"
-                    ],
-                    "samples": [
-                        "Mi tia es mia -> 2576",
-                        "Mi tia sin censura -> 1048",
-                        "Mi tia -> 921"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 596,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 7224,
+                    "message": "HTTP error 520",
                     "notes": [],
-                    "samples": [
-                        "Capitulo 140 - FIN -> capitulo-140-fin",
-                        "Capitulo 139 -> capitulo-139",
-                        "Capitulo 138 -> capitulo-138"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 591,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
-                    "samples": [
-                        "https://cdn3.vermanhwa.com/woomics/manga_621741c9d9370/capitulo-140-fin/765.jpg",
-                        "https://cdn3.vermanhwa.com/woomics/manga_621741c9d9370/capitulo-140-fin/766.jpg",
-                        "https://cdn3.vermanhwa.com/woomics/manga_621741c9d9370/capitulo-140-fin/767.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 54,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request failed: UnknownHostException: cdn3.vermanhwa.com",
-                        "page[1] image request failed: UnknownHostException: cdn3.vermanhwa.com: Name or service not known",
-                        "page[2] image request failed: UnknownHostException: cdn3.vermanhwa.com"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T23:01:00.002827346Z",
+    "comparedTo": "2026-10-27T22:30:04.478814602Z",
     "changes": [
         {
             "source": "Mundo Manhwa",
             "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mundo Manhwa",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mundo Manhwa",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mundo Manhwa",
+            "lang": "es",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

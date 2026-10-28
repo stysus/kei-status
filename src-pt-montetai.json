@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:33:51.472763989Z",
+    "generatedAt": "2026-10-28T10:22:49.571523099Z",
     "module": ":src:pt:montetai",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -11,7 +11,7 @@
             "name": "Monte Tai",
             "lang": "pt-BR",
             "baseUrl": "https://montetaiscanlator.xyz",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,16 +23,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 20279,
+                    "status": "WARN",
+                    "durationMs": 28609,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 525"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1097,
+                    "durationMs": 1053,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,13 +46,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 632,
+                    "durationMs": 6537,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Herdeiro Regressado Do Clã Yong -> 3259",
-                        "Corporação Goblin -> 4694",
-                        "Veletric -> 4118"
+                        "Crônicas do Cultivador Exterminador de Demônios -> 4681",
+                        "Despertar Global: Começando com um Exército de Mortos-Vivos Sintetizado -> 4905",
+                        "Era Marcial: Minhas Células Podem Evoluir Infinitamente -> 5425"
                     ]
                 },
                 {
@@ -66,7 +68,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 685,
+                    "durationMs": 9075,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,7 +78,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 846,
+                    "durationMs": 19289,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,35 +89,37 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 441,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.montetaiscanlator.xyz/manga_6767767a825a4/72ac67e0974276e44edf06be726bffea/01.jpg",
-                        "https://cdn.montetaiscanlator.xyz/manga_6767767a825a4/72ac67e0974276e44edf06be726bffea/02.jpg",
-                        "https://cdn.montetaiscanlator.xyz/manga_6767767a825a4/72ac67e0974276e44edf06be726bffea/03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1316,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:43:51.401233790Z",
+    "comparedTo": "2026-10-27T22:33:51.472763989Z",
     "changes": [
         {
             "source": "Monte Tai",
             "lang": "pt-BR",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Monte Tai",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Monte Tai",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

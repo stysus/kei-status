@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:29:57.106421840Z",
+    "generatedAt": "2026-10-28T10:15:48.474998084Z",
     "module": ":src:fr:ortegascans",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
+    "extensionCommit": "7b21db62",
     "harnessCommit": "d23a073",
     "sources": [
         {
@@ -23,35 +23,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 770,
+                    "status": "WARN",
+                    "durationMs": 19801,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 456,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19457,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "MILF Exchange Plan -> milf-exchange-plan",
-                        "Absolute Hypnosis in Another World -> absolute-hypnosis-in-another-world",
-                        "Keep it a secret from your mother! -> keep-it-a-secret-from-your-mother"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 231,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19454,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Frequency -> frequency",
-                        "Man of The House -> man-of-the-house",
-                        "APP for the Emperor of the Night -> app-for-the-emperor-of-the-night"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -65,55 +59,81 @@
                 },
                 {
                     "name": "search",
-                    "status": "FAIL",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": "Collection contains no element matching the predicate.",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 935,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 Chapitre 94 -> cmvjnrgcr0ggcfezcpsnzc5v3",
-                        "🔒 Chapitre 93 -> cmv9tanrr0acefezcuasmk8i6",
-                        "🔒 Chapitre 92 -> cmuzxp0bs0507fezcw9ezk25k"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 696,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://ortegascans.fr/api/chapters/milf-exchange-plan/cmuofysug02im0nl4b7ww1h2a/image/1.webp",
-                        "https://ortegascans.fr/api/chapters/milf-exchange-plan/cmuofysug02im0nl4b7ww1h2a/image/2.webp",
-                        "https://ortegascans.fr/api/chapters/milf-exchange-plan/cmuofysug02im0nl4b7ww1h2a/image/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 594,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:46:05.407505850Z",
+    "comparedTo": "2026-10-27T22:29:57.106421840Z",
     "changes": [
         {
             "source": "Ortega Scans",
             "lang": "fr",
-            "scenario": "search",
-            "from": null,
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Ortega Scans",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
             "to": "FAIL"
+        },
+        {
+            "source": "Ortega Scans",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Ortega Scans",
+            "lang": "fr",
+            "scenario": "search",
+            "from": "FAIL",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ortega Scans",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ortega Scans",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ortega Scans",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []
