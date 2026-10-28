@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:24:59.628433650Z",
+    "generatedAt": "2026-10-28T18:31:51.256709304Z",
     "module": ":src:ar:lonertranslations",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
-    "harnessCommit": "d23a073",
+    "extensionCommit": "7b21db62",
     "sources": [
         {
             "sourceId": 323105186892383931,
             "name": "Loner Translations",
             "lang": "ar",
             "baseUrl": "https://loner-tl.blogspot.com",
-            "status": "WARN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 332,
+                    "durationMs": 390,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 346,
+                    "durationMs": 169,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 127,
+                    "durationMs": 58,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,21 +63,9 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 476,
-                    "message": null,
-                    "notes": [
-                        "query \"My Dearest Self With\" matched no results in the first page"
-                    ],
-                    "samples": [
-                        "My Dearest Self With Malice Aforethought -> /2022/09/my-dearest-self-with-malice-aforethought.html"
-                    ]
-                },
-                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 665,
+                    "durationMs": 288,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -89,43 +76,42 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 530,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhP5_KeHAMHRYL9h2Xs1dC-c12z1ee7wbVx5SFlNH-LdrpYOxzmdboKnlXF4SF1-OF8LSdAYcDJPMoRTRuNdBzi92dltFtvjh9JbT7ruW2Qc8u8xVMfT-aeCH8_MMy4PN1WbAqivR0ig1KdPjznesayNThW6pyYIl1FGC4EZBgAooxy-mH8GjRqIX_g/s1600/MDSWMA-98-01.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHHqvt9qXSrSHt2EYmfStKpp0LpHmVT-0e7QD6ncuGPAPsufKTUy3uUf58nsBPkW4ciGXja4viI4ntnT965seBmG3MTo6tNnEc40MF66sbrEQSXpKm7cPV3TZ1atQAyBCz7UvL3ReZwqhEGSUGt_nIZrAsDObVzY6ZMcOh2KPYnaZ3qMBggEnBnGOu/s1600/MDSWMA-98-02.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjotNPNg9AZITUX_44l52bQ5xDuuxEwiGCptiL4Yw_UE6JZ80XYV9QUnLDzbZW2EGMaggzdApRpci-FnFBH7caMsCRvoIx6GGBoygI_PPkQkSLQiJVLsR6sw5EikpwRlSnAYUShrQboE6im_lv5Iy0Y--x5f4hajWEEfrgIl3gmrDXb3nrmj7mpqiKv/s1600/MDSWMA-98-03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 691,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 1903,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-26T22:59:14.929278319Z",
+    "comparedTo": "2026-10-27T22:24:59.628433650Z",
     "changes": [
         {
             "source": "Loner Translations",
             "lang": "ar",
-            "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
             "source": "Loner Translations",
             "lang": "ar",
             "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "from": "WARN",
+            "to": null
+        },
+        {
+            "source": "Loner Translations",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "loner-tl.blogspot.com"
+    ]
 }

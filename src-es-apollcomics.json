@@ -1,10 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:30:34.048896078Z",
+    "generatedAt": "2026-10-28T18:34:26.423865768Z",
     "module": ":src:es:apollcomics",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
-    "harnessCommit": "d23a073",
+    "extensionCommit": "7b21db62",
     "sources": [
         {
             "sourceId": 3044113561993269522,
@@ -24,17 +23,19 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1249,
+                    "durationMs": 1223,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 634,
+                    "status": "WARN",
+                    "durationMs": 595,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[3] has no thumbnail"
+                    ],
                     "samples": [
                         "Dos por una -> 2080",
                         "Deja que te enseñe -> 2891",
@@ -43,10 +44,12 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 566,
+                    "status": "WARN",
+                    "durationMs": 608,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[3] has no thumbnail"
+                    ],
                     "samples": [
                         "Las manos sanadoras del doctor -> 1435",
                         "Young Boss -> 3553",
@@ -56,7 +59,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,21 +67,9 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 663,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Dos por una -> 2080",
-                        "Lazos profundos -> 3375",
-                        "Juguetes escondidos -> 3343"
-                    ]
-                },
-                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 532,
+                    "durationMs": 491,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -90,7 +81,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 616,
+                    "durationMs": 527,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -102,7 +93,7 @@
                 {
                     "name": "images",
                     "status": "WARN",
-                    "durationMs": 281,
+                    "durationMs": 181,
                     "message": null,
                     "notes": [
                         "page[0] image returned HTTP 403",
@@ -114,14 +105,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-27T09:20:31.236212578Z",
+    "comparedTo": "2026-10-27T22:30:34.048896078Z",
     "changes": [
         {
             "source": "ApollComics",
             "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "ApollComics",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "ApollComics",
+            "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T10:02:49.094630872Z",
+    "generatedAt": "2026-10-28T18:30:13.195287878Z",
     "module": ":src:ar:yonabar",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 8019959770180418614,
             "name": "Yona Bar",
             "lang": "ar",
             "baseUrl": "https://yonaber.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,16 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 4011,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30156,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 1000,
+                    "durationMs": 6880,
                     "message": null,
                     "notes": [
                         "manga[0] has no thumbnail"
@@ -46,13 +45,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 976,
+                    "durationMs": 1543,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "Rut Partner -> 29414",
-                        "A World Full of Fools -> 28913",
-                        "MONSTER IN THE CLOSET -> 29428"
+                        "Help me teacher -> 29435",
+                        "A World Full of Fools -> 28913"
                     ]
                 },
                 {
@@ -66,22 +65,9 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 1023,
-                    "message": null,
-                    "notes": [
-                        "manga[0] has no thumbnail"
-                    ],
-                    "samples": [
-                        "Jinx -> 3861",
-                        "Love Jinx -> 3384"
-                    ]
-                },
-                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1687,
+                    "durationMs": 6517,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -92,49 +78,44 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2947,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://medium1xr.aramang.nom.za/medium1/jinx/ch-102.5/1.webp",
-                        "https://medium1xr.aramang.nom.za/medium1/jinx/ch-102.5/2.webp",
-                        "https://medium1xr.aramang.nom.za/medium1/jinx/ch-102.5/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 16497,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 3912,
+                    "message": "unexpected host: i0.wp.com/medium1xr.aramang.nom.za",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:26:56.563831543Z",
+    "comparedTo": "2026-10-28T10:02:49.094630872Z",
     "changes": [
         {
             "source": "Yona Bar",
             "lang": "ar",
-            "scenario": "chapters",
-            "from": "FAIL",
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Yona Bar",
             "lang": "ar",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Yona Bar",
+            "lang": "ar",
+            "scenario": "search",
+            "from": "WARN",
+            "to": null
         },
         {
             "source": "Yona Bar",
             "lang": "ar",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

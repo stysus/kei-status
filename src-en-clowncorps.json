@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:26:58.540903610Z",
+    "generatedAt": "2026-10-28T18:31:25.629367756Z",
     "module": ":src:en:clowncorps",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
-    "harnessCommit": "d23a073",
+    "extensionCommit": "7b21db62",
     "sources": [
         {
             "sourceId": 285164574089229147,
             "name": "Clown Corps",
             "lang": "en",
             "baseUrl": "https://clowncorps.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,9 +22,9 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 253,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30087,
+                    "message": "Connect timed out",
                     "notes": [],
                     "samples": []
                 },
@@ -58,56 +57,60 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 0,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Clown Corps -> /comic"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 3860,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30062,
+                    "message": "Connect timed out",
                     "notes": [],
-                    "samples": [
-                        "Clown Break -> /comic/clown-break/",
-                        "chapter 6 page 201 -> /comic/chapter-6-page-201/",
-                        "chapter 6 page 200 -> /comic/chapter-6-page-200/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 67,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://clowncorps.net/wp-content/uploads/2025/11/clowns58.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 92,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:44:31.409535192Z",
+    "comparedTo": "2026-10-27T22:26:58.540903610Z",
     "changes": [
         {
             "source": "Clown Corps",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Clown Corps",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Clown Corps",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Clown Corps",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
+        },
+        {
+            "source": "Clown Corps",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

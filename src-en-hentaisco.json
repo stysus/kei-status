@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:26:34.427389042Z",
+    "generatedAt": "2026-10-28T18:32:10.708625808Z",
     "module": ":src:en:hentaisco",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
-    "harnessCommit": "d23a073",
+    "extensionCommit": "7b21db62",
     "sources": [
         {
             "sourceId": 6741034623728813910,
             "name": "HentaiSco",
             "lang": "en",
             "baseUrl": "https://hentaisco.cc",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 458,
+                    "durationMs": 321,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 129,
+                    "status": "WARN",
+                    "durationMs": 253,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Secret Class Uncensored -> 1732608371-secret-class-uncensored",
-                        "Ikura De Yaremasu Ka? -> ikura-de-yaremasu-ka",
-                        "Keep it a secret from your mother! -> 1670579730-keep-it-a-secret-from-your-mother"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 117,
+                    "status": "WARN",
+                    "durationMs": 129,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "My Ideal Type is My Friend’s Mom -> my-ideal-type-is-my-friends-mom",
-                        "Capitalist Harem -> capitalist-harem",
-                        "Boss! I’m Taking Your Girl! (Uncensored) -> boss-im-taking-your-girl-uncensored"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,60 +59,67 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 176,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Secret Class Uncensored -> 1732608371-secret-class-uncensored",
-                        "Secret Class -> 1732151321-secret-class",
-                        "Secret Your Mom Raw -> 16865119-secret-your-mom-raw"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 187,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 171 -> 1732608371-secret-class-uncensored/chapter-171",
-                        "Chapter 170 -> 1732608371-secret-class-uncensored/chapter-170",
-                        "Chapter 169 -> 1732608371-secret-class-uncensored/chapter-169"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 200,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.hentaisco.cc/manga_636916295a575/chapter-171/001.jpg",
-                        "https://cdn.hentaisco.cc/manga_636916295a575/chapter-171/002.jpg",
-                        "https://cdn.hentaisco.cc/manga_636916295a575/chapter-171/003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 225,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:46:47.077539693Z",
+    "comparedTo": "2026-10-27T22:26:34.427389042Z",
     "changes": [
         {
             "source": "HentaiSco",
             "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "HentaiSco",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "HentaiSco",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiSco",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiSco",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
+        },
+        {
+            "source": "HentaiSco",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

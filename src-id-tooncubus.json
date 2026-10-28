@@ -1,10 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T10:18:43.649503852Z",
+    "generatedAt": "2026-10-28T18:39:08.292337076Z",
     "module": ":src:id:tooncubus",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 8493327683322555504,
@@ -23,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 865,
+                    "status": "WARN",
+                    "durationMs": 755,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 74,
+                    "durationMs": 283,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +45,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 72,
+                    "durationMs": 103,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,19 +65,9 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 210,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Aunt Hina -> /2024/11/aunt-hina.html"
-                    ]
-                },
-                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 257,
+                    "durationMs": 1785,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,7 +79,7 @@
                 {
                     "name": "pages",
                     "status": "FAIL",
-                    "durationMs": 94,
+                    "durationMs": 279,
                     "message": "www.tooncubus-read.my.id: Name or service not known",
                     "notes": [],
                     "samples": []
@@ -96,14 +87,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:33:02.353411678Z",
+    "comparedTo": "2026-10-28T10:18:43.649503852Z",
     "changes": [
         {
             "source": "Tooncubus",
             "lang": "id",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Tooncubus",
+            "lang": "id",
+            "scenario": "search",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

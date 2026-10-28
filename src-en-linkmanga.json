@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:29:13.884629844Z",
+    "generatedAt": "2026-10-28T18:32:53.470027559Z",
     "module": ":src:en:linkmanga",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
-    "harnessCommit": "d23a073",
+    "extensionCommit": "7b21db62",
     "sources": [
         {
             "sourceId": 8622937201319058235,
             "name": "LinkManga",
             "lang": "en",
             "baseUrl": "https://linkmanga.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 5118,
+                    "status": "WARN",
+                    "durationMs": 4934,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 660,
+                    "status": "WARN",
+                    "durationMs": 379,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Lazy Prince Becomes a Genius -> 8",
-                        "Magic Emperor -> 362",
-                        "Kimi ga Hoeru Tame no Uta wo -> 1730"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 678,
+                    "status": "WARN",
+                    "durationMs": 287,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Please Save My Earth -> 7504",
-                        "Fairy Tail: 100 Years Quest -> 639",
-                        "Blue Lock -> 603"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,58 +61,74 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 557,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Lazy Prince Becomes a Genius -> 8"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 766,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "chapter 163 -> ch-163",
-                        "chapter 162 -> ch-162",
-                        "chapter 161 -> ch-161"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 727,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://linkmanga.com/wp-content/uploads/WP-manga/data/manga_6a2fd59248089/ch-163/v001.jpg",
-                        "https://linkmanga.com/wp-content/uploads/WP-manga/data/manga_6a2fd59248089/ch-163/v002.jpg",
-                        "https://linkmanga.com/wp-content/uploads/WP-manga/data/manga_6a2fd59248089/ch-163/v003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1134,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-23T08:55:41.408406373Z",
+    "comparedTo": "2026-10-27T22:29:13.884629844Z",
     "changes": [
         {
             "source": "LinkManga",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

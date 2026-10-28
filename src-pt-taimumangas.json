@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T10:23:40.169408423Z",
+    "generatedAt": "2026-10-28T18:34:58.541477546Z",
     "module": ":src:pt:taimumangas",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 8914871231496469978,
             "name": "Taimu Mangas",
             "lang": "pt-BR",
             "baseUrl": "https://beta.taimumangas.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "BLOCKED",
-                    "durationMs": 138,
+                    "durationMs": 638,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from beta.taimumangas.com (HTTP 403)"
@@ -34,7 +33,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 439,
+                    "durationMs": 1000,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -46,7 +45,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 805,
+                    "durationMs": 544,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,19 +65,9 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 316,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Por Favor me dê Essa Chupeta -> 568476022087"
-                    ]
-                },
-                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1067,
+                    "durationMs": 1237,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -90,7 +79,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 623,
+                    "durationMs": 555,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -101,23 +90,30 @@
                 },
                 {
                     "name": "images",
-                    "status": "FAIL",
-                    "durationMs": 45000,
-                    "message": "timed out after 45s",
+                    "status": "PASS",
+                    "durationMs": 1519,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:36:24.301374838Z",
+    "comparedTo": "2026-10-28T10:23:40.169408423Z",
     "changes": [
         {
             "source": "Taimu Mangas",
             "lang": "pt-BR",
             "scenario": "images",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Taimu Mangas",
+            "lang": "pt-BR",
+            "scenario": "search",
             "from": "PASS",
-            "to": "FAIL"
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T10:09:41.313661686Z",
+    "generatedAt": "2026-10-28T18:38:51.705239343Z",
     "module": ":src:vi:tranh18",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1067821280191897902,
             "name": "Tranh18",
             "lang": "vi",
             "baseUrl": "https://tranh18.cc",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,37 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 968,
+                    "status": "WARN",
+                    "durationMs": 3442,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 523"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 25,
-                    "message": null,
-                    "notes": [
-                        "duplicate manga urls: [/comic/gacha-co-nang-nha-ben-khong-che, /comic/nhat-ky-quan-ly-than-tuong]"
-                    ],
-                    "samples": [
-                        "Seri tổng hợp truyện Kimetsu no Yaiba -> /comic/seri-tong-hop-truyen-kimetsu-no-yaiba",
-                        "Gacha- Cô Nàng Nhà Bên (Không Che) -> /comic/gacha-co-nang-nha-ben-khong-che",
-                        "Mihee -> /comic/mihee"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 1424,
+                    "message": "HTTP error 523",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 392,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 1688,
+                    "message": "HTTP error 523",
                     "notes": [],
-                    "samples": [
-                        "Seri tổng hợp truyện Kimetsu no Yaiba -> /comic/seri-tong-hop-truyen-kimetsu-no-yaiba",
-                        "Gacha- Cô Nàng Nhà Bên (Không Che) -> /comic/gacha-co-nang-nha-ben-khong-che",
-                        "Mihee -> /comic/mihee"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -66,81 +57,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 385,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Seri tổng hợp truyện Kimetsu no Yaiba -> /comic/seri-tong-hop-truyen-kimetsu-no-yaiba",
-                        "Seri tổng hợp truyện của tác giả Yakkomochis2 -> /comic/seri-tong-hop-truyen-cua-tac-gia-yakkomochis2",
-                        "[ One Piece] seri truyện -> /comic/one-piece-seri-truyen"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 502,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chap 7 : thuốc kích thích tình dục -> /seri-tong-hop-truyen-kimetsu-no-yaiba/chapter/1031184",
-                        "Chap 6 : daki -> /seri-tong-hop-truyen-kimetsu-no-yaiba/chapter/1030802",
-                        "Chap 4 : spider family -> /seri-tong-hop-truyen-kimetsu-no-yaiba/chapter/1030460"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 365,
-                    "message": null,
-                    "notes": [
-                        "page[0] has neither imageUrl nor url",
-                        "page[1] has neither imageUrl nor url",
-                        "page[2] has neither imageUrl nor url",
-                        "page[3] has neither imageUrl nor url",
-                        "page[4] has neither imageUrl nor url",
-                        "page[5] has neither imageUrl nor url",
-                        "page[6] has neither imageUrl nor url",
-                        "page[7] has neither imageUrl nor url",
-                        "page[8] has neither imageUrl nor url",
-                        "page[9] has neither imageUrl nor url",
-                        "page[10] has neither imageUrl nor url",
-                        "page[11] has neither imageUrl nor url",
-                        "page[12] has neither imageUrl nor url",
-                        "page[13] has neither imageUrl nor url",
-                        "page[14] has neither imageUrl nor url",
-                        "page[15] has neither imageUrl nor url",
-                        "page[16] has neither imageUrl nor url",
-                        "page[17] has neither imageUrl nor url",
-                        "page[18] has neither imageUrl nor url",
-                        "page[19] has neither imageUrl nor url",
-                        "page[20] has neither imageUrl nor url",
-                        "page[21] has neither imageUrl nor url",
-                        "page[22] has neither imageUrl nor url"
-                    ],
-                    "samples": [
-                        "",
-                        "",
-                        ""
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request could not be built: getImageUrl not implemented",
-                        "page[1] image request could not be built: getImageUrl not implemented",
-                        "page[2] image request could not be built: getImageUrl not implemented"
-                    ],
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:35:27.437015532Z",
-    "changes": [],
+    "comparedTo": "2026-10-28T10:09:41.313661686Z",
+    "changes": [
+        {
+            "source": "Tranh18",
+            "lang": "vi",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Tranh18",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "Tranh18",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Tranh18",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Tranh18",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Tranh18",
+            "lang": "vi",
+            "scenario": "search",
+            "from": "PASS",
+            "to": null
+        },
+        {
+            "source": "Tranh18",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

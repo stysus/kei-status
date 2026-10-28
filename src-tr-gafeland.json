@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T10:24:50.969011869Z",
+    "generatedAt": "2026-10-28T18:39:42.335719149Z",
     "module": ":src:tr:gafeland",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 3266930735690843593,
             "name": "gafeland",
             "lang": "tr",
             "baseUrl": "https://gafeland.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,31 +22,31 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 39548,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 5317,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30002,
-                    "message": "timeout",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 1000,
+                    "message": null,
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 44352,
+                    "status": "WARN",
+                    "durationMs": 286,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Başrollerin Çocuklarını Yetiştirdim -> /manga/basrollerin-cocuklarini-yetistirdim/",
-                        "Kötü Adamla Sevgili Değilim -> /manga/kotu-adamla-sevgili-degilim/",
-                        "Minik Cariye Sessiz Bir Hayat İstiyor -> /manga/minik-cariye-sessiz-bir-hayat-istiyor/"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -60,72 +59,74 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 20295,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Başrollerin Çocuklarını Yetiştirdim -> /manga/basrollerin-cocuklarini-yetistirdim/"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 33676,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 25 -> /basrollerin-cocuklarini-yetistirdim-bolum-25/",
-                        "Bölüm 24 -> /basrollerin-cocuklarini-yetistirdim-bolum-24/",
-                        "Bölüm 23 -> /basrollerin-cocuklarini-yetistirdim-bolum-23/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 7435,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://gafeland.com/wp-content/uploads/2026/10/1-10.jpeg",
-                        "https://gafeland.com/wp-content/uploads/2026/10/2-10.jpeg",
-                        "https://gafeland.com/wp-content/uploads/2026/10/3-10.jpeg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "FAIL",
-                    "durationMs": 45000,
-                    "message": "timed out after 45s",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:37:40.769550165Z",
+    "comparedTo": "2026-10-28T10:24:50.969011869Z",
     "changes": [
         {
             "source": "gafeland",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "gafeland",
             "lang": "tr",
             "scenario": "popular",
+            "from": "FAIL",
+            "to": "WARN"
+        },
+        {
+            "source": "gafeland",
+            "lang": "tr",
+            "scenario": "latest",
             "from": "PASS",
-            "to": "FAIL"
+            "to": "WARN"
+        },
+        {
+            "source": "gafeland",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "gafeland",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "gafeland",
+            "lang": "tr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": null
         },
         {
             "source": "gafeland",
             "lang": "tr",
             "scenario": "images",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": null
         }
     ],
     "throttledHosts": []

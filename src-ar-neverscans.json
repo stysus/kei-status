@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T10:02:19.440601890Z",
+    "generatedAt": "2026-10-28T18:29:18.384237790Z",
     "module": ":src:ar:neverscans",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 8433210273073845288,
             "name": "NeverScans",
             "lang": "ar",
             "baseUrl": "https://neverscans.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,29 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1024,
-                    "message": null,
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 15174,
+                    "message": "unable to find valid certification path to requested target",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target",
+                        "sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 28,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 4116,
+                    "message": "unable to find valid certification path to requested target",
                     "notes": [
-                        "popular/latest returned an empty list"
+                        "javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target",
+                        "sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 27,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 133,
+                    "message": "unable to find valid certification path to requested target",
                     "notes": [
-                        "popular/latest returned an empty list"
+                        "javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target",
+                        "sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target"
                     ],
                     "samples": []
                 },
@@ -58,14 +62,6 @@
                     "samples": [
                         "0 filters"
                     ]
-                },
-                {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -86,28 +82,35 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:28:19.624126505Z",
+    "comparedTo": "2026-10-28T10:02:19.440601890Z",
     "changes": [
         {
             "source": "NeverScans",
             "lang": "ar",
             "scenario": "connectivity",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "NeverScans",
             "lang": "ar",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "FAIL"
         },
         {
             "source": "NeverScans",
             "lang": "ar",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "NeverScans",
+            "lang": "ar",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:30:20.626241590Z",
+    "generatedAt": "2026-10-28T18:35:17.585019540Z",
     "module": ":src:id:soulscans",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
-    "harnessCommit": "d23a073",
+    "extensionCommit": "7b21db62",
     "sources": [
         {
             "sourceId": 8061354444776372735,
             "name": "Soul Scans",
             "lang": "id",
             "baseUrl": "https://v1.soulscans.org",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 652,
+                    "durationMs": 1113,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 209,
+                    "durationMs": 270,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,20 +42,22 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 3705,
+                    "status": "WARN",
+                    "durationMs": 4042,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[4] has no thumbnail"
+                    ],
                     "samples": [
-                        "Juvenile Prison -> /comic/juvenile-prison",
-                        "The Infinite Mage -> /comic/the-infinite-mage",
-                        "I Will Try to Save My Dad -> /comic/i-will-try-to-save-my-dad"
+                        "Student Jo-Eun -> /comic/student-jo-eun",
+                        "Kidnapped Dragons -> /comic/kidnapped-dragons",
+                        "Chronicle of Runes -> /comic/chronicle-of-runes"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,19 +65,9 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 487,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "My Simulated Path to Immortality -> /comic/my-simulated-path-to-immortality"
-                    ]
-                },
-                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 228,
+                    "durationMs": 179,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,7 +79,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 204,
+                    "durationMs": 188,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -100,7 +91,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 1180,
+                    "durationMs": 1909,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -108,14 +99,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-26T23:01:06.945141494Z",
+    "comparedTo": "2026-10-27T22:30:20.626241590Z",
     "changes": [
         {
             "source": "Soul Scans",
             "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Soul Scans",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

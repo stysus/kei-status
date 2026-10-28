@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:32:46.418194249Z",
+    "generatedAt": "2026-10-28T18:39:50.530047492Z",
     "module": ":src:tr:nirvanamanga",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
-    "harnessCommit": "d23a073",
+    "extensionCommit": "7b21db62",
     "sources": [
         {
             "sourceId": 2783611133798677654,
             "name": "Nirvana Manga",
             "lang": "tr",
             "baseUrl": "https://nirvanamanga.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,40 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1702,
+                    "status": "WARN",
+                    "durationMs": 506,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 521"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1734,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 213,
+                    "message": "HTTP error 521",
                     "notes": [],
-                    "samples": [
-                        "Operation: True Love -> /manga/operation-true-love/",
-                        "Maybe Meant to Be -> /manga/maybe-meant-to-be/",
-                        "Hidden Love -> /manga/hidden-love/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1161,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 232,
+                    "message": "HTTP error 521",
                     "notes": [],
-                    "samples": [
-                        "Operation: True Love -> /manga/operation-true-love/",
-                        "Hidden Love -> /manga/hidden-love/",
-                        "Özgürsüz -> /manga/ozgursuz/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,58 +57,74 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1699,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Operation: True Love -> /manga/operation-true-love/"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1345,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 108 -> /operation-true-love-bolum-108/",
-                        "Bölüm 107 -> /operation-true-love-bolum-107/",
-                        "Bölüm 106 -> /operation-true-love-bolum-106/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1507,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://nirvanamanga.com/wp-content/uploads/2025/04/01_001-2.jpg",
-                        "https://nirvanamanga.com/wp-content/uploads/2025/04/01_002-2.jpg",
-                        "https://nirvanamanga.com/wp-content/uploads/2025/04/01_003-2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2321,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T21:27:20.568610708Z",
+    "comparedTo": "2026-10-27T22:32:46.418194249Z",
     "changes": [
         {
             "source": "Nirvana Manga",
             "lang": "tr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Nirvana Manga",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Nirvana Manga",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Nirvana Manga",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Nirvana Manga",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Nirvana Manga",
+            "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
+        },
+        {
+            "source": "Nirvana Manga",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

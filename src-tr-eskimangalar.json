@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:37:14.056169919Z",
+    "generatedAt": "2026-10-28T18:39:35.721530012Z",
     "module": ":src:tr:eskimangalar",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
-    "harnessCommit": "d23a073",
+    "extensionCommit": "7b21db62",
     "sources": [
         {
             "sourceId": 455290087526139932,
             "name": "Eski Mangalar",
             "lang": "tr",
             "baseUrl": "https://eskimangalar.com",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 151,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from eskimangalar.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 885,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 31,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from eskimangalar.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 661,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Geçmişten Gelen Oyuncu -> /manga/gecmisten-gelen-oyuncu",
+                        "Göksel Cevher Ustası -> /manga/goksel-cevher-ustasi",
+                        "Maksimum Seviye Kahraman Geri Döndü -> /manga/maksimum-seviye-kahraman-geri-dondu"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 14,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from eskimangalar.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 538,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Antik Ölümsüzün Uyanışı -> /manga/antik-olumsuzun-uyanisi",
+                        "Ben Yenilmez Miyim? -> /manga/ben-yenilmez-miyim",
+                        "Kız Kardeşim Bir Süper Star -> /manga/kiz-kardesim-bir-super-star"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -62,40 +63,94 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
-                },
-                {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 365,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Bölüm 259 -> /manga/gecmisten-gelen-oyuncu/259-bolum-oku",
+                        "Bölüm 258 -> /manga/gecmisten-gelen-oyuncu/258-bolum-oku",
+                        "Bölüm 257 -> /manga/gecmisten-gelen-oyuncu/257-bolum-oku"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 341,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://cdn-es.efsaneler2.can.re/_manga/459/259/1__9hj9jf.avif",
+                        "https://cdn-es.efsaneler2.can.re/_manga/459/259/2__mesg58.avif",
+                        "https://cdn-es.efsaneler2.can.re/_manga/459/259/3__u1innz.avif"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 1506,
+                    "message": null,
+                    "notes": [
+                        "page[0] image is AVIF, which the harness cannot decode; Android decodes it natively",
+                        "page[1] image is AVIF, which the harness cannot decode; Android decodes it natively",
+                        "page[2] image is AVIF, which the harness cannot decode; Android decodes it natively"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:54:05.253725341Z",
+    "comparedTo": "2026-10-27T22:37:14.056169919Z",
     "changes": [
         {
             "source": "Eski Mangalar",
             "lang": "tr",
-            "scenario": "search",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Eski Mangalar",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Eski Mangalar",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Eski Mangalar",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Eski Mangalar",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Eski Mangalar",
+            "lang": "tr",
+            "scenario": "images",
             "from": null,
-            "to": "SKIP"
+            "to": "WARN"
+        },
+        {
+            "source": "Eski Mangalar",
+            "lang": "tr",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": null
         }
     ],
     "throttledHosts": []

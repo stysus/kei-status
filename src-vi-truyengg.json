@@ -1,53 +1,50 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T10:07:11.794600334Z",
+    "generatedAt": "2026-10-28T18:36:55.797458999Z",
     "module": ":src:vi:truyengg",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1458993267006200127,
             "name": "FoxTruyen",
             "lang": "vi",
             "baseUrl": "https://foxtruyen2.com",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 20321,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from foxtruyen2.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 3773,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 28,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "WARN",
+                    "durationMs": 73,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from foxtruyen2.com (HTTP 403)"
+                        "popular/latest returned an empty list"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 2008,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "WARN",
+                    "durationMs": 2003,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from foxtruyen2.com (HTTP 403)"
+                        "popular/latest returned an empty list"
                     ],
                     "samples": []
                 },
@@ -60,14 +57,6 @@
                     "samples": [
                         "6 filters"
                     ]
-                },
-                {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -88,28 +77,35 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:38:47.003584996Z",
+    "comparedTo": "2026-10-28T10:07:11.794600334Z",
     "changes": [
         {
             "source": "FoxTruyen",
             "lang": "vi",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "FoxTruyen",
             "lang": "vi",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "WARN"
         },
         {
             "source": "FoxTruyen",
             "lang": "vi",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "WARN"
+        },
+        {
+            "source": "FoxTruyen",
+            "lang": "vi",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": null
         }
     ],
     "throttledHosts": []

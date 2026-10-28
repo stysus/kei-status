@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T10:06:23.780374156Z",
+    "generatedAt": "2026-10-28T18:35:08.523523956Z",
     "module": ":src:es:yupmanga",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 4437245120973625796,
             "name": "Yupmanga",
             "lang": "es",
             "baseUrl": "https://www.yupmanga.com",
-            "status": "FAIL",
+            "status": "UNSUPPORTED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 998,
+                    "durationMs": 607,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 8662,
+                    "durationMs": 899,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 298,
+                    "durationMs": 1035,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,44 +63,44 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1079,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "¡Oh, Mi Hotel! -> LV49B1AG0LA92"
-                    ]
-                },
-                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1907,
+                    "durationMs": 2092,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Tomo - 01 -> jB05bjmSnUYrYrRKKeSvOBuArfoWxk0B3wEJY9BnhoLd32Fib-CzJ0W9jwxo1E1_vmcSO-4CNefP7TiAS4kX#LV49B1AG0LA92"
+                        "Tomo - 01 -> YcB9Bp51QEAgkCWNUAoWZdhRcqtiN5mBYhctFLsx1metjmpN3vHR7CJcgq7zeJzJbnGCk__J3NcYtqOtT_07#LV49B1AG0LA92"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 988,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "UNSUPPORTED",
+                    "durationMs": 1874,
+                    "message": "requires the native QuickJS library, which has no JVM build: app.cash.quickjs.QuickJs",
+                    "notes": [
+                        "java.lang.NoClassDefFoundError: app/cash/quickjs/QuickJs",
+                        "java.lang.ClassNotFoundException: app.cash.quickjs.QuickJs"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:27:44.501227736Z",
+    "comparedTo": "2026-10-28T10:06:23.780374156Z",
     "changes": [
         {
             "source": "Yupmanga",
             "lang": "es",
             "scenario": "pages",
-            "from": "UNSUPPORTED",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "UNSUPPORTED"
+        },
+        {
+            "source": "Yupmanga",
+            "lang": "es",
+            "scenario": "search",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

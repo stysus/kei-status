@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T10:07:10.700077630Z",
+    "generatedAt": "2026-10-28T18:37:45.604717835Z",
     "module": ":src:zh:manhuawu",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 3279300917142951720,
             "name": "漫画屋",
             "lang": "zh",
             "baseUrl": "https://www.mhua5.com",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,48 +23,40 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 212,
+                    "durationMs": 549,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 20322,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "FAIL",
+                    "durationMs": 8543,
+                    "message": "NullPointerException at MCCMSWeb.parseListing(MCCMSWeb.kt:50)",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.mhua5.com (HTTP 403)"
+                        "java.lang.NullPointerException: <no message>"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 14,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "FAIL",
+                    "durationMs": 1652,
+                    "message": "NullPointerException at MCCMSWeb.parseListing(MCCMSWeb.kt:50)",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.mhua5.com (HTTP 403)"
+                        "java.lang.NullPointerException: <no message>"
                     ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 9,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "5 filters"
                     ]
-                },
-                {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -86,21 +77,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:37:20.503662005Z",
+    "comparedTo": "2026-10-28T10:07:10.700077630Z",
     "changes": [
         {
             "source": "漫画屋",
             "lang": "zh",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "FAIL"
         },
         {
             "source": "漫画屋",
             "lang": "zh",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "FAIL"
+        },
+        {
+            "source": "漫画屋",
+            "lang": "zh",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T10:12:18.275833855Z",
+    "generatedAt": "2026-10-28T18:40:41.929850840Z",
     "module": ":src:tr:lunascans",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 6989973853577548620,
             "name": "Luna Scans",
             "lang": "tr",
             "baseUrl": "https://tuhafscans.com",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2989,
+                    "durationMs": 2253,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 898,
+                    "durationMs": 836,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 788,
+                    "durationMs": 761,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,59 +63,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "THROTTLED",
-                    "durationMs": 14571,
-                    "message": "the site is rate-limiting this sweep (HTTP 429, retry after 3600s); the source was not checked",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 797,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Bölüm 82 [Son] -> bolum-82-son",
+                        "Bölüm 81 -> bolum-81",
+                        "Bölüm 80 -> bolum-80"
+                    ]
+                },
+                {
+                    "name": "pages",
+                    "status": "WARN",
+                    "durationMs": 699,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                        "page list is empty"
                     ],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
+                    "name": "images",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "tuhafscans.com answered HTTP 429 earlier in this run",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:35:00.630880285Z",
+    "comparedTo": "2026-10-28T10:12:18.275833855Z",
     "changes": [
         {
             "source": "Luna Scans",
             "lang": "tr",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "THROTTLED"
-        },
-        {
-            "source": "Luna Scans",
-            "lang": "tr",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Luna Scans",
             "lang": "tr",
             "scenario": "pages",
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Luna Scans",
+            "lang": "tr",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "Luna Scans",
+            "lang": "tr",
+            "scenario": "search",
             "from": "THROTTLED",
-            "to": "SKIP"
+            "to": null
         }
     ],
-    "throttledHosts": [
-        "tuhafscans.com"
-    ]
+    "throttledHosts": []
 }

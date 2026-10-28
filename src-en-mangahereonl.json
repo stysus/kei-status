@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:27:21.540851325Z",
+    "generatedAt": "2026-10-28T18:33:13.199586826Z",
     "module": ":src:en:mangahereonl",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
-    "harnessCommit": "d23a073",
+    "extensionCommit": "7b21db62",
     "sources": [
         {
             "sourceId": 3901872639081578162,
             "name": "MangaHere.onl",
             "lang": "en",
             "baseUrl": "https://mangahere.onl",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2118,
+                    "durationMs": 4997,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1652,
+                    "durationMs": 3234,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1804,
+                    "durationMs": 2583,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Eleceed -> /manga/eleceed",
-                        "Ring ni Kakero -> /manga/ring-ni-kakero",
-                        "Fairy Tail: 100 Years Quest -> /manga/fairy-tail-100-years-quest_105"
+                        "Amai Seikatsu -> /manga/amai-seikatsu",
+                        "Azur Lane 4-Koma: Slow Ahead -> /manga/azur-lane-4-koma-slow-ahead",
+                        "Kengan Omega -> /manga/kengan-omega"
                     ]
                 },
                 {
@@ -64,17 +63,9 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "FAIL",
-                    "durationMs": 728,
-                    "message": "select `s`.`mangaID` as `mangaID`, `s`.`rank` as `rank`, `s`.`title` as `title`, `s`.`slug` as `slug`, `s`.`image` as `image`, `s`.`licenceLevel` as `licenceLevel`, `m`.`isLicensed` as `isLicensed`, `m`.`id` as `id`, `m`.`status` as `status`, `m`.`latestChapter` as `latestChapter`, `m`.`author` as `author`, `m`.`genres` as `genres`, `m`.`isSafe` as `isSafe`, `m`.`createdDate` as `createdDate`, `m`.`updatedDate` as `updatedDate`, (MATCH(`s`.`title`, `s`.`alternativeTitle`) AGAINST ('Martial Peak' IN NATURAL LANGUAGE MODE)\n              + CASE\n                  WHEN `s`.`title` = 'Martial Peak' THEN 1000\n                  ELSE 0\n                END) AS `relevance` from `mh01` as `s` inner join `Manga` as `m` on `s`.`mangaID` = `m`.`id` where `s`.`sourceStatus` = '0' and `m`.`latestChapter` > -1 and (MATCH(`s`.`title`, `s`.`alternativeTitle`) AGAINST ('Martial Peak' IN NATURAL LANGUAGE MODE)) order by `relevance` desc, s.rank ASC limit 30 - Can't find FULLTEXT index matching the column list",
-                    "notes": [],
-                    "samples": []
-                },
-                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1519,
+                    "durationMs": 5892,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -86,7 +77,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 580,
+                    "durationMs": 3780,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -98,7 +89,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 234,
+                    "durationMs": 232,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -106,14 +97,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:50:00.633844193Z",
+    "comparedTo": "2026-10-27T22:27:21.540851325Z",
     "changes": [
         {
             "source": "MangaHere.onl",
             "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": null
         }
     ],
     "throttledHosts": []

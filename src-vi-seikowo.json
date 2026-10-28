@@ -1,22 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T10:06:05.656824238Z",
+    "generatedAt": "2026-10-28T18:40:15.265748930Z",
     "module": ":src:vi:seikowo",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 3049157397733640125,
             "name": "Seikowo",
             "lang": "vi",
             "baseUrl": "https://seikowo-app.blogspot.com",
-            "status": "THROTTLED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -24,50 +23,50 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 430,
+                    "durationMs": 1111,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "THROTTLED",
-                    "durationMs": 1874,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 525,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "TS Tensei Bishoujo Netora Reiko wa Netoraretai -> /2026/02/ts-tensei-bishoujo-netora-reiko-wa.html",
+                        "30 made Hitori Dattara Issho ni Kurasou tte Itta yo ne ? -> /2026/10/30-made-hitori-dattara-issho-ni-kurasou.html",
+                        "Zense wa Kentei. Konjou Kuzu Ouji -> /2026/10/zense-wa-kentei-konjou-kuzu-ouji.html"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "seikowo-app.blogspot.com answered HTTP 429 earlier in this run",
+                    "status": "PASS",
+                    "durationMs": 403,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chào mừng đến với nhà hàng của những kẻ bị ruồng bỏ -> /2026/04/chao-mung-en-voi-nha-hang-cua-nhung-ke.html",
+                        "Cuộc chơi trên núi tử thần -> /2026/04/cuoc-choi-tren-nui-tu-than_5.html",
+                        "Cuộc sống \"thiện xạ\" của ông chú được triệu hồi sang dị giới -> /2026/04/cuoc-song-thien-xa-cua-ong-chu-uoc_51.html"
+                    ]
                 },
                 {
                     "name": "filters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "seikowo-app.blogspot.com answered HTTP 429 earlier in this run",
+                    "status": "PASS",
+                    "durationMs": 2,
+                    "message": null,
                     "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "samples": [
+                        "4 filters"
+                    ]
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 5280,
+                    "message": "Cannot find metadata",
                     "notes": [],
                     "samples": []
                 },
@@ -75,52 +74,50 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:33:01.804485714Z",
+    "comparedTo": "2026-10-28T10:06:05.656824238Z",
     "changes": [
         {
             "source": "Seikowo",
             "lang": "vi",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "Seikowo",
             "lang": "vi",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Seikowo",
             "lang": "vi",
             "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Seikowo",
-            "lang": "vi",
-            "scenario": "search",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Seikowo",
             "lang": "vi",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "FAIL"
+        },
+        {
+            "source": "Seikowo",
+            "lang": "vi",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": null
         }
     ],
-    "throttledHosts": [
-        "seikowo-app.blogspot.com"
-    ]
+    "throttledHosts": []
 }

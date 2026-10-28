@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:35:31.906550918Z",
+    "generatedAt": "2026-10-28T18:37:18.453119077Z",
     "module": ":src:pt:toonbr",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
-    "harnessCommit": "d23a073",
+    "extensionCommit": "7b21db62",
     "sources": [
         {
             "sourceId": 534693024654050396,
             "name": "ToonBr",
             "lang": "pt-BR",
             "baseUrl": "https://beta.toonbr.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 594,
+                    "durationMs": 1018,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1285,
+                    "durationMs": 1458,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 573,
+                    "durationMs": 761,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,19 +63,9 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 168,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Escola de Guerreiros – Departamento de Ataque às Dungeons -> /manga/escola-de-guerreiros-departamento-de-ataque-as-dungeons"
-                    ]
-                },
-                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 424,
+                    "durationMs": 607,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,7 +77,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 598,
+                    "durationMs": 679,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -99,23 +88,32 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1347,
+                    "status": "WARN",
+                    "durationMs": 1565,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[2] image request failed: SocketException: Connection reset"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:49:56.405014160Z",
+    "comparedTo": "2026-10-27T22:35:31.906550918Z",
     "changes": [
         {
             "source": "ToonBr",
             "lang": "pt-BR",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "ToonBr",
+            "lang": "pt-BR",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:28:02.452643261Z",
+    "generatedAt": "2026-10-28T18:34:57.723788490Z",
     "module": ":src:es:mhscans",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
-    "harnessCommit": "d23a073",
+    "extensionCommit": "7b21db62",
     "sources": [
         {
             "sourceId": 3253304651550496369,
             "name": "MHScans",
             "lang": "es",
             "baseUrl": "https://mhscans.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1407,
+                    "durationMs": 2174,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 2541,
+                    "durationMs": 3283,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 3016,
+                    "durationMs": 2021,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "El secreto del senpai perfecto -> 136239618",
                         "El Cambio de mi Vida como Personaje Secundario -> 3153",
-                        "Mis Discípulos son Todos Grandes Villanos -> 136216486",
-                        "La Era Global De Las Anomalias -> 136207665"
+                        "Un Presidente Genio Que Quiere Una Vida Tranquila -> 136228513"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,57 +63,53 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 2602,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "El Antiguo Soberano de la Eternidad -> 2429"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 13679,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 34601,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Capitulo 573.2 AVISO IMPORTANTE NO ES CAP -> capitulo-573-2-aviso-importante-no-es-cap",
-                        "Capitulo 571 -Sinceridad- -> capitulo-571-sinceridad",
-                        "Capitulo 570 -El reino secreto del Mar del Este- -> capitulo-570-el-reino-secreto-del-mar-del-este"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2472,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mhscans.com/wp-content/uploads/WP-manga/data/manga_6699ee1cefb96/70944d36c87f9c21dd215d890afd618f/0.jpg",
-                        "https://mhscans.com/wp-content/uploads/WP-manga/data/manga_6699ee1cefb96/70944d36c87f9c21dd215d890afd618f/01.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 8470,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T09:22:22.544521526Z",
+    "comparedTo": "2026-10-27T22:28:02.452643261Z",
     "changes": [
         {
             "source": "MHScans",
             "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MHScans",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MHScans",
+            "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
+        },
+        {
+            "source": "MHScans",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

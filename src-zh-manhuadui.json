@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T10:09:48.865539905Z",
+    "generatedAt": "2026-10-28T18:39:05.312720997Z",
     "module": ":src:zh:manhuadui",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 1637952806167036168,
             "name": "优酷漫画",
             "lang": "zh",
             "baseUrl": "https://www.ykmh.net",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 574,
+                    "status": "WARN",
+                    "durationMs": 362,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 520"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 188,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 200,
+                    "message": "HTTP error 520",
                     "notes": [],
-                    "samples": [
-                        "Fate x 月姬本子合集 -> /manhua/Fatexyuejibenziheji/",
-                        "枯萎之花上的眼泪 -> /manhua/kuweizhihuashangdeyanlei/",
-                        "一拳超人 -> /manhua/yiquanchaoren/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 423,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 751,
+                    "message": "HTTP error 520",
                     "notes": [],
-                    "samples": [
-                        "珊瑚之棺 -> /manhua/shanhuzhiguan/",
-                        "社长与酒与星 -> /manhua/shechangyujiuyuxing/",
-                        "百濑玲的初恋破裂中 -> /manhua/bailailingdechulianpoliezhong/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,83 +57,74 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 3007,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Fate x 月姬本子合集 -> /manhua/Fatexyuejibenziheji/"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 189,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "October 3rd Set Patreon HxD -> /manhua/Fatexyuejibenziheji/122911.html",
-                        "绝 -> /manhua/Fatexyuejibenziheji/122910.html",
-                        "October 2nd Set Patreon HxD -> /manhua/Fatexyuejibenziheji/122909.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 902,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://fm.haotuyk.top/images/comic/62/122911/http://js.haotuyk.top/images/comic/102/202299/1641199879BvIFCRVevXt2pehr.jpg",
-                        "https://fm.haotuyk.top/images/comic/62/122911/http://js.haotuyk.top/images/comic/102/202299/1641199878WcwiP9ZjFYubhxmA.jpg",
-                        "https://fm.haotuyk.top/images/comic/62/122911/http://js.haotuyk.top/images/comic/102/202299/1641199876cXVhexGBkIGj5O1g.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 1223,
-                    "message": null,
-                    "notes": [
-                        "page[0] image returned HTTP 404",
-                        "page[1] image returned HTTP 404",
-                        "page[2] image returned HTTP 404"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:37:02.857106671Z",
+    "comparedTo": "2026-10-28T10:09:48.865539905Z",
     "changes": [
         {
             "source": "优酷漫画",
             "lang": "zh",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "优酷漫画",
+            "lang": "zh",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "优酷漫画",
+            "lang": "zh",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "优酷漫画",
             "lang": "zh",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "优酷漫画",
             "lang": "zh",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "优酷漫画",
+            "lang": "zh",
+            "scenario": "search",
+            "from": "PASS",
+            "to": null
         },
         {
             "source": "优酷漫画",
             "lang": "zh",
             "scenario": "images",
-            "from": null,
-            "to": "WARN"
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

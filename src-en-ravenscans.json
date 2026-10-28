@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T10:26:40.726100416Z",
+    "generatedAt": "2026-10-28T18:37:47.176267218Z",
     "module": ":src:en:ravenscans",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 5160001879976399540,
             "name": "Raven Scans",
             "lang": "en",
             "baseUrl": "https://ravenscans.org",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 23843,
+                    "durationMs": 4264,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 7180,
+                    "durationMs": 704,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 7538,
+                    "durationMs": 524,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Lady Snack Bar -> /manga/lady-snack-bar/",
-                        "The Price of Yes -> /manga/the-price-of-yes/",
-                        "Right Under His Roof -> /manga/right-under-his-roof/"
+                        "Villain to Kill -> /manga/villain-to-kill/",
+                        "Leveling Up with Monsters: Shadow Sovereign -> /manga/leveling-up-with-monsters-shadow-sovereign/",
+                        "I’ll Retire After Saving the World -> /manga/ill-retire-after-saving-the-world/"
                     ]
                 },
                 {
@@ -64,19 +63,9 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 31468,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "My Gift LVL 9999 Unlimited Gacha -> /manga/my-gift-lvl-9999-unlimited-gacha/"
-                    ]
-                },
-                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 25098,
+                    "durationMs": 217,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,7 +77,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 10190,
+                    "durationMs": 156,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -99,23 +88,33 @@
                 },
                 {
                     "name": "images",
-                    "status": "FAIL",
-                    "durationMs": 45000,
-                    "message": "timed out after 45s",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 512,
+                    "message": null,
+                    "notes": [
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn5.ravenscans.org (HTTP 403)",
+                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn5.ravenscans.org (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:33:27.355346100Z",
+    "comparedTo": "2026-10-28T10:26:40.726100416Z",
     "changes": [
         {
             "source": "Raven Scans",
             "lang": "en",
             "scenario": "images",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
+        },
+        {
+            "source": "Raven Scans",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

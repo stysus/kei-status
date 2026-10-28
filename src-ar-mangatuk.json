@@ -1,17 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:28:08.780983701Z",
+    "generatedAt": "2026-10-28T18:30:34.968721205Z",
     "module": ":src:ar:mangatuk",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
-    "harnessCommit": "d23a073",
+    "extensionCommit": "7b21db62",
     "sources": [
         {
             "sourceId": 6924751245735287034,
             "name": "MangaTuk",
             "lang": "ar",
             "baseUrl": "https://mangatuk.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -24,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 15132,
+                    "durationMs": 958,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 25943,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 646,
+                    "message": "HTTP error 503",
                     "notes": [],
-                    "samples": [
-                        "Tears on a Withered Flower -> wpser_8063be9ecbddf5cb92a38a1bcc",
-                        "Merry Psycho -> wpser_7b89691a67555f07f4d5d27f54",
-                        "Can't Get Enough of You -> wpser_665c00252ed7b4a32bd3d6cd37"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 4413,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 217,
+                    "message": "HTTP error 503",
                     "notes": [],
-                    "samples": [
-                        "Teto X Egen -> zt3n52mmk4o4vdhol6l54voh",
-                        "The Forgotten Field -> s2725fwrq8j05mbvgbfueof2",
-                        "Serim's Golden Rule -> lykdjgxqfamtjttrjgr6ikd1"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,58 +55,67 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 3838,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Tears on a Withered Flower -> wpser_8063be9ecbddf5cb92a38a1bcc"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 3720,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "الفصل 124 -> ar315d2hd96s8fpgzstdxvrp",
-                        "الفصل 123 -> pbc5nky0kt5fwbseyh8gy3nj",
-                        "الفصل 122 -> cl0o0l87ki6bu2ta3b45ezu2"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 3564,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://content.mangatuk.com/WP-manga/manga_6800e9a042238/935d5c080d7d8bdf5375e5a6609eaada/001.webp",
-                        "https://content.mangatuk.com/WP-manga/manga_6800e9a042238/935d5c080d7d8bdf5375e5a6609eaada/002.webp",
-                        "https://content.mangatuk.com/WP-manga/manga_6800e9a042238/935d5c080d7d8bdf5375e5a6609eaada/003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 289,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-20T19:48:32.741405867Z",
+    "comparedTo": "2026-10-27T22:28:08.780983701Z",
     "changes": [
         {
             "source": "MangaTuk",
             "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaTuk",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaTuk",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaTuk",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaTuk",
+            "lang": "ar",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
+        },
+        {
+            "source": "MangaTuk",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

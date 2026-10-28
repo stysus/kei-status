@@ -1,22 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T09:54:19.577715848Z",
+    "generatedAt": "2026-10-28T18:27:23.015976072Z",
     "module": ":src:all:comicskingdom",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 3350274514125477391,
             "name": "Comics Kingdom",
             "lang": "en",
             "baseUrl": "https://wp.comicskingdom.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -24,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1367,
+                    "durationMs": 1211,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -32,31 +31,31 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1387,
+                    "durationMs": 262,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Sunny with a Chance of Heat -> /wp-json/wp/v2/ck_feature/7751457?per_page=20&_fields=&ck_language=english&slug=sunny-with-a-chance-of-heat",
                         "Wannabe -> /wp-json/wp/v2/ck_feature/7367349?per_page=20&_fields=&ck_language=english&slug=wannabe",
-                        "Mostly Gravy -> /wp-json/wp/v2/ck_feature/7359087?per_page=20&_fields=&ck_language=english&slug=mostly-gravy",
-                        "Phantom 2040: A New Shadow -> /wp-json/wp/v2/ck_feature/7330836?per_page=20&_fields=&ck_language=english&slug=phantom-2040-a-new-shadow"
+                        "Mostly Gravy -> /wp-json/wp/v2/ck_feature/7359087?per_page=20&_fields=&ck_language=english&slug=mostly-gravy"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1012,
+                    "durationMs": 362,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Sunny with a Chance of Heat -> /wp-json/wp/v2/ck_feature/7751457?per_page=20&_fields=&ck_language=english&slug=sunny-with-a-chance-of-heat",
                         "Wannabe -> /wp-json/wp/v2/ck_feature/7367349?per_page=20&_fields=&ck_language=english&slug=wannabe",
-                        "Mostly Gravy -> /wp-json/wp/v2/ck_feature/7359087?per_page=20&_fields=&ck_language=english&slug=mostly-gravy",
-                        "Phantom 2040: A New Shadow -> /wp-json/wp/v2/ck_feature/7330836?per_page=20&_fields=&ck_language=english&slug=phantom-2040-a-new-shadow"
+                        "Mostly Gravy -> /wp-json/wp/v2/ck_feature/7359087?per_page=20&_fields=&ck_language=english&slug=mostly-gravy"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,44 +63,20 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 380,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Wannabe -> /wp-json/wp/v2/ck_feature/7367349?per_page=20&_fields=&ck_language=english&slug=wannabe"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 2674,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "1001-1019 -> /wp-json/wp/v2/ck_comic?per_page=100&_fields=&orderBy=date&order=asc&ck_feature=wannabe&page=11",
-                        "901-1000 -> /wp-json/wp/v2/ck_comic?per_page=100&_fields=&orderBy=date&order=asc&ck_feature=wannabe&page=10",
-                        "801-900 -> /wp-json/wp/v2/ck_comic?per_page=100&_fields=&orderBy=date&order=asc&ck_feature=wannabe&page=9"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 1546,
+                    "message": "NullPointerException at ComicsKingdom.getChapterList(ComicsKingdom.kt:147)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2881,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2024/04/Y2tXYW5uYWJlLUVORy01NjQyNjIx.jpg",
-                        "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2024/04/Y2tXYW5uYWJlLUVORy01NjQyNjI3.jpg",
-                        "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2024/04/Y2tXYW5uYWJlLUVORy01NjQyNjIz.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 436,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
@@ -135,7 +110,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1375,
+                    "durationMs": 1515,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -147,7 +122,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1594,
+                    "durationMs": 764,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -169,19 +144,9 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 382,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Goomer -> /wp-json/wp/v2/ck_feature/6788162?per_page=20&_fields=&ck_language=spanish&slug=goomer-spanish"
-                    ]
-                },
-                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 2057,
+                    "durationMs": 974,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -193,7 +158,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 3922,
+                    "durationMs": 3644,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -205,7 +170,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 195,
+                    "durationMs": 926,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -213,28 +178,42 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:23:11.606039081Z",
+    "comparedTo": "2026-10-28T09:54:19.577715848Z",
     "changes": [
         {
             "source": "Comics Kingdom",
-            "lang": "es",
+            "lang": "en",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Comics Kingdom",
-            "lang": "es",
+            "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Comics Kingdom",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": null
+        },
+        {
+            "source": "Comics Kingdom",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         },
         {
             "source": "Comics Kingdom",
             "lang": "es",
-            "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "scenario": "search",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

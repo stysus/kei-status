@@ -1,10 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T10:00:57.140279222Z",
+    "generatedAt": "2026-10-28T18:29:21.618281552Z",
     "module": ":src:ar:yurimoonsub",
     "sourceRoot": "",
     "extensionCommit": "7b21db62",
-    "harnessCommit": "d23a073",
     "sources": [
         {
             "sourceId": 7833471811016150678,
@@ -24,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 593,
+                    "durationMs": 391,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 429"
@@ -33,52 +32,8 @@
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1548,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Bad Thinking Diary مانهوا مترجمة -> /2022/08/bad-thinking-diary_23.html",
-                        "lily of the valley مانهوا مترجمة -> /2024/05/lily-of-valley.html",
-                        "i adore you teacher مانهوا مترجمة -> /2024/09/i-adore-you-teacher.html"
-                    ]
-                },
-                {
-                    "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 183,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Soul drifters مترجمة -> /2026/02/soul-drifters.html",
-                        "show me your bust مانهوا مترجمة -> /2023/05/show-me-your-bust_01940674042.html",
-                        "I Love Amy مترجمة -> /2026/08/i-love-amy.html"
-                    ]
-                },
-                {
-                    "name": "filters",
-                    "status": "PASS",
-                    "durationMs": 0,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 126,
-                    "message": null,
-                    "notes": [
-                        "query \"Bad Thinking Diary م\" matched no results in the first page"
-                    ],
-                    "samples": []
-                },
-                {
-                    "name": "chapters",
                     "status": "THROTTLED",
-                    "durationMs": 2328,
+                    "durationMs": 1824,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
@@ -86,44 +41,75 @@
                     "samples": []
                 },
                 {
+                    "name": "latest",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "yurimoonsub.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "yurimoonsub.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:28:21.623198530Z",
+    "comparedTo": "2026-10-28T10:00:57.140279222Z",
     "changes": [
         {
             "source": "Yuri Moon Sub",
             "lang": "ar",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Yuri Moon Sub",
-            "lang": "ar",
-            "scenario": "chapters",
+            "scenario": "popular",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "Yuri Moon Sub",
             "lang": "ar",
-            "scenario": "pages",
+            "scenario": "latest",
             "from": "PASS",
             "to": "SKIP"
         },
         {
             "source": "Yuri Moon Sub",
             "lang": "ar",
-            "scenario": "images",
+            "scenario": "filters",
             "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Yuri Moon Sub",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "THROTTLED",
+            "to": "SKIP"
+        },
+        {
+            "source": "Yuri Moon Sub",
+            "lang": "ar",
+            "scenario": "search",
+            "from": "WARN",
             "to": null
         }
     ],

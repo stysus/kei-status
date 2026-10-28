@@ -1,10 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:29:39.513165638Z",
+    "generatedAt": "2026-10-28T18:36:16.554645328Z",
     "module": ":src:en:gourmetscans",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
-    "harnessCommit": "d23a073",
+    "extensionCommit": "7b21db62",
     "sources": [
         {
             "sourceId": 3694940277826033657,
@@ -23,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1306,
+                    "status": "WARN",
+                    "durationMs": 355,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1292,
+                    "status": "WARN",
+                    "durationMs": 185,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "It’s Time to Change the Genre -> 2953",
-                        "I Failed to Divorce My Husband -> 6578",
-                        "Lady Baby -> 2092"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1168,
+                    "status": "WARN",
+                    "durationMs": 192,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Roxana -> 3726",
-                        "I’m Being Raised by Villains -> 8286",
-                        "I Divorced and Abandoned My Family -> 30007629"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,58 +61,74 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 484,
-                    "message": null,
-                    "notes": [
-                        "query \"It’s Time to Change \" matched no results in the first page"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 330,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The End Notes - Afterword -> the-end-notes",
-                        "Side Story 3 - Ruediger Winterwald (Fin) -> side-story-3",
-                        "Side Story 2 - Ruediger Winterwald -> side-story-2"
-                    ]
-                },
-                {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1383,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_01.jpg",
-                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_02.jpg",
-                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 701,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-24T01:02:25.615472149Z",
+    "comparedTo": "2026-10-27T22:29:39.513165638Z",
     "changes": [
         {
             "source": "Gourmet Scans",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
+            "scenario": "connectivity",
+            "from": "PASS",
             "to": "WARN"
+        },
+        {
+            "source": "Gourmet Scans",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Gourmet Scans",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Gourmet Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Gourmet Scans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Gourmet Scans",
+            "lang": "en",
+            "scenario": "search",
+            "from": "WARN",
+            "to": null
+        },
+        {
+            "source": "Gourmet Scans",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

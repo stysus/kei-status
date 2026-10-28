@@ -1,10 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-27T22:31:55.576465892Z",
+    "generatedAt": "2026-10-28T18:36:51.662870570Z",
     "module": ":src:id:ngamenkomik",
     "sourceRoot": "",
-    "extensionCommit": "6768cbc2",
-    "harnessCommit": "d23a073",
+    "extensionCommit": "7b21db62",
     "sources": [
         {
             "sourceId": 4607768416266139943,
@@ -23,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 343,
+                    "status": "WARN",
+                    "durationMs": 551,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 216,
+                    "durationMs": 138,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,7 +45,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 138,
+                    "durationMs": 301,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -56,7 +57,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,21 +65,9 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 703,
-                    "message": null,
-                    "notes": [
-                        "query \"Webtoon Character Na\" matched no results in the first page"
-                    ],
-                    "samples": [
-                        "Webtoon Character Na Kang Lim -> /2024/04/webtoon-character-na-kang-lim_9.html"
-                    ]
-                },
-                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 379,
+                    "durationMs": 951,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -90,7 +79,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 562,
+                    "durationMs": 239,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -102,7 +91,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 1440,
+                    "durationMs": 8178,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -110,14 +99,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-24T01:05:08.021818158Z",
+    "comparedTo": "2026-10-27T22:31:55.576465892Z",
     "changes": [
         {
             "source": "NgamenKomik",
             "lang": "id",
-            "scenario": "search",
-            "from": null,
+            "scenario": "connectivity",
+            "from": "PASS",
             "to": "WARN"
+        },
+        {
+            "source": "NgamenKomik",
+            "lang": "id",
+            "scenario": "search",
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []
