@@ -1,7 +1,7 @@
 # kei-status
 
 Runs a Keiyoushi extension's real code on the JVM and reports whether its Mihon entry points still
-work: connectivity, popular, latest, filters, chapter list, page list, and image URLs.
+work: connectivity, popular, latest, filters, search, chapter list, page list, and image URLs.
 
 It is not a Mihon plugin. Extensions cannot call each other inside the app, so this is a separate
 JVM tool that compiles a module from an `extensions-source` checkout, loads the resulting classes,
@@ -128,6 +128,8 @@ What this cannot tell you is as important as what it can.
   keeps its honest note.
 - `androidx.preference` covers the settings API surface extensions call, but nothing is rendered, so
   preference-driven behaviour is only exercised with default values.
+- `search` runs, and a source whose search needs an Android class the harness does not provide
+  (`android.icu.text.*`, ProjectSuki's smart search) reports `UNSUPPORTED` naming it.
 - Crypto goes through the JVM's own providers plus BouncyCastle, which Android also bundles. Without
   it, `AES/CBC/PKCS7PADDING` (`lib/cryptoaes`) and `AES/CBC/ZEROBYTEPADDING` (Mangago) do not exist
   and the libraries swallow the failure, so the extension looked broken while it works on Android.

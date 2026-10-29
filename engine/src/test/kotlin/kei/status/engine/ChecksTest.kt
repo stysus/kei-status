@@ -117,6 +117,24 @@ class ChecksTest {
     }
 
     @Test
+    fun `an empty manga list earns one note`() {
+        // popular, latest and search all route through here; the note names no scenario so it reads
+        // the same whichever one produced it.
+        val notes = Checks.mangaPage(MangasPage(emptyList(), hasNextPage = false))
+
+        assertEquals(listOf("returned an empty list"), notes)
+    }
+
+    @Test
+    fun `blank manga titles are warned, not failed`() {
+        // A blank title is a finding on popular/latest - and it is why search skips instead of
+        // asking the site for it: an empty query is the harness probing badly.
+        val notes = Checks.mangaPage(MangasPage(listOf(SManga.create().apply { title = "" }), hasNextPage = false))
+
+        assertTrue(notes.any { it.startsWith("manga[0] has a blank title") })
+    }
+
+    @Test
     fun `real duplicates are still reported`() {
         val notes = Checks.mangaPage(
             MangasPage(

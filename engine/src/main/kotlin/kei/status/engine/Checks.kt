@@ -17,7 +17,7 @@ object Checks {
     fun mangaPage(page: MangasPage): List<String> {
         val notes = mutableListOf<String>()
 
-        if (page.mangas.isEmpty()) notes += "popular/latest returned an empty list"
+        if (page.mangas.isEmpty()) notes += "returned an empty list"
         if (page.hasNextPage && page.mangas.isEmpty()) notes += "hasNextPage=true but list is empty"
 
         page.mangas.take(5).forEachIndexed { index, manga ->

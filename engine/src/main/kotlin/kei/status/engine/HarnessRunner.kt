@@ -8,6 +8,7 @@ import eu.kanade.tachiyomi.source.ConfigurableSource
 import eu.kanade.tachiyomi.source.model.MangasPage
 import eu.kanade.tachiyomi.source.model.Page
 import eu.kanade.tachiyomi.source.model.SChapter
+import eu.kanade.tachiyomi.source.model.SManga
 import eu.kanade.tachiyomi.source.model.SMangaUpdate
 import eu.kanade.tachiyomi.source.online.HttpSource
 import kei.status.webkit.Chrome
@@ -279,8 +280,18 @@ class HarnessRunner(private val config: HarnessConfig) {
             ?: latest?.value?.mangas?.firstOrNull()
         if (firstManga == null) {
             scenarios += ScenarioResult("chapters", Status.SKIP, 0, "no manga available from popular or latest")
+            scenarios += ScenarioResult("search", Status.SKIP, 0, "no manga available from popular or latest")
             scenarios += ScenarioResult("pages", Status.SKIP, 0, "no manga available from popular or latest")
         } else {
+            // An empty query is the harness probing badly, not the site failing: some sites answer
+            // HTTP 400 for it and the rest hand back the whole catalogue. A blank title was already
+            // a WARN on popular/latest; search has nothing honest to ask for.
+            scenarios += if (firstManga.title.isBlank()) {
+                ScenarioResult("search", Status.SKIP, 0, "no manga title to search for")
+            } else {
+                searchScenario(source, firstManga, host)
+            }
+
             val update = capture("chapters", ::chapterNotes, ::chapterSamples, host = host) {
                 source.getMangaUpdate(firstManga, emptyList(), fetchDetails = true, fetchChapters = true)
             }
@@ -317,6 +328,31 @@ class HarnessRunner(private val config: HarnessConfig) {
             baseUrl = baseUrlOf(source),
             status = worst(scenarios),
             scenarios = scenarios,
+        )
+    }
+
+    /**
+     * Searches for the first manga popular/latest just served, with the source's own filter list so
+     * filter defaults apply exactly as they do in the app. The site must find the title it itself
+     * advertises - a miss or an empty result is a WARN, a throw or timeout still FAILs - on the flow
+     * where URL formats, query encoding and filter payloads concentrate, which no other scenario
+     * touches.
+     */
+    private suspend fun searchScenario(source: CatalogueSource, advertised: SManga, host: String?): ScenarioResult {
+        val search = capture("search", ::mangaNotes, ::mangaSamples, host = host) {
+            source.getSearchManga(1, advertised.title, source.getFilterList())
+        }
+
+        // A miss is evidence only when a page actually came back: a search that threw or timed out
+        // already says so in its message, and "matched no results" would claim a query nobody ever
+        // issued. A miss is a WARN, not a FAIL - a lagging search index is a normal site state.
+        val hit = search.value?.mangas?.any { it.url == advertised.url } == true
+        return if (hit || search.value == null) search.result
+        else search.result.copy(
+            // capture computes the verdict from the notes it saw; the miss note is added after, so
+            // the WARN has to be raised here when nothing else did.
+            status = if (search.result.status == Status.PASS) Status.WARN else search.result.status,
+            notes = search.result.notes + "query \"${advertised.title}\" matched no results in the first page",
         )
     }
 

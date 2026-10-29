@@ -106,6 +106,17 @@ why `publish` runs no Gradle at all.
   fidelity at the margin: a site that goes down mid-module still reports `PASS` for the sources
   checked after it, until the next run.
 
+### `search` asks for a title the site itself advertises
+
+The query is the first manga popular/latest just served, sent with the source's own filter list so
+filter defaults apply exactly as they do in the app. The site must find the title it itself
+advertises: an empty result, or one that misses the advertised manga, is a WARN — a lagging search
+index is a normal site state, so it asks for a glance, not an incident. A search that throws or
+times out still FAILs. This probes the flow where URL formats, query encoding and filter payloads
+concentrate, which no other scenario touches. When popular and latest both return nothing, `search`
+skips with the same note as chapters and pages: there was nothing to search for, and a source whose
+first manga has no title skips for the same reason — an empty query is the harness probing badly.
+
 ### `pages` asks for the earliest numbered chapter
 
 A site's newest chapter is the one most often behind a paywall (a free promo chapter ages into a
