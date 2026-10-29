@@ -73,6 +73,28 @@ class ChecksTest {
     }
 
     @Test
+    fun `a repeated url among distinct ones is flagged as the page's identity`() {
+        // MangaDex-family sources keep a unique server path in imageUrl, so their pages stay checked
+        // on imageUrl; a url-only source that repeats a url among distinct ones is the reader showing
+        // one image twice. Two identical pages with no other url are indistinguishable from the
+        // index-disambiguated pattern below and pass silently.
+        val notes = Checks.pages(
+            listOf(Page(0, url = "/data/1/1.png"), Page(1, url = "/data/1/1.png"), Page(2, url = "/data/1/2.png")),
+        )
+
+        assertTrue("passed silently: $notes", notes.any { it.startsWith("duplicate page urls") })
+    }
+
+    @Test
+    fun `a single url for the whole page list is index-disambiguated, not a duplicate`() {
+        // Comix hands every page of a chapter the same url and resolves getImageUrl by page.index;
+        // the reader shows a different image per page, so the repeated url is not a duplicate.
+        val notes = Checks.pages(List(3) { Page(it, url = "/c/1") })
+
+        assertTrue("flagged the index-disambiguated pattern: $notes", notes.none { it.startsWith("duplicate page urls") })
+    }
+
+    @Test
     fun `real duplicates are still reported`() {
         val notes = Checks.mangaPage(
             MangasPage(
@@ -112,6 +134,20 @@ class ChecksTest {
         ).forEach { missing ->
             assertEquals(missing, Status.UNSUPPORTED, Checks.diagnose(NoClassDefFoundError(missing)).status)
         }
+    }
+
+    @Test
+    fun `a native library the host cannot load is unsupported`() {
+        // The QuickJS jar carries libquickjs.so, which links against libc++; on a host without it
+        // the load fails with UnsatisfiedLinkError naming the runtime, not the extension.
+        val status = Checks.diagnose(
+            UnsatisfiedLinkError(
+                "/tmp/quickjs11888426660758811896.tmp: libc++.so.1: cannot open shared object file: " +
+                    "No such file or directory",
+            ),
+        ).status
+
+        assertEquals(Status.UNSUPPORTED, status)
     }
 
     @Test

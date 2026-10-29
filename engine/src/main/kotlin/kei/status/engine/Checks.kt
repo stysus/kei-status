@@ -69,8 +69,17 @@ object Checks {
             }
         }
 
-        val duplicates = pages.mapNotNull { it.imageUrl?.takeIf(String::isNotBlank) }
-            .groupBy { it }.filterValues { it.size > 1 }.keys
+        // imageUrl when present, else url: the identity a reader would request twice. MangaDex-family
+        // sources keep a unique server path in imageUrl; url-only sources are checked on url. One
+        // exception: a list whose pages all share a single url is index-disambiguated resolution
+        // (Comix resolves getImageUrl by page.index), not a duplicate — a bug repeats a url among
+        // distinct ones.
+        val identities = pages.map { it.imageUrl?.takeIf(String::isNotBlank) ?: it.url }
+            .filter { it.isNotBlank() }
+        val duplicates = identities.groupBy { it }
+            .filterValues { it.size > 1 }
+            .keys
+            .filter { identities.distinct().size > 1 }
         if (duplicates.isNotEmpty()) notes += "duplicate page urls: ${duplicates.take(3)}"
 
         return notes

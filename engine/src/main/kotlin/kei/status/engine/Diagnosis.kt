@@ -245,6 +245,11 @@ object ExceptionDiagnosis {
     private fun unavailablePlatform(t: Throwable): String? = when (t) {
         is NoClassDefFoundError, is ClassNotFoundException -> missingClass(t.message)
         is NoSuchMethodError, is NoSuchFieldError, is AbstractMethodError -> missingMember(t.message)
+        // A native library the jar carries but the host cannot load (libquickjs.so without
+        // libc++, an aarch64 host, Windows) is a platform gap too, not an extension bug.
+        is UnsatisfiedLinkError ->
+            t.message?.let { "requires a native library the harness cannot load on this platform: $it" }
+
         else -> null
     }
 
@@ -256,7 +261,7 @@ object ExceptionDiagnosis {
                 "requires an Android class the harness does not provide: $className"
 
             className.startsWith("app.cash.quickjs.") ->
-                "requires the native QuickJS library, which has no JVM build: $className"
+                "requires QuickJS, whose native library failed to load: $className"
 
             else -> null
         }
@@ -284,7 +289,7 @@ object ExceptionDiagnosis {
                 "requires an Android method or field the harness does not provide: $reference"
 
             owner.startsWith("app.cash.quickjs.") ->
-                "requires the native QuickJS library, which has no JVM build: $reference"
+                "requires QuickJS, whose native library failed to load: $reference"
 
             else -> null
         }

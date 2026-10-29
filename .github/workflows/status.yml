@@ -215,6 +215,11 @@ jobs:
           restore-keys: |
             gradle-build-cache-${{ runner.os }}-shard-${{ matrix.shard }}-
 
+      # libquickjs.so inside app.cash.quickjs:quickjs-jvm links against the LLVM C++ runtime,
+      # which the Linux runner image does not ship; macOS has it out of the box.
+      - name: Install the LLVM C++ runtime
+        run: sudo apt-get update && sudo apt-get install -y libc++1 libc++abi1
+
       - name: Check the toolchain
         run: ./ci/environment.sh extensions-source
 

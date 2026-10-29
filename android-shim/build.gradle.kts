@@ -15,6 +15,11 @@ dependencies {
     implementation(libs.jsoup)
     implementation(libs.webp.imageio)
     implementation(libs.bouncycastle)
+    implementation(libs.quickjs.jvm) {
+        // androidx.annotation is CLASS-retention; the JVM drops missing annotations, and the
+        // artifact only resolves from Google's Maven, which this build does not use.
+        exclude(group = "androidx.annotation")
+    }
 
     testImplementation(libs.junit)
 }

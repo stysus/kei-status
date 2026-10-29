@@ -130,7 +130,8 @@ sweep moves on, and the thread is a daemon so it cannot hold the JVM open.
 ### Linkage failures are classified by their cause
 
 A link failure is only `UNSUPPORTED` when it names an `android.*`/`androidx.*` member the shim does
-not supply, or the native QuickJS library. `NoSuchMethodError`, `NoSuchFieldError` and
+not supply, QuickJS, or a native library the host cannot load. `NoSuchMethodError`,
+`NoSuchFieldError` and
 `AbstractMethodError` carry the member in their message — `'byte[] android.util.Base64.decode(byte[],
 int)'` — so the owner can be read off it, and a shim that provides `android.net.Uri` but not
 `Uri.encode` is the same gap as a missing class: the extension is fine on a device, and calling it

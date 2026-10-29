@@ -115,12 +115,15 @@ What this cannot tell you is as important as what it can.
 
 ### Platform coverage
 
-- Native QuickJS has no JVM build, so sources that evaluate JavaScript through it report
-  `UNSUPPORTED` when a scenario needs it. A background prefetch that needs it prints a one-line note
-  and does not fail the run.
+- JavaScript runs on the same engine Android ships: `app.cash.quickjs:quickjs-jvm`, with the native
+  library inside the jar. The sweep workflow installs the LLVM C++ runtime Linux needs (`libc++1`,
+  `libc++abi1`); macOS ships it, and elsewhere a scenario that needs it reports `UNSUPPORTED` with
+  the missing library named. A background prefetch that needs it prints a one-line note and does not
+  fail the run.
 - `android.graphics` covers `Bitmap`, `BitmapFactory`, `Canvas`, `Paint`, `Rect`/`RectF`, `Color`,
-  `Matrix`, `ColorMatrix(ColorFilter)` and `Typeface`. Text layout (`StaticLayout`, `TextPaint`
-  measurement) is not implemented, so sources that compose text onto images report `UNSUPPORTED`.
+  `Matrix`, `ColorMatrix(ColorFilter)`, `Typeface` and text layout — `StaticLayout` including the
+  `Builder` (greedy word wrap; break strategy and hyphenation are recorded, not acted on) and
+  `TextPaint` measurement — so sources that compose text onto images run here.
 - `androidx.preference` covers the settings API surface extensions call, but nothing is rendered, so
   preference-driven behaviour is only exercised with default values.
 - Crypto goes through the JVM's own providers plus BouncyCastle, which Android also bundles. Without
