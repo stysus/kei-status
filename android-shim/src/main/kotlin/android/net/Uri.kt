@@ -37,10 +37,9 @@ class Uri private constructor(private val value: String) {
         .substringBefore('/').substringBefore('?').substringBefore('#').substringBefore(':')
         .takeIf { it.isNotEmpty() }
 
-    fun getPath(): String? = value.substringAfter("://", value).let {
-        val slash = it.indexOf('/')
-        if (slash < 0) null else it.substring(slash).substringBefore('?').substringBefore('#')
-    }
+    // Delegating to pathOf keeps one rule for "what is the path": the naive first-slash cut would
+    // turn the relative reference "api/v1?page=1" into "/v1", disagreeing with buildUpon.
+    fun getPath(): String? = pathOf(value)
 
     fun buildUpon(): Builder {
         val builder = Builder()

@@ -85,6 +85,14 @@ class UriTest {
     }
 
     @Test
+    fun `getPath on a relative reference keeps the whole path`() {
+        // Same rule as buildUpon: the first slash of a relative reference is not a boundary, and a
+        // single segment with no slash is still a path.
+        assertEquals("api/v1", Uri.parse("api/v1?page=1").getPath())
+        assertEquals("api", Uri.parse("api").getPath())
+    }
+
+    @Test
     fun `getEncodedQuery strips the fragment`() {
         val uri = Uri.parse("https://example.com/path?q=1&page=2#top")
 
