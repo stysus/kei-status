@@ -28,7 +28,7 @@ object Checks {
 
         val duplicates = page.mangas.map { it.url }.filter { it.isNotBlank() }
             .groupBy { it }.filterValues { it.size > 1 }.keys
-        if (duplicates.isNotEmpty()) notes += "duplicate manga urls: ${duplicates.take(3)}"
+        if (duplicates.isNotEmpty()) notes += "duplicate manga urls: ${duplicates.sorted().take(3)}"
 
         return notes
     }
@@ -46,7 +46,7 @@ object Checks {
 
         val duplicates = chapters.map { it.url }.filter { it.isNotBlank() }
             .groupBy { it }.filterValues { it.size > 1 }.keys
-        if (duplicates.isNotEmpty()) notes += "duplicate chapter urls: ${duplicates.take(3)}"
+        if (duplicates.isNotEmpty()) notes += "duplicate chapter urls: ${duplicates.sorted().take(3)}"
 
         return notes
     }
@@ -80,7 +80,7 @@ object Checks {
             .filterValues { it.size > 1 }
             .keys
             .filter { identities.distinct().size > 1 }
-        if (duplicates.isNotEmpty()) notes += "duplicate page urls: ${duplicates.take(3)}"
+        if (duplicates.isNotEmpty()) notes += "duplicate page urls: ${duplicates.sorted().take(3)}"
 
         return notes
     }

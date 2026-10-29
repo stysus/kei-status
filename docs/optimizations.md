@@ -52,6 +52,13 @@ applies lives in [design.md](design.md), and this links rather than repeats it.
   one-line `is HttpException && code == 429` checks whose downstream classification
   (`ChecksTest` pinning `HttpException(429)` → THROTTLED) is already pinned, so they carry no
   test of their own.
+- AVIF decodes through the `avif-imageio` ImageIO plugin on the classpath (natives inside the
+  jar, same pattern as `webp-imageio`); a source serving AVIF is healthy here instead of a
+  permanent false-alarm WARN. HEIF still has no JVM plugin and keeps its honest note.
+  `ImageDecodeNoteTest` pins the decode with a real AVIF fixture.
+- Duplicate-url notes name their urls in sorted order, so a site that returns its list in a
+  different order does not churn the store with note-text rewrites
+  (`ChecksTest` pins order independence).
 - A page list that shares one url (Comix's index-disambiguated pages) is not a duplicate finding.
 
 ## Browser lifecycle

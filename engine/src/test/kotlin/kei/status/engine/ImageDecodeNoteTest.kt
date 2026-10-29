@@ -44,8 +44,9 @@ class ImageDecodeNoteTest {
     }
 
     @Test
-    fun `an avif body is reported as undecodable-by-the-jvm`() {
-        // ISO BMFF: size, 'ftyp', brand 'avif'.
+    fun `an undecodable avif body is still named as avif`() {
+        // ISO BMFF: size, 'ftyp', brand 'avif'. A body this short cannot parse; naming the brand
+        // turns "sent garbage" into the format it failed as.
         val avif = byteArrayOf(
             0, 0, 0, 0x18, 0x66, 0x74, 0x79, 0x70, 0x61, 0x76, 0x69, 0x66, // ....ftypavif
             0, 0, 0, 0, 0x61, 0x76, 0x69, 0x66, 0x6d, 0x69, 0x66, 0x31,    // ....avifmif1
@@ -54,5 +55,16 @@ class ImageDecodeNoteTest {
         val note = imageDecodeNote(0, avif, "application/octet-stream")
 
         assertTrue(note!!.contains("image is AVIF"))
+    }
+
+    @Test
+    fun `a real avif body decodes through the imageio plugin`() {
+        // The AVIF ImageIO plugin ships with the harness; a source serving AVIF is healthy here,
+        // not a permanent false alarm. If this notes, the plugin dropped off the classpath.
+        // Fixture: tests/data/paris_icc_exif_xmp.avif from the libavif test suite
+        // (https://github.com/AOMediaCodec/libavif), BSD-2-Clause like the library itself.
+        val bytes = javaClass.getResourceAsStream("/kei/status/engine/paris.avif")!!.readBytes()
+
+        assertNull(imageDecodeNote(0, bytes, "image/avif"))
     }
 }

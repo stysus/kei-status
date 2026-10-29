@@ -85,6 +85,9 @@ if [ -n "$module" ]; then
     -PharnessModule="$module" \
     "$module:dumpHarnessClasspath" &
   ext_pid=$!
+  # A checker-build failure exits this wrapper via set -e and would otherwise leave the extension
+  # build running as an orphan; the success path clears the trap after the wait.
+  trap 'kill "$ext_pid" 2>/dev/null || true' EXIT
 fi
 
 # The checker itself, also through Gradle so an edited harness is picked up rather than a stale jar.
@@ -92,6 +95,7 @@ fi
 
 if [ -n "$module" ]; then
   wait "$ext_pid" || exit $?
+  trap - EXIT
 fi
 
 if [ -n "$module" ]; then

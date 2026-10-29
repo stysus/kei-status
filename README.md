@@ -123,7 +123,9 @@ What this cannot tell you is as important as what it can.
 - `android.graphics` covers `Bitmap`, `BitmapFactory`, `Canvas`, `Paint`, `Rect`/`RectF`, `Color`,
   `Matrix`, `ColorMatrix(ColorFilter)`, `Typeface` and text layout — `StaticLayout` including the
   `Builder` (greedy word wrap; break strategy and hyphenation are recorded, not acted on) and
-  `TextPaint` measurement — so sources that compose text onto images run here.
+  `TextPaint` measurement — so sources that compose text onto images run here. Decoding gains AVIF
+  from a third-party ImageIO plugin (`avif-imageio`, see NOTICE); HEIF still has no JVM plugin and
+  keeps its honest note.
 - `androidx.preference` covers the settings API surface extensions call, but nothing is rendered, so
   preference-driven behaviour is only exercised with default values.
 - Crypto goes through the JVM's own providers plus BouncyCastle, which Android also bundles. Without

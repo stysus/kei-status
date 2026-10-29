@@ -25,10 +25,11 @@ internal suspend fun HttpSource.resolveImageUrl(page: Page) {
 /**
  * The AVIF or HEIF brand an undecodable payload carries, or null when it is not one.
  *
- * Android decodes AVIF and HEIF natively, the JVM stack does not, so a source that serves those
- * formats reports "did not decode" here while working fine in the app - the same verdict gap a
- * missing platform class is. Naming the brand turns the note from "the source sent garbage" into
- * the platform gap it actually is.
+ * Android decodes AVIF and HEIF natively. The JVM stack decodes AVIF too, through the AVIF ImageIO
+ * plugin on the harness classpath (`avif-imageio`, natives inside the jar); HEIF has no JVM plugin,
+ * so a source that serves it reports "did not decode" here while working fine in the app - the
+ * same verdict gap a missing platform class is. Naming the brand turns the note from "the source
+ * sent garbage" into the platform gap it actually is.
  *
  * An ISO base media file opens with a `ftyp` box: four size bytes, the literal `ftyp`, then the
  * major brand. `avis` is the AVIF sequence brand; `heic` and `mif1`/`msf1` are the HEIF brands -
@@ -70,7 +71,7 @@ internal fun imageDecodeNote(index: Int, bytes: ByteArray, type: String): String
 
     val format = imageFormatName(bytes)
     return if (format != null) {
-        "page[$index] image is $format, which the harness cannot decode; Android decodes it natively"
+        "page[$index] image is $format, which the harness could not decode; Android decodes it natively"
     } else {
         "page[$index] image bytes did not decode ('$type')"
     }

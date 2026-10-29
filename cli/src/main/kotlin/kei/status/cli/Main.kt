@@ -312,7 +312,9 @@ internal fun storeToWrite(options: Options, config: HarnessConfig): Path? =
  * always has one, and a default here would be a third place for that number to live.
  */
 private fun writePlan(options: Options, out: Path): Int {
-    val count = options.shards ?: return 2
+    // Options.parse refuses --plan without --shards, so the count is always here by the time the
+    // command dispatches.
+    val count = options.shards!!
 
     val entries = try {
         selectedEntries(options)

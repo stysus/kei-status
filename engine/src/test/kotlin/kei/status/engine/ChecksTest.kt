@@ -86,6 +86,28 @@ class ChecksTest {
     }
 
     @Test
+    fun `duplicate notes name the same urls regardless of list order`() {
+        // The store compares note text, so a site that returns its list in a different order must
+        // not change the note and churn the file every night.
+        val reversed = Checks.mangaPage(
+            MangasPage(
+                listOf(SManga.create().apply { url = "/manga/c" }, SManga.create().apply { url = "/manga/a" },
+                    SManga.create().apply { url = "/manga/b" }, SManga.create().apply { url = "/manga/a" }),
+                hasNextPage = false,
+            ),
+        )
+        val rotated = Checks.mangaPage(
+            MangasPage(
+                listOf(SManga.create().apply { url = "/manga/a" }, SManga.create().apply { url = "/manga/a" },
+                    SManga.create().apply { url = "/manga/b" }, SManga.create().apply { url = "/manga/c" }),
+                hasNextPage = false,
+            ),
+        )
+
+        assertEquals(reversed, rotated)
+    }
+
+    @Test
     fun `a single url for the whole page list is index-disambiguated, not a duplicate`() {
         // Comix hands every page of a chapter the same url and resolves getImageUrl by page.index;
         // the reader shows a different image per page, so the repeated url is not a duplicate.

@@ -14,6 +14,7 @@ dependencies {
     api(libs.zstd.kmp.okio)
     implementation(libs.jsoup)
     implementation(libs.webp.imageio)
+    implementation(libs.avif.imageio)
     implementation(libs.bouncycastle)
     implementation(libs.quickjs.jvm) {
         // androidx.annotation is CLASS-retention; the JVM drops missing annotations, and the
