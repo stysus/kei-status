@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:39:36.035160494Z",
+    "generatedAt": "2026-10-29T10:28:27.204216204Z",
     "module": ":src:tr:strayfansub",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 7536061906713738443,
             "name": "Stray Fansub",
             "lang": "tr",
             "baseUrl": "https://strayfansub.buzz",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 617,
+                    "durationMs": 808,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 159,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Passion -> /manga/tutku/",
-                        "Flashlight -> /manga/flashlight/",
-                        "Yavru Köpeğimle Uğraşma! -> /manga/yavru-kopegimle-ugrasma/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 548,
+                    "durationMs": 14330,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Passion -> /manga/tutku/",
-                        "Flashlight -> /manga/flashlight/",
-                        "Do Butterflies Dream Of Spring -> /manga/do-butterflies-dream-of-spring/"
+                        "Bongch0n Bride -> /manga/bongchun-gelin/",
+                        "Bu||et Time -> /manga/mermi-zamani/",
+                        "Eb0ny Castle -> /manga/abanoz-kalesi/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,37 +60,47 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 380,
+                    "status": "WARN",
+                    "durationMs": 736,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Bölüm 144 -> /passion-144-bolum/",
-                        "Bölüm 143 -> /passion-143-bolum/",
-                        "Bölüm 142 -> /passion-142-bolum/"
-                    ]
+                    "notes": [
+                        "chapter list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 342,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.Exception: Okumak için WebView üzerinden giriş yapın"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:35:48.091904585Z",
+    "comparedTo": "2026-10-28T18:39:36.035160494Z",
     "changes": [
         {
             "source": "Stray Fansub",
             "lang": "tr",
-            "scenario": "search",
+            "scenario": "popular",
             "from": "PASS",
-            "to": null
+            "to": "FAIL"
+        },
+        {
+            "source": "Stray Fansub",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Stray Fansub",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "BLOCKED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

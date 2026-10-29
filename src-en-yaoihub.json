@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:34:37.906633542Z",
+    "generatedAt": "2026-10-29T10:22:48.438661345Z",
     "module": ":src:en:yaoihub",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 6718273076571980404,
             "name": "Yaoihub",
             "lang": "en",
             "baseUrl": "https://yaoihub.org",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1677,
+                    "status": "WARN",
+                    "durationMs": 19811,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1268,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19620,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Jinx -> 1849",
-                        "Painter of the Night -> 1853",
-                        "Waterside Night -> 1861"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1988,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19288,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Jinx -> 1849",
-                        "Dark Fall -> 1884",
-                        "Pearl Boy: Ignite the Dawn -> 2715"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,45 +58,64 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 6244,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter - 102.5 - author's note -> chapter-102-5",
-                        "Chapter - 102 -> chapter-102",
-                        "Chapter - 101 -> chapter-101"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 5753,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://yaoihub.org/wp-content/uploads/WP-manga/data/manga_64b5646b9bae0/1189da80a80c41290dbd9e85a8962580/101.png",
-                        "https://yaoihub.org/wp-content/uploads/WP-manga/data/manga_64b5646b9bae0/1189da80a80c41290dbd9e85a8962580/102.png",
-                        "https://yaoihub.org/wp-content/uploads/WP-manga/data/manga_64b5646b9bae0/1189da80a80c41290dbd9e85a8962580/103.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2034,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:30:29.483845168Z",
+    "comparedTo": "2026-10-28T18:34:37.906633542Z",
     "changes": [
         {
             "source": "Yaoihub",
             "lang": "en",
-            "scenario": "search",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Yaoihub",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Yaoihub",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Yaoihub",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Yaoihub",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Yaoihub",
+            "lang": "en",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

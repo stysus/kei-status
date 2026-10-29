@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:32:53.470027559Z",
+    "generatedAt": "2026-10-29T10:21:43.145279452Z",
     "module": ":src:en:linkmanga",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 8622937201319058235,
             "name": "LinkManga",
             "lang": "en",
             "baseUrl": "https://linkmanga.com",
-            "status": "WARN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 4934,
+                    "status": "PASS",
+                    "durationMs": 5000,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 500"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 379,
+                    "status": "PASS",
+                    "durationMs": 483,
                     "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Magic Emperor -> 362",
+                        "Kimi ga Hoeru Tame no Uta wo -> 1730",
+                        "The Lazy Prince Becomes a Genius -> 8"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 287,
+                    "status": "PASS",
+                    "durationMs": 523,
                     "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Majutsushi Kunon wa Miete Iru -> 2242",
+                        "Tales of Demons and Gods -> 819",
+                        "King of Beasts -> 2284"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,73 +64,82 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 959,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "chapter 926 -> ch-926",
+                        "chapter 925 -> ch-925",
+                        "chapter 924 -> ch-924"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 516,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://linkmanga.com/wp-content/uploads/WP-manga/data/manga_6a3813a7170b0/ch-926/d049.jpg",
+                        "https://linkmanga.com/wp-content/uploads/WP-manga/data/manga_6a3813a7170b0/ch-926/p001.jpg",
+                        "https://linkmanga.com/wp-content/uploads/WP-manga/data/manga_6a3813a7170b0/ch-926/p002.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 477,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:29:13.884629844Z",
+    "comparedTo": "2026-10-28T18:32:53.470027559Z",
     "changes": [
         {
             "source": "LinkManga",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "LinkManga",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "LinkManga",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "LinkManga",
             "lang": "en",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "LinkManga",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "LinkManga",
-            "lang": "en",
-            "scenario": "search",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "LinkManga",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

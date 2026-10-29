@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:39:31.418610857Z",
+    "generatedAt": "2026-10-29T10:23:59.663351867Z",
     "module": ":src:tr:afroditscans",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 4839000923958753250,
             "name": "Afrodit Scans",
             "lang": "tr",
             "baseUrl": "https://afroditscans.com",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 896,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 172,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from afroditscans.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 712,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Çocuğum İçin Dayanmalıyım! -> /manga/cocugum-icin-dayanmaliyim",
-                        "Ben Şeytanın Biricik Kızıyım! -> /manga/ben-seytanin-biricik-kiziyim",
-                        "Hay Aksi! Kötü Adamın Gelini Oldum! -> /manga/hay-aksi-kotu-adamin-gelini-oldum"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 31,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from afroditscans.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 427,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Evlenmeden Olmaz! -> /manga/evlenmeden-olmaz",
-                        "11336 -> /manga/11336",
-                        "Kont'un Gizli Hizmetçisi -> /manga/kont-un-gizli-hizmetcisi"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 38,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from afroditscans.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,92 +62,65 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 353,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 80 -> /manga/cocugum-icin-dayanmaliyim/80-bolum-oku",
-                        "Bölüm 79 -> /manga/cocugum-icin-dayanmaliyim/79-bolum-oku",
-                        "Bölüm 78 -> /manga/cocugum-icin-dayanmaliyim/78-bolum-oku"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 332,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://cdn-a.efsaneler2.can.re/_manga/481/80/1.1.avif",
-                        "https://cdn-a.efsaneler2.can.re/_manga/481/80/1.2.avif",
-                        "https://cdn-a.efsaneler2.can.re/_manga/481/80/1.3.avif"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 1782,
-                    "message": null,
-                    "notes": [
-                        "page[0] image is AVIF, which the harness cannot decode; Android decodes it natively",
-                        "page[1] image is AVIF, which the harness cannot decode; Android decodes it natively",
-                        "page[2] image is AVIF, which the harness cannot decode; Android decodes it natively"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:33:57.667527318Z",
+    "comparedTo": "2026-10-28T18:39:31.418610857Z",
     "changes": [
         {
             "source": "Afrodit Scans",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Afrodit Scans",
             "lang": "tr",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Afrodit Scans",
             "lang": "tr",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Afrodit Scans",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Afrodit Scans",
             "lang": "tr",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Afrodit Scans",
             "lang": "tr",
             "scenario": "images",
-            "from": null,
-            "to": "WARN"
-        },
-        {
-            "source": "Afrodit Scans",
-            "lang": "tr",
-            "scenario": "search",
-            "from": "SKIP",
+            "from": "WARN",
             "to": null
         }
     ],

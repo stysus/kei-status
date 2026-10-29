@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:40:37.314760554Z",
+    "generatedAt": "2026-10-29T10:22:57.155307581Z",
     "module": ":src:zh:jiuermanhua",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 1520913911854846698,
             "name": "92漫画",
             "lang": "zh",
             "baseUrl": "http://www.92mh.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -25,7 +25,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 191,
+                    "durationMs": 109,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -33,7 +33,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 136,
+                    "durationMs": 95,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -45,13 +45,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 874,
+                    "durationMs": 957,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "源于深空的巨爱 -> /manhua/5931/",
-                        "Kiss Me If You Can -> /manhua/5906/",
-                        "江口家的纯情魅魔 -> /manhua/1405/"
+                        "Greedy 贪婪之心 -> /manhua/7692/",
+                        "遭受冤罪的转生圣女，这次要走上反派千金之路！ -> /manhua/7691/",
+                        "交往对象是普通人 -> /manhua/7690/"
                     ]
                 },
                 {
@@ -66,45 +66,43 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1010,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 980,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "外传2 -> /manhua/1212/305421.html",
-                        "外传1 -> /manhua/1212/305420.html",
-                        "第96话完 -> /manhua/1212/305419.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 960,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cover.alltucdn.cc/images/comic/174/347968/1773840682XowhCC93DoW8NZaV.jpg",
-                        "https://cover.alltucdn.cc/images/comic/174/347968/177384068047-ZIIqDFAYJNJeS.jpg",
-                        "https://cover.alltucdn.cc/images/comic/174/347968/1773840679WUhX5sNew5I58KB6.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1241,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:33:54.954737321Z",
+    "comparedTo": "2026-10-28T18:40:37.314760554Z",
     "changes": [
         {
             "source": "92漫画",
             "lang": "zh",
-            "scenario": "search",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "92漫画",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "92漫画",
+            "lang": "zh",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

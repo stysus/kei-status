@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:40:21.123158448Z",
+    "generatedAt": "2026-10-29T10:26:51.701691110Z",
     "module": ":src:zh:cartoon18",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 28664779574072063,
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1112,
+                    "durationMs": 307,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 427,
+                    "status": "WARN",
+                    "durationMs": 165,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "秘密教学 -> /zh-hans/v/kweLM",
-                        "健身教练 -> /zh-hans/v/4LyKe",
-                        "继母的朋友们 -> /zh-hans/v/kwe8K"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1171,
+                    "status": "WARN",
+                    "durationMs": 892,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "[11_22] ALEX 剧情汉化漫画 -> /zh-hans/v/V1G8K",
-                        "[萧肾氪] 主播小u过度依赖 -> /zh-hans/v/y1AlV",
-                        "[ジュースボックス工场 (ジュナジュナジュース)] 仆のハーレムアカデミア08话 彼女たちの决心“中编” -> /zh-hans/v/D2y77"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,49 +60,57 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 697,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "126话 -> /zh-hans/story/225444/full",
-                        "122话 -> /zh-hans/story/225439/full",
-                        "120话 -> /zh-hans/story/225437/full"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 854,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://img.cartoon18.com/images/image/1481/14811139.avif?1657540141",
-                        "https://img.cartoon18.com/images/image/1481/14811140.avif?1657540143",
-                        "https://img.cartoon18.com/images/image/1481/14811141.avif?1657540145"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 1586,
-                    "message": null,
-                    "notes": [
-                        "page[0] image is AVIF, which the harness cannot decode; Android decodes it natively",
-                        "page[1] image is AVIF, which the harness cannot decode; Android decodes it natively",
-                        "page[2] image is AVIF, which the harness cannot decode; Android decodes it natively"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:35:51.185275040Z",
+    "comparedTo": "2026-10-28T18:40:21.123158448Z",
     "changes": [
         {
             "source": "Cartoon18",
             "lang": "zh",
-            "scenario": "search",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Cartoon18",
+            "lang": "zh",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Cartoon18",
+            "lang": "zh",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Cartoon18",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Cartoon18",
+            "lang": "zh",
+            "scenario": "images",
             "from": "WARN",
             "to": null
         }

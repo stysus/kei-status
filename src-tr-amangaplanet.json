@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:39:25.745008676Z",
+    "generatedAt": "2026-10-29T10:25:01.179403944Z",
     "module": ":src:tr:amangaplanet",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 5164979204020878495,
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1187,
+                    "durationMs": 1002,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1096,
+                    "status": "WARN",
+                    "durationMs": 914,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Şeytani Çağ -> /manga/seytani-cag/",
-                        "Nihai İblis Avcısı -> /manga/nihai-iblis-avcisi/",
-                        "Rakipsiz Ölü Çağıran -> /manga/rakipsiz-olu-cagiran/"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 503,
+                    "status": "WARN",
+                    "durationMs": 204,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Katlettiğim Ejderhayla Evlendim -> /manga/katlettigim-ejderhayla-evlendim/",
-                        "Barbarın Fantezi Dünyası -> /manga/barbarin-fantezi-dunyasi/",
-                        "Bir Geri Dönenin Yetişim Hikayesi -> /manga/bir-geri-donenin-yetisim-hikayesi/"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,50 +60,58 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 244,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 101 -> /seytani-cag-bolum-101/",
-                        "Bölüm 100 -> /seytani-cag-bolum-100/",
-                        "Bölüm 99 -> /seytani-cag-bolum-99/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 247,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://amangaplanet.link/wp-content/uploads/TR/TRA05/Seytani-cag-bolum-101.webp",
-                        "https://amangaplanet.link/wp-content/uploads/TR/TRA05/A05Bolum101-001.webp",
-                        "https://amangaplanet.link/wp-content/uploads/TR/TRA05/A05Bolum101-002.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 729,
-                    "message": null,
-                    "notes": [
-                        "page[0] image returned HTTP 403",
-                        "page[1] image returned HTTP 403",
-                        "page[2] image returned HTTP 403"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:31:47.322453347Z",
+    "comparedTo": "2026-10-28T18:39:25.745008676Z",
     "changes": [
         {
             "source": "Amanga Planet",
             "lang": "tr",
-            "scenario": "search",
+            "scenario": "popular",
             "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Amanga Planet",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Amanga Planet",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Amanga Planet",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Amanga Planet",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "WARN",
             "to": null
         }
     ],

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:35:49.916068473Z",
+    "generatedAt": "2026-10-29T10:20:22.673271104Z",
     "module": ":src:en:allporncomicio",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 6660493687892371703,
             "name": "AllPornComic.io",
             "lang": "en",
             "baseUrl": "https://allporncomic.io",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 691,
+                    "status": "WARN",
+                    "durationMs": 430,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 358,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 76,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "Sinful Lust All Latest chapters -> 24219",
-                        "Sinful lust -> 86",
-                        "sinful lust hentai -> 182"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 365,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 18,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "Prank with my stepmom uncensored -> 27504",
-                        "Your Mom Is the Best -> 27491",
-                        "Sinful Lust All Latest chapters -> 24219"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,45 +58,64 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 527,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Sinful Lust Chapter 9 - School Prey – Part 1 -> sinful-lust-chapter-9",
-                        "Sinful lust Chapter 8 ( Remake ) -> sinful-lust-chapter-8-remake",
-                        "Sinful lust Chapter 7 part 8 -> sinful-lust-chapter-7-part-8"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 437,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://allporncomic.io/wp-content/uploads/WP-manga/data/manga_68e7a73018e0e/89e4237609c0f1879ff9769ece7ec645/00.jpg",
-                        "https://allporncomic.io/wp-content/uploads/WP-manga/data/manga_68e7a73018e0e/89e4237609c0f1879ff9769ece7ec645/1.jpg",
-                        "https://allporncomic.io/wp-content/uploads/WP-manga/data/manga_68e7a73018e0e/89e4237609c0f1879ff9769ece7ec645/2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 296,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:32:15.819363563Z",
+    "comparedTo": "2026-10-28T18:35:49.916068473Z",
     "changes": [
         {
             "source": "AllPornComic.io",
             "lang": "en",
-            "scenario": "search",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "AllPornComic.io",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "AllPornComic.io",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "AllPornComic.io",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "AllPornComic.io",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "AllPornComic.io",
+            "lang": "en",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

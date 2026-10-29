@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:29:51.508195666Z",
+    "generatedAt": "2026-10-29T10:19:44.181817809Z",
     "module": ":src:all:seraphicdeviltry",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 5395306515630347602,
             "name": "SeraphicDeviltry",
             "lang": "en",
             "baseUrl": "https://seraphic-deviltry.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 385,
+                    "status": "WARN",
+                    "durationMs": 199,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 355,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 80,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "Heartless -> 6885",
-                        "Yarichin ☆ Bitch Club – Wah! -> 6842",
-                        "Orokamono no Ai no Uta -> 6894"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 334,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 18,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "Sasakure Chronicle -> 7337",
-                        "Haiyuki no Machi no Sabaaka -> 7332",
-                        "Koi ka Hakai ka -> 7317"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,33 +58,17 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 917,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 6 -> chapter-6",
-                        "Chapter 5 -> chapter-5",
-                        "Chapter 4 -> chapter-4"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 580,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://seraphic-deviltry.com/wp-content/uploads/WP-manga/data/manga_630a94e9d1408/20dbd47bc13b9baf6e86df4964d232f3/%5BSDS%5D-Heartless---Chapter-6---001.jpg",
-                        "https://seraphic-deviltry.com/wp-content/uploads/WP-manga/data/manga_630a94e9d1408/20dbd47bc13b9baf6e86df4964d232f3/%5BSDS%5D-Heartless---Chapter-6---002.jpg",
-                        "https://seraphic-deviltry.com/wp-content/uploads/WP-manga/data/manga_630a94e9d1408/20dbd47bc13b9baf6e86df4964d232f3/%5BSDS%5D-Heartless---Chapter-6---003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 324,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
@@ -114,7 +92,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1136,
+                    "durationMs": 1112,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -122,7 +100,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 334,
+                    "durationMs": 330,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -134,7 +112,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 327,
+                    "durationMs": 350,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -156,7 +134,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 908,
+                    "durationMs": 888,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -168,7 +146,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 661,
+                    "durationMs": 813,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -180,7 +158,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 906,
+                    "durationMs": 1084,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -188,19 +166,47 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:27:10.850237526Z",
+    "comparedTo": "2026-10-28T18:29:51.508195666Z",
     "changes": [
         {
             "source": "SeraphicDeviltry",
             "lang": "en",
-            "scenario": "search",
+            "scenario": "connectivity",
             "from": "PASS",
-            "to": null
+            "to": "WARN"
         },
         {
             "source": "SeraphicDeviltry",
-            "lang": "es",
-            "scenario": "search",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "SeraphicDeviltry",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "SeraphicDeviltry",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "SeraphicDeviltry",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "SeraphicDeviltry",
+            "lang": "en",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

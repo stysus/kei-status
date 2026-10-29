@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:36:21.221035024Z",
+    "generatedAt": "2026-10-29T10:19:02.925345098Z",
     "module": ":src:ja:honto",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 4717734884893722363,
             "name": "Honto",
             "lang": "ja",
             "baseUrl": "https://honto.jp",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,29 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 1060,
+                    "status": "PASS",
+                    "durationMs": 1188,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 403"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 406,
-                    "message": "HTTP error 403",
+                    "status": "PASS",
+                    "durationMs": 1301,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "ワールドトリガー -> C-20004-BT0000222604",
+                        "転生したらスライムだった件 -> C-MBJ-20002-3-221263X",
+                        "転生した大聖女は、聖女であることをひた隠す　A Tale of The Great Saint -> C-MBJ-27567-9-369809X"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 414,
-                    "message": "HTTP error 403",
+                    "status": "PASS",
+                    "durationMs": 2230,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "ヤングジャンプ -> C-MBJ-27537-4-292304X",
+                        "週刊少年チャンピオン -> C-MBJ-26806-5-232065X",
+                        "モーニング -> C-MBJ-20002-2-212772X"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -58,31 +64,65 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 1939,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "🔒 ワールドトリガー 30 -> 35771570",
+                        "🔒 ワールドトリガー 29 -> 34787846",
+                        "🔒 ワールドトリガー 28 -> 33997902"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
+                    "status": "BLOCKED",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Log in via WebView and purchase this volume to read."
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:29:10.303001508Z",
+    "comparedTo": "2026-10-28T18:36:21.221035024Z",
     "changes": [
         {
             "source": "Honto",
             "lang": "ja",
-            "scenario": "search",
+            "scenario": "connectivity",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Honto",
+            "lang": "ja",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Honto",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Honto",
+            "lang": "ja",
+            "scenario": "chapters",
             "from": "SKIP",
-            "to": null
+            "to": "PASS"
+        },
+        {
+            "source": "Honto",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

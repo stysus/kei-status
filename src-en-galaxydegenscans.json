@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:36:15.807914510Z",
+    "generatedAt": "2026-10-29T10:20:27.673157644Z",
     "module": ":src:en:galaxydegenscans",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 4598626990187882152,
             "name": "GalaxyDegenScans",
             "lang": "en",
             "baseUrl": "https://gdscans.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1519,
+                    "durationMs": 1380,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 503,
+                    "status": "WARN",
+                    "durationMs": 243,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Reincarnated • The Hero Marries the Sage -> 528",
-                        "Katainaka no Ossan -> 574",
-                        "A Story About a Dragon and the Rising of an Adventurer -> 576"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 545,
+                    "status": "WARN",
+                    "durationMs": 202,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Clumsy Succubus and the Cursed Loner Adventurer -> 1011",
-                        "The World’s Strongest Assassin lives a quiet life as a priest of a rural church -> 1047",
-                        "Meikyuu Kingdom: Tokushu Butai SAS no Ossan no Isekai Dungeon Survival Manual! -> 1050"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,45 +60,57 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 604,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Ch.40 - Golden World Tree -> ch-40",
-                        "Ch.39 - Hero vs Hero -> ch-39",
-                        "Ch.38 - Comprehensive exam, Last part -> ch-38"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 508,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://gdscans.com/wp-content/uploads/WP-manga/data/manga_6402c2a2e68ee/d81d3ff1ffb18106fa6823d6fd60c035/000.webp",
-                        "https://gdscans.com/wp-content/uploads/WP-manga/data/manga_6402c2a2e68ee/d81d3ff1ffb18106fa6823d6fd60c035/001.webp",
-                        "https://gdscans.com/wp-content/uploads/WP-manga/data/manga_6402c2a2e68ee/d81d3ff1ffb18106fa6823d6fd60c035/002.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1008,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:26:21.814161332Z",
+    "comparedTo": "2026-10-28T18:36:15.807914510Z",
     "changes": [
         {
             "source": "GalaxyDegenScans",
             "lang": "en",
-            "scenario": "search",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "GalaxyDegenScans",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "GalaxyDegenScans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "GalaxyDegenScans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "GalaxyDegenScans",
+            "lang": "en",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

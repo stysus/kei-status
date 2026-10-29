@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:29:01.839029735Z",
+    "generatedAt": "2026-10-29T10:19:16.003297034Z",
     "module": ":src:ar:detectiveconanar",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 5702082694566979718,
             "name": "شبكة كونان العربية",
             "lang": "ar",
             "baseUrl": "https://manga.detectiveconanar.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 10660,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 30368,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from manga.detectiveconanar.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 313,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "المتحري كونان -> 1844",
-                        "يوميات زيرو -> 1852",
-                        "قصة الشرطة الجامحة -> 1860"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 21,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from manga.detectiveconanar.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 341,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "المتحري كونان -> 1844",
-                        "ماجيك كايتو -> 1855",
-                        "المجرم هانزاوا-سان -> 1858"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 18,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from manga.detectiveconanar.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,52 +62,64 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1160,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "1169 - شيفرة مضرّجة بالدم -> 1169---",
-                        "1168 - آثار متعمّدة -> 1168--",
-                        "1167 - ران التي ضلت طريقها -> 1167-%d8%b1%d8%a7%d9%86-%d8%a7%d9%84%d8%aa%d9%8a-%d8%b6%d9%84%d8%aa-%d8%b7%d8%b1%d9%8a%d9%82%d9%87%d8%a7"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 729,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://manga.detectiveconanar.com/wp-content/uploads/WP-manga/data/manga_5e68e701a3c75/9fe9f1bfa722b784ccbb414510fc3d17/001-copy.png",
-                        "https://manga.detectiveconanar.com/wp-content/uploads/WP-manga/data/manga_5e68e701a3c75/9fe9f1bfa722b784ccbb414510fc3d17/002-copy.png",
-                        "https://manga.detectiveconanar.com/wp-content/uploads/WP-manga/data/manga_5e68e701a3c75/9fe9f1bfa722b784ccbb414510fc3d17/003-copy.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1920,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:26:04.075622758Z",
+    "comparedTo": "2026-10-28T18:29:01.839029735Z",
     "changes": [
         {
             "source": "شبكة كونان العربية",
             "lang": "ar",
-            "scenario": "images",
-            "from": "FAIL",
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "شبكة كونان العربية",
             "lang": "ar",
-            "scenario": "search",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "شبكة كونان العربية",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "شبكة كونان العربية",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "شبكة كونان العربية",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "شبكة كونان العربية",
+            "lang": "ar",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

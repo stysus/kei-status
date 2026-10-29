@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:40:15.265748930Z",
+    "generatedAt": "2026-10-29T10:24:58.894293716Z",
     "module": ":src:vi:seikowo",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 3049157397733640125,
             "name": "Seikowo",
             "lang": "vi",
             "baseUrl": "https://seikowo-app.blogspot.com",
-            "status": "FAIL",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,50 +23,42 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1111,
+                    "durationMs": 520,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 525,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "TS Tensei Bishoujo Netora Reiko wa Netoraretai -> /2026/02/ts-tensei-bishoujo-netora-reiko-wa.html",
-                        "30 made Hitori Dattara Issho ni Kurasou tte Itta yo ne ? -> /2026/10/30-made-hitori-dattara-issho-ni-kurasou.html",
-                        "Zense wa Kentei. Konjou Kuzu Ouji -> /2026/10/zense-wa-kentei-konjou-kuzu-ouji.html"
-                    ]
+                    "status": "THROTTLED",
+                    "durationMs": 1749,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 403,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "seikowo-app.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Chào mừng đến với nhà hàng của những kẻ bị ruồng bỏ -> /2026/04/chao-mung-en-voi-nha-hang-cua-nhung-ke.html",
-                        "Cuộc chơi trên núi tử thần -> /2026/04/cuoc-choi-tren-nui-tu-than_5.html",
-                        "Cuộc sống \"thiện xạ\" của ông chú được triệu hồi sang dị giới -> /2026/04/cuoc-song-thien-xa-cua-ong-chu-uoc_51.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
-                    "durationMs": 2,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "seikowo-app.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "4 filters"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 5280,
-                    "message": "Cannot find metadata",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -74,50 +66,45 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T10:06:05.656824238Z",
+    "comparedTo": "2026-10-28T18:40:15.265748930Z",
     "changes": [
         {
             "source": "Seikowo",
             "lang": "vi",
             "scenario": "popular",
-            "from": "THROTTLED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
             "source": "Seikowo",
             "lang": "vi",
             "scenario": "latest",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Seikowo",
             "lang": "vi",
             "scenario": "filters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Seikowo",
             "lang": "vi",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "FAIL"
-        },
-        {
-            "source": "Seikowo",
-            "lang": "vi",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": null
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "seikowo-app.blogspot.com"
+    ]
 }

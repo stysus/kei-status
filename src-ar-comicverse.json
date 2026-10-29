@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:35:31.908361315Z",
+    "generatedAt": "2026-10-29T10:19:35.156601050Z",
     "module": ":src:ar:comicverse",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 7487319247633385575,
             "name": "Comic Verse",
             "lang": "ar",
             "baseUrl": "https://arcomixverse.blogspot.com",
-            "status": "WARN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1499,
+                    "status": "WARN",
+                    "durationMs": 530,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 119,
+                    "durationMs": 190,
                     "message": null,
                     "notes": [
                         "popular/latest returned an empty list"
@@ -41,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 128,
+                    "durationMs": 165,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,7 +65,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 371,
+                    "durationMs": 1968,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,64 +76,42 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 370,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyB4Iwfxdus-424MtOCRWFxNxXuaxwm2QwkVsj20V3BFi3dDtg9sC6HLbel6hLtUwD0rpXPqsM1EytHbU55w7gpqzqk1EHh2RjgkUBlhf3urWTqloA_H6IfLx9gus5bJFrTaB-NolTyuGgfO2nNCYSR53jsqNRIvZVKxj3MfMQvAP1rqbQFQHmtgufVi8/s1600/P001.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjK_ipiE1cmJiVYJDHetaLOAi7V1PhpNie20OWAwjrdmdgVWDnE47gTCBXnTrBAFLz2E_mXz9TeIxE96M_NvaugB7SsdrKxK8y2z7dmctFjp-7ePo9b9b7uurBBDgJ5Og8G9FWf9di50eLkUaimaxE4a0_w_87VuTKQzlx9O96rwTvUhHq7jlaihDLPkiA/s1600/P002.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwvJlBZerrwvqEc0yK_ij2SdMYwN5b2_TXyct1HR2rfYwupekhq-pvNldwLvpvWMUF72R9d9ZG0uaFwux0bJCcgmlOgKNgq98Dd1vmLwQpIoX2C06NLCkmXdBDazXyvHyRuYFpk6dGx9_wv87tHLTSTRilP8pqzKiDnaB2Ngh4-jufhfs9bEITlzNvj3g/s1600/P003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 479,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 1828,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T10:00:31.646581888Z",
+    "comparedTo": "2026-10-28T18:35:31.908361315Z",
     "changes": [
         {
             "source": "Comic Verse",
             "lang": "ar",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Comic Verse",
-            "lang": "ar",
-            "scenario": "chapters",
-            "from": "THROTTLED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Comic Verse",
             "lang": "ar",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
             "source": "Comic Verse",
             "lang": "ar",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
-        },
-        {
-            "source": "Comic Verse",
-            "lang": "ar",
-            "scenario": "search",
-            "from": "WARN",
+            "from": "PASS",
             "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "arcomixverse.blogspot.com"
+    ]
 }

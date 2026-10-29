@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:34:12.078980773Z",
+    "generatedAt": "2026-10-29T10:15:26.526621275Z",
     "module": ":src:en:kunmangaonline",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 7947062020376654174,
             "name": "Kun Manga Online",
             "lang": "en",
             "baseUrl": "https://www.kunmanga.online",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 273,
+                    "durationMs": 147,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 562,
+                    "durationMs": 688,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 876,
+                    "durationMs": 553,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Rental Hero -> /manga/rental-hero",
-                        "Haikei Oji-sama Outei Denka, Ichiya Kagiri no Hazu ga Kon'yaku no Moushikomi wa Soutei-gai desu! -> /manga/haikei-oji-sama-outei-denka-ichiya-kagiri-no-hazu-ga-konyaku-no-moushikomi-wa-soutei-gai-desu",
-                        "Roses and Champagne -> /manga/roses-and-champagnee"
+                        "Vibe Check! -> /manga/vibe-check",
+                        "Alexandrite Knight -> /manga/alexandrite-knight",
+                        "Tekikoku de Reiguu Sareta Oujo-sama wa Otto no Ai ni Kizukanai -> /manga/tekikoku-de-reiguu-sareta-oujo-sama-wa-otto-no-ai-ni-kizukanai"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,47 +64,43 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 22242,
-                    "message": null,
-                    "notes": [
-                        "duplicate chapter urls: [/manga/tales-of-demons-and-gods/chapter-716, /manga/tales-of-demons-and-gods/chapter-715, /manga/tales-of-demons-and-gods/chapter-714]"
-                    ],
-                    "samples": [
-                        "Chapter 897 -> /manga/tales-of-demons-and-gods/chapter-897",
-                        "Chapter 896 -> /manga/tales-of-demons-and-gods/chapter-896",
-                        "Chapter 895 -> /manga/tales-of-demons-and-gods/chapter-895"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 974,
+                    "message": "Missing Madara post ID from redirection",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 507,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img-r1.2xstorage.com/tales-of-demons-and-gods/897/0.webp",
-                        "https://img-r1.2xstorage.com/tales-of-demons-and-gods/897/1.webp",
-                        "https://img-r1.2xstorage.com/tales-of-demons-and-gods/897/2.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1415,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:28:03.920977364Z",
+    "comparedTo": "2026-10-28T18:34:12.078980773Z",
     "changes": [
         {
             "source": "Kun Manga Online",
             "lang": "en",
-            "scenario": "search",
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "Kun Manga Online",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Kun Manga Online",
+            "lang": "en",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

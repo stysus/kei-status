@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:33:59.533985941Z",
+    "generatedAt": "2026-10-29T10:22:48.647145097Z",
     "module": ":src:en:sirenscans",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 5804710058654490234,
             "name": "Siren Scans",
             "lang": "en",
             "baseUrl": "https://sirenscans.org",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,28 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 379,
+                    "durationMs": 356,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 105,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 59,
+                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html>\n<html>\n\t<head>.....",
                     "notes": [],
-                    "samples": [
-                        "Why You Don't Know It's a Girl? -> /why-you-don-t-know-it-s-a-girl",
-                        "The Ogre's Bride -> /the-ogre-s-bride",
-                        "Honey Lemon Soda -> /honey-lemon-soda"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 85,
+                    "status": "WARN",
+                    "durationMs": 48,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "I’m The Male Lead’s Biological Daughter, But I Want To Live With The Second Male Lead! -> /im-the-male-leads-biological-daughter-but-i-want-to-live-with-the-second-male-lead",
-                        "A Happy Ending After Divorce -> /a-happy-ending-after-divorce-3",
-                        "What a Good Girl -> /what-a-good-girl"
-                    ]
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,50 +58,58 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 156,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 50 -> /why-you-don-t-know-it-s-a-girl-chapter-50",
-                        "Chapter 49 -> /why-you-don-t-know-it-s-a-girl-chapter-49",
-                        "Chapter 48 -> /why-you-don-t-know-it-s-a-girl-chapter-48"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 82,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://cdn.meowing.org/uploads/64e2ed6f269.avif",
-                        "https://cdn.meowing.org/uploads/64e2ed72847.avif",
-                        "https://cdn.meowing.org/uploads/64e2ed741a1.avif"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 404,
-                    "message": null,
-                    "notes": [
-                        "page[0] image is AVIF, which the harness cannot decode; Android decodes it natively",
-                        "page[1] image is AVIF, which the harness cannot decode; Android decodes it natively",
-                        "page[2] image is AVIF, which the harness cannot decode; Android decodes it natively"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:28:19.395556422Z",
+    "comparedTo": "2026-10-28T18:33:59.533985941Z",
     "changes": [
         {
             "source": "Siren Scans",
             "lang": "en",
-            "scenario": "search",
+            "scenario": "popular",
             "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Siren Scans",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Siren Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Siren Scans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Siren Scans",
+            "lang": "en",
+            "scenario": "images",
+            "from": "WARN",
             "to": null
         }
     ],

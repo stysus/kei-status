@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:41:15.477595627Z",
+    "generatedAt": "2026-10-29T10:28:31.360065271Z",
     "module": ":src:zh:baozimanhua",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 5724751873601868259,
             "name": "包子漫画",
             "lang": "zh",
             "baseUrl": "https://cn.baozimh.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,29 +22,41 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 1102,
+                    "status": "PASS",
+                    "durationMs": 2448,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 403"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 468,
-                    "message": "HTTP error 403",
+                    "status": "PASS",
+                    "durationMs": 369,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "绍宋 -> /comic/shaosong-yuewenmanhua",
+                        "死灵法师！我即是天灾 -> /comic/silingfashiwojishitianzai-mantudezhuyuanzhuheiniaoshe",
+                        "大奉打更人 -> /comic/dafengdagengren-chuyingshe"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 469,
-                    "message": "HTTP error 403",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 387,
+                    "message": null,
+                    "notes": [
+                        "manga[0] has no thumbnail",
+                        "manga[1] has no thumbnail",
+                        "manga[2] has no thumbnail",
+                        "manga[3] has no thumbnail",
+                        "manga[4] has no thumbnail"
+                    ],
+                    "samples": [
+                        "蝙蝠侠-坏种：哥谭总院 -> /comic/bianfuxiapichonggetanzongyuan-dccomics",
+                        "WIZARDS NATION-天幻少年 -> /comic/wizardsnationtianhuanshaonian-xiangchuanyou",
+                        "靶眼：完全比赛 -> /comic/bayanwanquanbisai-marvelcomics"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -53,36 +65,91 @@
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "5 filters"
+                        "1 filters"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 673,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "226 山动 -> /user/page_direct?comic_id=shaosong-yuewenmanhua&section_slot=0&chapter_slot=235",
+                        "225 单挑 -> /user/page_direct?comic_id=shaosong-yuewenmanhua&section_slot=0&chapter_slot=234",
+                        "215 如之奈何 -> /user/page_direct?comic_id=shaosong-yuewenmanhua&section_slot=0&chapter_slot=233"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 460,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://s2.baozicdn.com/scomic/shaosong-yuewenmanhua/0/235-45ih/1.jpg",
+                        "https://s2.baozicdn.com/scomic/shaosong-yuewenmanhua/0/235-45ih/2.jpg",
+                        "https://s2.baozicdn.com/scomic/shaosong-yuewenmanhua/0/235-45ih/3.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 3473,
+                    "message": null,
+                    "notes": [
+                        "page[0] image returned HTTP 404",
+                        "page[1] image returned HTTP 404",
+                        "page[2] image returned HTTP 404"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:33:08.680104707Z",
+    "comparedTo": "2026-10-28T18:41:15.477595627Z",
     "changes": [
         {
             "source": "包子漫画",
             "lang": "zh",
-            "scenario": "search",
+            "scenario": "connectivity",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "包子漫画",
+            "lang": "zh",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "包子漫画",
+            "lang": "zh",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "WARN"
+        },
+        {
+            "source": "包子漫画",
+            "lang": "zh",
+            "scenario": "chapters",
             "from": "SKIP",
-            "to": null
+            "to": "PASS"
+        },
+        {
+            "source": "包子漫画",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "包子漫画",
+            "lang": "zh",
+            "scenario": "images",
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

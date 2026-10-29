@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:30:30.161032154Z",
+    "generatedAt": "2026-10-29T10:19:28.887677385Z",
     "module": ":src:en:darthsdroids",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 1395072850055110585,
             "name": "Darths & Droids",
             "lang": "en",
             "baseUrl": "https://www.darthsanddroids.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 355,
+                    "status": "WARN",
+                    "durationMs": 241,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 184,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 129,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "Darths & Droids I. The Phantasmal Malevolence -> /archive1.html",
-                        "Darths & Droids II. The Silence of the Clones -> /archive2.html",
-                        "Darths & Droids III. Revelation of the Sith -> /archive3.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -60,44 +58,58 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 268,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Episode 208: Fish Fall. Everyone Dies. -> /episodes/0208.html",
-                        "Episode 207: The Jedi Master's New Groove -> /episodes/0207.html",
-                        "Episode 206: Best Waylaid Plans -> /episodes/0206.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 196,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.darthsanddroids.net/comics/darths0002.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 79,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:26:13.925741089Z",
+    "comparedTo": "2026-10-28T18:30:30.161032154Z",
     "changes": [
         {
             "source": "Darths & Droids",
             "lang": "en",
-            "scenario": "search",
-            "from": "SKIP",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Darths & Droids",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Darths & Droids",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Darths & Droids",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Darths & Droids",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

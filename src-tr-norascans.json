@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:35:25.105885582Z",
+    "generatedAt": "2026-10-29T10:27:06.399882780Z",
     "module": ":src:tr:norascans",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 1572449224606837251,
             "name": "Nora Scans",
             "lang": "tr",
             "baseUrl": "https://norascans.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1098,
+                    "status": "WARN",
+                    "durationMs": 19683,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 454,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19609,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Kara Şirket: Joseon -> /seri/kara-sirket-joseon/",
-                        "İntikam Kılıcı -> /seri/intikam-kilici/",
-                        "Rün Bağlı Profesörün Dönüşü -> /seri/run-bagli-profesorun-donusu/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 384,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19457,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Kara Şirket: Joseon -> /seri/kara-sirket-joseon/",
-                        "İntikam Kılıcı -> /seri/intikam-kilici/",
-                        "Rün Bağlı Profesörün Dönüşü -> /seri/run-bagli-profesorun-donusu/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,44 +58,65 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 523,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 55.0 -> /seri/kara-sirket-joseon/bolum-55/",
-                        "Bölüm 54.0 -> /seri/kara-sirket-joseon/bolum-54/",
-                        "Bölüm 53.0 -> /seri/kara-sirket-joseon/bolum-53/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 447,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://norascans.com/wp-content/uploads/init-manga/kara-sirket-joseon/chapter-1/0000.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 458,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:34:51.458770160Z",
+    "comparedTo": "2026-10-28T18:35:25.105885582Z",
     "changes": [
         {
             "source": "Nora Scans",
             "lang": "tr",
-            "scenario": "search",
-            "from": "WARN",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Nora Scans",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Nora Scans",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Nora Scans",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Nora Scans",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Nora Scans",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

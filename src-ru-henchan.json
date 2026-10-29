@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:39:10.791849434Z",
+    "generatedAt": "2026-10-29T10:25:36.267880266Z",
     "module": ":src:ru:henchan",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 5504588601186153612,
             "name": "HenChan",
             "lang": "ru",
             "baseUrl": "https://xxl.hentaichan.live",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,27 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 30898,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 756,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30001,
-                    "message": "timeout",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 257,
+                    "message": null,
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 30001,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 1916,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Brothel - Бордель -> /manga/55789-brothel-bordel.html",
+                        "Падение Хиэды -> /manga/55788-padenie-hiedy.html",
+                        "Укрощение строптивого - часть 22 (стр. 845-895) -> /manga/55787-ukroschenie-stroptivogo-chast-22-str-845-895.html"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -56,73 +62,84 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 1073,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Brothel - Бордель -> /online/55789-brothel-bordel.html?cacheId=1793081741"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 131,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://mimg4.imgschan.xyz/manganew_webp/0/1793081741_00/00.webp",
+                        "https://mimg4.imgschan.xyz/manganew_webp/0/1793081741_00/01.webp",
+                        "https://mimg4.imgschan.xyz/manganew_webp/0/1793081741_00/02.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 32024,
+                    "message": null,
+                    "notes": [
+                        "page[0] image request failed: SocketTimeoutException: timeout",
+                        "page[1] image request failed: SocketTimeoutException: timeout",
+                        "page[2] image request failed: SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:37:02.423364027Z",
+    "comparedTo": "2026-10-28T18:39:10.791849434Z",
     "changes": [
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "HenChan",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

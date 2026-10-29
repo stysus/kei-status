@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:42:09.333668783Z",
+    "generatedAt": "2026-10-29T10:24:16.621205369Z",
     "module": ":src:ru:mangachan",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 7,
@@ -22,36 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 697,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30535,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 263,
+                    "durationMs": 224,
                     "message": "HTTP error 502",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 705,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30000,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Mortal Kombat: Just a Game -> /manga/175111-mortal-kombat-just-a-game.html",
-                        "Yukseong Game-i Hyeonsiri Dwaetda -> /manga/175100-yukseong-game-i-hyeonsiri-dwaetda.html",
-                        "Girl's Interstellar Adventure -> /manga/175079-girls-interstellar-adventure.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,9 +56,9 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 163,
-                    "message": "HTTP error 502",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -70,19 +66,26 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T10:24:22.526642758Z",
+    "comparedTo": "2026-10-28T18:42:09.333668783Z",
     "changes": [
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "popular",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaChan",
+            "lang": "ru",
+            "scenario": "latest",
             "from": "PASS",
             "to": "FAIL"
         },
@@ -90,29 +93,8 @@
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "pages",
-            "from": "PASS",
+            "from": "FAIL",
             "to": "SKIP"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "PASS",
-            "to": null
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:36:58.603934522Z",
+    "generatedAt": "2026-10-29T10:23:25.729745305Z",
     "module": ":src:ja:sugocomics",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 4036523004624942398,
             "name": "Sugo Comics",
             "lang": "ja",
             "baseUrl": "https://nadeshiko-shoten.jp",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,35 +23,39 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 813,
+                    "durationMs": 1728,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 121,
+                    "status": "PASS",
+                    "durationMs": 250,
                     "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "【無料小冊子】　大切なひとに本を贈ろう〜サンジョルディフェア〜　＜青年版＞ -> 1086100",
+                        "【無料試し読み】はらぺこ母娘と元カレ家主 -> 952623",
+                        "阪急沿線怪談【電子版お試し読み小冊子】 -> 1081471"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 119,
+                    "status": "PASS",
+                    "durationMs": 1212,
                     "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "山劇 分冊版 -> 1139907",
+                        "森の中で公爵が拾ったのは　【単話版】 -> 1165846",
+                        "やんごとなきエレバス　銀河の姫提督は５階級降格＆僻地左遷でもタダじゃあやられてやんないから、首根っこ洗って待っていやがれですよ【単話版】 -> 1165384"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,31 +64,54 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 261,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "【無料小冊子】　大切なひとに本を贈ろう〜サンジョルディフェア〜　＜青年版＞ -> 1086100"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 1599,
+                    "message": "Viewer error: 2005view mode error",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:32:40.070044090Z",
+    "comparedTo": "2026-10-28T18:36:58.603934522Z",
     "changes": [
         {
             "source": "Sugo Comics",
             "lang": "ja",
-            "scenario": "search",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Sugo Comics",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Sugo Comics",
+            "lang": "ja",
+            "scenario": "chapters",
             "from": "SKIP",
-            "to": null
+            "to": "PASS"
+        },
+        {
+            "source": "Sugo Comics",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:40:06.508336679Z",
+    "generatedAt": "2026-10-29T10:22:39.565398505Z",
     "module": ":src:ja:ebookjapan",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 124967435702149192,
             "name": "eBookJapan",
             "lang": "ja",
             "baseUrl": "https://ebookjapan.yahoo.co.jp",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1237,
+                    "durationMs": 2050,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,19 +31,19 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 239,
+                    "durationMs": 375,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "病弱な? 傷物令嬢の秘密の結婚～あなたを幸せにするために～（コミック） -> 974698",
-                        "定年後は異世界で種馬生活（コミック） -> 976157",
-                        "白い結婚から三年。旦那様、私と離縁してください -> 893405"
+                        "平凡な令嬢　エリス・ラースの日常 -> 858370",
+                        "永年雇用は可能でしょうか -> 728283",
+                        "病弱な? 傷物令嬢の秘密の結婚～あなたを幸せにするために～（コミック） -> 974698"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 132,
+                    "durationMs": 212,
                     "message": null,
                     "notes": [
                         "duplicate manga urls: [728283, 622862, 949190]"
@@ -67,44 +67,41 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1738,
+                    "durationMs": 355,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "🔒 第10話(3) -> B00167146191",
-                        "🔒 第10話(2) -> B00167146190",
-                        "🔒 第10話(1) -> B00167146189"
+                        "🔒 (Preview) 平凡な令嬢　エリス・ラースの日常　3巻 -> B00187159734",
+                        "🔒 (Preview) 平凡な令嬢　エリス・ラースの日常　2巻 -> B00185895033",
+                        "🔒 (Preview) 平凡な令嬢　エリス・ラースの日常　1巻 -> B00167143753"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 285,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://prod-contents-br-page.akamaized.net/pages/I2/I2100536574061/1GHiX3/8807568c6ae77f11d950532631f1e6b41837a5576fa4591d218c3508fe8f3257.webp#BGUGQAZAAWRkKsj1RlqO_i8",
-                        "https://prod-contents-br-page.akamaized.net/pages/I2/I2100536574061/1GHiX3/dde11ec579dd045981070a50cd8d50293e558dde1784070b6a791b80d483ec32.webp#BGUGQAZAAeiEn4TpbUiTHIc",
-                        "https://prod-contents-br-page.akamaized.net/pages/I2/I2100536574061/1GHiX3/a830d738ee07300b1c38c00be6c00507b70e116fc8a56351363f2f9100a86817.webp#BGUGQAZAAWRkKsj1RlqO_i8"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1652,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 262,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: Log in via WebView and purchase this product to read."
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:33:10.348430454Z",
+    "comparedTo": "2026-10-28T18:40:06.508336679Z",
     "changes": [
         {
             "source": "eBookJapan",
             "lang": "ja",
-            "scenario": "search",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "eBookJapan",
+            "lang": "ja",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:43:19.661218197Z",
+    "generatedAt": "2026-10-29T10:28:11.315151480Z",
     "module": ":src:tr:yaoimangaoku",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 4161874521076039470,
             "name": "Yaoi Manga Oku",
             "lang": "tr",
             "baseUrl": "https://yaoimangaoku.net",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,34 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 31370,
-                    "message": null,
+                    "status": "BLOCKED",
+                    "durationMs": 20372,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "home page returned HTTP 523"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from yaoimangaoku.net (HTTP 403)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 7386,
-                    "message": "HTTP error 523",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 27,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from yaoimangaoku.net (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 3527,
-                    "message": "HTTP error 523",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 20,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from yaoimangaoku.net (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,21 +79,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T10:09:59.924514477Z",
+    "comparedTo": "2026-10-28T18:43:19.661218197Z",
     "changes": [
         {
             "source": "Yaoi Manga Oku",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "FAIL",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "BLOCKED"
         },
         {
             "source": "Yaoi Manga Oku",
             "lang": "tr",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": null
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Yaoi Manga Oku",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:39:44.850970313Z",
+    "generatedAt": "2026-10-29T10:22:21.353275757Z",
     "module": ":src:tr:yaoiflix",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 9083257818102461515,
             "name": "Yaoi Flix",
             "lang": "tr",
             "baseUrl": "https://yaoiflix.fit",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1231,
+                    "status": "WARN",
+                    "durationMs": 19726,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 437,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19480,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Jinx -> 118",
-                        "Waterside Night -> 122",
-                        "Codename Anastasia -> 252"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 420,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19431,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Desire Me If You Can -> 2148",
-                        "Flashlight -> 1830",
-                        "Kiss Me If You Can -> 1791"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,45 +58,64 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1794,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 102.5 - Çizer Notu -> bolum-102-5-cizer-notu",
-                        "Bölüm 102 - Final -> bolum-102-final",
-                        "Bölüm 101 -> bolum-101"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 874,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://yaoicdn.xyz/yaoiflixyeni/manga_6721ecfded1fb/ac81b84af0855da08496b2770048fbe6/e_0001.webp",
-                        "https://yaoicdn.xyz/yaoiflixyeni/manga_6721ecfded1fb/ac81b84af0855da08496b2770048fbe6/e_0002.webp",
-                        "https://yaoicdn.xyz/yaoiflixyeni/manga_6721ecfded1fb/ac81b84af0855da08496b2770048fbe6/e_0003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1720,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:35:14.136712400Z",
+    "comparedTo": "2026-10-28T18:39:44.850970313Z",
     "changes": [
         {
             "source": "Yaoi Flix",
             "lang": "tr",
-            "scenario": "search",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Yaoi Flix",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Yaoi Flix",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Yaoi Flix",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Yaoi Flix",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Yaoi Flix",
+            "lang": "tr",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

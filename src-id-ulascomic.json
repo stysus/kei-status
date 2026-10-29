@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:33:10.824392784Z",
+    "generatedAt": "2026-10-29T10:18:47.304415425Z",
     "module": ":src:id:ulascomic",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 440952493414630310,
             "name": "Ulas Comic",
             "lang": "id",
             "baseUrl": "https://www.ulascomic01.xyz",
-            "status": "FAIL",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 615,
+                    "durationMs": 750,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 98,
+                    "durationMs": 96,
                     "message": null,
                     "notes": [
                         "popular/latest returned an empty list"
@@ -41,7 +41,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 410,
+                    "durationMs": 381,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,11 +62,11 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 253,
-                    "message": "NullPointerException at ZeistManga.mangaDetailsParse(ZeistManga.kt:241)",
+                    "status": "THROTTLED",
+                    "durationMs": 1835,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
-                        "java.lang.NullPointerException: <no message>"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
                     "samples": []
                 },
@@ -81,15 +81,17 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:31:55.377133411Z",
+    "comparedTo": "2026-10-28T18:33:10.824392784Z",
     "changes": [
         {
             "source": "Ulas Comic",
             "lang": "id",
-            "scenario": "search",
-            "from": "PASS",
-            "to": null
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "THROTTLED"
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "www.ulascomic01.xyz"
+    ]
 }

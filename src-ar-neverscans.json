@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:29:18.384237790Z",
+    "generatedAt": "2026-10-29T10:18:06.800258166Z",
     "module": ":src:ar:neverscans",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 8433210273073845288,
             "name": "NeverScans",
             "lang": "ar",
             "baseUrl": "https://neverscans.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,34 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 15174,
-                    "message": "unable to find valid certification path to requested target",
-                    "notes": [
-                        "javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target",
-                        "sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 946,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 4116,
-                    "message": "unable to find valid certification path to requested target",
+                    "status": "WARN",
+                    "durationMs": 50,
+                    "message": null,
                     "notes": [
-                        "javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target",
-                        "sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target"
+                        "popular/latest returned an empty list"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 133,
-                    "message": "unable to find valid certification path to requested target",
+                    "status": "WARN",
+                    "durationMs": 47,
+                    "message": null,
                     "notes": [
-                        "javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target",
-                        "sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target"
+                        "popular/latest returned an empty list"
                     ],
                     "samples": []
                 },
@@ -82,35 +77,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T10:02:19.440601890Z",
+    "comparedTo": "2026-10-28T18:29:18.384237790Z",
     "changes": [
         {
             "source": "NeverScans",
             "lang": "ar",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "NeverScans",
             "lang": "ar",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
             "source": "NeverScans",
             "lang": "ar",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "FAIL"
-        },
-        {
-            "source": "NeverScans",
-            "lang": "ar",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": null
+            "from": "FAIL",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

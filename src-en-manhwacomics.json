@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:33:20.145613299Z",
+    "generatedAt": "2026-10-29T10:18:20.298887698Z",
     "module": ":src:en:manhwacomics",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 3386088694317815151,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "FAIL",
-                    "durationMs": 30143,
+                    "durationMs": 30353,
                     "message": "timeout",
                     "notes": [],
                     "samples": []
@@ -31,17 +31,19 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 30002,
+                    "durationMs": 30003,
                     "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 30001,
-                    "message": "timeout",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 553,
+                    "message": null,
+                    "notes": [
+                        "popular/latest returned an empty list"
+                    ],
                     "samples": []
                 },
                 {
@@ -73,14 +75,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:27:16.053198140Z",
+    "comparedTo": "2026-10-28T18:33:20.145613299Z",
     "changes": [
         {
             "source": "Manhwa Comics",
             "lang": "en",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": null
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

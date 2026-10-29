@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:40:26.134963600Z",
+    "generatedAt": "2026-10-29T10:26:05.403516968Z",
     "module": ":src:vi:truyentini",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 7837268511554362907,
             "name": "TruyenTini",
             "lang": "vi",
             "baseUrl": "https://truyentini.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 894,
+                    "status": "WARN",
+                    "durationMs": 216,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 549,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 75,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "Vụng trộm không thể giấu -> 263",
-                        "Tôi Yêu Amy -> 274",
-                        "Tôi Thích Tin Tức Tố Của Cậu -> 164"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 479,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "Bản sao hoàn hảo -> 2005",
-                        "Tôi đã cướp mất đêm đầu tiên của hoàng thái tử rác rưởi -> 2144",
-                        "Cuộc hôn nhân ấm áp 100 ngày -> 2048"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,45 +58,64 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 745,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chương 139.2 - End -> chuong-139-2",
-                        "Chương 139.1 -> chuong-139-1",
-                        "Chương 138.2 -> chuong-138-2"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 429,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://truyentini.net/wp-content/uploads/WP-manga/data/vung-trom-khong-the-giau/877642c70e51f7d16584002f7e057a6e/000_result.webp",
-                        "https://truyentini.net/wp-content/uploads/WP-manga/data/vung-trom-khong-the-giau/877642c70e51f7d16584002f7e057a6e/001_result.webp",
-                        "https://truyentini.net/wp-content/uploads/WP-manga/data/vung-trom-khong-the-giau/877642c70e51f7d16584002f7e057a6e/002_result.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 178,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:36:28.679569724Z",
+    "comparedTo": "2026-10-28T18:40:26.134963600Z",
     "changes": [
         {
             "source": "TruyenTini",
             "lang": "vi",
-            "scenario": "search",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "TruyenTini",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "TruyenTini",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "TruyenTini",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TruyenTini",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TruyenTini",
+            "lang": "vi",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }
