@@ -91,6 +91,9 @@ object Chrome {
     @Volatile
     private var profileDir: File? = null
 
+    @Volatile
+    private var shutdownInitiated = false
+
     private val lock = Any()
 
     fun isRunning(): Boolean = process?.isAlive == true && port > 0
@@ -104,6 +107,9 @@ object Chrome {
         if (isRunning()) return port
         synchronized(lock) {
             if (isRunning()) return port
+            // The shutdown hook has stopped this instance; starting another would outlive the JVM
+            // and leak the process. A stray post-shutdown thread lands here and is told why.
+            if (shutdownInitiated) throw ChromeUnavailableException("the browser was stopped for shutdown; refusing to start another")
             stop()
             val binary = findBinary()
             val dir = Files.createTempDirectory("kei-status-chrome").toFile()
@@ -265,7 +271,9 @@ object Chrome {
         )
     }
 
-    fun stop() {
+    // Holding the lock keeps the shutdown hook from tearing down a browser a concurrent port()
+    // start is still wiring up - a race that would otherwise leave both state and process torn.
+    fun stop() = synchronized(lock) {
         process?.let { running ->
             runCatching { running.destroy() }
             if (!runCatching { running.waitFor(5, TimeUnit.SECONDS) }.getOrDefault(true)) {
@@ -292,6 +300,11 @@ object Chrome {
     }
 
     init {
-        Runtime.getRuntime().addShutdownHook(Thread { stop() })
+        // Only the shutdown path blocks a restart: a plain stop() (tests, the runner's finally)
+        // must leave the instance startable, and shutdownInitiated is what port() refuses on.
+        Runtime.getRuntime().addShutdownHook(Thread {
+            shutdownInitiated = true
+            stop()
+        })
     }
 }
