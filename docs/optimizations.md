@@ -45,6 +45,14 @@ applies lives in [design.md](design.md), and this links rather than repeats it.
 - A browser that cannot start is UNSUPPORTED, not a site failure; Cloudflare interception is
   detected from the server header, so a cleared challenge is not misread as a challenge page.
 - `CancellationException` is captured as a finding instead of crashing the scenario runner.
+- A 429 on the sweep's own probes (`probeHome`, `probeImages` resolve and download) throws
+  `HttpException` through `Response.throwIfThrottled()` instead of becoming a note, so the scenario
+  is THROTTLED and the host's breaker closes — previously only extension-thrown 429s counted.
+  `ThrowIfThrottledTest` pins the response-side guard; the two catch-side rethrow guards are
+  one-line `is HttpException && code == 429` checks whose downstream classification
+  (`ChecksTest` pinning `HttpException(429)` → THROTTLED) is already pinned, so they carry no
+  test of their own.
+- A page list that shares one url (Comix's index-disambiguated pages) is not a duplicate finding.
 
 ## Browser lifecycle
 

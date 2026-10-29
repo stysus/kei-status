@@ -46,3 +46,16 @@ suspend fun Call.awaitSuccess(): Response {
     }
     return response
 }
+
+/**
+ * Throws [HttpException] when the server answered 429, carrying its `Retry-After` when sent.
+ *
+ * Probes the harness issues itself would otherwise swallow a throttle as a note: one copy of this
+ * check so the throw sites cannot drift. A response that is not throttled passes through untouched.
+ */
+fun Response.throwIfThrottled() {
+    // `Retry-After` is how the server says when to come back. Only the delta-seconds form is
+    // read: the HTTP-date form needs a clock and a parser, and every site that throttles a
+    // sweep so far sends the number.
+    if (code == 429) throw HttpException(429, header("Retry-After")?.trim()?.toLongOrNull())
+}

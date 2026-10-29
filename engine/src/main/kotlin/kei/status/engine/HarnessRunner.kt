@@ -2,6 +2,7 @@ package kei.status.engine
 
 import eu.kanade.tachiyomi.network.HttpException
 import eu.kanade.tachiyomi.network.await
+import eu.kanade.tachiyomi.network.throwIfThrottled
 import eu.kanade.tachiyomi.source.CatalogueSource
 import eu.kanade.tachiyomi.source.ConfigurableSource
 import eu.kanade.tachiyomi.source.model.MangasPage
@@ -390,6 +391,7 @@ class HarnessRunner(private val config: HarnessConfig) {
         val request = Request.Builder().url(url).headers(httpSource.headers).build()
 
         httpSource.client.newCall(request).await().use { response ->
+            response.throwIfThrottled()
             val notes = mutableListOf<String>()
             if (!response.isSuccessful) notes += "home page returned HTTP ${response.code}"
             // contentLength() is -1 when the body is chunked, so an empty chunked response
@@ -429,6 +431,8 @@ class HarnessRunner(private val config: HarnessConfig) {
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
+                // A 429 during resolution is the site throttling the sweep, not a request we built wrong.
+                if (e is HttpException && e.code == 429) throw e
                 buildFailures += "page[$index] image request could not be built: ${e.message ?: e::class.java.simpleName}"
                 null
             }
@@ -453,6 +457,7 @@ class HarnessRunner(private val config: HarnessConfig) {
         request: Request,
     ): String? = try {
         httpSource.client.newCall(request).await().use { response ->
+            response.throwIfThrottled()
             if (!response.isSuccessful) {
                 return "page[$index] image returned HTTP ${response.code}"
             }
@@ -463,6 +468,9 @@ class HarnessRunner(private val config: HarnessConfig) {
     } catch (e: CancellationException) {
         throw e
     } catch (e: Exception) {
+        // The 429 throw above would be swallowed here as a note; a throttle is not an image
+        // defect. Rethrow so capture classifies it THROTTLED and closes the host's breaker.
+        if (e is HttpException && e.code == 429) throw e
         "page[$index] image request failed: ${e::class.java.simpleName}: ${e.message}"
     }
 
