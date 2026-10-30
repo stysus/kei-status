@@ -112,74 +112,88 @@ object Chrome {
             if (shutdownInitiated) throw ChromeUnavailableException("the browser was stopped for shutdown; refusing to start another")
             stop()
             val binary = findBinary()
-            val dir = Files.createTempDirectory("kei-status-chrome").toFile()
-            profileDir = dir
+            // The sandbox needs user namespaces, which some hosts deny (Ubuntu 24.04 restricts them
+            // via AppArmor, GitHub runners included) and root cannot use. The sysctl probe below
+            // can still guess wrong, so a browser that dies with the flag withheld gets exactly one
+            // retry with --no-sandbox appended before being reported unavailable.
+            var sandboxWorks = System.getProperty("user.name") != "root" && userNamespacesAllowed()
+            while (true) {
+                val dir = Files.createTempDirectory("kei-status-chrome").toFile()
+                profileDir = dir
 
-            val command = buildList {
-                add(binary)
-                // A visible browser clears challenges that headless Chromium cannot: headless is
-                // distinguishable to the zone, and a challenge it refuses never becomes solvable.
-                // So a display is used whenever one exists, and headless is only the fallback for
-                // a machine that has none.
-                if (System.getenv("DISPLAY") == null) {
-                    add("--headless=new")
-                } else {
-                    // There is usually no window manager on a virtual display, so Chrome treats
-                    // its window as occluded and throttles the page.
-                    add("--disable-backgrounding-occluded-windows")
-                    add("--disable-renderer-backgrounding")
-                    add("--disable-background-timer-throttling")
+                val command = buildList {
+                    add(binary)
+                    // A visible browser clears challenges that headless Chromium cannot: headless is
+                    // distinguishable to the zone, and a challenge it refuses never becomes solvable.
+                    // So a display is used whenever one exists, and headless is only the fallback for
+                    // a machine that has none.
+                    if (System.getenv("DISPLAY") == null) {
+                        add("--headless=new")
+                    } else {
+                        // There is usually no window manager on a virtual display, so Chrome treats
+                        // its window as occluded and throttles the page.
+                        add("--disable-backgrounding-occluded-windows")
+                        add("--disable-renderer-backgrounding")
+                        add("--disable-background-timer-throttling")
+                    }
+                    add("--disable-gpu")
+                    if (!sandboxWorks) add("--no-sandbox")
+                    add("--disable-dev-shm-usage")
+                    add("--no-first-run")
+                    add("--no-default-browser-check")
+                    add("--disable-background-networking")
+                    add("--disable-sync")
+                    add("--disable-extensions")
+                    add("--disable-component-update")
+                    add("--mute-audio")
+                    add("--hide-scrollbars")
+                    // A real Android WebView is not flagged as an automation target; without these
+                    // switches sites answer headless Chromium differently from the app, which would
+                    // make the harness report anti-bot blocks the app never sees.
+                    add("--disable-blink-features=AutomationControlled")
+                    add("--exclude-switches=enable-automation")
+                    add("--window-size=1280,1920")
+                    add("--user-data-dir=${dir.absolutePath}")
+                    add("--remote-debugging-port=0")
+                    add("about:blank")
                 }
-                add("--disable-gpu")
-                add("--no-sandbox")
-                add("--disable-dev-shm-usage")
-                add("--no-first-run")
-                add("--no-default-browser-check")
-                add("--disable-background-networking")
-                add("--disable-sync")
-                add("--disable-extensions")
-                add("--disable-component-update")
-                add("--mute-audio")
-                add("--hide-scrollbars")
-                // A real Android WebView is not flagged as an automation target; without these
-                // switches sites answer headless Chromium differently from the app, which would
-                // make the harness report anti-bot blocks the app never sees.
-                add("--disable-blink-features=AutomationControlled")
-                add("--exclude-switches=enable-automation")
-                add("--window-size=1280,1920")
-                add("--user-data-dir=${dir.absolutePath}")
-                add("--remote-debugging-port=0")
-                add("about:blank")
-            }
 
-            val started = try {
-                ProcessBuilder(command)
-                    .redirectErrorStream(true)
-                    .redirectOutput(dir.resolve("chrome.log"))
-                    .start()
-            } catch (e: Exception) {
-                throw ChromeUnavailableException("could not start $binary: ${e.message}", e)
-            }
-            process = started
+                val started = try {
+                    ProcessBuilder(command)
+                        .redirectErrorStream(true)
+                        .redirectOutput(dir.resolve("chrome.log"))
+                        .start()
+                } catch (e: Exception) {
+                    throw ChromeUnavailableException("could not start $binary: ${e.message}", e)
+                }
+                process = started
 
-            val activePort = dir.resolve("DevToolsActivePort")
-            val deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(30)
-            while (System.nanoTime() < deadline) {
-                if (!started.isAlive) {
-                    val log = dir.resolve("chrome.log").takeIf { it.isFile }?.readText().orEmpty()
-                    throw ChromeUnavailableException(
-                        "$binary exited before opening a DevTools port:\n${log.takeLast(2000)}",
-                    )
+                val activePort = dir.resolve("DevToolsActivePort")
+                val deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(30)
+                while (System.nanoTime() < deadline) {
+                    if (!started.isAlive) {
+                        val log = dir.resolve("chrome.log").takeIf { it.isFile }?.readText().orEmpty()
+                        // Only the probe-guessed path retries; a browser that still dies with the
+                        // flag set is genuinely unavailable, and its log says so.
+                        if (sandboxWorks) {
+                            sandboxWorks = false
+                            stop()
+                            break
+                        }
+                        throw ChromeUnavailableException(
+                            "$binary exited before opening a DevTools port:\n${log.takeLast(2000)}",
+                        )
+                    }
+                    val line = runCatching { activePort.readLines().firstOrNull() }.getOrNull()
+                    val portNumber = line?.trim()?.toIntOrNull()
+                    if (portNumber != null) {
+                        port = portNumber
+                        return port
+                    }
+                    Thread.sleep(100)
                 }
-                val line = runCatching { activePort.readLines().firstOrNull() }.getOrNull()
-                val portNumber = line?.trim()?.toIntOrNull()
-                if (portNumber != null) {
-                    port = portNumber
-                    return port
-                }
-                Thread.sleep(100)
+                if (started.isAlive) throw ChromeUnavailableException("$binary did not open a DevTools port within 30s")
             }
-            throw ChromeUnavailableException("$binary did not open a DevTools port within 30s")
         }
     }
 
@@ -271,9 +285,14 @@ object Chrome {
         )
     }
 
-    // Holding the lock keeps the shutdown hook from tearing down a browser a concurrent port()
-    // start is still wiring up - a race that would otherwise leave both state and process torn.
+    private fun userNamespacesAllowed(): Boolean =
+        runCatching {
+            java.nio.file.Files.readString(java.nio.file.Path.of("/proc/sys/kernel/unprivileged_userns_clone")).trim() != "0"
+        }.getOrDefault(true)
+
     fun stop() = synchronized(lock) {
+        // Holding the lock keeps the shutdown hook from tearing down a browser a concurrent port()
+        // start is still wiring up - a race that would otherwise leave both state and process torn.
         process?.let { running ->
             runCatching { running.destroy() }
             if (!runCatching { running.waitFor(5, TimeUnit.SECONDS) }.getOrDefault(true)) {

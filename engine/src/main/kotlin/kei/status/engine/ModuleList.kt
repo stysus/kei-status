@@ -133,6 +133,11 @@ object ModuleList {
      * deterministic - equal costs are ordered by line, and an equal load goes to the lower shard -
      * and lands within a few per cent of optimal for this shape of input, without the cost of an
      * exact partition.
+     *
+     * When the costs are wall-clock times they already include compilation, class loading and JVM
+     * warm-up; the store-based fallback slightly under-counts that overhead, but that is a
+     * cold-start approximation that improves after one run writes a costs file - distorting the
+     * cost ratios with a hardcoded constant would be worse.
      */
     fun split(
         entries: List<Entry>,
@@ -143,7 +148,7 @@ object ModuleList {
         if (entries.isEmpty()) return List(count) { emptyList() }
 
         val fallback = fallbackCost(costs)
-        fun cost(entry: Entry) = (costs[entry.module] ?: fallback) + MODULE_OVERHEAD_MS
+        fun cost(entry: Entry) = costs[entry.module] ?: fallback
 
         val queue = entries.sortedWith(compareByDescending<Entry> { cost(it) }.thenBy { it.line() })
         val bins = List(count) { mutableListOf<Entry>() }
@@ -166,13 +171,3 @@ object ModuleList {
 
     private fun Path.isHiddenDir(): Boolean = fileName.toString().startsWith(".")
 }
-
-/**
- * Fixed overhead added to every module's cost before the greedy split compares them.
- *
- * When the caller provides wall-clock times (which include compilation, class loading, and JVM
- * warm-up), the overhead is already in the number and this should be zero.  The store-based
- * fallback slightly under-counts overhead, but that is a cold-start approximation that improves
- * after one run writes a costs file; distorting the cost ratios with a hardcoded constant is worse.
- */
-private const val MODULE_OVERHEAD_MS = 0

@@ -8,8 +8,12 @@ import android.view.MotionEvent
 import android.view.View
 import kei.status.webkit.ChallengeSolver
 import kei.status.webkit.Chrome
+import kei.status.webkit.ChromeUnavailableException
 import kei.status.webkit.Page
 import kei.status.webkit.autoSolveEnabled
+import java.util.concurrent.ExecutionException
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.TimeoutException
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
@@ -106,7 +110,7 @@ open class WebView(context: Context?) : View() {
         // Navigation waits for the session's interception to be armed. Issuing it alongside
         // `Fetch.enable` lets the document escape to the network, which for `loadDataWithBaseURL`
         // means the served HTML is replaced by a DNS error page.
-        afterSetup {
+        afterSetup(ready) {
             pushCookiesToBrowser(url)
             navigate(session, url)
         }
@@ -128,7 +132,7 @@ open class WebView(context: Context?) : View() {
         // The document is served by intercepting the first navigation instead of by fetching the
         // URL, so `baseUrl` becomes the page's origin (localStorage, cookies) without a request.
         pendingDocument = PendingDocument(origin, data, mimeType ?: "text/html", encoding ?: "UTF-8")
-        afterSetup {
+        afterSetup(ready) {
             navigate(session, origin)
         }
     }
@@ -503,14 +507,31 @@ open class WebView(context: Context?) : View() {
         return session
     }
 
-    /** Runs [block] once the session's interception and bindings are armed. */
-    private fun afterSetup(block: () -> Unit) {
-        val pending = ready
+    /**
+     * Runs [block] once [pending] - the session's setup: interception and bindings armed -
+     * completes. Internal so WebViewTest can pin the dead-browser classification without a
+     * browser; production callers pass [ready].
+     */
+    internal fun afterSetup(pending: java.util.concurrent.CompletableFuture<*>?, block: () -> Unit) {
         if (pending == null) {
             block()
             return
         }
-        pending.whenComplete { _, _ -> block() }
+        // Joined on the calling thread so a browser that died mid-setup throws here. Deferring to
+        // the completing thread (whenComplete) would swallow the throw, skip the navigation, and
+        // let the scenario time out into a FAIL that blames the extension for harness
+        // infrastructure.
+        try {
+            pending.get(SETUP_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+        } catch (e: ExecutionException) {
+            throw ChromeUnavailableException(
+                "the browser died while the page was being set up: ${e.cause?.message}",
+                e.cause ?: e,
+            )
+        } catch (e: TimeoutException) {
+            throw ChromeUnavailableException("the page setup never finished arming", e)
+        }
+        block()
     }
 
     /**
@@ -700,8 +721,14 @@ open class WebView(context: Context?) : View() {
     }
 
     private fun buildBridgeScript(name: String, obj: Any): String {
+        // Android (API 17+) only exposes @JavascriptInterface methods to page script; exposing
+        // more would hand site JS helpers the extension never meant to share, and let a source
+        // pass here on a surface the app never offered it.
         val methods = obj.javaClass.methods
-            .filter { it.declaringClass != Any::class.java && it.parameterCount <= 1 }
+            .filter {
+                it.declaringClass != Any::class.java && it.parameterCount <= 1 &&
+                    it.isAnnotationPresent(JavascriptInterface::class.java)
+            }
             .map { it.name }
             .distinct()
 
@@ -731,7 +758,8 @@ open class WebView(context: Context?) : View() {
         val target = bindings[interfaceName] ?: return
 
         val method = target.javaClass.methods.firstOrNull {
-            it.name == methodName && it.parameterCount <= 1
+            it.name == methodName && it.parameterCount <= 1 &&
+                it.isAnnotationPresent(JavascriptInterface::class.java)
         } ?: return
 
         mainHandler.post {
@@ -886,6 +914,7 @@ open class WebView(context: Context?) : View() {
         private const val CHALLENGE_POLL_MS = 500L
         private const val NAVIGATE_RETRIES = 3
         private const val NAVIGATE_RETRY_MS = 150L
+        private const val SETUP_TIMEOUT_SECONDS = 30L
 
         /** Resolves after the browser has committed the page's next frame. */
         private const val NEXT_FRAME = "new Promise(resolve => requestAnimationFrame(() => resolve(1)))"

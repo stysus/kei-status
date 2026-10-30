@@ -95,7 +95,10 @@ class Page internal constructor(
         listeners.computeIfAbsent(event) { mutableListOf() } += listener
     }
 
-    fun send(method: String, params: JsonObject = JsonObject(emptyMap())): CompletableFuture<JsonObject> {
+    fun send(method: String, params: JsonObject = JsonObject(emptyMap())): CompletableFuture<JsonObject> =
+        sendTracked(method, params).second
+
+    private fun sendTracked(method: String, params: JsonObject): Pair<Long, CompletableFuture<JsonObject>> {
         val id = nextId.getAndIncrement()
         val future = CompletableFuture<JsonObject>()
 
@@ -111,7 +114,7 @@ class Page internal constructor(
             future.completeExceptionally(
                 ChromeUnavailableException("DevTools session is closed"),
             )
-            return future
+            return id to future
         }
 
         pending[id] = future
@@ -123,7 +126,7 @@ class Page internal constructor(
             pending.remove(id)?.completeExceptionally(
                 ChromeUnavailableException("DevTools session is closed"),
             )
-            return future
+            return id to future
         }
 
         if (!socket.send(message.toString())) {
@@ -132,16 +135,21 @@ class Page internal constructor(
                 ChromeUnavailableException("DevTools session is closed"),
             )
         }
-        return future
+        return id to future
     }
 
     /** Sends [method] and blocks for its result. Never call this from the main thread. */
-    fun call(method: String, params: JsonObject = JsonObject(emptyMap())): JsonObject = try {
-        send(method, params).get(CALL_TIMEOUT_SECONDS, TimeUnit.SECONDS)
-    } catch (e: TimeoutException) {
-        throw TimeoutException("DevTools $method on page $targetId timed out after ${CALL_TIMEOUT_SECONDS}s")
-    } catch (e: ExecutionException) {
-        throw (e.cause ?: e)
+    fun call(method: String, params: JsonObject = JsonObject(emptyMap())): JsonObject {
+        val (id, future) = sendTracked(method, params)
+        return try {
+            future.get(CALL_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+        } catch (e: TimeoutException) {
+            // The reply will find nothing to complete when it arrives, so drop the entry here.
+            pending.remove(id)
+            throw TimeoutException("DevTools $method on page $targetId timed out after ${CALL_TIMEOUT_SECONDS}s")
+        } catch (e: ExecutionException) {
+            throw (e.cause ?: e)
+        }
     }
 
     private companion object {

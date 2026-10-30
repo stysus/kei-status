@@ -97,6 +97,7 @@ class WebViewTest {
 
         view.addJavascriptInterface(
             object {
+                @JavascriptInterface
                 @Suppress("unused")
                 fun post(value: String) {
                     message.set(value)
@@ -127,6 +128,7 @@ class WebViewTest {
 
         view.addJavascriptInterface(
             object {
+                @JavascriptInterface
                 @Suppress("unused")
                 fun post(value: String) {
                     message.set(value)
@@ -220,6 +222,7 @@ class WebViewTest {
 
         view.addJavascriptInterface(
             object {
+                @JavascriptInterface
                 @Suppress("unused")
                 fun post(value: String) {
                     touch.set(value)
