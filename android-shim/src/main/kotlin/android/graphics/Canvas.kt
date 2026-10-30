@@ -32,8 +32,11 @@ class Canvas(val bitmap: Bitmap) {
         graphics.clip = state.clip
     }
 
+    // Android's save() returns the count before the call (first save returns 1, SkCanvas returns
+    // getSaveCount() - 1), so restoreToCount(n) must pop n states: restoreToCount(1) unrolls
+    // everything, restoreToCount(save()) undoes exactly that save.
     fun restoreToCount(saveCount: Int) {
-        while (stack.size > saveCount) restore()
+        while (stack.size >= saveCount) restore()
     }
 
     fun getSaveCount(): Int = stack.size + 1

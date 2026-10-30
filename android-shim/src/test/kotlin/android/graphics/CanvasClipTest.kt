@@ -82,6 +82,36 @@ class CanvasClipTest {
         assertEquals(0xFF0000FF.toInt(), pixelAt(bitmap, 9, 9))
     }
 
+    @Test
+    fun `restoreToCount of the value save returned unrolls every save`() {
+        val bitmap = blank()
+        val canvas = Canvas(bitmap)
+
+        val saveCount = canvas.save()
+        canvas.clipRect(0f, 0f, 5f, 5f)
+        canvas.restoreToCount(saveCount)
+        canvas.drawColor(0xFF0000FF.toInt())
+
+        // Unclipped at the corners proves the save's clip is gone, not held one level deep.
+        assertEquals(0xFF0000FF.toInt(), pixelAt(bitmap, 9, 9))
+        assertEquals(1, canvas.getSaveCount())
+    }
+
+    @Test
+    fun `restoreToCount of 1 unrolls all nested saves`() {
+        val bitmap = blank()
+        val canvas = Canvas(bitmap)
+
+        canvas.save()
+        canvas.save()
+        canvas.clipRect(0f, 0f, 5f, 5f)
+        canvas.restoreToCount(1)
+        canvas.drawColor(0xFF0000FF.toInt())
+
+        assertEquals(0xFF0000FF.toInt(), pixelAt(bitmap, 9, 9))
+        assertEquals(1, canvas.getSaveCount())
+    }
+
     private fun blank(): Bitmap = Bitmap.createBitmap(SIZE, SIZE, Bitmap.Config.ARGB_8888).also {
         Canvas(it).drawColor(WHITE)
     }
