@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:42:36.202786506Z",
+    "generatedAt": "2026-10-30T01:33:00.080966989Z",
     "module": ":src:tr:opiatoon",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 2266890064732906146,
             "name": "Opiatoon",
             "lang": "tr",
             "baseUrl": "https://opiatoon.shop",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1433,
+                    "status": "WARN",
+                    "durationMs": 365,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 521"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 567,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 200,
+                    "message": "HTTP error 521",
                     "notes": [],
-                    "samples": [
-                        "Painter of the Night -> 1245",
-                        "BJ Alex -> 2670",
-                        "Dear Door -> 7581"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 666,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 198,
+                    "message": "HTTP error 521",
                     "notes": [],
-                    "samples": [
-                        "Ennead -> 12480",
-                        "Lucky in Love -> 30659",
-                        "Arts Manz -> 28175"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,33 +58,67 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "BLOCKED",
-                    "durationMs": 1464,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.io.IOException: Okumak için WebView üzerinden giriş yapın"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:32:02.894496038Z",
+    "comparedTo": "2026-10-28T18:42:36.202786506Z",
     "changes": [
         {
             "source": "Opiatoon",
             "lang": "tr",
-            "scenario": "search",
+            "scenario": "connectivity",
             "from": "PASS",
-            "to": null
+            "to": "WARN"
+        },
+        {
+            "source": "Opiatoon",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Opiatoon",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Opiatoon",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "BLOCKED",
+            "to": "SKIP"
+        },
+        {
+            "source": "Opiatoon",
+            "lang": "tr",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

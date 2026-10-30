@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:39:10.935682938Z",
+    "generatedAt": "2026-10-30T01:33:25.642284467Z",
     "module": ":src:id:rosyscans",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 9147884000487951300,
             "name": "Rosyscans",
             "lang": "id",
             "baseUrl": "https://rosyscans.com",
-            "status": "WARN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,30 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 806,
+                    "durationMs": 1121,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 254,
+                    "status": "PASS",
+                    "durationMs": 827,
                     "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Accidental Love -> /manga/accidental-love/",
+                        "Cry, or Better Yet, Beg -> /manga/cry-or-better-yet-beg/",
+                        "Serena -> /manga/serena/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 192,
+                    "status": "PASS",
+                    "durationMs": 572,
                     "message": null,
-                    "notes": [
-                        "popular/latest returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Our Guild’s Idol -> /manga/our-guilds-idol/",
+                        "This Emperor Runs a Marriage Scam -> /manga/this-emperor-runs-a-marriage-scam/",
+                        "Once an Assassin, Now a Royal Nanny -> /manga/once-an-assassin-now-a-royal-nanny/"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -59,32 +63,94 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 371,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Accidental Love -> /manga/accidental-love/",
+                        "The Guy Next Door’s Breeding Diaries -> /manga/the-guy-next-doors-breeding-diaries/"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 510,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Chapter 93.5 -> /accidental-love-chapter-93-5/",
+                        "Chapter 93 -> /accidental-love-chapter-93/",
+                        "Chapter 92 -> /accidental-love-chapter-92/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 505,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://img.rosyscans.id/uploads/manga-images/4810/93.5/001.jpg?v=1792899594",
+                        "https://img.rosyscans.id/uploads/manga-images/4810/93.5/002.jpg?v=1792899594",
+                        "https://img.rosyscans.id/uploads/manga-images/4810/93.5/003.jpg?v=1792899594"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1572,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:28:33.301679055Z",
+    "comparedTo": "2026-10-28T18:39:10.935682938Z",
     "changes": [
         {
             "source": "Rosyscans",
             "lang": "id",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Rosyscans",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Rosyscans",
+            "lang": "id",
             "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "Rosyscans",
+            "lang": "id",
+            "scenario": "chapters",
             "from": "SKIP",
-            "to": null
+            "to": "PASS"
+        },
+        {
+            "source": "Rosyscans",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Rosyscans",
+            "lang": "id",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

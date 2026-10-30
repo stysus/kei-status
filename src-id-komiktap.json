@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:35:44.010134049Z",
+    "generatedAt": "2026-10-30T01:36:32.987946656Z",
     "module": ":src:id:komiktap",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 8162933120097302217,
             "name": "Komiktap",
             "lang": "id",
             "baseUrl": "https://komiktap.info",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 241,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30089,
+                    "message": "Network is unreachable",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 46,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30025,
+                    "message": "Network is unreachable",
                     "notes": [],
-                    "samples": [
-                        "Secret Class -> /manga/secret-class/",
-                        "Stepmothers Friends -> /manga/stepmothers-friends/",
-                        "Boarding Diary -> /manga/boarding-diary/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 40,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30022,
+                    "message": "Network is unreachable",
                     "notes": [],
-                    "samples": [
-                        "Hitozuma Ero Haishinsha-san Otto no Joshi ni Mibareshite Kyosei Kokai SEX Kami Hoso -> /manga/hitozuma-ero-haishinsha-san-otto-no-joshi-ni-mibareshite-kyosei-kokai-sex-kami-hoso/",
-                        "Mind Control -> /manga/mind-control/",
-                        "I’m the Only Guy at the Massage Shop -> /manga/im-the-only-guy-at-the-massage-shop/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,45 +56,79 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 114,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 321 -> /secret-class-chapter-321/",
-                        "Chapter 320 -> /secret-class-chapter-320/",
-                        "Chapter 319 -> /secret-class-chapter-319/"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 73,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "http://cdnasu.xyz/wp-content/uploads/2026/10/00-209.jpg",
-                        "http://cdnasu.xyz/wp-content/uploads/2026/10/1-64.jpg",
-                        "http://cdnasu.xyz/wp-content/uploads/2026/10/2-78.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2219,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:31:16.314769937Z",
+    "comparedTo": "2026-10-28T18:35:44.010134049Z",
     "changes": [
         {
             "source": "Komiktap",
             "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Komiktap",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Komiktap",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Komiktap",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Komiktap",
+            "lang": "id",
             "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "Komiktap",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Komiktap",
+            "lang": "id",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

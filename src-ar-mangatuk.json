@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:19:12.868289198Z",
+    "generatedAt": "2026-10-30T01:25:57.820505765Z",
     "module": ":src:ar:mangatuk",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "MangaTuk",
             "lang": "ar",
             "baseUrl": "https://mangatuk.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 818,
+                    "durationMs": 617,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 758,
+                    "durationMs": 1296,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,14 +42,16 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 964,
+                    "status": "WARN",
+                    "durationMs": 718,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[3] has no thumbnail"
+                    ],
                     "samples": [
-                        "Villains Are Destined to Die -> wpser_a73c393c5ed01bc8673e228590",
-                        "Vampire Meets Huntress -> wpser_fb3c232cca0ce376e476ee2ce2",
-                        "Star Ginseng Store -> blah8hhj7dpbtanq2dyb8jrs"
+                        "Cry, or Better Yet, Beg -> wpser_99103e33e48316791f731a88f6",
+                        "Roxana -> x845rgrtm1ccsktfbk8j4hzr",
+                        "The Classmate -> wpser_432cbed7f849c721767f8cf0f9"
                     ]
                 },
                 {
@@ -63,9 +65,19 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 228,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Tears on a Withered Flower -> wpser_8063be9ecbddf5cb92a38a1bcc"
+                    ]
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 358,
+                    "durationMs": 438,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +89,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 189,
+                    "durationMs": 214,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -89,7 +101,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 119,
+                    "durationMs": 242,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -97,40 +109,19 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:30:34.968721205Z",
+    "comparedTo": "2026-10-29T10:19:12.868289198Z",
     "changes": [
         {
             "source": "MangaTuk",
             "lang": "ar",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaTuk",
-            "lang": "ar",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "MangaTuk",
             "lang": "ar",
-            "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaTuk",
-            "lang": "ar",
-            "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaTuk",
-            "lang": "ar",
-            "scenario": "images",
+            "scenario": "search",
             "from": null,
             "to": "PASS"
         }

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:22:57.006088827Z",
+    "generatedAt": "2026-10-30T01:33:13.080907196Z",
     "module": ":src:fr:hentaizonebeta",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "HentaiZone (Beta)",
             "lang": "fr",
             "baseUrl": "https://beta.hentaizone.xyz",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,35 +23,39 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 663,
+                    "durationMs": 488,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 20238,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from beta.hentaizone.xyz (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 3352,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "My New Family Treats Me Well -> my-new-family-treats-me-well",
+                        "Regressed Warrior's Female Dominance Diary -> regressed-warriors-female-dominance-diary",
+                        "I Am The Only Male Soldier In The Unit -> i-am-the-only-male-soldier-in-the-unit"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 16,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from beta.hentaizone.xyz (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 508,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "時崎狂三（リクエスト絵）[AI Generated] -> 37344567-ai-generated",
+                        "(325p) 渡辺曜 [AI Generated] -> 37344550-325p-ai-generated",
+                        "福丸小糸 [AI Generated] -> 37344533-ai-generated"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,60 +63,97 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 487,
+                    "message": null,
+                    "notes": [
+                        "query \"My New Family Treats Me Well\" matched no results in the first page"
+                    ],
+                    "samples": [
+                        "時崎狂三（リクエスト絵）[AI Generated] -> 37344567-ai-generated",
+                        "(325p) 渡辺曜 [AI Generated] -> 37344550-325p-ai-generated",
+                        "福丸小糸 [AI Generated] -> 37344533-ai-generated"
+                    ]
+                },
+                {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 608,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapitre 126 -> my-new-family-treats-me-well/chapitre-126",
+                        "Chapitre 126.5 -> my-new-family-treats-me-well/chapitre-126-5",
+                        "Chapitre 125 -> my-new-family-treats-me-well/chapitre-125"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 148,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://scanscloud.xyz/chapters/manga_6669b4c48a41f/862aa8754ed7c433888ed670655b3ca6/MNFTMW-01-00.png",
+                        "https://scanscloud.xyz/chapters/manga_6669b4c48a41f/862aa8754ed7c433888ed670655b3ca6/MNFTMW-01-01.jpg",
+                        "https://scanscloud.xyz/chapters/manga_6669b4c48a41f/862aa8754ed7c433888ed670655b3ca6/MNFTMW-01-02.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1079,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:16.031720211Z",
+    "comparedTo": "2026-10-29T10:22:57.006088827Z",
     "changes": [
         {
             "source": "HentaiZone (Beta)",
             "lang": "fr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "HentaiZone (Beta)",
             "lang": "fr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "HentaiZone (Beta)",
+            "lang": "fr",
+            "scenario": "search",
+            "from": null,
+            "to": "WARN"
         },
         {
             "source": "HentaiZone (Beta)",
             "lang": "fr",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HentaiZone (Beta)",
             "lang": "fr",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HentaiZone (Beta)",
             "lang": "fr",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

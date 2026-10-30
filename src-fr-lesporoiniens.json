@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:32:36.333479403Z",
+    "generatedAt": "2026-10-30T01:39:51.615594565Z",
     "module": ":src:fr:lesporoiniens",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 7783284177278678538,
             "name": "Les Poroiniens",
             "lang": "fr",
             "baseUrl": "https://lesporoiniens.org",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1009,
+                    "durationMs": 437,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1708,
+                    "durationMs": 860,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,9 +59,19 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 442,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Jour Après Jour -> /jour-apres-jour"
+                    ]
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 213,
+                    "durationMs": 81,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -72,33 +82,35 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 403,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.imgchest.com/files/45xcv2navb7.png",
-                        "https://cdn.imgchest.com/files/4apc5pn95a4.png",
-                        "https://cdn.imgchest.com/files/46acqp9lq67.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 830,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 517,
+                    "message": "HTTP error 500",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:32:58.804416034Z",
+    "comparedTo": "2026-10-28T18:32:36.333479403Z",
     "changes": [
         {
             "source": "Les Poroiniens",
             "lang": "fr",
             "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "Les Poroiniens",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Les Poroiniens",
+            "lang": "fr",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

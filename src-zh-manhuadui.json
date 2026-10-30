@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:27:49.871485589Z",
+    "generatedAt": "2026-10-30T01:37:49.944532887Z",
     "module": ":src:zh:manhuadui",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "优酷漫画",
             "lang": "zh",
             "baseUrl": "https://www.ykmh.net",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 206,
+                    "status": "WARN",
+                    "durationMs": 181,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 701,
+                    "durationMs": 141,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +45,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 247,
+                    "durationMs": 811,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +57,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,87 +65,70 @@
                     ]
                 },
                 {
-                    "name": "chapters",
+                    "name": "search",
                     "status": "PASS",
-                    "durationMs": 179,
+                    "durationMs": 1845,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "October 3rd Set Patreon HxD -> /manhua/Fatexyuejibenziheji/122911.html",
-                        "绝 -> /manhua/Fatexyuejibenziheji/122910.html",
-                        "October 2nd Set Patreon HxD -> /manhua/Fatexyuejibenziheji/122909.html"
+                        "Fate x 月姬本子合集 -> /manhua/Fatexyuejibenziheji/"
                     ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 149,
+                    "message": "HTTP error 403",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1971,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
-                    "samples": [
-                        "https://fm.haotuyk.top/images/comic/62/122911/http://js.haotuyk.top/images/comic/102/202299/1641199879BvIFCRVevXt2pehr.jpg",
-                        "https://fm.haotuyk.top/images/comic/62/122911/http://js.haotuyk.top/images/comic/102/202299/1641199878WcwiP9ZjFYubhxmA.jpg",
-                        "https://fm.haotuyk.top/images/comic/62/122911/http://js.haotuyk.top/images/comic/102/202299/1641199876cXVhexGBkIGj5O1g.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 1147,
-                    "message": null,
-                    "notes": [
-                        "page[0] image returned HTTP 404",
-                        "page[1] image returned HTTP 404",
-                        "page[2] image returned HTTP 404"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:05.312720997Z",
+    "comparedTo": "2026-10-29T10:27:49.871485589Z",
     "changes": [
         {
             "source": "优酷漫画",
             "lang": "zh",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "优酷漫画",
             "lang": "zh",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "优酷漫画",
-            "lang": "zh",
-            "scenario": "latest",
-            "from": "FAIL",
+            "scenario": "search",
+            "from": null,
             "to": "PASS"
         },
         {
             "source": "优酷漫画",
             "lang": "zh",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "优酷漫画",
             "lang": "zh",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "优酷漫画",
             "lang": "zh",
             "scenario": "images",
-            "from": null,
-            "to": "WARN"
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

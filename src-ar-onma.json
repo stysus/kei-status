@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:35:57.897909725Z",
+    "generatedAt": "2026-10-30T01:26:01.027103110Z",
     "module": ":src:ar:onma",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 335499577904379512,
             "name": "مانجا اون لاين",
             "lang": "ar",
             "baseUrl": "https://onma.top",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1074,
-                    "message": null,
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 85,
+                    "message": "Connection refused (connect failed)",
+                    "notes": [
+                        "java.net.ConnectException: Failed to connect to onma.top/127.0.0.1:443"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 757,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "One Piece -> /manga/one-piece-",
-                        "Black Clover -> /manga/black-clover",
-                        "Tales of Demons and Gods -> /manga/tales-of-demons-and-gods"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 2,
+                    "message": "Connection refused (connect failed)",
+                    "notes": [
+                        "java.net.ConnectException: Failed to connect to onma.top/127.0.0.1:443"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 526,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "One Piece -> /manga/one-piece-",
-                        "Kingdom -> /manga/kingdom",
-                        "Boruto: Two Blue Vortex -> /manga/boruto-two-blue-vortex"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 1,
+                    "message": "Connection refused (connect failed)",
+                    "notes": [
+                        "java.net.ConnectException: Failed to connect to onma.top/127.0.0.1:443"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,45 +62,79 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1837,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "1196: لا قيمة لحب من يتوق إلى الموت -> /manga/one-piece-/1196",
-                        "1195: نقطة ضعف -> /manga/one-piece-/1195",
-                        "1194: كل شيء يتغير -> /manga/one-piece-/1194"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1294,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.onma.top/uploads/manga/one-piece-/chapters/1196/01.jpg",
-                        "https://www.onma.top/uploads/manga/one-piece-/chapters/1196/02.jpg",
-                        "https://www.onma.top/uploads/manga/one-piece-/chapters/1196/03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2018,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:25:46.362501546Z",
+    "comparedTo": "2026-10-28T18:35:57.897909725Z",
     "changes": [
         {
             "source": "مانجا اون لاين",
             "lang": "ar",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "مانجا اون لاين",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "مانجا اون لاين",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "مانجا اون لاين",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "مانجا اون لاين",
+            "lang": "ar",
             "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "مانجا اون لاين",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "مانجا اون لاين",
+            "lang": "ar",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

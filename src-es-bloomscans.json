@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:21:05.653064207Z",
+    "generatedAt": "2026-10-30T01:31:57.664408760Z",
     "module": ":src:es:bloomscans",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Bloom Scans",
             "lang": "es",
             "baseUrl": "https://bloomscans.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,29 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 320,
+                    "status": "PASS",
+                    "durationMs": 280,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 403"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 75,
-                    "message": "HTTP error 403",
+                    "status": "PASS",
+                    "durationMs": 455,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Matrimonio por venganza -> /series/matrimonio-por-venganza/",
+                        "Vamos de compras -> /series/vamos-de-compras/",
+                        "Escuela secundaria de shanhai -> /series/escuela-secundaria-de-shanhai/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 18,
-                    "message": "HTTP error 403",
+                    "status": "PASS",
+                    "durationMs": 254,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Matrimonio por venganza -> /series/matrimonio-por-venganza/",
+                        "Vamos de compras -> /series/vamos-de-compras/",
+                        "Escuela secundaria de shanhai -> /series/escuela-secundaria-de-shanhai/"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -57,67 +63,104 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 308,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Matrimonio por venganza -> /series/matrimonio-por-venganza/"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 44,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Chapter 08 -> /matrimonio-por-venganza-capitulo-08/",
+                        "Chapter 07 -> /matrimonio-por-venganza-capitulo-07/",
+                        "Chapter 06 -> /matrimonio-por-venganza-capitulo-06/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 46,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://bloomscans.com/reader-image/15716/6c1172e3d51ec782575b/6f093aa9910ce38bb682168b.webp",
+                        "https://bloomscans.com/reader-image/15716/5993abe5f5edc0fbe1c0/0bd49aaa449fc74fda9f8539.webp",
+                        "https://bloomscans.com/reader-image/15716/2766b05d5d4609a946f4/bb25e13f815a8e40c5805a89.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 301,
+                    "message": null,
+                    "notes": [
+                        "page[0] image returned HTTP 404",
+                        "page[1] image returned HTTP 404",
+                        "page[2] image returned HTTP 404"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:19.701258715Z",
+    "comparedTo": "2026-10-29T10:21:05.653064207Z",
     "changes": [
         {
             "source": "Bloom Scans",
             "lang": "es",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Bloom Scans",
             "lang": "es",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Bloom Scans",
             "lang": "es",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Bloom Scans",
+            "lang": "es",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
         },
         {
             "source": "Bloom Scans",
             "lang": "es",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Bloom Scans",
             "lang": "es",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Bloom Scans",
             "lang": "es",
             "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

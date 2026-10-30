@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:24:38.252110295Z",
+    "generatedAt": "2026-10-30T01:33:05.467346307Z",
     "module": ":src:fr:pantheonscan",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Pantheon Scan",
             "lang": "fr",
             "baseUrl": "https://pantheon-scan.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1045,
+                    "durationMs": 789,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 545,
+                    "durationMs": 570,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 490,
+                    "durationMs": 454,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,62 +63,63 @@
                     ]
                 },
                 {
-                    "name": "chapters",
+                    "name": "search",
                     "status": "PASS",
-                    "durationMs": 655,
+                    "durationMs": 711,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "chapitre 194 -> chapitre-194",
-                        "chapitre 193 -> chapitre-193",
-                        "chapitre 192 -> chapitre-192"
+                        "Solo Leveling -> 1894"
                     ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 209,
+                    "message": "HTTP error 503",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 330,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://pantheon-scan.com/wp-content/uploads/WP-manga/data/manga_6356a8df2c883/e245f039d2e0a9ec032b858446a3d33d/01.jpg",
-                        "https://pantheon-scan.com/wp-content/uploads/WP-manga/data/manga_6356a8df2c883/e245f039d2e0a9ec032b858446a3d33d/02.jpg",
-                        "https://pantheon-scan.com/wp-content/uploads/WP-manga/data/manga_6356a8df2c883/e245f039d2e0a9ec032b858446a3d33d/03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1640,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:57.237230962Z",
+    "comparedTo": "2026-10-29T10:24:38.252110295Z",
     "changes": [
         {
             "source": "Pantheon Scan",
             "lang": "fr",
-            "scenario": "chapters",
-            "from": "FAIL",
+            "scenario": "search",
+            "from": null,
             "to": "PASS"
+        },
+        {
+            "source": "Pantheon Scan",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Pantheon Scan",
             "lang": "fr",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Pantheon Scan",
             "lang": "fr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:37:13.837969490Z",
+    "generatedAt": "2026-10-30T01:37:05.165175192Z",
     "module": ":src:tr:mangawow",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 2576579305327069452,
             "name": "MangaWOW",
             "lang": "tr",
             "baseUrl": "https://mangawow.org",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1171,
+                    "status": "WARN",
+                    "durationMs": 305,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 521"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 786,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 130,
+                    "message": "HTTP error 521",
                     "notes": [],
-                    "samples": [
-                        "Görünüşçülük -> 43389",
-                        "Vivian Ve Hugo -> 40289",
-                        "Positively Yours -> 43964"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 789,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 145,
+                    "message": "HTTP error 521",
                     "notes": [],
-                    "samples": [
-                        "My Wife is a Demon Queen -> 103",
-                        "100th Day after Disappearance -> 1015",
-                        "Iron Ladies -> 96"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,43 +58,79 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1226,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 485 - Cheonliang [04] -> bolum-485-cheonliang-04",
-                        "Bölüm 484 -> bolum-484",
-                        "Bölüm 483 -> bolum-483"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 922,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "search",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:33:27.337693109Z",
+    "comparedTo": "2026-10-28T18:37:13.837969490Z",
     "changes": [
         {
             "source": "MangaWOW",
             "lang": "tr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "MangaWOW",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaWOW",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaWOW",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaWOW",
+            "lang": "tr",
             "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaWOW",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaWOW",
+            "lang": "tr",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

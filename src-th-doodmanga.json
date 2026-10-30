@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:40:12.656351263Z",
+    "generatedAt": "2026-10-30T01:34:06.333190170Z",
     "module": ":src:th:doodmanga",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 4393941999923514698,
             "name": "Doodmanga",
             "lang": "th",
             "baseUrl": "https://www.doodmanga.com",
-            "status": "UNSUPPORTED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 667,
+                    "durationMs": 631,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 521,
+                    "durationMs": 565,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,9 +63,20 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 688,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"Master Cultivation Return – โคตรเซียนเกรียนกลับมาเกิดใหม่\" matched no results in the first page"
+                    ],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 319,
+                    "durationMs": 237,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,26 +87,49 @@
                 },
                 {
                     "name": "pages",
-                    "status": "UNSUPPORTED",
-                    "durationMs": 613,
-                    "message": "requires the native QuickJS library, which has no JVM build: app.cash.quickjs.QuickJs",
-                    "notes": [
-                        "java.lang.NoClassDefFoundError: app/cash/quickjs/QuickJs",
-                        "java.lang.ClassNotFoundException: app.cash.quickjs.QuickJs"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 562,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://img.doodmanga.com/2025/09/1c/3GQHU_20250930185806.jpg",
+                        "https://img.doodmanga.com/2025/09/cb/364UO_20250930185807-K-Ui9XYnlFMU9yZjg3cW1URHMyMloyWGhIZ3NKWE1kVWtVRlhveVVEMzhxRT0.jpg?sovleImage=500.00,1995.00,0.00,0.00::0.00,665.00,0.00,665.00::500.00,2660.00,0.00,1330.00::0.00,0.00,0.00,1995.00::500.00,665.00,0.00,2660.00::0.00,2660.00,500.00,0.00::0.00,1330.00,500.00,665.00::500.00,0.00,500.00,1330.00::500.00,1330.00,500.00,1995.00::0.00,1995.00,500.00,2660.00&segmentWidth=500&segmentHeight=665",
+                        "https://img.doodmanga.com/2025/09/8f/LKQR2_20250930185809-K-WDY5Z0pIMks3ZnEvaU56cDgybG1sMmhmUytwNnQ2cENrSHB0WWo4Z1pKRT0.jpg?sovleImage=0.00,2660.00,0.00,0.00::0.00,1995.00,0.00,665.00::0.00,1330.00,0.00,1330.00::500.00,1330.00,0.00,1995.00::0.00,665.00,0.00,2660.00::500.00,0.00,500.00,0.00::500.00,2660.00,500.00,665.00::500.00,1995.00,500.00,1330.00::0.00,0.00,500.00,1995.00::500.00,665.00,500.00,2660.00&segmentWidth=500&segmentHeight=665"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 631,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:33:42.059143005Z",
+    "comparedTo": "2026-10-28T18:40:12.656351263Z",
     "changes": [
         {
             "source": "Doodmanga",
             "lang": "th",
             "scenario": "search",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "WARN"
+        },
+        {
+            "source": "Doodmanga",
+            "lang": "th",
+            "scenario": "pages",
+            "from": "UNSUPPORTED",
+            "to": "PASS"
+        },
+        {
+            "source": "Doodmanga",
+            "lang": "th",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

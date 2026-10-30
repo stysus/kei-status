@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:24:16.621205369Z",
+    "generatedAt": "2026-10-30T01:36:54.299329358Z",
     "module": ":src:ru:mangachan",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "FAIL",
-                    "durationMs": 30535,
+                    "durationMs": 30607,
                     "message": "timeout",
                     "notes": [],
                     "samples": []
@@ -31,23 +31,27 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 224,
-                    "message": "HTTP error 502",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 30000,
+                    "durationMs": 30002,
                     "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
+                    "name": "latest",
+                    "status": "PASS",
+                    "durationMs": 23612,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Mortal Kombat: Just a Game -> /manga/175111-mortal-kombat-just-a-game.html",
+                        "Yukseong Game-i Hyeonsiri Dwaetda -> /manga/175100-yukseong-game-i-hyeonsiri-dwaetda.html",
+                        "Girl's Interstellar Adventure -> /manga/175079-girls-interstellar-adventure.html"
+                    ]
+                },
+                {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,46 +59,58 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 20434,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "Mortal Kombat: Just a Game (Смертельная битва. Просто игра) -> /manga/175111-mortal-kombat-just-a-game.html"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "WARN",
+                    "durationMs": 21739,
+                    "message": null,
+                    "notes": [
+                        "chapter list is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:42:09.333668783Z",
+    "comparedTo": "2026-10-29T10:24:16.621205369Z",
     "changes": [
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

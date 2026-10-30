@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:40:41.929850840Z",
+    "generatedAt": "2026-10-30T01:37:40.124231525Z",
     "module": ":src:tr:lunascans",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 6989973853577548620,
             "name": "Luna Scans",
             "lang": "tr",
             "baseUrl": "https://tuhafscans.com",
-            "status": "WARN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2253,
+                    "durationMs": 1193,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 836,
+                    "durationMs": 786,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 761,
+                    "durationMs": 779,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,9 +63,19 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 1071,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "No Arguing With Mr. Mo -> 4501"
+                    ]
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 797,
+                    "durationMs": 825,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,55 +86,42 @@
                 },
                 {
                     "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 699,
-                    "message": null,
+                    "status": "THROTTLED",
+                    "durationMs": 11079,
+                    "message": "the site is rate-limiting this sweep (HTTP 429, retry after 60s); the source was not checked",
                     "notes": [
-                        "page list is empty"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
-                    "samples": []
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 0,
-                    "message": null,
-                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T10:12:18.275833855Z",
+    "comparedTo": "2026-10-28T18:40:41.929850840Z",
     "changes": [
         {
             "source": "Luna Scans",
             "lang": "tr",
-            "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Luna Scans",
-            "lang": "tr",
-            "scenario": "pages",
-            "from": "SKIP",
-            "to": "WARN"
-        },
-        {
-            "source": "Luna Scans",
-            "lang": "tr",
-            "scenario": "images",
+            "scenario": "search",
             "from": null,
             "to": "PASS"
         },
         {
             "source": "Luna Scans",
             "lang": "tr",
-            "scenario": "search",
-            "from": "THROTTLED",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "Luna Scans",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "tuhafscans.com"
+    ]
 }

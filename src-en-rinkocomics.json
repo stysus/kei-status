@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:22:19.333010709Z",
+    "generatedAt": "2026-10-30T01:32:10.743485555Z",
     "module": ":src:en:rinkocomics",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Rinko Comics",
             "lang": "en",
             "baseUrl": "https://rinkocomics.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2669,
+                    "durationMs": 2658,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 3242,
+                    "durationMs": 3296,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 427,
+                    "durationMs": 483,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Summer’s Sweetness -> /comic/summers-sweetness/",
-                        "Peach Heart -> /comic/peach-heart/",
-                        "Frost -> /comic/frost/"
+                        "Save the Sunfish Princess!” -> /comic/save-the-sunfish-princess/",
+                        "Starting The Villainess Life With 0 Gold -> /comic/starting-the-villainess-life-with-0-gold/",
+                        "Summer’s Sweetness -> /comic/summers-sweetness/"
                     ]
                 },
                 {
@@ -63,31 +63,44 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 1765,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"Summer’s Sweetness\" matched no results in the first page"
+                    ],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 2151,
+                    "durationMs": 1525,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Chapter 3 -> /chapter/summers-sweetness-chapter-3/",
+                        "Chapter 2 -> /chapter/summers-sweetness-chapter-2/",
                         "Chapter 1 -> /chapter/summers-sweetness-chapter-1/"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 1172,
+                    "durationMs": 1184,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://cdn.rinkocomics.com/wp-content/uploads/comics/summers-sweetness/1/01__f4dce157-e564-4f51-b07e-76cddff23430.webp",
-                        "https://cdn.rinkocomics.com/wp-content/uploads/comics/summers-sweetness/1/02__2ce2386f-33db-4af5-ac01-0ee8aa199a98.webp",
-                        "https://cdn.rinkocomics.com/wp-content/uploads/comics/summers-sweetness/1/03__2f469469-2398-4070-a1e1-f53bca560f8f.webp"
+                        "https://cdn.rinkocomics.com/wp-content/uploads/comics/summers-sweetness/3/01__5c6e195a-a0ab-4810-b63e-50701f9e5f03.webp",
+                        "https://cdn.rinkocomics.com/wp-content/uploads/comics/summers-sweetness/3/02__35c8ab4e-3ad7-4b5b-93dd-787c13d20c1d.webp",
+                        "https://cdn.rinkocomics.com/wp-content/uploads/comics/summers-sweetness/3/03__688af0cb-3eda-4b95-9228-5644f4ddfaa9.webp"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 1482,
+                    "durationMs": 2231,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -95,21 +108,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:07.043826654Z",
+    "comparedTo": "2026-10-29T10:22:19.333010709Z",
     "changes": [
         {
             "source": "Rinko Comics",
             "lang": "en",
-            "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Rinko Comics",
-            "lang": "en",
-            "scenario": "images",
+            "scenario": "search",
             "from": null,
-            "to": "PASS"
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:29:55.539232512Z",
+    "generatedAt": "2026-10-30T01:30:24.943519405Z",
     "module": ":src:all:twicomi",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 4589056979500242728,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 839,
+                    "durationMs": 836,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 782,
+                    "durationMs": 981,
                     "message": null,
                     "notes": [
                         "manga[1] has a blank title",
@@ -46,7 +46,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1071,
+                    "durationMs": 1288,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,6 +64,17 @@
                     "samples": [
                         "3 filters"
                     ]
+                },
+                {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 158,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"🍜 \" matched no results in the first page"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -87,23 +98,32 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 61,
+                    "status": "WARN",
+                    "durationMs": 138,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image returned HTTP 403"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:24:20.448028918Z",
+    "comparedTo": "2026-10-28T18:29:55.539232512Z",
     "changes": [
         {
             "source": "Twicomi",
             "lang": "all",
             "scenario": "search",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
+        },
+        {
+            "source": "Twicomi",
+            "lang": "all",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:22:01.574402147Z",
+    "generatedAt": "2026-10-30T01:30:36.575701710Z",
     "module": ":src:en:mangatoday",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "MangaToday",
             "lang": "en",
             "baseUrl": "https://mangatoday.fun",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3175,
+                    "durationMs": 2178,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 247,
+                    "durationMs": 26711,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,17 +42,11 @@
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 254,
-                    "message": null,
-                    "notes": [
-                        "manga[1] has no thumbnail"
-                    ],
-                    "samples": [
-                        "Villainess Streamer -> /manga/villainess-streamer",
-                        "Shi Nai Warera Wa Zetsumetsu Shinai -> /manga/shi-nai-warera-wa-zetsumetsu-shinai",
-                        "Dungeon ni Deai o Motomeru no wa Machigatte Iru Darou ka Gaiden - Sword Oratoria -> /manga/dungeon-ni-deai-o-motomeru-no-wa-machigatte-iru-darou-ka-gaiden-sword-oratoria"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 30001,
+                    "message": "timeout",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -65,21 +59,33 @@
                     ]
                 },
                 {
-                    "name": "chapters",
+                    "name": "search",
                     "status": "PASS",
-                    "durationMs": 255,
+                    "durationMs": 7034,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Secret Class -> /manga/secret-class",
+                        "Return of the 8th class Magician -> /manga/return-of-the-8th-class-magician",
+                        "The Return Of The 8Th Class Mage -> /manga/the-return-of-the-8th-class-mage"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 7373,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Chapter 322 -> /secret-class/chapter-322.0",
                         "Chapter 321.5 -> /secret-class/chapter-321.5",
-                        "Chapter 321 -> /secret-class/chapter-321.0",
-                        "Chapter 320 -> /secret-class/chapter-320.0"
+                        "Chapter 321 -> /secret-class/chapter-321.0"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 244,
+                    "durationMs": 4293,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -91,7 +97,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 180,
+                    "durationMs": 69,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -99,7 +105,22 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:34:32.509327223Z",
-    "changes": [],
+    "comparedTo": "2026-10-29T10:22:01.574402147Z",
+    "changes": [
+        {
+            "source": "MangaToday",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaToday",
+            "lang": "en",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        }
+    ],
     "throttledHosts": []
 }

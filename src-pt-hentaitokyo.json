@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:22:55.451532646Z",
+    "generatedAt": "2026-10-30T01:34:59.230080405Z",
     "module": ":src:pt:hentaitokyo",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Hentai Tokyo",
             "lang": "pt-BR",
             "baseUrl": "https://hentaitokyo.net",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,19 +22,25 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 4662,
-                    "message": "Too many follow-up requests: 21",
+                    "status": "PASS",
+                    "durationMs": 831,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 3765,
-                    "message": "Too many follow-up requests: 21",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 1725,
+                    "message": null,
+                    "notes": [
+                        "duplicate manga urls: [/a-bela-e-a-fera-3-4-a-gyaru-e-o-otaku/, /associacao-da-vizinhanca-parte-4/, /associacao-da-vizinhanca-parte-5/]"
+                    ],
+                    "samples": [
+                        "Serviço Secreto no Campus -> /servico-secreto-no-campus/",
+                        "O Festival de Verão Onde a Mãe do Meu Amigo Gozou no Meu Pauzão -> /o-festival-de-verao-onde-a-mae-do-meu-amigo-gozou-no-meu-pauzao/",
+                        "Negócios Estritamente Sexuais -> /negocios-estritamente-sexuais/"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -55,60 +61,65 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 2099,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "Serviço Secreto no Campus -> /servico-secreto-no-campus/"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "WARN",
+                    "durationMs": 2059,
+                    "message": null,
+                    "notes": [
+                        "chapter list is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:33.334339579Z",
+    "comparedTo": "2026-10-29T10:22:55.451532646Z",
     "changes": [
         {
             "source": "Hentai Tokyo",
             "lang": "pt-BR",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Hentai Tokyo",
             "lang": "pt-BR",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
+        },
+        {
+            "source": "Hentai Tokyo",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
         },
         {
             "source": "Hentai Tokyo",
             "lang": "pt-BR",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Hentai Tokyo",
-            "lang": "pt-BR",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Hentai Tokyo",
-            "lang": "pt-BR",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

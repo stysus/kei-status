@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:27:01.023378615Z",
+    "generatedAt": "2026-10-30T01:36:41.954372104Z",
     "module": ":src:ru:yaoichan",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -22,18 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 1098,
-                    "message": null,
-                    "notes": [
-                        "home page returned HTTP 502"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 31223,
+                    "message": "timeout",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 30133,
+                    "durationMs": 30146,
                     "message": "timeout",
                     "notes": [],
                     "samples": []
@@ -41,7 +39,7 @@
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 30133,
+                    "durationMs": 30146,
                     "message": "timeout",
                     "notes": [],
                     "samples": []
@@ -49,7 +47,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -58,6 +56,14 @@
                 },
                 {
                     "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
                     "status": "SKIP",
                     "durationMs": 0,
                     "message": "no manga available from popular or latest",
@@ -75,14 +81,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:27.397405844Z",
+    "comparedTo": "2026-10-29T10:27:01.023378615Z",
     "changes": [
         {
             "source": "YaoiChan",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "FAIL",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "YaoiChan",
+            "lang": "ru",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

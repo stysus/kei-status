@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:21:25.898919184Z",
+    "generatedAt": "2026-10-30T01:31:23.200338719Z",
     "module": ":src:en:thebeginningaftertheendmangaonline",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Read The Beginning After The End Manga Online",
             "lang": "en",
             "baseUrl": "https://w22.thebeginningaftertheendmanga.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2653,
+                    "durationMs": 683,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -59,43 +59,72 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [
+                        "manga[0] has no thumbnail"
+                    ],
+                    "samples": [
+                        "The Beginning After The End -> /"
+                    ]
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 2758,
+                    "durationMs": 264,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Chapter 257 -> https://w22.thebeginningaftertheendmanga.com/manga/the-beginning-after-the-end-chapter-257/",
-                        "Chapter 256 -> https://w22.thebeginningaftertheendmanga.com/manga/the-beginning-after-the-end-chapter-256/",
-                        "Chapter 255 -> https://w22.thebeginningaftertheendmanga.com/manga/the-beginning-after-the-end-chapter-255/"
+                        "Chapter 259 -> https://w22.thebeginningaftertheendmanga.com/manga/the-beginning-after-the-end-chapter-259/",
+                        "Chapter 258 -> https://w22.thebeginningaftertheendmanga.com/manga/the-beginning-after-the-end-chapter-258/",
+                        "Chapter 257 -> https://w22.thebeginningaftertheendmanga.com/manga/the-beginning-after-the-end-chapter-257/"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 2638,
-                    "message": "HTTP error 503",
+                    "status": "WARN",
+                    "durationMs": 1947,
+                    "message": null,
+                    "notes": [
+                        "page list is empty"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:26.579905103Z",
+    "comparedTo": "2026-10-29T10:21:25.898919184Z",
     "changes": [
         {
             "source": "Read The Beginning After The End Manga Online",
             "lang": "en",
+            "scenario": "search",
+            "from": null,
+            "to": "WARN"
+        },
+        {
+            "source": "Read The Beginning After The End Manga Online",
+            "lang": "en",
             "scenario": "pages",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
             "source": "Read The Beginning After The End Manga Online",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:41:17.454841740Z",
+    "generatedAt": "2026-10-30T01:37:24.965910842Z",
     "module": ":src:zh:comicabc",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 8110122805257580230,
             "name": "無限動漫",
             "lang": "zh",
             "baseUrl": "https://www.8comic.com",
-            "status": "UNSUPPORTED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 505,
+                    "durationMs": 322,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,25 +31,27 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 451,
+                    "durationMs": 187,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "入間同學入魔了 -> /html/15059.html",
-                        "狂賭之淵 -> /html/10818.html",
-                        "我的專屬高塔攻略 -> /html/23867.html"
+                        "租借女友 -> /html/15124.html",
+                        "妖精的尾巴 百年任務 -> /html/16264.html",
+                        "入間同學入魔了 -> /html/15059.html"
                     ]
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 132,
+                    "status": "WARN",
+                    "durationMs": 187,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "duplicate manga urls: [/html/20308.html]"
+                    ],
                     "samples": [
-                        "還沒結婚離什麼婚啊,陛下 -> /html/24860.html",
-                        "碧藍航線:微速前行 -> /html/16450.html",
-                        "極道媽媽 -> /html/26595.html"
+                        "隙中焰刃 -> /html/29174.html",
+                        "碧藍檔案 青春記錄 -> /html/24430.html",
+                        "心意錯位的我們 -> /html/29517.html"
                     ]
                 },
                 {
@@ -63,39 +65,81 @@
                     ]
                 },
                 {
-                    "name": "chapters",
+                    "name": "search",
                     "status": "PASS",
-                    "durationMs": 249,
+                    "durationMs": 680,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "第462話 -> https://articles.onemoreplace.tw/online/new-15059.html?ch=462",
-                        "第461話 -> https://articles.onemoreplace.tw/online/new-15059.html?ch=461",
-                        "第460話 -> https://articles.onemoreplace.tw/online/new-15059.html?ch=460"
+                        "租借女友 -> /html/15124.html",
+                        "租借女友月田小姐 -> /html/16018.html",
+                        "女朋友,借我一下Ⅲ -> /html/20895.html"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 182,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "第446話 -> https://articles.onemoreplace.tw/online/new-15124.html?ch=446",
+                        "第445話 -> https://articles.onemoreplace.tw/online/new-15124.html?ch=445",
+                        "第444話 -> https://articles.onemoreplace.tw/online/new-15124.html?ch=444"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "UNSUPPORTED",
-                    "durationMs": 630,
-                    "message": "requires the native QuickJS library, which has no JVM build: app.cash.quickjs.QuickJs",
-                    "notes": [
-                        "java.lang.NoClassDefFoundError: app/cash/quickjs/QuickJs",
-                        "java.lang.ClassNotFoundException: app.cash.quickjs.QuickJs"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 766,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://img9.8comic.com/2/15124/446/001_Y3g.jpg",
+                        "https://img9.8comic.com/2/15124/446/002_ws8.jpg",
+                        "https://img9.8comic.com/2/15124/446/003_Ywb.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 815,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:33:11.608328357Z",
+    "comparedTo": "2026-10-28T18:41:17.454841740Z",
     "changes": [
         {
             "source": "無限動漫",
             "lang": "zh",
-            "scenario": "search",
+            "scenario": "latest",
             "from": "PASS",
-            "to": null
+            "to": "WARN"
+        },
+        {
+            "source": "無限動漫",
+            "lang": "zh",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "無限動漫",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "UNSUPPORTED",
+            "to": "PASS"
+        },
+        {
+            "source": "無限動漫",
+            "lang": "zh",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

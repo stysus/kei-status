@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:25:30.494660876Z",
+    "generatedAt": "2026-10-30T01:35:25.237339878Z",
     "module": ":src:pt:galaxscanlator",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "GALAX Scans",
             "lang": "pt-BR",
             "baseUrl": "https://galaxscanlator.blogspot.com",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,67 +23,141 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 561,
+                    "durationMs": 150,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "THROTTLED",
-                    "durationMs": 2003,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "status": "PASS",
+                    "durationMs": 97,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Savage Hero -> /2024/01/savage-hero.html?m=1",
+                        "Uragirareta S Rank Boukensha no Ore wa -> /2024/01/uragirareta-s-rank-boukensha-no-ore-wa.html?m=1",
+                        "The Most Notorious Talker Runs the World's Greatest Clan -> /2024/01/the-most-notorious-talker-runs-worlds.html?m=1"
+                    ]
+                },
+                {
+                    "name": "latest",
+                    "status": "PASS",
+                    "durationMs": 250,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Savage Hero -> /2024/01/savage-hero.html",
+                        "The Most Notorious Talker Runs the World's Greatest Clan -> /2024/01/the-most-notorious-talker-runs-worlds.html",
+                        "Uchi no Maid ga Class no Suki na Ko ni Niteiru -> /2026/05/uchi-no-maid-ga-class-no-suki-na-ko-ni.html"
+                    ]
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 3,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "5 filters"
+                    ]
+                },
+                {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 357,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                        "query \"Savage Hero\" matched no results in the first page"
+                    ],
+                    "samples": [
+                        "Savage Hero -> /2024/01/savage-hero.html"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 1391,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Savage Hero Chapter 34 -> /2026/10/savage-hero-34.html",
+                        "Savage Hero Chapter 33 -> /2026/10/savage-hero-33.html",
+                        "Savage Hero Chapter 32 -> /2026/10/savage-hero-32.html"
+                    ]
+                },
+                {
+                    "name": "pages",
+                    "status": "WARN",
+                    "durationMs": 324,
+                    "message": null,
+                    "notes": [
+                        "page list is empty"
                     ],
                     "samples": []
                 },
                 {
-                    "name": "latest",
-                    "status": "SKIP",
+                    "name": "images",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "galaxscanlator.blogspot.com answered HTTP 429 earlier in this run",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "filters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "galaxscanlator.blogspot.com answered HTTP 429 earlier in this run",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:15.261094822Z",
+    "comparedTo": "2026-10-29T10:25:30.494660876Z",
     "changes": [
         {
             "source": "GALAX Scans",
             "lang": "pt-BR",
-            "scenario": "connectivity",
-            "from": "WARN",
+            "scenario": "popular",
+            "from": "THROTTLED",
+            "to": "PASS"
+        },
+        {
+            "source": "GALAX Scans",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "GALAX Scans",
+            "lang": "pt-BR",
+            "scenario": "filters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "GALAX Scans",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": null,
+            "to": "WARN"
+        },
+        {
+            "source": "GALAX Scans",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "GALAX Scans",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "GALAX Scans",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": null,
             "to": "PASS"
         }
     ],
-    "throttledHosts": [
-        "galaxscanlator.blogspot.com"
-    ]
+    "throttledHosts": []
 }

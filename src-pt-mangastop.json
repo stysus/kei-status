@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:37:14.605868900Z",
+    "generatedAt": "2026-10-30T01:36:10.210444363Z",
     "module": ":src:pt:mangastop",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 924359643993288771,
             "name": "Manga Stop",
             "lang": "pt-BR",
             "baseUrl": "https://mangastop.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 703,
+                    "durationMs": 270,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,25 +31,25 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 5481,
+                    "durationMs": 29796,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "Professor Fraco -> 4647321",
                         "Guia de Sobrevivência de um Ranker Escritor -> 4250148",
-                        "O Jogador Sobrevivente: Incomparável no Segundo Jogo da Morte -> 4302011"
+                        "Hua Tuo reencarnado como um gênio da cirurgia moderna -> 4647382"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 429,
+                    "durationMs": 370,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Dominando com o sistema de colapso de preços -> 4647347",
-                        "Usuário de Gravidade de Classe Oculta -> 4647386",
-                        "Hua Tuo reencarnado como um gênio da cirurgia moderna -> 4647382"
+                        "Sou tão dominado que quebrei completamente o equilíbrio do jogo. -> 4647325",
+                        "Tycoon de beisebol da escola secundária -> 4647331",
+                        "Sou o mais jovem Discípulo da Mente do Mundo das Artes Marciais -> 4647327"
                     ]
                 },
                 {
@@ -63,9 +63,19 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 1390,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Professor Fraco -> 4647321"
+                    ]
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1684,
+                    "durationMs": 650,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,33 +86,35 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 446,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://images.mangastop.wtf/file/bucketamz/2026/10/663f342f1d6f07486e7f572b8700811b550b87d8.webp",
-                        "https://images.mangastop.wtf/file/bucketamz/2026/10/b639ee3e756a8eef650a14bb18bf4ed6706f55b2.webp",
-                        "https://images.mangastop.wtf/file/bucketamz/2026/10/2f34a40ac6cf8a01e71ca95d5f4e4c3f39569a62.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1774,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 12488,
+                    "message": "HTTP error 502",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:36:16.333407183Z",
+    "comparedTo": "2026-10-28T18:37:14.605868900Z",
     "changes": [
         {
             "source": "Manga Stop",
             "lang": "pt-BR",
             "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "Manga Stop",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manga Stop",
+            "lang": "pt-BR",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

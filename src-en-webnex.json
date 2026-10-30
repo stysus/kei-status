@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:34:42.514365254Z",
+    "generatedAt": "2026-10-30T01:30:31.667543865Z",
     "module": ":src:en:webnex",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 319678837350572744,
             "name": "Webnex",
             "lang": "en",
             "baseUrl": "https://webnex.cc",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 5927,
+                    "durationMs": 3376,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 551,
+                    "durationMs": 456,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,10 +43,10 @@
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 1924,
+                    "durationMs": 1688,
                     "message": null,
                     "notes": [
-                        "popular/latest returned an empty list"
+                        "returned an empty list"
                     ],
                     "samples": []
                 },
@@ -61,9 +61,19 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 1902,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "The Hero's Ballad -> the-hero-s-ballad-zoymmxnh4f"
+                    ]
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 427,
+                    "durationMs": 379,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,33 +84,35 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 369,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://images.webnex.cc/catalog/v1/chapter-pages/02/02dd6d3877d6c7a529929680648ad2fc111b5b166483475de515b86a4b0f7e09.webp",
-                        "https://images.webnex.cc/catalog/v1/chapter-pages/09/09635acbc16b3913483fea6cb1d21e2170ba15d2dd8f30ae58265ea7e4753fda.webp",
-                        "https://images.webnex.cc/catalog/v1/chapter-pages/32/327c0ce3218c204a5c3036e7dd3ec9011ef6b1e67cd7a2ba064efadd8a60c18b.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 860,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 242,
+                    "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:31:15.745881930Z",
+    "comparedTo": "2026-10-28T18:34:42.514365254Z",
     "changes": [
         {
             "source": "Webnex",
             "lang": "en",
             "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "Webnex",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Webnex",
+            "lang": "en",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

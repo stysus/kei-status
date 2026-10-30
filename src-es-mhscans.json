@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:20:38.584227083Z",
+    "generatedAt": "2026-10-30T01:31:42.099459573Z",
     "module": ":src:es:mhscans",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "MHScans",
             "lang": "es",
             "baseUrl": "https://mhscans.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1445,
+                    "status": "WARN",
+                    "durationMs": 549,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 2765,
+                    "durationMs": 3933,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +45,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 3093,
+                    "durationMs": 2920,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Me Confundieron con un Genio del Futbol -> 3149",
-                        "Mis Alter Egos Son Seres Trascendentales -> 136208733",
-                        "Mis Discípulos son Todos Grandes Villanos -> 136216486"
+                        "El regreso de Nighthawk -> 136226965",
+                        "¡Por favor, no mueras! -> 136216191",
+                        "Asesino Divino, Yo Soy la Sombra -> 136207637"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,61 +65,70 @@
                     ]
                 },
                 {
-                    "name": "chapters",
+                    "name": "search",
                     "status": "PASS",
-                    "durationMs": 15692,
+                    "durationMs": 5073,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Capitulo 573.2 AVISO IMPORTANTE NO ES CAP -> capitulo-573-2-aviso-importante-no-es-cap",
-                        "Capitulo 571 -Sinceridad- -> capitulo-571-sinceridad",
-                        "Capitulo 570 -El reino secreto del Mar del Este- -> capitulo-570-el-reino-secreto-del-mar-del-este"
+                        "El Antiguo Soberano de la Eternidad -> 2429"
                     ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 8994,
+                    "message": "HTTP error 503",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2090,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mhscans.com/wp-content/uploads/WP-manga/data/manga_6699ee1cefb96/70944d36c87f9c21dd215d890afd618f/0.jpg",
-                        "https://mhscans.com/wp-content/uploads/WP-manga/data/manga_6699ee1cefb96/70944d36c87f9c21dd215d890afd618f/01.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3959,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:34:57.723788490Z",
+    "comparedTo": "2026-10-29T10:20:38.584227083Z",
     "changes": [
         {
             "source": "MHScans",
             "lang": "es",
-            "scenario": "chapters",
-            "from": "FAIL",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "MHScans",
+            "lang": "es",
+            "scenario": "search",
+            "from": null,
             "to": "PASS"
+        },
+        {
+            "source": "MHScans",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "MHScans",
             "lang": "es",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "MHScans",
             "lang": "es",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

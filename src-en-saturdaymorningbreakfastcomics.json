@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:33:35.187353835Z",
+    "generatedAt": "2026-10-30T01:33:23.326818435Z",
     "module": ":src:en:saturdaymorningbreakfastcomics",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 3035799230093482569,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 197,
+                    "durationMs": 204,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 500"
@@ -59,21 +59,32 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"Saturday Morning Breakfast Comics\" matched no results in the first page"
+                    ],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 385,
+                    "durationMs": 410,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Eyes -> /comic/eyes",
                         "Signal -> /comic/signal-5",
-                        "Clankor -> /comic/clankor",
-                        "Order -> /comic/order-3"
+                        "Clankor -> /comic/clankor"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "FAIL",
-                    "durationMs": 86,
+                    "durationMs": 106,
                     "message": "HTTP error 500",
                     "notes": [],
                     "samples": []
@@ -81,14 +92,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:33:36.997040667Z",
+    "comparedTo": "2026-10-28T18:33:35.187353835Z",
     "changes": [
         {
             "source": "Saturday Morning Breakfast Comics",
             "lang": "en",
             "scenario": "search",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

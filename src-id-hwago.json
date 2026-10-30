@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:35:52.595495921Z",
+    "generatedAt": "2026-10-30T01:34:43.790585587Z",
     "module": ":src:id:hwago",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 5490253431755133280,
             "name": "Hwago",
             "lang": "id",
             "baseUrl": "https://02.hwago.xyz",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1337,
-                    "message": null,
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 30459,
+                    "message": "SSL peer shut down incorrectly",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1059,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Beasts That Cross the Line -> beasts-that-cross-the-line",
-                        "I Just Went for a Health Checkup -> i-just-went-for-a-health-checkup",
-                        "A Pervert Who Only Picks and Devours Other Perverts -> a-pervert-who-only-picks-and-devours-other-perverts"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 30197,
+                    "message": "SSL peer shut down incorrectly",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 701,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "I Love the Demon Lord So Much That Even My Female Disciples Want to Kill Me -> i-love-the-demon-lord-so-much-that-even-my-female-disciples-want-to-kill-me",
-                        "The Good Student -> the-good-student",
-                        "She’s Got It Going On -> shes-got-it-going-on"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 31278,
+                    "message": "SSL peer shut down incorrectly",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,45 +62,79 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1391,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 51 -> /read/beasts-that-cross-the-line/chapter-51",
-                        "Chapter 50 -> /read/beasts-that-cross-the-line/chapter-50",
-                        "Chapter 49 -> /read/beasts-that-cross-the-line/chapter-49"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 624,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://hwg.imgsvr.my.id/file/comic/beasts-that-cross-the-line/chapter-1/001_EgWFJa.webp",
-                        "https://hwg.imgsvr.my.id/file/comic/beasts-that-cross-the-line/chapter-1/002_hNwN8C.webp",
-                        "https://hwg.imgsvr.my.id/file/comic/beasts-that-cross-the-line/chapter-1/003_xdZ98Q.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1180,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:28:50.801603910Z",
+    "comparedTo": "2026-10-28T18:35:52.595495921Z",
     "changes": [
         {
             "source": "Hwago",
             "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Hwago",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Hwago",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Hwago",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hwago",
+            "lang": "id",
             "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "Hwago",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hwago",
+            "lang": "id",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

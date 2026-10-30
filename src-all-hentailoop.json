@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:27:27.470329207Z",
+    "generatedAt": "2026-10-30T01:26:34.920553565Z",
     "module": ":src:all:hentailoop",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 3077154580363219152,
             "name": "HentaiLoop",
             "lang": "all",
             "baseUrl": "https://hentailoop.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 319,
+                    "durationMs": 5060,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 680,
+                    "durationMs": 75,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 191,
+                    "durationMs": 175,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The Story Of Having Really Lewd, Rough Sex And Creampie With The Gal #6.5 -> the-story-of-having-really-lewd-rough-sex-and-creampie-with-the-gal-6-5",
-                        "How To Handle My Sassy Big Sis “my Own Way” -> how-to-handle-my-sassy-big-sis-my-own-way",
-                        "Threatening Love + Desired Love -> threatening-love-desired-love"
+                        "起きない子【ヒッチハイク2】/ Okinaiko -> 起きない子【ヒッチハイク2】-okinaiko",
+                        "Escort Service Young Lady: A Succubus Noblewoman Comes To Train In The Escort Business -> escort-service-young-lady-a-succubus-noblewoman-comes-to-train-in-the-escort-business",
+                        "The Story Of Being Completely Won Over By My Gloomy-type Gal Student Through Her Clingy, Intense Advances -> the-story-of-being-completely-won-over-by-my-gloomy-type-gal-student-through-her-clingy-intense-advances"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 81,
+                    "durationMs": 40,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,9 +63,20 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 408,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"I Was Cucked By My Girlfriend’s Dog!\" matched no results in the first page"
+                    ],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 859,
+                    "durationMs": 234,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,7 +86,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 381,
+                    "durationMs": 143,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -86,23 +97,33 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2771,
+                    "status": "WARN",
+                    "durationMs": 564,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from i4.hentailoop.com (HTTP 403)",
+                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from i4.hentailoop.com (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:23:35.187732350Z",
+    "comparedTo": "2026-10-28T18:27:27.470329207Z",
     "changes": [
         {
             "source": "HentaiLoop",
             "lang": "all",
             "scenario": "search",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
+        },
+        {
+            "source": "HentaiLoop",
+            "lang": "all",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

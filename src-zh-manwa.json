@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:38:12.375879097Z",
+    "generatedAt": "2026-10-30T01:40:19.592989852Z",
     "module": ":src:zh:manwa",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 1795888684783606321,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "FAIL",
-                    "durationMs": 477,
+                    "durationMs": 551,
                     "message": "图源列表已自动更新，请在插件设置中选择合适的图源并重新请求（如果反复提示，可能是服务器故障）",
                     "notes": [],
                     "samples": []
@@ -31,17 +31,17 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 227,
+                    "durationMs": 196,
                     "message": null,
                     "notes": [
-                        "popular/latest returned an empty list"
+                        "returned an empty list"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 199,
+                    "durationMs": 162,
                     "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!doctype html><html lang=\"en\".....",
                     "notes": [],
                     "samples": []
@@ -65,6 +65,14 @@
                     "samples": []
                 },
                 {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
@@ -75,14 +83,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:36:23.459845821Z",
+    "comparedTo": "2026-10-28T18:38:12.375879097Z",
     "changes": [
         {
             "source": "漫蛙",
             "lang": "zh",
             "scenario": "search",
-            "from": "SKIP",
-            "to": null
+            "from": null,
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

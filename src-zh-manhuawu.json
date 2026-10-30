@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:27:43.608507409Z",
+    "generatedAt": "2026-10-30T01:37:38.725977694Z",
     "module": ":src:zh:manhuawu",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 19422,
+                    "durationMs": 19406,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 522"
@@ -33,7 +33,7 @@
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 20257,
+                    "durationMs": 20278,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.mhua5.com (HTTP 403)"
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "BLOCKED",
-                    "durationMs": 14,
+                    "durationMs": 13,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.mhua5.com (HTTP 403)"
@@ -69,6 +69,14 @@
                     "samples": []
                 },
                 {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
@@ -79,28 +87,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:45.604717835Z",
+    "comparedTo": "2026-10-29T10:27:43.608507409Z",
     "changes": [
         {
             "source": "漫画屋",
             "lang": "zh",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "漫画屋",
-            "lang": "zh",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "漫画屋",
-            "lang": "zh",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "BLOCKED"
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

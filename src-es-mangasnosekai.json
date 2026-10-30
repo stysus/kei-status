@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:34:44.480702069Z",
+    "generatedAt": "2026-10-30T01:32:19.232397495Z",
     "module": ":src:es:mangasnosekai",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 829053423099062956,
             "name": "Mangas No Sekai",
             "lang": "es",
             "baseUrl": "https://mangasnosekai.com",
-            "status": "UNSUPPORTED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 4849,
+                    "durationMs": 4449,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 602,
+                    "durationMs": 1039,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 645,
+                    "durationMs": 1144,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "La chica que se interpone en mi verdadero amor -> /manga/la-chica-que-se-interpone-en-mi-verdadero-amor/",
-                        "Espíritus del Inframundo -> /manga/entidades-del-abismo/",
-                        "Melodía de corazón de medianoche -> /manga/corazon-de-medianoche/"
+                        "Después de la escuela, deambulamos por el espacio -> /manga/despues-de-la-escuela-deambulamos-por-el-espacio/",
+                        "La despreocupada vida en otro mundo del excandidato a héroe... -> /manga/la-despreocupada-vida-en-otro-mundo-del-excandidato-a-heroe-que-resulto-ser-un-tramposo-de-nivel-2/",
+                        "One Piece -> /manga/una-pieza/"
                     ]
                 },
                 {
@@ -63,14 +63,22 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "UNSUPPORTED",
-                    "durationMs": 593,
-                    "message": "requires the native QuickJS library, which has no JVM build: app.cash.quickjs.QuickJs",
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 788,
+                    "message": null,
                     "notes": [
-                        "java.lang.NoClassDefFoundError: app/cash/quickjs/QuickJs",
-                        "java.lang.ClassNotFoundException: app.cash.quickjs.QuickJs"
+                        "returned an empty list",
+                        "query \"El Mundo Del Juego Otome Es Muy Difícil Para El...\" matched no results in the first page"
                     ],
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 1417,
+                    "message": "stack overflow",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -84,14 +92,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:32:46.915880446Z",
+    "comparedTo": "2026-10-28T18:34:44.480702069Z",
     "changes": [
         {
             "source": "Mangas No Sekai",
             "lang": "es",
             "scenario": "search",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
+        },
+        {
+            "source": "Mangas No Sekai",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "UNSUPPORTED",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:19:47.166643217Z",
+    "generatedAt": "2026-10-30T01:32:35.720877704Z",
     "module": ":src:en:murimscan",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "MurimScan",
             "lang": "en",
             "baseUrl": "https://www.murimscans.site",
-            "status": "WARN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,18 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 492,
+                    "status": "PASS",
+                    "durationMs": 232,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 429"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 185,
+                    "durationMs": 176,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,47 +59,75 @@
                     ]
                 },
                 {
-                    "name": "chapters",
+                    "name": "search",
                     "status": "PASS",
-                    "durationMs": 562,
+                    "durationMs": 150,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The Lone Necromancer Chapter 221-vip -> /2026/04/the-lone-necromancer-chapter-221-vip.html",
-                        "The Lone Necromancer Chapter 220-vip -> /2026/04/the-lone-necromancer-chapter-220-vip.html",
-                        "The Lone Necromancer Chapter 219 -> /2026/04/the-lone-necromancer-chapter-219.html"
+                        "The Lone Necromancer -> /2026/04/the-lone-necromancer.html"
                     ]
                 },
                 {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 1849,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "THROTTLED",
+                    "durationMs": 2100,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
-                        "page list is empty"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "pages",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:17.009118704Z",
+    "comparedTo": "2026-10-29T10:19:47.166643217Z",
     "changes": [
         {
             "source": "MurimScan",
             "lang": "en",
             "scenario": "connectivity",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "MurimScan",
+            "lang": "en",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "MurimScan",
+            "lang": "en",
+            "scenario": "chapters",
             "from": "PASS",
-            "to": "WARN"
+            "to": "THROTTLED"
+        },
+        {
+            "source": "MurimScan",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "MurimScan",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "www.murimscans.site"
+    ]
 }

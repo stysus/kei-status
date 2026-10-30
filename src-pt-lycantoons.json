@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:36:26.671919482Z",
+    "generatedAt": "2026-10-30T01:34:43.628694662Z",
     "module": ":src:pt:lycantoons",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 9117178890425713139,
             "name": "Lycan Toons",
             "lang": "pt-BR",
             "baseUrl": "https://lycantoons.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 333,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 20312,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from lycantoons.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 272,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Acham que eu sou um gênio do futebol -> /series/acham-que-eu-sou-um-genio-do-futebol",
-                        "Contrato Mercenário -> /series/contrato-mercenario",
-                        "Criando Vilões da Maneira Correta -> /series/criando-viloes-da-maneira-correta"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 30,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from lycantoons.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 756,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "O Soldado Esqueleto Não Pôde Proteger a Masmorra -> /series/o-soldado-esqueleto-nao-pode-proteger-a-masmorra",
-                        "Eu Acidentalmente Ressuscitei Meu Marido -> /series/eu-acidentalmente-ressuscitei-meu-marido",
-                        "Meus discipulos são todos grandes vilões -> /series/meus-discipulos-sao-todos-grandes-viloes"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 24,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from lycantoons.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,45 +62,79 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1240,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 97 -> /series/acham-que-eu-sou-um-genio-do-futebol/97?pages=11",
-                        "Capítulo 96 -> /series/acham-que-eu-sou-um-genio-do-futebol/96?pages=11",
-                        "Capítulo 95 -> /series/acham-que-eu-sou-um-genio-do-futebol/95?pages=12"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 858,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.lycantoons.com/file/lycantoons/acham-que-eu-sou-um-genio-do-futebol/cap-1/page-0000.jpg",
-                        "https://cdn.lycantoons.com/file/lycantoons/acham-que-eu-sou-um-genio-do-futebol/cap-1/page-0001.jpg",
-                        "https://cdn.lycantoons.com/file/lycantoons/acham-que-eu-sou-um-genio-do-futebol/cap-1/page-0002.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1687,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:31:47.599212642Z",
+    "comparedTo": "2026-10-28T18:36:26.671919482Z",
     "changes": [
         {
             "source": "Lycan Toons",
             "lang": "pt-BR",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Lycan Toons",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Lycan Toons",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Lycan Toons",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Lycan Toons",
+            "lang": "pt-BR",
             "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "Lycan Toons",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Lycan Toons",
+            "lang": "pt-BR",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

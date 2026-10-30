@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:39:29.127314781Z",
+    "generatedAt": "2026-10-30T01:37:57.330237143Z",
     "module": ":src:zh:tencentcomics",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 6353436350537369479,
             "name": "腾讯动漫",
             "lang": "zh-Hans",
             "baseUrl": "https://m.ac.qq.com",
-            "status": "UNSUPPORTED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2371,
+                    "durationMs": 2411,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 477,
+                    "durationMs": 487,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 338,
+                    "durationMs": 352,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,39 +63,55 @@
                     ]
                 },
                 {
-                    "name": "chapters",
+                    "name": "search",
                     "status": "PASS",
-                    "durationMs": 1000,
+                    "durationMs": 284,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "一人之下 -> /comic/index/id/531490",
+                        "一人之下番外·锈铁 -> /comic/index/id/652549",
+                        "一人之下快乐成长 -> /comic/index/id/650427"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 1042,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "🔒 782 好对手 -> /ComicView/index/id/531490/cid/155981",
                         "🔒 781 同门 -> /ComicView/index/id/531490/cid/155430",
-                        "🔒 780 大只佬 -> /ComicView/index/id/531490/cid/154819",
-                        "🔒 779 回归 -> /ComicView/index/id/531490/cid/153829"
+                        "🔒 780 大只佬 -> /ComicView/index/id/531490/cid/154819"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "UNSUPPORTED",
-                    "durationMs": 574,
-                    "message": "requires the native QuickJS library, which has no JVM build: app.cash.quickjs.QuickJs",
-                    "notes": [
-                        "java.lang.NoClassDefFoundError: app/cash/quickjs/QuickJs",
-                        "java.lang.ClassNotFoundException: app.cash.quickjs.QuickJs"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 600,
+                    "message": "[此章节为付费内容]",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:36:29.762609806Z",
+    "comparedTo": "2026-10-28T18:39:29.127314781Z",
     "changes": [
         {
             "source": "腾讯动漫",
             "lang": "zh-Hans",
             "scenario": "search",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "腾讯动漫",
+            "lang": "zh-Hans",
+            "scenario": "pages",
+            "from": "UNSUPPORTED",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:21:39.705026584Z",
+    "generatedAt": "2026-10-30T01:33:54.080109448Z",
     "module": ":src:id:lepoytl",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "LepoyTL",
             "lang": "id",
             "baseUrl": "https://www.lepoytl.my.id",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,18 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 994,
+                    "status": "PASS",
+                    "durationMs": 513,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 429"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 2006,
+                    "durationMs": 129,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -45,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 279,
+                    "durationMs": 300,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,9 +63,22 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 402,
+                    "message": null,
+                    "notes": [
+                        "query \"Wolf Falls in Love with Moon\" matched no results in the first page"
+                    ],
+                    "samples": [
+                        "Wolf Falls in Love with Moon -> /2024/10/wolf-falls-in-love-with-moon.html",
+                        "The Love between Two Perfect and Useless People -> /2024/09/the-love-between-two-perfect-and.html"
+                    ]
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 2055,
+                    "durationMs": 493,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -78,42 +89,57 @@
                 },
                 {
                     "name": "pages",
-                    "status": "THROTTLED",
-                    "durationMs": 1879,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 212,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://galeri-lepoy.my.id/images/2025/11/17/45_001.jpg",
+                        "https://galeri-lepoy.my.id/images/2025/11/17/45_002.jpg",
+                        "https://galeri-lepoy.my.id/images/2025/11/17/45_003.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 2688,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:45.117343183Z",
+    "comparedTo": "2026-10-29T10:21:39.705026584Z",
     "changes": [
         {
             "source": "LepoyTL",
             "lang": "id",
             "scenario": "connectivity",
-            "from": "PASS",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "LepoyTL",
+            "lang": "id",
+            "scenario": "search",
+            "from": null,
             "to": "WARN"
         },
         {
             "source": "LepoyTL",
             "lang": "id",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "LepoyTL",
             "lang": "id",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
-    "throttledHosts": [
-        "www.lepoytl.my.id"
-    ]
+    "throttledHosts": []
 }

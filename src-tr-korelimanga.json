@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:39:55.318305215Z",
+    "generatedAt": "2026-10-30T01:41:57.423980790Z",
     "module": ":src:tr:korelimanga",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 1381583102051609700,
             "name": "Koreli Manga",
             "lang": "tr",
             "baseUrl": "https://korelimanga.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1106,
+                    "status": "WARN",
+                    "durationMs": 1055,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 503,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 240,
+                    "message": "HTTP error 503",
                     "notes": [],
-                    "samples": [
-                        "To Not Die -> /manga/to-not-die/",
-                        "Manager Kim -> /manga/manager-kim/",
-                        "2. Seviye Savaş Tanrısı -> /manga/2-seviye-savas-tanrisi/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 504,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 243,
+                    "message": "HTTP error 503",
                     "notes": [],
-                    "samples": [
-                        "Bu Ülkeyi Yok Edeceğim! -> /manga/bu-ulkeyi-yok-edecegim/",
-                        "Yazgının Demircisi -> /manga/yazginin-demircisi/",
-                        "Martial Arts Alone -> /manga/martial-arts-alone/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,45 +58,79 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1114,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 111 -> /manga/to-not-die/chapter-111/",
-                        "Bölüm 110 -> /manga/to-not-die/chapter-110/",
-                        "Bölüm 109 -> /manga/to-not-die/chapter-109/"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 421,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://korelimanga.com/wp-content/uploads/init-manga/7570/1/0001.webp",
-                        "https://korelimanga.com/wp-content/uploads/init-manga/7570/1/0002.webp",
-                        "https://korelimanga.com/wp-content/uploads/init-manga/7570/1/0003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 834,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:34:26.806043431Z",
+    "comparedTo": "2026-10-28T18:39:55.318305215Z",
     "changes": [
         {
             "source": "Koreli Manga",
             "lang": "tr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Koreli Manga",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Koreli Manga",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Koreli Manga",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Koreli Manga",
+            "lang": "tr",
             "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "Koreli Manga",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Koreli Manga",
+            "lang": "tr",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

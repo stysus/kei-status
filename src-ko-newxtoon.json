@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:24:12.364480677Z",
+    "generatedAt": "2026-10-30T01:36:01.258269833Z",
     "module": ":src:ko:newxtoon",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -22,25 +22,27 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 254,
-                    "message": "Network is unreachable",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 178,
+                    "message": null,
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 57,
-                    "message": "Network is unreachable",
+                    "durationMs": 12,
+                    "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 53,
-                    "message": "Network is unreachable",
+                    "durationMs": 28,
+                    "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
                 },
@@ -63,6 +65,14 @@
                     "samples": []
                 },
                 {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
@@ -73,7 +83,22 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:42:26.172263135Z",
-    "changes": [],
+    "comparedTo": "2026-10-29T10:24:12.364480677Z",
+    "changes": [
+        {
+            "source": "NewXToon",
+            "lang": "ko",
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "WARN"
+        },
+        {
+            "source": "NewXToon",
+            "lang": "ko",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        }
+    ],
     "throttledHosts": []
 }

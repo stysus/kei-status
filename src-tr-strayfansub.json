@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:28:27.204216204Z",
+    "generatedAt": "2026-10-30T01:36:38.118352077Z",
     "module": ":src:tr:strayfansub",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Stray Fansub",
             "lang": "tr",
             "baseUrl": "https://strayfansub.buzz",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,29 +23,33 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 808,
+                    "durationMs": 3640,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30002,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 829,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Passion -> /manga/tutku/",
+                        "Flashlight -> /manga/flashlight/",
+                        "Yavru Köpeğimle Uğraşma! -> /manga/yavru-kopegimle-ugrasma/"
+                    ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 14330,
+                    "durationMs": 800,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "Bongch0n Bride -> /manga/bongchun-gelin/",
-                        "Bu||et Time -> /manga/mermi-zamani/",
-                        "Eb0ny Castle -> /manga/abanoz-kalesi/"
+                        "Backlight -> /manga/backlight/",
+                        "Honbul: Ruhun Ateşi (Novel) -> /manga/honbul-ruhun-atesi-novel/"
                     ]
                 },
                 {
@@ -59,48 +63,70 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 736,
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 769,
                     "message": null,
-                    "notes": [
-                        "chapter list is empty"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Passion -> /manga/tutku/",
+                        "Passion: Raga -> /manga/tutku-ragia/"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 549,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Bölüm 144 -> /passion-144-bolum/",
+                        "Bölüm 143 -> /passion-143-bolum/",
+                        "Bölüm 142 -> /passion-142-bolum/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 503,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Okumak için WebView üzerinden giriş yapın"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:36.035160494Z",
+    "comparedTo": "2026-10-29T10:28:27.204216204Z",
     "changes": [
         {
             "source": "Stray Fansub",
             "lang": "tr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Stray Fansub",
+            "lang": "tr",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
         },
         {
             "source": "Stray Fansub",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Stray Fansub",
             "lang": "tr",
             "scenario": "pages",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

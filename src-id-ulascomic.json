@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:18:47.304415425Z",
+    "generatedAt": "2026-10-30T01:35:41.778969165Z",
     "module": ":src:id:ulascomic",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Ulas Comic",
             "lang": "id",
             "baseUrl": "https://www.ulascomic01.xyz",
-            "status": "THROTTLED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 750,
+                    "durationMs": 907,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,17 +31,17 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 96,
+                    "durationMs": 130,
                     "message": null,
                     "notes": [
-                        "popular/latest returned an empty list"
+                        "returned an empty list"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 381,
+                    "durationMs": 371,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -53,7 +53,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,12 +61,22 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 237,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "God Of Blackfield -> /2024/05/god-of-blackfield.html"
+                    ]
+                },
+                {
                     "name": "chapters",
-                    "status": "THROTTLED",
-                    "durationMs": 1835,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "status": "FAIL",
+                    "durationMs": 1032,
+                    "message": "NullPointerException at ZeistManga.mangaDetailsParse(ZeistManga.kt:241)",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                        "java.lang.NullPointerException: <no message>"
                     ],
                     "samples": []
                 },
@@ -81,17 +91,22 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:10.824392784Z",
+    "comparedTo": "2026-10-29T10:18:47.304415425Z",
     "changes": [
         {
             "source": "Ulas Comic",
             "lang": "id",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "Ulas Comic",
+            "lang": "id",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "FAIL"
         }
     ],
-    "throttledHosts": [
-        "www.ulascomic01.xyz"
-    ]
+    "throttledHosts": []
 }

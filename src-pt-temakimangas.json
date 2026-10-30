@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:23:33.657958357Z",
+    "generatedAt": "2026-10-30T01:34:03.524240669Z",
     "module": ":src:pt:temakimangas",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -22,20 +22,20 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 246,
-                    "message": null,
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
                     "status": "THROTTLED",
-                    "durationMs": 2046,
+                    "durationMs": 2212,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "temakimangas.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -63,6 +63,14 @@
                     "samples": []
                 },
                 {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
@@ -73,27 +81,27 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:52.329024105Z",
+    "comparedTo": "2026-10-29T10:23:33.657958357Z",
     "changes": [
         {
             "source": "Temaki mangás",
             "lang": "pt-BR",
-            "scenario": "popular",
-            "from": "WARN",
+            "scenario": "connectivity",
+            "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "Temaki mangás",
             "lang": "pt-BR",
-            "scenario": "latest",
-            "from": "WARN",
+            "scenario": "popular",
+            "from": "THROTTLED",
             "to": "SKIP"
         },
         {
             "source": "Temaki mangás",
             "lang": "pt-BR",
-            "scenario": "filters",
-            "from": "PASS",
+            "scenario": "search",
+            "from": null,
             "to": "SKIP"
         }
     ],

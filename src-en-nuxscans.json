@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:21:10.293666787Z",
+    "generatedAt": "2026-10-30T01:31:01.036326894Z",
     "module": ":src:en:nuxscans",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -22,25 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 375,
-                    "message": null,
+                    "status": "THROTTLED",
+                    "durationMs": 2216,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
-                        "home page returned HTTP 429"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 141,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "nuxscans-comics.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "I'm An Evil God -> /2021/04/1141-sypnosis-bored-with-his-life-on.html?m=0",
-                        "My House of Horror -> /2021/06/my-house-of-horror.html?m=0",
-                        "Tales Of Herding Gods -> /2020/11/sypnosis-daxu-ancestors-abandoned-by.html?m=0"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -52,63 +48,82 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "nuxscans-comics.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 2378,
-                    "message": null,
-                    "notes": [
-                        "duplicate chapter urls: [https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html]"
-                    ],
-                    "samples": [
-                        "Chapter 148 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html",
-                        "Chapter 147 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html",
-                        "Chapter 146 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html"
-                    ]
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "THROTTLED",
-                    "durationMs": 1939,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:46.274106026Z",
+    "comparedTo": "2026-10-29T10:21:10.293666787Z",
     "changes": [
         {
             "source": "Nux Scans",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Nux Scans",
-            "lang": "en",
-            "scenario": "pages",
             "from": "WARN",
             "to": "THROTTLED"
         },
         {
             "source": "Nux Scans",
             "lang": "en",
-            "scenario": "images",
+            "scenario": "popular",
             "from": "PASS",
-            "to": null
+            "to": "SKIP"
+        },
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "THROTTLED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": [

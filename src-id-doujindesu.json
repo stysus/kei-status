@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:35:26.959277397Z",
+    "generatedAt": "2026-10-30T01:32:36.223872007Z",
     "module": ":src:id:doujindesu",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 7704282043609669342,
             "name": "Doujindesu",
             "lang": "id",
             "baseUrl": "https://doujin.desu.xxx",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 368,
+                    "durationMs": 797,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 273,
+                    "durationMs": 327,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 215,
+                    "durationMs": 252,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Get Out of Here! -> /manga/get-out-of-here/",
-                        "Little Miss Delinquent -> /manga/little-miss-delinquent/",
-                        "XX Dungeon -> /manga/xx-dungeon/"
+                        "Love and Risk -> /manga/love-and-risk/",
+                        "Secret Class -> /manga/secret-class/",
+                        "A Dangerous Deal and The Girl Next Door -> /manga/a-dangerous-deal-and-the-girl-next-door/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,46 +63,63 @@
                     ]
                 },
                 {
-                    "name": "chapters",
+                    "name": "search",
                     "status": "PASS",
-                    "durationMs": 256,
+                    "durationMs": 271,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Chapter 262 END -> edfa4980-9172-4b09-aed0-0421b315727e",
-                        "Chapter 261 -> 12748f22-1240-41c7-ba3d-c34a08c2a497",
-                        "Chapter 260 -> 823e477a-c0c3-4d5a-9ff2-81dd63c26215"
+                        "A Wonderful New World -> /manga/a-wonderful-new-world/"
                     ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 247,
+                    "message": "Connection reset",
+                    "notes": [
+                        "kotlinx.serialization.json.JsonDecodingException: Deserialization failed because of 'Connection reset' exception in the decoder at path: $._enc_resp_\nJSON input: .....da2e679950bf312ba851e070240f3a20068b5a5de6aaf1f9667b30935117"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 250,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://images2.imgbox.com/2f/8b/gxCBKwo1_o.jpg",
-                        "https://images2.imgbox.com/f3/8c/F86y26eF_o.jpg",
-                        "https://images2.imgbox.com/31/55/L3i1MxBe_o.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 779,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:34:14.468060972Z",
+    "comparedTo": "2026-10-28T18:35:26.959277397Z",
     "changes": [
         {
             "source": "Doujindesu",
             "lang": "id",
             "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "Doujindesu",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Doujindesu",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Doujindesu",
+            "lang": "id",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

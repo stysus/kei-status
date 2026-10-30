@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:27:23.015976072Z",
+    "generatedAt": "2026-10-30T01:26:17.202277821Z",
     "module": ":src:all:comicskingdom",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 3350274514125477391,
             "name": "Comics Kingdom",
             "lang": "en",
             "baseUrl": "https://wp.comicskingdom.com",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1211,
+                    "durationMs": 927,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 262,
+                    "durationMs": 1555,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 362,
+                    "durationMs": 1352,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,20 +63,40 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 211,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Sunny with a Chance of Heat -> /wp-json/wp/v2/ck_feature/7751457?per_page=20&_fields=&ck_language=english&slug=sunny-with-a-chance-of-heat"
+                    ]
+                },
+                {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 1546,
-                    "message": "NullPointerException at ComicsKingdom.getChapterList(ComicsKingdom.kt:147)",
-                    "notes": [
-                        "java.lang.NullPointerException: <no message>"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1230,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "1-2 -> /wp-json/wp/v2/ck_comic?per_page=100&_fields=&orderBy=date&order=asc&ck_feature=sunny-with-a-chance-of-heat&page=1"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 367,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/10/SDC20261028-scaled.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 504,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
@@ -110,7 +130,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1515,
+                    "durationMs": 1714,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -122,7 +142,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 764,
+                    "durationMs": 815,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -144,9 +164,19 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 236,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Goomer -> /wp-json/wp/v2/ck_feature/6788162?per_page=20&_fields=&ck_language=spanish&slug=goomer-spanish"
+                    ]
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 974,
+                    "durationMs": 2545,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -158,7 +188,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 3644,
+                    "durationMs": 2592,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -170,7 +200,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 926,
+                    "durationMs": 266,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -178,42 +208,42 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T09:54:19.577715848Z",
+    "comparedTo": "2026-10-28T18:27:23.015976072Z",
     "changes": [
         {
             "source": "Comics Kingdom",
             "lang": "en",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "Comics Kingdom",
+            "lang": "en",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Comics Kingdom",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Comics Kingdom",
-            "lang": "en",
-            "scenario": "search",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Comics Kingdom",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         },
         {
             "source": "Comics Kingdom",
             "lang": "es",
             "scenario": "search",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

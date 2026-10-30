@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:41:24.636757015Z",
+    "generatedAt": "2026-10-30T01:33:53.697576790Z",
     "module": ":src:fr:lelmanga",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 8647761747185981431,
             "name": "Lelmanga",
             "lang": "fr",
             "baseUrl": "https://www.lelmanga.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 630,
+                    "durationMs": 614,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1085,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "One Piece -> /manga/one-piece",
-                        "Jujutsu Kaisen -> /manga/jujutsu-kaisen",
-                        "My Hero Academia -> /manga/my-hero-academia"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 955,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
-                    "samples": [
-                        "Hero Killer -> /manhwa/hero-killer",
-                        "Calamity and I: The Dual Ascension -> /manhua/calamity-and-i-the-dual-ascension",
-                        "Murim Psychopath -> /manhwa/murim-psychopath"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,45 +56,72 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 297,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapitre 1196 -> /one-piece-1196",
-                        "Chapitre 1195 -> /one-piece-1195",
-                        "Chapitre 1194 -> /one-piece-1194"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 160,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.lelmanga.com/wp-content/uploads/2026/10/one-piece-1196-update-20261018235150-l5hwng/001.webp?lmv=1792367510",
-                        "https://www.lelmanga.com/wp-content/uploads/2026/10/one-piece-1196-update-20261018235150-l5hwng/002.webp?lmv=1792367510",
-                        "https://www.lelmanga.com/wp-content/uploads/2026/10/one-piece-1196-update-20261018235150-l5hwng/003.webp?lmv=1792367510"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 267,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:32:30.631869168Z",
+    "comparedTo": "2026-10-28T18:41:24.636757015Z",
     "changes": [
         {
             "source": "Lelmanga",
             "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Lelmanga",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Lelmanga",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Lelmanga",
+            "lang": "fr",
             "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "Lelmanga",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Lelmanga",
+            "lang": "fr",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:35:09.137412247Z",
+    "generatedAt": "2026-10-30T01:31:37.388999201Z",
     "module": ":src:es:begatranslation",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 6757330205319558057,
             "name": "Bega Translation",
             "lang": "es",
             "baseUrl": "https://begatranslation.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 4398,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 20404,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from begatranslation.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 490,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Un cambio en mi vida: Tras ser engañado y acusado falsamente de un delito, la chica más hermosa de la escuela se vuelve cercana a mí -> 2006",
-                        "En un mundo donde los roles de castidad están invertidos, se rumorea que conmigo se puede tener sexo con solo pedírmelo -> 2171",
-                        "Haimiya-senpai es aterradora pero linda -> 2435"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 19,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from begatranslation.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 469,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Haimiya-senpai es aterradora pero linda -> 2435",
-                        "Error: el Eco -> 2633",
-                        "Evité el final de aniquilación a costa de mi vida, pero todas las chicas del grupo terminaron rotas -> 2205"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 13,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from begatranslation.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,45 +62,79 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 702,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 12.2 -> capitulo-12-2",
-                        "Capítulo 12.1 -> capitulo-12-1",
-                        "Capítulo 11.2 -> capitulo-11-2"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 678,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://begatranslation.com/wp-content/uploads/WP-manga/data/manga_6841c716a8d85/a95834742eeb3cff2a5e98635d3b1667/00.1.webp",
-                        "https://begatranslation.com/wp-content/uploads/WP-manga/data/manga_6841c716a8d85/a95834742eeb3cff2a5e98635d3b1667/00.99.webp",
-                        "https://begatranslation.com/wp-content/uploads/WP-manga/data/manga_6841c716a8d85/a95834742eeb3cff2a5e98635d3b1667/00.118.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 182,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:30:41.199801936Z",
+    "comparedTo": "2026-10-28T18:35:09.137412247Z",
     "changes": [
         {
             "source": "Bega Translation",
             "lang": "es",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Bega Translation",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Bega Translation",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Bega Translation",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Bega Translation",
+            "lang": "es",
             "scenario": "search",
+            "from": null,
+            "to": "SKIP"
+        },
+        {
+            "source": "Bega Translation",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Bega Translation",
+            "lang": "es",
+            "scenario": "images",
             "from": "PASS",
             "to": null
         }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:32:35.632965631Z",
+    "generatedAt": "2026-10-30T01:31:18.163520188Z",
     "module": ":src:all:yskcomics",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 9170389107417152397,
             "name": "YSK Comics",
             "lang": "ar",
             "baseUrl": "https://www.ysk-comics.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1284,
+                    "durationMs": 1296,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 409,
+                    "durationMs": 302,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 469,
+                    "durationMs": 321,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,9 +63,20 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 813,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"باتمان: ثلاثة جوكرات (2020)\" matched no results in the first page"
+                    ],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 383,
+                    "durationMs": 276,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +88,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 195,
+                    "durationMs": 203,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -89,7 +100,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 680,
+                    "durationMs": 560,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -101,7 +112,7 @@
             "name": "YSK Comics",
             "lang": "en",
             "baseUrl": "https://www.ysk-comics.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -124,7 +135,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 411,
+                    "durationMs": 470,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -136,7 +147,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 707,
+                    "durationMs": 1105,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -158,9 +169,23 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 191,
+                    "message": null,
+                    "notes": [
+                        "query \"Ghost Pepper (2025)\" matched no results in the first page"
+                    ],
+                    "samples": [
+                        "Peter Parker: The Spectacular Spider-Man (2017) -> /en/comic/Peter-Parker:-The-Spectacular-Spider-Man-2017",
+                        "Force Works 2020 (2020) -> /en/comic/Force-Works-2020-2020",
+                        "Iron Age 2020 (2020) -> /en/comic/Iron-Age-2020-2020"
+                    ]
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 2951,
+                    "durationMs": 1385,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -172,7 +197,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 187,
+                    "durationMs": 240,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -184,7 +209,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 615,
+                    "durationMs": 701,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -192,35 +217,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T10:02:15.678379067Z",
+    "comparedTo": "2026-10-28T18:32:35.632965631Z",
     "changes": [
         {
             "source": "YSK Comics",
             "lang": "ar",
-            "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "YSK Comics",
-            "lang": "ar",
             "scenario": "search",
-            "from": "WARN",
-            "to": null
-        },
-        {
-            "source": "YSK Comics",
-            "lang": "en",
-            "scenario": "images",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": null,
+            "to": "WARN"
         },
         {
             "source": "YSK Comics",
             "lang": "en",
             "scenario": "search",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

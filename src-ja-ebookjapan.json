@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:22:39.565398505Z",
+    "generatedAt": "2026-10-30T01:34:02.077148542Z",
     "module": ":src:ja:ebookjapan",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "eBookJapan",
             "lang": "ja",
             "baseUrl": "https://ebookjapan.yahoo.co.jp",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2050,
+                    "durationMs": 1244,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,27 +31,27 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 375,
+                    "durationMs": 340,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "平凡な令嬢　エリス・ラースの日常 -> 858370",
+                        "病弱な? 傷物令嬢の秘密の結婚～あなたを幸せにするために～（コミック） -> 974698",
                         "永年雇用は可能でしょうか -> 728283",
-                        "病弱な? 傷物令嬢の秘密の結婚～あなたを幸せにするために～（コミック） -> 974698"
+                        "異世界の沙汰は社畜次第 -> 611119"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 212,
+                    "durationMs": 179,
                     "message": null,
                     "notes": [
-                        "duplicate manga urls: [728283, 622862, 949190]"
+                        "duplicate manga urls: [904945, 992847]"
                     ],
                     "samples": [
-                        "ヤングジャンプ -> 449502",
-                        "吸血鬼へ嫁入る日～少女が冷酷夫に愛された記録～ -> 905908",
-                        "週刊少年チャンピオン -> 354466"
+                        "異世界の沙汰は社畜次第 -> 611119",
+                        "【新装版】今どきの若いモンは -> 587822",
+                        "美しい彼 -> 708123"
                     ]
                 },
                 {
@@ -65,45 +65,72 @@
                     ]
                 },
                 {
-                    "name": "chapters",
+                    "name": "search",
                     "status": "PASS",
-                    "durationMs": 355,
+                    "durationMs": 328,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "🔒 (Preview) 平凡な令嬢　エリス・ラースの日常　3巻 -> B00187159734",
-                        "🔒 (Preview) 平凡な令嬢　エリス・ラースの日常　2巻 -> B00185895033",
-                        "🔒 (Preview) 平凡な令嬢　エリス・ラースの日常　1巻 -> B00167143753"
+                        "病弱な? 傷物令嬢の秘密の結婚～あなたを幸せにするために～（コミック） -> 974698"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 1712,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "🔒 第10話(3) -> B00167146191",
+                        "🔒 第10話(2) -> B00167146190",
+                        "🔒 第10話(1) -> B00167146189"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 262,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.io.IOException: Log in via WebView and purchase this product to read."
-                    ],
+                    "status": "PASS",
+                    "durationMs": 379,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://prod-contents-br-page.akamaized.net/pages/I2/I2100536574061/1GHiX3/8807568c6ae77f11d950532631f1e6b41837a5576fa4591d218c3508fe8f3257.webp#BGUGQAZAAWRkKsj1RlqO_i8",
+                        "https://prod-contents-br-page.akamaized.net/pages/I2/I2100536574061/1GHiX3/dde11ec579dd045981070a50cd8d50293e558dde1784070b6a791b80d483ec32.webp#BGUGQAZAAeiEn4TpbUiTHIc",
+                        "https://prod-contents-br-page.akamaized.net/pages/I2/I2100536574061/1GHiX3/a830d738ee07300b1c38c00be6c00507b70e116fc8a56351363f2f9100a86817.webp#BGUGQAZAAWRkKsj1RlqO_i8"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 2789,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:40:06.508336679Z",
+    "comparedTo": "2026-10-29T10:22:39.565398505Z",
     "changes": [
         {
             "source": "eBookJapan",
             "lang": "ja",
+            "scenario": "search",
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "eBookJapan",
+            "lang": "ja",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "eBookJapan",
             "lang": "ja",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

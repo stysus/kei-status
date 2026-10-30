@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-29T10:18:32.579219231Z",
+    "generatedAt": "2026-10-30T01:28:40.184723581Z",
     "module": ":src:en:gourmetscans",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Gourmet Scans",
             "lang": "en",
             "baseUrl": "https://gourmetsupremacy.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,23 +23,27 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 15631,
+                    "durationMs": 1329,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30002,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 1162,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "It’s Time to Change the Genre -> 2953",
+                        "I Failed to Divorce My Husband -> 6578",
+                        "Lady Baby -> 2092"
+                    ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 13064,
+                    "durationMs": 1503,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -51,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,64 +63,80 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 490,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"It’s Time to Change the Genre\" matched no results in the first page"
+                    ],
+                    "samples": []
+                },
+                {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 6232,
+                    "durationMs": 319,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Chapter 44 -> chapter-44",
-                        "Chapter 43 -> chapter-43",
-                        "Chapter 42 -> chapter-42"
+                        "The End Notes - Afterword -> the-end-notes",
+                        "Side Story 3 - Ruediger Winterwald (Fin) -> side-story-3",
+                        "Side Story 2 - Ruediger Winterwald -> side-story-2"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 30001,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 1103,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_01.jpg",
+                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_02.jpg",
+                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_03.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 751,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:36:16.554645328Z",
+    "comparedTo": "2026-10-29T10:18:32.579219231Z",
     "changes": [
         {
             "source": "Gourmet Scans",
             "lang": "en",
-            "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Gourmet Scans",
-            "lang": "en",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "FAIL"
-        },
-        {
-            "source": "Gourmet Scans",
-            "lang": "en",
-            "scenario": "latest",
-            "from": "WARN",
+            "from": "FAIL",
             "to": "PASS"
         },
         {
             "source": "Gourmet Scans",
             "lang": "en",
-            "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "scenario": "search",
+            "from": null,
+            "to": "WARN"
         },
         {
             "source": "Gourmet Scans",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Gourmet Scans",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

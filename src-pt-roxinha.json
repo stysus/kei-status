@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:35:50.543995696Z",
+    "generatedAt": "2026-10-30T01:36:39.149483790Z",
     "module": ":src:pt:roxinha",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 3961079268907869519,
             "name": "Roxinha",
             "lang": "pt-BR",
             "baseUrl": "https://roxinha.online",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,29 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 254,
+                    "status": "PASS",
+                    "durationMs": 3127,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 530"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 52,
-                    "message": "HTTP error 530",
+                    "status": "PASS",
+                    "durationMs": 422,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Criando Vilões da Maneira Correta -> 65",
+                        "O Mago do Infinito -> 100",
+                        "Casei-me com o Dragão que Eu Matei -> 2707"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 50,
-                    "message": "HTTP error 530",
+                    "status": "PASS",
+                    "durationMs": 209,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Tensei shitara Slime Datta Ken -> 4137",
+                        "A Montanha da Ascensão -> 4134",
+                        "Super Sorte -> 4136"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -57,67 +63,83 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 268,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Criando Vilões da Maneira Correta -> 65"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 221,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Capítulo 59 -> 284240",
+                        "Capítulo 58 -> 277928",
+                        "Capítulo 57 -> 273293"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 164,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Você precisa estar logado para acessar este conteúdo. Informe o e-mail e a senha da sua conta da Roxinha para ler os capítulos"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:30:55.981107124Z",
+    "comparedTo": "2026-10-28T18:35:50.543995696Z",
     "changes": [
         {
             "source": "Roxinha",
             "lang": "pt-BR",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Roxinha",
             "lang": "pt-BR",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Roxinha",
             "lang": "pt-BR",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Roxinha",
-            "lang": "pt-BR",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Roxinha",
-            "lang": "pt-BR",
-            "scenario": "pages",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Roxinha",
             "lang": "pt-BR",
             "scenario": "search",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "Roxinha",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Roxinha",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-28T18:34:41.300251900Z",
+    "generatedAt": "2026-10-30T01:31:53.102407884Z",
     "module": ":src:es:mangasin",
     "sourceRoot": "",
-    "extensionCommit": "7b21db62",
+    "extensionCommit": "dbf6c05d",
     "sources": [
         {
             "sourceId": 3344386250058668105,
             "name": "Mangas.in",
             "lang": "es",
             "baseUrl": "https://m440.in",
-            "status": "UNSUPPORTED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 950,
+                    "durationMs": 915,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 4583,
+                    "durationMs": 4106,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 274,
+                    "durationMs": 684,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Tsuno Pantsu -> /manga/tsuno-pantsu",
-                        "Legroom -> /manga/legroom",
-                        "Asura's Verdict -> /manga/asuras-verdict"
+                        "Lv2 kara Cheat datta Moto Yuusha Kouho no Mattari Isekai Life -> /manga/lv2-kara-cheat-datta-moto-yuusha-kouho-no-mattari-isekai-life",
+                        "Ore no vaccine dake ga zonbi-ka shita sekai o sukueru -> /manga/ore-no-vaccine-dake-ga-zonbi-ka-shita-sekai-o-sukueru",
+                        "Magic Emperor -> /manga/magic-emperor"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,14 +63,23 @@
                     ]
                 },
                 {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 791,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "ReLIFE -> /manga/relife",
+                        "Relife Player -> /manga/relife-player",
+                        "The Revenge of My Youth Re Life with an Angelic Girl (Novela Web) -> /manga/the-revenge-of-my-youth-re-life-with-an-angelic-girl-novela-web"
+                    ]
+                },
+                {
                     "name": "chapters",
-                    "status": "UNSUPPORTED",
-                    "durationMs": 2867,
-                    "message": "requires the native QuickJS library, which has no JVM build: app.cash.quickjs.QuickJs",
-                    "notes": [
-                        "java.lang.NoClassDefFoundError: app/cash/quickjs/QuickJs",
-                        "java.lang.ClassNotFoundException: app.cash.quickjs.QuickJs"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 2823,
+                    "message": "No se pudo encontrar la clave",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -84,14 +93,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-27T22:28:57.375703759Z",
+    "comparedTo": "2026-10-28T18:34:41.300251900Z",
     "changes": [
         {
             "source": "Mangas.in",
             "lang": "es",
             "scenario": "search",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
+        },
+        {
+            "source": "Mangas.in",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "UNSUPPORTED",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []
