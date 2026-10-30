@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:36.223872007Z",
+    "generatedAt": "2026-10-30T10:16:44.382188801Z",
     "module": ":src:id:doujindesu",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Doujindesu",
             "lang": "id",
             "baseUrl": "https://doujin.desu.xxx",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 797,
+                    "durationMs": 982,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,31 +31,31 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 327,
+                    "durationMs": 224,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "A Wonderful New World -> /manga/a-wonderful-new-world/",
                         "Boku ga Okasanto Konna Koto ni Natchau Hanashi -> /manga/boku-ga-okasanto-konna-koto-ni-natchau-hanashi/",
-                        "Imaizumin-chi wa Douyara Gal no Tamariba ni Natteru Rashii -> /manga/imaizumin-chi-wa-douyara-gal-no-tamariba-ni-natteru-rashii/"
+                        "Ikusa Otome to Ikusa Goto! -> /manga/ikusa-otome-to-ikusa-goto-onna-seikishi-hen/"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 252,
+                    "durationMs": 199,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Love and Risk -> /manga/love-and-risk/",
-                        "Secret Class -> /manga/secret-class/",
-                        "A Dangerous Deal and The Girl Next Door -> /manga/a-dangerous-deal-and-the-girl-next-door/"
+                        "Midsummer Paradise -> /manga/midsummer-paradise/",
+                        "I'm the Only Man on the Military Base -> /manga/im-the-only-man-on-the-military-base/",
+                        "MILF Exchange Plan -> /manga/milf-exchange-plan/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 271,
+                    "durationMs": 199,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,54 +74,61 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 247,
-                    "message": "Connection reset",
-                    "notes": [
-                        "kotlinx.serialization.json.JsonDecodingException: Deserialization failed because of 'Connection reset' exception in the decoder at path: $._enc_resp_\nJSON input: .....da2e679950bf312ba851e070240f3a20068b5a5de6aaf1f9667b30935117"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 197,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Chapter 262 END -> edfa4980-9172-4b09-aed0-0421b315727e",
+                        "Chapter 261 -> 12748f22-1240-41c7-ba3d-c34a08c2a497",
+                        "Chapter 260 -> 823e477a-c0c3-4d5a-9ff2-81dd63c26215"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 193,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://images2.imgbox.com/2f/8b/gxCBKwo1_o.jpg",
+                        "https://images2.imgbox.com/f3/8c/F86y26eF_o.jpg",
+                        "https://images2.imgbox.com/31/55/L3i1MxBe_o.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 624,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:26.959277397Z",
+    "comparedTo": "2026-10-30T01:32:36.223872007Z",
     "changes": [
         {
             "source": "Doujindesu",
             "lang": "id",
-            "scenario": "search",
-            "from": null,
+            "scenario": "chapters",
+            "from": "FAIL",
             "to": "PASS"
         },
         {
             "source": "Doujindesu",
             "lang": "id",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Doujindesu",
-            "lang": "id",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Doujindesu",
             "lang": "id",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

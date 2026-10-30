@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:01.036326894Z",
+    "generatedAt": "2026-10-30T10:16:23.268786751Z",
     "module": ":src:en:nuxscans",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -22,20 +22,20 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "THROTTLED",
-                    "durationMs": 2216,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 1737,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "nuxscans-comics.blogspot.com answered HTTP 429 earlier in this run",
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 1819,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,49 +81,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:21:10.293666787Z",
+    "comparedTo": "2026-10-30T01:31:01.036326894Z",
     "changes": [
         {
             "source": "Nux Scans",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "Nux Scans",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Nux Scans",
-            "lang": "en",
-            "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Nux Scans",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "WARN",
-            "to": "SKIP"
-        },
-        {
-            "source": "Nux Scans",
-            "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
-        },
-        {
-            "source": "Nux Scans",
-            "lang": "en",
-            "scenario": "pages",
-            "from": "THROTTLED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "THROTTLED"
         }
     ],
     "throttledHosts": [

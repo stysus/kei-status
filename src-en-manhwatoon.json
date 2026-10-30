@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:29:24.124836076Z",
+    "generatedAt": "2026-10-30T10:18:10.792653177Z",
     "module": ":src:en:manhwatoon",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Manhwa Toon",
             "lang": "en",
             "baseUrl": "https://www.manhwatoon.me",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1347,
+                    "durationMs": 908,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1473,
+                    "durationMs": 1405,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1420,
+                    "durationMs": 1336,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Apex Future Martial Arts -> 3360",
-                        "Unparalleled Under The Heaven -> 23520",
-                        "From Pauper to Prince -> 1499"
+                        "A Dangerous Deal and The Girl Next Door Raw -> 48441",
+                        "Hole of Betrayal: A Hundred Love Confessions Lost to a Single Thrust (Uncensored) -> 44774",
+                        "Necromancer Academy and the Genius Summoner -> 12922"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 931,
+                    "durationMs": 905,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,52 +74,47 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1932,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chapter 1 -> chapter-1"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 833,
+                    "message": "NullPointerException at MadaraBase.parseDetails(MadaraBase.kt:211)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1676,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.manhwatoon.me/WP-manga/data/manga_6aca19d61c0a9/chapter-1/1.jpg",
-                        "https://cdn.manhwatoon.me/WP-manga/data/manga_6aca19d61c0a9/chapter-1/2.jpg",
-                        "https://cdn.manhwatoon.me/WP-manga/data/manga_6aca19d61c0a9/chapter-1/3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 178,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:25:53.317958540Z",
+    "comparedTo": "2026-10-30T01:29:24.124836076Z",
     "changes": [
         {
             "source": "Manhwa Toon",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manhwa Toon",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Manhwa Toon",
             "lang": "en",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

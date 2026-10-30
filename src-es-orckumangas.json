@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:06.262671582Z",
+    "generatedAt": "2026-10-30T10:15:44.933845220Z",
     "module": ":src:es:orckumangas",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Orcku Mangas",
             "lang": "es",
             "baseUrl": "https://orckumangas.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 3663,
+                    "status": "WARN",
+                    "durationMs": 3889,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1055,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 687,
+                    "message": "HTTP error 503",
                     "notes": [],
-                    "samples": [
-                        "The Girl Who's Bad at Expressing Herself -> /ficha?id=232",
-                        "Incluso Si Me Ahogo -> /ficha?id=100",
-                        "Mi Streamer Favorita -> /ficha?id=107"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 418,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 699,
+                    "message": "HTTP error 503",
                     "notes": [],
-                    "samples": [
-                        "Yancha Gal no Anjou-san -> /ficha?id=218",
-                        "La Historia de una Profesora Casada obsesionada por su Alumna de Secundaria -> /ficha?id=217",
-                        "Teto x Egen -> /ficha?id=199"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,62 +57,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1048,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The Girl Who's Bad at Expressing Herself -> /ficha?id=232"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 2151,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 4 -> /capitulo?id=8673",
-                        "Capítulo 3 -> /capitulo?id=8627",
-                        "Capítulo 2 -> /capitulo?id=8615"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 582,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://orckumangas.com/uploads/chapters/chapter_8673_1792557396_6ad84154bf936.webp",
-                        "https://orckumangas.com/uploads/chapters/chapter_8673_1792557396_6ad84154d0fab_p1.webp",
-                        "https://orckumangas.com/uploads/chapters/chapter_8673_1792557396_6ad84154d0fab_p2.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 443,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from orckumangas.com (HTTP 403)",
-                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from orckumangas.com (HTTP 403)",
-                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from orckumangas.com (HTTP 403)"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:43.900273345Z",
+    "comparedTo": "2026-10-30T01:32:06.262671582Z",
     "changes": [
         {
             "source": "Orcku Mangas",
             "lang": "es",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Orcku Mangas",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Orcku Mangas",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Orcku Mangas",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Orcku Mangas",
+            "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Orcku Mangas",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Orcku Mangas",
+            "lang": "es",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

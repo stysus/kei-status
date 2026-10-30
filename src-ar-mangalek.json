@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:29:07.175019613Z",
+    "generatedAt": "2026-10-30T10:15:09.853954768Z",
     "module": ":src:ar:mangalek",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "مانجا ليك",
             "lang": "ar",
             "baseUrl": "https://mangalik.net",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,26 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 717,
+                    "durationMs": 844,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 648,
-                    "message": "HTTP error 503",
+                    "status": "PASS",
+                    "durationMs": 1183,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Otherworldly Evil Monarch -> 775",
+                        "lady Baby -> 417",
+                        "cultivation return on campus -> 2311"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 172,
-                    "message": "HTTP error 503",
+                    "status": "PASS",
+                    "durationMs": 1597,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "That Trash Was Me -> 164765",
+                        "A Corporate Underling Who Excels at Work -> 172310",
+                        "Monster Pet Evolution -> 17430"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -55,75 +63,65 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 999,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Otherworldly Evil Monarch -> 775"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "chapters",
+                    "status": "WARN",
+                    "durationMs": 874,
+                    "message": null,
+                    "notes": [
+                        "chapter list is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:50.378295954Z",
+    "comparedTo": "2026-10-30T01:29:07.175019613Z",
     "changes": [
         {
             "source": "مانجا ليك",
             "lang": "ar",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "مانجا ليك",
             "lang": "ar",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "مانجا ليك",
-            "lang": "ar",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "مانجا ليك",
             "lang": "ar",
             "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "مانجا ليك",
             "lang": "ar",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "مانجا ليك",
-            "lang": "ar",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

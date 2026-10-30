@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:36.575701710Z",
+    "generatedAt": "2026-10-30T10:18:33.773441623Z",
     "module": ":src:en:mangatoday",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "MangaToday",
             "lang": "en",
             "baseUrl": "https://mangatoday.fun",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2178,
+                    "durationMs": 7367,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 26711,
+                    "durationMs": 568,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,11 +42,20 @@
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 30001,
-                    "message": "timeout",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 289,
+                    "message": null,
+                    "notes": [
+                        "manga[0] has no thumbnail",
+                        "manga[1] has no thumbnail",
+                        "manga[2] has no thumbnail",
+                        "manga[3] has no thumbnail"
+                    ],
+                    "samples": [
+                        "The World's Strongest Fire Mage -> /manga/the-world-s-strongest-fire-mage",
+                        "How to Survive the Horror Novel I Wrote -> /manga/how-to-survive-the-horror-novel-i-wrote",
+                        "The Strongest Dragon Reincarnated as a Village Girl -> /manga/the-strongest-dragon-reincarnated-as-a-village-girl"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,7 +70,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 7034,
+                    "durationMs": 422,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -73,7 +82,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 7373,
+                    "durationMs": 392,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -85,7 +94,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 4293,
+                    "durationMs": 381,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -97,7 +106,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 69,
+                    "durationMs": 127,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -105,21 +114,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:22:01.574402147Z",
+    "comparedTo": "2026-10-30T01:30:36.575701710Z",
     "changes": [
         {
             "source": "MangaToday",
             "lang": "en",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "FAIL"
-        },
-        {
-            "source": "MangaToday",
-            "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "FAIL",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

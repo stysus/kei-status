@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:34:33.913651167Z",
+    "generatedAt": "2026-10-30T10:22:18.812389250Z",
     "module": ":src:ko:sbxh",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1356,
+                    "durationMs": 1068,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,22 +31,18 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 443,
+                    "durationMs": 463,
                     "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 370,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 419,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "위험한 거짓말 -> /webtoon/822201",
-                        "괴물들의 장의사 -> /webtoon/838784",
-                        "가임기 부부 [완전판] -> /webtoon/18312"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -59,18 +55,18 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "FAIL",
-                    "durationMs": 444,
-                    "message": "HTTP error 403",
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 441,
-                    "message": "HTTP error 403",
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -78,35 +74,35 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:22:30.969360352Z",
+    "comparedTo": "2026-10-30T01:34:33.913651167Z",
     "changes": [
         {
             "source": "Newtoki (SBXH)",
             "lang": "ko",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "Newtoki (SBXH)",
-            "lang": "ko",
-            "scenario": "search",
-            "from": null,
+            "from": "PASS",
             "to": "FAIL"
         },
         {
             "source": "Newtoki (SBXH)",
             "lang": "ko",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "SKIP"
+        },
+        {
+            "source": "Newtoki (SBXH)",
+            "lang": "ko",
+            "scenario": "search",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

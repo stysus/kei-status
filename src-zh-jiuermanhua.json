@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:40:47.099242460Z",
+    "generatedAt": "2026-10-30T10:23:31.727094146Z",
     "module": ":src:zh:jiuermanhua",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "92漫画",
             "lang": "zh",
             "baseUrl": "http://www.92mh.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -25,7 +25,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 91,
+                    "durationMs": 146,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -33,7 +33,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 24,
+                    "durationMs": 78,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -45,7 +45,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 966,
+                    "durationMs": 2215,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -57,7 +57,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,16 +66,18 @@
                 },
                 {
                     "name": "search",
-                    "status": "FAIL",
-                    "durationMs": 1105,
-                    "message": "HTTP error 403",
+                    "status": "PASS",
+                    "durationMs": 4895,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "暴夜 -> /manhua/1212/"
+                    ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 144,
+                    "durationMs": 1416,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -86,28 +88,33 @@
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 842,
-                    "message": "HTTP error 403",
+                    "status": "PASS",
+                    "durationMs": 1568,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://cover.alltucdn.cc/images/comic/174/347968/1773840682XowhCC93DoW8NZaV.jpg",
+                        "https://cover.alltucdn.cc/images/comic/174/347968/177384068047-ZIIqDFAYJNJeS.jpg",
+                        "https://cover.alltucdn.cc/images/comic/174/347968/1773840679WUhX5sNew5I58KB6.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1208,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:22:57.155307581Z",
+    "comparedTo": "2026-10-30T01:40:47.099242460Z",
     "changes": [
         {
             "source": "92漫画",
             "lang": "zh",
             "scenario": "search",
-            "from": null,
-            "to": "FAIL"
-        },
-        {
-            "source": "92漫画",
-            "lang": "zh",
-            "scenario": "chapters",
             "from": "FAIL",
             "to": "PASS"
         },
@@ -115,8 +122,15 @@
             "source": "92漫画",
             "lang": "zh",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "92漫画",
+            "lang": "zh",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

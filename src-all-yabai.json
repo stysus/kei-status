@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:47.241432621Z",
+    "generatedAt": "2026-10-30T10:14:10.432730049Z",
     "module": ":src:all:yabai",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Yabai",
             "lang": "all",
             "baseUrl": "https://yabai.si",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1726,
+                    "status": "WARN",
+                    "durationMs": 769,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1391,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 266,
+                    "message": "Failed to fetch tokens. Check if the site is accessible.",
                     "notes": [],
-                    "samples": [
-                        "[ほんでぃ] 郁田ママとおかわり -> /g/asvy4im2",
-                        "[30m先前進] 🐰🍸❤ -> /g/x8ygv9f0",
-                        "[30m先前進] おちんこちゅこちゅこ瞬光てゃん -> /g/nofmlx3l"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -51,7 +49,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,90 +57,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 5808,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "[ほんでぃ] 郁田ママとおかわり -> /g/asvy4im2"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 597,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter -> /g/asvy4im2"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 470,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://s2.yabai.si/4291019/0001-872b2cc4-36cs86ng.png",
-                        "https://s2.yabai.si/4291019/0002-1a8ad694-ft27khpu.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1317,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:31:29.002293546Z",
+    "comparedTo": "2026-10-30T01:37:47.241432621Z",
     "changes": [
         {
             "source": "Yabai",
             "lang": "all",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Yabai",
             "lang": "all",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "Yabai",
-            "lang": "all",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Yabai",
             "lang": "all",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Yabai",
+            "lang": "all",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Yabai",
             "lang": "all",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Yabai",
             "lang": "all",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

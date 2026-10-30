@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:53.697576790Z",
+    "generatedAt": "2026-10-30T10:21:10.342300624Z",
     "module": ":src:fr:lelmanga",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Lelmanga",
             "lang": "fr",
             "baseUrl": "https://www.lelmanga.com",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,31 +23,39 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 614,
+                    "durationMs": 804,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30002,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 1456,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "One Piece -> /manga/one-piece",
+                        "Jujutsu Kaisen -> /manga/jujutsu-kaisen",
+                        "My Hero Academia -> /manga/my-hero-academia"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 45000,
-                    "message": "timed out after 45s",
+                    "status": "PASS",
+                    "durationMs": 1312,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Ghost Fixers -> /manga/ghost-fixers",
+                        "WEE!!! -> /manga/wee",
+                        "The Heavenly Demon’s Otherworld Livestream -> /manhwa/the-heavenly-demons-otherworld-livestream"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,75 +63,95 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 1636,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "One Piece -> /manga/one-piece",
+                        "One Piece: Ace’s Story -> /manga/one-piece-aces-story",
+                        "Shards Of A Broken Glass Slipper -> /manhwa/shards-of-a-broken-glass-slipper"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 250,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapitre 1197 -> /one-piece-1197",
+                        "Chapitre 1196 -> /one-piece-1196",
+                        "Chapitre 1195 -> /one-piece-1195"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 238,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://www.lelmanga.com/wp-content/uploads/2026/10/one-piece-1197-update-20261029151145-upk7w3/001.webp?lmv=1793286705",
+                        "https://www.lelmanga.com/wp-content/uploads/2026/10/one-piece-1197-update-20261029151145-upk7w3/002.webp?lmv=1793286705",
+                        "https://www.lelmanga.com/wp-content/uploads/2026/10/one-piece-1197-update-20261029151145-upk7w3/003.webp?lmv=1793286705"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 236,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:41:24.636757015Z",
+    "comparedTo": "2026-10-30T01:33:53.697576790Z",
     "changes": [
         {
             "source": "Lelmanga",
             "lang": "fr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Lelmanga",
             "lang": "fr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Lelmanga",
-            "lang": "fr",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Lelmanga",
             "lang": "fr",
             "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Lelmanga",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Lelmanga",
             "lang": "fr",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Lelmanga",
             "lang": "fr",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:24.936425119Z",
+    "generatedAt": "2026-10-30T10:18:05.388678910Z",
     "module": ":src:en:manhwacomics",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Manhwa Comics",
             "lang": "en",
             "baseUrl": "https://manhwacomics.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,34 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 820,
+                    "status": "PASS",
+                    "durationMs": 2501,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 403"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 390,
-                    "message": "HTTP error 403",
+                    "status": "PASS",
+                    "durationMs": 514,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "The BJ Manager Who Boosts His Favorability -> 206",
+                        "Cleaning Service -> 201",
+                        "Global Sexual Culture Research Institute -> 347"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 179,
-                    "message": "HTTP error 403",
+                    "status": "PASS",
+                    "durationMs": 462,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "I’ll Eat Your Mom First -> 748",
+                        "MILF Exchange Plan -> 996",
+                        "The Chairman’s Wife -> 475"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -57,54 +63,104 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 452,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "The BJ Manager Who Boosts His Favorability -> 206"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 2346,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 8 -> chapter-8",
+                        "Chapter 7 -> chapter-7",
+                        "Chapter 6 -> chapter-6"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 1991,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://manhwacomics.com/wp-content/uploads/WP-manga/data/manga_674c46329b940/7ec3661518a09ac5f735d068c7be8943/1-0-0.jpg",
+                        "https://manhwacomics.com/wp-content/uploads/WP-manga/data/manga_674c46329b940/7ec3661518a09ac5f735d068c7be8943/1-1-0.jpg",
+                        "https://manhwacomics.com/wp-content/uploads/WP-manga/data/manga_674c46329b940/7ec3661518a09ac5f735d068c7be8943/2-0-0.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 2362,
+                    "message": null,
+                    "notes": [
+                        "page[0] image returned HTTP 404",
+                        "page[1] image returned HTTP 404",
+                        "page[2] image returned HTTP 404"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:18:20.298887698Z",
+    "comparedTo": "2026-10-30T01:32:24.936425119Z",
     "changes": [
         {
             "source": "Manhwa Comics",
             "lang": "en",
             "scenario": "connectivity",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Manhwa Comics",
+            "lang": "en",
+            "scenario": "popular",
             "from": "FAIL",
-            "to": "WARN"
+            "to": "PASS"
         },
         {
             "source": "Manhwa Comics",
             "lang": "en",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Manhwa Comics",
             "lang": "en",
             "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Manhwa Comics",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Manhwa Comics",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Manhwa Comics",
+            "lang": "en",
+            "scenario": "images",
             "from": null,
-            "to": "SKIP"
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

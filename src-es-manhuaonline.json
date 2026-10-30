@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:59.396957577Z",
+    "generatedAt": "2026-10-30T10:15:33.612423683Z",
     "module": ":src:es:manhuaonline",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "SamuraiScan",
             "lang": "es",
             "baseUrl": "https://samurai.j5z.xyz",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1011,
+                    "status": "WARN",
+                    "durationMs": 1257,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 400"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 343,
+                    "durationMs": 314,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +45,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 298,
+                    "durationMs": 330,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +57,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 618,
+                    "durationMs": 617,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,47 +76,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 935,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 1218,
+                    "message": "HTTP error 400",
                     "notes": [],
-                    "samples": [
-                        "Capitulo 1256 Fin -> capitulo-1256-fin",
-                        "Capitulo 1255 -> capitulo-1255",
-                        "Capitulo 1254 -> capitulo-1254"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 685,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://samurai.j5z.xyz/wp-content/uploads/WP-manga/data/manga_65701654d2366/a45fe99f3dc435d01d1af59a537d57cc/0Logo1_resultado_resultado_resultado_resultado_resultado.webp",
-                        "https://samurai.j5z.xyz/wp-content/uploads/WP-manga/data/manga_65701654d2366/a45fe99f3dc435d01d1af59a537d57cc/1_resultado.webp",
-                        "https://samurai.j5z.xyz/wp-content/uploads/WP-manga/data/manga_65701654d2366/a45fe99f3dc435d01d1af59a537d57cc/2_resultado.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2390,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:32.053442351Z",
+    "comparedTo": "2026-10-30T01:31:59.396957577Z",
     "changes": [
         {
             "source": "SamuraiScan",
             "lang": "es",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "SamuraiScan",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "SamuraiScan",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "SamuraiScan",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

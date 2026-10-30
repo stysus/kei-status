@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:49.783382793Z",
+    "generatedAt": "2026-10-30T10:18:47.041155242Z",
     "module": ":src:pt:hanmokkuscan",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -22,20 +22,20 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 2214,
-                    "message": null,
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
                     "status": "THROTTLED",
-                    "durationMs": 1784,
+                    "durationMs": 2139,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "hanmokkuscan.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -81,56 +81,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:24:26.830876657Z",
+    "comparedTo": "2026-10-30T01:31:49.783382793Z",
     "changes": [
         {
             "source": "Hanmokku Scan",
             "lang": "pt-BR",
-            "scenario": "popular",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "Hanmokku Scan",
             "lang": "pt-BR",
-            "scenario": "latest",
-            "from": "PASS",
+            "scenario": "popular",
+            "from": "THROTTLED",
             "to": "SKIP"
-        },
-        {
-            "source": "Hanmokku Scan",
-            "lang": "pt-BR",
-            "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Hanmokku Scan",
-            "lang": "pt-BR",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Hanmokku Scan",
-            "lang": "pt-BR",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
-        },
-        {
-            "source": "Hanmokku Scan",
-            "lang": "pt-BR",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Hanmokku Scan",
-            "lang": "pt-BR",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
         }
     ],
     "throttledHosts": [

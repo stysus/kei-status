@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:30.064058947Z",
+    "generatedAt": "2026-10-30T10:18:12.146120781Z",
     "module": ":src:es:ragnascans",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Ragna Scans",
             "lang": "es",
             "baseUrl": "https://lector.ragnascan.xyz",
-            "status": "PASS",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 748,
+                    "durationMs": 216,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 68,
+                    "durationMs": 38,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 64,
+                    "durationMs": 29,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 58,
+                    "durationMs": 27,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,48 +74,50 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 135,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Capítulo 86 -> /leer/ha-llegado-el-final/capitulo-86.00",
-                        "Capítulo 85 -> /leer/ha-llegado-el-final/capitulo-85.00",
-                        "Capítulo 84 -> /leer/ha-llegado-el-final/capitulo-84.00"
-                    ]
+                    "status": "THROTTLED",
+                    "durationMs": 1082,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 78,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-86/1.webp",
-                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-86/2.webp",
-                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-86/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 301,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:25.747468498Z",
+    "comparedTo": "2026-10-30T01:32:30.064058947Z",
     "changes": [
         {
             "source": "Ragna Scans",
             "lang": "es",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "Ragna Scans",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ragna Scans",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "lector.ragnascan.xyz"
+    ]
 }

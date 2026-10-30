@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:26:59.661575132Z",
+    "generatedAt": "2026-10-30T10:16:36.854133815Z",
     "module": ":src:en:komix",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Komix",
             "lang": "en",
             "baseUrl": "https://komix.to",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 860,
+                    "durationMs": 12382,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 773,
+                    "durationMs": 579,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,22 +42,20 @@
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 494,
+                    "status": "PASS",
+                    "durationMs": 379,
                     "message": null,
-                    "notes": [
-                        "manga[2] has no thumbnail"
-                    ],
+                    "notes": [],
                     "samples": [
-                        "Melting Point -> melting-point",
-                        "Ians Binding -> ians-binding",
-                        "my-bad-boss -> my-bad-boss"
+                        "i tell c -> i-tell-c",
+                        "highway -> highway",
+                        "gift of poison -> gift-of-poison"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -67,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 634,
+                    "durationMs": 611,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -78,7 +76,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 925,
+                    "durationMs": 1006,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -89,35 +87,37 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 982,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://komix.to/api/images?t=BZ6CSmFmNIyLiOrT6SATHPAVE2zWnbXPFe2k42J8CcIobU-qdZ7DCWy6Vsgyy4R8VQmWU9Bh-_DeuGzw8b6KZO0bLP7a3CRlraaxC0uZImaH6io9gee4LsRhzuJHYjI1jgbRgWj3wo8XrxB2AatSjA",
-                        "https://komix.to/api/images?t=eaBvwcRTxB9hGF6D9SG184XCShA2CIMNHFoCF0SCHX4oOUAdyPRkJMVGXIQ3oCpWoajpHzTxpQ4ggDwL9OaOmlqTuBHlq80S1IG5esDzw24cfszl_ZBeWRCwo_U8URRNGYsp7OXSZEEyYQkY4TkgJg",
-                        "https://komix.to/api/images?t=JKrnw0XnrcGiOou5dkBB6RqvP2kIjThS8_oznQNvtzoNEYjH6ORHsabR-dVN0NCch0Vdmy26YMGh7fv7-29SyaGSSsnoxH5VMNIf0Izp3MFL29oDYWHa1ePG-xsNCHYVCQSkCoN2W1SXGrtcu-8LnQ"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1731,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 3312,
+                    "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:21:53.784439176Z",
+    "comparedTo": "2026-10-30T01:26:59.661575132Z",
     "changes": [
         {
             "source": "Komix",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
+            "scenario": "latest",
+            "from": "WARN",
             "to": "PASS"
+        },
+        {
+            "source": "Komix",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Komix",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

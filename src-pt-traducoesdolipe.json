@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:36:26.724844911Z",
+    "generatedAt": "2026-10-30T10:24:56.971336179Z",
     "module": ":src:pt:traducoesdolipe",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Traduções do Lipe",
             "lang": "pt-BR",
             "baseUrl": "https://traducoesdolipe.blogspot.com",
-            "status": "PASS",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 549,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 2042,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 255,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "traducoesdolipe.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Yamisu -> /2026/10/yamisu.html",
-                        "Kaiki Senrigan -> /2026/03/kaiki-senrigan.html",
-                        "Okujo Nite (No telhado) -> /2026/01/okujo-nite-no-telhado.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -50,80 +48,92 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
-                    "durationMs": 2,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "traducoesdolipe.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "3 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 306,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Yamisu -> /2026/10/yamisu.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 542,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "one shot -> /2026/10/one-shot.html"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 370,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK7Pydg2qDocq63I_VvNxyguig9dv-0qNZ3gWChAXgQMY0ORd-g1PQZ5rPZgKeGkAcFTBZt3eUz9RsxW_LSdwo6C3JqB0y-OtOF9tkjosN2QrHJzchCrKsEFOfX30rk8mhXWEiEtUnkxOFpo4xIIvbHgiY3I78hIw7YdZAWyARrgKgGjukKjAFKClq9jmt/s1600/1.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivfYcnHJoMYw182UNbwUSD_FW8hNICso4LgTrNYRthwQRK1T0KcnGGfTH8wcB9paIeU69ZX8FW4fJKGy2pqU3eUQ8cF1v9rweX2U05xGYFVQhR5XOUWQmiWniMNT1wyJ1yHbXnoQA-BSGyFjZuZrL51odndd8bI7qDRufftAPGD_OcrCN_kfrGA2rZbFpF/s1600/2.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEis7es5RdC6rmeKjGbb_w5U1LZpL-oeNVnX_Tz-w167hH2_MEbNT1JenLaR3zwzxxdNkPDlkkGLc1gZnrVkCh6EdLLdR_zDXmu0Zsuf-n2Msluo6NtOkBahSAwVEpiMFPW0_RtxUwr2socLNangc9H91NhKGe6c_Fc_ORgCxcpFBYLPG7XoKd9VqMy4FVdo/s1600/3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 873,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:26:15.090153418Z",
+    "comparedTo": "2026-10-30T01:36:26.724844911Z",
     "changes": [
         {
             "source": "Traduções do Lipe",
             "lang": "pt-BR",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "Traduções do Lipe",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Traduções do Lipe",
+            "lang": "pt-BR",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Traduções do Lipe",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Traduções do Lipe",
+            "lang": "pt-BR",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Traduções do Lipe",
             "lang": "pt-BR",
             "scenario": "pages",
-            "from": "THROTTLED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Traduções do Lipe",
             "lang": "pt-BR",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "traducoesdolipe.blogspot.com"
+    ]
 }

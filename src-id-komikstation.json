@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:35:02.839828500Z",
+    "generatedAt": "2026-10-30T10:21:24.397213437Z",
     "module": ":src:id:komikstation",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Komik Station",
             "lang": "id",
             "baseUrl": "https://komikstation.org",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 5144,
+                    "status": "WARN",
+                    "durationMs": 862,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 5577,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 584,
+                    "message": "HTTP error 500",
                     "notes": [],
-                    "samples": [
-                        "Tales of Demons and Gods -> /manga/tales-of-demons-and-gods/",
-                        "Martial Peak -> /manga/martial-peak/",
-                        "Rebirth of the Urban Immortal Cultivator -> /manga/rebirth-of-the-urban-immortal-cultivator/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 6529,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 565,
+                    "message": "HTTP error 500",
                     "notes": [],
-                    "samples": [
-                        "The Strongest Romantic -> /manga/the-strongest-romantic/",
-                        "Yotaka Futatabi -> /manga/yotaka-futatabi/",
-                        "World-Saving Is a Skill -> /manga/world-saving-is-a-skill/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +57,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 14457,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Tales of Demons and Gods -> /manga/tales-of-demons-and-gods/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 3634,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 535.5 -> /tales-of-demons-and-gods-chapter-535-5/",
-                        "Chapter 535 -> /tales-of-demons-and-gods-chapter-535/",
-                        "Chapter 534.5 -> /tales-of-demons-and-gods-chapter-534-5/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 4129,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img.klikcdn.com/data-manga/manga_2838023a778dfaecdc212708f721b788/9a863117049b4d5195f79298205879ec/001_bfcb086f6546aa0573dcb2b1515cf3b9.jpg",
-                        "https://img.klikcdn.com/data-manga/manga_2838023a778dfaecdc212708f721b788/9a863117049b4d5195f79298205879ec/002_e5e6c0f5d531e208fba76a11079ea3a3.jpg",
-                        "https://img.klikcdn.com/data-manga/manga_2838023a778dfaecdc212708f721b788/9a863117049b4d5195f79298205879ec/003_04de7bf7232e30183943e64918e9d8f0.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 694,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:52.890053969Z",
+    "comparedTo": "2026-10-30T01:35:02.839828500Z",
     "changes": [
         {
             "source": "Komik Station",
             "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Komik Station",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Komik Station",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Komik Station",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Komik Station",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Komik Station",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Komik Station",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

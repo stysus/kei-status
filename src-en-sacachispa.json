@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:19.710039120Z",
+    "generatedAt": "2026-10-30T10:17:01.892605493Z",
     "module": ":src:en:sacachispa",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "SACACHISPA",
             "lang": "en",
             "baseUrl": "https://sacachispa.site",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 601,
+                    "durationMs": 320,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 299,
+                    "durationMs": 312,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,58 +60,62 @@
                 },
                 {
                     "name": "search",
-                    "status": "WARN",
-                    "durationMs": 107,
+                    "status": "PASS",
+                    "durationMs": 161,
                     "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "query \"Osananajimi wa Itsumo Sakibashiru\" matched no results in the first page"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Osananajimi wa Itsumo Sakibashiru -> 1134ae2f-1c66-4f95-bf83-25c65d9d7147"
+                    ]
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 118,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 113,
+                    "message": "Unexpected JSON token at offset 604: Expected start of the array '[', but had '{' instead at path: $.data.covers\nJSON input: .....04f-full.webp\",\n    \"covers\": {\n      \"240\": \"mangas/covers/.....",
                     "notes": [],
-                    "samples": [
-                        "Chapter 4 -> 40500677-116f-43c8-b250-6a4d106cc3c9",
-                        "Chapter 3 -> 75f6bbd8-408e-4939-8411-b3e85ab2aea9",
-                        "Chapter 2 -> 1a02b9b9-1871-467b-80e6-0d9c54419668"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 112,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.sacachispa.site/mangas/1134ae2f-1c66-4f95-bf83-25c65d9d7147/chapters/91260fae-012e-408a-8343-abb07dcacc59/releases/9f9aaa0e-700d-458e-bd1d-39f16f0e1435/9503a5d3-00d5-425a-9aa9-532c14ababe3.webp",
-                        "https://cdn.sacachispa.site/mangas/1134ae2f-1c66-4f95-bf83-25c65d9d7147/chapters/91260fae-012e-408a-8343-abb07dcacc59/releases/9f9aaa0e-700d-458e-bd1d-39f16f0e1435/09dc7cbc-282b-454c-90e7-560ea5e5d78e.webp",
-                        "https://cdn.sacachispa.site/mangas/1134ae2f-1c66-4f95-bf83-25c65d9d7147/chapters/91260fae-012e-408a-8343-abb07dcacc59/releases/9f9aaa0e-700d-458e-bd1d-39f16f0e1435/486d8d03-cdd3-46f2-874a-67b6def63029.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 169,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:58.865374395Z",
+    "comparedTo": "2026-10-30T01:31:19.710039120Z",
     "changes": [
         {
             "source": "SACACHISPA",
             "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "SACACHISPA",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "SACACHISPA",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "SACACHISPA",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

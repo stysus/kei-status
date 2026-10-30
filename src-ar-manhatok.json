@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:26:00.924047410Z",
+    "generatedAt": "2026-10-30T10:16:07.591883513Z",
     "module": ":src:ar:manhatok",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Manhatok",
             "lang": "ar",
             "baseUrl": "https://manhatok.blogspot.com",
-            "status": "WARN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,108 +22,125 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 579,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 1877,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 364,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "One Piece مترجم -> /2023/04/one-piece_29.html",
-                        "Ao Ashi -> /2023/05/ao-ashi.html",
-                        "Blue Lock -> /2023/05/blue-lock.html"
-                    ]
-                },
-                {
-                    "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 362,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Blue Lock -> /2023/05/blue-lock.html",
-                        "Jujutsu Kaisen -> /2023/05/jujutsu-kaisen.html",
-                        "One Piece مترجم -> /2023/04/one-piece_29.html"
-                    ]
-                },
-                {
-                    "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "manhatok.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 292,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "One Piece مترجم -> /2023/04/one-piece_29.html"
-                    ]
-                },
-                {
-                    "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 947,
-                    "message": null,
-                    "notes": [
-                        "chapter[0] has a blank name",
-                        "chapter[1] has a blank name"
-                    ],
-                    "samples": [
-                        " -> /2026/01/image-host_4.html",
-                        " -> /2026/01/image-host.html",
-                        "مانجا ون بيس الفصل Chapter 1131 -> /2024/11/chapter-1131.html"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 510,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "latest",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "manhatok.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "manhatok.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:20:16.817553351Z",
+    "comparedTo": "2026-10-30T01:26:00.924047410Z",
     "changes": [
         {
             "source": "Manhatok",
             "lang": "ar",
             "scenario": "connectivity",
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "Manhatok",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhatok",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhatok",
+            "lang": "ar",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhatok",
+            "lang": "ar",
+            "scenario": "chapters",
             "from": "WARN",
-            "to": "PASS"
+            "to": "SKIP"
         },
         {
             "source": "Manhatok",
             "lang": "ar",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhatok",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhatok",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "manhatok.blogspot.com"
+    ]
 }

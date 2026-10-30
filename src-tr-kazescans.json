@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:15.227854620Z",
+    "generatedAt": "2026-10-30T10:21:40.984893906Z",
     "module": ":src:tr:kazescans",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "KazeScans",
             "lang": "tr",
             "baseUrl": "https://www.kazescans.com",
-            "status": "WARN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,102 +22,125 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 520,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 1920,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 374,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.kazescans.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Terminally-Ill Genius Dark Knight -> /2026/01/hastalkl-kara-sovalye.html?m=1",
-                        "The Demon King Overrun by Heroes -> /2025/12/the-demon-king-overrun-by-heroes.html?m=1",
-                        "Return of the Apocalypse-Class Death Knight -> /2026/01/return-of-apocalypse-class-death-knight.html?m=1"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 306,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.kazescans.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Return of the Apocalypse-Class Death Knight -> /2026/01/return-of-apocalypse-class-death-knight.html",
-                        "Terminally-Ill Genius Dark Knight -> /2026/01/hastalkl-kara-sovalye.html",
-                        "The Demon King Overrun by Heroes -> /2025/12/the-demon-king-overrun-by-heroes.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "www.kazescans.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 515,
-                    "message": null,
-                    "notes": [
-                        "query \"Terminally-Ill Genius Dark Knight\" matched no results in the first page"
-                    ],
-                    "samples": [
-                        "Terminally-Ill Genius Dark Knight -> /2026/01/hastalkl-kara-sovalye.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 744,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Terminally-Ill Genius Dark Knight Bölüm 118 -> /2026/04/terminally-ill-genius-dark-knight-bolum_14.html",
-                        "Terminally-Ill Genius Dark Knight Bölüm 117 -> /2026/03/terminally-ill-genius-dark-knight-bolum-117.html",
-                        "Terminally-Ill Genius Dark Knight Bölüm 116 -> /2026/03/terminally-ill-genius-dark-knight-bolum-116.html"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 483,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifhtCyzCgYeuckJeEY0_dTD4OMsBTZaxxBo3BpqTBJpRhiHzBSiRxt97U5LtMtYAZFlFmDYqn2PZlp6_lpdYVRf_8hIAv_DkI9eunnevMIJ8BBi6ItKb7zCulWY5rnhcQvyhGOVZMdMe0AjgH6QuewJUJHPINjDMG7thRKDCuKh8yqZW34Zk1guEHZkXQ/s0-rw/Terminally-Ill%20Genius%20Dark%20Knight-bolum-118-sayfa-01.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBLKVjI9RObQdbkOtwizKoP_wF58Emq79sdl-6qodG34BMlLYEwI4mTRBdjk10Wn4wLykttxt1KnU9FyBSOmrS-lbQDkBizLkfrOUjhaefie5iukwLshs-cLQ1tplhy5nCncRLbJmSBcJHk3Ac2VCG5FTnLKirCJlk1eVER-XY3HAbgJmCm_3ukZdqjMo/s0-rw/Terminally-Ill%20Genius%20Dark%20Knight-bolum-118-sayfa-02.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcU2T1i09XGVxSeoq2NVui2KmP03LJf0l1VV1gR_CwNxI4WsmbRPAcX5-zpG7vv-VYyeEKTxvcBrkMP7NWmHCEcHQbzdNSisESg2Q3eMnDZp1qckc09xhq0aD07GXIwnYp6Qxooz1Sfs7FWvkCCzL1t2G3QPFyvBKpe31F-Y_oSyrHn-yYBZeRWgWgeVM/s0-rw/Terminally-Ill%20Genius%20Dark%20Knight-bolum-118-sayfa-03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2603,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:26:11.815454661Z",
+    "comparedTo": "2026-10-30T01:37:15.227854620Z",
     "changes": [
         {
             "source": "KazeScans",
             "lang": "tr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "KazeScans",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KazeScans",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KazeScans",
+            "lang": "tr",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KazeScans",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KazeScans",
+            "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "KazeScans",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KazeScans",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "www.kazescans.com"
+    ]
 }

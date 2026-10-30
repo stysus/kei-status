@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:31.530232295Z",
+    "generatedAt": "2026-10-30T10:17:38.185215651Z",
     "module": ":src:id:klikmanga",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "KlikManga",
             "lang": "id",
             "baseUrl": "https://klikmanga.org",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 3242,
+                    "status": "WARN",
+                    "durationMs": 731,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2371,
+                    "status": "WARN",
+                    "durationMs": 475,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Kimetsu no Yaiba -> 1051",
-                        "Martial Peak -> 1208",
-                        "Solo Leveling -> 2718"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 2100,
+                    "status": "WARN",
+                    "durationMs": 473,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "When a Genius Employee Crosses the Line -> 28820",
-                        "Yotte, Hatsukoi wa Shoumei sareta: Delta to Gamma no Rigakubu Note -> 30566",
-                        "Till Death Do Us Part -> 32032"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,60 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1007,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Kimetsu no Yaiba – X Years Later – Tanjiro Proposes -> 18305",
-                        "Kimetsu no Yaiba: Rengoku Kyoujurou Gaiden -> 17533",
-                        "Kimetsu no Yaiba: Zenitsu and Nezuko’s Afterstory -> 17474"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1373,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 205.5 -> chapter-205-5",
-                        "Chapter 205.2 -> chapter-205-2",
-                        "Chapter 205 -> chapter-205"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2549,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img.bakacdn.com/data-manga/manga_5b1cfe4a45005/chapter-205-5/001.jpg",
-                        "https://img.bakacdn.com/data-manga/manga_5b1cfe4a45005/chapter-205-5/002.jpg",
-                        "https://img.bakacdn.com/data-manga/manga_5b1cfe4a45005/chapter-205-5/003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 355,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:59.287468346Z",
+    "comparedTo": "2026-10-30T01:30:31.530232295Z",
     "changes": [
         {
             "source": "KlikManga",
             "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "KlikManga",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "KlikManga",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "KlikManga",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KlikManga",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KlikManga",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KlikManga",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

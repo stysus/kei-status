@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:23.075163098Z",
+    "generatedAt": "2026-10-30T10:21:56.132806884Z",
     "module": ":src:ja:honto",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "Honto",
             "lang": "ja",
             "baseUrl": "https://honto.jp",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1642,
+                    "status": "WARN",
+                    "durationMs": 947,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1401,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 339,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "ワールドトリガー -> C-20004-BT0000222604",
-                        "転生したらスライムだった件 -> C-MBJ-20002-3-221263X",
-                        "転生した大聖女は、聖女であることをひた隠す　A Tale of The Great Saint -> C-MBJ-27567-9-369809X"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 3273,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 331,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "異世界の沙汰は社畜次第 -> C-MBJ-29126-6-385896X",
-                        "傷モノの花嫁　分冊版 -> C-MBJ-20002-2-475872X",
-                        "私が予言の子を生むまで　～澪の結婚～　傷モノの花嫁　外伝　分冊版 -> C-MBJ-20002-6-606046X"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,50 +57,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 764,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "ワールドトリガー -> C-20004-BT0000222604",
-                        "ワールドトリガー オフィシャルデータブック BORDER BRIEFING FILE -> C-MBJ-27537-7-235857X",
-                        "ワールドトリガー　果てしなき闘い -> B-MBJ-29119-122398401-001-001"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1372,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 ワールドトリガー 30 -> 35771570",
-                        "🔒 ワールドトリガー 29 -> 34787846",
-                        "🔒 ワールドトリガー 28 -> 33997902"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 1,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.Exception: Log in via WebView and purchase this volume to read."
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:19:02.925345098Z",
+    "comparedTo": "2026-10-30T01:33:23.075163098Z",
     "changes": [
         {
             "source": "Honto",
             "lang": "ja",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Honto",
+            "lang": "ja",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Honto",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Honto",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Honto",
+            "lang": "ja",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Honto",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "BLOCKED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

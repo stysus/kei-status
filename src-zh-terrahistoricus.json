@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:38:02.276854182Z",
+    "generatedAt": "2026-10-30T10:21:45.358912693Z",
     "module": ":src:zh:terrahistoricus",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -10,7 +10,7 @@
             "name": "泰拉记事社",
             "lang": "zh",
             "baseUrl": "https://comic.hypergryph.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,33 +23,29 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1566,
+                    "durationMs": 1558,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 208,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 186,
+                    "message": "Unexpected JSON token at offset 158: Expected string literal but 'null' literal was found at path: $.data[0].subtitle\nUse 'coerceInputValues = true' in 'Json {}' builder to coerce nulls if property has a default value.\nJSON input: .....\"title\":\"序言组曲：火与路\",\"subtitle\":null,\"authors\":[\"鹰角网络\"]},{\"cid.....",
                     "notes": [],
-                    "samples": [
-                        "循途漫录：大将军，出击！ -> /api/comic/7746",
-                        "序言组曲：孤行之人 -> /api/comic/0694",
-                        "循途漫录：王权金币 -> /api/comic/4578"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 208,
+                    "durationMs": 181,
                     "message": null,
                     "notes": [
                         "duplicate manga urls: [/api/comic/6253]"
                     ],
                     "samples": [
-                        "123罗德岛！？ -> /api/comic/6253",
+                        "序言组曲：火与路 -> /api/comic/3114",
                         "123罗德岛！？ -> /api/comic/6253",
                         "123罗德岛！？ -> /api/comic/6253"
                     ]
@@ -66,55 +62,67 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 204,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 176,
+                    "message": "Unexpected JSON token at offset 158: Expected string literal but 'null' literal was found at path: $.data[0].subtitle\nUse 'coerceInputValues = true' in 'Json {}' builder to coerce nulls if property has a default value.\nJSON input: .....\"title\":\"序言组曲：火与路\",\"subtitle\":null,\"authors\":[\"鹰角网络\"]},{\"cid.....",
                     "notes": [],
-                    "samples": [
-                        "循途漫录：大将军，出击！ -> /api/comic/7746"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 208,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 179,
+                    "message": "Unexpected JSON token at offset 157: Expected string literal but 'null' literal was found at path: $.data.subtitle\nUse 'coerceInputValues = true' in 'Json {}' builder to coerce nulls if property has a default value.\nJSON input: .....\"title\":\"序言组曲：火与路\",\"subtitle\":null,\"authors\":[\"鹰角网络\"],\"keywo.....",
                     "notes": [],
-                    "samples": [
-                        "01 大将军，出击！ -> /api/comic/7746/episode/8623"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 208,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://comic.hypergryph.com/api/comic/7746/episode/8623/page?pageNum=1",
-                        "https://comic.hypergryph.com/api/comic/7746/episode/8623/page?pageNum=2",
-                        "https://comic.hypergryph.com/api/comic/7746/episode/8623/page?pageNum=3"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2336,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:41:22.121855677Z",
+    "comparedTo": "2026-10-30T01:38:02.276854182Z",
     "changes": [
         {
             "source": "泰拉记事社",
             "lang": "zh",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "泰拉记事社",
+            "lang": "zh",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "泰拉记事社",
+            "lang": "zh",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "泰拉记事社",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "泰拉记事社",
+            "lang": "zh",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

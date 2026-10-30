@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:27:13.436811762Z",
+    "generatedAt": "2026-10-30T10:15:59.551644180Z",
     "module": ":src:ar:xsanomanga",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 301,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 1983,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 327,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.xsano-manga.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "BE BLUES -> /2023/02/be-blues.html",
-                        "Shangri-La Frontier -> /2025/07/shangri-la-frontier.html",
-                        "Ao Ashi Brotherfoot -> /2023/12/ao-ashi-brotherfoot_15.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -50,71 +48,82 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "www.xsano-manga.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 207,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "BE BLUES -> /2023/02/be-blues.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1046,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "الفصل 217 BE BLUES -> /2026/08/217-be-blues.html",
-                        "الفصل 216 BE BLUES -> /2026/08/216-be-blues.html",
-                        "الفصل 215 BE BLUES -> /2026/08/215-be-blues.html"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "THROTTLED",
-                    "durationMs": 1977,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:28:43.272036531Z",
+    "comparedTo": "2026-10-30T01:27:13.436811762Z",
     "changes": [
         {
             "source": "XSano Manga",
             "lang": "ar",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
-        },
-        {
-            "source": "XSano Manga",
-            "lang": "ar",
-            "scenario": "pages",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "XSano Manga",
             "lang": "ar",
-            "scenario": "images",
+            "scenario": "popular",
             "from": "PASS",
-            "to": null
+            "to": "SKIP"
+        },
+        {
+            "source": "XSano Manga",
+            "lang": "ar",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "XSano Manga",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "XSano Manga",
+            "lang": "ar",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "XSano Manga",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "THROTTLED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": [

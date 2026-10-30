@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:34:03.384970284Z",
+    "generatedAt": "2026-10-30T10:21:03.852061446Z",
     "module": ":src:fr:scantradunion",
     "sourceRoot": "",
     "extensionCommit": "dbf6c05d",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1204,
+                    "durationMs": 1277,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,30 +31,22 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 175,
+                    "durationMs": 356,
                     "message": null,
                     "notes": [
-                        "duplicate manga urls: [/manga/bai-lian-cheng-shen/, /manga/doll-kara/, /manga/panlong/]"
+                        "returned an empty list"
                     ],
-                    "samples": [
-                        "Aiki -> /manga/aiki/",
-                        "Aiki-S -> /manga/aiki-s/",
-                        "Ashita Dorobou -> /manga/ashita-dorobou/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 16,
+                    "durationMs": 347,
                     "message": null,
                     "notes": [
-                        "duplicate manga urls: [/manga/asura/, /manga/bai-lian-cheng-shen/, /manga/cangqiong-bang-zhi-wan-shou-gui-yuan/]"
+                        "returned an empty list"
                     ],
-                    "samples": [
-                        "Giant Killing -> /manga/giant-killing/",
-                        "The Girl from Random Chatting! -> /manga/the-girl-from-random-chatting/",
-                        "Rebirth of the Urban Immortal Cultivator -> /manga/rebirth-of-the-urban-immortal-cultivator/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -67,64 +59,61 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 433,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Aiki-S -> /manga/aiki-s/",
-                        "Aiki -> /manga/aiki/",
-                        "Saikin Yatotta Maid ga Ayashii -> /manga/saikin-yatotta-maid-ga-ayashii/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 182,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "98 -> /read/aiki/chapter-98.00/page-1/",
-                        "97 -> /read/aiki/chapter-97.00/page-1/",
-                        "96 -> /read/aiki/chapter-96.00/page-1/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 175,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://scantrad-union.com/wp-manga/aiki_280/ch_98.00/RS_AIKI_c98_p00.jpg?x75908",
-                        "https://scantrad-union.com/wp-manga/aiki_280/ch_98.00/RS_AIKI_c98_p01.jpg?x75908",
-                        "https://scantrad-union.com/wp-manga/aiki_280/ch_98.00/RS_AIKI_c98_p02.jpg?x75908"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 358,
-                    "message": null,
-                    "notes": [
-                        "page[0] image returned HTTP 403",
-                        "page[1] image returned HTTP 403",
-                        "page[2] image returned HTTP 403"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:34:26.733877939Z",
+    "comparedTo": "2026-10-30T01:34:03.384970284Z",
     "changes": [
         {
             "source": "Scantrad Union",
             "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Scantrad Union",
+            "lang": "fr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Scantrad Union",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Scantrad Union",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []
