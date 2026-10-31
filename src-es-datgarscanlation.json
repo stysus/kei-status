@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T10:16:19.820370165Z",
+    "generatedAt": "2026-10-31T05:54:14.465298755Z",
     "module": ":src:es:datgarscanlation",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 1626637101814976364,
@@ -22,21 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "THROTTLED",
-                    "durationMs": 1699,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 194,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "datgarscanlation.blogspot.com answered HTTP 429 earlier in this run",
+                    "status": "PASS",
+                    "durationMs": 74,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Mane Mane Nichi Nichi  -> /2026/03/mane-mane-nichi-nichi.html",
+                        "Tsumi to Batsu no Spica -> /2026/02/tsumi-to-batsu-no-spica.html",
+                        "Abysmal  -> /2026/04/abysmal.html"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -48,89 +50,81 @@
                 },
                 {
                     "name": "filters",
-                    "status": "SKIP",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "datgarscanlation.blogspot.com answered HTTP 429 earlier in this run",
+                    "message": null,
                     "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "samples": [
+                        "0 filters"
+                    ]
                 },
                 {
                     "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 1286,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "Mane Mane Nichi Nichi  -> /2026/03/mane-mane-nichi-nichi.html"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "THROTTLED",
+                    "durationMs": 1848,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:31:46.895491434Z",
+    "comparedTo": "2026-10-30T10:16:19.820370165Z",
     "changes": [
         {
             "source": "Dat-Gar Scan",
             "lang": "es",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "Dat-Gar Scan",
             "lang": "es",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Dat-Gar Scan",
             "lang": "es",
             "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Dat-Gar Scan",
-            "lang": "es",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Dat-Gar Scan",
             "lang": "es",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Dat-Gar Scan",
             "lang": "es",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Dat-Gar Scan",
-            "lang": "es",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "THROTTLED"
         }
     ],
     "throttledHosts": [

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:47.144260722Z",
+    "generatedAt": "2026-10-31T05:58:53.025161533Z",
     "module": ":src:tr:turkcemangaoku",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 1213201447439140959,
             "name": "Türkçe Manga Oku",
             "lang": "tr",
             "baseUrl": "https://trmangaoku.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1271,
+                    "durationMs": 1183,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 279,
+                    "status": "WARN",
+                    "durationMs": 204,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Blue Lock Manga -> 1230",
-                        "Kuduz Hançerin İntikamı -> 1998",
-                        "2. Seviye Savaş Tanrısı -> 2031"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 253,
+                    "status": "WARN",
+                    "durationMs": 163,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Barbarın Oyun Rehberi -> 2075",
-                        "Ölüm Hükümdarı -> 1956",
-                        "Gölge Köle -> 2355"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,59 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 453,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Blue Lock Manga -> 1230",
-                        "Blue Lock: Episode Nagi -> 1882"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 461,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 304 -> bolum-304",
-                        "Bölüm 303 -> bolum-303",
-                        "Bölüm 302 -> bolum-302"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 282,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://trmangaoku.com/wp-content/uploads/WP-manga/data/manga_669d3fbd7a305/c18add9c3cc0770e52dcd4e1d675bf0a/01.webp",
-                        "https://trmangaoku.com/wp-content/uploads/WP-manga/data/manga_669d3fbd7a305/c18add9c3cc0770e52dcd4e1d675bf0a/02.webp",
-                        "https://trmangaoku.com/wp-content/uploads/WP-manga/data/manga_669d3fbd7a305/c18add9c3cc0770e52dcd4e1d675bf0a/03.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 292,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:25.933211400Z",
+    "comparedTo": "2026-10-30T01:37:47.144260722Z",
     "changes": [
         {
             "source": "Türkçe Manga Oku",
             "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Türkçe Manga Oku",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Türkçe Manga Oku",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Türkçe Manga Oku",
+            "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Türkçe Manga Oku",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Türkçe Manga Oku",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

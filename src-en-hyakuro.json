@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:38:39.611956967Z",
+    "generatedAt": "2026-10-31T05:51:14.445453152Z",
     "module": ":src:en:hyakuro",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 4981643024311726529,
             "name": "Hyakuro Translations",
             "lang": "en",
             "baseUrl": "https://hyakuro.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 686,
-                    "message": null,
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 30266,
+                    "message": "SSL peer shut down incorrectly",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 324,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        " Chou Kasoku Ningen Leo -> /manga/chou-kasoku-ningen-leo",
-                        " Kimi ni Koisuru Satsujinki -> /manga/kimi-ni-koisuru-satsujinki",
-                        "2023 Drawing Magazine -> /manga/2023-drawing-magazine"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 30262,
+                    "message": "SSL peer shut down incorrectly",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 187,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Exiled Cheating Magician Enjoys a Carefree Second Life. ~I can Grant “Reinforcement Points” Not Only to Weapons, But to Anything, and I Can Revoke the Effects at Any Time I Choose. But Are Those Left Behind Okay?~ -> /manga/the-exiled-cheating-magician-enjoys-a-carefree-second-life-i-can-grant-reinforcement-points-not-only-to-weapons-but-to-anything-and-i-can-revoke-the-effects-at-any-time-i-choose-but-are-those-left-behind-okay",
-                        "Boku wa Kimitachi wo Shihai suru -> /manga/boku-wa-kimitachi-wo-shihai-suru",
-                        "Demon City -> /manga/demon-city"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 30440,
+                    "message": "SSL peer shut down incorrectly",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,56 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 154,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        " Chou Kasoku Ningen Leo -> /manga/chou-kasoku-ningen-leo"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 156,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Oneshot -> chou-kasoku-ningen-leo#1.0#665"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 168,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://hyakuro.net/backend/uploads/Chou_Kasoku_Ningen_Leo_Oneshot_By_Hyakuro_Translations_Page_001_505e94d6ca.jpg",
-                        "https://hyakuro.net/backend/uploads/Chou_Kasoku_Ningen_Leo_Oneshot_By_Hyakuro_Translations_Page_002_3bdbdb05fc.jpg",
-                        "https://hyakuro.net/backend/uploads/Chou_Kasoku_Ningen_Leo_Oneshot_By_Hyakuro_Translations_Page_003_66593b7371.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1613,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:30:52.050451984Z",
+    "comparedTo": "2026-10-30T01:38:39.611956967Z",
     "changes": [
         {
             "source": "Hyakuro Translations",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Hyakuro Translations",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Hyakuro Translations",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Hyakuro Translations",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hyakuro Translations",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hyakuro Translations",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hyakuro Translations",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

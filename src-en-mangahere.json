@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T10:18:13.452599742Z",
+    "generatedAt": "2026-10-31T05:52:59.029628039Z",
     "module": ":src:en:mangahere",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 2,
             "name": "Mangahere",
             "lang": "en",
             "baseUrl": "https://www.mangahere.cc",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 267,
+                    "durationMs": 381,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1888,
+                    "durationMs": 1935,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 2092,
+                    "durationMs": 1906,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The Broken Ring: This Marriage Will Fail Anyway -> /manga/the_broken_ring_this_marriage_will_fail_anyway/",
-                        "Shunrai Table Tennis -> /manga/shunrai_table_tennis/",
-                        "Mahou Tsukai no Yome -> /manga/mahou_tsukai_no_yome/"
+                        "Isekai Nonbiri Nouka -> /manga/isekai_nonbiri_nouka/",
+                        "Slam Dunk Desire -> /manga/slam_dunk_desire/",
+                        "Surviving as a Tyrant's Daughter -> /manga/surviving_as_a_tyrant_s_daughter/"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1871,
+                    "durationMs": 1983,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +77,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 4000,
+                    "durationMs": 3999,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,42 +88,32 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2060,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.mangahere.cc/manga/onepunch_man/c239/chapterfun.ashx?cid=1776365&page=1&key=5004cff8f80c47e5#https://www.mangahere.cc/manga/onepunch_man/c239/1.html",
-                        "https://www.mangahere.cc/manga/onepunch_man/c239/chapterfun.ashx?cid=1776365&page=2&key=5004cff8f80c47e5#https://www.mangahere.cc/manga/onepunch_man/c239/1.html",
-                        "https://www.mangahere.cc/manga/onepunch_man/c239/chapterfun.ashx?cid=1776365&page=3&key=5004cff8f80c47e5#https://www.mangahere.cc/manga/onepunch_man/c239/1.html"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 344,
-                    "message": null,
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 2032,
+                    "message": "NullPointerException at Mangahere.getPageList$suspendImpl(Mangahere.kt:247)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:29:47.973689457Z",
+    "comparedTo": "2026-10-30T10:18:13.452599742Z",
     "changes": [
         {
             "source": "Mangahere",
             "lang": "en",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Mangahere",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

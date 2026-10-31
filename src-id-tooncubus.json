@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:43.195653481Z",
+    "generatedAt": "2026-10-31T05:52:49.454901690Z",
     "module": ":src:id:tooncubus",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 8493327683322555504,
             "name": "Tooncubus",
             "lang": "id",
             "baseUrl": "https://www.tooncubus.top",
-            "status": "FAIL",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,95 +22,118 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 605,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 1922,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 194,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.tooncubus.top answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Aunt Hina -> /2024/11/aunt-hina.html",
-                        "Konoha Shinobi Affair -> /2023/01/konoha-shinobi-affair.html",
-                        "Konoha Spring -> /2024/03/konohaspring.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 131,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.tooncubus.top answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Love For Amalthea -> /2026/03/love-for-amalthea.html",
-                        "Mom Friends -> /2026/02/mom-friends.html",
-                        "Ghost Puberty -> /2023/06/ghost-puberty.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "www.tooncubus.top answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 367,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Aunt Hina -> /2024/11/aunt-hina.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 279,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Baca Chapter 04 -> https://www.tooncubus-read.my.id/2025/02/aunt-hina-04.html",
-                        "Baca Chapter 03 -> https://www.tooncubus-read.my.id/2025/02/aunt-hina-03.html",
-                        "Baca Chapter 02 -> https://www.tooncubus-read.my.id/2024/11/aunt-hina-02.html"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 60,
-                    "message": "www.tooncubus-read.my.id: Name or service not known",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:08.292337076Z",
+    "comparedTo": "2026-10-30T01:37:43.195653481Z",
     "changes": [
         {
             "source": "Tooncubus",
             "lang": "id",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "Tooncubus",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Tooncubus",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Tooncubus",
+            "lang": "id",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Tooncubus",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Tooncubus",
             "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Tooncubus",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "www.tooncubus.top"
+    ]
 }

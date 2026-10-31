@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:14.613981532Z",
+    "generatedAt": "2026-10-31T05:48:56.635087338Z",
     "module": ":src:id:mgkomik",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 385263422541320229,
             "name": "MG Komik",
             "lang": "id",
             "baseUrl": "https://web1.mgkomik.cc",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 7774,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 157,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from web1.mgkomik.cc (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 804,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "I, The Invincible Villain Master With My Apprentices -> /komik/i-the-invincible-villain-master-with-my-apprentices/",
-                        "It Starts With a Kingpin Account -> /komik/it-starts-with-a-kingpin-account/",
-                        "Chronicle of Runes -> /komik/chronicle-of-runes/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 12,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from web1.mgkomik.cc (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 852,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Healing Agency -> /komik/healing-agency/",
-                        "How to Use a Regression -> /komik/643547/",
-                        "Unemployed Gye Baek Soon -> /komik/unemployed-gye-baek-soon/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 25,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from web1.mgkomik.cc (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 815,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "I, The Invincible Villain Master With My Apprentices -> /komik/i-the-invincible-villain-master-with-my-apprentices/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 663,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 146 -> /komik/i-the-invincible-villain-master-with-my-apprentices/chapter-146/",
-                        "Chapter 145 -> /komik/i-the-invincible-villain-master-with-my-apprentices/chapter-145/",
-                        "Chapter 144 -> /komik/i-the-invincible-villain-master-with-my-apprentices/chapter-144/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 677,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://static2.mgis.my.id/data/manga_6233de500cf31/ch1_ElteJ9UYR5Tz6464eeab045837245e7a698c42ca1193/01.webp",
-                        "https://static2.mgis.my.id/data/manga_6233de500cf31/ch1_ElteJ9UYR5Tz6464eeab045837245e7a698c42ca1193/02.webp",
-                        "https://static2.mgis.my.id/data/manga_6233de500cf31/ch1_ElteJ9UYR5Tz6464eeab045837245e7a698c42ca1193/03.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1415,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:50.499157510Z",
+    "comparedTo": "2026-10-30T01:33:14.613981532Z",
     "changes": [
         {
             "source": "MG Komik",
             "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "MG Komik",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "MG Komik",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "MG Komik",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MG Komik",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MG Komik",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MG Komik",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

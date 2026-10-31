@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T10:21:28.443681803Z",
+    "generatedAt": "2026-10-31T05:53:24.051152298Z",
     "module": ":src:ru:hentailib",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 6425650164840473547,
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 856,
+                    "durationMs": 665,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 5485,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Adabana -> /33052--adabana",
-                        "Tokyo Ghoul -> /566--toukyou-kushu",
-                        "Please don't bully me, Nagatoro -> /3757--ijiranaide-nagatoro-san"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 10041,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 774,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Soeun -> /205189--so-eun",
-                        "More, More, More! Intimately Acquainted -> /156687--deodeodeo-jjinhage-aneun-sai",
-                        "Is it a true story? -> /226212--silhwailkka"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 10035,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,77 +59,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1574,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Adabana -> /33052--adabana",
-                        "Natsume Yuujinchou dj - Adabana\t Natsume Yuujinchou dj - Barren Flower -> /60764--natsume-yuujinchou-dj-adabana"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1421,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Том 3. Глава 28.6 - Ранние эскизы персонажей -> /33052--adabana/chapter?&volume=3&number=28.6",
-                        "Том 3. Глава 28.5 - Экстра -> /33052--adabana/chapter?&volume=3&number=28.5",
-                        "Том 3. Глава 28 - Эпилог -> /33052--adabana/chapter?&volume=3&number=28"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 1067,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.io.IOException: HTTP error 404. Проверьте сайт. Попробуйте авторизоваться через WebView🌎︎ и обновите список. Для завершения авторизации может потребоваться перезапустить приложение с полной остановкой."
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:35:50.011749567Z",
+    "comparedTo": "2026-10-30T10:21:28.443681803Z",
     "changes": [
         {
             "source": "HentaiLib",
             "lang": "ru",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "HentaiLib",
             "lang": "ru",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "HentaiLib",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "HentaiLib",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiLib",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "HentaiLib",
             "lang": "ru",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:42.099459573Z",
+    "generatedAt": "2026-10-31T05:52:09.113897561Z",
     "module": ":src:es:mhscans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 3253304651550496369,
@@ -23,36 +23,28 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 549,
+                    "durationMs": 330,
                     "message": null,
                     "notes": [
-                        "home page returned HTTP 503"
+                        "home page returned HTTP 404"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 3933,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 2941,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "El Antiguo Soberano de la Eternidad -> 2429",
-                        "Me Confundieron con un Monstruoso Actor Genio -> 2644",
-                        "Inicio de Sesión en el Murim -> 2312"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 2920,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 3009,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "El regreso de Nighthawk -> 136226965",
-                        "¡Por favor, no mueras! -> 136216191",
-                        "Asesino Divino, Yo Soy la Sombra -> 136207637"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -65,20 +57,18 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 5073,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "El Antiguo Soberano de la Eternidad -> 2429"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 8994,
-                    "message": "HTTP error 503",
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -86,49 +76,42 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:20:38.584227083Z",
+    "comparedTo": "2026-10-30T01:31:42.099459573Z",
     "changes": [
         {
             "source": "MHScans",
             "lang": "es",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "MHScans",
-            "lang": "es",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
-        },
-        {
-            "source": "MHScans",
-            "lang": "es",
-            "scenario": "chapters",
+            "scenario": "popular",
             "from": "PASS",
             "to": "FAIL"
         },
         {
             "source": "MHScans",
             "lang": "es",
-            "scenario": "pages",
+            "scenario": "latest",
             "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MHScans",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "FAIL",
             "to": "SKIP"
         },
         {
             "source": "MHScans",
             "lang": "es",
-            "scenario": "images",
+            "scenario": "search",
             "from": "PASS",
-            "to": null
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

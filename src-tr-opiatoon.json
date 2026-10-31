@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:00.080966989Z",
+    "generatedAt": "2026-10-31T05:51:51.335038477Z",
     "module": ":src:tr:opiatoon",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 2266890064732906146,
             "name": "Opiatoon",
             "lang": "tr",
             "baseUrl": "https://opiatoon.shop",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,29 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 365,
+                    "status": "PASS",
+                    "durationMs": 1594,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 521"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 200,
-                    "message": "HTTP error 521",
+                    "status": "PASS",
+                    "durationMs": 670,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Painter of the Night -> 1245",
+                        "BJ Alex -> 2670",
+                        "Dear Door -> 7581"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 198,
-                    "message": "HTTP error 521",
+                    "status": "PASS",
+                    "durationMs": 557,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Ennead -> 12480",
+                        "Lucky in Love -> 30659",
+                        "Arts Manz -> 28175"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -57,68 +63,72 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 382,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Painter of the Night -> 1245"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "chapters",
+                    "status": "BLOCKED",
+                    "durationMs": 1318,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: Okumak için WebView üzerinden giriş yapın"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:42:36.202786506Z",
+    "comparedTo": "2026-10-30T01:33:00.080966989Z",
     "changes": [
         {
             "source": "Opiatoon",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Opiatoon",
             "lang": "tr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Opiatoon",
             "lang": "tr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Opiatoon",
-            "lang": "tr",
-            "scenario": "chapters",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Opiatoon",
             "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Opiatoon",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

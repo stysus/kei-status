@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:29:52.384785696Z",
+    "generatedAt": "2026-10-31T05:53:30.630864880Z",
     "module": ":src:en:manhuanext",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 3544957587727489204,
             "name": "Manhuanext",
             "lang": "en",
             "baseUrl": "https://manhuanext.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,27 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1082,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30113,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 468,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "The Yellow-Haired Villain in the Female Main Character’s Novel Wants Happiness -> 1531",
-                        "I Am a Tycoon—Being a Playboy Is Totally Justified, Right? -> 1832",
-                        "Lord of Destiny Wheel -> 235"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 402,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30001,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Reborn in Journey to the West: The Strongest White Bone Great Sage -> 2720",
-                        "Infinite Breakthrough -> 2878",
-                        "Urban God-Level Grandmaster Like Manga -> 2988"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,59 +55,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 321,
-                    "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "query \"The Yellow-Haired Villain in the Female Main Character’s Novel Wants Happiness\" matched no results in the first page"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 833,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 91 -> chapter-91",
-                        "Chapter 90 -> chapter-90",
-                        "Chapter 89 -> chapter-89"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 533,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://manhuanext.com/wp-content/uploads/WP-manga/data/manga_68683c59087bc/99755ecf681d81e1f4aee718a84aff02/1.webp",
-                        "https://manhuanext.com/wp-content/uploads/WP-manga/data/manga_68683c59087bc/99755ecf681d81e1f4aee718a84aff02/2.webp",
-                        "https://manhuanext.com/wp-content/uploads/WP-manga/data/manga_68683c59087bc/99755ecf681d81e1f4aee718a84aff02/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 747,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:55.882962429Z",
+    "comparedTo": "2026-10-30T01:29:52.384785696Z",
     "changes": [
         {
             "source": "Manhuanext",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manhuanext",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manhuanext",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manhuanext",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhuanext",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhuanext",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhuanext",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

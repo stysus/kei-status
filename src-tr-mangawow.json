@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:05.165175192Z",
+    "generatedAt": "2026-10-31T05:58:49.308802014Z",
     "module": ":src:tr:mangawow",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 2576579305327069452,
@@ -23,28 +23,36 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 305,
+                    "durationMs": 686,
                     "message": null,
                     "notes": [
-                        "home page returned HTTP 521"
+                        "home page returned HTTP 404"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 130,
-                    "message": "HTTP error 521",
+                    "status": "PASS",
+                    "durationMs": 1222,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Görünüşçülük -> 43389",
+                        "Vivian Ve Hugo -> 40289",
+                        "Positively Yours -> 43964"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 145,
-                    "message": "HTTP error 521",
+                    "status": "PASS",
+                    "durationMs": 615,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "My Wife is a Demon Queen -> 103",
+                        "100th Day after Disappearance -> 1015",
+                        "Iron Ladies -> 96"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -57,18 +65,20 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 589,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Görünüşçülük -> 43389"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 633,
+                    "message": "HTTP error 404",
                     "notes": [],
                     "samples": []
                 },
@@ -76,63 +86,42 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:13.837969490Z",
+    "comparedTo": "2026-10-30T01:37:05.165175192Z",
     "changes": [
         {
             "source": "MangaWOW",
             "lang": "tr",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "MangaWOW",
-            "lang": "tr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "MangaWOW",
             "lang": "tr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "MangaWOW",
-            "lang": "tr",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "MangaWOW",
             "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MangaWOW",
             "lang": "tr",
-            "scenario": "pages",
-            "from": "WARN",
-            "to": "SKIP"
-        },
-        {
-            "source": "MangaWOW",
-            "lang": "tr",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:39:20.802242294Z",
+    "generatedAt": "2026-10-31T05:50:10.359007388Z",
     "module": ":src:en:readfairytailedenszeromangaonline",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 1330793582354406642,
             "name": "Read Fairy Tail & Edens Zero Manga Online",
             "lang": "en",
             "baseUrl": "https://ww9.readfairytail.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 897,
+                    "durationMs": 18485,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [
                         "manga[0] has no thumbnail",
@@ -79,47 +79,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 711,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Eden’s Zero Chapter 293 - Final Chapter -> https://ww9.readfairytail.com/chapter/edens-zero-chapter-293/",
-                        "Eden’s Zero Chapter 292 - FRIENDSHIP NEVER ENDS -> https://ww9.readfairytail.com/chapter/edens-zero-chapter-292/",
-                        "Eden’s Zero Chapter 291 - MY ROLE -> https://ww9.readfairytail.com/chapter/edens-zero-chapter-291/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 321,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.readfairytail.com/file/mangap/1112/10293000/2.jpeg",
-                        "https://cdn.readfairytail.com/file/mangap/1112/10293000/3.jpeg",
-                        "https://cdn.readfairytail.com/file/mangap/1112/10293000/4.jpeg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 626,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:34:37.170803150Z",
+    "comparedTo": "2026-10-30T01:39:20.802242294Z",
     "changes": [
         {
             "source": "Read Fairy Tail & Edens Zero Manga Online",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Read Fairy Tail & Edens Zero Manga Online",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Read Fairy Tail & Edens Zero Manga Online",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

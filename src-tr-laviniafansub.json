@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:16.064299707Z",
+    "generatedAt": "2026-10-31T05:57:13.400940157Z",
     "module": ":src:tr:laviniafansub",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 3269982329415083765,
             "name": "Lavinia Fansub",
             "lang": "tr",
             "baseUrl": "https://laviniafansub.shop",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,29 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 493,
+                    "status": "PASS",
+                    "durationMs": 1463,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 521"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 170,
-                    "message": "HTTP error 521",
+                    "status": "PASS",
+                    "durationMs": 793,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Placebo: Let’s Play -> 1068",
+                        "Save The Dae -> 1585",
+                        "Ghostly Vendetta -> 1302"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 155,
-                    "message": "HTTP error 521",
+                    "status": "PASS",
+                    "durationMs": 691,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Bones and Petals -> 15990",
+                        "A Dragon’s Love -> 19037",
+                        "Regas -> 8053"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -57,75 +63,84 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 532,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"Placebo: Let’s Play\" matched no results in the first page"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 1387,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "68. Bölüm - Yan hikaye Final -> 68-bolum-yan-hikaye-final",
+                        "67. Bölüm - Yan Hikaye 9 -> 67-bolum-yan-hikaye-9",
+                        "66. Bölüm - Yan Hikaye 8 -> 66-bolum-yan-hikaye-8"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 1090,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Okumak için WebView üzerinden giriş yapın"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:17.345932079Z",
+    "comparedTo": "2026-10-30T01:37:16.064299707Z",
     "changes": [
         {
             "source": "Lavinia Fansub",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Lavinia Fansub",
             "lang": "tr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Lavinia Fansub",
             "lang": "tr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Lavinia Fansub",
-            "lang": "tr",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Lavinia Fansub",
             "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Lavinia Fansub",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Lavinia Fansub",
             "lang": "tr",
             "scenario": "pages",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

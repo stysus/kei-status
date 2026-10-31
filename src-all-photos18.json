@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:27:38.216869601Z",
+    "generatedAt": "2026-10-31T05:49:42.947715796Z",
     "module": ":src:all:photos18",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 225835804698740720,
             "name": "Photos18",
             "lang": "all",
             "baseUrl": "https://www.photos18.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 155,
+                    "durationMs": 461,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 82,
+                    "durationMs": 45,
                     "message": null,
                     "notes": [
                         "manga[1] has a blank title"
@@ -45,7 +45,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 109,
+                    "durationMs": 31,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -57,7 +57,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,21 +66,11 @@
                 },
                 {
                     "name": "search",
-                    "status": "WARN",
-                    "durationMs": 392,
-                    "message": null,
-                    "notes": [
-                        "manga[0] has a blank title",
-                        "manga[1] has a blank title",
-                        "manga[2] has a blank title",
-                        "manga[3] has a blank title",
-                        "manga[4] has a blank title"
-                    ],
-                    "samples": [
-                        " -> /v/5zkWX",
-                        " -> /v/ABAaE",
-                        " -> /v/pL8BW"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 471,
+                    "message": "HTTP error 500",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -95,7 +85,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 309,
+                    "durationMs": 510,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -107,7 +97,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 243,
+                    "durationMs": 350,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -115,21 +105,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:30:46.007616317Z",
+    "comparedTo": "2026-10-30T01:27:38.216869601Z",
     "changes": [
         {
             "source": "Photos18",
             "lang": "all",
             "scenario": "search",
-            "from": null,
-            "to": "WARN"
-        },
-        {
-            "source": "Photos18",
-            "lang": "all",
-            "scenario": "images",
             "from": "WARN",
-            "to": "PASS"
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

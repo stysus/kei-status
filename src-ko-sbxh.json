@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T10:22:18.812389250Z",
+    "generatedAt": "2026-10-31T05:55:59.033483678Z",
     "module": ":src:ko:sbxh",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 5836877907605844302,
@@ -23,26 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1068,
+                    "durationMs": 1438,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 463,
-                    "message": "HTTP error 403",
+                    "status": "PASS",
+                    "durationMs": 535,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "연애혁명 -> /webtoon/570503",
+                        "무선 연결 오나홀 -> /webtoon/17970",
+                        "싸움독학 -> /webtoon/736277"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 419,
-                    "message": "HTTP error 403",
+                    "status": "PASS",
+                    "durationMs": 384,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "행맨 -> /webtoon/19044",
+                        "외모지상주의 -> /webtoon/641253",
+                        "에스 메타 -> /webtoon/14762"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -55,18 +63,18 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "FAIL",
+                    "durationMs": 466,
+                    "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 455,
+                    "message": "HTTP error 403",
                     "notes": [],
                     "samples": []
                 },
@@ -74,35 +82,42 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:34:33.913651167Z",
+    "comparedTo": "2026-10-30T10:22:18.812389250Z",
     "changes": [
         {
             "source": "Newtoki (SBXH)",
             "lang": "ko",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Newtoki (SBXH)",
+            "lang": "ko",
             "scenario": "latest",
-            "from": "PASS",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Newtoki (SBXH)",
+            "lang": "ko",
+            "scenario": "search",
+            "from": "SKIP",
             "to": "FAIL"
         },
         {
             "source": "Newtoki (SBXH)",
             "lang": "ko",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "SKIP"
-        },
-        {
-            "source": "Newtoki (SBXH)",
-            "lang": "ko",
-            "scenario": "search",
-            "from": "FAIL",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

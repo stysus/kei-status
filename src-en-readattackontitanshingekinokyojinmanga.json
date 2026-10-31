@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:15.695076956Z",
+    "generatedAt": "2026-10-31T05:52:05.882092250Z",
     "module": ":src:en:readattackontitanshingekinokyojinmanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 8930801332831394412,
             "name": "Read Attack on Titan Shingeki no Kyojin Manga",
             "lang": "en",
             "baseUrl": "https://ww12.readsnk.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 876,
+                    "durationMs": 24628,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -78,45 +78,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 430,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Shingeki No Kyojin Chapter 140 -> https://ww12.readsnk.com/chapter/shingeki-no-kyojin-chapter-140/",
-                        "Shingeki No Kyojin Chapter 139.5 - Bad Boy -> https://ww12.readsnk.com/chapter/shingeki-no-kyojin-chapter-139.5/",
-                        "Shingeki No Kyojin Chapter 139 - Toward the tree on that hill + Extra Pages -> https://ww12.readsnk.com/chapter/shingeki-no-kyojin-chapter-139/"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 279,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "pages",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:48.247291832Z",
+    "comparedTo": "2026-10-30T01:30:15.695076956Z",
     "changes": [
         {
             "source": "Read Attack on Titan Shingeki no Kyojin Manga",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Read Attack on Titan Shingeki no Kyojin Manga",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Read Attack on Titan Shingeki no Kyojin Manga",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

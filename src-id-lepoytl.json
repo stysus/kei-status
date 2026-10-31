@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T10:17:51.400113984Z",
+    "generatedAt": "2026-10-31T05:49:30.758651131Z",
     "module": ":src:id:lepoytl",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 1601772753251290758,
@@ -22,20 +22,20 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 7893,
-                    "message": null,
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
                     "status": "THROTTLED",
-                    "durationMs": 1676,
+                    "durationMs": 2115,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.lepoytl.my.id answered HTTP 429 earlier in this run",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -81,56 +81,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:33:54.080109448Z",
+    "comparedTo": "2026-10-30T10:17:51.400113984Z",
     "changes": [
         {
             "source": "LepoyTL",
             "lang": "id",
-            "scenario": "popular",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "LepoyTL",
             "lang": "id",
-            "scenario": "latest",
-            "from": "PASS",
+            "scenario": "popular",
+            "from": "THROTTLED",
             "to": "SKIP"
-        },
-        {
-            "source": "LepoyTL",
-            "lang": "id",
-            "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "LepoyTL",
-            "lang": "id",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "LepoyTL",
-            "lang": "id",
-            "scenario": "search",
-            "from": "WARN",
-            "to": "SKIP"
-        },
-        {
-            "source": "LepoyTL",
-            "lang": "id",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "LepoyTL",
-            "lang": "id",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
         }
     ],
     "throttledHosts": [

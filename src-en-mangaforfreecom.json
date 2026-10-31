@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:33.352556736Z",
+    "generatedAt": "2026-10-31T05:47:19.786106753Z",
     "module": ":src:en:mangaforfreecom",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 1099222169691387069,
             "name": "Mangaforfree.com",
             "lang": "en",
             "baseUrl": "https://mangaforfree.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 504,
+                    "status": "WARN",
+                    "durationMs": 231,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 521",
+                        "home page body is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1198,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 129,
+                    "message": "HTTP error 521",
                     "notes": [],
-                    "samples": [
-                        "Secret Class -> 350674",
-                        "Stop Smoking -> 359817",
-                        "My Girlfriend Was Already Fully Trained -> 362325"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 562,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 128,
+                    "message": "HTTP error 521",
                     "notes": [],
-                    "samples": [
-                        "Obscene Theater -> 362923",
-                        "I’m a Vampire -> 362253",
-                        "New Town Massage -> 362559"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,95 +58,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 328,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Secret Class -> 350674",
-                        "I Know Your Secret -> 363076",
-                        "S Class -> 359084"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1417,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 322 raw -> chapter-322-raw",
-                        "Chapter 322 -> chapter-322",
-                        "Chapter 321.5 raw -> chapter-321-5-raw"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 454,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mangaforfree.com/wp-content/uploads/WP-manga/data/manga_6a578c5dd2452/68dd6e0f18ecd70517f0e4aa461de212/000.webp",
-                        "https://mangaforfree.com/wp-content/uploads/WP-manga/data/manga_6a578c5dd2452/68dd6e0f18ecd70517f0e4aa461de212/001.webp",
-                        "https://mangaforfree.com/wp-content/uploads/WP-manga/data/manga_6a578c5dd2452/68dd6e0f18ecd70517f0e4aa461de212/002.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1555,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:16:04.640920909Z",
+    "comparedTo": "2026-10-30T01:31:33.352556736Z",
     "changes": [
         {
             "source": "Mangaforfree.com",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Mangaforfree.com",
+            "lang": "en",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Mangaforfree.com",
             "lang": "en",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Mangaforfree.com",
-            "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Mangaforfree.com",
             "lang": "en",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangaforfree.com",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Mangaforfree.com",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Mangaforfree.com",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T10:23:45.736562732Z",
+    "generatedAt": "2026-10-31T05:51:42.162180423Z",
     "module": ":src:tr:gafeland",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 3266930735690843593,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "BLOCKED",
-                    "durationMs": 6085,
+                    "durationMs": 4342,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gafeland.com (HTTP 403)"
@@ -33,7 +33,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 423,
+                    "durationMs": 342,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,15 +44,13 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 212,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Başrollerin Çocuklarını Yetiştirdim -> /manga/basrollerin-cocuklarini-yetistirdim/",
-                        "Kötü Adamla Sevgili Değilim -> /manga/kotu-adamla-sevgili-degilim/",
-                        "Minik Cariye Sessiz Bir Hayat İstiyor -> /manga/minik-cariye-sessiz-bir-hayat-istiyor/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 294,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gafeland.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -67,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "BLOCKED",
-                    "durationMs": 354,
+                    "durationMs": 771,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gafeland.com (HTTP 403)"
@@ -77,7 +75,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 247,
+                    "durationMs": 404,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,25 +86,49 @@
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 294,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gafeland.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 347,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://gafeland.com/wp-content/uploads/2026/02/0.jpg",
+                        "https://gafeland.com/wp-content/uploads/2026/02/1.jpg",
+                        "https://gafeland.com/wp-content/uploads/2026/02/2.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 79,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:38:27.294481026Z",
+    "comparedTo": "2026-10-30T10:23:45.736562732Z",
     "changes": [
         {
             "source": "gafeland",
             "lang": "tr",
-            "scenario": "connectivity",
+            "scenario": "latest",
             "from": "PASS",
             "to": "BLOCKED"
+        },
+        {
+            "source": "gafeland",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "gafeland",
+            "lang": "tr",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

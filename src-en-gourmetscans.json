@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:28:40.184723581Z",
+    "generatedAt": "2026-10-31T05:48:27.192753735Z",
     "module": ":src:en:gourmetscans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 3694940277826033657,
             "name": "Gourmet Scans",
             "lang": "en",
             "baseUrl": "https://gourmetsupremacy.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1329,
+                    "durationMs": 680,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1162,
+                    "durationMs": 1144,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1503,
+                    "durationMs": 1117,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 490,
+                    "durationMs": 415,
                     "message": null,
                     "notes": [
                         "returned an empty list",
@@ -75,68 +75,47 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 319,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The End Notes - Afterword -> the-end-notes",
-                        "Side Story 3 - Ruediger Winterwald (Fin) -> side-story-3",
-                        "Side Story 2 - Ruediger Winterwald -> side-story-2"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 1104,
+                    "message": "NullPointerException at MadaraBase.parseDetails(MadaraBase.kt:211)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1103,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_01.jpg",
-                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_02.jpg",
-                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 751,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:18:32.579219231Z",
+    "comparedTo": "2026-10-30T01:28:40.184723581Z",
     "changes": [
         {
             "source": "Gourmet Scans",
             "lang": "en",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "Gourmet Scans",
-            "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Gourmet Scans",
             "lang": "en",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Gourmet Scans",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:29:32.545936937Z",
+    "generatedAt": "2026-10-31T05:51:43.847292061Z",
     "module": ":src:en:readkingdommangaonline",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 7952360835727640966,
             "name": "Read Kingdom Manga Online",
             "lang": "en",
             "baseUrl": "https://ww6.readkingdom.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 984,
+                    "durationMs": 28323,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -76,47 +76,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1132,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30002,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Kingdom Chapter 891 - What Still needs protecting -> https://ww6.readkingdom.com/chapter/kingdom-chapter-891/",
-                        "Kingdom Chapter 890 - Disgrace -> https://ww6.readkingdom.com/chapter/kingdom-chapter-890/",
-                        "Kingdom Chapter 889 - A Forsaken Land -> https://ww6.readkingdom.com/chapter/kingdom-chapter-889/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 375,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.readkingdom.com/file/mangap/2026/43/8/10891000/01a16755-680b-7c42-9e55-b516ee035f04/2.jpeg",
-                        "https://cdn.readkingdom.com/file/mangap/2026/43/8/10891000/01a16755-680b-7c42-9e55-b516ee035f04/3.jpeg",
-                        "https://cdn.readkingdom.com/file/mangap/2026/43/8/10891000/01a16755-680b-7c42-9e55-b516ee035f04/4.jpeg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 382,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:43.607413085Z",
+    "comparedTo": "2026-10-30T01:29:32.545936937Z",
     "changes": [
         {
             "source": "Read Kingdom Manga Online",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Read Kingdom Manga Online",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Read Kingdom Manga Online",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

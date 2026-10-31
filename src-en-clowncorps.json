@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:25.590083489Z",
+    "generatedAt": "2026-10-31T05:50:55.422725488Z",
     "module": ":src:en:clowncorps",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1386f490",
     "sources": [
         {
             "sourceId": 285164574089229147,
             "name": "Clown Corps",
             "lang": "en",
             "baseUrl": "https://clowncorps.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,9 +22,9 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 250,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30045,
+                    "message": "Connect timed out",
                     "notes": [],
                     "samples": []
                 },
@@ -68,45 +68,52 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 3262,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30062,
+                    "message": "Connect timed out",
                     "notes": [],
-                    "samples": [
-                        "Clown Break -> /comic/clown-break/",
-                        "chapter 6 page 201 -> /comic/chapter-6-page-201/",
-                        "chapter 6 page 200 -> /comic/chapter-6-page-200/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 51,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://clowncorps.net/wp-content/uploads/2025/11/clowns58.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 115,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:19:30.728182128Z",
+    "comparedTo": "2026-10-30T01:33:25.590083489Z",
     "changes": [
         {
             "source": "Clown Corps",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Clown Corps",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Clown Corps",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Clown Corps",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []
