@@ -128,8 +128,11 @@ What this cannot tell you is as important as what it can.
   keeps its honest note.
 - `androidx.preference` covers the settings API surface extensions call, but nothing is rendered, so
   preference-driven behaviour is only exercised with default values.
-- `search` runs, and a source whose search needs an Android class the harness does not provide
-  (`android.icu.text.*`, ProjectSuki's smart search) reports `UNSUPPORTED` naming it.
+- `search` runs. `android.icu.text` covers what ProjectSuki's smart search links against -
+  `BreakIterator`, `Collator`/`RuleBasedCollator`, `Normalizer2` and `StringSearch` - on top of
+  `java.text`; case folding is lowercase-after-NFKC and matching is literal rather than
+  collation-based, so a match can differ from a device's. A source that needs any other Android
+  class still reports `UNSUPPORTED` naming it.
 - Crypto goes through the JVM's own providers plus BouncyCastle, which Android also bundles. Without
   it, `AES/CBC/PKCS7PADDING` (`lib/cryptoaes`) and `AES/CBC/ZEROBYTEPADDING` (Mangago) do not exist
   and the libraries swallow the failure, so the extension looked broken while it works on Android.

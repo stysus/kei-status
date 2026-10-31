@@ -339,8 +339,13 @@ class HarnessRunner(private val config: HarnessConfig) {
      * touches.
      */
     private suspend fun searchScenario(source: CatalogueSource, advertised: SManga, host: String?): ScenarioResult {
+        // The advertised title, not the decorated listing string: sites ignore the author circle,
+        // tag tail and subtitle a source hangs on its entries, and searching the whole thing came
+        // back empty on scores of healthy sources (HentaiEnvy: "[Group (Author)] Title - Subtitle
+        // [Spanish] [Scanner]" matched nothing, "Title" matched the manga).
+        val query = searchQuery(advertised.title)
         val search = capture("search", ::mangaNotes, ::mangaSamples, host = host) {
-            source.getSearchManga(1, advertised.title, source.getFilterList())
+            source.getSearchManga(1, query, source.getFilterList())
         }
 
         // A miss is evidence only when a page actually came back: a search that threw or timed out
@@ -352,7 +357,7 @@ class HarnessRunner(private val config: HarnessConfig) {
             // capture computes the verdict from the notes it saw; the miss note is added after, so
             // the WARN has to be raised here when nothing else did.
             status = if (search.result.status == Status.PASS) Status.WARN else search.result.status,
-            notes = search.result.notes + "query \"${advertised.title}\" matched no results in the first page",
+            notes = search.result.notes + "query \"$query\" matched no results in the first page",
         )
     }
 
@@ -644,6 +649,28 @@ class HarnessRunner(private val config: HarnessConfig) {
 }
 
 
+
+/**
+ * The form of a source's advertised title a site's own search can actually answer.
+ *
+ * Sources decorate listing titles with an author circle in brackets, an alternate title after a
+ * pipe, a translated subtitle after a dash and a tag tail. Those are display conveniences; a
+ * search backend phrase-matches none of them. The cleaned title falls back to the original when
+ * stripping would leave nothing to search for.
+ */
+internal fun searchQuery(title: String): String {
+    val cleaned = title
+        .replace(BRACKETED_TAG, " ")
+        .substringBefore(" | ")
+        .split(SUBTITLE_DASH).first()
+        .replace(WHITESPACE_RUN, " ")
+        .trim()
+    return cleaned.ifEmpty { title }
+}
+
+private val BRACKETED_TAG = Regex("\\[[^\\]]*]")
+private val SUBTITLE_DASH = Regex("\\s+[-–—]\\s+")
+private val WHITESPACE_RUN = Regex("\\s+")
 
 /**
  * How long to wait before the single retry that follows an HTTP 429.
