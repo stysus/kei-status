@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:29.801726951Z",
+    "generatedAt": "2026-10-31T09:58:31.942654311Z",
     "module": ":src:en:decadencescans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 7432245132662185058,
             "name": "Decadence Scans",
             "lang": "en",
             "baseUrl": "https://reader.decadencescans.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 983,
+                    "status": "WARN",
+                    "durationMs": 19803,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522",
+                        "home page body is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 790,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19457,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Koi to Yobu ni wa Kimochi Warui -> 1734",
-                        "Teach Me Love -> 1872",
-                        "Mitsuyokon – Tsukumogami no Yomegoryou -> 1744"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 631,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19534,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Housekibako -> 2390",
-                        "Sugar Baby -> 2324",
-                        "Ashi-Girl -> 2216"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,60 +58,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 2018,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Koi to Yobu ni wa Kimochi Warui -> 1734",
-                        "Koisuru Hotaru to Kurashiteru -> 2062",
-                        "Nigate na no wa Amai Momo -> 1977"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1051,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapters 1-6 -> chapters-1-6",
-                        "Chapter 56 - Last Chapter: Calling It Love is... -> chapter-56",
-                        "Chapter 55 - Best Friends -> chapter-55"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1437,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://reader.decadencescans.com/wp-content/uploads/WP-manga/data/manga_5e93545469344/8cded5be4035435572e1f5472be9412a/Koi_to_Yobu_Une_Fleur_p001-2.jpg",
-                        "https://reader.decadencescans.com/wp-content/uploads/WP-manga/data/manga_5e93545469344/8cded5be4035435572e1f5472be9412a/Koi_to_Yobu_Une_Fleur_p001.jpg",
-                        "https://reader.decadencescans.com/wp-content/uploads/WP-manga/data/manga_5e93545469344/8cded5be4035435572e1f5472be9412a/Koi_to_Yobu_Une_Fleur_p002.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 411,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:36:24.654946531Z",
+    "comparedTo": "2026-10-30T01:30:29.801726951Z",
     "changes": [
         {
             "source": "Decadence Scans",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Decadence Scans",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Decadence Scans",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Decadence Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Decadence Scans",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Decadence Scans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Decadence Scans",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

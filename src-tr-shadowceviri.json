@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:51:56.249789689Z",
+    "generatedAt": "2026-10-31T10:09:13.274324690Z",
     "module": ":src:tr:shadowceviri",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 3852979672050614736,
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 1588,
+                    "durationMs": 1610,
                     "message": null,
                     "notes": [
                         "duplicate manga urls: [/2021/05/avatar-tsuteyin-yolu_1.html, /2021/05/doomwar_1.html, /2021/05/god-of-war-dusmus-tanr_1.html]"
@@ -45,7 +45,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 159,
+                    "durationMs": 134,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -67,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 195,
+                    "durationMs": 152,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,72 +76,40 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 774,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Raunt 1515 -> /2026/03/hajime-no-ippo-1515.html",
-                        "Raunt 1514 -> /2026/03/hajime-no-ippo-1514.html",
-                        "Raunt 1513 -> /2026/03/hajime-no-ippo-1513.html"
-                    ]
-                },
-                {
-                    "name": "pages",
                     "status": "THROTTLED",
-                    "durationMs": 1992,
+                    "durationMs": 1646,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
                     "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
+                    "notes": [],
+                    "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T10:20:40.258352483Z",
+    "comparedTo": "2026-10-31T05:51:56.249789689Z",
     "changes": [
         {
             "source": "Shadow Çeviri",
             "lang": "tr",
-            "scenario": "popular",
-            "from": "THROTTLED",
-            "to": "WARN"
-        },
-        {
-            "source": "Shadow Çeviri",
-            "lang": "tr",
-            "scenario": "latest",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Shadow Çeviri",
-            "lang": "tr",
-            "scenario": "filters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Shadow Çeviri",
-            "lang": "tr",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Shadow Çeviri",
-            "lang": "tr",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
             "source": "Shadow Çeviri",
             "lang": "tr",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": [

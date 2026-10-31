@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T10:22:34.645994155Z",
+    "generatedAt": "2026-10-31T10:05:05.549086910Z",
     "module": ":src:pt:temakimangas",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 677370205708439700,
             "name": "Temaki mangás",
             "lang": "pt-BR",
             "baseUrl": "https://temakimangas.blogspot.com",
-            "status": "WARN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,41 +22,37 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 141,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 2034,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 88,
-                    "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "temakimangas.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 76,
-                    "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "temakimangas.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "temakimangas.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -85,36 +81,38 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:34:03.524240669Z",
+    "comparedTo": "2026-10-30T10:22:34.645994155Z",
     "changes": [
         {
             "source": "Temaki mangás",
             "lang": "pt-BR",
             "scenario": "connectivity",
-            "from": "THROTTLED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
             "source": "Temaki mangás",
             "lang": "pt-BR",
             "scenario": "popular",
-            "from": "SKIP",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "SKIP"
         },
         {
             "source": "Temaki mangás",
             "lang": "pt-BR",
             "scenario": "latest",
-            "from": "SKIP",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "SKIP"
         },
         {
             "source": "Temaki mangás",
             "lang": "pt-BR",
             "scenario": "filters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "temakimangas.blogspot.com"
+    ]
 }

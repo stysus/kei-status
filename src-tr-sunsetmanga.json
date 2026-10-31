@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:36:50.337444025Z",
+    "generatedAt": "2026-10-31T10:08:49.792629302Z",
     "module": ":src:tr:sunsetmanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 6406690174131145499,
             "name": "Sunset Manga",
             "lang": "tr",
             "baseUrl": "https://sunsetscans.com.tr",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1252,
+                    "status": "WARN",
+                    "durationMs": 19454,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1011,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19413,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "XX Boyfriend -> /manga/xx-boyfriend/",
-                        "Childhood Friends Romance -> /manga/childhood-friends-romance/",
-                        "Moral Panic -> /manga/moral-panic/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 412,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19497,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "XX Boyfriend -> /manga/xx-boyfriend/",
-                        "Childhood Friends Romance -> /manga/childhood-friends-romance/",
-                        "Moral Panic -> /manga/moral-panic/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,69 +57,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 290,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "XX Boyfriend -> /manga/xx-boyfriend/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 516,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "5. Bölüm -> /manga/xx-boyfriend/5-bolum/",
-                        "4. Bölüm -> /manga/xx-boyfriend/4-bolum/",
-                        "3. Bölüm -> /manga/xx-boyfriend/3-bolum/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 721,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "==DBjVQAlZmZ5pGZ8kKA2VwZ8kUpvI2qhRQZj8vAvqGA4ZwMmRGLwEGZ4R2A5DJA4LwMxyQMvWJBlDTA28PB2RGBktwZ5LwAxSzAsS2MhSJoiRTquE2Yuqzou1JYDq1YmEJLikTp19PqhITqh92LgN3qi02ow5FLa5JLgEKMm5Jqm9lY6ZUp0EUn",
-                        "==DBjVQAlZmZ5pGZ8kKA2VwZ8kUpvI2qhVQZj8vAvqGA4ZwMmRGLwEGZ4R2A5DJA4LwMxyQMvWJBlDTA28PB2RGBktwZ5LwAxSzAsS2MhSJoiRTquE2Yuqzou1JYDq1YmEJLikTp19PqhITqh92LgN3qi02ow5FLa5JLgEKMm5Jqm9lY6ZUp0EUn",
-                        "==DBjVQAlZmZ5pGZ8kKA2VwZ8kUpvI2qhZQZj8vAvqGA4ZwMmRGLwEGZ4R2A5DJA4LwMxyQMvWJBlDTA28PB2RGBktwZ5LwAxSzAsS2MhSJoiRTquE2Yuqzou1JYDq1YmEJLikTp19PqhITqh92LgN3qi02ow5FLa5JLgEKMm5Jqm9lY6ZUp0EUn"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 490,
-                    "message": null,
-                    "notes": [
-                        "page[0] image returned HTTP 404",
-                        "page[1] image returned HTTP 404",
-                        "page[2] image returned HTTP 404"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:36.941361251Z",
+    "comparedTo": "2026-10-30T01:36:50.337444025Z",
     "changes": [
         {
             "source": "Sunset Manga",
             "lang": "tr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Sunset Manga",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Sunset Manga",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Sunset Manga",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Sunset Manga",
+            "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Sunset Manga",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Sunset Manga",
             "lang": "tr",
             "scenario": "images",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

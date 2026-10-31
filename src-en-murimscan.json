@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T10:26:00.177648544Z",
+    "generatedAt": "2026-10-31T09:56:25.241024250Z",
     "module": ":src:en:murimscan",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 5524031489110351257,
             "name": "MurimScan",
             "lang": "en",
             "baseUrl": "https://www.murimscans.site",
-            "status": "WARN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 376,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 1853,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 102,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.murimscans.site answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "The Lone Necromancer -> /2026/04/the-lone-necromancer.html",
-                        "Max Toonager -> /2026/02/max-toonager_0538637281.html",
-                        "Jungle Juice -> /2026/01/jungle-juice.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -50,80 +48,92 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "www.murimscans.site answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 269,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Lone Necromancer -> /2026/04/the-lone-necromancer.html"
-                    ]
-                },
-                {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 5019,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Lone Necromancer Chapter 221-vip -> /2026/04/the-lone-necromancer-chapter-221-vip.html",
-                        "The Lone Necromancer Chapter 220-vip -> /2026/04/the-lone-necromancer-chapter-220-vip.html",
-                        "The Lone Necromancer Chapter 219 -> /2026/04/the-lone-necromancer-chapter-219.html"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 3616,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "chapters",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:32:35.720877704Z",
+    "comparedTo": "2026-10-30T10:26:00.177648544Z",
     "changes": [
         {
             "source": "MurimScan",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "MurimScan",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MurimScan",
+            "lang": "en",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MurimScan",
+            "lang": "en",
             "scenario": "chapters",
-            "from": "THROTTLED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MurimScan",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "MurimScan",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "SKIP"
         },
         {
             "source": "MurimScan",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "www.murimscans.site"
+    ]
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:23.326818435Z",
+    "generatedAt": "2026-10-31T09:59:51.775485812Z",
     "module": ":src:en:saturdaymorningbreakfastcomics",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 3035799230093482569,
             "name": "Saturday Morning Breakfast Comics",
             "lang": "en",
             "baseUrl": "https://smbc-comics.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 204,
+                    "durationMs": 202,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 500"
@@ -72,34 +72,53 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 410,
+                    "durationMs": 361,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Dead -> /comic/dead-3",
                         "Eyes -> /comic/eyes",
-                        "Signal -> /comic/signal-5",
-                        "Clankor -> /comic/clankor"
+                        "Signal -> /comic/signal-5"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 106,
-                    "message": "HTTP error 500",
+                    "status": "PASS",
+                    "durationMs": 77,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://www.smbc-comics.com/comics/20020905-2.gif",
+                        "http://tachiyomi-lib-textinterceptor//This%20was%20literally%20the%20first%20single%20panel%20comic%20idea%20I%20ever%20had%2C%20though%20it%20isn't%20the%20first%20drawing.%20I%20revised%20it%20around%202005%20or%20so%2C%20at%20a%20point%20when%20I%20apparently%20thought%20fingertips%20were%20square-shaped.",
+                        "https://www.smbc-comics.com/comics/160150405520020905-2after.png"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 665,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:35.187353835Z",
+    "comparedTo": "2026-10-30T01:33:23.326818435Z",
     "changes": [
         {
             "source": "Saturday Morning Breakfast Comics",
             "lang": "en",
-            "scenario": "search",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Saturday Morning Breakfast Comics",
+            "lang": "en",
+            "scenario": "images",
             "from": null,
-            "to": "WARN"
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

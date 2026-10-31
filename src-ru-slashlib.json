@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T10:20:12.190207019Z",
+    "generatedAt": "2026-10-31T10:05:40.762034333Z",
     "module": ":src:ru:slashlib",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 2730544188738947015,
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 630,
+                    "durationMs": 747,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 9534,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Secret Alliance -> /23435--secret-alliance",
-                        "Surviving Romance -> /60127--a-surviving-romance-",
-                        "Wolf and dog -> /24394--wolf-and-dog"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 10052,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 701,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Centuria -> /197587--kentourya",
-                        "A Parallel World With a 1:39 Male to Female Ratio is Unexpectedly Normal -> /229732--danjohi-139-no-heikou-sekai-wa-omoi-no-hoka-futsuu",
-                        "Sanda -> /87161--san-da"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 10064,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,65 +59,61 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 2483,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Secret Alliance -> /23435--secret-alliance"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "BLOCKED",
-                    "durationMs": 1468,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.io.IOException: HTTP error 404. Проверьте сайт. Попробуйте авторизоваться через WebView🌎︎ и обновите список. Для завершения авторизации может потребоваться перезапустить приложение с полной остановкой."
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:34:02.648566610Z",
+    "comparedTo": "2026-10-30T10:20:12.190207019Z",
     "changes": [
         {
             "source": "SlashLib",
             "lang": "ru",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "SlashLib",
             "lang": "ru",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "SlashLib",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "SlashLib",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "SKIP"
+        },
+        {
+            "source": "SlashLib",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

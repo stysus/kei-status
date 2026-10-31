@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:28:32.628316594Z",
+    "generatedAt": "2026-10-31T10:00:51.707996948Z",
     "module": ":src:en:cocomic",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 3544369893051520689,
             "name": "Cocomic",
             "lang": "en",
             "baseUrl": "https://cocomic.co",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 355,
+                    "status": "WARN",
+                    "durationMs": 817,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 525",
+                        "home page body is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2271,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 2847,
+                    "message": "HTTP error 525",
                     "notes": [],
-                    "samples": [
-                        "The Cheat Batter Takes All -> 59528",
-                        "Adult Reading Club -> 74443",
-                        "Low Tide in Twilight「Official」 -> 5662"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 2128,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 1684,
+                    "message": "HTTP error 525",
                     "notes": [],
-                    "samples": [
-                        "Becoming The Villain’s Family -> 92523",
-                        "Debt, My Shining Lover -> 90069",
-                        "Kiss Goblin -> 4800"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,56 +58,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1600,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The Cheat Batter Takes All -> 59528"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 5911,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 105 -> chapter-105",
-                        "Chapter 104 -> chapter-104",
-                        "Chapter 103 -> chapter-103"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2013,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn2.cocomic.co/manga_638600453798366558/0363cc453eda9458e38657d5d83128d2/105.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 14488,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:30:30.677722150Z",
+    "comparedTo": "2026-10-30T01:28:32.628316594Z",
     "changes": [
         {
             "source": "Cocomic",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Cocomic",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Cocomic",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Cocomic",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Cocomic",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Cocomic",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Cocomic",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

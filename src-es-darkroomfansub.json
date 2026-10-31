@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:52:38.964848394Z",
+    "generatedAt": "2026-10-31T10:04:36.952658474Z",
     "module": ":src:es:darkroomfansub",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 2769673412724723872,
             "name": "Dark Room Fansub",
             "lang": "es",
             "baseUrl": "https://lector-darkroomfansub.blogspot.com",
-            "status": "PASS",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 461,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 1739,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 281,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "lector-darkroomfansub.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Smoky Nectar Renew -> /2025/01/smoky-nectar-renew.html",
-                        "Domestic Beast -> /2023/06/domestic-beast.html",
-                        "Back-To-Back March -> /2023/05/back-to-back-march.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -50,108 +48,92 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "lector-darkroomfansub.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 228,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Smoky Nectar Renew -> /2025/01/smoky-nectar-renew.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 638,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 1 -> /2022/02/ch-6.html"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 388,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/a/AVvXsEhNi4BsgJ0fGP4cyD1WmhIn5YDG3XulJ3KdbvQGR7VRHHic3GFQJ2d9Hxtzz4FpTmQT-wg_VsAoKw11Y-FcvJ9ocESRn9N8QrEdt9bWtSeQdRGVHKOtgtye_2h1UcS937rzLeW3oCoLClGQzvbGnio2NR-WZ-T1OxWRCijSjf_oNq_3DiPcqUXvHVo2HQ",
-                        "https://blogger.googleusercontent.com/img/a/AVvXsEgNv9lNDxGG6-U7rugmDr-gjWfLn0-uIs99gwhDsoWmcEzYukKFK0hI1HjNgVbaF820FFQLg_2Xc4FTUqOanW2-26eeFO27WXva0MpP3VkHui6Aqd2nrdcHjFlgiCzrCESNjiXq2DO4BjC6ix9ooSXpnznJ4qvIs6YLGHvsbG7KSmdSFIpo9smG6CavpA",
-                        "https://blogger.googleusercontent.com/img/a/AVvXsEgGNyZf14kzCp13cBzOGqbz-SIDFqEB0TkXx5A9Mz3DnKU3fqtc7tidx9W86b0tZPNw_-LbcaHZ4VXGNT_XjTZrtSfydx0nv1_LEwQV3HbrSBzsC8989AAeB02kEenDEJwBbDOofYsoxXYLSzpFEjdeqJhuVDgR8oaVrqIflGxRULBxUSAbAF1rMvvQAg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1566,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T10:16:18.113853558Z",
+    "comparedTo": "2026-10-31T05:52:38.964848394Z",
     "changes": [
         {
             "source": "Dark Room Fansub",
             "lang": "es",
             "scenario": "connectivity",
-            "from": "THROTTLED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
             "source": "Dark Room Fansub",
             "lang": "es",
             "scenario": "popular",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Dark Room Fansub",
             "lang": "es",
             "scenario": "filters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Dark Room Fansub",
-            "lang": "es",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Dark Room Fansub",
             "lang": "es",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Dark Room Fansub",
+            "lang": "es",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Dark Room Fansub",
             "lang": "es",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Dark Room Fansub",
             "lang": "es",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "lector-darkroomfansub.blogspot.com"
+    ]
 }

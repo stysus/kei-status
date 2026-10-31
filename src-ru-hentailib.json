@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:53:24.051152298Z",
+    "generatedAt": "2026-10-31T10:06:44.214470313Z",
     "module": ":src:ru:hentailib",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 6425650164840473547,
             "name": "HentaiLib",
             "lang": "ru",
             "baseUrl": "https://hentailib.me",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 665,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30109,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 10041,
+                    "durationMs": 10050,
                     "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
                     "notes": [
                         "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
@@ -41,7 +41,7 @@
                 {
                     "name": "latest",
                     "status": "BLOCKED",
-                    "durationMs": 10035,
+                    "durationMs": 10062,
                     "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
                     "notes": [
                         "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
@@ -51,7 +51,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -85,42 +85,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T10:21:28.443681803Z",
+    "comparedTo": "2026-10-31T05:53:24.051152298Z",
     "changes": [
         {
             "source": "HentaiLib",
             "lang": "ru",
-            "scenario": "popular",
+            "scenario": "connectivity",
             "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "HentaiLib",
-            "lang": "ru",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "HentaiLib",
-            "lang": "ru",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "HentaiLib",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "HentaiLib",
-            "lang": "ru",
-            "scenario": "pages",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

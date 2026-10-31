@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T10:16:23.268786751Z",
+    "generatedAt": "2026-10-31T10:03:38.029982252Z",
     "module": ":src:en:nuxscans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 5854986367394591788,
             "name": "Nux Scans",
             "lang": "en",
             "baseUrl": "https://nuxscans-comics.blogspot.com",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,20 +23,22 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1737,
+                    "durationMs": 436,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "THROTTLED",
-                    "durationMs": 1819,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 268,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "I'm An Evil God -> /2021/04/1141-sypnosis-bored-with-his-life-on.html?m=0",
+                        "My House of Horror -> /2021/06/my-house-of-horror.html?m=0",
+                        "Tales Of Herding Gods -> /2020/11/sypnosis-daxu-ancestors-abandoned-by.html?m=0"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -48,57 +50,107 @@
                 },
                 {
                     "name": "filters",
-                    "status": "SKIP",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "nuxscans-comics.blogspot.com answered HTTP 429 earlier in this run",
+                    "message": null,
                     "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "samples": [
+                        "0 filters"
+                    ]
                 },
                 {
                     "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 417,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "I'm An Evil God -> /2021/04/1141-sypnosis-bored-with-his-life-on.html?m=0"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "WARN",
+                    "durationMs": 737,
+                    "message": null,
+                    "notes": [
+                        "duplicate chapter urls: [https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html]"
+                    ],
+                    "samples": [
+                        "Chapter 148 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html",
+                        "Chapter 147 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html",
+                        "Chapter 146 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "WARN",
+                    "durationMs": 395,
+                    "message": null,
+                    "notes": [
+                        "duplicate page urls: [https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9lh3K4Z6dHoaSZTkAbVWrUSq4hNiD0OJU_A_7udV2vDMxNXi0Zt1CZ_bNhISYJr0SPcsHzLVewhb9i93VYXNWHH5_xBl9LjbnTFq9PWqArAemazBFNzi4i-nrKIm9x9nJ8v72yAkvrQkT/s0/download.jpg.png]"
+                    ],
+                    "samples": [
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9lh3K4Z6dHoaSZTkAbVWrUSq4hNiD0OJU_A_7udV2vDMxNXi0Zt1CZ_bNhISYJr0SPcsHzLVewhb9i93VYXNWHH5_xBl9LjbnTFq9PWqArAemazBFNzi4i-nrKIm9x9nJ8v72yAkvrQkT/s0/download.jpg.png",
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9lh3K4Z6dHoaSZTkAbVWrUSq4hNiD0OJU_A_7udV2vDMxNXi0Zt1CZ_bNhISYJr0SPcsHzLVewhb9i93VYXNWHH5_xBl9LjbnTFq9PWqArAemazBFNzi4i-nrKIm9x9nJ8v72yAkvrQkT/s0/download.jpg.png",
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjFUzhVZ97Won8rewfqo8fPwLmAAbSsykCzA9t05rVtA5xGwi4WDRwxcMn33KRHh_Qc4hvQJEfUuh6SUmvsLb37_JBGivDYpT1GCQ6fn0dkQgsg8F-pI-piTUqovmr4_J3mISzQx87SWQ/s0/000019.jpg.png"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 6760,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:31:01.036326894Z",
+    "comparedTo": "2026-10-30T10:16:23.268786751Z",
     "changes": [
         {
             "source": "Nux Scans",
             "lang": "en",
-            "scenario": "connectivity",
+            "scenario": "popular",
             "from": "THROTTLED",
             "to": "PASS"
         },
         {
             "source": "Nux Scans",
             "lang": "en",
-            "scenario": "popular",
+            "scenario": "filters",
             "from": "SKIP",
-            "to": "THROTTLED"
+            "to": "PASS"
+        },
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
-    "throttledHosts": [
-        "nuxscans-comics.blogspot.com"
-    ]
+    "throttledHosts": []
 }

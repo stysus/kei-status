@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:51:21.151016831Z",
+    "generatedAt": "2026-10-31T10:09:09.525478708Z",
     "module": ":src:tr:kazescans",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 8948534014820087218,
@@ -22,20 +22,20 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 656,
-                    "message": null,
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
                     "status": "THROTTLED",
-                    "durationMs": 2196,
+                    "durationMs": 2135,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.kazescans.com answered HTTP 429 earlier in this run",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -81,21 +81,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T10:21:40.984893906Z",
+    "comparedTo": "2026-10-31T05:51:21.151016831Z",
     "changes": [
         {
             "source": "KazeScans",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "THROTTLED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
             "source": "KazeScans",
             "lang": "tr",
             "scenario": "popular",
-            "from": "SKIP",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": [
