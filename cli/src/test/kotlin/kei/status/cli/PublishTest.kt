@@ -48,14 +48,14 @@ class PublishTest {
         val site = temporary.newFolder("site").toPath()
         val out = temporary.newFolder("out").toPath()
         ReportStore.save(site, report(":src:en:aurora"))
-        site.resolve("src-en-broken.json").writeText("{ truncated")
+        site.resolve("src-en-broken.json").writeText("{\"module\": \":src:en:broken\", truncated")
 
         val code = publish(site, out, null, null, prune = false)
 
         assertEquals(0, code)
         val page = Files.readString(out.resolve("index.html"))
         assertTrue("data-module=\":src:en:aurora\"" in page)
-        assertFalse("broken" in page)
+        assertFalse("data-module=\":src:en:broken\"" in page)
     }
 
     @Test

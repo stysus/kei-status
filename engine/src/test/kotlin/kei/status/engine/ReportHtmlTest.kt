@@ -120,6 +120,45 @@ class ReportHtmlTest {
     }
 
     @Test
+    fun `a URL in a detail is a link and cannot carry markup`() {
+        // Most detail text is a URL or a host, so it should be clickable; escaping still runs
+        // first, so the URL cannot become anything but link text.
+        val html = ReportHtml.site(
+            listOf(
+                report(
+                    module = ":src:en:aurora",
+                    status = Status.FAIL,
+                    message = "HTTP 404 for https://example.test/manga?page=1&lang=en",
+                    notes = listOf(
+                        "<img src=x onerror=alert(1)> see http://docs.example.test/start",
+                        "duplicates: https://example.test/a/, https://example.test/b.",
+                        "gallery https://kemono.cr/data/x.gif?f=[gif] beelstarmon",
+                        "(see https://example.test/page)",
+                    ),
+                ),
+            ),
+        )
+
+        assertTrue(
+            html.contains(
+                "<a href=\"https://example.test/manga?page=1&amp;lang=en\" target=\"_blank\"" +
+                    " rel=\"noopener noreferrer\">https://example.test/manga?page=1&amp;lang=en</a>",
+            ),
+        )
+        assertTrue(html.contains("<a href=\"http://docs.example.test/start\""))
+        // The sentence's punctuation belongs outside the link, or every duplicate list 404s.
+        assertTrue(html.contains(">https://example.test/a/</a>,"))
+        assertTrue(html.contains(">https://example.test/b</a>."))
+        assertFalse(html.contains("https://example.test/a/,"))
+        // A balanced bracket belongs to the URL; an unmatched one closes the prose around it.
+        assertTrue(html.contains(">https://kemono.cr/data/x.gif?f=[gif]</a>"))
+        assertTrue(html.contains(">https://example.test/page</a>)"))
+        assertFalse(html.contains("https://example.test/page)</a>"))
+        assertFalse("markup in a note became an element", html.contains("<img src=x"))
+        assertTrue(html.contains("&lt;img src=x onerror=alert(1)&gt;"))
+    }
+
+    @Test
     fun `totals count each status and filter by it`() {
         val html = ReportHtml.site(
             listOf(
@@ -163,6 +202,63 @@ class ReportHtmlTest {
             val css = status.name.lowercase()
             assertTrue("no pill for $status", html.contains("class=\"pill $css\""))
             assertTrue("no stylesheet rule for $status", html.contains(".pill.$css"))
+            assertTrue("no histogram rule for $status", html.contains(".hist .$css"))
+        }
+    }
+
+    @Test
+    fun `a filter that matches nothing offers a way back`() {
+        val html = ReportHtml.site(listOf(report(":src:en:aurora", Status.PASS)))
+
+        assertTrue(html.contains("id=\"no-matches\""))
+        assertTrue(html.contains("No sources match."))
+        assertTrue(html.contains("id=\"clear\""))
+        assertTrue(html.contains(">Clear filters</button>"))
+    }
+
+    @Test
+    fun `the page is usable from the keyboard and a screen reader`() {
+        val html = ReportHtml.site(listOf(report(":src:en:aurora", Status.PASS)))
+
+        // A placeholder is not an accessible name, and the result count changes without a reload.
+        assertTrue(html.contains("aria-label=\"Filter by source, module, url or message\""))
+        assertTrue(html.contains("<span id=\"count\" class=\"hint\"></span>"))
+        assertTrue(html.contains("<span id=\"announce\" class=\"sr-only\" aria-live=\"polite\"></span>"))
+        assertEquals(4, Regex("<th scope=\"col\">").findAll(html).count())
+
+        // The shortcut that saves the most scrolling on a 1,400-row page.
+        assertTrue(html.contains("addEventListener('keydown'"))
+        assertTrue(html.contains("event.key === '/'"))
+    }
+
+    @Test
+    fun `the controls wrap on a narrow screen`() {
+        val html = ReportHtml.site(emptyList())
+        val controls = html.substringAfter(".controls {").substringBefore("}")
+        assertTrue(controls.contains("flex-wrap: wrap"))
+        val search = html.substringAfter("input[type=search] {").substringBefore("}")
+        assertTrue(search.contains("flex: 1 1 12rem"))
+    }
+
+    @Test
+    fun `the filter controls stay in view while scrolling`() {
+        // The page can be 1,443 modules long; a filter that scrolls away is unreachable.
+        val css = ReportHtml.site(emptyList()).substringAfter(".controls {").substringBefore("}")
+        assertTrue(css.contains("position: sticky"))
+        assertTrue(css.contains("top: 0"))
+        assertTrue(css.contains("background: var(--bg)"))
+    }
+
+    @Test
+    fun `the header explains what each status means`() {
+        // The counts say how many; a reader still has to know what BLOCKED means before the
+        // difference from THROTTLED or UNSUPPORTED is visible.
+        val html = ReportHtml.site(emptyList())
+        assertTrue(html.contains("<details class=\"legend\">"))
+
+        Status.entries.forEach { status ->
+            val entry = "<span class=\"pill ${status.name.lowercase()}\">$status</span>${ReportHtml.escape(status.meaning)}"
+            assertTrue("no legend entry for $status", html.contains(entry))
         }
     }
 
@@ -236,8 +332,28 @@ class ReportHtmlTest {
                 report(":src:zh:dynasty", Status.PASS, sourceName = "Dynasty").copy(sources = twoSources()),
             ),
         )
-        assertTrue(shared.contains("<span class=\"module-name\">Dynasty</span>\n<span class=\"lang\">en</span>"))
-        assertTrue(shared.contains("<span class=\"module-name\">Dynasty</span>\n<span class=\"lang\">zh</span>"))
+        assertTrue(shared.contains(">Dynasty</a>\n<span class=\"lang\">en</span>"))
+        assertTrue(shared.contains(">Dynasty</a>\n<span class=\"lang\">zh</span>"))
+    }
+
+    @Test
+    fun `a module name links to its source tree`() {
+        // Triage starts from the report; the Gradle path is exactly the repository directory.
+        val html = ReportHtml.site(listOf(report(":src:en:allanime", Status.PASS, sourceName = "AllManga")))
+
+        val head = headerOf(html)
+        assertTrue(
+            head.contains("href=\"https://github.com/keiyoushi/extensions-source/tree/abc1234/src/en/allanime\""),
+        )
+        assertTrue(head.contains("target=\"_blank\""))
+        assertTrue(head.contains("rel=\"noopener noreferrer\""))
+        assertTrue(head.contains(">AllManga</a>"))
+
+        // A report without a recorded revision still links somewhere usable.
+        val noCommit = ReportHtml.site(
+            listOf(report(":src:en:allanime", Status.PASS, sourceName = "AllManga").copy(extensionCommit = null)),
+        )
+        assertTrue(headerOf(noCommit).contains("tree/main/src/en/allanime"))
     }
 
     @Test
@@ -250,8 +366,13 @@ class ReportHtmlTest {
             ),
         )
 
-        // Once as the link target, once as its text: the header is where it must not appear.
-        assertEquals(2, Regex("abc1234").findAll(html).count())
+        // The page header names the revision once; module links also carry it in their href by design.
+        assertEquals(
+            1,
+            Regex("extensions at <a href=\"https://github.com/keiyoushi/extensions-source/commit/abc1234\"")
+                .findAll(html)
+                .count(),
+        )
         assertTrue(html.contains("extensions at <a href=\"https://github.com/keiyoushi/extensions-source/commit/abc1234\""))
 
         // Shards can land on different revisions when a sweep straddles a commit.
@@ -279,6 +400,54 @@ class ReportHtmlTest {
     }
 
     @Test
+    fun `a multi-source header shows the mix of verdicts`() {
+        // The worst status alone made 12 PASS + 1 FAIL and a lone FAIL read the same while collapsed.
+        val html = ReportHtml.site(
+            listOf(
+                report(":src:all:bundle", Status.FAIL).copy(
+                    sources = listOf(
+                        SourceReport(1, "First", "en", "https://a.test", Status.PASS, emptyList()),
+                        SourceReport(2, "Second", "en", "https://b.test", Status.PASS, emptyList()),
+                        SourceReport(3, "Third", "id", "https://c.test", Status.WARN, emptyList()),
+                        SourceReport(4, "Fourth", "id", "https://d.test", Status.FAIL, emptyList()),
+                    ),
+                ),
+            ),
+        )
+
+        val head = headerOf(html)
+        assertTrue(head.contains("<span class=\"hist\">"))
+        assertTrue(head.contains("<span class=\"pass\" title=\"2 PASS\" aria-label=\"2 PASS\">2P</span>"))
+        assertTrue(head.contains("<span class=\"warn\" title=\"1 WARN\" aria-label=\"1 WARN\">1W</span>"))
+        assertTrue(head.contains("<span class=\"fail\" title=\"1 FAIL\" aria-label=\"1 FAIL\">1F</span>"))
+    }
+
+    @Test
+    fun `a source site is a link, unless its base URL is not http`() {
+        val multi = ReportHtml.site(
+            listOf(report(":src:all:bundle", Status.PASS).copy(sources = twoSources())),
+        )
+        assertTrue(
+            multi.contains(
+                "<a class=\"url\" href=\"https://a.test\" target=\"_blank\"" +
+                    " rel=\"noopener noreferrer\">https://a.test</a>",
+            ),
+        )
+        assertTrue(multi.contains("<a class=\"url\" href=\"https://b.test\""))
+
+        // A base URL comes from third-party code; only http(s) may become clickable.
+        val unsafe = ReportHtml.site(
+            listOf(
+                report(":src:en:evil", Status.FAIL).copy(
+                    sources = listOf(SourceReport(1, "Evil", "en", "javascript:alert(1)", Status.FAIL, emptyList())),
+                ),
+            ),
+        )
+        assertFalse(unsafe.contains("href=\"javascript:"))
+        assertTrue(headerOf(unsafe).contains(">javascript:alert(1)</span>"))
+    }
+
+    @Test
     fun `a single-source module shows its scenarios without a second box`() {
         val html = ReportHtml.site(listOf(report(":src:en:aurora", Status.PASS, sourceName = "Aurora")))
 
@@ -291,6 +460,7 @@ class ReportHtmlTest {
         val head = headerOf(html)
         assertTrue(head.contains("https://example.test"))
         assertTrue(head.contains(">en<"))
+        assertFalse("a one-source header has no verdict mix", head.contains("class=\"hist\""))
         assertTrue(html.contains("<div class=\"source-body\" data-status=\"pass\" data-source>"))
         assertTrue(html.contains(">connectivity<"))
     }

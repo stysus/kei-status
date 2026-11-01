@@ -95,15 +95,33 @@ object ReportHtml {
                 )
             }
             appendLine("</div>")
+            // The tally chips say how many, not what the statuses mean; opened on demand so the
+            // first screen stays the summary.
+            appendLine("<details class=\"legend\">")
+            appendLine("<summary>What the statuses mean</summary>")
+            appendLine("<ul>")
+            STATUS_ORDER.forEach { status ->
+                appendLine("<li><span class=\"pill ${status.css()}\">$status</span>${escape(status.meaning)}</li>")
+            }
+            appendLine("</ul>")
+            appendLine("</details>")
             appendLine("</header>")
             appendLine("<main>")
             appendLine(
                 "<div class=\"controls\">" +
-                    "<input id=\"q\" type=\"search\" placeholder=\"Filter by source, module, url or message\">" +
+                    "<input id=\"q\" type=\"search\"" +
+                    " aria-label=\"Filter by source, module, url or message\"" +
+                    " placeholder=\"Filter by source, module, url or message\">" +
                     "<button id=\"expand\" type=\"button\">Expand all</button>" +
                     "<button id=\"collapse\" type=\"button\">Collapse all</button>" +
                     "<span id=\"count\" class=\"hint\"></span>" +
+                    "<span id=\"announce\" class=\"sr-only\" aria-live=\"polite\"></span>" +
                     "</div>",
+            )
+            // Filtering to nothing is a dead end unless the page offers the way back.
+            appendLine(
+                "<p id=\"no-matches\" class=\"empty hidden\">No sources match." +
+                    " <button id=\"clear\" type=\"button\">Clear filters</button></p>",
             )
 
             if (ordered.isEmpty()) {
@@ -141,7 +159,13 @@ object ReportHtml {
         appendLine("<details class=\"module-details$kind\">")
         appendLine("<summary class=\"module-head\">")
         appendLine("<span class=\"pill ${worst.css()}\">${worst}</span>")
-        appendLine("<span class=\"module-name\">${escape(report.displayName)}</span>")
+        // The Gradle path is what triage needs to open the extension's code, so the name carries
+        // the link rather than a second visible chip.
+        appendLine(
+            "<a class=\"module-name\" href=\"${escape(sourceUrl(report.module, report.extensionCommit))}\"" +
+                " target=\"_blank\" rel=\"noopener noreferrer\"" +
+                " title=\"Open the module in extensions-source\">${escape(report.displayName)}</a>",
+        )
         when {
             // The header is the source row, so it says what every source row says.
             only != null -> only.lang.takeIf { it.isNotBlank() }?.let {
@@ -154,9 +178,10 @@ object ReportHtml {
         }
         if (only != null) {
             if (only.baseUrl.isNotBlank()) {
-                appendLine("<span class=\"url\">${escape(only.baseUrl)}</span>")
+                appendLine(urlCell(only.baseUrl))
             }
         } else {
+            if (report.sources.size > 1) appendLine(histogram(report.sources))
             appendLine("<span class=\"count\">${countOf(report.sources.size, "source")}</span>")
         }
         appendLine("</summary>")
@@ -194,7 +219,7 @@ object ReportHtml {
             appendLine("<span class=\"lang\">${escape(source.lang)}</span>")
         }
         if (source.baseUrl.isNotBlank()) {
-            appendLine("<span class=\"url\">${escape(source.baseUrl)}</span>")
+            appendLine(urlCell(source.baseUrl))
         }
         appendLine("</summary>")
         appendScenarios(source)
@@ -203,7 +228,7 @@ object ReportHtml {
 
     private fun StringBuilder.appendScenarios(source: SourceReport) {
         appendLine("<table>")
-        appendLine("<thead><tr><th>Status</th><th>Scenario</th><th>Time</th><th>Detail</th></tr></thead>")
+        appendLine("<thead><tr><th scope=\"col\">Status</th><th scope=\"col\">Scenario</th><th scope=\"col\">Time</th><th scope=\"col\">Detail</th></tr></thead>")
         appendLine("<tbody>")
         source.scenarios.forEach { scenario ->
             appendLine("<tr>")
@@ -217,8 +242,37 @@ object ReportHtml {
         appendLine("</table>")
     }
 
+    /** The site as a link when it is http(s); anything else stays text, so a base URL cannot become script. */
+    private fun urlCell(url: String): String {
+        if (!url.startsWith("https://") && !url.startsWith("http://")) {
+            return "<span class=\"url\">${escape(url)}</span>"
+        }
+        return "<a class=\"url\" href=\"${escape(url)}\" target=\"_blank\" rel=\"noopener noreferrer\">${escape(url)}</a>"
+    }
+
     private fun countOf(count: Int, noun: String): String =
         if (count == 1) "1 $noun" else "$count ${noun}s"
+
+    /** The Gradle path `:src:en:aurora` as the repository directory `src/en/aurora` at the run's revision. */
+    private fun sourceUrl(module: String, revision: String?): String =
+        "$EXTENSIONS_REPO/tree/${revision ?: "main"}/" + module.removePrefix(":").replace(':', '/')
+
+    /**
+     * The mix of verdicts inside a multi-source module.
+     *
+     * The header otherwise carries only the worst status, so 12 PASS + 1 FAIL and a lone FAIL read
+     * the same while collapsed. Each count keeps its status colour and a letter, so the row is
+     * scannable without opening it and does not rely on colour alone.
+     */
+    private fun histogram(sources: List<SourceReport>): String {
+        val counts = sources.groupingBy { it.status }.eachCount()
+        val items = STATUS_ORDER.mapNotNull { status ->
+            val n = counts[status] ?: return@mapNotNull null
+            "<span class=\"${status.css()}\" title=\"$n ${status.name}\" aria-label=\"$n ${status.name}\">" +
+                "$n${status.name[0]}</span>"
+        }
+        return "<span class=\"hist\">${items.joinToString(" ")}</span>"
+    }
 
     /**
      * The upstream revision the reports were built from, shown once for the page.
@@ -248,17 +302,53 @@ object ReportHtml {
                     scenario.status == Status.PASS ||
                     scenario.status == Status.THROTTLED
                 val tone = if (quiet) "note" else "message"
-                add("<span class=\"$tone\">${escape(it)}</span>")
+                add("<span class=\"$tone\">${linkify(escape(it))}</span>")
             }
             if (scenario.notes.isNotEmpty()) {
-                add(scenario.notes.joinToString("<br>") { escape(it) })
+                add(scenario.notes.joinToString("<br>") { linkify(escape(it)) })
             }
             if (scenario.samples.isNotEmpty()) {
-                add("<span class=\"samples\">${scenario.samples.joinToString("<br>") { escape(it) }}</span>")
+                add("<span class=\"samples\">${scenario.samples.joinToString("<br>") { linkify(escape(it)) }}</span>")
             }
         }
         return if (parts.isEmpty()) "<span class=\"ok\">ok</span>" else parts.joinToString("<br>")
     }
+
+    /**
+     * Turns http(s) URLs in already-escaped detail text into links.
+     *
+     * Escaping runs first, so a URL cannot smuggle markup into the attribute; the match is escaped
+     * text too, which is exactly what an attribute value needs.
+     */
+    private fun linkify(escaped: String): String = URL.replace(escaped) { match ->
+        // `;` is excluded: on escaped text a trailing `;` can be the end of an entity (&#39;).
+        val url = trimUrlTail(match.value)
+        val tail = match.value.substring(url.length)
+        "<a href=\"$url\" target=\"_blank\" rel=\"noopener noreferrer\">$url</a>$tail"
+    }
+
+    /**
+     * Drops punctuation that closes the sentence, not the URL.
+     *
+     * A bracket belongs to the URL only when its opener is inside the match - `.../Foo_(bar)` keeps
+     * both - while `(see https://x)` loses only the `)`. Other trailing punctuation is a sentence
+     * mark in every URL seen so far.
+     */
+    private fun trimUrlTail(raw: String): String {
+        var url = raw.trimEnd('.', ',', ':', '!', '?')
+        while (true) {
+            val close = url.lastOrNull() ?: return url
+            val open = when (close) {
+                ')' -> '('
+                ']' -> '['
+                else -> return url
+            }
+            if (url.count { it == close } <= url.count { it == open }) return url
+            url = url.dropLast(1)
+        }
+    }
+
+    private val URL = Regex("""https?://[^\s<]+""")
 
     private fun Status.css(): String = name.lowercase()
 
@@ -338,10 +428,21 @@ object ReportHtml {
            that would empty the page. */
         .total:disabled { cursor: default; opacity: .55; }
         .total:disabled:hover { border-color: var(--line); }
+        .legend { margin-top: .75rem; font-size: .8rem; }
+        .legend summary { color: var(--muted); cursor: pointer; }
+        .legend summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        .legend ul { list-style: none; margin: .5rem 0 0; padding: 0; }
+        .legend li { display: flex; align-items: baseline; gap: .5rem; }
+        .legend li + li { margin-top: .2rem; }
         main { max-width: 1100px; margin: 0 auto; }
-        .controls { display: flex; gap: .75rem; align-items: center; margin: 1.25rem 0; }
+        /* The filter is the page's only navigation; on a 1,400-row list it must not scroll away. */
+        .controls {
+          position: sticky; top: 0; z-index: 1;
+          display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; margin: 1.25rem 0;
+          background: var(--bg);
+        }
         input[type=search] {
-          flex: 1; min-width: 0; padding: .55rem .7rem;
+          flex: 1 1 12rem; min-width: 0; padding: .55rem .7rem;
           border: 1px solid var(--line); border-radius: 8px;
           background: var(--card); color: var(--fg); font-size: .9rem;
         }
@@ -383,6 +484,22 @@ object ReportHtml {
         .module-head:hover .module-name { color: var(--accent); }
         .module-head:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
         .module-name { font-weight: 700; }
+        a.module-name { color: inherit; text-decoration: none; }
+        a.module-name:hover { text-decoration: underline; text-underline-offset: 2px; }
+        a.module-name:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        /* The verdict mix of a multi-source module, so a collapsed row is not just its worst
+           status. The letter keeps it readable without colour. */
+        .hist {
+          display: inline-flex; gap: .45rem; font-size: .72rem; font-weight: 600;
+          font-variant-numeric: tabular-nums;
+        }
+        .hist .pass { color: var(--pass); }
+        .hist .warn { color: var(--warn); }
+        .hist .fail { color: var(--fail); }
+        .hist .blocked { color: var(--blocked); }
+        .hist .throttled { color: var(--throttled); }
+        .hist .unsupported { color: var(--unsupported); }
+        .hist .skip { color: var(--skip); }
         .count { margin-left: auto; color: var(--muted); font-size: .75rem; font-weight: 400; }
         .changes {
           list-style: none; margin: 0 0 .75rem; padding: .5rem .8rem;
@@ -424,6 +541,9 @@ object ReportHtml {
           color: var(--muted); font-size: .78rem; margin-left: auto;
           font-family: ui-monospace, monospace; overflow-wrap: anywhere;
         }
+        a.url { text-decoration: none; }
+        a.url:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+        a.url:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
         table { width: 100%; border-collapse: collapse; font-size: .85rem; }
         thead th {
           text-align: left; padding: .4rem .8rem; font-size: .7rem;
@@ -444,6 +564,10 @@ object ReportHtml {
         .ok { color: var(--muted); }
         .empty { color: var(--muted); font-style: italic; }
         .hidden { display: none !important; }
+        .sr-only {
+          position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+          overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+        }
         footer {
           max-width: 1100px; margin: 3rem auto 0; padding-top: 1rem;
           border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem;
@@ -462,11 +586,18 @@ object ReportHtml {
      * status, clicking it again clears it, and the text box keeps working alongside. Filtering only
      * decides which modules are listed; it never opens anything, so a status view starts collapsed
      * exactly like the page itself.
+     *
+     * Both filters live in the URL hash (`#status=fail&q=aurora`): a reload keeps the view and a
+     * link can point at one. [history.replaceState] is deliberate - typing must not add a history
+     * entry per keystroke, so Back leaves the page instead of undoing the filter.
      */
     private val SCRIPT = """
         (function () {
           var input = document.getElementById('q');
           var count = document.getElementById('count');
+          var announce = document.getElementById('announce');
+          var announceTimer = 0;
+          var firstApply = true;
           var units = Array.prototype.slice.call(document.querySelectorAll('[data-source]'));
           var sections = Array.prototype.slice.call(document.querySelectorAll('section.module'));
           var moduleDetails = Array.prototype.slice.call(document.querySelectorAll('details.module-details'));
@@ -486,11 +617,15 @@ object ReportHtml {
             return text.toLowerCase();
           }
 
+          // The page is static after load, and each unit carries a full scenario table: walking
+          // textContent for 2,356 units on every keystroke is what makes typing feel slow.
+          var haystacks = units.map(haystack);
+
           function apply() {
             var needle = (input.value || '').trim().toLowerCase();
             var shown = 0;
-            units.forEach(function (el) {
-              var hit = (!needle || haystack(el).indexOf(needle) !== -1) &&
+            units.forEach(function (el, i) {
+              var hit = (!needle || haystacks[i].indexOf(needle) !== -1) &&
                 (!status || el.getAttribute('data-status') === status);
               el.classList.toggle('hidden', !hit);
               if (hit) shown++;
@@ -500,6 +635,42 @@ object ReportHtml {
               el.classList.toggle('hidden', visible === 0);
             });
             count.textContent = shown + ' / ' + units.length + ' sources';
+            // Debounced, or a screen reader announces a new count for every keystroke. Only the
+            // first apply() - the page load - stays silent: every later run follows a user action
+            // (including Clear), which deserves its confirmation.
+            clearTimeout(announceTimer);
+            if (firstApply) {
+              firstApply = false;
+            } else {
+              announceTimer = setTimeout(function () {
+                announce.textContent = shown + ' of ' + units.length + ' sources';
+              }, 300);
+            }
+
+            // Only a filter can empty a page that has sources; a page with none already says so.
+            var filtering = needle !== '' || status !== null;
+            document.getElementById('no-matches').classList.toggle('hidden', !(filtering && units.length > 0 && shown === 0));
+          }
+
+          function remember() {
+            var params = new URLSearchParams();
+            if (status) params.set('status', status);
+            if (input.value) params.set('q', input.value);
+            var hash = params.toString();
+            history.replaceState(null, '', hash ? '#' + hash : location.pathname + location.search);
+          }
+
+          function restore() {
+            var params = new URLSearchParams(location.hash.slice(1));
+            var wanted = params.get('status');
+            status = totals.some(function (button) {
+              return button.getAttribute('data-filter') === wanted;
+            }) ? wanted : null;
+            input.value = params.get('q') || '';
+            totals.forEach(function (button) {
+              var on = button.getAttribute('data-filter') === status;
+              button.setAttribute('aria-pressed', on ? 'true' : 'false');
+            });
           }
 
           totals.forEach(function (button) {
@@ -511,10 +682,35 @@ object ReportHtml {
                 other.setAttribute('aria-pressed', on ? 'true' : 'false');
               });
               apply();
+              remember();
             });
           });
 
-          input.addEventListener('input', apply);
+          input.addEventListener('input', function () {
+            apply();
+            remember();
+          });
+
+          document.getElementById('clear').addEventListener('click', function () {
+            status = null;
+            input.value = '';
+            totals.forEach(function (button) { button.setAttribute('aria-pressed', 'false'); });
+            apply();
+            remember();
+            input.focus();
+          });
+
+          // The page is long enough that scrolling back to the filter is a chore. Ctrl/Cmd+K belongs to
+          // the browser's address bar, so only the bare / is bound, and only while not typing.
+          document.addEventListener('keydown', function (event) {
+            var el = event.target;
+            var typing = el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable);
+            if (event.key === '/' && !typing && !event.ctrlKey && !event.metaKey && !event.altKey) {
+              event.preventDefault();
+              input.focus();
+              input.select();
+            }
+          });
 
           // Opening stays the reader's decision, filtered or not: a status view is a list of the
           // modules in that state, the same shape as the unfiltered page.
@@ -533,6 +729,7 @@ object ReportHtml {
             moduleDetails.forEach(function (el) { el.open = false; });
           });
 
+          restore();
           apply();
         })();
     """.trimIndent()

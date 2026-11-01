@@ -35,6 +35,27 @@ enum class Status {
             PASS -> 1
             SKIP -> 0
         }
+
+    /**
+     * One sentence for the report page, for a reader who has not seen a sweep before.
+     *
+     * It lives beside [severity] because both answer the same question - what does this verdict
+     * mean? - and the page renders it rather than keeping a second copy in the renderer.
+     *
+     * Keep in step with the reason sets that assign these statuses: [ExceptionDiagnosis.diagnose]
+     * for thrown exceptions, plus the inline SKIP/WARN classifications in [HarnessRunner] (429
+     * already seen, self-hosted hosts, empty listings, page notes) and [Checks].
+     */
+    val meaning: String
+        get() = when (this) {
+            PASS -> "ran and met the contract"
+            WARN -> "ran, but something is off (blank thumbnail, empty list, malformed URL)"
+            FAIL -> "exception, timeout, or broken contract"
+            SKIP -> "nothing was checked: the entry point is unsupported, the listing was empty, or the host answered 429 earlier"
+            UNSUPPORTED -> "needs a platform class the harness does not provide, or the harness's browser session failed"
+            BLOCKED -> "anti-bot challenge; the source is not at fault"
+            THROTTLED -> "the site is rate-limiting the sweep (HTTP 429); the source was not checked"
+        }
 }
 
 @Serializable

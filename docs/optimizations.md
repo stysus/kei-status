@@ -96,7 +96,7 @@ applies lives in [design.md](design.md), and this links rather than repeats it.
 ## Observability
 
 - Summary line gained verdict breakdown and wall-clock duration; per-module `slowest:` line;
-  `throttledHosts` in reports and on the page.
+  `throttledHosts` in reports and the CLI summary.
 - Publish job renders a `$GITHUB_STEP_SUMMARY` with verdict distribution and transitions, and
   warns on a regression burst (`ci/healthcheck.sh`).
 
