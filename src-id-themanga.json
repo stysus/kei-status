@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T10:02:45.317147850Z",
+    "generatedAt": "2026-11-01T10:49:50.364646532Z",
     "module": ":src:id:themanga",
     "sourceRoot": "",
     "extensionCommit": "0d83f6be",
@@ -10,7 +10,7 @@
             "name": "TheManga",
             "lang": "id",
             "baseUrl": "https://themanga.site",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 5425,
+                    "status": "WARN",
+                    "durationMs": 23462,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 9220,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 915,
+                    "message": "HTTP error 500",
                     "notes": [],
-                    "samples": [
-                        "Kounai Sandai Bijo No Himo Shite -> /manga/kounai-sandai-bijo-no-himo-shite",
-                        "Tonari no Neko to Koi Shirazu -> /manga/tonari-no-neko-to-koi-shirazu",
-                        "Te ni Ireta Saimin Appli de Yume no Harem Seikatsu o Okuritai -> /manga/i-want-to-live-the-harem-life-of-my-dreams-with-the-hypnosis-app-i-got-te-ni-ireta-saimin-appli-de-yume-no-harem-seikatsu-o-okuritai"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 591,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 307,
+                    "message": "HTTP error 500",
                     "notes": [],
-                    "samples": [
-                        "Mentori-Sama -> /manga/mentori-sama",
-                        "Kyou Kara Tsukaeru Isekai Ren’ai Manual -> /manga/kyou-kara-tsukaeru-isekai-renai-manual",
-                        "Global Job Change: Shadow Monarch, I’m Invincible, Do Whatever You Want -> /manga/global-job-change-shadow-monarch-i-m-invincible-do-whatever-you-want"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,56 +57,83 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1943,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Kounai Sandai Bijo No Himo Shite -> /manga/kounai-sandai-bijo-no-himo-shite",
-                        "Yami Kakusei Shite Shujinkou ni Bokosareru Kamaseinu ni Hyoui Shita ga Gensaku to Chigaisugite Tomadotteru -> /manga/yami-kakusei-shite-shujinkou-ni-bokosareru-kamaseinu-ni-hyoui-shita-ga-gensaku-to-chigaisugite-tomadotteru",
-                        "Kokou no Ou to Hidamari no Hanayome ga Saikou no Fuufu ni Naru made -> /manga/kokou-no-ou-to-hidamari-no-hanayome-ga-saikou-no-fuufu-ni-naru-made"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 549,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 5.2 -> /manga/kounai-sandai-bijo-no-himo-shite/chapter/5.20",
-                        "Chapter 5.1 -> /manga/kounai-sandai-bijo-no-himo-shite/chapter/5.10",
-                        "Chapter 4.2 -> /manga/kounai-sandai-bijo-no-himo-shite/chapter/4.20"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 678,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://cdn.themanga.site/storage/manga_pages/9166/chapter_480404/001.webp",
-                        "https://cdn.themanga.site/storage/manga_pages/9166/chapter_480404/002.webp",
-                        "https://cdn.themanga.site/storage/manga_pages/9166/chapter_480404/003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 3581,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.themanga.site (HTTP 403)",
-                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.themanga.site (HTTP 403)"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:49:18.150862546Z",
-    "changes": [],
+    "comparedTo": "2026-10-31T10:02:45.317147850Z",
+    "changes": [
+        {
+            "source": "TheManga",
+            "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "TheManga",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "TheManga",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "TheManga",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TheManga",
+            "lang": "id",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TheManga",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TheManga",
+            "lang": "id",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

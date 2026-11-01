@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:35:12.063575105Z",
+    "generatedAt": "2026-11-01T10:44:33.826535489Z",
     "module": ":src:id:manhwaindo",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 862941840467210819,
             "name": "Manhwa Indo",
             "lang": "id",
             "baseUrl": "https://www.manhwaindo.my",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,51 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 481,
+                    "durationMs": 304,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1574,
+                    "status": "WARN",
+                    "durationMs": 672,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[0] has a blank title",
+                        "manga[1] has a blank title",
+                        "manga[2] has a blank title",
+                        "manga[3] has a blank title",
+                        "manga[4] has a blank title"
+                    ],
                     "samples": [
-                        "Eleceed -> /series/eleceed/",
-                        "Revenge Of The Iron-Blooded Sword Hound -> /series/revenge-of-the-iron-blooded-sword-hound/",
-                        "The Clan’s Failure is the Former Strongest in the Continent -> /series/the-clans-failure-is-the-former-strongest-in-the-continent/"
+                        " -> /series/eleceed/",
+                        " -> /series/revenge-of-the-iron-blooded-sword-hound/",
+                        " -> /series/the-clans-failure-is-the-former-strongest-in-the-continent/"
                     ]
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 953,
+                    "status": "WARN",
+                    "durationMs": 584,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[0] has a blank title",
+                        "manga[1] has a blank title",
+                        "manga[2] has a blank title",
+                        "manga[3] has a blank title",
+                        "manga[4] has a blank title"
+                    ],
                     "samples": [
-                        "Taiyou no Ie -> /series/taiyou-no-ie/",
-                        "Shijou Saikyou Orc-san no Tanoshii Tanetsuke Harem Zukuri -> /series/shijou-saikyou-orc-san-no-tanoshii-tanetsuke-harem-zukuri/",
-                        "Sekai Saisoku no Level Up! -> /series/sekai-saisoku-no-level-up/"
+                        " -> /series/when-the-black-wolf-calls-me/",
+                        " -> /series/my-healing-skill-can-copy-anything-so-i-conquered-the-abyss/",
+                        " -> /series/kuro-no-jiku/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,18 +76,16 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 2489,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga title to search for",
                     "notes": [],
-                    "samples": [
-                        "Eleceed -> /series/eleceed/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 664,
+                    "durationMs": 406,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,7 +97,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 333,
+                    "durationMs": 420,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -99,7 +109,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 312,
+                    "durationMs": 374,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -107,14 +117,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:58.955925702Z",
+    "comparedTo": "2026-10-30T01:35:12.063575105Z",
     "changes": [
         {
             "source": "Manhwa Indo",
             "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manhwa Indo",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manhwa Indo",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

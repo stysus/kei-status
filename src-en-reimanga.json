@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:18.294877128Z",
+    "generatedAt": "2026-11-01T10:43:57.988845888Z",
     "module": ":src:en:reimanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 5627909338430537186,
             "name": "ReiManga",
             "lang": "en",
             "baseUrl": "https://reimanga.net",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 495,
+                    "durationMs": 690,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 705,
+                    "durationMs": 311,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 410,
+                    "durationMs": 615,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Monster Eater -> monster-eater-92966",
-                        "Winning the Marriage Lottery -> winning-the-marriage-lottery-108388",
-                        "Sha-MONEY-ism -> shamoneyism-100840"
+                        "A Night of Consuming You -> a-night-of-consuming-you-10000825",
+                        "Ultimate X-Men -> ultimate-xmen-109829",
+                        "Kaiouki -> kaiouki-2344"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1275,
+                    "durationMs": 1382,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,7 +75,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 3463,
+                    "durationMs": 3600,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -86,35 +86,68 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 266,
+                    "status": "WARN",
+                    "durationMs": 196,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] has neither imageUrl nor url",
+                        "page[1] has neither imageUrl nor url",
+                        "page[2] has neither imageUrl nor url",
+                        "page[3] has neither imageUrl nor url",
+                        "page[4] has neither imageUrl nor url",
+                        "page[5] has neither imageUrl nor url",
+                        "page[6] has neither imageUrl nor url",
+                        "page[7] has neither imageUrl nor url",
+                        "page[8] has neither imageUrl nor url",
+                        "page[9] has neither imageUrl nor url",
+                        "page[10] has neither imageUrl nor url",
+                        "page[11] has neither imageUrl nor url",
+                        "page[12] has neither imageUrl nor url",
+                        "page[13] has neither imageUrl nor url",
+                        "page[14] has neither imageUrl nor url",
+                        "page[15] has neither imageUrl nor url",
+                        "page[16] has neither imageUrl nor url",
+                        "page[17] has neither imageUrl nor url",
+                        "page[18] has neither imageUrl nor url",
+                        "page[19] has neither imageUrl nor url",
+                        "page[20] has neither imageUrl nor url"
+                    ],
                     "samples": [
-                        "https://cdn.samdech.xyz/109723/100114829/1.webp?v=1793016943",
-                        "https://cdn.samdech.xyz/109723/100114829/2.webp?v=1793016943",
-                        "https://cdn.samdech.xyz/109723/100114829/3.webp?v=1793016943"
+                        "",
+                        "",
+                        ""
                     ]
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 511,
+                    "status": "WARN",
+                    "durationMs": 0,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request could not be built: getImageUrl not implemented",
+                        "page[1] image request could not be built: getImageUrl not implemented",
+                        "page[2] image request could not be built: getImageUrl not implemented"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:34.511504278Z",
+    "comparedTo": "2026-10-30T01:31:18.294877128Z",
     "changes": [
         {
             "source": "ReiManga",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "ReiManga",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:46:39.508508450Z",
+    "generatedAt": "2026-11-01T10:47:13.758426832Z",
     "module": ":src:es:capibaratraductor",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 3335229490349802396,
             "name": "CapibaraTraductor",
             "lang": "es",
             "baseUrl": "https://capibaratraductor.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 372,
+                    "durationMs": 313,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 250,
+                    "durationMs": 288,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 176,
+                    "durationMs": 206,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Prohibido Caer en la Tentación -> prohibido-caer-en-la-tentacion/templodejeny",
-                        "TSUYOSHI -> tsuyoshi/straydog608",
-                        "Sakamoto Days -> sakamoto-days/seventy-seven-scan"
+                        "Shinja Zero no Megami-sama to Hajimeru Isekai Kouryaku - Classmate Saijaku no Mahou Tsukai -> shinja-zero-no-megami-sama-to-hajimeru-isekai-kouryaku-classmate-saijaku-no-mahou-tsukai/thcscanlations",
+                        "Probablemente tambien va tras mi hermano -> probablemente-ella-esta-tratando-de-conquistar-a-mi-hermano/silent-reader-scans",
+                        "Acosador x Acosadora (webcomic) -> stalker-x-stalker-webcomic/bibliotecaleywinscan"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 451,
+                    "durationMs": 1952,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,7 +76,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1418,
+                    "durationMs": 557,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,35 +87,32 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 899,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://r2.capibaratraductor.com/v2/tenants/senshimanga/chapters/1767580211216_36556.webp",
-                        "https://r2.capibaratraductor.com/v2/tenants/senshimanga/chapters/1767494597469_171383.webp",
-                        "https://r2.capibaratraductor.com/v2/tenants/senshimanga/chapters/1767523043583_768913.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 277,
-                    "message": null,
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 145,
+                    "message": "Field 'pg' is required for type with serial name 'eu.kanade.tachiyomi.extension.es.capibaratraductor.PageDto', but it was missing",
+                    "notes": [
+                        "kotlinx.serialization.MissingFieldException: Field 'pg' is required for type with serial name 'eu.kanade.tachiyomi.extension.es.capibaratraductor.PageDto', but it was missing at path: $.data[0]"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:33:53.936525368Z",
+    "comparedTo": "2026-10-31T05:46:39.508508450Z",
     "changes": [
         {
             "source": "CapibaraTraductor",
             "lang": "es",
             "scenario": "pages",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "CapibaraTraductor",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

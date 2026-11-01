@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:43.716220094Z",
+    "generatedAt": "2026-11-01T10:46:58.961317907Z",
     "module": ":src:tr:mangaportali",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 2022032978410218674,
             "name": "Manga Portalı",
             "lang": "tr",
             "baseUrl": "https://www.mangaportali.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1206,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 115,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.mangaportali.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 294,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Solo Leveling -> solo-leveling",
-                        "Solo Leveling: Ragnarok -> solo-leveling-ragnarok",
-                        "Son Seviye Çaylak -> son-seviye-caylak"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 24,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.mangaportali.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 340,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Tembel Soylunun Değişimi -> tembel-soylunun-degisimi",
-                        "The Game That I Came From -> the-game-that-i-came-from",
-                        "Son Seviye Çaylak -> son-seviye-caylak"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 935,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.mangaportali.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,45 +61,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 619,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Solo Leveling: Ragnarok -> solo-leveling-ragnarok",
-                        "Solo Leveling -> solo-leveling"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 1125,
-                    "message": "Field 'isEarlyAccessLocked' is required for type with serial name 'eu.kanade.tachiyomi.extension.tr.mangaportali.ChapterDto', but it was missing",
-                    "notes": [
-                        "kotlinx.serialization.MissingFieldException: Field 'isEarlyAccessLocked' is required for type with serial name 'eu.kanade.tachiyomi.extension.tr.mangaportali.ChapterDto', but it was missing at path: $.items[0]"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:36:29.045464765Z",
+    "comparedTo": "2026-10-30T01:37:43.716220094Z",
     "changes": [
         {
             "source": "Manga Portalı",
             "lang": "tr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Manga Portalı",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Manga Portalı",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Manga Portalı",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Portalı",
+            "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

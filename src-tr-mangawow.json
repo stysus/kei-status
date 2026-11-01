@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:58:49.308802014Z",
+    "generatedAt": "2026-11-01T10:52:37.628310877Z",
     "module": ":src:tr:mangawow",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 2576579305327069452,
             "name": "MangaWOW",
             "lang": "tr",
             "baseUrl": "https://mangawow.org",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,18 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 686,
+                    "status": "PASS",
+                    "durationMs": 874,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 404"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1222,
+                    "durationMs": 639,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -45,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 615,
+                    "durationMs": 663,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -67,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 589,
+                    "durationMs": 449,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,52 +74,66 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 633,
-                    "message": "HTTP error 404",
+                    "status": "PASS",
+                    "durationMs": 829,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Bölüm 485 - Cheonliang [04] -> bolum-485-cheonliang-04",
+                        "Bölüm 484 -> bolum-484",
+                        "Bölüm 483 -> bolum-483"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
+                    "status": "WARN",
+                    "durationMs": 700,
+                    "message": null,
+                    "notes": [
+                        "page list is empty"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:37:05.165175192Z",
+    "comparedTo": "2026-10-31T05:58:49.308802014Z",
     "changes": [
         {
             "source": "MangaWOW",
             "lang": "tr",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaWOW",
-            "lang": "tr",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaWOW",
-            "lang": "tr",
-            "scenario": "search",
-            "from": "SKIP",
+            "scenario": "connectivity",
+            "from": "WARN",
             "to": "PASS"
         },
         {
             "source": "MangaWOW",
             "lang": "tr",
             "scenario": "chapters",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaWOW",
+            "lang": "tr",
+            "scenario": "pages",
             "from": "SKIP",
-            "to": "FAIL"
+            "to": "WARN"
+        },
+        {
+            "source": "MangaWOW",
+            "lang": "tr",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

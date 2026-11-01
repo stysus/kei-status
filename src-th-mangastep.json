@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:39:39.169911189Z",
+    "generatedAt": "2026-11-01T10:48:50.759334760Z",
     "module": ":src:th:mangastep",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 4667424178290106010,
             "name": "Mangastep",
             "lang": "th",
             "baseUrl": "https://mangastep.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1079,
+                    "durationMs": 1877,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2112,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30003,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Solo Leveling -> /manga/solo-leveling/",
-                        "Mato Seihei no Slave ทาสสุดแกร่งแห่งหน่วยป้องกันอสูร -> /manga/mato-seihei-no-slave/",
-                        "Eleceed -> /manga/eleceed/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 468,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30000,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "Killer Peter -> /manga/killer-peter/",
-                        "MILF Exchange Plan -> /manga/milf-exchange-plan/",
-                        "Set Up -> /manga/set-up/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,59 +55,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 551,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Solo Leveling -> /manga/solo-leveling/",
-                        "Solo Leveling: Ragnarok -> /manga/solo-leveling-ragnarok/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 544,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "ตอนที่ 200 - ตอนพิเศษ -> /solo-leveling-%e0%b8%95%e0%b8%ad%e0%b8%99%e0%b8%97%e0%b8%b5%e0%b9%88-200/",
-                        "ตอนที่ 199 - ตอนพิเศษ -> /solo-leveling-%e0%b8%95%e0%b8%ad%e0%b8%99%e0%b8%97%e0%b8%b5%e0%b9%88-199/",
-                        "ตอนที่ 198 - ตอนพิเศษ -> /solo-leveling-%e0%b8%95%e0%b8%ad%e0%b8%99%e0%b8%97%e0%b8%b5%e0%b9%88-198/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 254,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://bbb.webtoon168.com/file/server2/img/4974b6df653254ea06595394eb4ad4a8.jpg",
-                        "https://bbb.webtoon168.com/file/server2/img/7938b415b65405cf9115f0e5ee3dadab.jpg",
-                        "https://bbb.webtoon168.com/file/server2/img/f84b41bc28d2cdfc51f15b72318dc372.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 274,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:42:49.956312688Z",
+    "comparedTo": "2026-10-30T01:39:39.169911189Z",
     "changes": [
         {
             "source": "Mangastep",
             "lang": "th",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mangastep",
+            "lang": "th",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mangastep",
+            "lang": "th",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangastep",
+            "lang": "th",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangastep",
+            "lang": "th",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangastep",
+            "lang": "th",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

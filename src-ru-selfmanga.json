@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:56.689235870Z",
+    "generatedAt": "2026-11-01T10:44:34.093241714Z",
     "module": ":src:ru:selfmanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 5227602742162454547,
             "name": "SelfManga",
             "lang": "ru",
             "baseUrl": "https://1.selfmanga.live",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 783,
+                    "status": "WARN",
+                    "durationMs": 525,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 604,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 115,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "NO_WAY -> /no_way",
-                        "Яойщица -> /yaoi_fangirl",
-                        "Клуб -> /klub"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 272,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 733,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "О встрече между неудавшимся художником и забытой кошкой -> /o_vstreche_mejdu_neudavshimsia_hudojnikom_i_zabytoi_koshkoi",
-                        "Призрак Ньюгейта -> /prizrak_niugeita",
-                        "К и Д -> /k_i_d"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,44 +57,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 879,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "NO_WAY -> /no_way"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "BLOCKED",
-                    "durationMs": 809,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.Exception: Для просмотра контента необходима авторизация через WebView🌍 или включите автоматическую авторизацию в настройках расширения"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:42:44.663954304Z",
+    "comparedTo": "2026-10-30T01:37:56.689235870Z",
     "changes": [
         {
             "source": "SelfManga",
             "lang": "ru",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "SelfManga",
+            "lang": "ru",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "SelfManga",
+            "lang": "ru",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "SelfManga",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "BLOCKED",
+            "to": "SKIP"
+        },
+        {
+            "source": "SelfManga",
+            "lang": "ru",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

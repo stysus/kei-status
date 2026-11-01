@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:23.531545236Z",
+    "generatedAt": "2026-11-01T10:42:35.568623253Z",
     "module": ":src:en:likemanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 6236979603959140497,
             "name": "LikeManga",
             "lang": "en",
             "baseUrl": "https://likemanga.ink",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 978,
+                    "durationMs": 536,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 854,
+                    "status": "WARN",
+                    "durationMs": 520,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Revenge of the Baskerville Bloodhound -> /revenge-of-the-baskerville-bloodhound-3573/",
-                        "The Legendary Hero is an Academy Honors Student -> /the-legendary-hero-is-an-academy-honors-student-32914/",
-                        "The Poison Master of Sacheondang Clan -> /the-poison-master-of-sacheondang-clan-32309/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
+                    "status": "WARN",
                     "durationMs": 998,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "I Will Become An Immortal -> /i-will-become-an-immortal-3683/",
-                        "I Killed My Husband and Inherited the Mansion -> /i-killed-my-husband-and-inherited-the-mansion-40647/",
-                        "Tsukimino Karma wa Akumade Boku no Pet Nanoni -> /tsukimino-karma-wa-akumade-boku-no-pet-nanoni-39061/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 2350,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Revenge of the Baskerville Bloodhound -> /revenge-of-the-baskerville-bloodhound-3573/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 3396,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 186 -> /revenge-of-the-baskerville-bloodhound-3573/chapter-186-1845310/",
-                        "Chapter 185 -> /revenge-of-the-baskerville-bloodhound-3573/chapter-185-1841408/",
-                        "Chapter 184 -> /revenge-of-the-baskerville-bloodhound-3573/chapter-184-1837774/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1342,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://like.mgread.io/manga/2026/10/3573/1845310/1.webp",
-                        "https://like.mgread.io/manga/2026/10/3573/1845310/2.webp",
-                        "https://like.mgread.io/manga/2026/10/3573/1845310/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 143,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:30:02.819913258Z",
+    "comparedTo": "2026-10-30T01:32:23.531545236Z",
     "changes": [
         {
             "source": "LikeManga",
             "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "LikeManga",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "LikeManga",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "LikeManga",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "LikeManga",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "LikeManga",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

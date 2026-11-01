@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:52:50.565810754Z",
+    "generatedAt": "2026-11-01T10:47:16.315995458Z",
     "module": ":src:vi:hentaivnplus",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 7015430763374257867,
             "name": "HentaiVN.plus",
             "lang": "vi",
             "baseUrl": "https://hentaivn.show",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,42 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 582,
+                    "status": "WARN",
+                    "durationMs": 213,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 530"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 3309,
-                    "message": null,
-                    "notes": [
-                        "manga[2] has no thumbnail"
-                    ],
-                    "samples": [
-                        "Đồng Hồ Ngưng Đọng Thời Gian -> 10351",
-                        "Vòng Xoáy Chị Em -> 10155",
-                        "Bà Chị Chủ Nhà -> 8111"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 41,
+                    "message": "HTTP error 530",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 3088,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 37,
+                    "message": "HTTP error 530",
                     "notes": [],
-                    "samples": [
-                        "Gái Đã Có Chồng Là Bạn Cùng Lớp!? -> 16191",
-                        "Bí mật của dì: đồ lót gợi cảm -> 82562",
-                        "Mùa hè vĩnh cửu -> 74154"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,60 +57,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1528,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Đồng Hồ Ngưng Đọng Thời Gian -> 10351",
-                        "Năng lực ngưng đọng thời gian -> 80700",
-                        "Ngưng đọng thời gian và đi chịch dạo -> 79996"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 359,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 155 -> chapter-155",
-                        "Chapter 154 -> chapter-154",
-                        "Chapter 153 -> chapter-153"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1024,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://hentaivn.show/wp-content/uploads/WP-manga/data/manga_638419211545035934/40e28a085d1c5a5a663220648f455b96/truyen-dong-ho-ngung-dong-thoi-gian-chapter-155-(1).jpg",
-                        "https://hentaivn.show/wp-content/uploads/WP-manga/data/manga_638419211545035934/40e28a085d1c5a5a663220648f455b96/truyen-dong-ho-ngung-dong-thoi-gian-chapter-155-(2).jpg",
-                        "https://hentaivn.show/wp-content/uploads/WP-manga/data/manga_638419211545035934/40e28a085d1c5a5a663220648f455b96/truyen-dong-ho-ngung-dong-thoi-gian-chapter-155-(3).jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 95,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T10:26:09.718391597Z",
+    "comparedTo": "2026-10-31T05:52:50.565810754Z",
     "changes": [
         {
             "source": "HentaiVN.plus",
             "lang": "vi",
-            "scenario": "popular",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "WARN"
+        },
+        {
+            "source": "HentaiVN.plus",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "HentaiVN.plus",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "HentaiVN.plus",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiVN.plus",
+            "lang": "vi",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiVN.plus",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiVN.plus",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

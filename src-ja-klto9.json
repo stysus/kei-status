@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:34:05.152900520Z",
+    "generatedAt": "2026-11-01T10:44:18.469036676Z",
     "module": ":src:ja:klto9",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 3136857802804349121,
             "name": "Klto9",
             "lang": "ja",
             "baseUrl": "https://klto9.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 879,
+                    "durationMs": 1138,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 792,
+                    "status": "WARN",
+                    "durationMs": 993,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Kimetsu No Yaiba - Raw -> /teap-kimetsu-no-yaiba-raw.html",
-                        "Jujutsu Kaisen - Raw -> /teap-jujutsu-kaisen-raw.html",
-                        "Kingdom - Raw -> /teap-kingdom-raw.html"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 218,
+                    "status": "WARN",
+                    "durationMs": 242,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Danzai Sareru Koushaku Reijou, Umarekawatte Last Boss No Ouhi-sama No Kodomo Ni Narimasu -> /teap-danzai-sareru-koushaku-reijou-umarekawatte-last-boss-no-ouhi-sama-no-kodomo-ni-narimasu.html",
-                        "Ryuui No Luca -> /teap-ryuui-no-luca.html",
-                        "Muhai No Futari -> /teap-muhai-no-futari.html"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 294,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Kimetsu No Yaiba - Raw -> /teap-kimetsu-no-yaiba-raw.html"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 670,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 205.5 -> 142538#kimetsu-no-yaiba-raw#205.5",
-                        "Chapter 205 -> 127062#kimetsu-no-yaiba-raw#205",
-                        "Chapter 204 -> 125524#kimetsu-no-yaiba-raw#204"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 191,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://j2.jfimv2.xyz/images/20201005/b1deef06cd2e686b8c7a2db6eaa0028a093.jpg",
-                        "https://j2.jfimv2.xyz/images/20201005/f526c290067e04e8c828b8dd6cf63fca094.jpg",
-                        "https://j2.jfimv2.xyz/images/20201005/cd63b079c58acb0697239cdf35f1fe52095.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 254,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:01.173403833Z",
+    "comparedTo": "2026-10-30T01:34:05.152900520Z",
     "changes": [
         {
             "source": "Klto9",
             "lang": "ja",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Klto9",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Klto9",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Klto9",
+            "lang": "ja",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Klto9",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Klto9",
+            "lang": "ja",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

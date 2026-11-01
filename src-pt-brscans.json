@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:45.774404581Z",
+    "generatedAt": "2026-11-01T10:47:29.145628698Z",
     "module": ":src:pt:brscans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 1420003550573697308,
             "name": "BRScans",
             "lang": "pt-BR",
             "baseUrl": "https://brscans.vercel.app",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,26 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 4549,
+                    "durationMs": 1899,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 1102,
-                    "message": "HTTP error 500",
+                    "status": "PASS",
+                    "durationMs": 741,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "A Suprema Espada Demoníaca -> /manga/182",
+                        "Crônicas do Soberano Preguiçoso -> /manga/129",
+                        "Guerreiro de Escolta Reencarnado -> /manga/178"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 910,
-                    "message": "HTTP error 500",
+                    "status": "PASS",
+                    "durationMs": 1175,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "No Gélido Inverno -> /manga/191",
+                        "O Romeu da Minha Família -> /manga/195",
+                        "Spirit Fingers -> /manga/205"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -55,40 +63,93 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 493,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "A Suprema Espada Demoníaca -> /manga/182"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 616,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 29 -> /manga/182/chapter/6330?variant=translated",
+                        "Chapter 29 -> /manga/182/chapter/6330?variant=original",
+                        "Chapter 29 -> /manga/182/chapter/6330?variant=raw"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 543,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://d47sf0ah3vbtc.cloudfront.net/media/chapters/6330/translated/1053d5a6d51f4698b46bde5f3c42e558.jpeg",
+                        "https://d47sf0ah3vbtc.cloudfront.net/media/chapters/6330/translated/0acd93c6f8f844d89ed4adbaa425a634.jpeg",
+                        "https://d47sf0ah3vbtc.cloudfront.net/media/chapters/6330/translated/739f1e05bb9a4d5ba0c120873f2b20bf.jpeg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 969,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:41:55.342011644Z",
+    "comparedTo": "2026-10-30T01:31:45.774404581Z",
     "changes": [
         {
             "source": "BRScans",
             "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "BRScans",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "BRScans",
+            "lang": "pt-BR",
             "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "BRScans",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "BRScans",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "BRScans",
+            "lang": "pt-BR",
+            "scenario": "images",
             "from": null,
-            "to": "SKIP"
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

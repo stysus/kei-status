@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:30.832929171Z",
+    "generatedAt": "2026-11-01T10:44:01.143312351Z",
     "module": ":src:es:rakuentranslations",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 1527666187989988991,
             "name": "Rakuen Translations",
             "lang": "es",
             "baseUrl": "https://rakuentranslations.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 648,
+                    "durationMs": 199,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 527,
+                    "status": "WARN",
+                    "durationMs": 49,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Kuroiwa Medaka Ni Watashi No Kawaii Ga Tsuujinai -> /manga/kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai/",
-                        "Class no Daikirai na Joshi to Kekkon Suru Koto ni Natta -> /manga/class-no-daikirai-na-joshi-to-kekkon-suru-koto-ni-natta/",
-                        "Mayonaka Heart Tune -> /manga/mayonaka-heart-tune/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 287,
+                    "status": "WARN",
+                    "durationMs": 43,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Kage no Jitsuryokusha ni Naritakute -> /manga/kage-no-jitsuryokusha-ni-naritakute/",
-                        "Kuroiwa Medaka Ni Watashi No Kawaii Ga Tsuujinai -> /manga/kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai/",
-                        "Mayonaka Heart Tune -> /manga/mayonaka-heart-tune/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 452,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Kuroiwa Medaka Ni Watashi No Kawaii Ga Tsuujinai -> /manga/kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 564,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 243 -> /kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai-243/",
-                        "Capítulo 242 -> /kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai-capitulo-242/",
-                        "Capítulo 241 -> /medakawa-241/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 445,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://i2.wp.com/rakuentranslations.com/wp-content/uploads/2026/10/0.0-5.jpg",
-                        "https://i2.wp.com/rakuentranslations.com/wp-content/uploads/2026/10/0.2-11.png",
-                        "https://i3.wp.com/rakuentranslations.com/wp-content/uploads/2026/10/01-84.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 301,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:34:43.699657881Z",
+    "comparedTo": "2026-10-30T01:31:30.832929171Z",
     "changes": [
         {
             "source": "Rakuen Translations",
             "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Rakuen Translations",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Rakuen Translations",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Rakuen Translations",
+            "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Rakuen Translations",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Rakuen Translations",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

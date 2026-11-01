@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T10:11:58.320712685Z",
+    "generatedAt": "2026-11-01T10:49:23.528449241Z",
     "module": ":src:zh:jcomic",
     "sourceRoot": "",
     "extensionCommit": "0d83f6be",
@@ -10,7 +10,7 @@
             "name": "JComic",
             "lang": "zh",
             "baseUrl": "https://jcomic.net",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 703,
+                    "durationMs": 325,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,25 +31,25 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 278,
+                    "durationMs": 356,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "寝取りジョーカー2  -> /page/寝取りジョーカー2",
-                        "Sleeping with the Dear Constellation.  -> /page/Sleeping with the Dear Constellation.",
-                        "Kill The Lights | 熄灭灯光  -> /eps/Kill The Lights | 熄灭灯光"
+                        "艦むすといっしょ-鹿島編- (艦隊これくしょん -艦これ-)  -> /page/艦むすといっしょ-鹿島編- (艦隊これくしょん -艦これ-)",
+                        "杏山カズサの特别奉仕係当番  -> /page/杏山カズサの特别奉仕係当番",
+                        "メリュジーヌともっといろいろえっち本 (FateGrand Order) [中国翻訳] [DL版]  -> /page/メリュジーヌともっといろいろえっち本 (FateGrand Order) [中国翻訳] [DL版]"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 237,
+                    "durationMs": 304,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "教えて!! 中野 五月  -> /page/教えて!! 中野 五月",
-                        "なのかとえっち  -> /eps/なのかとえっち",
-                        "ゆりかも  -> /eps/ゆりかも"
+                        "制服遊戯  -> /page/制服遊戯",
+                        "修学旅行の夜、同室のあの子のクリがおっきかった。  -> /page/修学旅行の夜、同室のあの子のクリがおっきかった。",
+                        "生贄女教師～服従の時姦割～  -> /page/生贄女教師|E服従の時姦割|E"
                     ]
                 },
                 {
@@ -64,43 +64,67 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 864,
+                    "status": "WARN",
+                    "durationMs": 1008,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "寝取りジョーカー2 (RIDDLE JOKER、艦隊これくしょん -艦これ-)  -> /page/寝取りジョーカー2 (RIDDLE JOKER、艦隊これくしょん -艦これ-)",
-                        "寝取りジョーカー2  -> /page/寝取りジョーカー2"
-                    ]
+                    "notes": [
+                        "returned an empty list",
+                        "query \"艦むすといっしょ-鹿島編- (艦隊これくしょん -艦これ-)\" matched no results in the first page"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 215,
+                    "durationMs": 255,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "单章节 -> /page/寝取りジョーカー2"
+                        "单章节 -> /page/艦むすといっしょ-鹿島編- (艦隊これくしょん -艦これ-)"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 310,
-                    "message": "Input byte array has incorrect ending byte at 498",
+                    "status": "WARN",
+                    "durationMs": 272,
+                    "message": null,
+                    "notes": [
+                        "page list is empty"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:59:26.214114617Z",
+    "comparedTo": "2026-10-31T10:11:58.320712685Z",
     "changes": [
         {
             "source": "JComic",
             "lang": "zh",
             "scenario": "search",
-            "from": "WARN",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "JComic",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "WARN"
+        },
+        {
+            "source": "JComic",
+            "lang": "zh",
+            "scenario": "images",
+            "from": null,
             "to": "PASS"
         }
     ],

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:57.167593120Z",
+    "generatedAt": "2026-11-01T10:43:18.328275684Z",
     "module": ":src:en:questionablecontent",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 5564060716297760161,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 199,
+                    "durationMs": 144,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -69,45 +69,47 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 251,
+                    "status": "WARN",
+                    "durationMs": 50,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "5950: Frugality -> /view.php?comic=5950",
-                        "5949: The Finest Vintage -> /view.php?comic=5949",
-                        "5948: Pivot Point -> /view.php?comic=5948"
-                    ]
+                    "notes": [
+                        "chapter list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 70,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.questionablecontent.net/comics/1.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 138,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:18.704776351Z",
+    "comparedTo": "2026-10-30T01:32:57.167593120Z",
     "changes": [
         {
             "source": "Questionable Content",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
+            "scenario": "chapters",
+            "from": "PASS",
             "to": "WARN"
+        },
+        {
+            "source": "Questionable Content",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Questionable Content",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

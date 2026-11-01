@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:53:30.123764726Z",
+    "generatedAt": "2026-11-01T10:44:49.114881634Z",
     "module": ":src:tr:holyscans",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 5655539211698234342,
             "name": "Holy Scans",
             "lang": "tr",
             "baseUrl": "https://holyscans.com.tr",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 645,
+                    "durationMs": 594,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,13 +31,13 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 992,
+                    "durationMs": 900,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Sexpedia’da Seviye Kasıyorum -> /manga/sexpediada-seviye-kasiyorum/",
                         "Yasak Zindan -> /manga/yasak-zindan/",
-                        "Dünyada Erkek Kalmadı mı?! -> /manga/dunyada-erkek-kalmadi-mi/",
-                        "Bekâr Baba -> /manga/bekar-baba/"
+                        "Dünyada Erkek Kalmadı mı?! -> /manga/dunyada-erkek-kalmadi-mi/"
                     ]
                 },
                 {
@@ -60,64 +60,60 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 562,
+                    "status": "WARN",
+                    "durationMs": 522,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Yasak Zindan -> /manga/yasak-zindan/"
-                    ]
+                    "notes": [
+                        "returned an empty list",
+                        "query \"Sexpedia’da Seviye Kasıyorum\" matched no results in the first page"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 383,
+                    "durationMs": 763,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Bölüm 53 -> /manga/yasak-zindan/bolum-53/",
-                        "Bölüm 52 -> /manga/yasak-zindan/bolum-52/",
-                        "Bölüm 51 -> /manga/yasak-zindan/bolum-51/"
+                        "🔒 Bölüm 22 -> /manga/sexpediada-seviye-kasiyorum/bolum-22/",
+                        "Bölüm 21 -> /manga/sexpediada-seviye-kasiyorum/bolum-21/",
+                        "Bölüm 20 -> /manga/sexpediada-seviye-kasiyorum/bolum-20/"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1742,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://holyscans.com.tr/wp-content/themes/HolyTemaV12/holy-img-serve.php?p=bWFuZ2EtZGF0YS95YXNhay16aW5kYW4veWFzYWstemluZGFuLWJvbHVtLTUzLzAxLndlYnA&t=1793426009&s=3fdd720cef1a0cc98d4c828207716b51a500ba3ab97adc69600e6ddd8f03c8bd",
-                        "https://holyscans.com.tr/wp-content/themes/HolyTemaV12/holy-img-serve.php?p=bWFuZ2EtZGF0YS95YXNhay16aW5kYW4veWFzYWstemluZGFuLWJvbHVtLTUzLzAyLndlYnA&t=1793426009&s=4d0821939d15be64a97419357bc4c4511d5db03979901f060b87427554c9b4cb",
-                        "https://holyscans.com.tr/wp-content/themes/HolyTemaV12/holy-img-serve.php?p=bWFuZ2EtZGF0YS95YXNhay16aW5kYW4veWFzYWstemluZGFuLWJvbHVtLTUzLzAzLndlYnA&t=1793426009&s=286fe218d44f819e4943d8da04efa96ee02f76556a0871a667210075264da2c3"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 915,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 827,
+                    "message": "Bu bölüm kilitli (VIP/coin), WebView üzerinden açın",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:35:41.829656624Z",
+    "comparedTo": "2026-10-31T05:53:30.123764726Z",
     "changes": [
         {
             "source": "Holy Scans",
             "lang": "tr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Holy Scans",
+            "lang": "tr",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Holy Scans",
             "lang": "tr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

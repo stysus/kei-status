@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T10:08:54.572102278Z",
+    "generatedAt": "2026-11-01T10:47:49.953998927Z",
     "module": ":src:zh:jiuermanhua",
     "sourceRoot": "",
     "extensionCommit": "0d83f6be",
@@ -25,7 +25,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 104,
+                    "durationMs": 71,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -33,7 +33,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 41,
+                    "durationMs": 66,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -44,15 +44,11 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 954,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 1080,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "Greedy 贪婪之心 -> /manhua/7692/",
-                        "遭受冤罪的转生圣女，这次要走上反派千金之路！ -> /manhua/7691/",
-                        "交往对象是普通人 -> /manhua/7690/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -66,52 +62,60 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 11478,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 953,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "暴夜 -> /manhua/1212/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 86,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 183,
+                    "message": "HTTP error 403",
                     "notes": [],
-                    "samples": [
-                        "外传2 -> /manhua/1212/305421.html",
-                        "外传1 -> /manhua/1212/305420.html",
-                        "第96话完 -> /manhua/1212/305419.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 97,
-                    "message": "HTTP error 403",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T10:23:31.727094146Z",
+    "comparedTo": "2026-10-31T10:08:54.572102278Z",
     "changes": [
         {
             "source": "92漫画",
             "lang": "zh",
-            "scenario": "pages",
+            "scenario": "latest",
             "from": "PASS",
             "to": "FAIL"
         },
         {
             "source": "92漫画",
             "lang": "zh",
-            "scenario": "images",
+            "scenario": "search",
             "from": "PASS",
-            "to": null
+            "to": "FAIL"
+        },
+        {
+            "source": "92漫画",
+            "lang": "zh",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "92漫画",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

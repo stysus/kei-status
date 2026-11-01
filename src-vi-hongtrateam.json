@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:11.518344082Z",
+    "generatedAt": "2026-11-01T10:53:36.294575053Z",
     "module": ":src:vi:hongtrateam",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "0d83f6be",
     "sources": [
         {
             "sourceId": 3484418618819034374,
             "name": "HongTraTeam",
             "lang": "vi",
             "baseUrl": "https://hongtrateam.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 210,
+                    "status": "WARN",
+                    "durationMs": 19561,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 274,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19456,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Cây Không Rễ -> 88",
-                        "Tương Phùng -> 152",
-                        "Bộ Chín Vĩ Đại -> 103"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 248,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19455,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Cây Không Rễ -> 88",
-                        "Ranh Giới Của Sự Mơ Hồ -> 101",
-                        "Quỷ Dạ Khúc -> 99"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,44 +57,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 661,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Cây Không Rễ -> 88"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 886,
-                    "message": null,
-                    "notes": [
-                        "chapter list is empty"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:22.603838208Z",
+    "comparedTo": "2026-10-30T01:37:11.518344082Z",
     "changes": [
         {
             "source": "HongTraTeam",
             "lang": "vi",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "HongTraTeam",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "HongTraTeam",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "HongTraTeam",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "HongTraTeam",
+            "lang": "vi",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

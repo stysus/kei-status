@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T10:07:00.387529931Z",
+    "generatedAt": "2026-11-01T10:46:36.199755679Z",
     "module": ":src:ru:tomilolib",
     "sourceRoot": "",
     "extensionCommit": "0d83f6be",
@@ -10,7 +10,7 @@
             "name": "Tomilo-lib",
             "lang": "ru",
             "baseUrl": "https://tomilo-lib.ru",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,29 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 891,
+                    "status": "PASS",
+                    "durationMs": 921,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 502"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 337,
-                    "message": "HTTP error 502",
+                    "status": "PASS",
+                    "durationMs": 412,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Моё перерождение в древо: Начало эволюции -> moe-pererozhdenie-v-drevo-nachalo-evolyutsii-evolu/69483be137431a042d492671",
+                        "Я прокачиваюсь во сне, убивая монстров -> ya-prokachivayus'-vo-sne-ubivaya-monstrov/693c6ab5e623333a1078ae2f",
+                        "Начало после конца -> nachalo-posle-kontsa/693d1075e623333a1079049f"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 149,
-                    "message": "HTTP error 502",
+                    "status": "PASS",
+                    "durationMs": 176,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Пощади меня, Великий господин! -> poschadi-menya-velikiy-gospodin/69b13a7a25d62d13a5e8d93f",
+                        "Я прокачиваюсь во сне, убивая монстров -> ya-prokachivayus'-vo-sne-ubivaya-monstrov/693c6ab5e623333a1078ae2f",
+                        "Во всеоружии -> vo-vseoruzhii/69ac9c5e8f112f7bcd44267e"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -57,82 +63,101 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 202,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"Моё перерождение в древо: Начало эволюции\" matched no results in the first page"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 1974,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Глава 539 -> 6ade3e48f8a83cc5debbdf30",
+                        "Глава 538 -> 6ad527c569f48a8dfd9c7111",
+                        "Глава 537 -> 6acbcfdc96f9834826879220"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 145,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://tomilolib.s3.regru.cloud/chapters/69483be137431a042d492676/001.webp",
+                        "https://tomilolib.s3.regru.cloud/chapters/69483be137431a042d492676/002.webp",
+                        "https://tomilolib.s3.regru.cloud/chapters/69483be137431a042d492676/003.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1712,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:38:02.335429799Z",
+    "comparedTo": "2026-10-31T10:07:00.387529931Z",
     "changes": [
         {
             "source": "Tomilo-lib",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Tomilo-lib",
             "lang": "ru",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Tomilo-lib",
             "lang": "ru",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Tomilo-lib",
-            "lang": "ru",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Tomilo-lib",
             "lang": "ru",
             "scenario": "search",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Tomilo-lib",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Tomilo-lib",
             "lang": "ru",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Tomilo-lib",
             "lang": "ru",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []
