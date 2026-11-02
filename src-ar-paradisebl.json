@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:28:37.952291834Z",
+    "generatedAt": "2026-11-02T11:36:38.982733244Z",
     "module": ":src:ar:paradisebl",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 4957859168133378262,
             "name": "Paradise BL",
             "lang": "ar",
             "baseUrl": "https://paradise-bl.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 4069,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 20343,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from paradise-bl.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 162,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Kiss me, Liar -> 2809",
-                        "The Pizza Delivery Man and The Gold Palace -> 2696",
-                        "Jinx -> 2729"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 26,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from paradise-bl.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 166,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "In good faith -> 3087",
-                        "Crash into me -> 3085",
-                        "Stalker game -> 3083"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 6,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from paradise-bl.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1058,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Kiss me, Liar -> 2809"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 359,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "الفصل 80 - الاخير -> 80--",
-                        "الفصل 79 -> 79-",
-                        "الفصل 78 -> 78-"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 160,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://paradise-bl.com/wp-content/uploads/WP-manga/data/manga_678937179e6ed/3c03af2f76bd08670da7b8cd5a1156c5/قبلني_أيها_الكاذب_الفصل_الإضافي_٣٢_الأخير-1-rjkte11p-1.webp",
-                        "https://paradise-bl.com/wp-content/uploads/WP-manga/data/manga_678937179e6ed/3c03af2f76bd08670da7b8cd5a1156c5/قبلني_أيها_الكاذب_الفصل_الإضافي_٣٢_الأخير-1-rjkte11p-2.webp",
-                        "https://paradise-bl.com/wp-content/uploads/WP-manga/data/manga_678937179e6ed/3c03af2f76bd08670da7b8cd5a1156c5/قبلني_أيها_الكاذب_الفصل_الإضافي_٣٢_الأخير-1-rjkte11p-3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1019,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:20.393450576Z",
+    "comparedTo": "2026-10-30T01:28:37.952291834Z",
     "changes": [
         {
             "source": "Paradise BL",
             "lang": "ar",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Paradise BL",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Paradise BL",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Paradise BL",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Paradise BL",
+            "lang": "ar",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Paradise BL",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Paradise BL",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

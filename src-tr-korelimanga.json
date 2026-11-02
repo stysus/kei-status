@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-01T10:52:33.457737439Z",
+    "generatedAt": "2026-11-02T11:51:11.895317312Z",
     "module": ":src:tr:korelimanga",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 1381583102051609700,
             "name": "Koreli Manga",
             "lang": "tr",
             "baseUrl": "https://korelimanga.com",
-            "status": "WARN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,30 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 720,
+                    "durationMs": 1290,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 423,
+                    "status": "PASS",
+                    "durationMs": 745,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Kan Bağıyla Borçlu -> /manga/kan-bagiyla-borclu/",
+                        "Çöp Olan Bendim? -> /manga/cop-olan-bendim/",
+                        "Sıfır Altınla Kötü Kadının Hayatına Başlamak -> /manga/sifir-altinla-kotu-kadinin-hayatina-baslamak/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 420,
+                    "status": "PASS",
+                    "durationMs": 691,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Tezkereci Askerin Yeniden Dönüşü -> /manga/tezkereci-askerin-yeniden-donusu/",
+                        "Çöp Olan Bendim? -> /manga/cop-olan-bendim/",
+                        "Kaplan Ailesinin Yavru Leopar Kedisi -> /manga/kaplan-ailesinin-yavru-leopar-kedisi/"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -59,54 +63,93 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 344,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Kan Bağıyla Borçlu -> /manga/kan-bagiyla-borclu/"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 837,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Bölüm 11 -> /manga/kan-bagiyla-borclu/bolum-11/",
+                        "Bölüm 10 -> /manga/kan-bagiyla-borclu/bolum-10/",
+                        "Bölüm 9 -> /manga/kan-bagiyla-borclu/bolum-9/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 450,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://ragnarscans.net/wp-content/uploads/init-manga/327019/1/0001.webp",
+                        "https://ragnarscans.net/wp-content/uploads/init-manga/327019/1/0002.webp",
+                        "https://ragnarscans.net/wp-content/uploads/init-manga/327019/1/0003.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 205,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:41:57.423980790Z",
+    "comparedTo": "2026-11-01T10:52:33.457737439Z",
     "changes": [
         {
             "source": "Koreli Manga",
             "lang": "tr",
-            "scenario": "connectivity",
+            "scenario": "popular",
             "from": "WARN",
             "to": "PASS"
         },
         {
             "source": "Koreli Manga",
             "lang": "tr",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "WARN"
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Koreli Manga",
             "lang": "tr",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "WARN"
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Koreli Manga",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Koreli Manga",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Koreli Manga",
+            "lang": "tr",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

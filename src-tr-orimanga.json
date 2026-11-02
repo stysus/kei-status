@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:40:06.294847097Z",
+    "generatedAt": "2026-11-02T11:38:02.753342842Z",
     "module": ":src:tr:orimanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 4629101508845138320,
             "name": "Ori Manga",
             "lang": "tr",
             "baseUrl": "https://orimanga.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 955,
+                    "durationMs": 816,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 237,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 234,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "The Extra’s Academy Survival Guide -> /manga/the-extras-academy-survival-guide/",
-                        "Academy’s Undercover Professor -> /manga/academys-undercover-professor/",
-                        "The Star Embracing Swordmaster -> /manga/the-star-embracing-swordmaster/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 225,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 227,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "My Girlfriend Returned as a Dragon -> /manga/my-girlfriend-returned-as-a-dragon/",
-                        "Pick Up a Grimoire, Become a Mage -> /manga/pick-up-a-grimoire-become-a-mage/",
-                        "Gel Beni Al -> /manga/gel-beni-al/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,60 +55,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 901,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The Extra’s Academy Survival Guide -> /manga/the-extras-academy-survival-guide/",
-                        "Ode of the Brave -> /manga/ode-of-the-brave/",
-                        "The Former Supreme -> /manga/the-former-supreme/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 883,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 126 -> /manga/the-extras-academy-survival-guide/bolum-126/",
-                        "Bölüm 125 -> /manga/the-extras-academy-survival-guide/bolum-125/",
-                        "Bölüm 124 -> /manga/the-extras-academy-survival-guide/bolum-124/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 340,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://orimanga.net/wp-content/uploads/init-manga/2823/108/0001.jpg",
-                        "https://orimanga.net/wp-content/uploads/init-manga/2823/108/0002.jpg",
-                        "https://orimanga.net/wp-content/uploads/init-manga/2823/108/0003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 471,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:53.743390904Z",
+    "comparedTo": "2026-10-30T01:40:06.294847097Z",
     "changes": [
         {
             "source": "Ori Manga",
             "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Ori Manga",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Ori Manga",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ori Manga",
+            "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ori Manga",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ori Manga",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

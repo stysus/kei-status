@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-01T10:43:56.688429716Z",
+    "generatedAt": "2026-11-02T11:36:54.663289509Z",
     "module": ":src:ja:momonga",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 5332628982027198645,
             "name": "momon:GA",
             "lang": "ja",
             "baseUrl": "https://momon-ga.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,19 +22,25 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 30315,
-                    "message": "Connect timed out",
+                    "status": "PASS",
+                    "durationMs": 684,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30184,
-                    "message": "Connect timed out",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 257,
+                    "message": null,
+                    "notes": [
+                        "duplicate manga urls: [/fanzine/mo1794958/, /fanzine/mo2777727/, /fanzine/mo3012638/]"
+                    ],
+                    "samples": [
+                        "地味でオタクっぽい妹真由ちゃん 4話 beta -> /fanzine/mo4237993/",
+                        "転校先の学校で女子生徒の性欲を解消する係になった話。 -> /fanzine/mo4262368/",
+                        "みんなが誰かと付き合えるまでの話 -> /fanzine/mo4220308/"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -55,75 +61,91 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 1499,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "地味でオタクっぽい妹真由ちゃん 4話 beta -> /fanzine/mo4237993/"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 221,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "単一章 -> /fanzine/mo4237993/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 139,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://z3.momon-ga.me/galleries/4237993/1.webp",
+                        "https://z3.momon-ga.me/galleries/4237993/2.webp",
+                        "https://z3.momon-ga.me/galleries/4237993/3.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 398,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:35:01.931882398Z",
+    "comparedTo": "2026-11-01T10:43:56.688429716Z",
     "changes": [
         {
             "source": "momon:GA",
             "lang": "ja",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "momon:GA",
             "lang": "ja",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "FAIL"
-        },
-        {
-            "source": "momon:GA",
-            "lang": "ja",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
             "source": "momon:GA",
             "lang": "ja",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "momon:GA",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "momon:GA",
             "lang": "ja",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "momon:GA",
             "lang": "ja",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

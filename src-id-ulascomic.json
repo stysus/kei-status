@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-01T10:48:13.583491673Z",
+    "generatedAt": "2026-11-02T11:41:28.195561993Z",
     "module": ":src:id:ulascomic",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 440952493414630310,
@@ -22,20 +22,20 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 4498,
-                    "message": null,
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
                     "status": "THROTTLED",
-                    "durationMs": 1711,
+                    "durationMs": 2403,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.ulascomic01.xyz answered HTTP 429 earlier in this run",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -81,41 +81,20 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:53:55.903960329Z",
+    "comparedTo": "2026-11-01T10:48:13.583491673Z",
     "changes": [
         {
             "source": "Ulas Comic",
             "lang": "id",
-            "scenario": "popular",
-            "from": "WARN",
+            "scenario": "connectivity",
+            "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "Ulas Comic",
             "lang": "id",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Ulas Comic",
-            "lang": "id",
-            "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Ulas Comic",
-            "lang": "id",
-            "scenario": "chapters",
-            "from": "FAIL",
-            "to": "SKIP"
-        },
-        {
-            "source": "Ulas Comic",
-            "lang": "id",
-            "scenario": "search",
-            "from": "PASS",
+            "scenario": "popular",
+            "from": "THROTTLED",
             "to": "SKIP"
         }
     ],

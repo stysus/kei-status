@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:38:02.650570162Z",
+    "generatedAt": "2026-11-02T11:38:50.047213054Z",
     "module": ":src:uk:mangainua",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 7444761572611117628,
             "name": "MANGA/in/UA",
             "lang": "uk",
             "baseUrl": "https://manga.in.ua",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 834,
+                    "status": "WARN",
+                    "durationMs": 19729,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 468,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19666,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Людина-бензопила -> /mangas/dementia/168-ludyna-benzopyla.html",
-                        "Історія виживання Короля меча в іншому світі -> /mangas/boyovik/196-istoriia-vyzhyvannia-korolia-mecha-v-inshomu-sviti.html",
-                        "19 Днів - Одного Дня -> /mangas/budenst/1188-19-dniv.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 483,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19755,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Подруга дитинства головного героя липне до мене, звичайного другорядного персонажа -> /mangas/budenst/124449-shujinkou-no-osananajimi-ga-wakiyaku-no-ore-ni-guigui-kuru.html",
-                        "Обери мене! -> /mangas/dementia/48638-pick-me-up.html",
-                        "Однокласник -> /mangas/drama/122452-classmate.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,60 +57,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 2259,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Людина-бензопила -> /mangas/dementia/168-ludyna-benzopyla.html",
-                        "Людина-бензопила 2 -> /mangas/boyovik/19199-ljudina-benzopila-2-chainsaw-man-2.html",
-                        "Людина-бензопила (кольорова версія) -> /mangas/boyovik/24535-ljudina-benzopila-kolorova-versija-chainsaw-man-digital-colored-comics.html"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1098,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Том 24. Розділ 232 - Спасибі тобі, Людино-бензопила -> /chapters/112672-ljudina-benzopila-tom-24-rozdil-232.html",
-                        "Том 19. Розділ 231 - Прощавай, Почіто -> /chapters/111904-ljudina-benzopila-tom-19-rozdil-231.html",
-                        "Том 19. Розділ 230 - Секс і Добір -> /chapters/111033-ljudina-benzopila-tom-19-rozdil-230.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1721,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://manga.in.ua/uploads/posts/2023-05/1685566127_dlraw_net-img-0001.png",
-                        "https://manga.in.ua/uploads/posts/2023-05/1685566192_dlraw_net-img-0002.png",
-                        "https://manga.in.ua/uploads/posts/2023-05/1685566175_dlraw_net-img-0003.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 177,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:47.697434192Z",
+    "comparedTo": "2026-10-30T01:38:02.650570162Z",
     "changes": [
         {
             "source": "MANGA/in/UA",
             "lang": "uk",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "MANGA/in/UA",
+            "lang": "uk",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MANGA/in/UA",
+            "lang": "uk",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MANGA/in/UA",
+            "lang": "uk",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MANGA/in/UA",
+            "lang": "uk",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MANGA/in/UA",
+            "lang": "uk",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MANGA/in/UA",
+            "lang": "uk",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

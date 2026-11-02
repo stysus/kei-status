@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-01T10:42:05.343394257Z",
+    "generatedAt": "2026-11-02T11:57:55.031577865Z",
     "module": ":src:en:hentaifc",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 4541545529482216024,
             "name": "HentaiFC",
             "lang": "en",
             "baseUrl": "https://hentaifc.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,19 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1417,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30760,
+                    "message": "timeout",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 409,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 30006,
+                    "message": "timeout",
                     "notes": [],
-                    "samples": [
-                        "HOLO CHEERLEADERS -> e/90460",
-                        "ABSOLUTE DUO TS -> e/90459",
-                        "HOLO SEX PARTY (S*HOOL) vol. 2 -> e/90458"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -59,50 +55,76 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 1402,
-                    "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "query \"HOLO CHEERLEADERS\" matched no results in the first page"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 383,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 0 -> e/90460/c0"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 357,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://s3.hentaifc.com/token/5010884739_%2A0t-%3Ah5wp3.%2A-t2iw2t2p18sb589e%3A4l.-nt/0.jpg",
-                        "https://s3.hentaifc.com/token/5010884739%2A-tp-%3A25wt.hw_9.b1np52830.sb%3A-lw2tee84p%2Ait/1.jpg",
-                        "https://s3.hentaifc.com/token/5010884739_%2A0t-%3Ah5wp3.%2A-t2iw2t2p38sb589e%3A4l.-nt/2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1492,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T09:58:54.305924703Z",
-    "changes": [],
+    "comparedTo": "2026-11-01T10:42:05.343394257Z",
+    "changes": [
+        {
+            "source": "HentaiFC",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "HentaiFC",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "HentaiFC",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiFC",
+            "lang": "en",
+            "scenario": "search",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiFC",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiFC",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

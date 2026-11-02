@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:12.104796454Z",
+    "generatedAt": "2026-11-02T11:36:51.825605997Z",
     "module": ":src:vi:cuutruyen",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 8222087175453285202,
             "name": "CuuTruyen",
             "lang": "vi",
             "baseUrl": "https://cuutruyen.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 502,
+                    "status": "WARN",
+                    "durationMs": 19448,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 188,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19657,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Spy x Family (FULL HD) -> 152",
-                        "Sakamoto Days (FULL HD) -> 106",
-                        "Dandadan -> 203"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 184,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 19766,
+                    "message": "HTTP error 522",
                     "notes": [],
-                    "samples": [
-                        "Animal Signal -> 4735",
-                        "Có là hội học sinh đi nữa thì vẫn có khuyết điểm chứ bộ! -> 5087",
-                        "Register! -> 5146"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,60 +57,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 413,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Spy x Family (FULL HD) -> 152",
-                        "Spy x Family: Tuyển tập Doujinshi (FULL HD) -> 487",
-                        "SPY x FAMILY Official Fanbook: EYES ONLY -> 823"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 377,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chương 141 -> 97844",
-                        "Chương Short Mission 19 -> 96103",
-                        "Chương 140 -> 95695"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 206,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://storage-bravo.cuutruyen.net/file/cuutruyen/uploads/page/2423751/image/scrambled-8f5a9cf80ac00eab8b8a5a9ee3e2508f.jpg#drm_data=EEcATQwJAhsEBgVECAIJHgIEBE0FFAMDBU8BDQkaCAYDTQIBBRQDAwVPBggJ%0AGggGA00FAQAJHwcFAUkPDAcUAgYB%0A",
-                        "https://storage-bravo.cuutruyen.net/file/cuutruyen/uploads/page/2423752/image/scrambled-6c2c70a9dbed7ddaa24c89bb5d9b3680.jpg#drm_data=EEcATQQMAhsEBgVEDwcJHgIEBE0CDAIbBAYFRAoHCR4CBARNAQwCGwQGBUQJ%0AGggGA00NAQUUAwMFTwQIDAcUAgMD%0A",
-                        "https://storage-bravo.cuutruyen.net/file/cuutruyen/uploads/page/2423753/image/scrambled-e617cd55a0ca211a8b59c2e99a35aa43.jpg#drm_data=EEcATQMJAhsEBgVECAIJHgIEBE0BDAIbBAYFRAkaCAYDTQUCAAkfBwRPBggJ%0AGggGA00FAQAJHwcAA0kPDAcUAgYBSAAHCQIbBAYFRAAHCR4CBAQ=%0A"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 763,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:35.033130378Z",
+    "comparedTo": "2026-10-30T01:37:12.104796454Z",
     "changes": [
         {
             "source": "CuuTruyen",
             "lang": "vi",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "CuuTruyen",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "CuuTruyen",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "CuuTruyen",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "CuuTruyen",
+            "lang": "vi",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "CuuTruyen",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "CuuTruyen",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

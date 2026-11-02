@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:36.053992562Z",
+    "generatedAt": "2026-11-02T11:41:09.509491250Z",
     "module": ":src:tr:mangawt",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 9068262319581900273,
             "name": "MangaWT",
             "lang": "tr",
             "baseUrl": "https://mangawt.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3053,
+                    "durationMs": 3376,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 231,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 233,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "Süper Tanrı Geni -> super-tanri-geni",
-                        "İlkel Avcı -> ilkel-avci",
-                        "Bir Dağda Başlamak -> bir-dagda-baslamak"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 192,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 182,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "İskelet Asker -> iskelet-asker",
-                        "Süper Tanrı Geni -> super-tanri-geni",
-                        "SSS Kademe Kutsal Şövalye -> sss-kademe-kutsal-sovalye"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +55,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 819,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Süper Tanrı Geni -> super-tanri-geni"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 286,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 490 🔒 -> 6ae0ac8b7c0d262fea7b2069",
-                        "Bölüm 489 -> 6ac8d248341e5c390f97137f",
-                        "Bölüm 488 -> 6abe5350f9ffbd37abbf3f46"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 678,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mangawt.com/api/mangas/media/ch/69c09fed20a0291102370908/1/0-1783083262590-2y9b-16u9vtd-0.jpg?exp=1793325600&sig=uK4okRP0iLEWT5ECOii2mRwKxbaxG5YAQCb_FC2Wi_Q",
-                        "https://mangawt.com/api/mangas/media/ch/69c09fed20a0291102370908/1/1-1783083262590-w8q4-ao0ybc-1.jpg?exp=1793325600&sig=F3G_pWpTVTGITRHSCTj917L0DN0NJ3yZ6PnSxqj1t0U",
-                        "https://mangawt.com/api/mangas/media/ch/69c09fed20a0291102370908/1/2-1783083262590-sdwb-1de202t-2.jpg?exp=1793325600&sig=gHG0vQ_NsqQxtMjOJ7MG0XHX4AvicBU9R8VKavxljFc"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1265,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:49.569428781Z",
+    "comparedTo": "2026-10-30T01:37:36.053992562Z",
     "changes": [
         {
             "source": "MangaWT",
             "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaWT",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaWT",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaWT",
+            "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaWT",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaWT",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

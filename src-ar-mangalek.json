@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:45:38.164444015Z",
+    "generatedAt": "2026-11-02T11:30:14.109075687Z",
     "module": ":src:ar:mangalek",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 918460697583900080,
             "name": "مانجا ليك",
             "lang": "ar",
             "baseUrl": "https://mangalik.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 646,
+                    "durationMs": 630,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 704,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 146,
+                    "message": "HTTP error 413",
                     "notes": [],
-                    "samples": [
-                        "Otherworldly Evil Monarch -> 775",
-                        "lady Baby -> 417",
-                        "cultivation return on campus -> 2311"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 758,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 157,
+                    "message": "HTTP error 413",
                     "notes": [],
-                    "samples": [
-                        "Murim Psychopath -> 167373",
-                        "Overgeared -> 251",
-                        "Unexpected romance -> 175417"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,71 +55,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 598,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Otherworldly Evil Monarch -> 775"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 607,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "258 -> 258",
-                        "257 -> 257",
-                        "256 -> 256"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 655,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://s2solo.mangalik.net/manga/arb4/data/manga_5ef28f62ab9b0/9e02b07dbf666b0d814bbaedf6b1600e/image-1.jpg",
-                        "https://s2solo.mangalik.net/manga/arb4/data/manga_5ef28f62ab9b0/9e02b07dbf666b0d814bbaedf6b1600e/image-2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1274,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T10:15:09.853954768Z",
+    "comparedTo": "2026-10-31T05:45:38.164444015Z",
     "changes": [
         {
             "source": "مانجا ليك",
             "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "مانجا ليك",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "مانجا ليك",
+            "lang": "ar",
             "scenario": "chapters",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "مانجا ليك",
+            "lang": "ar",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "مانجا ليك",
             "lang": "ar",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "مانجا ليك",
             "lang": "ar",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

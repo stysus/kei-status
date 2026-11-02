@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T10:09:13.274324690Z",
+    "generatedAt": "2026-11-02T11:43:48.401918116Z",
     "module": ":src:tr:shadowceviri",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 3852979672050614736,
@@ -22,62 +22,8 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 196,
-                    "message": null,
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 1610,
-                    "message": null,
-                    "notes": [
-                        "duplicate manga urls: [/2021/05/avatar-tsuteyin-yolu_1.html, /2021/05/doomwar_1.html, /2021/05/god-of-war-dusmus-tanr_1.html]"
-                    ],
-                    "samples": [
-                        "Hajime No Ippo -> /2021/05/hajime-no-ippo_1.html",
-                        "Tower of God -> /2023/03/tower-of-god.html",
-                        "Doomwar -> /2021/05/doomwar_1.html"
-                    ]
-                },
-                {
-                    "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 134,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Hajime No Ippo -> /2021/05/hajime-no-ippo_1.html",
-                        "Avatar - Boş Yıl -> /2025/12/avatar-gap-year.html",
-                        "Tower of God -> /2023/03/tower-of-god.html"
-                    ]
-                },
-                {
-                    "name": "filters",
-                    "status": "PASS",
-                    "durationMs": 0,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 152,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Hajime No Ippo -> /2021/05/hajime-no-ippo_1.html"
-                    ]
-                },
-                {
-                    "name": "chapters",
                     "status": "THROTTLED",
-                    "durationMs": 1646,
+                    "durationMs": 1813,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
@@ -85,30 +31,98 @@
                     "samples": []
                 },
                 {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "shadowceviri.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "shadowceviri.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "shadowceviri.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:51:56.249789689Z",
+    "comparedTo": "2026-10-31T10:09:13.274324690Z",
     "changes": [
         {
             "source": "Shadow Çeviri",
             "lang": "tr",
-            "scenario": "chapters",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "Shadow Çeviri",
             "lang": "tr",
-            "scenario": "pages",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Shadow Çeviri",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Shadow Çeviri",
+            "lang": "tr",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Shadow Çeviri",
+            "lang": "tr",
+            "scenario": "chapters",
             "from": "THROTTLED",
+            "to": "SKIP"
+        },
+        {
+            "source": "Shadow Çeviri",
+            "lang": "tr",
+            "scenario": "search",
+            "from": "PASS",
             "to": "SKIP"
         }
     ],

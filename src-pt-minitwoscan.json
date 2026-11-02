@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:36:16.606956964Z",
+    "generatedAt": "2026-11-02T11:40:13.440293835Z",
     "module": ":src:pt:minitwoscan",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 8959585632192744096,
             "name": "MiniTwo Scan",
             "lang": "pt-BR",
             "baseUrl": "https://minitwoscan.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,31 +23,39 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 4223,
+                    "durationMs": 4894,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 154,
-                    "message": "HTTP error 406",
+                    "status": "PASS",
+                    "durationMs": 487,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Yeonwoo’s Innocence -> 941",
+                        "A lady que quer descansar -> 635",
+                        "Kubo-san wa Boku (Mobu) wo Yurusanai -> 669"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 2005,
-                    "message": "HTTP error 406",
+                    "status": "PASS",
+                    "durationMs": 2323,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Yeonwoo’s Innocence -> 941",
+                        "Osananananajimi Childhooood Friends -> 8728",
+                        "Haikei… Koroshiya-san to Kekkon Shimashita -> 826"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,40 +63,94 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 1482,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"Yeonwoo’s Innocence\" matched no results in the first page"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 8019,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Capítulo 182 -> capitulo-182",
+                        "Capítulo 181 -> capitulo-181",
+                        "Capítulo 180 -> capitulo-180"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 1912,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://minitwoscan.com/wp-content/uploads/WP-manga/data/manga_6138c0f7b6666/56c93ce88e45525fa728f53150a77bd2/00.jpg",
+                        "https://minitwoscan.com/wp-content/uploads/WP-manga/data/manga_6138c0f7b6666/56c93ce88e45525fa728f53150a77bd2/01.jpg",
+                        "https://minitwoscan.com/wp-content/uploads/WP-manga/data/manga_6138c0f7b6666/56c93ce88e45525fa728f53150a77bd2/02.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 7289,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:46.523398948Z",
+    "comparedTo": "2026-10-30T01:36:16.606956964Z",
     "changes": [
         {
             "source": "MiniTwo Scan",
             "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "MiniTwo Scan",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "MiniTwo Scan",
+            "lang": "pt-BR",
             "scenario": "search",
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "MiniTwo Scan",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "MiniTwo Scan",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "MiniTwo Scan",
+            "lang": "pt-BR",
+            "scenario": "images",
             "from": null,
-            "to": "SKIP"
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

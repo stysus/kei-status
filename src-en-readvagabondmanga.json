@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:28.321246315Z",
+    "generatedAt": "2026-11-02T11:35:47.229717018Z",
     "module": ":src:en:readvagabondmanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 5300358436613908601,
             "name": "Read Vagabond Manga",
             "lang": "en",
             "baseUrl": "https://readbagabondo.com",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,18 +23,20 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 164,
+                    "durationMs": 192,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 85,
-                    "message": "HTTP error 404",
+                    "status": "PASS",
+                    "durationMs": 149,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Vagabond -> /#1"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -55,40 +57,86 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 102,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Vagabond -> /#1"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 123,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Vol. 37 Ch. 322 - Dragonflies -> /volume-37/chapter-322/#1",
+                        "Vol. 37 Ch. 321 - Shusaku Collapses -> /volume-37/chapter-321/#1",
+                        "Vol. 37 Ch. 320 - Footpath -> /volume-37/chapter-320/#1"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 122,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://pub.moleve.net/chapter-1/page-1.png",
+                        "https://pub.moleve.net/chapter-1/page-2.png",
+                        "https://pub.moleve.net/chapter-1/page-3.png"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1112,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:36.604938564Z",
+    "comparedTo": "2026-10-30T01:31:28.321246315Z",
     "changes": [
         {
             "source": "Read Vagabond Manga",
             "lang": "en",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Read Vagabond Manga",
+            "lang": "en",
             "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Read Vagabond Manga",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Read Vagabond Manga",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Read Vagabond Manga",
+            "lang": "en",
+            "scenario": "images",
             "from": null,
-            "to": "SKIP"
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

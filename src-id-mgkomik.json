@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:48:56.635087338Z",
+    "generatedAt": "2026-11-02T11:40:48.415180493Z",
     "module": ":src:id:mgkomik",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 385263422541320229,
             "name": "MG Komik",
             "lang": "id",
             "baseUrl": "https://web1.mgkomik.cc",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 157,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from web1.mgkomik.cc (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 6242,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 12,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from web1.mgkomik.cc (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 903,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "A Wimp’s Strategy Guide to Conquer the Tower -> /komik/a-wimps-strategy-guide-to-conquer-the-tower/",
+                        "I, The Invincible Villain Master With My Apprentices -> /komik/i-the-invincible-villain-master-with-my-apprentices/",
+                        "Villainess Streamer -> /komik/villainess-streamer/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 25,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from web1.mgkomik.cc (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1000,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "My Avatar Is Becoming the Final Boss -> /komik/my-avatar-is-becoming-the-final-boss-remake/",
+                        "Space Marines Now Have a Status Window -> /komik/space-marines-now-have-a-status-window/",
+                        "I, The Invincible Villain Master With My Apprentices -> /komik/i-the-invincible-villain-master-with-my-apprentices/"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,82 +63,102 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 1183,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "hasNextPage=true but list is empty",
+                        "query \"A Wimp’s Strategy Guide to Conquer the Tower\" matched no results in the first page"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 830,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 53 -> /komik/a-wimps-strategy-guide-to-conquer-the-tower/chapter-53/",
+                        "Chapter 52 -> /komik/a-wimps-strategy-guide-to-conquer-the-tower/chapter-52/",
+                        "Chapter 51 -> /komik/a-wimps-strategy-guide-to-conquer-the-tower/chapter-51/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 866,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://static2.mgis.my.id/data/manga_6940c5f3d578c/ch1_ElteJ9UYR5Tz21fe341cb89ad20f0a40b89f7df183c4/01.webp",
+                        "https://static2.mgis.my.id/data/manga_6940c5f3d578c/ch1_ElteJ9UYR5Tz21fe341cb89ad20f0a40b89f7df183c4/02.webp",
+                        "https://static2.mgis.my.id/data/manga_6940c5f3d578c/ch1_ElteJ9UYR5Tz21fe341cb89ad20f0a40b89f7df183c4/03.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 294,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:33:14.613981532Z",
+    "comparedTo": "2026-10-31T05:48:56.635087338Z",
     "changes": [
         {
             "source": "MG Komik",
             "lang": "id",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "MG Komik",
             "lang": "id",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "MG Komik",
             "lang": "id",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "MG Komik",
-            "lang": "id",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "MG Komik",
             "lang": "id",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "MG Komik",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MG Komik",
             "lang": "id",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MG Komik",
             "lang": "id",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

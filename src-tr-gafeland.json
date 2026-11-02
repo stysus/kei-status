@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-01T10:48:05.069596925Z",
+    "generatedAt": "2026-11-02T11:39:19.481045035Z",
     "module": ":src:tr:gafeland",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 3266930735690843593,
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 4416,
+                    "durationMs": 6020,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 173,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Kana Susamış Erkek Başrolün Annesi Oldum -> /manga/kana-susamis-erkek-basrolun-annesi-oldum/",
-                        "Lütfen Kocacığım Yeniden Evlenelim! -> /manga/lutfen-kocacigim-yeniden-evlenelim/",
-                        "Vampir Ve Sevgili Avcısı -> /manga/vampir-ve-sevgili-avcisi/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 1630,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gafeland.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 176,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Yeteneği Çok Gizli Bir Çocuk Babasını Arıyor -> /manga/yetenegi-cok-gizli-bir-cocuk-babasini-ariyor/",
-                        "Başrollerin Çocuklarını Yetiştirdim -> /manga/basrollerin-cocuklarini-yetistirdim/",
-                        "Kötü Adamla Sevgili Değilim -> /manga/kotu-adamla-sevgili-degilim/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 354,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gafeland.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,100 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "BLOCKED",
-                    "durationMs": 312,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gafeland.com (HTTP 403)"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 198,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 33 -> /kana-susamis-erkek-basrolun-annesi-oldum-bolum-33/",
-                        "Bölüm 32 -> /kana-susamis-erkek-basrolun-annesi-oldum-bolum-32/",
-                        "Bölüm 31 -> /kana-susamis-erkek-basrolun-annesi-oldum-bolum-31/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 177,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://gafeland.com/wp-content/uploads/2026/02/0.jpg",
-                        "https://gafeland.com/wp-content/uploads/2026/02/1.jpg",
-                        "https://gafeland.com/wp-content/uploads/2026/02/2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1462,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T10:06:32.318696845Z",
+    "comparedTo": "2026-11-01T10:48:05.069596925Z",
     "changes": [
         {
             "source": "gafeland",
             "lang": "tr",
-            "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "gafeland",
-            "lang": "tr",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "gafeland",
             "lang": "tr",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "gafeland",
-            "lang": "tr",
-            "scenario": "search",
-            "from": "SKIP",
+            "from": "PASS",
             "to": "BLOCKED"
         },
         {
             "source": "gafeland",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "gafeland",
+            "lang": "tr",
+            "scenario": "search",
+            "from": "BLOCKED",
+            "to": "SKIP"
         },
         {
             "source": "gafeland",
             "lang": "tr",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "gafeland",
             "lang": "tr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

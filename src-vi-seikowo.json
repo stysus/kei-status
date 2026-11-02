@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-01T10:47:36.762290494Z",
+    "generatedAt": "2026-11-02T11:40:19.217903616Z",
     "module": ":src:vi:seikowo",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 3049157397733640125,
@@ -23,15 +23,60 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 735,
+                    "durationMs": 514,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
+                    "status": "PASS",
+                    "durationMs": 992,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "TS Tensei Bishoujo Netora Reiko wa Netoraretai -> /2026/02/ts-tensei-bishoujo-netora-reiko-wa.html",
+                        "Zense wa Kentei. Konjou Kuzu Ouji -> /2026/10/zense-wa-kentei-konjou-kuzu-ouji.html",
+                        "30 made Hitori Dattara Issho ni Kurasou tte Itta yo ne ? -> /2026/10/30-made-hitori-dattara-issho-ni-kurasou.html"
+                    ]
+                },
+                {
+                    "name": "latest",
+                    "status": "PASS",
+                    "durationMs": 446,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Chào mừng đến với nhà hàng của những kẻ bị ruồng bỏ -> /2026/04/chao-mung-en-voi-nha-hang-cua-nhung-ke.html",
+                        "Cuộc chơi trên núi tử thần -> /2026/04/cuoc-choi-tren-nui-tu-than_5.html",
+                        "Cuộc sống \"thiện xạ\" của ông chú được triệu hồi sang dị giới -> /2026/04/cuoc-song-thien-xa-cua-ong-chu-uoc_51.html"
+                    ]
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 2,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "4 filters"
+                    ]
+                },
+                {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 11058,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"TS Tensei Bishoujo Netora Reiko wa Netoraretai\" matched no results in the first page"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
                     "status": "THROTTLED",
-                    "durationMs": 1823,
+                    "durationMs": 1863,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
@@ -39,61 +84,50 @@
                     "samples": []
                 },
                 {
-                    "name": "latest",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "seikowo-app.blogspot.com answered HTTP 429 earlier in this run",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "filters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "seikowo-app.blogspot.com answered HTTP 429 earlier in this run",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
-                },
-                {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T10:11:26.976936168Z",
+    "comparedTo": "2026-11-01T10:47:36.762290494Z",
     "changes": [
         {
             "source": "Seikowo",
             "lang": "vi",
-            "scenario": "connectivity",
+            "scenario": "popular",
             "from": "THROTTLED",
             "to": "PASS"
         },
         {
             "source": "Seikowo",
             "lang": "vi",
-            "scenario": "popular",
+            "scenario": "latest",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Seikowo",
+            "lang": "vi",
+            "scenario": "filters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Seikowo",
+            "lang": "vi",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Seikowo",
+            "lang": "vi",
+            "scenario": "chapters",
             "from": "SKIP",
             "to": "THROTTLED"
         }

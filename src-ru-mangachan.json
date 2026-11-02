@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-01T10:46:27.409677214Z",
+    "generatedAt": "2026-11-02T11:39:44.157986489Z",
     "module": ":src:ru:mangachan",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "efa93f5a",
     "sources": [
         {
             "sourceId": 7,
@@ -22,28 +22,26 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1842,
+                    "status": "WARN",
+                    "durationMs": 529,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 502"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 531,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 228,
+                    "message": "HTTP error 502",
                     "notes": [],
-                    "samples": [
-                        "Girl the Wild's -> /manga/33-girl-the-wilds.html",
-                        "The Breaker: New waves -> /manga/5335-the-breaker-new-waves.html",
-                        "Monster Musume no Iru Nichijou -> /manga/13614-monster-musume-no-iru-nichijou.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 88,
+                    "durationMs": 660,
                     "message": "HTTP error 502",
                     "notes": [],
                     "samples": []
@@ -59,18 +57,18 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "FAIL",
-                    "durationMs": 467,
-                    "message": "HTTP error 502",
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 530,
-                    "message": "HTTP error 502",
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -78,26 +76,26 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T10:19:50.281912719Z",
+    "comparedTo": "2026-11-01T10:46:27.409677214Z",
     "changes": [
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "latest",
+            "scenario": "connectivity",
             "from": "PASS",
-            "to": "FAIL"
+            "to": "WARN"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "search",
+            "scenario": "popular",
             "from": "PASS",
             "to": "FAIL"
         },
@@ -105,22 +103,15 @@
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "pages",
-            "from": "PASS",
+            "from": "FAIL",
             "to": "SKIP"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "search",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []
