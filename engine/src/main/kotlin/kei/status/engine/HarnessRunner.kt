@@ -337,8 +337,13 @@ class HarnessRunner(private val config: HarnessConfig) {
      * advertises - a miss or an empty result is a WARN, a throw or timeout still FAILs - on the flow
      * where URL formats, query encoding and filter payloads concentrate, which no other scenario
      * touches.
+     *
+     * The retry carries its own full deadline, so a slow site can spend the search budget twice -
+     * bounded in practice by the first attempt having already returned a page.
+     *
+     * internal for tests: the miss-then-retry decision is pinned directly.
      */
-    private suspend fun searchScenario(source: CatalogueSource, advertised: SManga, host: String?): ScenarioResult {
+    internal suspend fun searchScenario(source: CatalogueSource, advertised: SManga, host: String?): ScenarioResult {
         // The advertised title, not the decorated listing string: sites ignore the author circle,
         // tag tail and subtitle a source hangs on its entries, and searching the whole thing came
         // back empty on scores of healthy sources (HentaiEnvy: "[Group (Author)] Title - Subtitle
@@ -351,14 +356,53 @@ class HarnessRunner(private val config: HarnessConfig) {
         // A miss is evidence only when a page actually came back: a search that threw or timed out
         // already says so in its message, and "matched no results" would claim a query nobody ever
         // issued. A miss is a WARN, not a FAIL - a lagging search index is a normal site state.
-        val hit = search.value?.mangas?.any { it.url == advertised.url } == true
-        return if (hit || search.value == null) search.result
-        else search.result.copy(
-            // capture computes the verdict from the notes it saw; the miss note is added after, so
-            // the WARN has to be raised here when nothing else did.
+        if (search.value == null || searchHit(search.value, advertised)) return search.result
+
+        // A miss with the exact advertised entry is still not a broken search: sites serve the same
+        // title under several gallery ids (IMHentai popular /gallery/386132/, search /gallery/293298/),
+        // and their engines read the punctuation the query kept as search syntax - "Mojo!",
+        // "(C92) Lust Vampire (Fate/Grand Order)" - which no user types. Retry once with the query
+        // reduced to letters and digits before calling it a miss.
+        val plain = plainQuery(query)
+        val retried = if (plain.isNotEmpty() && !plain.equals(query, ignoreCase = true)) {
+            capture("search", ::mangaNotes, ::mangaSamples, host = host) {
+                source.getSearchManga(1, plain, source.getFilterList())
+            }
+        } else {
+            null
+        }
+
+        // capture computes the verdict from the notes it saw; the miss note is added after, so
+        // the WARN has to be raised here when nothing else did.
+        fun missWith(extra: List<String>) = search.result.copy(
             status = if (search.result.status == Status.PASS) Status.WARN else search.result.status,
-            notes = search.result.notes + "query \"$query\" matched no results in the first page",
+            notes = search.result.notes + listOf("query \"$query\" matched no results in the first page") + extra,
         )
+
+        // A retry that never came back is the retry's verdict, not a wider miss: reporting the first
+        // attempt's WARN here would swallow a FAIL or THROTTLED the retry already said - and it may
+        // have tripped the host's breaker. The honest result is the retry's own, with the first
+        // attempt's notes kept for context.
+        if (retried != null && retried.value == null) {
+            return retried.result.copy(notes = retried.result.notes + search.result.notes)
+        }
+
+        return if (searchHit(retried?.value, advertised)) {
+            retried!!.result.copy(notes = retried.result.notes + "the site found nothing for \"$query\"; the retry with \"$plain\" did")
+        } else {
+            missWith(listOfNotNull(retried?.let { "a retry without punctuation (\"$plain\") also matched nothing" }))
+        }
+    }
+
+    /** The URL match, or the same title once both sides are stripped the way the query is: sites
+     * advertise one gallery from popular and another copy of it from search. A containment match
+     * needs something to hold onto - a title stripped to a couple of characters would match almost
+     * anything the page returned. */
+    private fun searchHit(mangasPage: MangasPage?, advertised: SManga): Boolean {
+        val expected = normalizedTitle(advertised.title)
+        return mangasPage?.mangas?.any {
+            it.url == advertised.url || (expected.length >= 4 && normalizedTitle(it.title).contains(expected))
+        } == true
     }
 
     private fun baseUrlOf(source: CatalogueSource): String =
@@ -678,6 +722,23 @@ internal fun searchQuery(title: String): String {
         .trim()
     return cleaned.ifEmpty { title }
 }
+
+/**
+ * The form of the query a site's own engine actually answers when the decorated one misses.
+ *
+ * Gallery engines read punctuation as search syntax - nhentai-family sites treat `!` as an
+ * exclusion and parentheses as grouping, and a CJK bracketed tail survives the [searchQuery] strip -
+ * so the retry keeps only letters, digits and spaces. Empty when nothing survives, which the caller
+ * reads as "nothing to retry with".
+ */
+internal fun plainQuery(query: String): String =
+    query.replace(NON_WORD_CHARS, " ").replace(WHITESPACE_RUN, " ").trim()
+
+private val NON_WORD_CHARS = Regex("[^\\p{L}\\p{N}]+")
+
+/** Titles compared the way search answers them: cleaned, case-folded, whitespace-collapsed. */
+private fun normalizedTitle(title: String): String =
+    searchQuery(title).replace(WHITESPACE_RUN, " ").trim().lowercase()
 
 private val BRACKETED_TAG = Regex("\\[[^\\]]*]")
 private val SUBTITLE_DASH = Regex("\\s+[-–—]\\s+")

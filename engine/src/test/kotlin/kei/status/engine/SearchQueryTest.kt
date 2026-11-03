@@ -41,4 +41,17 @@ class SearchQueryTest {
     fun `the leftover spacing is collapsed`() {
         assertEquals("Title", searchQuery("  [Group]  Title  [Tag] "))
     }
+
+    @Test
+    fun `plainQuery keeps only what a site's own engine matches on`() {
+        // The shapes the 2026-11-02 sweep exposed: a gallery engine treats `!` as exclusion and
+        // parentheses as grouping, so "Mojo!" and "(C92) Lust Vampire (Fate/Grand Order)" matched
+        // nothing, and a CJK bracketed tail survives searchQuery.
+        assertEquals("Mojo", plainQuery("Mojo!"))
+        assertEquals("C92 Lust Vampire Fate Grand Order", plainQuery("(C92) Lust Vampire (Fate/Grand Order)"))
+        assertEquals("I m the worst Zenjitu Tan", plainQuery("「I'm the worst...(Zenjitu Tan)"))
+        assertEquals("Master Piece", plainQuery("Master_ Piece"))
+        assertEquals("Ochako", plainQuery("Ochako"))
+        assertEquals("", plainQuery("!!!"))
+    }
 }

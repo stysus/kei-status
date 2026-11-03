@@ -167,6 +167,21 @@ source, key identity, roll-up mismatch, scenario order), `ModuleListTest` (media
 `./kei-status run :<module> --store /tmp/kei-status-verify`, then `./ci/healthcheck.sh` on
 any store to see the summary it would render.
 
+## Search miss re-tried and matched by title (Nov 2026)
+
+The sweep's search WARNs were dominated by searches that work - the same sources answer normally in
+the app - and two harness-side causes explained most of them. First, the hit test compared the
+popular entry's URL exactly, but sites serve one title under several gallery ids, so search returned
+the right manga under an id popular never mentioned. Second, the query kept the punctuation a
+listing title carries, and gallery search engines read it as syntax - `!` as exclusion, parentheses
+as grouping - so a query like `Mojo!` or `(C92) Lust Vampire (Fate/Grand Order)` matched nothing
+though the manga is trivially findable. The hit now also accepts the advertised title once both
+sides are stripped the way the query is, and a miss is retried once with the query reduced to
+letters and digits. A retry that finds the title passes with a note saying so; one that misses both
+ways keeps the WARN with both notes. A retry that never comes back is the retry's own verdict — its
+FAIL, DOWN or THROTTLED stands, with the first attempt's notes kept for context. Pinned by
+`SearchRetryTest` and `SearchQueryTest`.
+
 ## Throttle retry doubled (Nov 2026)
 
 The sweep data showed every throttle came from sites that rate-limit the runner's datacenter IP -

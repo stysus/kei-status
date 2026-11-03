@@ -117,6 +117,16 @@ concentrate, which no other scenario touches. When popular and latest both retur
 skips with the same note as chapters and pages: there was nothing to search for, and a source whose
 first manga has no title skips for the same reason — an empty query is the harness probing badly.
 
+Before a miss is called one, the scenario gives the site the two chances a real user gives it. The
+hit is by URL or by title: several sites serve the same title under more than one gallery id, so the
+copy popular picked need not be the copy search returns for the search flow to work. And if the
+query still answers nothing, it is retried once stripped to letters and digits: gallery engines read
+the punctuation a listing title kept as search syntax (`!` as exclusion, parentheses as grouping),
+which no user types. A retry that finds the title passes with a note; one that misses too leaves the
+WARN, with both notes on it. The retry carries its own full deadline, so a slow site can spend the
+search budget twice — bounded in practice by the first attempt having already returned a page — and
+a retry that fails rather than misses is reported as the retry's own verdict, not as a wider miss.
+
 ### `pages` asks for the earliest numbered chapter
 
 A site's newest chapter is the one most often behind a paywall (a free promo chapter ages into a
