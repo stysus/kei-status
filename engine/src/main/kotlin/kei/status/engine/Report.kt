@@ -20,6 +20,10 @@ enum class Status {
      * `SKIP` ranks lowest: a source that simply has no "latest" endpoint is not in worse shape than
      * one that passed every check it supports.
      *
+     * `DOWN` ranks below `FAIL` and above `BLOCKED`: the site itself is not answering - a server
+     * error, an invalid TLS certificate, or an unreachable host. The extension never got a chance
+     * to be right or wrong.
+     *
      * `THROTTLED` ranks below `BLOCKED` and above `UNSUPPORTED`: the site asked us to slow down, so
      * the source was not checked - that is not the extension failing, but it is not a pass either.
      * It outranks `PASS` on purpose. The local checks (`metadata`, `filters`) still pass when a
@@ -47,7 +51,9 @@ enum class Status {
      * Keep in step with the reason sets that assign these statuses: [ExceptionDiagnosis.diagnose]
      * for thrown exceptions, plus the inline SKIP/WARN classifications in [HarnessRunner] (429
      * already seen, self-hosted hosts, empty listings, page notes) and [Checks]. Cloudflare
-     * origin errors (520-530) are classified as [DOWN] by [ExceptionDiagnosis].
+     * origin errors (520-530), standard server errors, invalid TLS certificates and network-level
+     * failures (connect/read timeout, connection refused, DNS) are all classified as [DOWN]
+     * by [ExceptionDiagnosis].
      */
     val meaning: String
         get() = when (this) {
@@ -57,7 +63,7 @@ enum class Status {
             SKIP -> "nothing was checked: the entry point is unsupported, the listing was empty, or the host answered 429 earlier"
             UNSUPPORTED -> "needs a platform class the harness does not provide, or the harness's browser session failed"
             BLOCKED -> "anti-bot challenge, geo-restriction, or server-side rejection; the source is not at fault"
-            DOWN -> "the site's server is not responding or its TLS certificate is invalid; the source is not at fault"
+            DOWN -> "the site's server is not responding, its TLS certificate is invalid, or it is unreachable; the source is not at fault"
             THROTTLED -> "the site is rate-limiting the sweep (HTTP 429); the source was not checked"
         }
 }

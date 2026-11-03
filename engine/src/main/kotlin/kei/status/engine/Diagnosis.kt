@@ -39,9 +39,9 @@ object ExceptionDiagnosis {
         var http403: eu.kanade.tachiyomi.network.HttpException? = null
         var hasUnsupported = false
         var hasSslError = false
+        var hasNetworkFailure = false
         var chrome: ChromeUnavailableException? = null
         var firstUnavailablePlatform: String? = null
-        var hasTimeout = false
         var firstMissingClass: Throwable? = null
 
         for (ex in chain) {
@@ -56,10 +56,10 @@ object ExceptionDiagnosis {
             if (ex is HttpException && ex.code == 403 && http403 == null) http403 = ex
             if (ex is UnsupportedOperationException || ex is NotImplementedError) hasUnsupported = true
             if (sslError(ex)) hasSslError = true
+            if (networkFailure(ex)) hasNetworkFailure = true
             if (searchNotSupported(ex)) hasUnsupported = true
             if (ex is ChromeUnavailableException && chrome == null) chrome = ex
             if (firstUnavailablePlatform == null) unavailablePlatform(ex)?.let { firstUnavailablePlatform = it }
-            if (ex is TimeoutException) hasTimeout = true
             if (firstMissingClass == null && (ex is NoClassDefFoundError || ex is ClassNotFoundException)) firstMissingClass = ex
         }
 
@@ -76,7 +76,7 @@ object ExceptionDiagnosis {
             hasUnsupported -> Status.SKIP
             chrome != null -> Status.UNSUPPORTED
             firstUnavailablePlatform != null -> Status.UNSUPPORTED
-            hasTimeout -> Status.FAIL
+            hasNetworkFailure -> Status.DOWN
             else -> Status.FAIL
         }
 
@@ -112,6 +112,8 @@ object ExceptionDiagnosis {
                     "the site's origin server is not responding (HTTP ${serverError!!.code}); the source is not at fault"
                 hasSslError ->
                     "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault"
+                hasNetworkFailure ->
+                    "the site is unreachable (${rootMessage(chain) ?: "network error"}); the source is not at fault"
                 else ->
                     "the site is unreachable; the source is not at fault"
             }
@@ -241,6 +243,21 @@ object ExceptionDiagnosis {
             (t.message?.let {
                 "SSL" in it || "certificate" in it || "NotAfter" in it
             } == true)
+
+    /**
+     * True when the exception is a network-level failure: the site is unreachable because
+     * DNS failed, the TCP connection was refused or timed out, or a read timed out waiting
+     * for the server to respond. These are site availability problems, not extension bugs.
+     *
+     * [java.net.SocketTimeoutException] covers both connect and read timeouts from OkHttp.
+     * [java.util.concurrent.TimeoutException] is NOT matched here — that is the extension's
+     * own timeout (e.g. `withTimeout`) and stays FAIL.
+     */
+    private fun networkFailure(t: Throwable): Boolean =
+        t is java.net.SocketTimeoutException ||
+            t is java.net.ConnectException ||
+            t is java.net.UnknownHostException ||
+            t is java.net.NoRouteToHostException
 
     /**
      * True when the extension intentionally signals that it does not support search, by

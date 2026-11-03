@@ -169,17 +169,22 @@ any store to see the summary it would render.
 
 ## Diagnosis reclassification (Nov 2026)
 
-Four categories of FAIL reclassified in one batch (177 of 381 FAILs):
+Five categories of FAIL reclassified in one batch:
 
-| Category | Hits | New status | Rationale |
-|---|---|---|---|
-| HTTP 403 (no anti-bot) | 90 | BLOCKED | 59/90 are Japanese geo-blocks; the rest are server-side rejections. The reason text is deliberately cautious: a pages/chapters 403 can be hotlink protection (Referer mismatch), so it says "typically geo-blocking or bot rejection" rather than "not an extension bug". |
-| HTTP 500-504, 520-530 | 70 | DOWN | Origin server errors. 520-530 are Cloudflare-specific; 500-504 are standard. Range stops at 504 + 520-530 (not 505-519, which includes 511 Network Authentication Required — a proxy/captive portal, not "server down"). |
-| SSL/TLS errors | 12 | DOWN | Expired certs, hostname mismatches, peer shutdowns. Detection by exception type (`SSLException` hierarchy + `CertificateException`), with fallback on message keywords (`SSL`, `certificate`, `NotAfter`). |
-| Search-not-supported throws | 5 | SKIP | Extensions that throw `Exception("No search")` or similar. Only matches non-`RuntimeException` exceptions with specific message patterns; a validation message like "Search query must be at least 3 characters" remains FAIL. |
+| Category | New status | Rationale |
+|---|---|---|
+| HTTP 403 (no anti-bot) | BLOCKED | Mostly Japanese geo-blocks; the rest are server-side rejections. The reason text is deliberately cautious: a pages/chapters 403 can be hotlink protection (Referer mismatch), so it says "typically geo-blocking or bot rejection" rather than "not an extension bug". |
+| HTTP 500-504, 520-530 | DOWN | Origin server errors. 520-530 are Cloudflare-specific; 500-504 are standard. Range stops at 504 + 520-530 (not 505-519, which includes 511 Network Authentication Required — a proxy/captive portal, not "server down"). |
+| SSL/TLS errors | DOWN | Expired certs, hostname mismatches, peer shutdowns. Detection by exception type (`SSLException` hierarchy + `CertificateException`), with fallback on message keywords (`SSL`, `certificate`, `NotAfter`). |
+| Search-not-supported throws | SKIP | Extensions that throw `Exception("No search")` or similar. Only matches non-`RuntimeException` exceptions with specific message patterns; a validation message like "Search query must be at least 3 characters" remains FAIL. |
+| Network-level failures | DOWN | Connect and read timeouts, connection refused, DNS resolution failures. Classified by exception type — `SocketTimeoutException`, `ConnectException`, `UnknownHostException`, `NoRouteToHostException` — never by message. Historical note: the Nov 2 DNS wave (93 sources, 34 modules, all FAIL) would read as DOWN if it recurred, not a wall of false regressions. `java.util.concurrent.TimeoutException` is deliberately NOT matched — that is the extension's own timeout and stays FAIL. |
 
-**CI churn note:** The first sweep after this change will show ~90 FAIL→BLOCKED transitions
-and ~82 FAIL→DOWN transitions, triggering the `REGRESSION_BURST` warning in `ci/healthcheck.sh`
-(line 62: `to in ("FAIL", "BLOCKED")` counts FAIL→BLOCKED as regression). This is one-time
-classification churn, not a real regression. The burst warning self-resolves after one sweep
-because the new baselines stabilise.
+Counts per category are intentionally omitted: they were true only for the sweep that
+motivated the change and would read as a stale baseline later. Check the store or the
+classification date range if the magnitude ever matters again.
+
+**CI churn note:** The first sweep after this change shows a burst of one-time classification
+transitions that triggers the `REGRESSION_BURST` warning in `ci/healthcheck.sh` (line 62:
+`to in ("FAIL", "BLOCKED")` counts FAIL→BLOCKED as regression). This is classification churn,
+not a real regression. The burst warning self-resolves after one sweep because the new
+baselines stabilise.

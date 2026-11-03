@@ -432,6 +432,42 @@ class ChecksTest {
     }
 
     @Test
+    fun `a connect timeout is down, not a failure`() {
+        val diagnosis = Checks.diagnose(java.net.SocketTimeoutException("Connect timed out"))
+        assertEquals(Status.DOWN, diagnosis.status)
+        assertTrue(diagnosis.message.contains("Connect timed out"))
+    }
+
+    @Test
+    fun `a read timeout is down, not a failure`() {
+        val diagnosis = Checks.diagnose(java.net.SocketTimeoutException("timeout"))
+        assertEquals(Status.DOWN, diagnosis.status)
+    }
+
+    @Test
+    fun `a connection refused is down, not a failure`() {
+        val diagnosis = Checks.diagnose(java.net.ConnectException("Connection refused (connect failed)"))
+        assertEquals(Status.DOWN, diagnosis.status)
+        assertTrue(diagnosis.message.contains("Connection refused"))
+    }
+
+    @Test
+    fun `a dns failure is down, not a failure`() {
+        val diagnosis = Checks.diagnose(java.net.UnknownHostException("example.com: No address associated with hostname"))
+        assertEquals(Status.DOWN, diagnosis.status)
+        assertTrue(diagnosis.message.contains("No address"))
+    }
+
+    @Test
+    fun `a juc TimeoutException stays fail`() {
+        // java.util.concurrent.TimeoutException is the extension's own timeout, not a network
+        // failure — SocketTimeoutException is the network one. Message is the exact string
+        // HarnessRunner uses when the extension blows the harness deadline.
+        val diagnosis = Checks.diagnose(java.util.concurrent.TimeoutException("loading the extension timed out after 45s"))
+        assertEquals(Status.FAIL, diagnosis.status)
+    }
+
+    @Test
     fun `search not supported is skip, not a failure`() {
         val diagnosis = Checks.diagnose(Exception("No search"))
         assertEquals(Status.SKIP, diagnosis.status)

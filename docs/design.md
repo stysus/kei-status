@@ -138,6 +138,23 @@ thread and the deadline interrupts it, which stops both blocking and suspending 
 swallows the interrupt is abandoned rather than waited for: the report records the timeout and the
 sweep moves on, and the thread is a daemon so it cannot hold the JVM open.
 
+### Network failures are classified by type, not by message
+
+An exception that says the site never answered is the site's problem, not the extension's. By
+exception type: HTTP 403 without an anti-bot challenge reads as a geo-block or server-side
+rejection (`BLOCKED`), HTTP 500-504 and Cloudflare 520-530 read as origin errors (`DOWN`), TLS
+failures read as certificate problems (`DOWN`), and `SocketTimeoutException`, `ConnectException`,
+`UnknownHostException` and `NoRouteToHostException` read as an unreachable host (`DOWN`).
+Never by message: a validation error like "Search query must be at least 3 characters" contains
+"search" but is still a `FAIL`.
+
+Two timeouts are deliberately kept apart. `java.net.SocketTimeoutException` is the network's —
+the site accepted the connection and never answered — and is `DOWN`. `java.util.concurrent.
+TimeoutException` is the extension's own budget expiring inside the harness deadline and stays
+`FAIL`: nothing about the site was measured. Browser failures keep their own status — a
+`ConnectException` inside a `ChromeUnavailableException` is a missing browser (`UNSUPPORTED`),
+not a site that is down.
+
 ### Linkage failures are classified by their cause
 
 A link failure is only `UNSUPPORTED` when it names an `android.*`/`androidx.*` member the shim does
@@ -155,7 +172,8 @@ side is wrong.
 
 ## Verdicts on real sources
 
-A run over eleven modules, recorded while building the shims, produced `PASS`, `FAIL` and `BLOCKED`:
+A run over eleven modules, recorded while building the shims, produced `PASS`, `FAIL` and `BLOCKED`.
+(Historical: HTTP 522 was then a `FAIL`; it is classified `DOWN` today.)
 
 | Module | Verdict | Why |
 |---|---|---|

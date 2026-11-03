@@ -73,7 +73,8 @@ Every scenario, source and module ends in one of these:
 | `FAIL` | exception, timeout, or broken contract |
 | `SKIP` | the source does not support that entry point, its oldest chapter has to be unlocked too, or it runs against a server you host yourself |
 | `UNSUPPORTED` | needs an Android class the harness does not provide |
-| `BLOCKED` | anti-bot challenge; not the source's fault |
+| `BLOCKED` | anti-bot challenge or server-side rejection (HTTP 403); not the source's fault |
+| `DOWN` | the site is not answering — server error, invalid TLS certificate, or unreachable; not the source's fault |
 | `THROTTLED` | the site is rate-limiting the sweep (`HTTP 429`); the source was not checked |
 
 `THROTTLED` exists because a sweep is a burst no reader produces. A module can declare one source per
@@ -82,6 +83,11 @@ them one after another, so the site's rate limit arrives as dozens of identical 
 nothing about the extension. It ranks below `BLOCKED` and above `UNSUPPORTED`: not the extension's
 fault, but not a pass either, and it outranks `PASS` so the local checks cannot make an unchecked
 source look healthy.
+
+`DOWN` is the same kind of verdict one step further along: the site answered with a server error, an
+invalid certificate, or not at all - connect/read timeouts, refused connections, failed DNS - so the
+extension never got a chance to be right or wrong. It ranks below `FAIL` and above `BLOCKED` for the
+same reason `THROTTLED` outranks `PASS`.
 
 Two things keep it from spreading:
 

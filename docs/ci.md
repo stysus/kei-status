@@ -102,8 +102,8 @@ Two details keep a scheduled run useful rather than noisy:
 
 - A `FAIL` verdict is a finding, not a build failure, so the run does not go red when a site breaks.
   The page is the result. Only a broken harness, a missing browser, or a missing Android SDK fails
-  the job. `THROTTLED` is not a build failure either: a sweep that got rate-limited recorded what it
-  could, and the page says so.
+  the job. `THROTTLED`, `DOWN` and `BLOCKED` are not build failures either: a site that is down,
+  rate-limited or blocking the sweep recorded what it could, and the page says so.
 - A module that does not compile still gets a report: the harness records the missing layout as a
   failed load, so the module appears on the page with its reason instead of disappearing.
 
