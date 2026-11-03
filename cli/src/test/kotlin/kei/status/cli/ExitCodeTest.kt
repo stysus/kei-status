@@ -63,6 +63,7 @@ class ExitCodeTest {
                 SourceReport(1, "Blocked", "en", "https://example.com", Status.BLOCKED, emptyList()),
                 SourceReport(2, "Throttled", "en", "https://example.com", Status.THROTTLED, emptyList()),
                 SourceReport(3, "Unsupported", "en", "https://example.com", Status.UNSUPPORTED, emptyList()),
+                SourceReport(4, "Down", "en", "https://example.com", Status.DOWN, emptyList()),
             ),
         )
         assertEquals(0, exitCode(listOf(report to null)))

@@ -381,6 +381,7 @@ object ReportHtml {
           --warn: #a16207; --warn-bg: #fef9c3;
           --fail: #b91c1c; --fail-bg: #fee2e2;
           --blocked: #7c2d12; --blocked-bg: #ffedd5;
+          --down: #9d174d; --down-bg: #fce7f3;
           --throttled: #0f766e; --throttled-bg: #ccfbf1;
           --unsupported: #6b21a8; --unsupported-bg: #f3e8ff;
           --skip: #4b5563; --skip-bg: #f3f4f6;
@@ -393,6 +394,7 @@ object ReportHtml {
             --warn: #d29922; --warn-bg: #3a2d0c;
             --fail: #f85149; --fail-bg: #3d1418;
             --blocked: #db6d28; --blocked-bg: #3a2110;
+            --down: #f472b6; --down-bg: #3d1429;
             --throttled: #2dd4bf; --throttled-bg: #0d2f2b;
             --unsupported: #bc8cff; --unsupported-bg: #2a1c3d;
             --skip: #8b949e; --skip-bg: #21262d;
@@ -497,6 +499,7 @@ object ReportHtml {
         .hist .warn { color: var(--warn); }
         .hist .fail { color: var(--fail); }
         .hist .blocked { color: var(--blocked); }
+        .hist .down { color: var(--down); }
         .hist .throttled { color: var(--throttled); }
         .hist .unsupported { color: var(--unsupported); }
         .hist .skip { color: var(--skip); }
@@ -517,6 +520,7 @@ object ReportHtml {
         .pill.warn { color: var(--warn); background: var(--warn-bg); }
         .pill.fail { color: var(--fail); background: var(--fail-bg); }
         .pill.blocked { color: var(--blocked); background: var(--blocked-bg); }
+        .pill.down { color: var(--down); background: var(--down-bg); }
         .pill.throttled { color: var(--throttled); background: var(--throttled-bg); }
         .pill.unsupported { color: var(--unsupported); background: var(--unsupported-bg); }
         .pill.skip { color: var(--skip); background: var(--skip-bg); }

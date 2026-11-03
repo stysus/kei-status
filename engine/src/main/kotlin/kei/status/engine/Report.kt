@@ -10,6 +10,7 @@ enum class Status {
     SKIP,
     UNSUPPORTED,
     BLOCKED,
+    DOWN,
     THROTTLED,
     ;
 
@@ -27,7 +28,8 @@ enum class Status {
      */
     val severity: Int
         get() = when (this) {
-            FAIL -> 6
+            FAIL -> 7
+            DOWN -> 6
             BLOCKED -> 5
             THROTTLED -> 4
             UNSUPPORTED -> 3
@@ -44,7 +46,8 @@ enum class Status {
      *
      * Keep in step with the reason sets that assign these statuses: [ExceptionDiagnosis.diagnose]
      * for thrown exceptions, plus the inline SKIP/WARN classifications in [HarnessRunner] (429
-     * already seen, self-hosted hosts, empty listings, page notes) and [Checks].
+     * already seen, self-hosted hosts, empty listings, page notes) and [Checks]. Cloudflare
+     * origin errors (520-530) are classified as [DOWN] by [ExceptionDiagnosis].
      */
     val meaning: String
         get() = when (this) {
@@ -54,6 +57,7 @@ enum class Status {
             SKIP -> "nothing was checked: the entry point is unsupported, the listing was empty, or the host answered 429 earlier"
             UNSUPPORTED -> "needs a platform class the harness does not provide, or the harness's browser session failed"
             BLOCKED -> "anti-bot challenge; the source is not at fault"
+            DOWN -> "the site's origin server is not responding (Cloudflare 5xx); the source is not at fault"
             THROTTLED -> "the site is rate-limiting the sweep (HTTP 429); the source was not checked"
         }
 }

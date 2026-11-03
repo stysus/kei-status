@@ -400,11 +400,21 @@ class ChecksTest {
     }
 
     @Test
+    fun `a cloudflare origin error is down, not a failure`() {
+        for (code in 520..530) {
+            val diagnosis = Checks.diagnose(HttpException(code))
+            assertEquals("HTTP $code", Status.DOWN, diagnosis.status)
+            assertTrue("HTTP $code reason", diagnosis.message.contains(code.toString()))
+        }
+    }
+
+    @Test
     fun `throttled sits below blocked and above unsupported`() {
         // The order decides two things: which verdict a module rolls up to, and where the page's
         // filter chips put it. A throttle outranks PASS on purpose - the local checks still pass
         // while a site is refusing the sweep, and letting them win would report it as healthy.
-        assertTrue(Status.FAIL.severity > Status.BLOCKED.severity)
+        assertTrue(Status.FAIL.severity > Status.DOWN.severity)
+        assertTrue(Status.DOWN.severity > Status.BLOCKED.severity)
         assertTrue(Status.BLOCKED.severity > Status.THROTTLED.severity)
         assertTrue(Status.THROTTLED.severity > Status.UNSUPPORTED.severity)
         assertTrue(Status.THROTTLED.severity > Status.PASS.severity)

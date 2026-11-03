@@ -274,7 +274,7 @@ class ReportHtmlTest {
             .toList()
 
         assertEquals(
-            listOf("fail", "blocked", "throttled", "unsupported", "warn", "pass", "skip"),
+            listOf("fail", "down", "blocked", "throttled", "unsupported", "warn", "pass", "skip"),
             filters,
         )
     }

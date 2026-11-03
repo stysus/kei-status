@@ -35,6 +35,7 @@ object ExceptionDiagnosis {
         var hasActivity = false
         var hasCaptchaInteraction = false
         var http429: eu.kanade.tachiyomi.network.HttpException? = null
+        var cloudflareOrigin: eu.kanade.tachiyomi.network.HttpException? = null
         var hasUnsupported = false
         var chrome: ChromeUnavailableException? = null
         var firstUnavailablePlatform: String? = null
@@ -49,6 +50,7 @@ object ExceptionDiagnosis {
             if (ex is ActivityNotFoundException) hasActivity = true
             if (ex.message?.startsWith("Captcha needs interaction") == true) hasCaptchaInteraction = true
             if (ex is HttpException && ex.code == 429 && http429 == null) http429 = ex
+            if (ex is HttpException && ex.code in 520..530 && cloudflareOrigin == null) cloudflareOrigin = ex
             if (ex is UnsupportedOperationException || ex is NotImplementedError) hasUnsupported = true
             if (ex is ChromeUnavailableException && chrome == null) chrome = ex
             if (firstUnavailablePlatform == null) unavailablePlatform(ex)?.let { firstUnavailablePlatform = it }
@@ -63,6 +65,7 @@ object ExceptionDiagnosis {
             hasGeoRestricted -> Status.BLOCKED
             hasActivity -> Status.BLOCKED
             http429 != null -> Status.THROTTLED
+            cloudflareOrigin != null -> Status.DOWN
             hasUnsupported -> Status.SKIP
             chrome != null -> Status.UNSUPPORTED
             firstUnavailablePlatform != null -> Status.UNSUPPORTED
@@ -94,6 +97,9 @@ object ExceptionDiagnosis {
                 ?.retryAfterSeconds
                 ?.let { "the site is rate-limiting this sweep (HTTP 429, retry after ${it}s); the source was not checked" }
                 ?: "the site is rate-limiting this sweep (HTTP 429); the source was not checked"
+
+            Status.DOWN ->
+                "the site's origin server is not responding (HTTP ${cloudflareOrigin!!.code}); the source is not at fault"
 
             Status.SKIP -> "not supported by this source"
 
