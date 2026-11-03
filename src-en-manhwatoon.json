@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:31:20.688715848Z",
+    "generatedAt": "2026-11-03T11:08:03.164816482Z",
     "module": ":src:en:manhwatoon",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 3590279382085161370,
             "name": "Manhwa Toon",
             "lang": "en",
             "baseUrl": "https://www.manhwatoon.me",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1460,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30080,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1281,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "[ratatatat74] tomboy sister bully netorare [English] -> 50650",
-                        "MILF Exchange Plan -> 444",
-                        "[karukiya] My Mother Will Be My Classmate’s Toy For 3 Days During The Exam Period – Chapter 1 Asami Arc [English] [Bamboozalator] -> 52340"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30006,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1354,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Confessional Sex -> 55934",
-                        "Return of the Legendary Spear Knight -> 52371",
-                        "Player Who Returned 10,000 Years Later -> 829"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30001,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,37 +61,69 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 889,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "[ratatatat74] tomboy sister bully netorare [English] -> 50650"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 663,
-                    "message": "NullPointerException at MadaraBase.parseDetails(MadaraBase.kt:213)",
-                    "notes": [
-                        "java.lang.NullPointerException: <no message>"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T10:18:10.792653177Z",
-    "changes": [],
+    "comparedTo": "2026-11-02T11:31:20.688715848Z",
+    "changes": [
+        {
+            "source": "Manhwa Toon",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Manhwa Toon",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Manhwa Toon",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Manhwa Toon",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhwa Toon",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        }
+    ],
     "throttledHosts": []
 }

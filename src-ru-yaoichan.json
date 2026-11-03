@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:03:00.764236653Z",
+    "generatedAt": "2026-11-03T11:12:45.411937494Z",
     "module": ":src:ru:yaoichan",
     "sourceRoot": "",
     "extensionCommit": "eac81a2c",
@@ -22,18 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 1353,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 31248,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
                     "notes": [
-                        "home page returned HTTP 502"
+                        "java.net.SocketTimeoutException: timeout"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "DOWN",
-                    "durationMs": 271,
+                    "durationMs": 458,
                     "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
@@ -43,10 +43,10 @@
                 {
                     "name": "latest",
                     "status": "DOWN",
-                    "durationMs": 279,
-                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "durationMs": 30152,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                        "java.net.SocketTimeoutException: timeout"
                     ],
                     "samples": []
                 },
@@ -87,27 +87,13 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:51:01.148833126Z",
+    "comparedTo": "2026-11-03T07:03:00.764236653Z",
     "changes": [
         {
             "source": "YaoiChan",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "FAIL",
-            "to": "WARN"
-        },
-        {
-            "source": "YaoiChan",
-            "lang": "ru",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "DOWN"
-        },
-        {
-            "source": "YaoiChan",
-            "lang": "ru",
-            "scenario": "latest",
-            "from": "FAIL",
+            "from": "WARN",
             "to": "DOWN"
         }
     ],

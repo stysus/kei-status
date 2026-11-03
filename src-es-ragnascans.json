@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:03:15.249218494Z",
+    "generatedAt": "2026-11-03T11:08:08.689600259Z",
     "module": ":src:es:ragnascans",
     "sourceRoot": "",
     "extensionCommit": "eac81a2c",
@@ -10,7 +10,7 @@
             "name": "Ragna Scans",
             "lang": "es",
             "baseUrl": "https://lector.ragnascan.xyz",
-            "status": "THROTTLED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 306,
+                    "durationMs": 466,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 55,
+                    "durationMs": 89,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 47,
+                    "durationMs": 84,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 47,
+                    "durationMs": 77,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,50 +74,62 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "THROTTLED",
-                    "durationMs": 6205,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 157,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Capítulo 87 -> /leer/ha-llegado-el-final/capitulo-87.00",
+                        "Capítulo 86 -> /leer/ha-llegado-el-final/capitulo-86.00",
+                        "Capítulo 85 -> /leer/ha-llegado-el-final/capitulo-85.00"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 100,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-87/1.webp",
+                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-87/2.webp",
+                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-87/3.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 488,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:44:49.907783922Z",
+    "comparedTo": "2026-11-03T07:03:15.249218494Z",
     "changes": [
         {
             "source": "Ragna Scans",
             "lang": "es",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "Ragna Scans",
             "lang": "es",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Ragna Scans",
             "lang": "es",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
-    "throttledHosts": [
-        "lector.ragnascan.xyz"
-    ]
+    "throttledHosts": []
 }

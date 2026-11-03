@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:02:07.764113692Z",
+    "generatedAt": "2026-11-03T11:13:30.128208274Z",
     "module": ":src:ja:rawbaka",
     "sourceRoot": "",
     "extensionCommit": "eac81a2c",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 140,
+                    "status": "WARN",
+                    "durationMs": 419,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "DOWN",
-                    "durationMs": 478,
+                    "durationMs": 329,
                     "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
@@ -40,15 +42,13 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 77,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "信じていた仲間達にダンジョン奥地で殺されかけたがギフト『無限ガチャ』でレベル9999の仲間達を手に入れて元パーティーメンバーと世界に復讐＆『ざまぁ！』します！ Raw Free -> /manga/shinji-te-i-ta-nakama-tachi-ni-danjon-okuchi-de-korosa-re-kake-ta-ga-gifuto-mugen-gacha-de-reberu-54687/",
-                        "片田舎のおっさん、剣聖になる Raw Free -> /manga/katainaka-no-ossan-ken-hijiri-ni-naru-31248/",
-                        "黄昏町プリズナーズ Raw Free -> /manga/tasogare-machi-prisoners-58761/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 332,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -61,49 +61,45 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "DOWN",
-                    "durationMs": 530,
-                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "DOWN",
-                    "durationMs": 460,
-                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:35:27.866001222Z",
+    "comparedTo": "2026-11-03T07:02:07.764113692Z",
     "changes": [
         {
             "source": "RawBaka",
             "lang": "ja",
-            "scenario": "popular",
+            "scenario": "connectivity",
             "from": "PASS",
-            "to": "DOWN"
+            "to": "WARN"
         },
         {
             "source": "RawBaka",
             "lang": "ja",
-            "scenario": "search",
+            "scenario": "latest",
             "from": "PASS",
             "to": "DOWN"
         },
@@ -111,22 +107,15 @@
             "source": "RawBaka",
             "lang": "ja",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "RawBaka",
-            "lang": "ja",
-            "scenario": "pages",
-            "from": "PASS",
+            "from": "DOWN",
             "to": "SKIP"
         },
         {
             "source": "RawBaka",
             "lang": "ja",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "search",
+            "from": "DOWN",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T06:59:56.961311548Z",
+    "generatedAt": "2026-11-03T11:10:28.133234771Z",
     "module": ":src:fr:manganova",
     "sourceRoot": "",
     "extensionCommit": "eac81a2c",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 547,
+                    "status": "WARN",
+                    "durationMs": 264,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 571,
+                    "durationMs": 540,
                     "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
@@ -41,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "BLOCKED",
-                    "durationMs": 267,
+                    "durationMs": 247,
                     "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
@@ -85,21 +87,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:34:47.521704234Z",
+    "comparedTo": "2026-11-03T06:59:56.961311548Z",
     "changes": [
         {
             "source": "MangaNova",
             "lang": "fr",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "MangaNova",
-            "lang": "fr",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "BLOCKED"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

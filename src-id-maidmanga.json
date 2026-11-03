@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:03:01.810787323Z",
+    "generatedAt": "2026-11-03T11:09:46.450102356Z",
     "module": ":src:id:maidmanga",
     "sourceRoot": "",
     "extensionCommit": "eac81a2c",
@@ -10,7 +10,7 @@
             "name": "Maid - Manga",
             "lang": "id",
             "baseUrl": "https://www.maid.my.id",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,35 +23,37 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 486,
+                    "durationMs": 458,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 624,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 30004,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "java.net.SocketTimeoutException: timeout"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 1265,
+                    "status": "PASS",
+                    "durationMs": 14879,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Furoufushi Shoujo no Naedoko Ryokouki -> /manga/furoufushi-shoujo-no-naedoko-ryokouki/",
+                        "Guilty Circle -> /manga/guilty-circle/",
+                        "Onii-chan wa Oshimai -> /manga/onii-chan-wa-oshimai/"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,75 +61,74 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "search",
+                    "status": "DOWN",
+                    "durationMs": 30001,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 104,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 24.2 -> /furoufushi-shoujo-no-naedoko-ryokouki-chapter-24-2-bahasa-indonesia/",
+                        "Chapter 24.1 -> /furoufushi-shoujo-no-naedoko-ryokouki-chapter-24-1-bahasa-indonesia/",
+                        "Chapter 23.2 -> /furoufushi-shoujo-no-naedoko-ryokouki-chapter-23-2-bahasa-indonesia/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 1337,
+                    "message": "HTTP error 404",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:37:23.014499280Z",
+    "comparedTo": "2026-11-03T07:03:01.810787323Z",
     "changes": [
         {
             "source": "Maid - Manga",
             "lang": "id",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "DOWN"
         },
         {
             "source": "Maid - Manga",
             "lang": "id",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Maid - Manga",
-            "lang": "id",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Maid - Manga",
             "lang": "id",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "DOWN"
+        },
+        {
+            "source": "Maid - Manga",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Maid - Manga",
             "lang": "id",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Maid - Manga",
-            "lang": "id",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

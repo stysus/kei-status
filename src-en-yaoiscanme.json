@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:02:37.085045560Z",
+    "generatedAt": "2026-11-03T11:10:00.296268125Z",
     "module": ":src:en:yaoiscanme",
     "sourceRoot": "",
     "extensionCommit": "eac81a2c",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 468,
+                    "durationMs": 516,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,13 +31,13 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 280,
+                    "durationMs": 293,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Stand By Me, Darling! -> /read/stand-by-me-darling/",
-                        "Bl Motel -> /read/bl-motel/",
-                        "Fubin Bl -> /read/fubin-bl/"
+                        "Full Book -> /read/full-book/",
+                        "Winterfield -> /read/winterfield/",
+                        "Monday's Savior -> /read/mondays-savior/"
                     ]
                 },
                 {
@@ -60,44 +60,44 @@
                 },
                 {
                     "name": "search",
-                    "status": "WARN",
-                    "durationMs": 255,
-                    "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "query \"Stand By Me, Darling!\" matched no results in the first page",
-                        "a retry without punctuation (\"Stand By Me Darling\") also matched nothing"
-                    ],
-                    "samples": []
-                },
-                {
-                    "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 264,
+                    "durationMs": 291,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Chapter 42 -> /read/stand-by-me-darling/chapter-42/",
-                        "Chapter 41 -> /read/stand-by-me-darling/chapter-41/",
-                        "Chapter 40 -> /read/stand-by-me-darling/chapter-40/"
+                        "Full Book -> /read/full-book/"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "WARN",
+                    "durationMs": 282,
+                    "message": null,
+                    "notes": [
+                        "duplicate chapter urls: [/read/full-book/chapter-30-5/]"
+                    ],
+                    "samples": [
+                        "Chapter 36 -> /read/full-book/chapter-36/",
+                        "Chapter 35 -> /read/full-book/chapter-35/",
+                        "Chapter 34 -> /read/full-book/chapter-34/"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 278,
+                    "durationMs": 274,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://img01.yaoiscan.me/chapters/3009/42/001.webp",
-                        "https://img01.yaoiscan.me/chapters/3009/42/002.webp",
-                        "https://img01.yaoiscan.me/chapters/3009/42/003.webp"
+                        "https://img01.yaoiscan.me/chapters/449/36/001.webp",
+                        "https://img01.yaoiscan.me/chapters/449/36/002.webp",
+                        "https://img01.yaoiscan.me/chapters/449/36/003.webp"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 793,
+                    "durationMs": 840,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -105,7 +105,22 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:36:25.506525223Z",
-    "changes": [],
+    "comparedTo": "2026-11-03T07:02:37.085045560Z",
+    "changes": [
+        {
+            "source": "YaoiScan (Unoriginal)",
+            "lang": "en",
+            "scenario": "search",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "YaoiScan (Unoriginal)",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ],
     "throttledHosts": []
 }

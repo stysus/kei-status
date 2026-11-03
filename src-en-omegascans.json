@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:51.800234165Z",
+    "generatedAt": "2026-11-03T11:08:47.055028834Z",
     "module": ":src:en:omegascans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 1534451209269193504,
             "name": "Omega Scans",
             "lang": "en",
             "baseUrl": "https://omegascans.org",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,32 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 320,
+                    "durationMs": 290,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 464,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Sex Stopwatch -> /series/sex-stopwatch#7",
-                        "Milf Hunting in Another World -> /series/milf-hunting-in-another-world#105",
-                        "Glory Hole Shop -> /series/glory-hole-shop#54"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 277,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 926,
+                    "durationMs": 1062,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Moby Dick -> /series/moby-dick#502",
-                        "I’m the Only Guy at the Massage Shop -> /series/im-the-only-guy-at-the-massage-shop#762",
+                        "I Banged All My Classmates After Graduation -> /series/i-banged-all-my-classmates-after-graduation#783",
+                        "Banging My Friend's Mom -> /series/banging-my-friends-mom#802",
                         "A Magical Girl Never Loses! -> /series/a-magical-girl-never-loses#798"
                     ]
                 },
@@ -65,56 +63,63 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1938,
+                    "durationMs": 1904,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Sex Stopwatch -> /series/sex-stopwatch#7"
+                        "I Banged All My Classmates After Graduation -> /series/i-banged-all-my-classmates-after-graduation#783"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 2131,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chapter 155 - END -> /series/sex-stopwatch/chapter-155#10811",
-                        "Chapter 154 -> /series/sex-stopwatch/chapter-154#10798",
-                        "Chapter 153 -> /series/sex-stopwatch/chapter-153#10747"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 1997,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 875,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://media.omegascans.org/file/zFSsXt/uploads/series/sex-stopwatch/50c215c5-3da6-4e36-b07d-65613eaca352/01.jpg",
-                        "https://media.omegascans.org/file/zFSsXt/uploads/series/sex-stopwatch/50c215c5-3da6-4e36-b07d-65613eaca352/02.jpg",
-                        "https://media.omegascans.org/file/zFSsXt/uploads/series/sex-stopwatch/50c215c5-3da6-4e36-b07d-65613eaca352/03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 578,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:30:24.640886651Z",
+    "comparedTo": "2026-10-30T01:31:51.800234165Z",
     "changes": [
         {
             "source": "Omega Scans",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Omega Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Omega Scans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Omega Scans",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

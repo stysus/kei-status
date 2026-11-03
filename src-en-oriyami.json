@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T06:59:23.538319531Z",
+    "generatedAt": "2026-11-03T11:08:28.610720841Z",
     "module": ":src:en:oriyami",
     "sourceRoot": "",
     "extensionCommit": "eac81a2c",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 19650,
+                    "durationMs": 19444,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 522"
@@ -32,20 +32,18 @@
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 115,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Fabulous Beasts -> fabulous-beasts",
-                        "The Exiled Heavy Knight Knows How To Game The System -> the-exiled-heavy-knight-knows-how-to-game-the-system",
-                        "Daily Chaldea -> daily-chaldea"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19495,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "DOWN",
-                    "durationMs": 19805,
+                    "durationMs": 19497,
                     "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
@@ -55,7 +53,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,56 +61,38 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "DOWN",
-                    "durationMs": 19537,
-                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "DOWN",
-                    "durationMs": 19631,
-                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:39:18.236858942Z",
+    "comparedTo": "2026-11-03T06:59:23.538319531Z",
     "changes": [
         {
             "source": "OriYami",
             "lang": "en",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "OriYami",
-            "lang": "en",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "OriYami",
-            "lang": "en",
-            "scenario": "search",
+            "scenario": "popular",
             "from": "PASS",
             "to": "DOWN"
         },
@@ -120,22 +100,15 @@
             "source": "OriYami",
             "lang": "en",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "OriYami",
-            "lang": "en",
-            "scenario": "pages",
-            "from": "PASS",
+            "from": "DOWN",
             "to": "SKIP"
         },
         {
             "source": "OriYami",
             "lang": "en",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "search",
+            "from": "DOWN",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

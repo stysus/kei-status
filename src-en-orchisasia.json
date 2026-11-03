@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:53.667087758Z",
+    "generatedAt": "2026-11-03T11:08:34.442796487Z",
     "module": ":src:en:orchisasia",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 4403086215261921832,
             "name": "Orchisasia",
             "lang": "en",
             "baseUrl": "https://www.orchisasia.org",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 801,
+                    "status": "WARN",
+                    "durationMs": 19891,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 409,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "DEAR. DOOR UNCENSORED version -> 76",
-                        "Jinx (Mingwa) -> 3146",
-                        "Cherry Blossoms After Winter -> 2428"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19420,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 277,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Please Add Charcoal -> 6816",
-                        "Omerta -> 6814",
-                        "Hangman -> 6812"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19457,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 166,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "DEAR. DOOR UNCENSORED version -> 76"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 446,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "0166 Chapter 163.5 Creator's Note -> 0166-chapter-163-5-creators-note",
-                        "0165 Chapter 163 Special Episode 33 [THE END]_~ -> 0165-chapter-163-special-episode-33-the-end_",
-                        "0164 Chapter 162 Special Episode 32 -> 0164-chapter-162-special-episode-32"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 306,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.orchisasia.org/data/manga_6179776fb3385/fd0a319fae808c658ec299c137d53e69/001.jpg",
-                        "https://cdn.orchisasia.org/data/manga_6179776fb3385/fd0a319fae808c658ec299c137d53e69/002.jpg",
-                        "https://cdn.orchisasia.org/data/manga_6179776fb3385/fd0a319fae808c658ec299c137d53e69/003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 720,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:55.763041450Z",
+    "comparedTo": "2026-10-30T01:32:53.667087758Z",
     "changes": [
         {
             "source": "Orchisasia",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Orchisasia",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Orchisasia",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Orchisasia",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Orchisasia",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Orchisasia",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Orchisasia",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

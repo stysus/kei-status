@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T09:59:19.888982289Z",
+    "generatedAt": "2026-11-03T11:05:20.473579297Z",
     "module": ":src:en:mangaforfreecom",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 1099222169691387069,
             "name": "Mangaforfree.com",
             "lang": "en",
             "baseUrl": "https://mangaforfree.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,34 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 876,
+                    "status": "WARN",
+                    "durationMs": 281,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 521",
+                        "home page body is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 391,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Secret Class -> 350674",
-                        "Stop Smoking -> 359817",
-                        "My Girlfriend Was Already Fully Trained -> 362325"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 375,
+                    "message": "the site's origin server is not responding (HTTP 521); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 521"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 325,
+                    "durationMs": 732,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "There are not enough Men -> 362642",
-                        "Gear that’s Way Too Good -> 362839",
-                        "Stop Smoking -> 359817"
+                        "Sleeping With A Friends Mom -> 363039",
+                        "Risky Deals And The Girl Next Door -> 361905",
+                        "A Magical Girl Never Loses! -> 363017"
                     ]
                 },
                 {
@@ -65,100 +66,70 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 250,
+                    "durationMs": 193,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Secret Class -> 350674",
-                        "I Know Your Secret -> 363076",
-                        "S Class -> 359084"
+                        "Sleeping With A Friends Mom -> 363039"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 330,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chapter 322 raw -> chapter-322-raw",
-                        "Chapter 322 -> chapter-322",
-                        "Chapter 321.5 raw -> chapter-321-5-raw"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 1275,
+                    "message": "the site's origin server is not responding (HTTP 521); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 521"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 253,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mangaforfree.com/wp-content/uploads/WP-manga/data/manga_6a578c5dd2452/68dd6e0f18ecd70517f0e4aa461de212/000.webp",
-                        "https://mangaforfree.com/wp-content/uploads/WP-manga/data/manga_6a578c5dd2452/68dd6e0f18ecd70517f0e4aa461de212/001.webp",
-                        "https://mangaforfree.com/wp-content/uploads/WP-manga/data/manga_6a578c5dd2452/68dd6e0f18ecd70517f0e4aa461de212/002.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 528,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:47:19.786106753Z",
+    "comparedTo": "2026-10-31T09:59:19.888982289Z",
     "changes": [
         {
             "source": "Mangaforfree.com",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Mangaforfree.com",
             "lang": "en",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "Mangaforfree.com",
-            "lang": "en",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "Mangaforfree.com",
-            "lang": "en",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Mangaforfree.com",
             "lang": "en",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Mangaforfree.com",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Mangaforfree.com",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []
