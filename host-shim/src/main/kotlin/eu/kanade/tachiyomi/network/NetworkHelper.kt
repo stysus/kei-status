@@ -1,6 +1,7 @@
 package eu.kanade.tachiyomi.network
 
 import android.content.Context
+import android.webkit.WebSettings
 import eu.kanade.tachiyomi.network.interceptor.CloudflareInterceptor
 import eu.kanade.tachiyomi.network.interceptor.UncaughtExceptionInterceptor
 import eu.kanade.tachiyomi.network.interceptor.UserAgentInterceptor
@@ -19,8 +20,7 @@ class NetworkHelper(private val context: Context) {
     val cookieJar = InMemoryCookieJar()
 
     val userAgent: String = System.getenv("KEI_STATUS_USER_AGENT")
-        ?: "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) " +
-        "Chrome/126.0.0.0 Mobile Safari/537.36"
+        ?: WebSettings.DEFAULT_USER_AGENT
 
     val client: OkHttpClient by lazy {
         OkHttpClient.Builder()

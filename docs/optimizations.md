@@ -148,6 +148,16 @@ Kept here so the same proposal is not re-litigated:
 - ChallengeSolver pure-logic extraction: refactor would break the shadow-lookup contract; the
   browser-gated tests run in CI where Chrome exists.
 
+## User-Agent bump (Nov 2026)
+
+Default UA raised from Chrome/126 (Jun 2024) to Chrome/156 and switched to Chrome's reduced
+form (`Android 10; K`) after 4 Madara ar modules (mangalek, mangalink, mangalionz, mangaspark)
+received HTTP 413 on popular/latest POST to `wp-admin/admin-ajax.php` in the Nov 2 CI sweep
+(commit 1ba459f). The 413 did not reproduce from a local IP with either UA, so the trigger is
+likely the combination of a stale Chrome major version with a datacenter IP — a pattern WAFs
+commonly reject with non-standard status codes. `KEI_STATUS_USER_AGENT` remains the escape
+hatch. Success criterion: 413 does not recur on the next CI sweep.
+
 ## How to re-verify
 
 Each family's changes carry their own pins: `ModuleCostsTest`, `ReportStoreTest` (vanished

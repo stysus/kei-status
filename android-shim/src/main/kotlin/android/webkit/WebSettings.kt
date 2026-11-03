@@ -92,9 +92,9 @@ open class WebSettings internal constructor() {
         const val LOAD_NO_CACHE: Int = 2
         const val LOAD_CACHE_ONLY: Int = 3
 
-        /** Only read before a page exists; the browser's own agent replaces it. */
-        private const val DEFAULT_USER_AGENT =
-            "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) " +
-                "Chrome/126.0.0.0 Mobile Safari/537.36"
+        /** Reduced-form Chrome Android UA shared with [NetworkHelper][eu.kanade.tachiyomi.network.NetworkHelper]. */
+        const val DEFAULT_USER_AGENT =
+            "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) " +
+                "Chrome/156.0.0.0 Mobile Safari/537.36"
     }
 }
