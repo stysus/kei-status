@@ -1,6 +1,8 @@
 package kei.status.engine
 
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.jsonObject
 import java.nio.file.Files
 import java.nio.file.Path
 
@@ -17,6 +19,12 @@ object ReportStore {
     private val json = Json {
         prettyPrint = true
         encodeDefaults = true
+    }
+
+    /** The costs file the CLI and the publish union write with two-space indent; keep their format. */
+    private val costsJson = Json {
+        prettyPrint = true
+        prettyPrintIndent = "  "
     }
 
     /** Tolerates reports written by a newer harness than the one reading them. */
@@ -91,6 +99,10 @@ object ReportStore {
      * The file names decide, not the contents, so an entry that cannot be parsed is removed too. It
      * is equally dead, and [readAll] would have skipped it without reporting which module it held.
      *
+     * The same rule applies to the `costs` file, whose entries are keyed by module name too: a
+     * pruned module's timing is dropped from it, and a costs file whose every entry survives is
+     * left byte-identical.
+     *
      * [keep] must be the whole set of modules that still exist. Pruning against a partial list
      * deletes the rest of the store, which is why the caller has to have established that.
      */
@@ -106,6 +118,21 @@ object ReportStore {
         }
 
         doomed.forEach { Files.delete(it) }
+
+        // The costs file keys its entries by module name like the reports, so a pruned module's
+        // timing would sit in it forever. The split never looks a dead entry up, but the median
+        // fallback averages it in, and the entries only ever accumulate.
+        val costsFile = dir.resolve("costs")
+        if (Files.isRegularFile(costsFile)) {
+            runCatching {
+                val entries = json.parseToJsonElement(Files.readString(costsFile)).jsonObject
+                val alive = JsonObject(entries.filterKeys { it in keep }.toSortedMap())
+                if (alive.size < entries.size) {
+                    writeAtomically(costsFile, costsJson.encodeToString(JsonObject.serializer(), alive))
+                }
+            }.onFailure { System.err.println("kei-status: leaving the costs file as it is: ${it.message}") }
+        }
+
         return doomed
     }
 

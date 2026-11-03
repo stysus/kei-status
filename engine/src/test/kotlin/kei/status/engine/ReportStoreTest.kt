@@ -1,5 +1,9 @@
 package kei.status.engine
 
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
+import kotlinx.serialization.json.long
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
@@ -247,15 +251,41 @@ class ReportStoreTest {
     }
 
     @Test
+    fun `prune drops the costs entries of modules that no longer exist`() {
+        val dir = store()
+        ReportStore.save(dir, report(module = ":src:en:aurora"))
+        Files.writeString(
+            dir.resolve("costs"),
+            """{":src:en:aurora": 5000, ":src:tr:hattorimanga": 6000}""",
+        )
+
+        ReportStore.prune(dir, setOf(":src:en:aurora"))
+
+        val costs = Json.parseToJsonElement(Files.readString(dir.resolve("costs"))).jsonObject
+        assertEquals(mapOf(":src:en:aurora" to 5000L), costs.mapValues { it.value.jsonPrimitive.long })
+        // The CLI and the publish union write two-space indent; prune must keep their format.
+        assertTrue(
+            "the rewritten costs file should use two-space indent",
+            Files.readString(dir.resolve("costs")).startsWith("{\n  \":src:"),
+        )
+    }
+
+    @Test
     fun `prune keeps everything when every stored module still exists`() {
         val dir = store()
         ReportStore.save(dir, report(module = ":src:en:aurora"))
         ReportStore.save(dir, report(module = ":src:tr:hattorimanga"))
+        val costs =
+            "{\n  \":src:en:aurora\": 5000,\n  \":src:tr:hattorimanga\": 6000\n}\n"
+        Files.writeString(dir.resolve("costs"), costs)
 
         val removed = ReportStore.prune(dir, setOf(":src:en:aurora", ":src:tr:hattorimanga"))
 
         assertTrue("nothing should have been removed", removed.isEmpty())
         assertEquals(2, ReportStore.readAll(dir).size)
+        // The docs promise the costs file is untouched when nothing dies; a rewrite here would
+        // also fight the two-space format the CLI and the publish union write.
+        assertEquals(costs, Files.readString(dir.resolve("costs")))
     }
 
     @Test

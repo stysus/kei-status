@@ -187,6 +187,17 @@ it, so the split rebalances itself the following night. What remains is inherent
 algorithm's unit: a 27-minute module cannot be split across shards, so one shard will run
 about twice the median, the way the heaviest modules already sit alone in their own shards.
 
+## Pruned modules leave their costs entry behind (Nov 2026)
+
+`ReportStore.prune` deletes a dead module's report but never touched the `costs` file, whose
+entries are keyed by module name too: the removed module's timing sat in the file forever. The
+shard split never looks a dead entry up, so nothing skewed - but the median fallback averages
+every value in, and the entries only ever accumulated (four were already in the file, one from
+the module pruned the very night this was found). Prune now rewrites the costs file without
+them, leaving it byte-identical when nothing dies. When it does rewrite, it writes the
+two-space indent the CLI and the publish union use, so the file does not flip formats between
+writers.
+
 ## Chromium boundary copies guarded (Nov 2026)
 
 `android-shim` re-declares the `org.chromium.support_lib_boundary` interfaces by hand — core
