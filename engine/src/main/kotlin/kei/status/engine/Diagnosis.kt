@@ -35,8 +35,10 @@ object ExceptionDiagnosis {
         var hasActivity = false
         var hasCaptchaInteraction = false
         var http429: eu.kanade.tachiyomi.network.HttpException? = null
-        var cloudflareOrigin: eu.kanade.tachiyomi.network.HttpException? = null
+        var serverError: eu.kanade.tachiyomi.network.HttpException? = null
+        var http403: eu.kanade.tachiyomi.network.HttpException? = null
         var hasUnsupported = false
+        var hasSslError = false
         var chrome: ChromeUnavailableException? = null
         var firstUnavailablePlatform: String? = null
         var hasTimeout = false
@@ -50,8 +52,11 @@ object ExceptionDiagnosis {
             if (ex is ActivityNotFoundException) hasActivity = true
             if (ex.message?.startsWith("Captcha needs interaction") == true) hasCaptchaInteraction = true
             if (ex is HttpException && ex.code == 429 && http429 == null) http429 = ex
-            if (ex is HttpException && ex.code in 520..530 && cloudflareOrigin == null) cloudflareOrigin = ex
+            if (ex is HttpException && ex.code in 500..530 && ex.code !in 505..519 && serverError == null) serverError = ex
+            if (ex is HttpException && ex.code == 403 && http403 == null) http403 = ex
             if (ex is UnsupportedOperationException || ex is NotImplementedError) hasUnsupported = true
+            if (sslError(ex)) hasSslError = true
+            if (searchNotSupported(ex)) hasUnsupported = true
             if (ex is ChromeUnavailableException && chrome == null) chrome = ex
             if (firstUnavailablePlatform == null) unavailablePlatform(ex)?.let { firstUnavailablePlatform = it }
             if (ex is TimeoutException) hasTimeout = true
@@ -64,8 +69,10 @@ object ExceptionDiagnosis {
             hasLogin -> Status.BLOCKED
             hasGeoRestricted -> Status.BLOCKED
             hasActivity -> Status.BLOCKED
+            http403 != null -> Status.BLOCKED
             http429 != null -> Status.THROTTLED
-            cloudflareOrigin != null -> Status.DOWN
+            serverError != null -> Status.DOWN
+            hasSslError -> Status.DOWN
             hasUnsupported -> Status.SKIP
             chrome != null -> Status.UNSUPPORTED
             firstUnavailablePlatform != null -> Status.UNSUPPORTED
@@ -89,6 +96,8 @@ object ExceptionDiagnosis {
                     "the site restricts by region and the sweep runs outside the allowed area; the source is not broken"
                 hasActivity ->
                     "the source opens one of its own activities (a verification or captcha step) that the sweep cannot run"
+                http403 != null ->
+                    "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection"
                 else ->
                     "the site requires a WebView session the sweep's browser did not complete; the source is not broken"
             }
@@ -98,8 +107,14 @@ object ExceptionDiagnosis {
                 ?.let { "the site is rate-limiting this sweep (HTTP 429, retry after ${it}s); the source was not checked" }
                 ?: "the site is rate-limiting this sweep (HTTP 429); the source was not checked"
 
-            Status.DOWN ->
-                "the site's origin server is not responding (HTTP ${cloudflareOrigin!!.code}); the source is not at fault"
+            Status.DOWN -> when {
+                serverError != null ->
+                    "the site's origin server is not responding (HTTP ${serverError!!.code}); the source is not at fault"
+                hasSslError ->
+                    "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault"
+                else ->
+                    "the site is unreachable; the source is not at fault"
+            }
 
             Status.SKIP -> "not supported by this source"
 
@@ -213,6 +228,32 @@ object ExceptionDiagnosis {
         return "country is not supported" in text ||
             "only available in japan" in text ||
             "only be used from japan" in text
+    }
+
+    /**
+     * True when the exception is a TLS/SSL failure — expired certificate, hostname mismatch,
+     * or the peer tearing the connection down during the handshake. These are server-side
+     * infrastructure problems, not extension bugs.
+     */
+    private fun sslError(t: Throwable): Boolean =
+        t is javax.net.ssl.SSLException ||
+            t is java.security.cert.CertificateException ||
+            (t.message?.let {
+                "SSL" in it || "certificate" in it || "NotAfter" in it
+            } == true)
+
+    /**
+     * True when the extension intentionally signals that it does not support search, by
+     * throwing a plain `Exception` whose message says so. These are not platform gaps
+     * (`UnsupportedOperationException` already covered above) but ad-hoc throws from
+     * extensions that override `getSearchMangaList` with a polite refusal.
+     */
+    private fun searchNotSupported(t: Throwable): Boolean {
+        if (t !is Exception || t is RuntimeException) return false
+        val text = t.message?.lowercase() ?: return false
+        return "no search" in text ||
+            ("search" in text && "not available" in text) ||
+            ("search" in text && "not supported" in text)
     }
 
     /** Walks causes, including the ones reflection and static initialisers hide. */

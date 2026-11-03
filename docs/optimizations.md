@@ -162,7 +162,24 @@ hatch. Success criterion: 413 does not recur on the next CI sweep.
 
 Each family's changes carry their own pins: `ModuleCostsTest`, `ReportStoreTest` (vanished
 source, key identity, roll-up mismatch, scenario order), `ModuleListTest` (median fallback),
-`ExitCodeTest` (BLOCKED/THROTTLED/UNSUPPORTED stay green), `DeadlineTest` (caller cancellation),
+`ExitCodeTest` (BLOCKED/THROTTLED/UNSUPPORTED/DOWN stay green), `DeadlineTest` (caller cancellation),
 `CookieManagerTest` (leading-dot domains), `SummaryFormatTest` (grep contract). End to end:
 `./kei-status run :<module> --store /tmp/kei-status-verify`, then `./ci/healthcheck.sh` on
 any store to see the summary it would render.
+
+## Diagnosis reclassification (Nov 2026)
+
+Four categories of FAIL reclassified in one batch (177 of 381 FAILs):
+
+| Category | Hits | New status | Rationale |
+|---|---|---|---|
+| HTTP 403 (no anti-bot) | 90 | BLOCKED | 59/90 are Japanese geo-blocks; the rest are server-side rejections. The reason text is deliberately cautious: a pages/chapters 403 can be hotlink protection (Referer mismatch), so it says "typically geo-blocking or bot rejection" rather than "not an extension bug". |
+| HTTP 500-504, 520-530 | 70 | DOWN | Origin server errors. 520-530 are Cloudflare-specific; 500-504 are standard. Range stops at 504 + 520-530 (not 505-519, which includes 511 Network Authentication Required — a proxy/captive portal, not "server down"). |
+| SSL/TLS errors | 12 | DOWN | Expired certs, hostname mismatches, peer shutdowns. Detection by exception type (`SSLException` hierarchy + `CertificateException`), with fallback on message keywords (`SSL`, `certificate`, `NotAfter`). |
+| Search-not-supported throws | 5 | SKIP | Extensions that throw `Exception("No search")` or similar. Only matches non-`RuntimeException` exceptions with specific message patterns; a validation message like "Search query must be at least 3 characters" remains FAIL. |
+
+**CI churn note:** The first sweep after this change will show ~90 FAIL→BLOCKED transitions
+and ~82 FAIL→DOWN transitions, triggering the `REGRESSION_BURST` warning in `ci/healthcheck.sh`
+(line 62: `to in ("FAIL", "BLOCKED")` counts FAIL→BLOCKED as regression). This is one-time
+classification churn, not a real regression. The burst warning self-resolves after one sweep
+because the new baselines stabilise.

@@ -56,8 +56,8 @@ enum class Status {
             FAIL -> "exception, timeout, or broken contract"
             SKIP -> "nothing was checked: the entry point is unsupported, the listing was empty, or the host answered 429 earlier"
             UNSUPPORTED -> "needs a platform class the harness does not provide, or the harness's browser session failed"
-            BLOCKED -> "anti-bot challenge; the source is not at fault"
-            DOWN -> "the site's origin server is not responding (Cloudflare 5xx); the source is not at fault"
+            BLOCKED -> "anti-bot challenge, geo-restriction, or server-side rejection; the source is not at fault"
+            DOWN -> "the site's server is not responding or its TLS certificate is invalid; the source is not at fault"
             THROTTLED -> "the site is rate-limiting the sweep (HTTP 429); the source was not checked"
         }
 }

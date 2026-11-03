@@ -409,6 +409,64 @@ class ChecksTest {
     }
 
     @Test
+    fun `a standard server error is down, not a failure`() {
+        for (code in listOf(500, 502, 503, 504)) {
+            val diagnosis = Checks.diagnose(HttpException(code))
+            assertEquals("HTTP $code", Status.DOWN, diagnosis.status)
+            assertTrue("HTTP $code reason", diagnosis.message.contains(code.toString()))
+        }
+    }
+
+    @Test
+    fun `a plain http 403 without anti-bot is blocked`() {
+        val diagnosis = Checks.diagnose(HttpException(403))
+        assertEquals(Status.BLOCKED, diagnosis.status)
+        assertTrue(diagnosis.message.contains("403"))
+    }
+
+    @Test
+    fun `an ssl error is down, not a failure`() {
+        val diagnosis = Checks.diagnose(javax.net.ssl.SSLHandshakeException("SSL peer shut down incorrectly"))
+        assertEquals(Status.DOWN, diagnosis.status)
+        assertTrue(diagnosis.message.contains("TLS"))
+    }
+
+    @Test
+    fun `search not supported is skip, not a failure`() {
+        val diagnosis = Checks.diagnose(Exception("No search"))
+        assertEquals(Status.SKIP, diagnosis.status)
+
+        val diagnosis2 = Checks.diagnose(Exception("Search functionality is not available."))
+        assertEquals(Status.SKIP, diagnosis2.status)
+    }
+
+    @Test
+    fun `a search validation error is still a failure`() {
+        // "Search query must be at least 3 characters" contains "search" but is a runtime
+        // validation error, not an intentional no-search signal.
+        val diagnosis = Checks.diagnose(Exception("Search query must be at least 3 characters"))
+        assertEquals(Status.FAIL, diagnosis.status)
+    }
+
+    @Test
+    fun `a RuntimeException saying search not supported is still a failure`() {
+        // UnsupportedOperationException → SKIP via the hasUnsupported path, but a plain
+        // IllegalStateException with a "search" message must not be swallowed.
+        val diagnosis = Checks.diagnose(IllegalStateException("search not supported"))
+        assertEquals(Status.FAIL, diagnosis.status)
+    }
+
+    @Test
+    fun `an ssl error via message, not type, is still down`() {
+        // The store's actual case: okhttp wraps hostname verification failure as a plain
+        // exception with "Hostname x not verified:\n    certificate: sha256/…".
+        val diagnosis = Checks.diagnose(
+            RuntimeException("Hostname auntmanhwa.com not verified:\n    certificate: sha256/duCQs17XXq3OqcFO0Q")
+        )
+        assertEquals(Status.DOWN, diagnosis.status)
+    }
+
+    @Test
     fun `throttled sits below blocked and above unsupported`() {
         // The order decides two things: which verdict a module rolls up to, and where the page's
         // filter chips put it. A throttle outranks PASS on purpose - the local checks still pass
