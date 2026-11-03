@@ -39,8 +39,9 @@ while IFS= read -r entry; do
     *D*) continue ;;
   esac
   # The costs file is a per-shard view of module wall-clock times. Named per shard so the
-  # artifact merge cannot let one shard's partial view clobber another's; apply.sh unions
-  # them, and disjoint shards make the union complete for the night that measured them.
+  # artifact merge cannot let one shard's view clobber another's. Each view still carries a
+  # full copy of the baseline it started from, so apply.sh's union takes only the entries
+  # that differ from that baseline - exactly the modules this shard measured tonight.
   if [ "$file" = costs ]; then
     cp "$store/$file" "$out/costs-$shard"
     count=$((count + 1))

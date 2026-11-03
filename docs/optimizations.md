@@ -167,6 +167,26 @@ source, key identity, roll-up mismatch, scenario order), `ModuleListTest` (media
 `./kei-status run :<module> --store /tmp/kei-status-verify`, then `./ci/healthcheck.sh` on
 any store to see the summary it would render.
 
+## Shard-costs union fixed (Nov 2026)
+
+The nightly sweep's shard split runs on measured wall-clock times, but the union that merged
+the per-shard measurements into the store's `costs` file kept only one shard's per night.
+Each `costs-N` view a shard uploads is its whole checkout baseline plus its own fresh
+timings, and `apply.sh` merged them with `update()` in file-name order - so the last file
+(`costs-9`, lexicographically) overwrote the other nineteen shards' fresh entries with its
+stale copies of them. One night left 89 of 1452 entries changed, and the split kept planning
+on numbers weeks old: the image-probe work had multiplied `:src:all:mangamillion` from ~3
+minutes to ~27 (108 sources, `images` alone 22 of them), its stale cost still said 204s, and
+its shard ran 42 minutes against an 11-minute plan.
+
+The union now takes only the entries that differ from the baseline a view was built from -
+exactly the modules that shard measured that night - in `tools/union-costs.py`, whose rule is
+pinned by `--self-test` (including the order-independence the old code broke on). The store
+needs no migration: the next sweep measures every module, and a correct union records all of
+it, so the split rebalances itself the following night. What remains is inherent to the
+algorithm's unit: a 27-minute module cannot be split across shards, so one shard will run
+about twice the median, the way the heaviest modules already sit alone in their own shards.
+
 ## Chromium boundary copies guarded (Nov 2026)
 
 `android-shim` re-declares the `org.chromium.support_lib_boundary` interfaces by hand — core
