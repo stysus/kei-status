@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:37.541051918Z",
+    "generatedAt": "2026-11-03T07:03:02.883806299Z",
     "module": ":src:ja:herosweb",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 6981500022236807277,
             "name": "HERO'S Web",
             "lang": "ja",
             "baseUrl": "https://heros-web.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 106,
+                    "durationMs": 128,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 403"
@@ -32,18 +32,22 @@
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 5,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 80,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 4,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 21,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
@@ -83,14 +87,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:30.407973222Z",
+    "comparedTo": "2026-10-30T01:30:37.541051918Z",
     "changes": [
         {
             "source": "HERO'S Web",
             "lang": "ja",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "HERO'S Web",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

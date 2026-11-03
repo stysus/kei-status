@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:36:13.692726394Z",
+    "generatedAt": "2026-11-03T07:02:40.428251743Z",
     "module": ":src:tr:juratempest",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 8286382933548342026,
             "name": "JuraTempest",
             "lang": "tr",
             "baseUrl": "https://juratempe.st",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1076,
+                    "status": "WARN",
+                    "durationMs": 506,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 530"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 278,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Gül Kokulu Menekşeler Zarafetle Açar -> gul-kokulu-menekseler-zarafetle-acar",
-                        "Her Kapıdışarı Edildiğimde Yeni Bir Beceri Kazandığım İçin 100 Dünyadan Kovulduktan Sonra Karşı Konulamaz Oldum -> her-kapidisari-edildigimde-yeni-bir-beceri-kazandigim-icin-100-dunyadan-kovulduktan-sonra-karsi-konulamaz-oldum",
-                        "Tuvalete Mühürlü Hanako-kun -> tuvalete-muhurlu-hanako-kun"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 25,
+                    "message": "the site's origin server is not responding (HTTP 530); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 530"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 496,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Haimiya-Senpai DEHŞET Derecede Sevimli -> haimiya-senpai-dehset-derecede-sevimli",
-                        "Gül Kokulu Menekşeler Zarafetle Açar -> gul-kokulu-menekseler-zarafetle-acar",
-                        "Gece Yarısı Kalp Tınısı -> gece-yarisi-kalp-tinisi"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 43,
+                    "message": "the site's origin server is not responding (HTTP 530); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 530"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,65 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 205,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Gül Kokulu Menekşeler Zarafetle Açar -> gul-kokulu-menekseler-zarafetle-acar"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 501,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 205 -> gul-kokulu-menekseler-zarafetle-acar/205",
-                        "Bölüm 204 -> gul-kokulu-menekseler-zarafetle-acar/204",
-                        "Bölüm 203 -> gul-kokulu-menekseler-zarafetle-acar/203"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 512,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.juratempe.st/6f25068b-388e-4f1a-bc3a-7970172d3857.avif",
-                        "https://cdn.juratempe.st/ed7a7328-42cf-4e1c-a986-b6bf6a6142d5.avif",
-                        "https://cdn.juratempe.st/f362267c-7264-433e-92cd-faac530e6979.avif"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1122,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:36:26.137969138Z",
+    "comparedTo": "2026-10-30T01:36:13.692726394Z",
     "changes": [
         {
             "source": "JuraTempest",
             "lang": "tr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "JuraTempest",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "JuraTempest",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "JuraTempest",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "JuraTempest",
+            "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "JuraTempest",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "JuraTempest",
             "lang": "tr",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

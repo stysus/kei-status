@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:35:36.677200647Z",
+    "generatedAt": "2026-11-03T07:26:20.058688864Z",
     "module": ":src:it:walpurgisscan",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 6566957355096372149,
             "name": "Walpurgi Scan",
             "lang": "it",
             "baseUrl": "https://www.walpurgiscan.it",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 3095,
+                    "durationMs": 3960,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 403"
@@ -32,24 +32,28 @@
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 230,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 246,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 226,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 257,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -83,14 +87,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:36:37.060697106Z",
+    "comparedTo": "2026-10-30T01:35:36.677200647Z",
     "changes": [
         {
             "source": "Walpurgi Scan",
             "lang": "it",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Walpurgi Scan",
+            "lang": "it",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

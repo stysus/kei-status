@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:34:16.238468730Z",
+    "generatedAt": "2026-11-03T07:01:31.175732876Z",
     "module": ":src:pt:azuretoons",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 6272815455807597212,
             "name": "Azuretoons",
             "lang": "pt-BR",
             "baseUrl": "https://azuretoons.com",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,25 +23,29 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 685,
+                    "durationMs": 454,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 360,
-                    "message": "HTTP error 502",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 244,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 273,
-                    "message": "HTTP error 502",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 508,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,14 +85,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:36:56.683858891Z",
+    "comparedTo": "2026-10-30T01:34:16.238468730Z",
     "changes": [
         {
             "source": "Azuretoons",
             "lang": "pt-BR",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Azuretoons",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

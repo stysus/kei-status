@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:38:35.370220078Z",
+    "generatedAt": "2026-11-03T07:03:14.327444932Z",
     "module": ":src:tr:lunascans",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 6989973853577548620,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1031,
+                    "durationMs": 2333,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 873,
+                    "durationMs": 819,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 815,
+                    "durationMs": 799,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Kiss the Collar -> 2191",
                         "The Taming -> 4998",
-                        "Suspicious Neighbor -> 5347",
-                        "Monotone Blue -> 5336"
+                        "Suspicious Neighbor -> 5347"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 989,
+                    "durationMs": 983,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,31 +74,42 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1464,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Bölüm 82 [Son] -> bolum-82-son",
-                        "Bölüm 81 -> bolum-81",
-                        "Bölüm 80 -> bolum-80"
-                    ]
-                },
-                {
-                    "name": "pages",
                     "status": "THROTTLED",
-                    "durationMs": 10964,
+                    "durationMs": 22751,
                     "message": "the site is rate-limiting this sweep (HTTP 429, retry after 3600s); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
                     "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
+                    "notes": [],
+                    "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:45:03.537847192Z",
-    "changes": [],
+    "comparedTo": "2026-11-02T11:38:35.370220078Z",
+    "changes": [
+        {
+            "source": "Luna Scans",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "Luna Scans",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "THROTTLED",
+            "to": "SKIP"
+        }
+    ],
     "throttledHosts": [
         "tuhafscans.com"
     ]

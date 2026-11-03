@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:49.962652013Z",
+    "generatedAt": "2026-11-03T07:04:23.591756347Z",
     "module": ":src:pt:zettahq",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 4655858297496198897,
             "name": "ZettaHQ",
             "lang": "pt-BR",
             "baseUrl": "https://zettahq.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 300,
+                    "durationMs": 126,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,13 +31,13 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 113,
+                    "durationMs": 53,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "A Day At The Beach -> /a-day-at-the-beach/",
-                        "A Night With Flayn -> /a-night-with-flayn/",
-                        "The Witch and Goblin Servants -> /the-witch-and-goblin-servants/"
+                        "Vaporeon’s Life -> /vaporeons-life/",
+                        "N7 Day Special -> /n7-day-special/",
+                        "Seeing Red -> /seeing-red/"
                     ]
                 },
                 {
@@ -60,40 +60,42 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 765,
+                    "status": "WARN",
+                    "durationMs": 829,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "A Day At The Beach -> /a-day-at-the-beach/"
-                    ]
+                    "notes": [
+                        "returned an empty list",
+                        "query \"Vaporeon’s Life\" matched no results in the first page",
+                        "a retry without punctuation (\"Vaporeon s Life\") also matched nothing"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 63,
+                    "durationMs": 40,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Capítulo Único -> /a-day-at-the-beach/"
+                        "Capítulo Único -> /vaporeons-life/"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 63,
+                    "durationMs": 25,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://zettahq.com/wp-content/uploads/2026/09/01.jpg.webp",
-                        "https://zettahq.com/wp-content/uploads/2026/09/02.jpg.webp",
-                        "https://zettahq.com/wp-content/uploads/2026/09/03.jpg.webp"
+                        "https://zettahq.com/wp-content/uploads/2026/10/01.jpg-22.webp",
+                        "https://zettahq.com/wp-content/uploads/2026/10/02.jpg-22.webp",
+                        "https://zettahq.com/wp-content/uploads/2026/10/03.jpg-22.webp"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 99,
+                    "durationMs": 111,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -101,14 +103,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:42:07.494924272Z",
+    "comparedTo": "2026-10-30T01:37:49.962652013Z",
     "changes": [
         {
             "source": "ZettaHQ",
             "lang": "pt-BR",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:10.482148170Z",
+    "generatedAt": "2026-11-03T07:00:29.165089166Z",
     "module": ":src:pt:fleurblanche",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 2748000026130339026,
             "name": "Fleur Blanche",
             "lang": "pt-BR",
             "baseUrl": "https://fbsquadx.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1178,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 44,
+                    "message": "the site is unreachable (fbsquadx.com: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: fbsquadx.com: Name or service not known"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1687,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Jinx -> 60",
-                        "Roses and Champagne -> 56",
-                        "Nerd Project -> 77"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 3,
+                    "message": "the site is unreachable (fbsquadx.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: fbsquadx.com"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1952,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Dear 00 -> 4340",
-                        "Bad Apple -> 7415",
-                        "Fleur Blanche Scan -> 13632"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 0,
+                    "message": "the site is unreachable (fbsquadx.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: fbsquadx.com"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,59 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1776,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Love Jinx -> 250",
-                        "Jinx -> 60"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 3770,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 102.5 - Nota do Autor -> capitulo-102-5-nota-do-autor",
-                        "Capítulo 102 - Fim! -> capitulo-102-fim",
-                        "Capítulo 101 -> capitulo-101"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 4320,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://fbsquadx.com/wp-content/uploads/WP-manga/data/manga_65fe33a74acd1/ab69ad335cdf2eca80b6400bc5da32ba/0.1-MORGANA.webp",
-                        "https://fbsquadx.com/wp-content/uploads/WP-manga/data/manga_65fe33a74acd1/ab69ad335cdf2eca80b6400bc5da32ba/0.2.webp",
-                        "https://fbsquadx.com/wp-content/uploads/WP-manga/data/manga_65fe33a74acd1/ab69ad335cdf2eca80b6400bc5da32ba/1.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1422,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:36:46.353560493Z",
+    "comparedTo": "2026-10-30T01:37:10.482148170Z",
     "changes": [
         {
             "source": "Fleur Blanche",
             "lang": "pt-BR",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Fleur Blanche",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Fleur Blanche",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Fleur Blanche",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Fleur Blanche",
+            "lang": "pt-BR",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Fleur Blanche",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Fleur Blanche",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

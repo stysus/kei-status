@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:39:34.362235403Z",
+    "generatedAt": "2026-11-03T06:57:29.670009070Z",
     "module": ":src:en:templescan",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 4210732525216763379,
             "name": "Temple Scan",
             "lang": "en",
             "baseUrl": "https://templetoons.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 433,
+                    "durationMs": 347,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1169,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Tears on a Withered Flower -> /comic/tears-on-a-withered-flower",
-                        "Childhood Friend Complex -> /comic/childhood-friend-complex",
-                        "Absolute Threshold -> /comic/absolute-threshold"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 1091,
+                    "message": "NullPointerException at TempleScan.fetchCatalog(TempleScan.kt:345)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 821,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Captive Sage -> /comic/captive-sage",
-                        "Dogs Are Pure -> /comic/dogs-are-pure",
-                        "High Society -> /comic/high-society"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 968,
+                    "message": "NullPointerException at TempleScan.fetchCatalog(TempleScan.kt:345)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1001,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Tears on a Withered Flower -> /comic/tears-on-a-withered-flower"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 2135,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 125 -> /comic/tears-on-a-withered-flower/chapter-125",
-                        "Chapter 124 -> /comic/tears-on-a-withered-flower/chapter-124",
-                        "Chapter 123 -> /comic/tears-on-a-withered-flower/chapter-123"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 838,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://media.templetoons.com/file/terms54/uploads/series/tears-on-a-withered-flower/699582ea-2b8d-4f92-8328-55c140c8bfc2/01.jpg",
-                        "https://media.templetoons.com/file/terms54/uploads/series/tears-on-a-withered-flower/699582ea-2b8d-4f92-8328-55c140c8bfc2/02.jpg",
-                        "https://media.templetoons.com/file/terms54/uploads/series/tears-on-a-withered-flower/699582ea-2b8d-4f92-8328-55c140c8bfc2/03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2695,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:31:06.478708793Z",
+    "comparedTo": "2026-11-02T11:39:34.362235403Z",
     "changes": [
         {
             "source": "Temple Scan",
             "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "en",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

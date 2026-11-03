@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:07.958232379Z",
+    "generatedAt": "2026-11-03T07:01:05.117019789Z",
     "module": ":src:fr:yaoiscan",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 7333825394865171341,
             "name": "YaoiScan",
             "lang": "fr",
             "baseUrl": "https://yaoiscan.fr",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 5743,
+                    "durationMs": 5754,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 504"
@@ -32,18 +32,22 @@
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 5170,
-                    "message": "HTTP error 504",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 5175,
+                    "message": "the site's origin server is not responding (HTTP 504); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 504"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 5168,
-                    "message": "HTTP error 504",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 5169,
+                    "message": "the site's origin server is not responding (HTTP 504); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 504"
+                    ],
                     "samples": []
                 },
                 {
@@ -83,14 +87,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:36:13.446934659Z",
+    "comparedTo": "2026-10-30T01:30:07.958232379Z",
     "changes": [
         {
             "source": "YaoiScan",
             "lang": "fr",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "YaoiScan",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

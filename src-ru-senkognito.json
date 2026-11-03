@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:55.871088329Z",
+    "generatedAt": "2026-11-03T07:02:16.298608100Z",
     "module": ":src:ru:senkognito",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 8393977756208732343,
             "name": "Senkognito",
             "lang": "ru",
             "baseUrl": "https://senkuro.me",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 904,
+                    "durationMs": 707,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 403"
@@ -32,10 +32,12 @@
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 465,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 462,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
@@ -83,14 +85,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:59.805559174Z",
+    "comparedTo": "2026-10-30T01:32:55.871088329Z",
     "changes": [
         {
             "source": "Senkognito",
             "lang": "ru",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

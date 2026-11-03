@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:35:00.221826529Z",
+    "generatedAt": "2026-11-03T06:59:34.862428831Z",
     "module": ":src:ja:championcross",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 4711824862797870329,
             "name": "Champion Cross",
             "lang": "ja",
             "baseUrl": "https://championcross.jp",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 179,
+                    "durationMs": 111,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 403"
@@ -32,18 +32,22 @@
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 60,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 46,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 13,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 4,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
@@ -83,14 +87,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:36:42.548874734Z",
+    "comparedTo": "2026-10-30T01:35:00.221826529Z",
     "changes": [
         {
             "source": "Champion Cross",
             "lang": "ja",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Champion Cross",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

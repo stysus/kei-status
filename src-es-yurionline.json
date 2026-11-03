@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:38:42.592050886Z",
+    "generatedAt": "2026-11-03T07:25:46.971182636Z",
     "module": ":src:es:yurionline",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 3410370616110029377,
             "name": "Yuri-Online",
             "lang": "es",
             "baseUrl": "https://yuri-online.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 347,
+                    "status": "WARN",
+                    "durationMs": 1223,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 804,
+                    "durationMs": 243,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +45,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 222,
+                    "durationMs": 237,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Lo siento, pero no me gusta el yuri -> 2016",
-                        "Ame to Muchi -> 1044",
-                        "Hitozuma to JK -> 4365"
+                        "Literary Link -> 5741",
+                        "Please Bully Me, Miss Villainess! -> 3405",
+                        "Sasayaku You ni Koi wo Utau -> 1441"
                     ]
                 },
                 {
@@ -65,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 330,
+                    "durationMs": 394,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,10 +76,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 422,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 474,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
@@ -91,14 +95,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:43:35.716892318Z",
+    "comparedTo": "2026-11-02T11:38:42.592050886Z",
     "changes": [
         {
             "source": "Yuri-Online",
             "lang": "es",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Yuri-Online",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

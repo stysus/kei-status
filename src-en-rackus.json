@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:06.043987792Z",
+    "generatedAt": "2026-11-03T06:57:22.842520171Z",
     "module": ":src:en:rackus",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 263040414613624318,
             "name": "Rackus",
             "lang": "en",
             "baseUrl": "https://rackusreads.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1655,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 15030,
+                    "message": "the site is unreachable (rackusreads.com: Temporary failure in name resolution); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: rackusreads.com: Temporary failure in name resolution"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 324,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Winning Shot! -> /manga/winning-shot/",
-                        "Ahiru no Sora -> /manga/ahiru-no-sora/",
-                        "Top Corner -> /manga/top-corner/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 5,
+                    "message": "the site is unreachable (rackusreads.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: rackusreads.com"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 320,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Ryuna -> /manga/ryuna/",
-                        "Top Corner -> /manga/top-corner/",
-                        "Penholder -> /manga/penholder/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 0,
+                    "message": "the site is unreachable (rackusreads.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: rackusreads.com"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 546,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Winning Shot! -> /manga/winning-shot/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 465,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 91 - Suspended Game -> /winning-shot-chapter-91/",
-                        "Chapter 90 - S2--Next Stage -> /winning-shot-chapter-90/",
-                        "Chapter 89 - S2--Transitional Period -> /winning-shot-chapter-89/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 545,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://rackusreads.com/wp-content/uploads/2025/08/00-WSs2-creds.webp",
-                        "https://rackusreads.com/wp-content/uploads/2025/08/CREDITPAGE-1.webp",
-                        "https://rackusreads.com/wp-content/uploads/2025/08/WS-S2-CH16E-01-copy.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1138,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:29.054758962Z",
+    "comparedTo": "2026-10-30T01:31:06.043987792Z",
     "changes": [
         {
             "source": "Rackus",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Rackus",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Rackus",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Rackus",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Rackus",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Rackus",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Rackus",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

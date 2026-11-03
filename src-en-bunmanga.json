@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:21.904151600Z",
+    "generatedAt": "2026-11-03T06:57:57.334279497Z",
     "module": ":src:en:bunmanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 5944672760629857205,
             "name": "Bun Manga",
             "lang": "en",
             "baseUrl": "https://bunmanga.com",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 6962,
+                    "durationMs": 2616,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 15139,
+                    "durationMs": 1137,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 22748,
+                    "durationMs": 661,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Transmigrated Into the Tyrant’s Beloved -> 3898",
-                        "Day And Night -> 3165",
-                        "Rejoice in Your Enemies -> 2559"
+                        "Seize My Boyfriend -> 2543",
+                        "False Moon -> 3548",
+                        "Oh No, He’s Got His Eye on Me -> 3848"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 5875,
+                    "durationMs": 620,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,34 +75,37 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 10560,
+                    "durationMs": 2578,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Chap 576 -> chap-576",
                         "Chap 575 -> chap-575",
-                        "Chap 574 -> chap-574",
-                        "Chap 573 -> chap-573"
+                        "Chap 574 -> chap-574"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 1214,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "SKIP",
+                    "durationMs": 681,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403",
+                        "pages are only checked on a chapter that needs no unlock"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:30:15.481082229Z",
+    "comparedTo": "2026-10-30T01:33:21.904151600Z",
     "changes": [
         {
             "source": "Bun Manga",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

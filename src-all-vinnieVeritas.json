@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:26:55.378604932Z",
+    "generatedAt": "2026-11-03T06:56:06.431979023Z",
     "module": ":src:all:vinnieVeritas",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 9005452006043030878,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 273,
+                    "durationMs": 359,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -63,36 +63,37 @@
                     "message": null,
                     "notes": [
                         "returned an empty list",
-                        "query \"CCC: The city of opportunities\" matched no results in the first page"
+                        "query \"CCC: The city of opportunities\" matched no results in the first page",
+                        "a retry without punctuation (\"CCC The city of opportunities\") also matched nothing"
                     ],
                     "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 60,
+                    "durationMs": 83,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "#CCC CCC025 -> /CCC025.php",
                         "#CCC CCC024 -> /CCC024.php",
-                        "#CCC CCC023 -> /CCC023.php",
-                        "#CCC CCC022 -> /CCC022.php"
+                        "#CCC CCC023 -> /CCC023.php"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 46,
+                    "durationMs": 89,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://ccc.vinnieveritas.com/comics/CCCr024E.jpg"
+                        "https://ccc.vinnieveritas.com/comics/CCCr025E.jpg"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 152,
+                    "durationMs": 535,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -161,57 +162,53 @@
                     "message": null,
                     "notes": [
                         "returned an empty list",
-                        "query \"CCC: La ciudad de las oportunidades\" matched no results in the first page"
+                        "query \"CCC: La ciudad de las oportunidades\" matched no results in the first page",
+                        "a retry without punctuation (\"CCC La ciudad de las oportunidades\") also matched nothing"
                     ],
                     "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 51,
+                    "durationMs": 82,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "#CCC CCC025 -> /CCC025.php",
                         "#CCC CCC024 -> /CCC024.php",
-                        "#CCC CCC023 -> /CCC023.php",
-                        "#CCC CCC022 -> /CCC022.php"
+                        "#CCC CCC023 -> /CCC023.php"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 89,
+                    "durationMs": 82,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://ccc.vinnieveritas.com/comics/CCCr024.jpg"
+                        "https://ccc.vinnieveritas.com/comics/CCCr025.jpg"
                     ]
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 109,
+                    "status": "WARN",
+                    "durationMs": 203,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image returned HTTP 404"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:31:16.060282554Z",
+    "comparedTo": "2026-10-30T01:26:55.378604932Z",
     "changes": [
         {
             "source": "Vinnie Veritas - CCC",
-            "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "WARN"
-        },
-        {
-            "source": "Vinnie Veritas - CCC",
             "lang": "es",
-            "scenario": "search",
-            "from": null,
+            "scenario": "images",
+            "from": "PASS",
             "to": "WARN"
         }
     ],

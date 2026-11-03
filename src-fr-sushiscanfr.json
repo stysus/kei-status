@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:29:51.864469207Z",
+    "generatedAt": "2026-11-03T07:01:07.519976796Z",
     "module": ":src:fr:sushiscanfr",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 3196884165456788667,
             "name": "Sushiscan.fr",
             "lang": "fr",
             "baseUrl": "https://sushiscan.fr",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,23 +23,25 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 906,
+                    "durationMs": 939,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
+                    "status": "DOWN",
                     "durationMs": 9831,
-                    "message": "HTTP error 504",
-                    "notes": [],
+                    "message": "the site's origin server is not responding (HTTP 504); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 504"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 341,
+                    "durationMs": 342,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,18 +62,22 @@
                 },
                 {
                     "name": "search",
-                    "status": "FAIL",
-                    "durationMs": 5674,
-                    "message": "HTTP error 504",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 5686,
+                    "message": "the site's origin server is not responding (HTTP 504); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 504"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 5168,
-                    "message": "HTTP error 504",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 5172,
+                    "message": "the site's origin server is not responding (HTTP 504); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 504"
+                    ],
                     "samples": []
                 },
                 {
@@ -85,14 +91,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:46.288824437Z",
+    "comparedTo": "2026-10-30T01:29:51.864469207Z",
     "changes": [
         {
             "source": "Sushiscan.fr",
             "lang": "fr",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Sushiscan.fr",
+            "lang": "fr",
             "scenario": "search",
-            "from": null,
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Sushiscan.fr",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

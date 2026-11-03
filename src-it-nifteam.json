@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:34:59.619250956Z",
+    "generatedAt": "2026-11-03T07:03:40.216396519Z",
     "module": ":src:it:nifteam",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 7816508865953731299,
@@ -23,41 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 816,
+                    "durationMs": 1374,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 434,
+                    "status": "WARN",
+                    "durationMs": 285,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "#DRCL Midnight Children -> /slide/series/drcl-midnight-children/",
-                        "Astro Royale -> /slide/series/astro-royale/",
-                        "B - Manga -> /slide/series/b-manga/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 187,
+                    "durationMs": 244,
                     "message": null,
                     "notes": [
-                        "manga[0] has no thumbnail",
-                        "manga[1] has no thumbnail",
-                        "manga[2] has no thumbnail",
-                        "manga[3] has no thumbnail",
-                        "manga[4] has no thumbnail",
-                        "duplicate manga urls: [/slide/series/b2-manga/, /slide/series/f-manga/, /slide/series/gokurakugai/]"
+                        "returned an empty list"
                     ],
-                    "samples": [
-                        "F - Manga -> /slide/series/f-manga/",
-                        "NIF - BL -> /slide/series/nif-bl/",
-                        "B2 - Manga -> /slide/series/b2-manga/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -70,58 +59,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 186,
-                    "message": null,
-                    "notes": [
-                        "manga[0] has no thumbnail"
-                    ],
-                    "samples": [
-                        "#DRCL Midnight Children -> /slide/series/drcl-midnight-children/"
-                    ]
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 178,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 1: One Shot -> /slide/read/drcl-midnight-children/it/0/1/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 202,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://read-nifteam.info/slide/content/comics/drcl-midnight-children_5fe658e18839b/1-0-one-shot_5fe658f30c579/00.png",
-                        "https://read-nifteam.info/slide/content/comics/drcl-midnight-children_5fe658e18839b/1-0-one-shot_5fe658f30c579/01.png",
-                        "https://read-nifteam.info/slide/content/comics/drcl-midnight-children_5fe658e18839b/1-0-one-shot_5fe658f30c579/02-03.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1119,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:33.780783580Z",
+    "comparedTo": "2026-10-30T01:34:59.619250956Z",
     "changes": [
         {
             "source": "NIFTeam",
             "lang": "it",
-            "scenario": "search",
-            "from": null,
+            "scenario": "popular",
+            "from": "PASS",
             "to": "WARN"
+        },
+        {
+            "source": "NIFTeam",
+            "lang": "it",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NIFTeam",
+            "lang": "it",
+            "scenario": "search",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "NIFTeam",
+            "lang": "it",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NIFTeam",
+            "lang": "it",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

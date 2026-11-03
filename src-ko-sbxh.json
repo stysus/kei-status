@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T10:05:31.463547340Z",
+    "generatedAt": "2026-11-03T07:03:37.471813991Z",
     "module": ":src:ko:sbxh",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 5836877907605844302,
             "name": "Newtoki (SBXH)",
             "lang": "ko",
             "baseUrl": "https://sbxh9.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,25 +23,29 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1118,
+                    "durationMs": 1288,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 459,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 467,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 421,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 460,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,35 +85,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:55:59.033483678Z",
+    "comparedTo": "2026-10-31T10:05:31.463547340Z",
     "changes": [
         {
             "source": "Newtoki (SBXH)",
             "lang": "ko",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "BLOCKED"
         },
         {
             "source": "Newtoki (SBXH)",
             "lang": "ko",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Newtoki (SBXH)",
-            "lang": "ko",
-            "scenario": "chapters",
             "from": "FAIL",
-            "to": "SKIP"
-        },
-        {
-            "source": "Newtoki (SBXH)",
-            "lang": "ko",
-            "scenario": "search",
-            "from": "FAIL",
-            "to": "SKIP"
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-01T10:47:16.315995458Z",
+    "generatedAt": "2026-11-03T07:03:17.828163260Z",
     "module": ":src:vi:hentaivnplus",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 7015430763374257867,
             "name": "HentaiVN.plus",
             "lang": "vi",
             "baseUrl": "https://hentaivn.show",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 213,
+                    "durationMs": 410,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 530"
@@ -32,18 +32,22 @@
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 41,
-                    "message": "HTTP error 530",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 25,
+                    "message": "the site's origin server is not responding (HTTP 530); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 530"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 37,
-                    "message": "HTTP error 530",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 8,
+                    "message": "the site's origin server is not responding (HTTP 530); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 530"
+                    ],
                     "samples": []
                 },
                 {
@@ -83,56 +87,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:52:50.565810754Z",
+    "comparedTo": "2026-11-01T10:47:16.315995458Z",
     "changes": [
         {
             "source": "HentaiVN.plus",
             "lang": "vi",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "HentaiVN.plus",
-            "lang": "vi",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "DOWN"
         },
         {
             "source": "HentaiVN.plus",
             "lang": "vi",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "HentaiVN.plus",
-            "lang": "vi",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "HentaiVN.plus",
-            "lang": "vi",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "HentaiVN.plus",
-            "lang": "vi",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "HentaiVN.plus",
-            "lang": "vi",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

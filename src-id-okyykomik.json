@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:38:15.909642093Z",
+    "generatedAt": "2026-11-03T07:03:34.067807906Z",
     "module": ":src:id:okyykomik",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 8361715798247396418,
             "name": "OkyyKomik",
             "lang": "id",
             "baseUrl": "https://www.okyykomik.my.id",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,18 +22,22 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 17,
-                    "message": "www.okyykomik.my.id: Name or service not known",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 94,
+                    "message": "the site is unreachable (www.okyykomik.my.id: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: www.okyykomik.my.id: Name or service not known"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 4,
-                    "message": "www.okyykomik.my.id",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 3,
+                    "message": "the site is unreachable (www.okyykomik.my.id); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: www.okyykomik.my.id"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,7 +85,22 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:34:48.153524778Z",
-    "changes": [],
+    "comparedTo": "2026-11-02T11:38:15.909642093Z",
+    "changes": [
+        {
+            "source": "OkyyKomik",
+            "lang": "id",
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "OkyyKomik",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        }
+    ],
     "throttledHosts": []
 }

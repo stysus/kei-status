@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:58.778366182Z",
+    "generatedAt": "2026-11-03T07:01:11.067682955Z",
     "module": ":src:en:renascans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 3447464472094373275,
             "name": "Renascans",
             "lang": "en",
             "baseUrl": "https://renascans.net",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,31 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1282,
+                    "durationMs": 1029,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 77,
-                    "message": "api.renascans.net: Name or service not known",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 64,
+                    "message": "the site is unreachable (api.renascans.net: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: api.renascans.net: Name or service not known"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
+                    "status": "DOWN",
                     "durationMs": 0,
-                    "message": "api.renascans.net",
-                    "notes": [],
+                    "message": "the site is unreachable (api.renascans.net); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: api.renascans.net"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -81,14 +85,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:30.746405579Z",
+    "comparedTo": "2026-10-30T01:30:58.778366182Z",
     "changes": [
         {
             "source": "Renascans",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Renascans",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

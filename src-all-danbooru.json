@@ -1,21 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:26:22.194264001Z",
+    "generatedAt": "2026-11-03T06:54:07.984560681Z",
     "module": ":src:all:danbooru",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 7602260701584916302,
             "name": "Danbooru",
             "lang": "all",
             "baseUrl": "https://danbooru.donmai.us",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,35 +23,39 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 612,
+                    "durationMs": 604,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 21392,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from danbooru.donmai.us (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 197,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Zombie Stage - IvanTill Sulk (meiz green) -> /pools/32692",
+                        "Genshin Impact - Citlali & Lumine Comic (Dankestofdans) -> /pools/32693",
+                        "GODDESS OF VICTORY: NIKKE - SD Icon Pack (totatokeke) -> /pools/20226"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 18,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from danbooru.donmai.us (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 813,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Genshin Impact - Citlali & Lumine Comic (Dankestofdans) -> /pools/32693",
+                        "Zombie Stage - IvanTill Sulk (meiz green) -> /pools/32692",
+                        "I Don't Wanna Be A Magical Girl - Pocky (Kiana Mai) -> /pools/32691"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,40 +63,93 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 99,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Zombie Stage - IvanTill Sulk (meiz green) -> /pools/32692",
+                        "Zombie Stage - AAHS Fes START~! -> /pools/32638",
+                        "Zombie Stage - Sulk -> /pools/32637"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 994,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Oneshot -> /pools/32692"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 726,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "/posts/12505571",
+                        "/posts/12505572",
+                        "/posts/12505573"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 3151,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:28:35.806920188Z",
+    "comparedTo": "2026-10-30T01:26:22.194264001Z",
     "changes": [
         {
             "source": "Danbooru",
             "lang": "all",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Danbooru",
+            "lang": "all",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Danbooru",
+            "lang": "all",
             "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Danbooru",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Danbooru",
+            "lang": "all",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Danbooru",
+            "lang": "all",
+            "scenario": "images",
             "from": null,
-            "to": "SKIP"
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

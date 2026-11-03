@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-01T10:45:50.449878888Z",
+    "generatedAt": "2026-11-03T07:03:11.060450733Z",
     "module": ":src:es:vermanhwas",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 4150746388640244220,
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 6357,
+                    "durationMs": 5311,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 640,
+                    "status": "WARN",
+                    "durationMs": 163,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Mi casa es tu casa -> 1270",
-                        "Club Exclusivo -> 3088",
-                        "Enseñame primero (HoneyToons) -> 3913"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 574,
+                    "status": "WARN",
+                    "durationMs": 148,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Protocolo del Gran Hueco (Sin censura) -> 4172",
-                        "Tres hermanas (Sin censura) -> 4008",
-                        "Familia Cercana (Sin censura) -> 4221"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,56 +59,76 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 582,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Mi casa es tu casa -> 1270",
-                        "Familia Cercana (Sin censura) -> 4221",
-                        "Rompiendo los límites (Sin censura) -> 4183"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 625,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capitulo 140 - FIN -> capitulo-140-fin",
-                        "Capitulo 139 -> capitulo-139",
-                        "Capitulo 138 -> capitulo-138"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 552,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://cdn1.vermanhwa.com/manga/manga_630f9de6517b8/capitulo-140-fin/001.jpg",
-                        "https://cdn1.vermanhwa.com/manga/manga_630f9de6517b8/capitulo-140-fin/002.jpg",
-                        "https://cdn1.vermanhwa.com/manga/manga_630f9de6517b8/capitulo-140-fin/003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 2270,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn1.vermanhwa.com (HTTP 403)",
-                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn1.vermanhwa.com (HTTP 403)"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:48:33.408930737Z",
-    "changes": [],
+    "comparedTo": "2026-11-01T10:45:50.449878888Z",
+    "changes": [
+        {
+            "source": "Ver Manhwas",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Ver Manhwas",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Ver Manhwas",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ver Manhwas",
+            "lang": "es",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ver Manhwas",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ver Manhwas",
+            "lang": "es",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

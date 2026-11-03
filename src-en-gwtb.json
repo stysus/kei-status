@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:26:35.137266895Z",
+    "generatedAt": "2026-11-03T06:58:30.952482044Z",
     "module": ":src:en:gwtb",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 4006397036545425884,
             "name": "Gone with the Blastwave",
             "lang": "en",
             "baseUrl": "https://www.blastwave-comic.com",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,10 +22,12 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 124,
-                    "message": "www.blastwave-comic.com: Name or service not known",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 84,
+                    "message": "the site is unreachable (www.blastwave-comic.com: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: www.blastwave-comic.com: Name or service not known"
+                    ],
                     "samples": []
                 },
                 {
@@ -68,10 +70,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 1,
-                    "message": "www.blastwave-comic.com",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 3,
+                    "message": "the site is unreachable (www.blastwave-comic.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: www.blastwave-comic.com"
+                    ],
                     "samples": []
                 },
                 {
@@ -85,14 +89,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:36:16.647936736Z",
+    "comparedTo": "2026-10-30T01:26:35.137266895Z",
     "changes": [
         {
             "source": "Gone with the Blastwave",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Gone with the Blastwave",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

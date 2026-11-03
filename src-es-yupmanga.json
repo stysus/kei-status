@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-01T10:48:46.428321675Z",
+    "generatedAt": "2026-11-03T07:03:27.115785922Z",
     "module": ":src:es:yupmanga",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 4437245120973625796,
             "name": "Yupmanga",
             "lang": "es",
             "baseUrl": "https://www.yupmanga.com",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 769,
+                    "durationMs": 814,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 543,
+                    "durationMs": 520,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1118,
+                    "durationMs": 1051,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1032,
+                    "durationMs": 1022,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,25 +75,36 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1791,
+                    "durationMs": 1899,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Tomo - 01 -> SDPpChM0u5iOVRYw2sw80L5AGNkYEouOdRIAAB3Jlkx1Gmr6Hso-HgYWs06GWYQZvb0LCqZmYAqCX20I60Dz#87UVR1XORDH1R"
+                        "Tomo - 01 -> zmd0V7BLosbLhe1mgNXszhWxlmCwvyKkN1Ww8E6sqOA6coa7eISlO3Uq4wT9Z0DYCg982Aw6Z3DOn_-HFRO5#87UVR1XORDH1R"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 1012,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "SKIP",
+                    "durationMs": 995,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403",
+                        "pages are only checked on a chapter that needs no unlock"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T10:02:12.998294500Z",
-    "changes": [],
+    "comparedTo": "2026-11-01T10:48:46.428321675Z",
+    "changes": [
+        {
+            "source": "Yupmanga",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
+        }
+    ],
     "throttledHosts": []
 }

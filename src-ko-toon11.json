@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:34:14.869361494Z",
+    "generatedAt": "2026-11-03T07:03:43.691609085Z",
     "module": ":src:ko:toon11",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 8796296375202334266,
             "name": "11toon",
             "lang": "ko",
             "baseUrl": "https://www.11toon.com",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,32 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 10019,
-                    "message": "www.11toon.com: Temporary failure in name resolution",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 10020,
+                    "message": "the site is unreachable (www.11toon.com: Temporary failure in name resolution); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: www.11toon.com: Temporary failure in name resolution"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 1,
-                    "message": "www.11toon.com",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 3,
+                    "message": "the site is unreachable (www.11toon.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: www.11toon.com"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
+                    "status": "DOWN",
                     "durationMs": 0,
-                    "message": "www.11toon.com",
-                    "notes": [],
+                    "message": "the site is unreachable (www.11toon.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: www.11toon.com"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -81,14 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:18.252076316Z",
+    "comparedTo": "2026-10-30T01:34:14.869361494Z",
     "changes": [
         {
             "source": "11toon",
             "lang": "ko",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "11toon",
+            "lang": "ko",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "11toon",
+            "lang": "ko",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

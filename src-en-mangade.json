@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:48.473168666Z",
+    "generatedAt": "2026-11-03T06:57:48.050999809Z",
     "module": ":src:en:mangade",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 3447999145778061665,
             "name": "MangaDE",
             "lang": "en",
             "baseUrl": "https://mangade.io",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,32 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 898,
+                    "durationMs": 806,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 354,
-                    "message": "NotAfter: Sun Oct 25 03:38:28 UTC 2026",
+                    "status": "DOWN",
+                    "durationMs": 340,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
                         "javax.net.ssl.SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
                         "sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
-                        "java.security.cert.CertPathValidatorException: validity check failed"
+                        "java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertificateExpiredException: NotAfter: Sun Oct 25 03:38:28 UTC 2026"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 327,
-                    "message": "NotAfter: Sun Oct 25 03:38:28 UTC 2026",
+                    "status": "DOWN",
+                    "durationMs": 298,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
                         "javax.net.ssl.SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
                         "sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
-                        "java.security.cert.CertPathValidatorException: validity check failed"
+                        "java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertificateExpiredException: NotAfter: Sun Oct 25 03:38:28 UTC 2026"
                     ],
                     "samples": []
                 },
@@ -89,14 +91,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:07.579374822Z",
+    "comparedTo": "2026-10-30T01:33:48.473168666Z",
     "changes": [
         {
             "source": "MangaDE",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "MangaDE",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

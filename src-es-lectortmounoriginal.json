@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:15.234423886Z",
+    "generatedAt": "2026-11-03T07:02:53.258671704Z",
     "module": ":src:es:lectortmounoriginal",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 7092791175237698168,
             "name": "LectorTMO (unoriginal)",
             "lang": "es",
             "baseUrl": "https://lectortmo.vip",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1892,
+                    "status": "WARN",
+                    "durationMs": 4174,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2426,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Onahole inalámbrica -> onahole-inalambrica",
-                        "Jinx -> jinx-s1",
-                        "La Sombra de la Corona -> la-sombra-de-la-corona"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 304,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 809,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Dragon Ball Lunch The Story -> dragon-ball-lunch-the-story",
-                        "Amante de 4 Semanas -> amante-de-4-semanas",
-                        "Liveta -> liveta"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 271,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1300,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Onahole inalámbrica -> onahole-inalambrica"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1819,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 109 -> onahole-inalambrica-capitulo-109",
-                        "Capítulo 108 -> onahole-inalambrica-capitulo-108",
-                        "Capítulo 107 -> onahole-inalambrica-capitulo-107"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1914,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://repelishd.onl/mangax/onahole-inalambrica/vol-1/chapter-109/001.webp",
-                        "https://repelishd.onl/mangax/onahole-inalambrica/vol-1/chapter-109/002.webp",
-                        "https://repelishd.onl/mangax/onahole-inalambrica/vol-1/chapter-109/003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1874,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:12.553565975Z",
+    "comparedTo": "2026-10-30T01:32:15.234423886Z",
     "changes": [
         {
             "source": "LectorTMO (unoriginal)",
             "lang": "es",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "LectorTMO (unoriginal)",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "LectorTMO (unoriginal)",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "LectorTMO (unoriginal)",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "LectorTMO (unoriginal)",
+            "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "LectorTMO (unoriginal)",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "LectorTMO (unoriginal)",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

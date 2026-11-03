@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:49:46.359249503Z",
+    "generatedAt": "2026-11-03T06:58:12.235913593Z",
     "module": ":src:en:rinkocomics",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 4915548839286527736,
             "name": "Rinko Comics",
             "lang": "en",
             "baseUrl": "https://rinkocomics.com",
-            "status": "WARN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2750,
+                    "durationMs": 2803,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 3774,
+                    "durationMs": 3957,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 542,
+                    "durationMs": 1245,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Save the Sunfish Princess! -> /comic/save-the-sunfish-princess/",
-                        "Starting The Villainess Life With 0 Gold -> /comic/starting-the-villainess-life-with-0-gold/",
-                        "Summer’s Sweetness -> /comic/summers-sweetness/"
+                        "I Quit Being the Convenient Empress -> /comic/i-quit-being-the-convenient-empress/",
+                        "Dirt cheap -> /comic/dirt-cheap/",
+                        "The Squirrel Will Raise The Baby Tiger -> /comic/the-squirrel-will-raise-the-baby-tiger/"
                     ]
                 },
                 {
@@ -64,55 +64,73 @@
                 },
                 {
                     "name": "search",
-                    "status": "WARN",
-                    "durationMs": 1765,
+                    "status": "PASS",
+                    "durationMs": 1298,
                     "message": null,
                     "notes": [
-                        "returned an empty list",
-                        "query \"Summer’s Sweetness\" matched no results in the first page"
+                        "the site found nothing for \"Summer’s Sweetness\"; the retry with \"Summer s Sweetness\" did"
                     ],
-                    "samples": []
+                    "samples": [
+                        "Summer’s Sweetness -> /comic/summers-sweetness/"
+                    ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1658,
+                    "durationMs": 2258,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "🔒 Chapter 6 -> /chapter/summers-sweetness-chapter-6/#lock",
+                        "Chapter 6 -> /chapter/summers-sweetness-chapter-6/",
                         "Chapter 5 -> /chapter/summers-sweetness-chapter-5/",
                         "Chapter 4 -> /chapter/summers-sweetness-chapter-4/"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "This chapter is locked. Use WebView to purchase it.",
-                    "notes": [
-                        "pages are only checked on a chapter that needs no unlock"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 1430,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://cdn.rinkocomics.com/wp-content/uploads/comics/summers-sweetness/6/01__77dc86c1-4e18-4de1-b836-1152efeb2a69.webp",
+                        "https://cdn.rinkocomics.com/wp-content/uploads/comics/summers-sweetness/6/02__b8016b9e-9cd8-4b84-a296-494eb8e869a3.webp",
+                        "https://cdn.rinkocomics.com/wp-content/uploads/comics/summers-sweetness/6/03__5b3ee161-8d19-40be-9004-f7b2de017980.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 63,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:32:10.743485555Z",
+    "comparedTo": "2026-10-31T05:49:46.359249503Z",
     "changes": [
         {
             "source": "Rinko Comics",
             "lang": "en",
+            "scenario": "search",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Rinko Comics",
+            "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Rinko Comics",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

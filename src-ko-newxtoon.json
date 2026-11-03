@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:36:01.258269833Z",
+    "generatedAt": "2026-11-03T07:02:10.458566018Z",
     "module": ":src:ko:newxtoon",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 1562897350957827542,
             "name": "NewXToon",
             "lang": "ko",
             "baseUrl": "https://newxtoon1.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 178,
+                    "durationMs": 444,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 403"
@@ -32,18 +32,22 @@
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 12,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 46,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 28,
-                    "message": "HTTP error 403",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 7,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
@@ -83,21 +87,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:24:12.364480677Z",
+    "comparedTo": "2026-10-30T01:36:01.258269833Z",
     "changes": [
         {
             "source": "NewXToon",
             "lang": "ko",
-            "scenario": "connectivity",
+            "scenario": "popular",
             "from": "FAIL",
-            "to": "WARN"
+            "to": "BLOCKED"
         },
         {
             "source": "NewXToon",
             "lang": "ko",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

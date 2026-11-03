@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:57:55.031577865Z",
+    "generatedAt": "2026-11-03T06:56:03.110515605Z",
     "module": ":src:en:hentaifc",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 4541545529482216024,
             "name": "HentaiFC",
             "lang": "en",
             "baseUrl": "https://hentaifc.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,19 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 30760,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 890,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30006,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 847,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "暴走!!パイズリアンドロイド -> e/90540",
+                        "暴走!!パイズリアンドロイド2～生意気パイズリアンドロイド編～ -> e/90539",
+                        "The Gyaru Who Is Obsessed with Butt-Hole Rimjobs Just Can’t Stop Her Cumming Moans! -> e/90538"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -55,75 +59,93 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 226,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"暴走!!パイズリアンドロイド\" matched no results in the first page",
+                        "a retry without punctuation (\"暴走 パイズリアンドロイド\") also matched nothing"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 691,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 0 -> e/90540/c0"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 286,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://s3.hentaifc.com/token/3010166739_%2A8t-%3Ah7wp3.%2A-t2iw1t2p19sb530e%3A4l.-nt/0.jpg",
+                        "https://s3.hentaifc.com/token/3010166739%2A-tp-%3A25wt.hw_0.b4np72938.sb%3A-lw2tee34p%2Ait/1.jpg",
+                        "https://s3.hentaifc.com/token/3010166739_%2A8t-%3Ah7wp3.%2A-t2iw3t2p39sb530e%3A4l.-nt/2.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1547,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:42:05.343394257Z",
+    "comparedTo": "2026-11-02T11:57:55.031577865Z",
     "changes": [
         {
             "source": "HentaiFC",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "HentaiFC",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "HentaiFC",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "HentaiFC",
             "lang": "en",
             "scenario": "search",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "HentaiFC",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HentaiFC",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HentaiFC",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

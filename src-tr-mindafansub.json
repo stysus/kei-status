@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:54:12.511678015Z",
+    "generatedAt": "2026-11-03T07:03:06.884274990Z",
     "module": ":src:tr:mindafansub",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 8477380026777524321,
             "name": "Minda Fansub",
             "lang": "tr",
             "baseUrl": "https://mindafansub.dev",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 469,
+                    "durationMs": 707,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 502"
@@ -32,18 +32,22 @@
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 345,
-                    "message": "HTTP error 502",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 278,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 290,
-                    "message": "HTTP error 502",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 278,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
                     "samples": []
                 },
                 {
@@ -83,7 +87,22 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:40:02.270003996Z",
-    "changes": [],
+    "comparedTo": "2026-10-31T05:54:12.511678015Z",
+    "changes": [
+        {
+            "source": "Minda Fansub",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Minda Fansub",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
+        }
+    ],
     "throttledHosts": []
 }

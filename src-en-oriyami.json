@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:39:18.236858942Z",
+    "generatedAt": "2026-11-03T06:59:23.538319531Z",
     "module": ":src:en:oriyami",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 3786594066286839843,
             "name": "OriYami",
             "lang": "en",
             "baseUrl": "https://oriyami.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1034,
+                    "status": "WARN",
+                    "durationMs": 19650,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1131,
+                    "durationMs": 115,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,15 +44,13 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 959,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "One Piece -> one-piece",
-                        "Magic Emperor -> magic-emperor",
-                        "Reality Quest -> reality-quest"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19805,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,57 +64,78 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 748,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Fabulous Beasts -> fabulous-beasts"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19537,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1100,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chapter 1258 -> fabulous-beasts/chapter-1258",
-                        "Chapter 1257 -> fabulous-beasts/chapter-1257",
-                        "Chapter 1256 -> fabulous-beasts/chapter-1256"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19631,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 767,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.oriyami.com/manga/fabulous-beasts/1258/JPEG/28631183.jpg",
-                        "https://cdn.oriyami.com/manga/fabulous-beasts/1258/JPEG/28631241.jpg",
-                        "https://cdn.oriyami.com/manga/fabulous-beasts/1258/JPEG/28631345.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1731,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:30:29.715023874Z",
+    "comparedTo": "2026-10-30T01:39:18.236858942Z",
     "changes": [
         {
             "source": "OriYami",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "OriYami",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "OriYami",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "OriYami",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "OriYami",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "OriYami",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

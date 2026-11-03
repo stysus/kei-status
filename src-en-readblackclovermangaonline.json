@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:11.547999824Z",
+    "generatedAt": "2026-11-03T06:57:22.913680571Z",
     "module": ":src:en:readblackclovermangaonline",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 6485938153129890061,
             "name": "Read Black Clover Manga Online",
             "lang": "en",
             "baseUrl": "https://ww10.readblackclover.com",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,10 +22,12 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 59,
-                    "message": "ww10.readblackclover.com: Name or service not known",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 58,
+                    "message": "the site is unreachable (ww10.readblackclover.com: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: ww10.readblackclover.com: Name or service not known"
+                    ],
                     "samples": []
                 },
                 {
@@ -77,10 +79,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 1,
-                    "message": "ww10.readblackclover.com",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 3,
+                    "message": "the site is unreachable (ww10.readblackclover.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: ww10.readblackclover.com"
+                    ],
                     "samples": []
                 },
                 {
@@ -94,14 +98,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:55.835010501Z",
+    "comparedTo": "2026-10-30T01:31:11.547999824Z",
     "changes": [
         {
             "source": "Read Black Clover Manga Online",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Read Black Clover Manga Online",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

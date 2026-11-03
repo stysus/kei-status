@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:19.701981184Z",
+    "generatedAt": "2026-11-03T06:57:36.930096905Z",
     "module": ":src:en:auntmanhwa",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 6576302499429437207,
             "name": "Aunt Manhwa",
             "lang": "en",
             "baseUrl": "https://auntmanhwa.com",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,26 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 375,
-                    "message": "Hostname auntmanhwa.com not verified:\n    certificate: sha256/duCQs17XXq3OqcFO0QaitUzkv6E+l0FpMwVhj5S7tRk=\n    DN: CN=srv1810250.hstgr.cloud\n    subjectAltNames: [srv1810250.hstgr.cloud, www.srv1810250.hstgr.cloud]",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 570,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLPeerUnverifiedException: Hostname auntmanhwa.com not verified:\n    certificate: sha256/duCQs17XXq3OqcFO0QaitUzkv6E+l0FpMwVhj5S7tRk=\n    DN: CN=srv1810250.hstgr.cloud\n    subjectAltNames: [srv1810250.hstgr.cloud, www.srv1810250.hstgr.cloud]"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 363,
-                    "message": "Hostname auntmanhwa.com not verified:\n    certificate: sha256/duCQs17XXq3OqcFO0QaitUzkv6E+l0FpMwVhj5S7tRk=\n    DN: CN=srv1810250.hstgr.cloud\n    subjectAltNames: [srv1810250.hstgr.cloud, www.srv1810250.hstgr.cloud]",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 498,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLPeerUnverifiedException: Hostname auntmanhwa.com not verified:\n    certificate: sha256/duCQs17XXq3OqcFO0QaitUzkv6E+l0FpMwVhj5S7tRk=\n    DN: CN=srv1810250.hstgr.cloud\n    subjectAltNames: [srv1810250.hstgr.cloud, www.srv1810250.hstgr.cloud]"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 363,
-                    "message": "Hostname auntmanhwa.com not verified:\n    certificate: sha256/duCQs17XXq3OqcFO0QaitUzkv6E+l0FpMwVhj5S7tRk=\n    DN: CN=srv1810250.hstgr.cloud\n    subjectAltNames: [srv1810250.hstgr.cloud, www.srv1810250.hstgr.cloud]",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 494,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLPeerUnverifiedException: Hostname auntmanhwa.com not verified:\n    certificate: sha256/duCQs17XXq3OqcFO0QaitUzkv6E+l0FpMwVhj5S7tRk=\n    DN: CN=srv1810250.hstgr.cloud\n    subjectAltNames: [srv1810250.hstgr.cloud, www.srv1810250.hstgr.cloud]"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,14 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:40.729459674Z",
+    "comparedTo": "2026-10-30T01:30:19.701981184Z",
     "changes": [
         {
             "source": "Aunt Manhwa",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Aunt Manhwa",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Aunt Manhwa",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

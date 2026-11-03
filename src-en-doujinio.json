@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:56:39.224027243Z",
+    "generatedAt": "2026-11-03T07:01:31.798850080Z",
     "module": ":src:en:doujinio",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 2738692054520731722,
             "name": "Doujin.io - J18",
             "lang": "en",
             "baseUrl": "https://doujin.io",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1110,
+                    "durationMs": 1057,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 487,
+                    "durationMs": 847,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 545,
+                    "durationMs": 627,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,16 +64,18 @@
                 },
                 {
                     "name": "search",
-                    "status": "FAIL",
-                    "durationMs": 920,
-                    "message": "HTTP error 500",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 711,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 990,
+                    "durationMs": 1015,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -84,7 +86,7 @@
                 {
                     "name": "pages",
                     "status": "BLOCKED",
-                    "durationMs": 820,
+                    "durationMs": 909,
                     "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
                     "notes": [
                         "java.lang.IllegalStateException: Login through WebView to read"
@@ -94,14 +96,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:42:24.837236126Z",
+    "comparedTo": "2026-11-02T11:56:39.224027243Z",
     "changes": [
         {
             "source": "Doujin.io - J18",
             "lang": "en",
             "scenario": "search",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:40:19.217903616Z",
+    "generatedAt": "2026-11-03T07:03:20.466155365Z",
     "module": ":src:vi:seikowo",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 3049157397733640125,
             "name": "Seikowo",
             "lang": "vi",
             "baseUrl": "https://seikowo-app.blogspot.com",
-            "status": "THROTTLED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 514,
+                    "durationMs": 678,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 992,
+                    "durationMs": 703,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 446,
+                    "durationMs": 225,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 11058,
+                    "durationMs": 11357,
                     "message": null,
                     "notes": [
                         "returned an empty list",
@@ -75,12 +75,10 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "THROTTLED",
-                    "durationMs": 1863,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 858,
+                    "message": "Cannot find metadata",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -94,45 +92,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:47:36.762290494Z",
+    "comparedTo": "2026-11-02T11:40:19.217903616Z",
     "changes": [
         {
             "source": "Seikowo",
             "lang": "vi",
-            "scenario": "popular",
-            "from": "THROTTLED",
-            "to": "PASS"
-        },
-        {
-            "source": "Seikowo",
-            "lang": "vi",
-            "scenario": "latest",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Seikowo",
-            "lang": "vi",
-            "scenario": "filters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Seikowo",
-            "lang": "vi",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "WARN"
-        },
-        {
-            "source": "Seikowo",
-            "lang": "vi",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "FAIL"
         }
     ],
-    "throttledHosts": [
-        "seikowo-app.blogspot.com"
-    ]
+    "throttledHosts": []
 }

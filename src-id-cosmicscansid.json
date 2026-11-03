@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:39:28.541641282Z",
+    "generatedAt": "2026-11-03T07:03:16.002394077Z",
     "module": ":src:id:cosmicscansid",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 6559481336553833282,
             "name": "CosmicScans",
             "lang": "id",
             "baseUrl": "https://04.cosmicscans.to",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 786,
+                    "durationMs": 486,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 827,
+                    "durationMs": 619,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 201,
+                    "durationMs": 119,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Kokou no Ou to Hidamari no Hanayome ga Saikou no Fuufu ni Naru made -> /series/kokou-no-ou-to-hidamari-no-hanayome-ga-saikou-no-fuufu-ni-naru-made",
-                        "Fuguushoku to Baka ni Saremashita ga, Jissai wa Sorehodo Waruku Arimasen? -> /series/fuguushoku-to-baka-ni-saremashita-ga-jissai-wa-sorehodo-waruku-arimasen",
-                        "My Avatar Is Becoming the Final Boss (Remake) -> /series/my-avatar-is-becoming-the-final-boss-remake"
+                        "Records of the Swordsman Scholar -> /series/records-of-the-swordsman-scholar",
+                        "The Magic Tower's Problem Child -> /series/the-magic-towers-problem-child",
+                        "Reborn as The Heavenly Demon -> /series/reborn-as-the-heavenly-demon"
                     ]
                 },
                 {
@@ -65,10 +65,11 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 398,
+                    "durationMs": 358,
                     "message": null,
                     "notes": [
-                        "query \"Nani no Torie mo Nai Heibon na Ore ga Bijin Futago Shimai wo Inochigake de Tasuketa Kekka, Jitsu wa Yandere datta Futari wo Gachi Bore Sasete Shimatta\" matched no results in the first page"
+                        "query \"Nani no Torie mo Nai Heibon na Ore ga Bijin Futago Shimai wo Inochigake de Tasuketa Kekka, Jitsu wa Yandere datta Futari wo Gachi Bore Sasete Shimatta\" matched no results in the first page",
+                        "a retry without punctuation (\"Nani no Torie mo Nai Heibon na Ore ga Bijin Futago Shimai wo Inochigake de Tasuketa Kekka Jitsu wa Yandere datta Futari wo Gachi Bore Sasete Shimatta\") also matched nothing"
                     ],
                     "samples": [
                         "Isekai Yanikasu -> /series/isekai-yanikasu",
@@ -78,10 +79,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 185,
-                    "message": "HTTP error 500",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 248,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
                     "samples": []
                 },
                 {
@@ -95,14 +98,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:45:04.609777054Z",
+    "comparedTo": "2026-11-02T11:39:28.541641282Z",
     "changes": [
         {
             "source": "CosmicScans",
             "lang": "id",
-            "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:35:00.899218509Z",
+    "generatedAt": "2026-11-03T06:56:05.106690259Z",
     "module": ":src:en:aurora",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 9148518200946142514,
             "name": "Aurora",
             "lang": "en",
             "baseUrl": "https://comicaurora.com",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,18 +23,22 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 7320,
+                    "durationMs": 2044,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30007,
-                    "message": "timeout",
+                    "status": "PASS",
+                    "durationMs": 46,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Aurora -  -> /aurora-storyline/arc-1/chap-1-1/",
+                        "Aurora -  -> /aurora-storyline/arc-1/chapter-2/",
+                        "Aurora -  -> /aurora-storyline/arc-1/chapter-3/"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -55,61 +59,77 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
-                },
-                {
                     "name": "search",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "message": "not supported by this source",
+                    "notes": [
+                        "java.lang.UnsupportedOperationException: <no message>"
+                    ],
                     "samples": []
                 },
                 {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 760,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "1.1.32 -> /aurora/1-1-32/",
+                        "1.1.31 -> /aurora/1-1-31/",
+                        "1.1.30 -> /aurora/1-1-30/"
+                    ]
+                },
+                {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 28,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://comicaurora.com/wp-content/uploads/2019/04/CH1_010-1.png"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 66,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:26:15.102629352Z",
+    "comparedTo": "2026-11-02T11:35:00.899218509Z",
     "changes": [
         {
             "source": "Aurora",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Aurora",
             "lang": "en",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Aurora",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Aurora",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

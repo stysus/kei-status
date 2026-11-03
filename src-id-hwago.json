@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:34:43.790585587Z",
+    "generatedAt": "2026-11-03T07:01:42.292977401Z",
     "module": ":src:id:hwago",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 5490253431755133280,
             "name": "Hwago",
             "lang": "id",
             "baseUrl": "https://02.hwago.xyz",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,31 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 30459,
-                    "message": "SSL peer shut down incorrectly",
+                    "status": "DOWN",
+                    "durationMs": 30481,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
-                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake"
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
+                        "java.io.EOFException: SSL peer shut down incorrectly"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30197,
-                    "message": "SSL peer shut down incorrectly",
+                    "status": "DOWN",
+                    "durationMs": 30450,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
-                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake"
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
+                        "java.io.EOFException: SSL peer shut down incorrectly"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 31278,
-                    "message": "SSL peer shut down incorrectly",
+                    "status": "DOWN",
+                    "durationMs": 30443,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
-                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake"
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
+                        "java.io.EOFException: SSL peer shut down incorrectly"
                     ],
                     "samples": []
                 },
@@ -87,56 +90,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:52.595495921Z",
+    "comparedTo": "2026-10-30T01:34:43.790585587Z",
     "changes": [
         {
             "source": "Hwago",
             "lang": "id",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "DOWN"
         },
         {
             "source": "Hwago",
             "lang": "id",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "DOWN"
         },
         {
             "source": "Hwago",
             "lang": "id",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Hwago",
-            "lang": "id",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Hwago",
-            "lang": "id",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
-        },
-        {
-            "source": "Hwago",
-            "lang": "id",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Hwago",
-            "lang": "id",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

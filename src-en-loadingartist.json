@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:28:53.046658732Z",
+    "generatedAt": "2026-11-03T06:58:32.137055865Z",
     "module": ":src:en:loadingartist",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 1555415289901855998,
             "name": "Loading Artist",
             "lang": "en",
             "baseUrl": "https://loadingartist.com",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 289,
+                    "durationMs": 287,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -58,16 +58,18 @@
                 },
                 {
                     "name": "search",
-                    "status": "FAIL",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": "Search not available for this source",
-                    "notes": [],
+                    "message": "not supported by this source",
+                    "notes": [
+                        "java.lang.Exception: Search not available for this source"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 54,
+                    "durationMs": 111,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -79,7 +81,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 106,
+                    "durationMs": 95,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -89,7 +91,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 110,
+                    "durationMs": 76,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -97,14 +99,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:34:12.777969341Z",
+    "comparedTo": "2026-10-30T01:28:53.046658732Z",
     "changes": [
         {
             "source": "Loading Artist",
             "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:36:32.014351092Z",
+    "generatedAt": "2026-11-03T07:00:10.268532997Z",
     "module": ":src:pt:kivaratoons",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 2454581737028097436,
             "name": "KivaraToons",
             "lang": "pt-BR",
             "baseUrl": "https://kivaratoons.com",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,26 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 261,
-                    "message": "(internal_error) Received fatal alert: internal_error",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 116,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLException: (internal_error) Received fatal alert: internal_error"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 134,
-                    "message": "(internal_error) Received fatal alert: internal_error",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 34,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLException: (internal_error) Received fatal alert: internal_error"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 133,
-                    "message": "(internal_error) Received fatal alert: internal_error",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 36,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLException: (internal_error) Received fatal alert: internal_error"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,14 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:40:06.178706871Z",
+    "comparedTo": "2026-10-30T01:36:32.014351092Z",
     "changes": [
         {
             "source": "KivaraToons",
             "lang": "pt-BR",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "KivaraToons",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "KivaraToons",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

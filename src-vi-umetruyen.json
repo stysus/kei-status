@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:34:59.472945367Z",
+    "generatedAt": "2026-11-03T07:03:27.741706678Z",
     "module": ":src:vi:umetruyen",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 2473081822885310816,
             "name": "UmeTruyen",
             "lang": "vi",
             "baseUrl": "https://umetruyenz.org",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,31 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 30283,
-                    "message": "SSL peer shut down incorrectly",
+                    "status": "DOWN",
+                    "durationMs": 30429,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
-                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake"
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
+                        "java.io.EOFException: SSL peer shut down incorrectly"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30067,
-                    "message": "SSL peer shut down incorrectly",
+                    "status": "DOWN",
+                    "durationMs": 30470,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
-                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake"
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
+                        "java.io.EOFException: SSL peer shut down incorrectly"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 30288,
-                    "message": "SSL peer shut down incorrectly",
+                    "status": "DOWN",
+                    "durationMs": 30216,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
-                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake"
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
+                        "java.io.EOFException: SSL peer shut down incorrectly"
                     ],
                     "samples": []
                 },
@@ -87,14 +90,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:13.494285863Z",
+    "comparedTo": "2026-10-30T01:34:59.472945367Z",
     "changes": [
         {
             "source": "UmeTruyen",
             "lang": "vi",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "UmeTruyen",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "UmeTruyen",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

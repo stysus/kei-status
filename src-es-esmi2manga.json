@@ -1,47 +1,53 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:21.412606839Z",
+    "generatedAt": "2026-11-03T07:25:34.320916575Z",
     "module": ":src:es:esmi2manga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 1024617013674150903,
             "name": "Es.Mi2Manga",
             "lang": "es",
             "baseUrl": "https://es.mi2manga.com",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 30115,
-                    "message": "Connect timed out",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 645,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLPeerUnverifiedException: Hostname es.mi2manga.com not verified:\n    certificate: sha256/UjjfDStaFDN1GpskGJhm6CXHbj3wRT3ulByo8U1ARoQ=\n    DN: CN=via-mobilita.info\n    subjectAltNames: [via-mobilita.info, www.via-mobilita.info]"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 30109,
-                    "message": "Connect timed out",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 552,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLPeerUnverifiedException: Hostname es.mi2manga.com not verified:\n    certificate: sha256/UjjfDStaFDN1GpskGJhm6CXHbj3wRT3ulByo8U1ARoQ=\n    DN: CN=via-mobilita.info\n    subjectAltNames: [via-mobilita.info, www.via-mobilita.info]"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 30044,
-                    "message": "Connect timed out",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 560,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLPeerUnverifiedException: Hostname es.mi2manga.com not verified:\n    certificate: sha256/UjjfDStaFDN1GpskGJhm6CXHbj3wRT3ulByo8U1ARoQ=\n    DN: CN=via-mobilita.info\n    subjectAltNames: [via-mobilita.info, www.via-mobilita.info]"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,14 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:24:12.289578121Z",
+    "comparedTo": "2026-10-30T01:31:21.412606839Z",
     "changes": [
         {
             "source": "Es.Mi2Manga",
             "lang": "es",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Es.Mi2Manga",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Es.Mi2Manga",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

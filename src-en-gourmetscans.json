@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:31:33.616434217Z",
+    "generatedAt": "2026-11-03T06:56:51.197747411Z",
     "module": ":src:en:gourmetscans",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 3694940277826033657,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1224,
+                    "durationMs": 1117,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1197,
+                    "durationMs": 1311,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1215,
+                    "durationMs": 1220,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,19 +64,20 @@
                 },
                 {
                     "name": "search",
-                    "status": "WARN",
-                    "durationMs": 553,
+                    "status": "PASS",
+                    "durationMs": 633,
                     "message": null,
                     "notes": [
-                        "returned an empty list",
-                        "query \"It’s Time to Change the Genre\" matched no results in the first page"
+                        "the site found nothing for \"It’s Time to Change the Genre\"; the retry with \"It s Time to Change the Genre\" did"
                     ],
-                    "samples": []
+                    "samples": [
+                        "It’s Time to Change the Genre -> 2953"
+                    ]
                 },
                 {
                     "name": "chapters",
                     "status": "FAIL",
-                    "durationMs": 1416,
+                    "durationMs": 1573,
                     "message": "NullPointerException at MadaraBase.parseDetails(MadaraBase.kt:213)",
                     "notes": [
                         "java.lang.NullPointerException: <no message>"
@@ -94,28 +95,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:41:32.068528843Z",
+    "comparedTo": "2026-11-02T11:31:33.616434217Z",
     "changes": [
         {
             "source": "Gourmet Scans",
             "lang": "en",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Gourmet Scans",
-            "lang": "en",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Gourmet Scans",
-            "lang": "en",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "search",
+            "from": "WARN",
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

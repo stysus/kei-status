@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:55.182810034Z",
+    "generatedAt": "2026-11-03T06:58:09.317079155Z",
     "module": ":src:en:newmanhwa",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 3639911276143172075,
             "name": "New Manhwa",
             "lang": "en",
             "baseUrl": "https://saymanhwa.com",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,26 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 42,
-                    "message": "saymanhwa.com: Name or service not known",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 37,
+                    "message": "the site is unreachable (saymanhwa.com: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: saymanhwa.com: Name or service not known"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 1,
-                    "message": "saymanhwa.com",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 3,
+                    "message": "the site is unreachable (saymanhwa.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: saymanhwa.com"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
+                    "status": "DOWN",
                     "durationMs": 0,
-                    "message": "saymanhwa.com",
-                    "notes": [],
+                    "message": "the site is unreachable (saymanhwa.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: saymanhwa.com"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,14 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:28.715932972Z",
+    "comparedTo": "2026-10-30T01:30:55.182810034Z",
     "changes": [
         {
             "source": "New Manhwa",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "New Manhwa",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "New Manhwa",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:39:19.481045035Z",
+    "generatedAt": "2026-11-03T07:08:00.393809716Z",
     "module": ":src:tr:gafeland",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 3266930735690843593,
@@ -23,25 +23,27 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 6020,
+                    "durationMs": 4999,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 1630,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gafeland.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 179,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Kana Susamış Erkek Başrolün Annesi Oldum -> /manga/kana-susamis-erkek-basrolun-annesi-oldum/",
+                        "Lütfen Kocacığım Yeniden Evlenelim! -> /manga/lutfen-kocacigim-yeniden-evlenelim/",
+                        "Vampir Ve Sevgili Avcısı -> /manga/vampir-ve-sevgili-avcisi/"
+                    ]
                 },
                 {
                     "name": "latest",
                     "status": "BLOCKED",
-                    "durationMs": 354,
+                    "durationMs": 294,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gafeland.com (HTTP 403)"
@@ -59,75 +61,69 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "search",
+                    "status": "BLOCKED",
+                    "durationMs": 269,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gafeland.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 257,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Bölüm 33 -> /kana-susamis-erkek-basrolun-annesi-oldum-bolum-33/",
+                        "Bölüm 32 -> /kana-susamis-erkek-basrolun-annesi-oldum-bolum-32/",
+                        "Bölüm 31 -> /kana-susamis-erkek-basrolun-annesi-oldum-bolum-31/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 268,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gafeland.com (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:48:05.069596925Z",
+    "comparedTo": "2026-11-02T11:39:19.481045035Z",
     "changes": [
         {
             "source": "gafeland",
             "lang": "tr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "gafeland",
             "lang": "tr",
-            "scenario": "latest",
-            "from": "PASS",
+            "scenario": "search",
+            "from": "SKIP",
             "to": "BLOCKED"
         },
         {
             "source": "gafeland",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "gafeland",
-            "lang": "tr",
-            "scenario": "search",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "gafeland",
             "lang": "tr",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "gafeland",
-            "lang": "tr",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

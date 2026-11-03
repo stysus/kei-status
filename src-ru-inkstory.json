@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:54:10.060672232Z",
+    "generatedAt": "2026-11-03T07:02:32.246565943Z",
     "module": ":src:ru:inkstory",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 2026387314200968454,
             "name": "InkStory",
             "lang": "ru",
             "baseUrl": "https://inkstory.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1226,
+                    "durationMs": 1051,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1043,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 851,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Синяя тюрьма: Блю Лок -> blue-lock",
-                        "Берсерк -> berserk",
-                        "Лукизм -> lookism"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 195,
+                    "durationMs": 1590,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Сестра, в этой жизни я королева -> sister-im-the-queen-in-this-life",
-                        "Руна Возмездия -> pattern-exhibition",
-                        "Путь архимага -> archmage-curriculum"
+                        "Неудачное свидание -> unexciting-date",
+                        "Корпоративный аутсайдер -> the-corporations-bottom-works-well",
+                        "Тёмная Луна : Дети Вамфилда -> children-of-vamfield-by-dark-moon"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,59 +60,67 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 269,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 387,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Синяя тюрьма: Блю Лок -> blue-lock",
-                        "Леди Синяя птица и род Белых Львов -> bluebird-lady-and-the-white-lion-family",
-                        "Синяя змея и Красная луна -> the-blue-snake-and-the-red-moon"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 446,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 704,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Том 41 Глава 366 - То, чего ещё нет -> 04384588-e26e-4b7b-a047-a5a32380229f",
-                        "Том 41 Глава 365 - Не от мира сего -> 37cc67af-edc3-40b9-a350-4a0400a7caaa",
-                        "Том 41 Глава 364 - Ставка на один гол -> d3b9f7e7-fc7c-4ee5-bef6-e0811cf6b48f"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 157,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://static.inuko.me/chapters/a7da0534-6061-495b-b4ae-c3f99ba9bc3d/afbbe472-2ed5-xaf1-b21b-a36cb0d318c6.webp",
-                        "https://static.inuko.me/chapters/a7da0534-6061-495b-b4ae-c3f99ba9bc3d/55b57c95-61e7-x70e-b299-cc54d046f09e.webp",
-                        "https://static.inuko.me/chapters/a7da0534-6061-495b-b4ae-c3f99ba9bc3d/462ee7a5-9919-x26c-bfd9-60f500738e64.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1368,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:34:46.976454226Z",
+    "comparedTo": "2026-10-31T05:54:10.060672232Z",
     "changes": [
         {
             "source": "InkStory",
             "lang": "ru",
-            "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "InkStory",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "InkStory",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "InkStory",
+            "lang": "ru",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "InkStory",
+            "lang": "ru",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

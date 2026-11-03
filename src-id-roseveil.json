@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:56.268605406Z",
+    "generatedAt": "2026-11-03T07:04:41.186388031Z",
     "module": ":src:id:roseveil",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 5328028029485519937,
             "name": "Roseveil",
             "lang": "id",
             "baseUrl": "https://roseveil.org",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,26 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 10020,
-                    "message": "roseveil.org: Temporary failure in name resolution",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 10022,
+                    "message": "the site is unreachable (roseveil.org: Temporary failure in name resolution); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: roseveil.org: Temporary failure in name resolution"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 10011,
-                    "message": "api.roseveil.org: Temporary failure in name resolution",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 10016,
+                    "message": "the site is unreachable (api.roseveil.org: Temporary failure in name resolution); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: api.roseveil.org: Temporary failure in name resolution"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
+                    "status": "DOWN",
                     "durationMs": 1,
-                    "message": "api.roseveil.org",
-                    "notes": [],
+                    "message": "the site is unreachable (api.roseveil.org); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: api.roseveil.org"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,14 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:25:20.937292240Z",
+    "comparedTo": "2026-10-30T01:32:56.268605406Z",
     "changes": [
         {
             "source": "Roseveil",
             "lang": "id",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Roseveil",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Roseveil",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

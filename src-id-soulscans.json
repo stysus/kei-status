@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:30.242126757Z",
+    "generatedAt": "2026-11-03T07:00:21.192833568Z",
     "module": ":src:id:soulscans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 8061354444776372735,
             "name": "Soul Scans",
             "lang": "id",
             "baseUrl": "https://v1.soulscans.org",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1050,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 38,
+                    "message": "the site is unreachable (v1.soulscans.org: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: v1.soulscans.org: Name or service not known"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 284,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "My Simulated Path to Immortality -> /comic/my-simulated-path-to-immortality",
-                        "Shut Up, Evil Dragon, I Don't Want to Raise a Child With You Anymore -> /comic/shut-up-evil-dragon-i-dont-want-to-raise-a-child-with-you-anymore",
-                        "The Ultimate of All Ages (The Ancient Sovereign of Eternity) -> /comic/the-ultimate-of-all-ages-the-ancient-sovereign-of-eternity"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 3,
+                    "message": "the site is unreachable (v1.soulscans.org); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: v1.soulscans.org"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 357,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "WITCHRIV -> /comic/witchriv",
-                        "The Postman Walking Through the Apocalypse -> /comic/the-postman-walking-through-the-apocalypse",
-                        "Asura's Verdict -> /comic/asuras-verdict"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 0,
+                    "message": "the site is unreachable (v1.soulscans.org); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: v1.soulscans.org"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 753,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "My Simulated Path to Immortality -> /comic/my-simulated-path-to-immortality"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 206,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 90 -> /comic/my-simulated-path-to-immortality/chapter/90",
-                        "Chapter 89 -> /comic/my-simulated-path-to-immortality/chapter/89",
-                        "Chapter 88 -> /comic/my-simulated-path-to-immortality/chapter/88"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 210,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "http://sscdn.dbm.my.id/extracts/01%20My%20Simulated%20Path%20to%20Immortality_1763049398/01%20My%20Simulated%20Path%20to%20Immortality/00-1.webp",
-                        "http://sscdn.dbm.my.id/extracts/01%20My%20Simulated%20Path%20to%20Immortality_1763049398/01%20My%20Simulated%20Path%20to%20Immortality/01.webp",
-                        "http://sscdn.dbm.my.id/extracts/01%20My%20Simulated%20Path%20to%20Immortality_1763049398/01%20My%20Simulated%20Path%20to%20Immortality/02.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1727,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:23:55.384629776Z",
+    "comparedTo": "2026-10-30T01:33:30.242126757Z",
     "changes": [
         {
             "source": "Soul Scans",
             "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Soul Scans",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Soul Scans",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Soul Scans",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Soul Scans",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Soul Scans",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Soul Scans",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

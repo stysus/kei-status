@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:36:20.679871388Z",
+    "generatedAt": "2026-11-03T07:06:34.572311526Z",
     "module": ":src:tr:raindropfansub",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 5020277403848576351,
             "name": "Raindrop Fansub",
             "lang": "tr",
             "baseUrl": "https://www.raindropteamfan.com",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,29 +22,31 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1110,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30559,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 3567,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 30151,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "java.net.SocketTimeoutException: Connect timed out"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 9951,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 30201,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "java.net.SocketTimeoutException: Connect timed out"
                     ],
                     "samples": []
                 },
@@ -85,14 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:40.968975124Z",
+    "comparedTo": "2026-10-30T01:36:20.679871388Z",
     "changes": [
         {
             "source": "Raindrop Fansub",
             "lang": "tr",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Raindrop Fansub",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "DOWN"
+        },
+        {
+            "source": "Raindrop Fansub",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

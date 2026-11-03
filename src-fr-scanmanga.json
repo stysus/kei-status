@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:54.834198291Z",
+    "generatedAt": "2026-11-03T07:02:42.671186220Z",
     "module": ":src:fr:scanmanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 2062108502806113139,
             "name": "Scan-Manga",
             "lang": "fr",
             "baseUrl": "https://m.scan-manga.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,30 +23,36 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2952,
+                    "durationMs": 961,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 824,
+                    "status": "PASS",
+                    "durationMs": 295,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Swordmaster's Youngest Son -> /10834-12372/Swordmaster-s-Youngest-Son.html",
+                        "Necromancer's Evolutionary Traits -> /13018-39112/Necromancer-s-Evolutionary-Traits.html",
+                        "A Dragonslayer's Peerless Regression -> /14952/A-Dragonslayer-s-Peerless-Regression.html"
+                    ]
                 },
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 676,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [
-                        "returned an empty list"
+                        "duplicate manga urls: [/16820/I-Became-A-Married-Man-in-Another-World.html]"
                     ],
-                    "samples": []
+                    "samples": [
+                        "The Reborn Witch Raises a Templar -> /14137/The-Reborn-Witch-Raises-a-Templar.html",
+                        "The Villainess I Possessed Is Raising Hell -> /15574-98791/The-Villainess-I-Possessed-Is-Raising-Hell.html",
+                        "Baby Lynx of the Tiger Family -> /17379/Baby-Lynx-of-the-Tiger-Family.html"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -59,40 +65,67 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 364,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Swordmaster's Youngest Son -> /10834-12372/Swordmaster-s-Youngest-Son.html"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 342,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Ch. 219 -> /lecture-en-ligne/Swordmaster-s-Youngest-Son-Chapitre-219-FR_581314.html",
+                        "Ch. 218 -> /lecture-en-ligne/Swordmaster-s-Youngest-Son-Chapitre-218-FR_579774.html",
+                        "Ch. 217 -> /lecture-en-ligne/Swordmaster-s-Youngest-Son-Chapitre-217-FR_578232.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 2256,
+                    "message": "Résolvez le challenge Cloudflare depuis la WebView puis réouvrez le chapitre.",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:15.471265918Z",
+    "comparedTo": "2026-10-30T01:32:54.834198291Z",
     "changes": [
         {
             "source": "Scan-Manga",
             "lang": "fr",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Scan-Manga",
+            "lang": "fr",
             "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Scan-Manga",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Scan-Manga",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

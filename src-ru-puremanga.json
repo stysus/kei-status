@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:37:32.144931701Z",
+    "generatedAt": "2026-11-03T07:01:00.279164855Z",
     "module": ":src:ru:puremanga",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 501392872283294667,
             "name": "PureManga",
             "lang": "ru",
             "baseUrl": "https://v1.puremanga.me",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,35 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1324,
+                    "durationMs": 855,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 888,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 589,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Распятие Шести -> juujika-no-rokunin",
-                        "Борьба в прямом эфире -> i-can-fight-better",
-                        "Однажды я стала принцессой -> suddenly-became-a-princess-one-day"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 512,
+                    "durationMs": 902,
                     "message": null,
                     "notes": [
-                        "duplicate manga urls: [amuteun-lopan-majseubnida, e-ling-zhai-jisong, heres-come-the-demon-iruma-kun]"
+                        "duplicate manga urls: [amuteun-lopan-majseubnida, dont-mess-with-an-experienced-mom, heres-come-the-demon-iruma-kun]"
                     ],
                     "samples": [
-                        "Тёмный дворецкий -> kuroshitsuji",
-                        "Возвращение героя -> hero-returns",
-                        "Сестра, обладающая силой -> the-sister-with-strength"
+                        "Мачеха отомстит любой ценой -> dont-mess-with-an-experienced-mom",
+                        "Мачеха отомстит любой ценой -> dont-mess-with-an-experienced-mom",
+                        "Голубой период -> the-blue-period"
                     ]
                 },
                 {
@@ -66,50 +62,68 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 283,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 341,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Распятие Шести -> juujika-no-rokunin"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 572,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 693,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Том 22 Глава 232.2 - Специальный выпуск! -> 980e2a4b-42a8-481d-993f-03f70e1c4efd",
-                        "Том 22 Глава 232 - Шестой. -> 4838fcce-a2f0-4066-8e9d-9dd04c023123",
-                        "Том 22 Глава 231 - Память о «Справедливости». -> f59ad627-098c-4dee-97b1-bade6d50703d"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 525,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://static.inuko.me/chapters/e61cce8e-8524-4a75-8297-168aea9d7d62/fff7ae84-4ab3-x9ed-b412-041731a524b6.webp",
-                        "https://static.inuko.me/chapters/e61cce8e-8524-4a75-8297-168aea9d7d62/baf944f5-7f9b-x50a-a536-f8db86593911.jpeg",
-                        "https://static.inuko.me/chapters/e61cce8e-8524-4a75-8297-168aea9d7d62/23e530f0-76f6-x175-8d88-fa58af10d6c3.jpeg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1174,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:35:39.911616951Z",
-    "changes": [],
+    "comparedTo": "2026-11-02T11:37:32.144931701Z",
+    "changes": [
+        {
+            "source": "PureManga",
+            "lang": "ru",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "PureManga",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "PureManga",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "PureManga",
+            "lang": "ru",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "PureManga",
+            "lang": "ru",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

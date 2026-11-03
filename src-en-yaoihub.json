@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:47:41.314546094Z",
+    "generatedAt": "2026-11-03T06:58:46.010382356Z",
     "module": ":src:en:yaoihub",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 6718273076571980404,
             "name": "Yaoihub",
             "lang": "en",
             "baseUrl": "https://yaoihub.org",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 717,
+                    "durationMs": 639,
                     "message": null,
                     "notes": [
                         "home page returned HTTP 502"
@@ -32,24 +32,28 @@
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 1621,
-                    "message": "HTTP error 502",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 1650,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 2002,
-                    "message": "HTTP error 502",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 2007,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -83,7 +87,22 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:30:50.591022879Z",
-    "changes": [],
+    "comparedTo": "2026-10-31T05:47:41.314546094Z",
+    "changes": [
+        {
+            "source": "Yaoihub",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Yaoihub",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
+        }
+    ],
     "throttledHosts": []
 }

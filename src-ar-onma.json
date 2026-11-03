@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:35:50.703680150Z",
+    "generatedAt": "2026-11-03T07:01:22.132591858Z",
     "module": ":src:ar:onma",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 335499577904379512,
             "name": "مانجا اون لاين",
             "lang": "ar",
             "baseUrl": "https://onma.top",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,41 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 84,
-                    "message": "Connection refused (connect failed)",
+                    "status": "DOWN",
+                    "durationMs": 22,
+                    "message": "the site is unreachable (Connection refused (connect failed)); the source is not at fault",
                     "notes": [
-                        "java.net.ConnectException: Failed to connect to onma.top/127.0.0.1:443"
+                        "java.net.ConnectException: Failed to connect to onma.top/127.0.0.1:443",
+                        "java.net.ConnectException: Connection refused (connect failed)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 4,
-                    "message": "Connection refused (connect failed)",
+                    "status": "DOWN",
+                    "durationMs": 3,
+                    "message": "the site is unreachable (Connection refused (connect failed)); the source is not at fault",
                     "notes": [
-                        "java.net.ConnectException: Failed to connect to onma.top/127.0.0.1:443"
+                        "java.net.ConnectException: Failed to connect to onma.top/127.0.0.1:443",
+                        "java.net.ConnectException: Connection refused (connect failed)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
+                    "status": "DOWN",
                     "durationMs": 1,
-                    "message": "Connection refused (connect failed)",
+                    "message": "the site is unreachable (Connection refused (connect failed)); the source is not at fault",
                     "notes": [
-                        "java.net.ConnectException: Failed to connect to onma.top/127.0.0.1:443"
+                        "java.net.ConnectException: Failed to connect to onma.top/127.0.0.1:443",
+                        "java.net.ConnectException: Connection refused (connect failed)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,7 +90,29 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:41:44.609895956Z",
-    "changes": [],
+    "comparedTo": "2026-11-02T11:35:50.703680150Z",
+    "changes": [
+        {
+            "source": "مانجا اون لاين",
+            "lang": "ar",
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "مانجا اون لاين",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "مانجا اون لاين",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
+        }
+    ],
     "throttledHosts": []
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:52.466194387Z",
+    "generatedAt": "2026-11-03T06:58:21.236137090Z",
     "module": ":src:en:snafucomic",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 5425488988830744299,
             "name": "Snafu Comics",
             "lang": "en",
             "baseUrl": "https://www.snafu-comics.com",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 590,
+                    "durationMs": 414,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 96,
+                    "durationMs": 136,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +61,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 773,
+                    "durationMs": 779,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -70,10 +70,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 1060,
-                    "message": "HTTP error 500",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 1056,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
                     "samples": []
                 },
                 {
@@ -87,14 +89,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:37.961258560Z",
+    "comparedTo": "2026-10-30T01:32:52.466194387Z",
     "changes": [
         {
             "source": "Snafu Comics",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

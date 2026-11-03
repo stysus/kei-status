@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:51:03.748587453Z",
+    "generatedAt": "2026-11-03T06:57:29.933066209Z",
     "module": ":src:en:komix",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "eac81a2c",
     "sources": [
         {
             "sourceId": 6862842453918709699,
             "name": "Komix",
             "lang": "en",
             "baseUrl": "https://komix.to",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 656,
+                    "durationMs": 6220,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 455,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Anyone Can Beat the Original -> anyone-can-beat-the-original",
-                        "Keep the Likes Private -> keep-the-likes-private",
-                        "Borderline -> borderline"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 38,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from komix.to (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 264,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "i tell c -> i-tell-c",
-                        "highway -> highway",
-                        "gift of poison -> gift-of-poison"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 27,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from komix.to (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,66 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 604,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Anyone Can Beat the Original -> anyone-can-beat-the-original",
-                        "You Think It's Easy Rewriting A Story? -> l7re-you-think-its-easy-rewriting-a-story"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 884,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 90 -> /title/anyone-can-beat-the-original/chapter/90?group=Lua%20Comic",
-                        "Chapter 89 -> /title/anyone-can-beat-the-original/chapter/89?group=Violet%20Scans",
-                        "Chapter 89 -> /title/anyone-can-beat-the-original/chapter/89?group=Lua%20Comic"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 19586,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://komix.to/api/images?t=SI54KCpvCsglfcQWYO2xgATv9pKyi7bjUWqjcCTQkOXFPRDfz2k83-SX1yEzWEscJt2YXPSnL9v_p36s4C3l4wPZjEhPARzhpeIb0a_x2L5fd8IoB8oR15Ck4mX3gZEPdD-BgjOhNHSqYkYw8LFzOA",
-                        "https://komix.to/api/images?t=dAV-JruP45lzQuhusEiiAu-AE9GaPE35MjS3rGV_rhnuU1OfKzfZgvdyaGWxygiEhHt1oUq59RRjJuLOXiZSQz4oefeRHmManYh_4aoYzrhE8fVu2YI5I9_b3uaONPFkpBMxbnQSqzKaQ8yj_TsMYQ",
-                        "https://komix.to/api/images?t=tdBKhKrv-507XNeKFcIbG3-wyTMuDPJNORqQwyNWs-U-L62tgxYswUzkWcZ5Xlb_qTEnXU660zosCfZOObNgSGjR95YR81P168iXj5xqJ5sSfHNbl--Qqnfq3NCOguE1oqRIvGs9WzJSCT3OhC0Clw"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 4601,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T10:16:36.854133815Z",
+    "comparedTo": "2026-10-31T05:51:03.748587453Z",
     "changes": [
         {
             "source": "Komix",
             "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Komix",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Komix",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Komix",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Komix",
+            "lang": "en",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Komix",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []
