@@ -118,6 +118,14 @@ jobs:
       - name: Verify the host-shim contract snapshot
         run: python3 tools/upstream-contract.py --check
 
+      # android-shim also re-declares core's org.chromium.support_lib_boundary interfaces by
+      # hand, and the loader's parent owns the shim's copies, so those are the ones that load
+      # while core's own sit shadowed. A member core changed or added would fail to link
+      # mid-sweep, so the two source trees are compared here, before the shards start, for the
+      # same reason as the snapshot check above.
+      - name: Verify the Chromium boundary copies
+        run: python3 tools/core-boundary-contract.py --self-test && python3 tools/core-boundary-contract.py
+
       # Discovery is the checker's job, not the shell's: `ci/discover.sh` calls it, so the rule for
       # "what is a module" and the split into shards have exactly one implementation, the one the
       # tests cover. That is why the harness is built first.

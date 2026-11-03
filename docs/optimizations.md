@@ -167,6 +167,20 @@ source, key identity, roll-up mismatch, scenario order), `ModuleListTest` (media
 `./kei-status run :<module> --store /tmp/kei-status-verify`, then `./ci/healthcheck.sh` on
 any store to see the summary it would render.
 
+## Chromium boundary copies guarded (Nov 2026)
+
+`android-shim` re-declares the `org.chromium.support_lib_boundary` interfaces by hand — core
+marks them `internal`, and the extensions-source tree is a runtime checkout rather than a build
+dependency, so they cannot be imported. The harness's `URLClassLoader` asks its parent first,
+and the parent owns the shim, which means the shim's copies are the classes that load while
+core's own sit shadowed: a member core changed or added would surface as `NoSuchMethodError`
+mid-sweep, not at build time. `tools/core-boundary-contract.py` compares the JVM member names
+of every interface on both sides (a Kotlin property through its getter/setter name, `isX`
+included) and runs in the sweep's `prepare` job next to the host-shim contract snapshot, so a
+drifted copy stops the sweep before the shards start. Its name mapping is pinned by
+`--self-test`; the comparison itself was verified by planting a fake member and watching the
+check fail.
+
 ## Search miss re-tried and matched by title (Nov 2026)
 
 The sweep's search WARNs were dominated by searches that work - the same sources answer normally in
