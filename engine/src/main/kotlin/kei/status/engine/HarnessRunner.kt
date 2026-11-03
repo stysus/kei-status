@@ -544,23 +544,34 @@ class HarnessRunner(private val config: HarnessConfig) {
         .map { it.imageUrl ?: it.url }
 
     /**
-     * Runs [block], and asks again once if the site answered HTTP 429.
+     * Runs [block], asking again up to twice when the site answers HTTP 429.
      *
      * A single 429 is usually a burst limit that clears immediately - three of the modules that
      * reported one passed untouched on a re-run minutes later - so one bounded retry removes the
      * noise without hiding a site that is genuinely refusing the sweep. That case still ends as
      * `THROTTLED`, and the retry is what tells the two apart.
      *
+     * The second retry exists for the other shape the data shows: a site (most often Blogger, which
+     * throttles the runner's datacenter IP rather than this sweep's own burst) whose first two
+     * attempts both land inside a minutes-long window. Waiting five more seconds recovers the
+     * short end of that window; the long end stays `THROTTLED`, which is the honest verdict, and
+     * the next sweep picks it up.
+     *
      * The wait prefers the server's own `Retry-After` and is capped, so a site asking for an hour
-     * cannot stretch a shard. Both attempts share the scenario's deadline, so a retry can never
-     * double the time a scenario is allowed.
+     * cannot stretch a shard. All attempts share the scenario's deadline, so retries can never
+     * extend the time a scenario is allowed.
      */
-    private suspend fun <T> retryingThrottle(block: suspend () -> T): T = try {
-        block()
-    } catch (e: HttpException) {
-        if (e.code != 429) throw e
-        delay(e.retryAfterSeconds?.times(1000)?.coerceIn(0, MAX_THROTTLE_BACKOFF_MS) ?: DEFAULT_THROTTLE_BACKOFF_MS)
-        block()
+    private suspend fun <T> retryingThrottle(block: suspend () -> T): T {
+        var attempt = 0
+        while (true) {
+            try {
+                return block()
+            } catch (e: HttpException) {
+                if (e.code != 429) throw e
+                if (++attempt > MAX_THROTTLE_RETRIES) throw e
+                delay(throttleBackoffMs(e.retryAfterSeconds, attempt))
+            }
+        }
     }
 
     // internal for tests: the cancellation-vs-teardown distinction is tested directly.
@@ -673,11 +684,20 @@ private val SUBTITLE_DASH = Regex("\\s+[-–—]\\s+")
 private val WHITESPACE_RUN = Regex("\\s+")
 
 /**
- * How long to wait before the single retry that follows an HTTP 429.
+ * How long to wait before each retry that follows an HTTP 429, and how many retries there are.
  *
- * Used only when the site sends no `Retry-After`. The cap applies either way: a site that asks for
- * an hour would otherwise park a shard, and the point of the retry is to absorb a burst limit, not
- * to wait out a real one.
+ * Used only when the site sends no `Retry-After`; a `Retry-After` the site did send is capped and
+ * preferred. The cap applies either way: a site that asks for an hour would otherwise park a
+ * shard, and the point of the retries is to absorb a burst limit, not to wait out a real one.
+ * The second wait is longer because the first measured one - attempt, 1s wait, attempt again -
+ * regularly failed twice in a row: the throttle window was longer than the first backoff.
  */
+private const val MAX_THROTTLE_RETRIES = 2
 private const val DEFAULT_THROTTLE_BACKOFF_MS = 1_000L
+private const val SECOND_THROTTLE_BACKOFF_MS = 5_000L
 private const val MAX_THROTTLE_BACKOFF_MS = 10_000L
+
+// internal for tests: the backoff ladder is the core decision of the two-retry change.
+internal fun throttleBackoffMs(retryAfterSeconds: Long?, attempt: Int): Long =
+    retryAfterSeconds?.times(1000)?.coerceIn(0, MAX_THROTTLE_BACKOFF_MS)
+        ?: if (attempt == 1) DEFAULT_THROTTLE_BACKOFF_MS else SECOND_THROTTLE_BACKOFF_MS

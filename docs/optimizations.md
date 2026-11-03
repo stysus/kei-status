@@ -167,6 +167,18 @@ source, key identity, roll-up mismatch, scenario order), `ModuleListTest` (media
 `./kei-status run :<module> --store /tmp/kei-status-verify`, then `./ci/healthcheck.sh` on
 any store to see the summary it would render.
 
+## Throttle retry doubled (Nov 2026)
+
+The sweep data showed every throttle came from sites that rate-limit the runner's datacenter IP -
+mostly Blogger, which throttles across all of `*.blogspot.com` from one request - rather than from
+the sweep bursting one host. Those sites pass from a residential IP and passed on earlier sweeps,
+so the verdicts were transient and the fix was patience, not pacing: pacing cannot prevent the
+first 429 when the threshold is the IP's reputation, and waiting longer between requests would
+stretch every shard to serve sites that will answer 429 regardless. The retry went from one to two
+(1s then 5s, `Retry-After` preferred and capped at 10s as before), still inside the scenario's
+deadline, so a throttle that outlasts all three attempts stays `THROTTLED`. Pinned by
+`ThrottleRetryTest`.
+
 ## Diagnosis reclassification (Nov 2026)
 
 Five categories of FAIL reclassified in one batch:

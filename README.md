@@ -91,9 +91,12 @@ same reason `THROTTLED` outranks `PASS`.
 
 Two things keep it from spreading:
 
-- **One bounded retry.** A single 429 is usually a burst limit that clears at once, so the scenario
-  asks again after the site's own `Retry-After` (capped at 10s, 1s when the site sends none). Both
-  attempts share the scenario's deadline, so a retry can never double the time a scenario may take.
+- **Two bounded retries.** A single 429 is usually a burst limit that clears at once, so the scenario
+  asks again after the site's own `Retry-After` (capped at 10s, 1s when the site sends none) and, if
+  that attempt is throttled too, once more after five seconds - the shape the sweep data shows for
+  sites like Blogger, which throttle the runner's datacenter IP and need a longer beat than the
+  first wait. All attempts share the scenario's deadline, so retries can never extend the time a
+  scenario may take; a throttle that outlasts them is real and stays `THROTTLED`.
 - **A breaker per host, per module.** Once a host has answered 429 even after the retry, every later
   source on it is reported `SKIP` with that reason and makes no request at all, so the rest of the
   run neither repeats the failure nor keeps the throttle alive.
