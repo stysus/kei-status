@@ -501,17 +501,17 @@ class ReportHtmlTest {
     }
 
     @Test
-    fun `the header shows when the page was checked`() {
-        // The stored state can be weeks old while the page was refreshed last night, so the run's
-        // clock is what the page reports.
+    fun `the header says when the page was built and each module when it was checked`() {
+        // Subset runs redeploy the page without rechecking every module, so the header's clock
+        // only describes the page; the module's own report carries its checked time.
         val stored = report(":src:en:a", Status.PASS).copy(generatedAt = "2025-12-01T00:00:00Z")
         val html = ReportHtml.site(listOf(stored), checkedAt = "2026-02-03T04:05:06.789Z")
 
-        assertTrue(html.contains("last checked 2026-02-03 04:05 UTC"))
-        assertFalse(html.contains("2025-12-01 00:00 UTC"))
+        assertTrue(html.contains("page updated 2026-02-03 04:05 UTC"))
+        assertTrue(html.contains("checked 2025-12-01 00:00 UTC"))
 
         // An unreadable timestamp is shown as-is rather than failing the page.
         val odd = ReportHtml.site(listOf(stored), checkedAt = "whenever")
-        assertTrue(odd.contains("last checked whenever"))
+        assertTrue(odd.contains("page updated whenever"))
     }
 }

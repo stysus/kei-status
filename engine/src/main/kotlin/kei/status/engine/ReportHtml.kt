@@ -39,10 +39,10 @@ object ReportHtml {
     /**
      * Renders every report into a single page, worst modules first.
      *
-     * [checkedAt] is when this page's run happened, not when a module's state was first seen.
-     * A nightly job refreshes the page every night while most modules keep the state they had for
-     * weeks, so a single "last checked" line describes the page honestly and no per-module
-     * "since" label is needed.
+     * [checkedAt] is when this page was built, not when its modules were checked: a subset run
+     * merges its fresh entries into the stored page and redeploys it without touching the other
+     * modules, so the header says "page updated" and each module carries its own checked time
+     * from its report's [RunReport.generatedAt].
      */
     fun site(
         reports: List<RunReport>,
@@ -78,7 +78,7 @@ object ReportHtml {
             appendLine("<h1>${escape(title)}</h1>")
             appendLine(
                 "<p class=\"meta\">${ordered.size} module(s) &middot; ${sources.size} source(s)" +
-                    " &middot; ${upstream(ordered)} &middot; last checked ${escape(humanTime(checkedAt))}</p>",
+                    " &middot; ${upstream(ordered)} &middot; page updated ${escape(humanTime(checkedAt))}</p>",
             )
             // Each tally is also the filter for its status: the number says how many are in that
             // state, and clicking it is the shortest way to see exactly those. A status with nothing
@@ -184,6 +184,10 @@ object ReportHtml {
             if (report.sources.size > 1) appendLine(histogram(report.sources))
             appendLine("<span class=\"count\">${countOf(report.sources.size, "source")}</span>")
         }
+        // Subset runs redeploy the page without rechecking every module, so the header's "page
+        // updated" cannot tell a reader when this module was last looked at; its own report's
+        // clock can, and a stale date next to a fresh one is the honesty the merge needs.
+        appendLine("<span class=\"when\">checked ${escape(humanTime(report.generatedAt))}</span>")
         appendLine("</summary>")
 
         if (report.changes.isNotEmpty()) {
@@ -541,6 +545,7 @@ object ReportHtml {
         details.source > summary:hover { background: rgba(127,127,127,.06); }
         .name { font-weight: 600; }
         .lang { color: var(--muted); font-size: .75rem; text-transform: uppercase; }
+        .when { color: var(--muted); font-size: .75rem; white-space: nowrap; }
         .url {
           color: var(--muted); font-size: .78rem; margin-left: auto;
           font-family: ui-monospace, monospace; overflow-wrap: anywhere;

@@ -88,11 +88,15 @@ publish job merges those, refuses to publish unless **every** shard reported in,
 deploys. A partial sweep would stamp the whole page with a "last checked" time that is false for the
 shards that never ran, so it is treated as a failure rather than as a partial success.
 
-A run limited to a handful of modules (`workflow_dispatch` with a `modules` input) is not a
-verification failure - its shards all report in - but it must not replace the deployed page either:
-the page it would render names only what it checked. The publish job detects that case from the
-`complete` marker next to `all.txt` and skips the render and the deploy, so the site keeps the last
-full sweep's state; the run's findings still land on the `data` branch through the same commit step.
+A run limited to a handful of modules (`workflow_dispatch` with a `modules` input) updates the page
+too, without waiting for the nightly: its fresh entries were already merged into the store by the
+apply step, so `publish.sh` renders the page from the whole store instead of filtering it through
+the subset list. It only filters and prunes on a full sweep, where the `complete` marker next to
+`all.txt` proves the list is the whole tree. The header therefore says "page updated" (when this
+page was built) and every module carries its own "checked" date, so a module the subset run did not
+touch shows the night it was last verified rather than borrowing the header's clock. A module
+deleted upstream lingers on a subset-rendered page until the next full sweep prunes it - bounded,
+because the sweep runs nightly.
 
 `--only shards/all.txt` keeps a module that was deleted upstream from lingering on a page that
 claims it was just checked, and `--prune` deletes its stored entry as well: nothing sweeps a removed
