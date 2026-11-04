@@ -88,6 +88,12 @@ publish job merges those, refuses to publish unless **every** shard reported in,
 deploys. A partial sweep would stamp the whole page with a "last checked" time that is false for the
 shards that never ran, so it is treated as a failure rather than as a partial success.
 
+A run limited to a handful of modules (`workflow_dispatch` with a `modules` input) is not a
+verification failure - its shards all report in - but it must not replace the deployed page either:
+the page it would render names only what it checked. The publish job detects that case from the
+`complete` marker next to `all.txt` and skips the render and the deploy, so the site keeps the last
+full sweep's state; the run's findings still land on the `data` branch through the same commit step.
+
 `--only shards/all.txt` keeps a module that was deleted upstream from lingering on a page that
 claims it was just checked, and `--prune` deletes its stored entry as well: nothing sweeps a removed
 module, so nothing would ever rewrite that file.

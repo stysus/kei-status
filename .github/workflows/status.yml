@@ -318,6 +318,20 @@ jobs:
       - name: Apply the changed state
         run: ./ci/apply.sh incoming data
 
+      - name: Detect a full sweep
+        id: scope
+        run: |
+          if [ -f shards/complete ]; then
+            echo "full=true" >>"$GITHUB_OUTPUT"
+          else
+            # A subset run must not replace the deployed page: it checked a handful of modules,
+            # and publishing would both stamp a false "last checked" over the whole site and
+            # drop every module it did not name from the page. The data branch still records
+            # the run; the page stays with the last full sweep until one supersedes it.
+            echo "full=false" >>"$GITHUB_OUTPUT"
+            echo "subset run: the deployed page keeps the last full sweep's state"
+          fi
+
       - name: Verify the sweep
         run: ./ci/verify.sh data incoming shards/matrix.json
 
@@ -325,19 +339,23 @@ jobs:
         run: ./ci/healthcheck.sh data incoming
 
       - name: Render the page
+        if: steps.scope.outputs.full == 'true'
         run: ./ci/publish.sh shards/all.txt site
 
       - name: Commit the state
         run: ./ci/commit.sh data data
 
       - name: Configure Pages
+        if: steps.scope.outputs.full == 'true'
         uses: actions/configure-pages@v6
 
       - name: Upload the page
+        if: steps.scope.outputs.full == 'true'
         uses: actions/upload-pages-artifact@v5
         with:
           path: site
 
       - name: Deploy
+        if: steps.scope.outputs.full == 'true'
         id: deploy
         uses: actions/deploy-pages@v5
