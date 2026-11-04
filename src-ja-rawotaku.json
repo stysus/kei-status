@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:36:26.795014856Z",
+    "generatedAt": "2026-11-04T11:18:47.425570549Z",
     "module": ":src:ja:rawotaku",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "ee661f52",
     "sources": [
         {
             "sourceId": 7370546749583817262,
             "name": "Raw Otaku",
             "lang": "ja",
             "baseUrl": "https://rawotaku.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 552,
+                    "status": "WARN",
+                    "durationMs": 19779,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 245,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "カラダにイイ男 -> /read/カラダにイイ男-raw/",
-                        "オナホ教室-新学期 -> /read/オナホ教室-新学期-raw/",
-                        "ワンピース -> /read/ワンピース-raw/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19456,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 865,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "隣のクーデレラを甘やかしたら、ウチの合鍵を渡すことになった -> /read/隣のクーデレラを甘やかしたら、ウチの合鍵を渡すことになった-raw/",
-                        "平民出身の帝国将官、無能な貴族上官を蹂躙して成り上がる -> /read/平民出身の帝国将官、無能な貴族上官を蹂躙して成り上がる-raw/",
-                        "暁の魔女レイシーは自由に生きたい～魔王討伐を終えたので、のんびりお店を開きます～ -> /read/暁の魔女レイシーは自由に生きたい～魔王討伐を終えたので、のんびりお店を開きます～-raw/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19455,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 572,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "カラダにイイ男 -> /read/カラダにイイ男-raw/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 236,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "第75話: カラダにイイ男 (Raw – Free) 【第75話】 -> /read/カラダにイイ男/ja/chapter-75-raw/#947097",
-                        "第74話: カラダにイイ男 (Raw – Free) 【第74話】 -> /read/カラダにイイ男/ja/chapter-74-raw/#947096",
-                        "第73話: カラダにイイ男 (Raw – Free) 【第73話】 -> /read/カラダにイイ男/ja/chapter-73-raw/#947095"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 812,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://sv1.freeimgmg.online/files/3954/112137/1.webp",
-                        "https://sv1.freeimgmg.online/files/3954/112137/2.webp",
-                        "https://sv1.freeimgmg.online/files/3954/112137/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1149,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:36:57.543140561Z",
+    "comparedTo": "2026-10-30T01:36:26.795014856Z",
     "changes": [
         {
             "source": "Raw Otaku",
             "lang": "ja",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Raw Otaku",
+            "lang": "ja",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Raw Otaku",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Raw Otaku",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Raw Otaku",
+            "lang": "ja",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Raw Otaku",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Raw Otaku",
+            "lang": "ja",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

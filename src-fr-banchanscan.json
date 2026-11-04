@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T11:07:47.055498202Z",
+    "generatedAt": "2026-11-04T11:19:51.033885354Z",
     "module": ":src:fr:banchanscan",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "ee661f52",
     "sources": [
         {
             "sourceId": 8593333389489308586,
             "name": "Banchan Scan",
             "lang": "fr",
             "baseUrl": "https://banchanscan.fr",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 6682,
+                    "durationMs": 3614,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,25 +31,25 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1957,
+                    "durationMs": 1369,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "A Saint Who Was Adopted By The Grand Duke -> webtoon_1957d018-ad82-4b04-86ab-8ae99f5b0863",
-                        "The Villainess's Stationery Shop -> webtoon_16cb7a88-6ee7-4132-9048-1d6f28cf221d",
-                        "I Simply Cared For My Frail Dad -> webtoon_0dbce543-d3d4-4944-a9c2-08164364fa63"
+                        "The Villainess Wants to Turn Over a New Leaf -> webtoon_afafe806-75d5-473f-9356-7720f861faa3",
+                        "Talented Baby Squirrel -> webtoon_4b3f8afc-1d1a-4c28-a2b1-7ef4e517dae3"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 664,
+                    "durationMs": 246,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Pull Yourself Together, Team Leader -> webtoon_15f777c6-5120-4737-8c38-1bbfae720cd1",
-                        "My Noisy Neighbor -> webtoon_f32ce601-cee6-4710-aa7b-920b877b0877",
-                        "I'll Eat your Mom First -> webtoon_27256f6e-f0d5-467a-8b1d-4ccad857313e"
+                        "After I Died, My boy Groom -> webtoon_d796a8cc-946c-4cac-85c1-2fc39db9fe5e",
+                        "Please Grant Me A Glorious Regret -> webtoon_7464d7cc-3193-468d-9a24-5132d89f4f79",
+                        "Keep the Likes Private -> webtoon_9da4149f-569b-40ff-9579-4f1bbaa5f886"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 18,
+                    "durationMs": 16,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,43 +74,48 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 959,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Saison 3 · Chapitre 97 -> chapter_1cb0f32f-1d23-481b-8fab-fa3cef08c7ad",
-                        "Saison 3 · Chapitre 96 -> chapter_67b33b4f-4ee5-4405-8719-bf3b0c4148fa",
-                        "Saison 3 · Chapitre 95 -> chapter_bd104a27-3f90-4ac7-a3da-3f8ac189e1ac"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30006,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 175,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
-                    "samples": [
-                        "https://cdn.banchanscan.fr/chapters/a-saint-who-was-adopted-by-the-grand-duke/1/0001.webp",
-                        "https://cdn.banchanscan.fr/chapters/a-saint-who-was-adopted-by-the-grand-duke/1/0002.webp",
-                        "https://cdn.banchanscan.fr/chapters/a-saint-who-was-adopted-by-the-grand-duke/1/0003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 1273,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.banchanscan.fr (HTTP 403)",
-                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.banchanscan.fr (HTTP 403)"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:34:01.326372787Z",
-    "changes": [],
+    "comparedTo": "2026-11-03T11:07:47.055498202Z",
+    "changes": [
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

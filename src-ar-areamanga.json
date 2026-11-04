@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:28:48.909461265Z",
+    "generatedAt": "2026-11-04T11:14:25.442892507Z",
     "module": ":src:ar:areamanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "ee661f52",
     "sources": [
         {
             "sourceId": 8112280317896333809,
             "name": "أريا مانجا",
             "lang": "ar",
             "baseUrl": "https://ar.kenmanga.com",
-            "status": "BLOCKED",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 20807,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "WARN",
+                    "durationMs": 7520,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ar.kenmanga.com (HTTP 403)"
+                        "home page returned HTTP 500"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 47,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "DOWN",
+                    "durationMs": 151,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ar.kenmanga.com (HTTP 403)"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 22,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "DOWN",
+                    "durationMs": 143,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ar.kenmanga.com (HTTP 403)"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
                     ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,14 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:29:20.114264233Z",
+    "comparedTo": "2026-10-30T01:28:48.909461265Z",
     "changes": [
         {
             "source": "أريا مانجا",
             "lang": "ar",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "WARN"
+        },
+        {
+            "source": "أريا مانجا",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "DOWN"
+        },
+        {
+            "source": "أريا مانجا",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

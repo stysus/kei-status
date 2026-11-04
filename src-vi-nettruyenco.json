@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:32.039485356Z",
+    "generatedAt": "2026-11-04T11:24:08.763494873Z",
     "module": ":src:vi:nettruyenco",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "ee661f52",
     "sources": [
         {
             "sourceId": 3563992092786616290,
             "name": "NetTruyenCO (unoriginal)",
             "lang": "vi",
             "baseUrl": "https://nettruyenar.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 3396,
+                    "status": "WARN",
+                    "durationMs": 140,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 632,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Bách Luyện Thành Thần -> /truyen-tranh/bach-luyen-thanh-than-1099",
-                        "Đại Phụng Đả Canh Nhân -> /truyen-tranh/dai-phung-da-canh-nhan-12047",
-                        "Tinh Giáp Hồn Tướng -> /truyen-tranh/tinh-giap-hon-tuong-11989"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 53,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from nettruyenar.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 59,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Quyền Vương Bá Nhất Thiên Hạ -> /truyen-tranh/quyen-vuong-ba-nhat-thien-ha-33865",
-                        "Gậy Gỗ Cấp 99+ -> /truyen-tranh/gay-go-cap-99-12236",
-                        "Được Cưng Chiều Từ Thuở Lọt Lòng -> /truyen-tranh/duoc-cung-chieu-tu-thuo-lot-long-34102"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 18,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from nettruyenar.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 720,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bách Luyện Thành Thần -> /truyen-tranh/bach-luyen-thanh-than-1099"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 766,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 1295 -> /truyen-tranh/bach-luyen-thanh-than/chapter-1295/756325",
-                        "Chapter 1294 -> /truyen-tranh/bach-luyen-thanh-than/chapter-1294/756324",
-                        "Chapter 1293 -> /truyen-tranh/bach-luyen-thanh-than/chapter-1293/756323"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 444,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn3.cloud-zzz.com/nettruyen/bach-luyen-thanh-than/1/0.jpg",
-                        "https://cdn3.cloud-zzz.com/nettruyen/bach-luyen-thanh-than/1/1.jpg",
-                        "https://cdn3.cloud-zzz.com/nettruyen/bach-luyen-thanh-than/1/2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 369,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:45.796086007Z",
+    "comparedTo": "2026-10-30T01:37:32.039485356Z",
     "changes": [
         {
             "source": "NetTruyenCO (unoriginal)",
             "lang": "vi",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "NetTruyenCO (unoriginal)",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "NetTruyenCO (unoriginal)",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "NetTruyenCO (unoriginal)",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NetTruyenCO (unoriginal)",
+            "lang": "vi",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NetTruyenCO (unoriginal)",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NetTruyenCO (unoriginal)",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

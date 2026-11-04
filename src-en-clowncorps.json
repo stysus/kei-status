@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T09:57:33.135576273Z",
+    "generatedAt": "2026-11-04T11:19:34.463826769Z",
     "module": ":src:en:clowncorps",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "ee661f52",
     "sources": [
         {
             "sourceId": 285164574089229147,
             "name": "Clown Corps",
             "lang": "en",
             "baseUrl": "https://clowncorps.net",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,10 +22,12 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 419,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30082,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
                     "samples": []
                 },
                 {
@@ -68,66 +70,54 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 6468,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Clown Break -> /comic/clown-break/",
-                        "chapter 6 page 201 -> /comic/chapter-6-page-201/",
-                        "chapter 6 page 200 -> /comic/chapter-6-page-200/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30114,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 97,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://clowncorps.net/wp-content/uploads/2025/11/clowns58.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 401,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:50:55.422725488Z",
+    "comparedTo": "2026-10-31T09:57:33.135576273Z",
     "changes": [
         {
             "source": "Clown Corps",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Clown Corps",
             "lang": "en",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Clown Corps",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Clown Corps",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

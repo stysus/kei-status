@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:49:34.351528023Z",
+    "generatedAt": "2026-11-04T11:18:46.282800759Z",
     "module": ":src:ar:despairmanga",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "ee661f52",
     "sources": [
         {
             "sourceId": 886527590434722171,
             "name": "Despair Manga",
             "lang": "ar",
             "baseUrl": "https://despair-world.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3131,
+                    "durationMs": 14447,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 128,
+                    "durationMs": 366,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,15 +42,11 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 113,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 218,
+                    "message": "Unexpected JSON token at offset 55: Expected string literal but 'null' literal was found at path: $[0].slug\nUse 'coerceInputValues = true' in 'Json {}' builder to coerce nulls if property has a default value.\nJSON input: .....b409ab0c33aa70ee7a17a\",\"slug\":null,\"title_ar\":\"الصيف الذي ما.....",
                     "notes": [],
-                    "samples": [
-                        "حرب البالغين -> war-of-adults",
-                        "Haimiya-senpai wa Kowakute Kawaii -> haimiya-senpai-wa-kowakute-kawaii",
-                        "The apothecary dairies/ يوميات الصيدلانية -> kusuriya-no-hitorigoto"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -65,7 +61,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 110,
+                    "durationMs": 194,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,7 +71,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 130,
+                    "durationMs": 194,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,7 +83,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 109,
+                    "durationMs": 209,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -99,7 +95,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 881,
+                    "durationMs": 1160,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -107,49 +103,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:29:47.675094241Z",
+    "comparedTo": "2026-10-31T05:49:34.351528023Z",
     "changes": [
         {
             "source": "Despair Manga",
             "lang": "ar",
-            "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Despair Manga",
-            "lang": "ar",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Despair Manga",
-            "lang": "ar",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Despair Manga",
-            "lang": "ar",
-            "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Despair Manga",
-            "lang": "ar",
-            "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Despair Manga",
-            "lang": "ar",
-            "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

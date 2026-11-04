@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T11:08:03.164816482Z",
+    "generatedAt": "2026-11-04T11:17:35.267179947Z",
     "module": ":src:en:manhwatoon",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "ee661f52",
     "sources": [
         {
             "sourceId": 3590279382085161370,
             "name": "Manhwa Toon",
             "lang": "en",
             "baseUrl": "https://www.manhwatoon.me",
-            "status": "DOWN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "DOWN",
-                    "durationMs": 30080,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 2161,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 30006,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1375,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "[ratatatat74] tomboy sister bully netorare [English] -> 50650",
+                        "MILF Exchange Plan -> 444",
+                        "[karukiya] My Mother Will Be My Classmate’s Toy For 3 Days During The Exam Period – Chapter 1 Asami Arc [English] [Bamboozalator] -> 52340"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 30001,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1521,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "A Happy Ending After Divorce -> 5395",
+                        "The Delinquent Girls’ Training Begins! -> 56417",
+                        "Burnt to Ashes -> 54309"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,68 +63,72 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 1154,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "[ratatatat74] tomboy sister bully netorare [English] -> 50650"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 768,
+                    "message": "NullPointerException at MadaraBase.parseDetails(MadaraBase.kt:213)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:31:20.688715848Z",
+    "comparedTo": "2026-11-03T11:08:03.164816482Z",
     "changes": [
         {
             "source": "Manhwa Toon",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Manhwa Toon",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Manhwa Toon",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "Manhwa Toon",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "FAIL",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Manhwa Toon",
             "lang": "en",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Manhwa Toon",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T10:08:41.005105320Z",
+    "generatedAt": "2026-11-04T11:25:52.484830911Z",
     "module": ":src:pt:mangastop",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "ee661f52",
     "sources": [
         {
             "sourceId": 924359643993288771,
             "name": "Manga Stop",
             "lang": "pt-BR",
             "baseUrl": "https://mangastop.net",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 572,
+                    "status": "WARN",
+                    "durationMs": 19695,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 237,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Professor Fraco -> 4647321",
-                        "Usuário de Gravidade de Classe Oculta -> 4647386",
-                        "Hua Tuo reencarnado como um gênio da cirurgia moderna -> 4647382"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19637,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 533,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Incomparável no mundo dos jogos online (Remake) -> 4647376",
-                        "Lua Celestial -> 4647380",
-                        "Mesmo hoje, o Ranker sonha com a aposentadoria -> 4647359"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19275,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1694,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Professor Fraco -> 4647321"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1471,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 122 -> 4671929",
-                        "Capítulo 121 -> 4671835",
-                        "Capítulo 120 -> 4671744"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 256,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://images.mangastop.wtf/file/bucketamz/2026/10/663f342f1d6f07486e7f572b8700811b550b87d8.webp",
-                        "https://images.mangastop.wtf/file/bucketamz/2026/10/b639ee3e756a8eef650a14bb18bf4ed6706f55b2.webp",
-                        "https://images.mangastop.wtf/file/bucketamz/2026/10/2f34a40ac6cf8a01e71ca95d5f4e4c3f39569a62.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1413,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:54:20.727027712Z",
+    "comparedTo": "2026-10-31T10:08:41.005105320Z",
     "changes": [
         {
             "source": "Manga Stop",
             "lang": "pt-BR",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manga Stop",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Manga Stop",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Manga Stop",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Stop",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Stop",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Stop",
+            "lang": "pt-BR",
             "scenario": "images",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:28:33.513353325Z",
+    "generatedAt": "2026-11-04T11:19:18.838566335Z",
     "module": ":src:en:gakamangas",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "ee661f52",
     "sources": [
         {
             "sourceId": 5246625723235112128,
             "name": "GakaMangas",
             "lang": "en",
             "baseUrl": "https://gakamangas.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1053,
+                    "durationMs": 480,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 660,
+                    "status": "WARN",
+                    "durationMs": 73,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The anime geniuses meet -> 290",
-                        "Battle of anime’s strongest -> 2144",
-                        "What if manga -> 1937"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 557,
+                    "status": "WARN",
+                    "durationMs": 65,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Battle of anime’s strongest -> 2144",
-                        "Shonen Omniverse -> 2146",
-                        "The anime geniuses meet -> 290"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 613,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The anime geniuses meet -> 290"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1317,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 29 -> chapter-29",
-                        "Chapter 28 -> chapter-28",
-                        "Chapter 27 -> chapter-27"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 918,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://gakamangas.com/wp-content/uploads/WP-manga/data/manga_59dde12f3cfea/e3516be9f93f949f9bc6ff81c18d8274/IMG_6283.PNG",
-                        "https://gakamangas.com/wp-content/uploads/WP-manga/data/manga_59dde12f3cfea/e3516be9f93f949f9bc6ff81c18d8274/IMG_6265.PNG",
-                        "https://gakamangas.com/wp-content/uploads/WP-manga/data/manga_59dde12f3cfea/e3516be9f93f949f9bc6ff81c18d8274/IMG_6266.PNG"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 303,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:30:35.031017407Z",
+    "comparedTo": "2026-10-30T01:28:33.513353325Z",
     "changes": [
         {
             "source": "GakaMangas",
             "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "GakaMangas",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "GakaMangas",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "GakaMangas",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "GakaMangas",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "GakaMangas",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T05:49:42.124867267Z",
+    "generatedAt": "2026-11-04T11:23:57.667688688Z",
     "module": ":src:ja:soraraw",
     "sourceRoot": "",
-    "extensionCommit": "1386f490",
+    "extensionCommit": "ee661f52",
     "sources": [
         {
             "sourceId": 8499664924001897518,
             "name": "SoraRaw",
             "lang": "ja",
             "baseUrl": "https://soraraw.com",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 271,
+                    "durationMs": 270,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 172,
+                    "durationMs": 41,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 158,
+                    "durationMs": 181,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "英雄の神剣、ろくでなし王子に転生する -> eiyuu-no-shinken-rokudenashi-ouji-ni-tensei-suru-63313",
-                        "金色のシュヴァリエ -> kiniro-no-shuvuarie-66810",
-                        "隠し称号解放！今世は最強プレイヤーに成り上がる -> kakushi-shougou-kaihou-kon-yo-ha-saikyou-pureiyaa-ni-nariaga-72970"
+                        "オカルト×ロマンティックコメディ！ WEB限定版 -> okaruto-kakeru-romanteikkukomedei-web-gentei-ban-60018",
+                        "転生脇役は小説世界でやり直し -> tensei-wakiyaku-ha-shousetsu-sekai-de-yarinaoshi-68144",
+                        "誰が妻を殺したのか -> dare-ga-tsuma-wo-koroshi-ta-no-ka-64421"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,55 +64,62 @@
                 },
                 {
                     "name": "search",
-                    "status": "FAIL",
-                    "durationMs": 440,
-                    "message": "HTTP error 404",
+                    "status": "PASS",
+                    "durationMs": 867,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "ワンピース -> wanpiisu-52841",
+                        "恋するワンピース -> koisuru-wanpiisu-52095"
+                    ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 185,
+                    "durationMs": 194,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "1197 raw -> wanpiisu-52841/ch-1197",
-                        "第1196話 -> wanpiisu-52841/ch-1196",
-                        "第1195話 -> wanpiisu-52841/ch-1195"
+                        "1198話ネタバレ -> wanpiisu-52841/ch-id-899611",
+                        "第1197話 -> wanpiisu-52841/ch-1197",
+                        "第1196話 -> wanpiisu-52841/ch-1196"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 467,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://lh4.rawcontent.top/c894671/001_35254176.webp",
-                        "https://lh4.rawcontent.top/c894671/002_35254177.webp",
-                        "https://lh4.rawcontent.top/c894671/003_35254178.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 246,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30285,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:33:46.915091837Z",
+    "comparedTo": "2026-10-31T05:49:42.124867267Z",
     "changes": [
         {
             "source": "SoraRaw",
             "lang": "ja",
             "scenario": "search",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "SoraRaw",
+            "lang": "ja",
+            "scenario": "pages",
             "from": "PASS",
-            "to": "FAIL"
+            "to": "DOWN"
+        },
+        {
+            "source": "SoraRaw",
+            "lang": "ja",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

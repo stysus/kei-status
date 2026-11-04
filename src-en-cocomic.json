@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T11:09:50.086148594Z",
+    "generatedAt": "2026-11-04T11:20:55.245807427Z",
     "module": ":src:en:cocomic",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "ee661f52",
     "sources": [
         {
             "sourceId": 3544369893051520689,
             "name": "Cocomic",
             "lang": "en",
             "baseUrl": "https://cocomic.co",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1206,
+                    "durationMs": 12140,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 2294,
+                    "durationMs": 17229,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1423,
+                    "durationMs": 18470,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "bitten by the dog i abandoned -> 34312",
-                        "Someone Hertz -> 97706",
-                        "It Wasn’t Love At First Sight -> 93948"
+                        "The Regressor and the Blind Saint -> 96979",
+                        "Turning Point (Sung Eo) -> 96904",
+                        "Can Life Be Donated Too? -> 96664"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1703,
+                    "durationMs": 20402,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,45 +74,47 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 6280,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chapter 105 -> chapter-105",
-                        "Chapter 104 -> chapter-104",
-                        "Chapter 103 -> chapter-103"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 12525,
+                    "message": "the site's origin server is not responding (HTTP 504); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 504"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 4179,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn2.cocomic.co/manga_638600453798366558/0363cc453eda9458e38657d5d83128d2/105.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 198,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T06:56:37.405641067Z",
+    "comparedTo": "2026-11-03T11:09:50.086148594Z",
     "changes": [
         {
             "source": "Cocomic",
             "lang": "en",
-            "scenario": "latest",
-            "from": "DOWN",
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Cocomic",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Cocomic",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

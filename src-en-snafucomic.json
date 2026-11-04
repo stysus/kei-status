@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T06:58:21.236137090Z",
+    "generatedAt": "2026-11-04T11:20:20.592928565Z",
     "module": ":src:en:snafucomic",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "ee661f52",
     "sources": [
         {
             "sourceId": 5425488988830744299,
             "name": "Snafu Comics",
             "lang": "en",
             "baseUrl": "https://www.snafu-comics.com",
-            "status": "DOWN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 414,
+                    "durationMs": 660,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 136,
+                    "durationMs": 84,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +61,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 779,
+                    "durationMs": 808,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -70,33 +70,59 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "DOWN",
-                    "durationMs": 1056,
-                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 999,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "ppg-chapter-1 -> /powerpuffgirls/ppg-chapter-1",
+                        "ppg-chapter-2 -> /powerpuffgirls/ppg-chapter-2",
+                        "chapter-3 -> /powerpuffgirls/chapter-3"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 169,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://www.snafu-comics.com/comics/powerpuffgirls_00001_46773736127d2d2c1ce013de9f4583b28e0804d35943acf98354cfc95682b4f12a138334.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 943,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:32:52.466194387Z",
+    "comparedTo": "2026-11-03T06:58:21.236137090Z",
     "changes": [
         {
             "source": "Snafu Comics",
             "lang": "en",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
+        },
+        {
+            "source": "Snafu Comics",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Snafu Comics",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []
