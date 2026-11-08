@@ -6,6 +6,8 @@ import org.junit.Test
 import java.lang.reflect.Modifier
 import java.text.CharacterIterator
 import java.text.StringCharacterIterator
+import java.util.Comparator
+import java.util.Locale
 
 class IcuTextTest {
 
@@ -33,6 +35,38 @@ class IcuTextTest {
         )
         StringSearch::class.java.getMethod("setTarget", CharacterIterator::class.java)
         StringSearch::class.java.getMethod("getMatchedText")
+    }
+
+    /**
+     * AquellosQueTraducen asks for a locale instance, configures it, freezes it, and then sorts
+     * with it directly - so the factory overload, the comparator methods, and the Freezable chain
+     * are all part of the link contract.
+     */
+    @Test
+    fun `the ICU surface AquellosQueTraducen sorts through is present`() {
+        assertTrue(
+            Modifier.isStatic(Collator::class.java.getMethod("getInstance", Locale::class.java).modifiers),
+        )
+        Collator::class.java.getMethod("compare", Any::class.java, Any::class.java)
+        RuleBasedCollator::class.java.getMethod("freeze")
+        RuleBasedCollator::class.java.getMethod("setNumericCollation", Boolean::class.javaPrimitiveType)
+        RuleBasedCollator::class.java.getMethod("isNumericCollation")
+
+        // `sortedWith(collator)` links the collator as a Comparator; without the interface it
+        // fails at run time, not at compile time against android.jar.
+        assertTrue(Comparator::class.java.isAssignableFrom(Collator::class.java))
+    }
+
+    @Test
+    fun `a configured and frozen collator still orders strings`() {
+        val collator = (Collator.getInstance(Locale.ROOT) as RuleBasedCollator).apply {
+            setStrength(0)
+            setNumericCollation(true)
+        }.freeze()
+
+        assertTrue(collator.isNumericCollation())
+        assertTrue(collator.compare("abc", "abd") < 0)
+        assertEquals(listOf("A", "B"), listOf("B", "A").sortedWith(collator))
     }
 
     @Test

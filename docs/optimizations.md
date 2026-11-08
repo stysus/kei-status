@@ -268,3 +268,23 @@ transitions that triggers the `REGRESSION_BURST` warning in `ci/healthcheck.sh` 
 `to in ("FAIL", "BLOCKED")` counts FAIL→BLOCKED as regression). This is classification churn,
 not a real regression. The burst warning self-resolves after one sweep because the new
 baselines stabilise.
+
+## Six UNSUPPORTED modules trace to four missing shim members (Nov 2026)
+
+The first sweep after the WebView rewrite resync reported six modules UNSUPPORTED, which
+reduced to four missing links, not six distinct breakages: the `Log.i(tag, msg, tr)` overload
+(core's Cronet and glue-bridge logging now use it), `Collator.getInstance(Locale)` plus the
+comparator surface one call site sorts through, and the `PdfRenderer`/`ParcelFileDescriptor`
+pair the PDF-publishing readers build their page lists from. `Bitmap.eraseColor` was the
+fourth: jabrascan calls it right before `render`, so it was the next `NoSuchMethodError` to
+land, caught before a sweep could report it.
+
+The render itself is a documented shortcut - it paints nothing, because every call site paints
+its destination white first and the sweep's image probe verifies the PDF pipeline end to end
+(download, open, count, re-encode), not what the pages depict. The page count and size are
+real, scanned from the file's page tree.
+
+The next sweep should flip all six UNSUPPORTED: the three Log.i modules and
+aquellosquetraducen to their true verdicts, and jabrascan/storyaboutus pages to PASS through
+the now-working PDF path. Anything that stays UNSUPPORTED, or a new UNSUPPORTED naming an
+android member, is drift to investigate, not churn.

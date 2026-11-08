@@ -32,6 +32,25 @@ class Bitmap internal constructor(
 
     fun isRecycled(): Boolean = recycled
 
+    /**
+     * Fills the bitmap with a single color, the way Android's `eraseColor` does.
+     *
+     * The PDF readers paint their destination white before handing it to
+     * [android.graphics.pdf.PdfRenderer.Page.render], so the call sites need it to link. A
+     * graphics fill beats a whole-bitmap `IntArray`: a scaled page's array is megabytes of
+     * transient allocation per rendered page.
+     */
+    fun eraseColor(color: Int) {
+        val target = requireImage()
+        val graphics = target.createGraphics()
+        try {
+            graphics.color = java.awt.Color(color, true)
+            graphics.fillRect(0, 0, target.width, target.height)
+        } finally {
+            graphics.dispose()
+        }
+    }
+
     /** Matches Android: a recycled bitmap cannot be drawn, which surfaces use-after-free bugs. */
     fun recycle() {
         recycled = true

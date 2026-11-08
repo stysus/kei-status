@@ -17,6 +17,7 @@ import android.text.Spanned
 import android.text.StaticLayout
 import android.text.TextPaint
 import android.util.Base64
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewParent
@@ -231,6 +232,22 @@ class PlatformLinkageTest {
         assertEquals(
             Layout.Alignment::class.java,
             Layout.Alignment::class.java.getField("ALIGN_NORMAL").type,
+        )
+    }
+
+    @Test
+    fun `log offers the throwable overload the glue bridge and cronet log through`() {
+        // The two-argument `i` was always present; the WebView rewrite added the
+        // three-argument call, whose absence failed three extensions at run time.
+        assertEquals(
+            Int::class.javaPrimitiveType,
+            Log::class.java.getMethod("i", String::class.java, String::class.java).returnType,
+        )
+        assertEquals(
+            Int::class.javaPrimitiveType,
+            Log::class.java
+                .getMethod("i", String::class.java, String::class.java, Throwable::class.java)
+                .returnType,
         )
     }
 }
