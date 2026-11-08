@@ -215,7 +215,10 @@ upstream commits rewrote core's WebView layer and the check stopped the sweep on
 (one new interface, two new members, two removed ones). That catch also exposed the
 comparison's limit - upstream had added a second `addWebMessageListener` overload, and
 name-only comparison cannot see an overload, so it slipped through silently and only a manual
-descriptor check against core's call sites caught it.
+descriptor check against core's call sites caught it. The comparison has since been taught
+parameter counts, which the self-test pins with wrapped declarations and generic-argument
+commas: an overload now compares as its own member. Two overloads of the same count but
+different parameter types are the limit that remains.
 
 ## Search miss re-tried and matched by title (Nov 2026)
 
