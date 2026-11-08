@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:33:15.241571320Z",
+    "generatedAt": "2026-11-08T14:48:15.660518263Z",
     "module": ":src:es:jabrascan",
     "sourceRoot": "",
     "extensionCommit": "48b29182",
@@ -10,7 +10,7 @@
             "name": "JabraScan",
             "lang": "es",
             "baseUrl": "https://jabrascan.net",
-            "status": "UNSUPPORTED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 223,
+                    "durationMs": 239,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 908,
+                    "durationMs": 803,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +61,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 796,
+                    "durationMs": 529,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -71,7 +71,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 715,
+                    "durationMs": 723,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -82,19 +82,24 @@
                 },
                 {
                     "name": "pages",
-                    "status": "UNSUPPORTED",
-                    "durationMs": 279,
-                    "message": "requires an Android class the harness does not provide: android.graphics.pdf.PdfRenderer",
-                    "notes": [
-                        "java.lang.NoClassDefFoundError: android/graphics/pdf/PdfRenderer",
-                        "java.lang.ClassNotFoundException: android.graphics.pdf.PdfRenderer"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 97,
+                    "message": "no pages found: not a PDF, or one the shim cannot scan",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
+    "comparedTo": "2026-11-08T13:33:15.241571320Z",
+    "changes": [
+        {
+            "source": "JabraScan",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "UNSUPPORTED",
+            "to": "FAIL"
+        }
+    ],
     "throttledHosts": []
 }

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:37:45.530318805Z",
+    "generatedAt": "2026-11-08T14:48:18.518402344Z",
     "module": ":src:id:storyaboutus",
     "sourceRoot": "",
     "extensionCommit": "48b29182",
@@ -10,7 +10,7 @@
             "name": "Story About Us",
             "lang": "id",
             "baseUrl": "https://storyabout-us.com",
-            "status": "UNSUPPORTED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 563,
+                    "durationMs": 428,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 957,
+                    "durationMs": 428,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +61,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 445,
+                    "durationMs": 447,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -71,7 +71,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1228,
+                    "durationMs": 996,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -82,19 +82,24 @@
                 },
                 {
                     "name": "pages",
-                    "status": "UNSUPPORTED",
-                    "durationMs": 676,
-                    "message": "requires an Android class the harness does not provide: android.os.ParcelFileDescriptor",
-                    "notes": [
-                        "java.lang.NoClassDefFoundError: android/os/ParcelFileDescriptor",
-                        "java.lang.ClassNotFoundException: android.os.ParcelFileDescriptor"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 550,
+                    "message": "no pages found: not a PDF, or one the shim cannot scan",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
+    "comparedTo": "2026-11-08T13:37:45.530318805Z",
+    "changes": [
+        {
+            "source": "Story About Us",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "UNSUPPORTED",
+            "to": "FAIL"
+        }
+    ],
     "throttledHosts": []
 }
