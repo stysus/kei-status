@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:38:09.603258163Z",
+    "generatedAt": "2026-11-08T13:36:03.497444286Z",
     "module": ":src:tr:amangaplanet",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 5164979204020878495,
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1016,
+                    "durationMs": 857,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 317,
+                    "status": "WARN",
+                    "durationMs": 147,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Şeytani Çağ -> /manga/seytani-cag/",
-                        "Nihai İblis Avcısı -> /manga/nihai-iblis-avcisi/",
-                        "Rakipsiz Ölü Çağıran -> /manga/rakipsiz-olu-cagiran/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 205,
+                    "status": "WARN",
+                    "durationMs": 153,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Yoksul Bir Bölgenin Sahibi Oluverdim -> /manga/yoksul-bir-bolgenin-sahibi-oluverdim/",
-                        "Katlettiğim Ejderhayla Evlendim -> /manga/katlettigim-ejderhayla-evlendim/",
-                        "Barbarın Fantezi Dünyası -> /manga/barbarin-fantezi-dunyasi/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,97 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 186,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Şeytani Çağ -> /manga/seytani-cag/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 193,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 101 -> /seytani-cag-bolum-101/",
-                        "Bölüm 100 -> /seytani-cag-bolum-100/",
-                        "Bölüm 99 -> /seytani-cag-bolum-99/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 192,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://amangaplanet.link/wp-content/uploads/TR/TRA05/Seytani-cag-bolum-101.webp",
-                        "https://amangaplanet.link/wp-content/uploads/TR/TRA05/A05Bolum101-001.webp",
-                        "https://amangaplanet.link/wp-content/uploads/TR/TRA05/A05Bolum101-002.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 666,
-                    "message": null,
-                    "notes": [
-                        "page[0] image returned HTTP 403",
-                        "page[1] image returned HTTP 403",
-                        "page[2] image returned HTTP 403"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:25:01.179403944Z",
+    "comparedTo": "2026-10-30T01:38:09.603258163Z",
     "changes": [
         {
             "source": "Amanga Planet",
             "lang": "tr",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Amanga Planet",
             "lang": "tr",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Amanga Planet",
-            "lang": "tr",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Amanga Planet",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Amanga Planet",
+            "lang": "tr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Amanga Planet",
             "lang": "tr",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Amanga Planet",
             "lang": "tr",
             "scenario": "images",
-            "from": null,
-            "to": "WARN"
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

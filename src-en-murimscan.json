@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:16:47.284870166Z",
+    "generatedAt": "2026-11-08T13:32:43.361167419Z",
     "module": ":src:en:murimscan",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 5524031489110351257,
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 236,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 7347,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 65,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.murimscans.site answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "The Lone Necromancer -> /2026/04/the-lone-necromancer.html",
-                        "Max Toonager -> /2026/02/max-toonager_0538637281.html",
-                        "Jungle Juice -> /2026/01/jungle-juice.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -50,67 +48,75 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "www.murimscans.site answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 296,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Lone Necromancer -> /2026/04/the-lone-necromancer.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "THROTTLED",
-                    "durationMs": 6925,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:23:08.402082516Z",
+    "comparedTo": "2026-11-04T11:16:47.284870166Z",
     "changes": [
         {
             "source": "MurimScan",
             "lang": "en",
-            "scenario": "chapters",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "MurimScan",
             "lang": "en",
-            "scenario": "pages",
-            "from": "WARN",
+            "scenario": "popular",
+            "from": "PASS",
             "to": "SKIP"
         },
         {
             "source": "MurimScan",
             "lang": "en",
-            "scenario": "images",
+            "scenario": "filters",
             "from": "PASS",
-            "to": null
+            "to": "SKIP"
+        },
+        {
+            "source": "MurimScan",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "THROTTLED",
+            "to": "SKIP"
+        },
+        {
+            "source": "MurimScan",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": [

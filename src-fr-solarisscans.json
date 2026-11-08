@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:01:36.077046647Z",
+    "generatedAt": "2026-11-08T13:30:57.521899134Z",
     "module": ":src:fr:solarisscans",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 1172624746268381921,
             "name": "Solaris Scans",
             "lang": "fr",
             "baseUrl": "https://solaris-scans.fr",
-            "status": "DOWN",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 895,
+                    "status": "PASS",
+                    "durationMs": 627,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 503"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 322,
-                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "status": "WARN",
+                    "durationMs": 516,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                        "returned an empty list",
+                        "hasNextPage=true but list is empty"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 301,
-                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "status": "WARN",
+                    "durationMs": 590,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                        "returned an empty list",
+                        "hasNextPage=true but list is empty"
                     ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,21 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:52:33.670920772Z",
+    "comparedTo": "2026-11-03T07:01:36.077046647Z",
     "changes": [
         {
             "source": "Solaris Scans",
             "lang": "fr",
+            "scenario": "connectivity",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Solaris Scans",
+            "lang": "fr",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "WARN"
         },
         {
             "source": "Solaris Scans",
             "lang": "fr",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

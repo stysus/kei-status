@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:16:54.026532795Z",
+    "generatedAt": "2026-11-08T13:35:03.963351350Z",
     "module": ":src:es:catharsisworld",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 2240276887816651754,
             "name": "Catharsis World",
             "lang": "es",
             "baseUrl": "https://newcatharsis.dig-it.info",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 714,
-                    "message": null,
-                    "notes": [],
+                    "status": "UNSUPPORTED",
+                    "durationMs": 2,
+                    "message": "requires an Android method or field the harness does not provide: android.util.Log.i",
+                    "notes": [
+                        "java.lang.NoSuchMethodError: 'int android.util.Log.i(java.lang.String, java.lang.String, java.lang.Throwable)'"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 161,
+                    "durationMs": 841,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +45,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 174,
+                    "durationMs": 189,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Campus -> 1840",
-                        "El Emperador Me Dev0rará Dulcemente. -> 1480",
-                        "Estoy Embarazada Y Escaparé En 5 Meses -> 2184"
+                        "Bailarín de ballet -> 466",
+                        "Trampa de Cereza -> 2322",
+                        "El compañero de cuarto que solo yo no conozco -> 483"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 223,
+                    "durationMs": 207,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,37 +77,41 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 756,
+                    "durationMs": 787,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Capítulo 126 -> 83/126",
                         "Capítulo 125 -> 83/125",
-                        "Capítulo 124 -> 83/124",
-                        "Capítulo 123 -> 83/123"
+                        "Capítulo 124 -> 83/124"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 5275,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403",
-                        "pages are only checked on a chapter that needs no unlock"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 4652,
+                    "message": "Unsupported device",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:33:42.907160502Z",
+    "comparedTo": "2026-11-04T11:16:54.026532795Z",
     "changes": [
         {
             "source": "Catharsis World",
             "lang": "es",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "UNSUPPORTED"
+        },
+        {
+            "source": "Catharsis World",
+            "lang": "es",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

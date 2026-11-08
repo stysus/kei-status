@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:22:22.874456366Z",
+    "generatedAt": "2026-11-08T13:40:18.059908009Z",
     "module": ":src:zh:manwa",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 1795888684783606321,
@@ -23,34 +23,28 @@
                 {
                     "name": "connectivity",
                     "status": "FAIL",
-                    "durationMs": 632,
+                    "durationMs": 829,
                     "message": "图源列表已自动更新，请在插件设置中选择合适的图源并重新请求（如果反复提示，可能是服务器故障）",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 177,
+                    "status": "WARN",
+                    "durationMs": 435,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "魔咒 (完整版) -> /book/47471",
-                        "周一的救星 (完整版) -> /book/159321",
-                        "水边之夜 (完整版) -> /book/17648"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 227,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 473,
+                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!doctype html><html lang=\"en\".....",
                     "notes": [],
-                    "samples": [
-                        "怪兽8号 -> /book/288789",
-                        "星期一的丰满/月曜日のたわわ -> /book/282372",
-                        "种果无果 -> /book/472123"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,95 +57,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 230,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "魔咒 (完整版) -> /book/47471",
-                        "爱情魔咒 (完整版) -> /book/5203",
-                        "洋红 (完整版) -> /book/299597"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 133,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "后记 -> /chapter/31386885",
-                        "推图3 -> /chapter/31379671",
-                        "第102话 最终话 -> /chapter/31376851"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 213,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mwappimgs.cc/static/upload3/book/id/47471/31386885/f2dd2a579b3b10e5982d8be25d4c811f_zb.webp?v=20220724",
-                        "https://mwappimgs.cc/static/upload3/book/id/47471/31386885/a1a1889b46e13e12c0c3a07923add571_zb.webp?v=20220724",
-                        "https://mwappimgs.cc/static/upload3/book/id/47471/31386885/4175fa7d33cb234f879e3ef60608a8ac_zb.webp?v=20220724"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 709,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T10:10:34.641952325Z",
+    "comparedTo": "2026-11-04T11:22:22.874456366Z",
     "changes": [
         {
             "source": "漫蛙",
             "lang": "zh",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "漫蛙",
             "lang": "zh",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "漫蛙",
-            "lang": "zh",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "漫蛙",
             "lang": "zh",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "漫蛙",
+            "lang": "zh",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "漫蛙",
             "lang": "zh",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "漫蛙",
             "lang": "zh",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

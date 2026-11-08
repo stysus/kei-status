@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:38:02.753342842Z",
+    "generatedAt": "2026-11-08T13:35:40.032651267Z",
     "module": ":src:tr:orimanga",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 4629101508845138320,
             "name": "Ori Manga",
             "lang": "tr",
             "baseUrl": "https://orimanga.net",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,31 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 816,
+                    "durationMs": 743,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 234,
-                    "message": "HTTP error 404",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 223,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 227,
-                    "message": "HTTP error 404",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 195,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -81,49 +85,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:40:06.294847097Z",
+    "comparedTo": "2026-11-02T11:38:02.753342842Z",
     "changes": [
         {
             "source": "Ori Manga",
             "lang": "tr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "DOWN"
         },
         {
             "source": "Ori Manga",
             "lang": "tr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Ori Manga",
-            "lang": "tr",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Ori Manga",
-            "lang": "tr",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Ori Manga",
-            "lang": "tr",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Ori Manga",
-            "lang": "tr",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

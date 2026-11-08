@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:21:26.873887218Z",
+    "generatedAt": "2026-11-08T13:36:14.376650616Z",
     "module": ":src:pt:bendezomnihero",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 4869303402178317312,
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 255,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 7272,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 242,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "bendezomnihero.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Ben 10 Rise of the Omnihero #2 (English Version) -> /2024/05/ben-10-rise-of-omnihero-2-english.html",
-                        " Ben 10 Rise of the Omnihero #1 (English Version) -> /2024/03/ler-online-ben-10-rise-of-omnihero-1.html",
-                        "Ler Online: Ben 10 Rise of the Omnihero #03 -> /2021/07/ler-online-ben-10-rise-of-omnihero-03.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -50,62 +48,82 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "bendezomnihero.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 13,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Ben 10 Rise of the Omnihero #2 (English Version) -> /2024/05/ben-10-rise-of-omnihero-2-english.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 14,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Oneshot -> /2024/05/ben-10-rise-of-omnihero-2-english.html"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "THROTTLED",
-                    "durationMs": 7478,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T11:53:27.665572499Z",
+    "comparedTo": "2026-11-04T11:21:26.873887218Z",
     "changes": [
         {
             "source": "BenDezOmniHero",
             "lang": "pt",
-            "scenario": "pages",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "BenDezOmniHero",
             "lang": "pt",
-            "scenario": "images",
+            "scenario": "popular",
             "from": "PASS",
-            "to": null
+            "to": "SKIP"
+        },
+        {
+            "source": "BenDezOmniHero",
+            "lang": "pt",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "BenDezOmniHero",
+            "lang": "pt",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "BenDezOmniHero",
+            "lang": "pt",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "BenDezOmniHero",
+            "lang": "pt",
+            "scenario": "pages",
+            "from": "THROTTLED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": [

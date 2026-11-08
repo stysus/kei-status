@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:33.383812430Z",
+    "generatedAt": "2026-11-08T13:33:42.550333344Z",
     "module": ":src:en:mangahereonl",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 3901872639081578162,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 13361,
+                    "durationMs": 1214,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 2984,
+                    "durationMs": 481,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,37 +43,37 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 15391,
+                    "durationMs": 263,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Jashin-Chan Dropkick -> /manga/jashin-chan-dropkick",
-                        "Tensei Shite Inaka de slowlife wo Okuritai -> /manga/tensei-shite-inaka-de-slowlife-wo-okuritai",
-                        "Tokusatsu Gagaga -> /manga/tokusatsu-gagaga"
+                        "Papa Wolf and the Puppy -> /manga/papa-wolf-and-the-puppy",
+                        "I'm the Demon Queen, but for Some Reason the Hero Is Doting on Me -> /manga/i-m-the-demon-queen-but-for-some-reason-the-hero-is-doting-on-me",
+                        "Lost Man -> /manga/lost-man"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "3 filters"
+                        "5 filters"
                     ]
                 },
                 {
                     "name": "search",
                     "status": "FAIL",
-                    "durationMs": 6165,
-                    "message": "select `s`.`mangaID` as `mangaID`, `s`.`rank` as `rank`, `s`.`title` as `title`, `s`.`slug` as `slug`, `s`.`image` as `image`, `s`.`licenceLevel` as `licenceLevel`, `m`.`isLicensed` as `isLicensed`, `m`.`id` as `id`, `m`.`status` as `status`, `m`.`latestChapter` as `latestChapter`, `m`.`author` as `author`, `m`.`genres` as `genres`, `m`.`isSafe` as `isSafe`, `m`.`createdDate` as `createdDate`, `m`.`updatedDate` as `updatedDate`, (MATCH(`s`.`title`, `s`.`alternativeTitle`) AGAINST ('Martial Peak' IN NATURAL LANGUAGE MODE)\n              + CASE\n                  WHEN `s`.`title` = 'Martial Peak' THEN 1000\n                  ELSE 0\n                END) AS `relevance` from `mh01` as `s` inner join `Manga` as `m` on `s`.`mangaID` = `m`.`id` where `s`.`sourceStatus` = '0' and `m`.`latestChapter` > -1 and (MATCH(`s`.`title`, `s`.`alternativeTitle`) AGAINST ('Martial Peak' IN NATURAL LANGUAGE MODE)) order by `relevance` desc, s.rank ASC limit 30 - Can't find FULLTEXT index matching the column list",
+                    "durationMs": 528,
+                    "message": "select `s`.`mangaID` as `mangaID`, `s`.`rank` as `rank`, `s`.`title` as `title`, `s`.`slug` as `slug`, `s`.`image` as `image`, `s`.`licenceLevel` as `licenceLevel`, `m`.`isLicensed` as `isLicensed`, `m`.`id` as `id`, `m`.`status` as `status`, `m`.`latestChapter` as `latestChapter`, `m`.`author` as `author`, `m`.`genres` as `genres`, `m`.`isSafe` as `isSafe`, `m`.`createdDate` as `createdDate`, `m`.`updatedDate` as `updatedDate`, (MATCH(`s`.`title`, `s`.`alternativeTitle`) AGAINST ('Martial Peak' IN NATURAL LANGUAGE MODE)\n      + CASE\n          WHEN `s`.`title` = 'Martial Peak' OR `s`.`slug` = 'martial-peak' THEN 1000\n          ELSE 0\n        END) AS `relevance` from `mh01` as `s` inner join `Manga` as `m` on `s`.`mangaID` = `m`.`id` where `s`.`sourceStatus` = '0' and `m`.`latestChapter` > -1 and (MATCH(`s`.`title`, `s`.`alternativeTitle`) AGAINST ('Martial Peak' IN NATURAL LANGUAGE MODE)) order by `relevance` desc, s.rank ASC limit 30 - Can't find FULLTEXT index matching the column list",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 7792,
+                    "durationMs": 853,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -85,7 +85,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 7036,
+                    "durationMs": 1084,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -97,7 +97,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 529,
+                    "durationMs": 152,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -105,15 +105,7 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:13.199586826Z",
-    "changes": [
-        {
-            "source": "MangaHere.onl",
-            "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "FAIL"
-        }
-    ],
+    "comparedTo": "2026-10-30T01:30:33.383812430Z",
+    "changes": [],
     "throttledHosts": []
 }

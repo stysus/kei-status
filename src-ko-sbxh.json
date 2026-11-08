@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:24:13.585044890Z",
+    "generatedAt": "2026-11-08T13:52:07.547571442Z",
     "module": ":src:ko:sbxh",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 5836877907605844302,
             "name": "Newtoki (SBXH)",
             "lang": "ko",
             "baseUrl": "https://sbxh9.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1104,
+                    "durationMs": 1393,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 432,
+                    "durationMs": 538,
                     "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
@@ -41,13 +41,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 363,
+                    "durationMs": 425,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "아이돌 매니저의 일지 -> /webtoon/u-tk-19084",
-                        "가담항설 -> /webtoon/670144",
-                        "천마가 동정을 뺏겨야 무림이 산다 -> /webtoon/14267"
+                        "남궁세가 천재 외손자 -> /webtoon/64167676",
+                        "대공가 시집살이 너무 쉬운데요 -> /webtoon/68103873",
+                        "노가다 김씨, 자동사냥으로 꿀 빱니다 -> /webtoon/70511208"
                     ]
                 },
                 {
@@ -63,7 +63,7 @@
                 {
                     "name": "search",
                     "status": "BLOCKED",
-                    "durationMs": 426,
+                    "durationMs": 471,
                     "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
@@ -72,56 +72,40 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 487,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "제8화 -> /webtoon/u-tk-19084/tt-I_Became_the_Manager_of_a_Sponsored_Idol-8",
-                        "7화 -> /webtoon/u-tk-19084/goodtoon-269565032398855",
-                        "3화 -> /webtoon/u-tk-19084/tkor7-1233412"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 489,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 45000,
-                    "message": "timed out after 45s",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:03:37.471813991Z",
+    "comparedTo": "2026-11-04T11:24:13.585044890Z",
     "changes": [
         {
             "source": "Newtoki (SBXH)",
             "lang": "ko",
-            "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "Newtoki (SBXH)",
-            "lang": "ko",
-            "scenario": "search",
-            "from": "SKIP",
+            "scenario": "chapters",
+            "from": "PASS",
             "to": "BLOCKED"
         },
         {
             "source": "Newtoki (SBXH)",
             "lang": "ko",
-            "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Newtoki (SBXH)",
-            "lang": "ko",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T11:08:28.610720841Z",
+    "generatedAt": "2026-11-08T13:30:17.478015026Z",
     "module": ":src:en:oriyami",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 3786594066286839843,
             "name": "OriYami",
             "lang": "en",
             "baseUrl": "https://oriyami.com",
-            "status": "DOWN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 19444,
+                    "status": "PASS",
+                    "durationMs": 796,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 522"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 19495,
-                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1341,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Fabulous Beasts -> fabulous-beasts",
+                        "The Exiled Heavy Knight Knows How To Game The System -> the-exiled-heavy-knight-knows-how-to-game-the-system",
+                        "Martial Peak -> martial-peak"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 19497,
-                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1367,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Worthless Profession: Dragon Tamer -> worthless-profession-dragon-tamer",
+                        "Ryuu: Ron -> ryuu-ron",
+                        "Return Of The Mad Demon -> return-of-the-mad-demon"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,54 +63,98 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 592,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Fabulous Beasts -> fabulous-beasts"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 911,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 1262 -> fabulous-beasts/chapter-1262",
+                        "Chapter 1261 -> fabulous-beasts/chapter-1261",
+                        "Chapter 1260 -> fabulous-beasts/chapter-1260"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 638,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://cdn.oriyami.com/manga/fabulous-beasts/1262/JPEG/30355194.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1157,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T06:59:23.538319531Z",
+    "comparedTo": "2026-11-03T11:08:28.610720841Z",
     "changes": [
         {
             "source": "OriYami",
             "lang": "en",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "scenario": "connectivity",
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "OriYami",
             "lang": "en",
-            "scenario": "chapters",
+            "scenario": "popular",
             "from": "DOWN",
-            "to": "SKIP"
+            "to": "PASS"
+        },
+        {
+            "source": "OriYami",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "OriYami",
             "lang": "en",
             "scenario": "search",
-            "from": "DOWN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "OriYami",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "OriYami",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "OriYami",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

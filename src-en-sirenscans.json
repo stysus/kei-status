@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:34:17.033231691Z",
+    "generatedAt": "2026-11-08T13:35:15.844312127Z",
     "module": ":src:en:sirenscans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 5804710058654490234,
             "name": "Siren Scans",
             "lang": "en",
             "baseUrl": "https://sirenscans.org",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 8847,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 42,
+                    "message": "the site is unreachable (sirenscans.org: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: sirenscans.org: Name or service not known"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 188,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Why You Don't Know It's a Girl? -> /why-you-don-t-know-it-s-a-girl",
-                        "The Ogre's Bride -> /the-ogre-s-bride",
-                        "Honey Lemon Soda -> /honey-lemon-soda"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 3,
+                    "message": "the site is unreachable (sirenscans.org); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: sirenscans.org"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 149,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Minazuki Family's Fiancée: On My 16th Birthday, the Head of the Main Family Came to Pick Me up -> /the-minazuki-family-s-fianc-e-on-my-16th-birthday-the-head-of-the-main-family-came-to-pick-me-up",
-                        "I’m Supposed to Be a Neglected Consort in the Future, So Why Is Everything Different? -> /i-m-supposed-to-be-a-neglected-consort-in-the-future-so-why-is-everything-different",
-                        "The Substitute Bride and the Overly Affectionate Husband -> /the-substitute-bride-and-the-overly-affectionate-husband"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 0,
+                    "message": "the site is unreachable (sirenscans.org); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: sirenscans.org"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,95 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 178,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Why You Don't Know It's a Girl? -> /why-you-don-t-know-it-s-a-girl",
-                        "I’m in a secret love affair with the emperor, but I don’t know it -> /im-in-a-secret-love-affair-with-the-emperor-but-i-dont-know-it",
-                        "It's Okay If You Don't Love Me -> /it-s-okay-if-you-don-t-love-me"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 109,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 50 -> /why-you-don-t-know-it-s-a-girl-chapter-50",
-                        "Chapter 49 -> /why-you-don-t-know-it-s-a-girl-chapter-49",
-                        "Chapter 48 -> /why-you-don-t-know-it-s-a-girl-chapter-48"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 98,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.meowing.org/uploads/64e2ed6f269.avif",
-                        "https://cdn.meowing.org/uploads/64e2ed72847.avif",
-                        "https://cdn.meowing.org/uploads/64e2ed741a1.avif"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1027,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:22:48.647145097Z",
+    "comparedTo": "2026-10-30T01:34:17.033231691Z",
     "changes": [
         {
             "source": "Siren Scans",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Siren Scans",
+            "lang": "en",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Siren Scans",
             "lang": "en",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Siren Scans",
-            "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Siren Scans",
             "lang": "en",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Siren Scans",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Siren Scans",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Siren Scans",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:31.979416133Z",
+    "generatedAt": "2026-11-08T13:36:19.731587398Z",
     "module": ":src:en:flamecomics",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 8531542650987673943,
             "name": "Flame Comics",
             "lang": "en",
             "baseUrl": "https://flamecomics.xyz",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 638,
+                    "durationMs": 735,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1809,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 175,
+                    "message": "Failed to find buildId",
                     "notes": [],
-                    "samples": [
-                        "Omniscient Reader's Viewpoint -> /series/2",
-                        "The Ancient Sovereign of Eternity -> /series/23",
-                        "Tyrant of the Tower Defense Game -> /series/104"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 471,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 1300,
+                    "message": "Failed to find buildId",
                     "notes": [],
-                    "samples": [
-                        "The Former Supreme -> /series/166",
-                        "The Chaotic God of Extraordinary Strength -> /series/134",
-                        "One Step for the Dark Lord -> /series/110"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +55,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 4,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Omniscient Reader's Viewpoint -> /series/2"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1436,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 311 - Dokja’s Fable (Part 13) -> /series/2/364db6fd6bef182e",
-                        "Chapter 310 - Dokja's Fable (Part 12) -> /series/2/3ac501f3dd9c39cd",
-                        "Chapter 309 - Dokja's Fable (Part 11) -> /series/2/7b1a45c05fc72996"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 455,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.flamecomics.xyz/uploads/images/series/2/b3efed246c5ee10d/page001-4.jpg?1611792000",
-                        "https://cdn.flamecomics.xyz/uploads/images/series/2/b3efed246c5ee10d/page002-4.jpg?1611792000",
-                        "https://cdn.flamecomics.xyz/uploads/images/series/2/b3efed246c5ee10d/page003-3.jpg?1611792000"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 4221,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:30:43.372877418Z",
+    "comparedTo": "2026-10-30T01:31:31.979416133Z",
     "changes": [
         {
             "source": "Flame Comics",
             "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Flame Comics",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Flame Comics",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Flame Comics",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Flame Comics",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Flame Comics",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

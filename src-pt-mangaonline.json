@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-01T10:46:47.951369312Z",
+    "generatedAt": "2026-11-08T13:39:01.654508945Z",
     "module": ":src:pt:mangaonline",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 7203957529449460928,
             "name": "Manga Online",
             "lang": "pt-BR",
             "baseUrl": "https://mangaonline.green",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,36 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1203,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 498,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLPeerUnverifiedException: Hostname mangaonline.green not verified:\n    certificate: sha256/S2ss0iDqI7eTIyl8YvkIIKI6C8pqtUSuN1/PTPR6qyo=\n    DN: CN=futemax.boats\n    subjectAltNames: [futemax.boats]"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 366,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 206,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "javax.net.ssl.SSLPeerUnverifiedException: Hostname mangaonline.green not verified:\n    certificate: sha256/S2ss0iDqI7eTIyl8YvkIIKI6C8pqtUSuN1/PTPR6qyo=\n    DN: CN=futemax.boats\n    subjectAltNames: [futemax.boats]"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 512,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 202,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "javax.net.ssl.SSLPeerUnverifiedException: Hostname mangaonline.green not verified:\n    certificate: sha256/S2ss0iDqI7eTIyl8YvkIIKI6C8pqtUSuN1/PTPR6qyo=\n    DN: CN=futemax.boats\n    subjectAltNames: [futemax.boats]"
                     ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -85,21 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:36:52.483935938Z",
+    "comparedTo": "2026-11-01T10:46:47.951369312Z",
     "changes": [
         {
             "source": "Manga Online",
             "lang": "pt-BR",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Manga Online",
+            "lang": "pt-BR",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "DOWN"
         },
         {
             "source": "Manga Online",
             "lang": "pt-BR",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:19.820137383Z",
+    "generatedAt": "2026-11-08T13:32:23.320940520Z",
     "module": ":src:es:kumanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 5818858964600650549,
             "name": "Kumanga",
             "lang": "es",
             "baseUrl": "https://www.kumanga.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,33 +23,29 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3186,
+                    "durationMs": 812,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 233,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 168,
+                    "message": "Expected start of the object '{', but had 'EOF' instead at path: $\nJSON input: ",
                     "notes": [],
-                    "samples": [
-                        "\"Bungaku Shoujo\" to Shinitagari no Pierrot -> /manga/1470/bungaku-shoujo-to-shinitagari-no-pierrot",
-                        "\"El\" amante del duque de Hermont -> /manga/14704/el-amante-del-duque-de-hermont",
-                        "\"Munou wa iranai\" to iwa retakara zetsuen shite yatta ~ saikyou no shiten'nou ni sodate rareta ore wa, bouken-sha to nari musou suru ~ -> /manga/6321/munou-wa-iranai-to-iwa-retakara-zetsuen-shite-yatta-saikyou-no-shitennou-ni-sodate-rareta-ore-wa-bouken-sha-to-nari-musou-suru"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 139,
+                    "durationMs": 294,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Shuumatsu no Valkyrie Kinder: Kamigami no Apocalypse -> /manga/9670/shuumatsu-no-valkyrie-kinder-kamigami-no-apocalypse",
-                        "Esclavo De Las Sombras -> /manga/14306/esclavo-de-las-sombras",
-                        "El Rey Demonio Abrumado por Héroes -> /manga/13306/el-rey-demonio-abrumado-por-heroes"
+                        "SANDA -> /manga/5245/sanda",
+                        "Tsuiraku JK to Haijin Kyoushi -> /manga/1424/tsuiraku-jk-to-haijin-kyoushi",
+                        "Giant Killing -> /manga/1073/giant-killing"
                     ]
                 },
                 {
@@ -64,42 +60,42 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1251,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 699,
+                    "message": "Expected start of the object '{', but had 'EOF' instead at path: $\nJSON input: ",
                     "notes": [],
-                    "samples": [
-                        "\"Bungaku Shoujo\" to Shinitagari no Pierrot -> /manga/1470/bungaku-shoujo-to-shinitagari-no-pierrot"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1101,
+                    "durationMs": 288,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Capítulo 9 -> /manga/1470/capitulo/9",
-                        "Capítulo 8 -> /manga/1470/capitulo/8",
-                        "Capítulo 7 -> /manga/1470/capitulo/7"
+                        "Capítulo 85 -> /manga/5245/capitulo/85",
+                        "Capítulo 84 -> /manga/5245/capitulo/84",
+                        "Capítulo 83 -> /manga/5245/capitulo/83"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 356,
+                    "status": "WARN",
+                    "durationMs": 3372,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "duplicate page urls: [https://i.imgur.com/M5vQtTw.gif]"
+                    ],
                     "samples": [
-                        "https://www.kumanga.com/img.php?src=68747470733A2F2F6C68332E676F6F676C6575736572636F6E74656E742E636F6D2F642F316251784A324D6E4A513577654E794F79455175726E554661524F46766D5247343D7330",
-                        "https://www.kumanga.com/img.php?src=68747470733A2F2F6C68332E676F6F676C6575736572636F6E74656E742E636F6D2F642F316F5A67744A622D4171352D4A667555334130415755784B596471397A4F6F304B3D7330",
-                        "https://www.kumanga.com/img.php?src=68747470733A2F2F6C68332E676F6F676C6575736572636F6E74656E742E636F6D2F642F315F71376C6833496E77657964496239347A4645565A4672354E7A575A6C3333733D7330"
+                        "https://images3.memedroid.com/images/UPLOADED622/6758470570a08.jpeg",
+                        "https://i.imgur.com/M5vQtTw.gif",
+                        "https://i.imgur.com/M5vQtTw.gif"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 1965,
+                    "durationMs": 1089,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -107,14 +103,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:29.124114671Z",
+    "comparedTo": "2026-10-30T01:32:19.820137383Z",
     "changes": [
         {
             "source": "Kumanga",
             "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Kumanga",
+            "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Kumanga",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

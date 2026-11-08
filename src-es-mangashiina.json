@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:34:00.930696677Z",
+    "generatedAt": "2026-11-08T13:29:48.425607601Z",
     "module": ":src:es:mangashiina",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 711368877221654433,
             "name": "Manga Mukai",
             "lang": "es",
             "baseUrl": "https://mangamukai.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 484,
+                    "durationMs": 479,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1447,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 104,
+                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html>\n<html lang=\"en.....",
                     "notes": [],
-                    "samples": [
-                        "La legendaria asesina acabó reencarnándose en la querida hija menor de la familia real -> 29522",
-                        "Todavía no sé cómo manejar la obsesión que siente mi favorito hacia mí -> 34523",
-                        "La emperatriz quiere evitar al emperador -> 1720"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1459,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 64,
+                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html>\n<html lang=\"en.....",
                     "notes": [],
-                    "samples": [
-                        "Reencarné como la hermana de la villana -> 55446",
-                        "La antigua heroína no puede escapar del harén inverso -> 58319",
-                        "La santa atrapada en un amor prohibido: Edición Completa -> 58691"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +55,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1479,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "La legendaria asesina acabó reencarnándose en la querida hija menor de la familia real -> 29522"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 750,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "La legendaria asesina acabó reencarnándose en la querida hija menor de la familia real Capitulo 35 -> 48253",
-                        "La legendaria asesina acabó reencarnándose en la querida hija menor de la familia real Capitulo 34 -> 44651",
-                        "La legendaria asesina acabó reencarnándose en la querida hija menor de la familia real Capitulo 33 -> 44601"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 812,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mangamukai.com/wp-content/uploads/2024/08/ASESINACAP1-1.webp",
-                        "https://mangamukai.com/wp-content/uploads/2024/08/ASESINACAP1-2.webp",
-                        "https://mangamukai.com/wp-content/uploads/2024/08/ASESINACAP1-3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 551,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:22:15.456236819Z",
+    "comparedTo": "2026-10-30T01:34:00.930696677Z",
     "changes": [
         {
             "source": "Manga Mukai",
             "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manga Mukai",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manga Mukai",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Mukai",
+            "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Mukai",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Mukai",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

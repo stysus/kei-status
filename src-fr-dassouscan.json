@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:34:00.833306275Z",
+    "generatedAt": "2026-11-08T13:51:08.858136627Z",
     "module": ":src:fr:dassouscan",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 7036720639283559699,
             "name": "Dassou Scan",
             "lang": "fr",
             "baseUrl": "https://dassouscan.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,32 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 966,
+                    "durationMs": 1001,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 411,
+                    "status": "WARN",
+                    "durationMs": 431,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "I’m an Evil God -> /manga/im-an-evil-god",
-                        "System Universe -> /manga/system-universe",
-                        "Rise of the Devourer -> /manga/rise-of-the-devourer"
-                    ]
+                    "notes": [
+                        "returned an empty list",
+                        "hasNextPage=true but list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 447,
+                    "status": "WARN",
+                    "durationMs": 552,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chronicles of the Three Realms - King of the World -> /manga/chronicles-of-the-three-realms-king-of-the-world",
-                        "Return of the Adopted Child in a World of Bloodline Supremacy -> /manga/return-of-the-adopted-child-in-a-world-of-bloodline-supremacy",
-                        "Dark and Light Martial Emperor -> /manga/dark-and-light-martial-emperor"
-                    ]
+                    "notes": [
+                        "returned an empty list",
+                        "hasNextPage=true but list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +61,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 388,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "I’m an Evil God -> /manga/im-an-evil-god"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 550,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapitre 110 -> /manga/im-an-evil-god/chapitre-110",
-                        "Chapitre 109 -> /manga/im-an-evil-god/chapitre-109",
-                        "Chapitre 108 -> /manga/im-an-evil-god/chapitre-108"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 445,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://dassouscan.com/storage/mangas/10/chapters/1341/page-001.webp?v=9dc6803b-516-1791133695",
-                        "https://dassouscan.com/storage/mangas/10/chapters/1341/page-002.webp?v=9dc6803b-516-1791133695",
-                        "https://dassouscan.com/storage/mangas/10/chapters/1341/page-003.webp?v=9dc6803b-516-1791134842"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 765,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:17.075621499Z",
+    "comparedTo": "2026-10-30T01:34:00.833306275Z",
     "changes": [
         {
             "source": "Dassou Scan",
             "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Dassou Scan",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Dassou Scan",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Dassou Scan",
+            "lang": "fr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Dassou Scan",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Dassou Scan",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

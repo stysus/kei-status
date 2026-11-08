@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:21:09.410858988Z",
+    "generatedAt": "2026-11-08T13:36:25.974948471Z",
     "module": ":src:id:manhwaindo",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 862941840467210819,
             "name": "Manhwa Indo",
             "lang": "id",
             "baseUrl": "https://www.manhwaindo.my",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,47 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 634,
+                    "status": "PASS",
+                    "durationMs": 324,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 403"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 30,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "status": "WARN",
+                    "durationMs": 1252,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                        "manga[0] has a blank title",
+                        "manga[1] has a blank title",
+                        "manga[2] has a blank title",
+                        "manga[3] has a blank title",
+                        "manga[4] has a blank title"
                     ],
-                    "samples": []
+                    "samples": [
+                        " -> /series/eleceed/",
+                        " -> /series/revenge-of-the-iron-blooded-sword-hound/",
+                        " -> /series/magic-emperor/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 24,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "status": "WARN",
+                    "durationMs": 571,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                        "manga[0] has a blank title",
+                        "manga[1] has a blank title",
+                        "manga[2] has a blank title",
+                        "manga[3] has a blank title",
+                        "manga[4] has a blank title"
                     ],
-                    "samples": []
+                    "samples": [
+                        " -> /series/the-dukes-redemption/",
+                        " -> /series/if-you-are-a-good-disciple-you-can-be-a-teacher/",
+                        " -> /series/dungeon-odyssey/"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,75 +75,91 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
-                },
-                {
                     "name": "search",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no manga title to search for",
                     "notes": [],
                     "samples": []
                 },
                 {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 387,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Chapter 425 -> /eleceed-chapter-425/",
+                        "Chapter 424 -> /eleceed-chapter-424/",
+                        "Chapter 423 -> /eleceed-chapter-423/"
+                    ]
+                },
+                {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 161,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "http://imgx-id.gmbr.pro/uploads/manga-images/e/eleceed/chapter-425/1.jpg",
+                        "http://imgx-id.gmbr.pro/uploads/manga-images/e/eleceed/chapter-425/2.jpg",
+                        "http://imgx-id.gmbr.pro/uploads/manga-images/e/eleceed/chapter-425/3.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 612,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:44:33.826535489Z",
+    "comparedTo": "2026-11-04T11:21:09.410858988Z",
     "changes": [
         {
             "source": "Manhwa Indo",
             "lang": "id",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Manhwa Indo",
             "lang": "id",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "WARN"
         },
         {
             "source": "Manhwa Indo",
             "lang": "id",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "WARN"
         },
         {
             "source": "Manhwa Indo",
             "lang": "id",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Manhwa Indo",
             "lang": "id",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Manhwa Indo",
             "lang": "id",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

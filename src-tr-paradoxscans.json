@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:20:25.575556674Z",
+    "generatedAt": "2026-11-08T13:35:33.744398946Z",
     "module": ":src:tr:paradoxscans",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 3730980240510982131,
             "name": "Paradox Scans",
             "lang": "tr",
             "baseUrl": "https://paradoxscans.com",
-            "status": "PASS",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 452,
+                    "durationMs": 917,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1180,
+                    "durationMs": 522,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 341,
+                    "durationMs": 246,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Bir kahramanın adı nasıl “Aaaah” olabilir? -> /seri/bir-kahramanin-adi-nasil-aaaah-olabilir/",
-                        "Yenilmez Yumruk Kralı -> /seri/the-king-of-fist/",
-                        "Sonsuza Dek Dedektif -> /seri/sonsuza-dek-dedektif/"
+                        "Kılıç Hanesinin Genç Efendisi -> /seri/kilic-hanesinin-genc-efendisi/",
+                        "Bir Reenkarnasyon Profesyonelinin Tatlı Hayatı -> /seri/bir-reenkarnasyon-profesyonelinin-tatli-hayati/",
+                        "Geri Dönen Yayıncı -> /seri/geri-donen-yayinci/"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 472,
+                    "durationMs": 486,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,7 +76,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 836,
+                    "durationMs": 933,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,36 +87,35 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 419,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://c1.skycdn.online/init-manga/init-manga/2469/1/0001.webp",
-                        "https://c1.skycdn.online/init-manga/init-manga/2469/1/0002.webp",
-                        "https://c1.skycdn.online/init-manga/init-manga/2469/1/0003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 315,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 7063,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:41:16.274437707Z",
+    "comparedTo": "2026-11-04T11:20:25.575556674Z",
     "changes": [
         {
             "source": "Paradox Scans",
             "lang": "tr",
             "scenario": "pages",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "Paradox Scans",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "paradoxscans.com"
+    ]
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:01:53.726407627Z",
+    "generatedAt": "2026-11-08T13:28:38.719588488Z",
     "module": ":src:en:mangatellers",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 3478835885302345699,
             "name": "Mangatellers",
             "lang": "en",
             "baseUrl": "https://reader.mangatellers.gr",
-            "status": "DOWN",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,31 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 805,
+                    "status": "PASS",
+                    "durationMs": 744,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 500"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 217,
-                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "status": "WARN",
+                    "durationMs": 146,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                        "returned an empty list"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 168,
-                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "status": "WARN",
+                    "durationMs": 107,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                        "returned an empty list"
                     ],
                     "samples": []
                 },
@@ -87,21 +85,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:39:02.195213155Z",
+    "comparedTo": "2026-11-03T07:01:53.726407627Z",
     "changes": [
         {
             "source": "Mangatellers",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Mangatellers",
+            "lang": "en",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "WARN"
         },
         {
             "source": "Mangatellers",
             "lang": "en",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

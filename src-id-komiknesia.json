@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:57.831666072Z",
+    "generatedAt": "2026-11-08T13:37:07.290426235Z",
     "module": ":src:id:komiknesia",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 8916278596443930510,
             "name": "KomikNesia",
             "lang": "id",
             "baseUrl": "https://v2.komiknesiaku.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1064,
+                    "status": "WARN",
+                    "durationMs": 19428,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1750,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Lookism -> lookism",
-                        "Reincarnated with Divine Titles -> reincarnated-with-divine-titles",
-                        "The Dark Swordsman Returns -> the-dark-swordsman-returns"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19653,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 328,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Defending the Villain’s Innocence -> defending-the-villains-innocence",
-                        "Tomb Raider King: End Line -> tomb-raider-king-end-line",
-                        "Psychopath in Murim -> psychopath-in-murim"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19883,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 325,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Lookism -> lookism"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 5080,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 630 -> lookism-chapter-630",
-                        "Chapter 629 -> lookism-chapter-629",
-                        "Chapter 628 -> lookism-chapter-628"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 989,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://image.cdnesia.my.id/komiknesia/chapters/940266/pages/1-1783926246734.webp",
-                        "https://image.cdnesia.my.id/komiknesia/chapters/940266/pages/2-1783926247221.webp",
-                        "https://image.cdnesia.my.id/komiknesia/chapters/940266/pages/3-1783926247721.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 548,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:41:54.243694294Z",
+    "comparedTo": "2026-10-30T01:32:57.831666072Z",
     "changes": [
         {
             "source": "KomikNesia",
             "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "KomikNesia",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "KomikNesia",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "KomikNesia",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KomikNesia",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KomikNesia",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KomikNesia",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

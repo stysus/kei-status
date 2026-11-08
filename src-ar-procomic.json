@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:17:37.675079391Z",
+    "generatedAt": "2026-11-08T13:29:33.230575912Z",
     "module": ":src:ar:procomic",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 8891921907305143070,
             "name": "ProComic",
             "lang": "ar",
             "baseUrl": "https://procomic.pro",
-            "status": "PASS",
+            "status": "UNSUPPORTED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1544,
-                    "message": null,
-                    "notes": [],
+                    "status": "UNSUPPORTED",
+                    "durationMs": 3,
+                    "message": "requires an Android method or field the harness does not provide: android.util.Log.i",
+                    "notes": [
+                        "java.lang.NoSuchMethodError: 'int android.util.Log.i(java.lang.String, java.lang.String, java.lang.Throwable)'"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 918,
+                    "durationMs": 887,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,18 +45,18 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 4797,
+                    "durationMs": 4650,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Infinite Evolution From Zero -> 508",
-                        "The Deceptive Path To Immortality -> 901"
+                        "Henkyou no Yakushi, Miyako de S Rank Boukensha to naru -> 720",
+                        "Awakening the Purple Thunder at the Beginning -> 515"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,7 +66,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 4932,
+                    "durationMs": 5078,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,7 +78,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 738,
+                    "durationMs": 542,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,42 +89,40 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 14544,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "http://procomic.pieces/#{\"chapter\":\"https://procomic.pro/ar/chapter/after-becoming-financially-free-they-offered-their-loyalty-1-2521\",\"index\":0}",
-                        "http://procomic.pieces/#{\"chapter\":\"https://procomic.pro/ar/chapter/after-becoming-financially-free-they-offered-their-loyalty-1-2521\",\"index\":1}",
-                        "http://procomic.pieces/#{\"chapter\":\"https://procomic.pro/ar/chapter/after-becoming-financially-free-they-offered-their-loyalty-1-2521\",\"index\":2}"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 116,
-                    "message": null,
-                    "notes": [],
+                    "status": "SKIP",
+                    "durationMs": 805,
+                    "message": "not supported by this source",
+                    "notes": [
+                        "java.io.IOException: java.lang.UnsupportedOperationException: webMessageBridge in a world requires JS_INJECTION_IN_FRAME_AND_WORLD (Chromium 146+)",
+                        "java.lang.UnsupportedOperationException: webMessageBridge in a world requires JS_INJECTION_IN_FRAME_AND_WORLD (Chromium 146+)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:01:03.623621878Z",
+    "comparedTo": "2026-11-04T11:17:37.675079391Z",
     "changes": [
         {
             "source": "ProComic",
             "lang": "ar",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "UNSUPPORTED"
+        },
+        {
+            "source": "ProComic",
+            "lang": "ar",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "ProComic",
             "lang": "ar",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

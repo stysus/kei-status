@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:41:52.607268548Z",
+    "generatedAt": "2026-11-08T13:40:10.815422338Z",
     "module": ":src:vi:truyentini",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 7837268511554362907,
             "name": "TruyenTini",
             "lang": "vi",
             "baseUrl": "https://truyentini.net",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 964,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 718,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLException: (internal_error) Received fatal alert: internal_error"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 550,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Vụng trộm không thể giấu -> 263",
-                        "Tôi Yêu Amy -> 274",
-                        "Tôi Thích Tin Tức Tố Của Cậu -> 164"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 463,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLException: (internal_error) Received fatal alert: internal_error"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 497,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Bản sao hoàn hảo -> 2005",
-                        "Tôi đã cướp mất đêm đầu tiên của hoàng thái tử rác rưởi -> 2144",
-                        "Cuộc hôn nhân ấm áp 100 ngày -> 2048"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 464,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLException: (internal_error) Received fatal alert: internal_error"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,100 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 510,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Vụng trộm không thể giấu -> 263"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 582,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chương 139.2 - End -> chuong-139-2",
-                        "Chương 139.1 -> chuong-139-1",
-                        "Chương 138.2 -> chuong-138-2"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 503,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://truyentini.net/wp-content/uploads/WP-manga/data/vung-trom-khong-the-giau/877642c70e51f7d16584002f7e057a6e/000_result.webp",
-                        "https://truyentini.net/wp-content/uploads/WP-manga/data/vung-trom-khong-the-giau/877642c70e51f7d16584002f7e057a6e/001_result.webp",
-                        "https://truyentini.net/wp-content/uploads/WP-manga/data/vung-trom-khong-the-giau/877642c70e51f7d16584002f7e057a6e/002_result.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 368,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:26:05.403516968Z",
+    "comparedTo": "2026-10-30T01:41:52.607268548Z",
     "changes": [
         {
             "source": "TruyenTini",
             "lang": "vi",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "TruyenTini",
             "lang": "vi",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "TruyenTini",
             "lang": "vi",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "TruyenTini",
-            "lang": "vi",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "TruyenTini",
             "lang": "vi",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TruyenTini",
+            "lang": "vi",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "TruyenTini",
             "lang": "vi",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "TruyenTini",
             "lang": "vi",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:19:07.310886585Z",
+    "generatedAt": "2026-11-08T13:33:12.563892983Z",
     "module": ":src:id:tooncubus",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 8493327683322555504,
@@ -22,20 +22,20 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 389,
-                    "message": null,
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
                     "status": "THROTTLED",
-                    "durationMs": 7495,
+                    "durationMs": 7569,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.tooncubus.top answered HTTP 429 earlier in this run",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -81,48 +81,20 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:01:22.618517128Z",
+    "comparedTo": "2026-11-04T11:19:07.310886585Z",
     "changes": [
         {
             "source": "Tooncubus",
             "lang": "id",
-            "scenario": "popular",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "Tooncubus",
             "lang": "id",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Tooncubus",
-            "lang": "id",
-            "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Tooncubus",
-            "lang": "id",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Tooncubus",
-            "lang": "id",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Tooncubus",
-            "lang": "id",
-            "scenario": "pages",
-            "from": "DOWN",
+            "scenario": "popular",
+            "from": "THROTTLED",
             "to": "SKIP"
         }
     ],

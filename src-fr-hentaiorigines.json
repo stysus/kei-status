@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:34:20.748192439Z",
+    "generatedAt": "2026-11-08T13:30:51.352802649Z",
     "module": ":src:fr:hentaiorigines",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 3875672872924535086,
             "name": "Hentai Origines",
             "lang": "fr",
             "baseUrl": "https://hentai-origines.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 736,
+                    "durationMs": 705,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 583,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 165,
+                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html>\n<html lang=\"en.....",
                     "notes": [],
-                    "samples": [
-                        "Stop Smoking -> stop-smoking",
-                        "The Hole is Open -> the-hole-is-open",
-                        "Secret Class -> secret-class"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 660,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 173,
+                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html>\n<html lang=\"en.....",
                     "notes": [],
-                    "samples": [
-                        "Moby Dick -> moby-dick",
-                        "Contagion -> contagion",
-                        "I’m a Vampire -> im-a-vampire"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,59 +55,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 605,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Stop Smoking -> stop-smoking",
-                        "Le Comité Étudiant -> le-comite-etudiant"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1028,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapitre 113 Ch.113 -> stop-smoking/chapitre-113",
-                        "Chapitre 112 Ch.112 -> stop-smoking/chapitre-112",
-                        "Chapitre 111 Ch.111 -> stop-smoking/chapitre-111"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 833,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://hentai-origines.com/wp-content/uploads/WP-manga/data/manga_671c75d1eb7d8/a086dd148c7cc69976a85343cde58289/page_0001.webp",
-                        "https://hentai-origines.com/wp-content/uploads/WP-manga/data/manga_671c75d1eb7d8/a086dd148c7cc69976a85343cde58289/page_0002.webp",
-                        "https://hentai-origines.com/wp-content/uploads/WP-manga/data/manga_671c75d1eb7d8/a086dd148c7cc69976a85343cde58289/page_0003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 219,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:22.296850815Z",
+    "comparedTo": "2026-10-30T01:34:20.748192439Z",
     "changes": [
         {
             "source": "Hentai Origines",
             "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Hentai Origines",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Hentai Origines",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hentai Origines",
+            "lang": "fr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hentai Origines",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hentai Origines",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

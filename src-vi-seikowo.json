@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:03:20.466155365Z",
+    "generatedAt": "2026-11-08T13:42:06.496534787Z",
     "module": ":src:vi:seikowo",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 3049157397733640125,
             "name": "Seikowo",
             "lang": "vi",
             "baseUrl": "https://seikowo-app.blogspot.com",
-            "status": "FAIL",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 678,
+                    "durationMs": 1008,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,19 +31,19 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 703,
+                    "durationMs": 783,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "TS Tensei Bishoujo Netora Reiko wa Netoraretai -> /2026/02/ts-tensei-bishoujo-netora-reiko-wa.html",
-                        "Zense wa Kentei. Konjou Kuzu Ouji -> /2026/10/zense-wa-kentei-konjou-kuzu-ouji.html",
-                        "30 made Hitori Dattara Issho ni Kurasou tte Itta yo ne ? -> /2026/10/30-made-hitori-dattara-issho-ni-kurasou.html"
+                        "30 made Hitori Dattara Issho ni Kurasou tte Itta yo ne ? -> /2026/10/30-made-hitori-dattara-issho-ni-kurasou.html",
+                        "Zense wa Kentei. Konjou Kuzu Ouji -> /2026/10/zense-wa-kentei-konjou-kuzu-ouji.html"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 225,
+                    "durationMs": 451,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 11357,
+                    "durationMs": 10480,
                     "message": null,
                     "notes": [
                         "returned an empty list",
@@ -75,10 +75,12 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 858,
-                    "message": "Cannot find metadata",
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 7516,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
@@ -92,15 +94,17 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:40:19.217903616Z",
+    "comparedTo": "2026-11-03T07:03:20.466155365Z",
     "changes": [
         {
             "source": "Seikowo",
             "lang": "vi",
             "scenario": "chapters",
-            "from": "THROTTLED",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "THROTTLED"
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "seikowo-app.blogspot.com"
+    ]
 }

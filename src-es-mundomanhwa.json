@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:01:00.053331982Z",
+    "generatedAt": "2026-11-08T13:31:00.889412957Z",
     "module": ":src:es:mundomanhwa",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 7121772696835562045,
             "name": "Mundo Manhwa",
             "lang": "es",
             "baseUrl": "https://mundomanhwa.com",
-            "status": "DOWN",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "DOWN",
-                    "durationMs": 64,
-                    "message": "the site is unreachable (mundomanhwa.com: Name or service not known); the source is not at fault",
-                    "notes": [
-                        "java.net.UnknownHostException: mundomanhwa.com: Name or service not known"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 1233,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 3,
-                    "message": "the site is unreachable (mundomanhwa.com); the source is not at fault",
-                    "notes": [
-                        "java.net.UnknownHostException: mundomanhwa.com"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 604,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Mi tia -> 921",
+                        "Perdona, pero es mi habitación -> 919",
+                        "Clases secretas -> 1064"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 0,
-                    "message": "the site is unreachable (mundomanhwa.com); the source is not at fault",
-                    "notes": [
-                        "java.net.UnknownHostException: mundomanhwa.com"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 569,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Primavera para blossom -> 3159",
+                        "Sexercise -> 692",
+                        "Punto Maestro -> 3156"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,82 +63,108 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 535,
+                    "message": null,
+                    "notes": [
+                        "manga[4] has no thumbnail"
+                    ],
+                    "samples": [
+                        "Mi tia es mia -> 2576",
+                        "Mi tia sin censura -> 1048",
+                        "Mi tia -> 921"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 505,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Capitulo 140 - FIN -> capitulo-140-fin",
+                        "Capitulo 139 -> capitulo-139",
+                        "Capitulo 138 -> capitulo-138"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 671,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://cdn3.vermanhwa.com/woomics/manga_621741c9d9370/capitulo-140-fin/765.jpg",
+                        "https://cdn3.vermanhwa.com/woomics/manga_621741c9d9370/capitulo-140-fin/766.jpg",
+                        "https://cdn3.vermanhwa.com/woomics/manga_621741c9d9370/capitulo-140-fin/767.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 60,
+                    "message": null,
+                    "notes": [
+                        "page[0] image request failed: UnknownHostException: cdn3.vermanhwa.com",
+                        "page[1] image request failed: UnknownHostException: cdn3.vermanhwa.com: Name or service not known",
+                        "page[2] image request failed: UnknownHostException: cdn3.vermanhwa.com"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:32:16.871373034Z",
+    "comparedTo": "2026-11-03T07:01:00.053331982Z",
     "changes": [
         {
             "source": "Mundo Manhwa",
             "lang": "es",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Mundo Manhwa",
             "lang": "es",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Mundo Manhwa",
             "lang": "es",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "Mundo Manhwa",
-            "lang": "es",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Mundo Manhwa",
             "lang": "es",
             "scenario": "search",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Mundo Manhwa",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Mundo Manhwa",
             "lang": "es",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Mundo Manhwa",
             "lang": "es",
             "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:29:15.154294355Z",
+    "generatedAt": "2026-11-08T13:32:36.005134930Z",
     "module": ":src:en:manhwa68",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 2676315620251021475,
             "name": "Manhwa68",
             "lang": "en",
             "baseUrl": "https://manhwa68.com",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 768,
+                    "status": "WARN",
+                    "durationMs": 1228,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 470,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Secret Class -> 974",
-                        "Uncensored – The Cheating Wife -> 3451",
-                        "Queen Bee -> 2084"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 248,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 433,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Simple Yet Sexy -> 2218",
-                        "Obey the Dirty Rules of This Neighborhood! -> 6975",
-                        "Mind Control -> 11459"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 249,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 451,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Secret Class HOT -> 8723",
-                        "Secret Class -> 974",
-                        "S-Class -> 9951"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 492,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 284 -> chapter-284",
-                        "Chapter 283 -> chapter-283",
-                        "Chapter 282 -> chapter-282"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 399,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "search",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:03.546485193Z",
+    "comparedTo": "2026-10-30T01:29:15.154294355Z",
     "changes": [
         {
             "source": "Manhwa68",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manhwa68",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Manhwa68",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Manhwa68",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhwa68",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhwa68",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhwa68",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

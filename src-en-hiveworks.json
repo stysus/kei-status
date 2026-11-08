@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:16:48.443262174Z",
+    "generatedAt": "2026-11-08T13:29:43.895769781Z",
     "module": ":src:en:hiveworks",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 6620819060709781499,
             "name": "Hiveworks Comics",
             "lang": "en",
             "baseUrl": "https://hiveworkscomics.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 483,
+                    "durationMs": 409,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,26 +31,24 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 109,
+                    "durationMs": 90,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The Mash -> https://mashcomic.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
-                        "Goblins -> https://goblinscomic.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
-                        "Sleepless Domain -> https://sleeplessdomain.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes"
+                        "Between Failures -> https://betweenfailures.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
+                        "Empowered -> https://empoweredcomic.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
+                        "Goblins -> https://goblinscomic.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes"
                     ]
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 67,
+                    "status": "WARN",
+                    "durationMs": 50,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "How to be a Werewolf -> https://howtobeawerewolf.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
-                        "Goblins -> https://goblinscomic.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes",
-                        "Come Hell or High Water -> https://chohwcomic.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -65,68 +63,61 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 74,
+                    "durationMs": 53,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The Mash -> https://mashcomic.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes"
+                        "Between Failures -> https://betweenfailures.com?utm_source=hub&utm_medium=website&utm_campaign=hub-boxes"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 930,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 8824,
+                    "message": "This comic has a unsupported chapter list",
                     "notes": [],
-                    "samples": [
-                        "Chapter 7 -Page 024 -> https://www.mashcomic.com/comic/chapter-7-page-024",
-                        "Chapter 7 -Page 023 -> https://www.mashcomic.com/comic/chapter-7-page-022-2",
-                        "Chapter 7 -Page 022 -> https://www.mashcomic.com/comic/chapter-7-page-022"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 68,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.mashcomic.com/comics/1712971722-Chapter7Page24.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 277,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T11:06:37.071818347Z",
+    "comparedTo": "2026-11-04T11:16:48.443262174Z",
     "changes": [
         {
             "source": "Hiveworks Comics",
             "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Hiveworks Comics",
+            "lang": "en",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Hiveworks Comics",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Hiveworks Comics",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

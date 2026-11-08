@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:36:15.070472665Z",
+    "generatedAt": "2026-11-08T13:32:43.096111900Z",
     "module": ":src:pt:flowermanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 2421010180391442293,
             "name": "FlowerManga.net",
             "lang": "pt-BR",
             "baseUrl": "https://flowermangas.net",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 4993,
+                    "status": "WARN",
+                    "durationMs": 3275,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 521"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 368,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Lágrimas Sobre Flores Murchas -> 26",
-                        "Complexo de Amigos de Infância -> 1388",
-                        "A Morte É O Único Final Para A Vilã -> 24"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 243,
+                    "message": "the site's origin server is not responding (HTTP 521); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 521"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 353,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Senhorita Celebridade -> 1386",
-                        "A Vilã Está Com Sorte Ultimamente -> 4847",
-                        "O Passarinho do Duque Sombrio -> 4722"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 231,
+                    "message": "the site's origin server is not responding (HTTP 521); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 521"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 963,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Lágrimas Sobre Flores Murchas -> 26"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1198,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 124 -> capitulo-124",
-                        "Capítulo 123 -> capitulo-123",
-                        "Capítulo 122 -> capitulo-122"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 777,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.flowermng.com/wp-content/uploads/WP-manga/data/manga_6abd5bf64f5ed/capitulo-124/1.jpg",
-                        "https://cdn.flowermng.com/wp-content/uploads/WP-manga/data/manga_6abd5bf64f5ed/capitulo-124/2.jpg",
-                        "https://cdn.flowermng.com/wp-content/uploads/WP-manga/data/manga_6abd5bf64f5ed/capitulo-124/3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1761,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:59.925709673Z",
+    "comparedTo": "2026-10-30T01:36:15.070472665Z",
     "changes": [
         {
             "source": "FlowerManga.net",
             "lang": "pt-BR",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "FlowerManga.net",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "FlowerManga.net",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "FlowerManga.net",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "FlowerManga.net",
+            "lang": "pt-BR",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "FlowerManga.net",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "FlowerManga.net",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

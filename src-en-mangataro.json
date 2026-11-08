@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:29:55.685575281Z",
+    "generatedAt": "2026-11-08T13:32:34.266512133Z",
     "module": ":src:en:mangataro",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 8358097306709528603,
             "name": "MangaTaro",
             "lang": "en",
             "baseUrl": "https://mangataro.org",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 607,
+                    "durationMs": 761,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 246,
+                    "durationMs": 198,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 240,
+                    "durationMs": 190,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Go with the Clouds, North-by-Northwest -> {\"id\":\"707611\",\"slug\":\"go-with-the-clouds-north-by-northwest\"}",
                         "Salamander -> {\"id\":\"706055\",\"slug\":\"salamander\"}",
-                        "Neo Cat -> {\"id\":\"704306\",\"slug\":\"neo-cat\"}",
-                        "Executive Managing Director Shima Kōsaku -> {\"id\":\"704192\",\"slug\":\"executive-managing-director-shima-k-saku\"}"
+                        "Neo Cat -> {\"id\":\"704306\",\"slug\":\"neo-cat\"}"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 213,
+                    "durationMs": 189,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,46 +77,41 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1258,
+                    "durationMs": 1344,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Chapter 1198 -> /read/one-piece/ch1198-707396",
                         "Chapter 1197 -> /read/one-piece/ch1197-706247",
-                        "Chapter 1196 -> /read/one-piece/ch1196-705184",
-                        "Chapter 1195 -> /read/one-piece/ch1195-704575"
+                        "Chapter 1196 -> /read/one-piece/ch1196-705184"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 212,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mangataro.yachts/storage/chapters/82382b5fafc23879d6f3e9d52f609e65/001.webp",
-                        "https://mangataro.yachts/storage/chapters/82382b5fafc23879d6f3e9d52f609e65/002.webp",
-                        "https://mangataro.yachts/storage/chapters/82382b5fafc23879d6f3e9d52f609e65/003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 581,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 166,
+                    "message": "HTTP error 404",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:46.070319705Z",
+    "comparedTo": "2026-10-30T01:29:55.685575281Z",
     "changes": [
         {
             "source": "MangaTaro",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaTaro",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

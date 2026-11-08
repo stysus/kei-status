@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:10:05.308823443Z",
+    "generatedAt": "2026-11-08T13:37:24.113559179Z",
     "module": ":src:zh:terrahistoricus",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 4585134706567717130,
             "name": "泰拉记事社",
             "lang": "zh",
             "baseUrl": "https://comic.hypergryph.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,23 +23,27 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1839,
+                    "durationMs": 1725,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 234,
-                    "message": "Unexpected JSON token at offset 158: Expected string literal but 'null' literal was found at path: $.data[0].subtitle\nUse 'coerceInputValues = true' in 'Json {}' builder to coerce nulls if property has a default value.\nJSON input: .....\"title\":\"序言组曲：火与路\",\"subtitle\":null,\"authors\":[\"鹰角网络\"]},{\"cid.....",
+                    "status": "PASS",
+                    "durationMs": 238,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "序言组曲：火与路 -> /api/comic/3114",
+                        "循途漫录：大将军，出击！ -> /api/comic/7746",
+                        "序言组曲：孤行之人 -> /api/comic/0694"
+                    ]
                 },
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 230,
+                    "durationMs": 234,
                     "message": null,
                     "notes": [
                         "duplicate manga urls: [/api/comic/6253]"
@@ -47,7 +51,7 @@
                     "samples": [
                         "123罗德岛！？ -> /api/comic/6253",
                         "123罗德岛！？ -> /api/comic/6253",
-                        "序言组曲：火与路 -> /api/comic/3114"
+                        "123罗德岛！？ -> /api/comic/6253"
                     ]
                 },
                 {
@@ -62,40 +66,41 @@
                 },
                 {
                     "name": "search",
-                    "status": "FAIL",
-                    "durationMs": 225,
-                    "message": "Unexpected JSON token at offset 158: Expected string literal but 'null' literal was found at path: $.data[0].subtitle\nUse 'coerceInputValues = true' in 'Json {}' builder to coerce nulls if property has a default value.\nJSON input: .....\"title\":\"序言组曲：火与路\",\"subtitle\":null,\"authors\":[\"鹰角网络\"]},{\"cid.....",
+                    "status": "PASS",
+                    "durationMs": 231,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "序言组曲：火与路 -> /api/comic/3114"
+                    ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 268,
+                    "durationMs": 236,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "「冻河」篇 冻河 -> /api/comic/6253/episode/4991",
-                        "「塔露拉」篇 塔露拉 -> /api/comic/6253/episode/7487",
-                        "「帕拉斯」篇 帕拉斯 -> /api/comic/6253/episode/9016"
+                        "02 下篇 -> /api/comic/3114/episode/6303",
+                        "01 上篇 -> /api/comic/3114/episode/1565"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 228,
+                    "durationMs": 235,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://comic.hypergryph.com/api/comic/6253/episode/4991/page?pageNum=1",
-                        "https://comic.hypergryph.com/api/comic/6253/episode/4991/page?pageNum=2",
-                        "https://comic.hypergryph.com/api/comic/6253/episode/4991/page?pageNum=3"
+                        "https://comic.hypergryph.com/api/comic/3114/episode/6303/page?pageNum=1",
+                        "https://comic.hypergryph.com/api/comic/3114/episode/6303/page?pageNum=2",
+                        "https://comic.hypergryph.com/api/comic/3114/episode/6303/page?pageNum=3"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 4020,
+                    "durationMs": 2071,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -103,7 +108,22 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:39:16.390365090Z",
-    "changes": [],
+    "comparedTo": "2026-11-03T07:10:05.308823443Z",
+    "changes": [
+        {
+            "source": "泰拉记事社",
+            "lang": "zh",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "泰拉记事社",
+            "lang": "zh",
+            "scenario": "search",
+            "from": "FAIL",
+            "to": "PASS"
+        }
+    ],
     "throttledHosts": []
 }

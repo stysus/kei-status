@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:24:53.868599775Z",
+    "generatedAt": "2026-11-08T13:38:17.005837440Z",
     "module": ":src:pt:galaxscanlator",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 5553519415877811746,
@@ -22,20 +22,20 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1668,
-                    "message": null,
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
                     "status": "THROTTLED",
-                    "durationMs": 7145,
+                    "durationMs": 7405,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "galaxscanlator.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -81,56 +81,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:27:44.782163432Z",
+    "comparedTo": "2026-11-04T11:24:53.868599775Z",
     "changes": [
         {
             "source": "GALAX Scans",
             "lang": "pt-BR",
-            "scenario": "popular",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "GALAX Scans",
             "lang": "pt-BR",
-            "scenario": "latest",
-            "from": "PASS",
+            "scenario": "popular",
+            "from": "THROTTLED",
             "to": "SKIP"
-        },
-        {
-            "source": "GALAX Scans",
-            "lang": "pt-BR",
-            "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "GALAX Scans",
-            "lang": "pt-BR",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "GALAX Scans",
-            "lang": "pt-BR",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "GALAX Scans",
-            "lang": "pt-BR",
-            "scenario": "pages",
-            "from": "WARN",
-            "to": "SKIP"
-        },
-        {
-            "source": "GALAX Scans",
-            "lang": "pt-BR",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
         }
     ],
     "throttledHosts": [

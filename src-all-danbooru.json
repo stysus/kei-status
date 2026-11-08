@@ -1,56 +1,54 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T06:54:07.984560681Z",
+    "generatedAt": "2026-11-08T13:25:59.529834654Z",
     "module": ":src:all:danbooru",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 7602260701584916302,
             "name": "Danbooru",
             "lang": "all",
             "baseUrl": "https://danbooru.donmai.us",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 604,
+                    "status": "WARN",
+                    "durationMs": 477,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 197,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Zombie Stage - IvanTill Sulk (meiz green) -> /pools/32692",
-                        "Genshin Impact - Citlali & Lumine Comic (Dankestofdans) -> /pools/32693",
-                        "GODDESS OF VICTORY: NIKKE - SD Icon Pack (totatokeke) -> /pools/20226"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 75,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 813,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Genshin Impact - Citlali & Lumine Comic (Dankestofdans) -> /pools/32693",
-                        "Zombie Stage - IvanTill Sulk (meiz green) -> /pools/32692",
-                        "I Don't Wanna Be A Magical Girl - Pocky (Kiana Mai) -> /pools/32691"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 872,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,93 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 99,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Zombie Stage - IvanTill Sulk (meiz green) -> /pools/32692",
-                        "Zombie Stage - AAHS Fes START~! -> /pools/32638",
-                        "Zombie Stage - Sulk -> /pools/32637"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 994,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Oneshot -> /pools/32692"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 726,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "/posts/12505571",
-                        "/posts/12505572",
-                        "/posts/12505573"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3151,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:26:22.194264001Z",
+    "comparedTo": "2026-11-03T06:54:07.984560681Z",
     "changes": [
         {
             "source": "Danbooru",
             "lang": "all",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Danbooru",
+            "lang": "all",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Danbooru",
             "lang": "all",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "Danbooru",
-            "lang": "all",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Danbooru",
             "lang": "all",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Danbooru",
+            "lang": "all",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Danbooru",
             "lang": "all",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Danbooru",
             "lang": "all",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

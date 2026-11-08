@@ -1,21 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T17:27:39.640781404Z",
+    "generatedAt": "2026-11-08T13:34:14.020108402Z",
     "module": ":src:en:mangahere",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 2,
             "name": "Mangahere",
             "lang": "en",
             "baseUrl": "https://www.mangahere.cc",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 606,
+                    "durationMs": 342,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 2066,
+                    "durationMs": 1869,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1873,
+                    "durationMs": 1968,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Drug Devourer -> /manga/drug_devourer/",
-                        "Umareta Chokugo ni Suterareta kedo, Zensei ga Taikensha datta node Yoyuu de Ikitemasu -> /manga/umareta_chokugo_ni_suterareta_kedo_zensei_ga_taikensha_datta_node_yoyuu_de_ikitemasu/",
-                        "Kinzoku Slime wo Taoshi Makutta Ore ga  -> /manga/kinzoku_slime_wo_taoshi_makutta_ore_ga_kurokou_no_ou_to_yobareru_made/"
+                        "Moonmade Child -> /manga/moonmade_child/",
+                        "I Tamed the Monster Prince -> /manga/i_tamed_the_monster_prince/",
+                        "Sibijisonyeo -> /manga/sibijisonyeo/"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1945,
+                    "durationMs": 1956,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +77,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 4001,
+                    "durationMs": 3995,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,42 +88,32 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2233,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.mangahere.cc/manga/onepunch_man/c240/chapterfun.ashx?cid=1784703&page=1&key=e78c2238e98c16dd#https://www.mangahere.cc/manga/onepunch_man/c240/1.html",
-                        "https://www.mangahere.cc/manga/onepunch_man/c240/chapterfun.ashx?cid=1784703&page=2&key=e78c2238e98c16dd#https://www.mangahere.cc/manga/onepunch_man/c240/1.html",
-                        "https://www.mangahere.cc/manga/onepunch_man/c240/chapterfun.ashx?cid=1784703&page=3&key=e78c2238e98c16dd#https://www.mangahere.cc/manga/onepunch_man/c240/1.html"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1069,
-                    "message": null,
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 2025,
+                    "message": "NullPointerException at Mangahere.getPageList$suspendImpl(Mangahere.kt:248)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-04T11:13:38.564959532Z",
+    "comparedTo": "2026-11-04T17:27:39.640781404Z",
     "changes": [
         {
             "source": "Mangahere",
             "lang": "en",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Mangahere",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

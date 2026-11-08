@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:03:06.884274990Z",
+    "generatedAt": "2026-11-08T13:36:34.389884808Z",
     "module": ":src:tr:mindafansub",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 8477380026777524321,
             "name": "Minda Fansub",
             "lang": "tr",
-            "baseUrl": "https://mindafansub.dev",
-            "status": "DOWN",
+            "baseUrl": "https://mindafansub.nl",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 707,
+                    "status": "PASS",
+                    "durationMs": 1104,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 502"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 278,
-                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 392,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Jinx -> 57",
+                        "Waterside Night -> 73",
+                        "Dangerous Convenience Store -> 319"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 278,
-                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 378,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Here U Are -> 1114",
+                        "Dear Door -> 313",
+                        "Black Lotus -> 609"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,47 +63,102 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 680,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Juyeon’s Jinx -> 590",
+                        "Love Jinx -> 175",
+                        "Jinx -> 57"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 645,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Bölüm 102 - Final -> bolum-102",
+                        "Bölüm 101 -> bolum-101",
+                        "Bölüm 100 -> bolum-100"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 968,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://yaoicdn.xyz/mindafansub/manga_6ae4974eeef1a/bolum-102/0000.webp",
+                        "https://yaoicdn.xyz/mindafansub/manga_6ae4974eeef1a/bolum-102/0001.webp",
+                        "https://yaoicdn.xyz/mindafansub/manga_6ae4974eeef1a/bolum-102/0002.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1197,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:54:12.511678015Z",
+    "comparedTo": "2026-11-03T07:03:06.884274990Z",
     "changes": [
         {
             "source": "Minda Fansub",
             "lang": "tr",
+            "scenario": "connectivity",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Minda Fansub",
+            "lang": "tr",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Minda Fansub",
             "lang": "tr",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
+        },
+        {
+            "source": "Minda Fansub",
+            "lang": "tr",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Minda Fansub",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Minda Fansub",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Minda Fansub",
+            "lang": "tr",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

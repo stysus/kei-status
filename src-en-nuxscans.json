@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:17:27.397683364Z",
+    "generatedAt": "2026-11-08T13:36:56.309811820Z",
     "module": ":src:en:nuxscans",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 5854986367394591788,
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 223,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 7097,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 103,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "nuxscans-comics.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "I'm An Evil God -> /2021/04/1141-sypnosis-bored-with-his-life-on.html?m=0",
-                        "My House of Horror -> /2021/06/my-house-of-horror.html?m=0",
-                        "Tales Of Herding Gods -> /2020/11/sypnosis-daxu-ancestors-abandoned-by.html?m=0"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -50,67 +48,75 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "nuxscans-comics.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 263,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "I'm An Evil God -> /2021/04/1141-sypnosis-bored-with-his-life-on.html?m=0"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "THROTTLED",
-                    "durationMs": 7189,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T06:57:21.245598013Z",
+    "comparedTo": "2026-11-04T11:17:27.397683364Z",
     "changes": [
         {
             "source": "Nux Scans",
             "lang": "en",
-            "scenario": "chapters",
-            "from": "WARN",
+            "scenario": "connectivity",
+            "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "Nux Scans",
             "lang": "en",
-            "scenario": "pages",
-            "from": "WARN",
+            "scenario": "popular",
+            "from": "PASS",
             "to": "SKIP"
         },
         {
             "source": "Nux Scans",
             "lang": "en",
-            "scenario": "images",
+            "scenario": "filters",
             "from": "PASS",
-            "to": null
+            "to": "SKIP"
+        },
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "THROTTLED",
+            "to": "SKIP"
+        },
+        {
+            "source": "Nux Scans",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": [

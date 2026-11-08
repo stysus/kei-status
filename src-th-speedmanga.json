@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:36:47.217003566Z",
+    "generatedAt": "2026-11-08T13:41:18.931303656Z",
     "module": ":src:th:speedmanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "48b29182",
     "sources": [
         {
             "sourceId": 3338047643419578004,
             "name": "Speed Manga",
             "lang": "th",
-            "baseUrl": "https://speed-manga.net",
-            "status": "PASS",
+            "baseUrl": "https://speed-manga.com",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 838,
+                    "durationMs": 994,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1096,
+                    "durationMs": 1446,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1090,
+                    "durationMs": 1311,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "เหล่าวิญญาณมาเยือนคาเฟ่ชนบทของฉัน Spirits Are Visiting My Countryside Cafe! -> /manga/spirits-are-visiting-my-countryside-cafe/",
-                        "Juvenile Prison -> /manga/juvenile-prison/",
-                        "แกร่งเกินผู้กล้า แต่ซ่าไม่ได้ Secretly More Powerful Than the Hero -> /manga/secretly-more-powerful-than-the-hero/"
+                        "Player of a Fallen Noble Family -> /manga/player-of-a-fallen-noble-family/",
+                        "Re:Monster -> /manga/remonster/",
+                        "Damedol to Sekai ni Hitori Dake no Fan -> /manga/damedol-to-sekai-ni-hitori-dake-no-fan/"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1098,
+                    "durationMs": 1281,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,7 +75,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 379,
+                    "durationMs": 669,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,7 +87,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 290,
+                    "durationMs": 711,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -98,23 +98,27 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 453,
+                    "status": "WARN",
+                    "durationMs": 208,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from imgez.org (HTTP 403)",
+                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from imgez.org (HTTP 403)",
+                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from imgez.org (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:50.824798097Z",
+    "comparedTo": "2026-10-30T01:36:47.217003566Z",
     "changes": [
         {
             "source": "Speed Manga",
             "lang": "th",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []
