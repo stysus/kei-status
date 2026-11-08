@@ -210,7 +210,12 @@ of every interface on both sides (a Kotlin property through its getter/setter na
 included) and runs in the sweep's `prepare` job next to the host-shim contract snapshot, so a
 drifted copy stops the sweep before the shards start. Its name mapping is pinned by
 `--self-test`; the comparison itself was verified by planting a fake member and watching the
-check fail.
+check fail. The guard's first real catch landed on the first resync after it shipped: 157
+upstream commits rewrote core's WebView layer and the check stopped the sweep on four drifts
+(one new interface, two new members, two removed ones). That catch also exposed the
+comparison's limit - upstream had added a second `addWebMessageListener` overload, and
+name-only comparison cannot see an overload, so it slipped through silently and only a manual
+descriptor check against core's call sites caught it.
 
 ## Search miss re-tried and matched by title (Nov 2026)
 

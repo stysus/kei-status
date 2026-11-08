@@ -5,6 +5,8 @@ import java.lang.reflect.InvocationHandler;
 public interface WebViewProviderBoundaryInterface {
     void setAudioMuted(boolean mute);
 
+    InvocationHandler getProfile();
+
     InvocationHandler addDocumentStartJavaScript(String script, String[] allowedOriginRules);
 
     int getJavaScriptWorld(String worldName);
@@ -14,4 +16,8 @@ public interface WebViewProviderBoundaryInterface {
 
     void addWebMessageListener(
             String jsObjectName, String[] allowedOriginRules, InvocationHandler listener);
+
+    void addWebMessageListener(
+            String jsObjectName, String[] allowedOriginRules, InvocationHandler listener,
+            String worldName);
 }
