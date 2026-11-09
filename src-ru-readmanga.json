@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:36:56.001150518Z",
+    "generatedAt": "2026-11-09T11:51:50.748672394Z",
     "module": ":src:ru:readmanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1b708981",
     "sources": [
         {
             "sourceId": 5,
             "name": "ReadManga",
             "lang": "ru",
             "baseUrl": "https://a.zazaza.me",
-            "status": "BLOCKED",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 920,
+                    "status": "WARN",
+                    "durationMs": 550,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 525,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Поднятие уровня в одиночку -> /podniatie_urovnia_v_odinochku__A5ea4",
-                        "Клинок, рассекающий демонов -> /klinok__rassekaiuchii_demonov__A5327",
-                        "Сказания о демонах и богах -> /skazaniia_o_demonah_i_bogah__A5664"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 270,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 317,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Перерождение в бессмертного Ли -> /pererojdenie_v_bessmertnogo_li",
-                        "Полярная ночь 2: Понтус -> /poliarnaia_noch_2__pontus",
-                        "У меня бесконечные золотые характеристики -> /u_menia_beskonechnye_zolotye_harakteristiki"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 575,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,46 +61,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1404,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Поднятие уровня в одиночку -> /podniatie_urovnia_v_odinochku__A5ea4",
-                        "Поднятие уровня в одиночку: Рагнарёк -> /podniatie_urovnia_v_odinochku__ragnarek",
-                        "Поднятие уровня в одиночку: Истоки Охотника -> /podniatie_urovnia_v_odinochku__istoki_ohotnika"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "BLOCKED",
-                    "durationMs": 508,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.Exception: Для просмотра контента необходима авторизация через WebView🌍 или включите автоматическую авторизацию в настройках расширения"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:29.539487151Z",
+    "comparedTo": "2026-10-30T01:36:56.001150518Z",
     "changes": [
         {
             "source": "ReadManga",
             "lang": "ru",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "ReadManga",
+            "lang": "ru",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "ReadManga",
+            "lang": "ru",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "ReadManga",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "BLOCKED",
+            "to": "SKIP"
+        },
+        {
+            "source": "ReadManga",
+            "lang": "ru",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

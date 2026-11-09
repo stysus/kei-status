@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:42:06.496534787Z",
+    "generatedAt": "2026-11-09T11:57:12.975160301Z",
     "module": ":src:vi:seikowo",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "1b708981",
     "sources": [
         {
             "sourceId": 3049157397733640125,
@@ -22,61 +22,8 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1008,
-                    "message": null,
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 783,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "TS Tensei Bishoujo Netora Reiko wa Netoraretai -> /2026/02/ts-tensei-bishoujo-netora-reiko-wa.html",
-                        "30 made Hitori Dattara Issho ni Kurasou tte Itta yo ne ? -> /2026/10/30-made-hitori-dattara-issho-ni-kurasou.html",
-                        "Zense wa Kentei. Konjou Kuzu Ouji -> /2026/10/zense-wa-kentei-konjou-kuzu-ouji.html"
-                    ]
-                },
-                {
-                    "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 451,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chào mừng đến với nhà hàng của những kẻ bị ruồng bỏ -> /2026/04/chao-mung-en-voi-nha-hang-cua-nhung-ke.html",
-                        "Cuộc chơi trên núi tử thần -> /2026/04/cuoc-choi-tren-nui-tu-than_5.html",
-                        "Cuộc sống \"thiện xạ\" của ông chú được triệu hồi sang dị giới -> /2026/04/cuoc-song-thien-xa-cua-ong-chu-uoc_51.html"
-                    ]
-                },
-                {
-                    "name": "filters",
-                    "status": "PASS",
-                    "durationMs": 2,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "4 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 10480,
-                    "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "query \"TS Tensei Bishoujo Netora Reiko wa Netoraretai\" matched no results in the first page"
-                    ],
-                    "samples": []
-                },
-                {
-                    "name": "chapters",
                     "status": "THROTTLED",
-                    "durationMs": 7516,
+                    "durationMs": 7346,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
@@ -84,24 +31,99 @@
                     "samples": []
                 },
                 {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "seikowo-app.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "seikowo-app.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "seikowo-app.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:03:20.466155365Z",
+    "comparedTo": "2026-11-08T13:42:06.496534787Z",
     "changes": [
         {
             "source": "Seikowo",
             "lang": "vi",
-            "scenario": "chapters",
-            "from": "FAIL",
+            "scenario": "connectivity",
+            "from": "PASS",
             "to": "THROTTLED"
+        },
+        {
+            "source": "Seikowo",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Seikowo",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Seikowo",
+            "lang": "vi",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Seikowo",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "THROTTLED",
+            "to": "SKIP"
+        },
+        {
+            "source": "Seikowo",
+            "lang": "vi",
+            "scenario": "search",
+            "from": "WARN",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": [

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:30:51.557606457Z",
+    "generatedAt": "2026-11-09T11:51:24.827437878Z",
     "module": ":src:ar:asgardscans",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "1b708981",
     "sources": [
         {
             "sourceId": 1271101147092894805,
             "name": "AsgardScans",
             "lang": "ar",
             "baseUrl": "https://asgardscans.com",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,26 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 759,
+                    "status": "WARN",
+                    "durationMs": 19882,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 525,
-                    "message": "HTTP error 404",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 19456,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 264,
-                    "message": "HTTP error 404",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 19454,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,49 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:47:33.212313272Z",
+    "comparedTo": "2026-11-08T13:30:51.557606457Z",
     "changes": [
         {
             "source": "AsgardScans",
             "lang": "ar",
-            "scenario": "popular",
+            "scenario": "connectivity",
             "from": "PASS",
-            "to": "FAIL"
+            "to": "WARN"
+        },
+        {
+            "source": "AsgardScans",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
         },
         {
             "source": "AsgardScans",
             "lang": "ar",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "AsgardScans",
-            "lang": "ar",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "AsgardScans",
-            "lang": "ar",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "AsgardScans",
-            "lang": "ar",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "AsgardScans",
-            "lang": "ar",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

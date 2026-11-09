@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:35:55.926868796Z",
+    "generatedAt": "2026-11-09T11:51:25.196629387Z",
     "module": ":src:en:lilymanga",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "1b708981",
     "sources": [
         {
             "sourceId": 4480996639887718467,
             "name": "Lily Manga",
             "lang": "en",
             "baseUrl": "https://lilymanga.net",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 659,
+                    "status": "WARN",
+                    "durationMs": 329,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 521"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1586,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "My Food Seems To Be Very Cute -> 6955",
-                        "After Losing My Job, I Met Miss Mermaid at the Beach -> 9284",
-                        "Bad Thinking Diary (Official) -> 9090"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 2132,
+                    "message": "the site's origin server is not responding (HTTP 521); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 521"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1976,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Koushaku Reijou no Rouraku Mission: Maou to no Seiryaku Kekkon ga, Jinrui Saigo no Kirifuda desu!… tte, Maou ga Onnanoko no Baai wa Dou Sureba Ii no desu ka!? -> 11871",
-                        "Destroy It All and Love Me in Hell! (Zenbu Kowashite Jigoku de Aishite) -> 10769",
-                        "Watashi Datte Seishun Shitai Desu yo, Hontou wa. -> 11807"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 1816,
+                    "message": "the site's origin server is not responding (HTTP 521); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 521"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,93 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 4145,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "My Food Seems To Be Very Cute -> 6955"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 3873,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Episode 223.18 - Side Story 1 - What are your terms? -> episode-223-18",
-                        "Episode 223.17 - Side Story 1 - I don't want your gifts! -> episode-223-17",
-                        "Episode 223.16 - Side Story 1 - Side Effects -> episode-223-16"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1959,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://lilymanga.net/wp-content/uploads/WP-manga/data/manga_60206078d7145/b7bbed6667e1941c380c929c16879133/001.webp",
-                        "https://lilymanga.net/wp-content/uploads/WP-manga/data/manga_60206078d7145/b7bbed6667e1941c380c929c16879133/002.webp",
-                        "https://lilymanga.net/wp-content/uploads/WP-manga/data/manga_60206078d7145/b7bbed6667e1941c380c929c16879133/003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 10509,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-04T11:16:19.591133329Z",
+    "comparedTo": "2026-11-08T13:35:55.926868796Z",
     "changes": [
         {
             "source": "Lily Manga",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Lily Manga",
+            "lang": "en",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Lily Manga",
             "lang": "en",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Lily Manga",
-            "lang": "en",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Lily Manga",
             "lang": "en",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Lily Manga",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Lily Manga",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Lily Manga",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

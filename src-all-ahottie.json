@@ -1,44 +1,44 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:26:22.033755968Z",
+    "generatedAt": "2026-11-09T11:47:23.477515034Z",
     "module": ":src:all:ahottie",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1b708981",
     "sources": [
         {
             "sourceId": 6289731484943315811,
             "name": "AHottie",
             "lang": "all",
             "baseUrl": "https://ahottie.top",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 2966,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30575,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2210,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Emika Shirakami 白上咲花, 写真集 「Blooming」 Set.03 -> /albums/f660dcb77e09c286aa5f5eef73bdb65b",
-                        "Miki Ide 井手美希, 写真集 スパイスビジュアル 「Kiss You」 Set.04 -> /albums/dd6e2b9aa3e447d18d3a09a362e673ac",
-                        "MIRU みる, アダルト写真集 「Scenery」 Set.04 -> /albums/8019f54e4d38653aba9650faa572d3e9"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30388,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -59,56 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 2209,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Emika Shirakami 白上咲花, 写真集 「Blooming」 Set.03 -> /albums/f660dcb77e09c286aa5f5eef73bdb65b"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 2025,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "GALLERY -> /albums/f660dcb77e09c286aa5f5eef73bdb65b"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 6846,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://images2.imgbox.com/f4/f1/iBqbQLvz_o.jpg",
-                        "https://images2.imgbox.com/fd/9a/0ZCDmf2I_o.jpg",
-                        "https://images2.imgbox.com/ac/18/FTpHXOzL_o.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1093,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:27:45.525622901Z",
+    "comparedTo": "2026-10-30T01:26:22.033755968Z",
     "changes": [
         {
             "source": "AHottie",
             "lang": "all",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "AHottie",
+            "lang": "all",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "AHottie",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "AHottie",
+            "lang": "all",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "AHottie",
+            "lang": "all",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "AHottie",
+            "lang": "all",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

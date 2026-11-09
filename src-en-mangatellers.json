@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:28:38.719588488Z",
+    "generatedAt": "2026-11-09T11:51:34.313471698Z",
     "module": ":src:en:mangatellers",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "1b708981",
     "sources": [
         {
             "sourceId": 3478835885302345699,
             "name": "Mangatellers",
             "lang": "en",
             "baseUrl": "https://reader.mangatellers.gr",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,29 +22,31 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 744,
+                    "status": "WARN",
+                    "durationMs": 876,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 146,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 262,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 107,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 201,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
                     ],
                     "samples": []
                 },
@@ -85,28 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:01:53.726407627Z",
+    "comparedTo": "2026-11-08T13:28:38.719588488Z",
     "changes": [
         {
             "source": "Mangatellers",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Mangatellers",
             "lang": "en",
             "scenario": "popular",
-            "from": "DOWN",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "DOWN"
         },
         {
             "source": "Mangatellers",
             "lang": "en",
             "scenario": "latest",
-            "from": "DOWN",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

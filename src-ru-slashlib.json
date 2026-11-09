@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-01T10:50:49.037747315Z",
+    "generatedAt": "2026-11-09T11:56:27.060214338Z",
     "module": ":src:ru:slashlib",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "1b708981",
     "sources": [
         {
             "sourceId": 2730544188738947015,
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 651,
+                    "durationMs": 874,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 10013,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Secret Alliance -> /23435--secret-alliance",
-                        "Surviving Romance -> /60127--a-surviving-romance-",
-                        "Wolf and dog -> /24394--wolf-and-dog"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 10059,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 772,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Suspicious Police Officer -> /213547--ayashii-omawari-san",
-                        "1031 All Saints Street -> /29756--all-saints-street",
-                        "Goodbye, my hero -> /277485--sayonara-boku-no-hiro"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 10051,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,65 +59,61 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1591,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Secret Alliance -> /23435--secret-alliance"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "BLOCKED",
-                    "durationMs": 2464,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.io.IOException: HTTP error 404. Проверьте сайт. Попробуйте авторизоваться через WebView🌎︎ и обновите список. Для завершения авторизации может потребоваться перезапустить приложение с полной остановкой."
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T10:05:40.762034333Z",
+    "comparedTo": "2026-11-01T10:50:49.037747315Z",
     "changes": [
         {
             "source": "SlashLib",
             "lang": "ru",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "SlashLib",
             "lang": "ru",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "SlashLib",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "SlashLib",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "SKIP"
+        },
+        {
+            "source": "SlashLib",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

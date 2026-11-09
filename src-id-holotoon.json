@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:11.846162329Z",
+    "generatedAt": "2026-11-09T11:54:54.325766240Z",
     "module": ":src:id:holotoon",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1b708981",
     "sources": [
         {
             "sourceId": 3970113862660733375,
             "name": "Holotoon",
             "lang": "id",
             "baseUrl": "https://holodek.run",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 578,
+                    "durationMs": 886,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 552,
+                    "status": "WARN",
+                    "durationMs": 255,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "ABSOLUTE STATION [MOCCACINNO] -> /comic/absolute-station-moccacinno",
-                        "TRY BEGGING [MOCCACINNO] -> /comic/try-begging-moccacinno",
-                        "PREDATORY MARRIAGE [MOCCACINNO] -> /comic/predatory-marriage-moccacinno"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 550,
+                    "status": "WARN",
+                    "durationMs": 189,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "PREGNANCY TRAP [MILUNA] -> /comic/the-trap-of-pregnancy",
-                        "The Nude [YIRENN] -> /comic/the-nude-yirenn",
-                        "PREDATORY MARRIAGE [MOCCACINNO] -> /comic/predatory-marriage-moccacinno"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,60 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 463,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "PREDATORY MARRIAGE [MOCCACINNO] -> /comic/predatory-marriage-moccacinno",
-                        "TRY BEGGING [MOCCACINNO] -> /comic/try-begging-moccacinno",
-                        "CRY, OR BETTER YET, BEG [MOCCACINNO] -> /comic/cry-or-better-yet-beg-moccacinno"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 605,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 107 -> /read/absolute-station-moccacinno/chapter-107",
-                        "Chapter 106 -> /read/absolute-station-moccacinno/chapter-106",
-                        "Chapter 105 -> /read/absolute-station-moccacinno/chapter-105"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 378,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://holo.imgsvr.my.id/image/comic/absolute-station-moccacinno/chapter-1/001_Iv5uIO.webp",
-                        "https://holo.imgsvr.my.id/image/comic/absolute-station-moccacinno/chapter-1/002_M3I1tI.webp",
-                        "https://holo.imgsvr.my.id/image/comic/absolute-station-moccacinno/chapter-1/003_6S_5xj.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 212,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:51.684068724Z",
+    "comparedTo": "2026-10-30T01:33:11.846162329Z",
     "changes": [
         {
             "source": "Holotoon",
             "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Holotoon",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Holotoon",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Holotoon",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Holotoon",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Holotoon",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

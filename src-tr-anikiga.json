@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:39:51.467776437Z",
+    "generatedAt": "2026-11-09T11:57:12.950654096Z",
     "module": ":src:tr:anikiga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "1b708981",
     "sources": [
         {
             "sourceId": 8011699941614610362,
             "name": "Anikiga",
             "lang": "tr",
             "baseUrl": "https://anikiga.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 974,
+                    "status": "WARN",
+                    "durationMs": 629,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 239,
+                    "status": "WARN",
+                    "durationMs": 218,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "My Classmate Tanaka-san Is Super Scary -> 2099",
-                        "Sekisei Inko -> 2612",
-                        "Sekiro Side Story: Hanbei the Undying -> 1908"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 241,
+                    "status": "WARN",
+                    "durationMs": 199,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "My Classmate Tanaka-san Is Super Scary -> 2099",
-                        "Alma -> 2632",
-                        "Sekisei Inko -> 2612"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 214,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "My Classmate Tanaka-san Is Super Scary -> 2099"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 693,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 53 -> bolum-53",
-                        "Bölüm 52 -> bolum-52",
-                        "Bölüm 51 -> bolum-51"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 177,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://anikiga.com/wp-content/uploads/WP-manga/data/manga_5f14aa3bbaa39/c1a0242498619839f661a05dfb4f9d71/0.jpg",
-                        "https://anikiga.com/wp-content/uploads/WP-manga/data/manga_5f14aa3bbaa39/c1a0242498619839f661a05dfb4f9d71/1.jpg",
-                        "https://anikiga.com/wp-content/uploads/WP-manga/data/manga_5f14aa3bbaa39/c1a0242498619839f661a05dfb4f9d71/2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1336,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:42:18.775260926Z",
+    "comparedTo": "2026-10-30T01:39:51.467776437Z",
     "changes": [
         {
             "source": "Anikiga",
             "lang": "tr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Anikiga",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Anikiga",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Anikiga",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Anikiga",
+            "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Anikiga",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Anikiga",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

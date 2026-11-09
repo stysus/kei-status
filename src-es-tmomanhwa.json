@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:38:16.452926504Z",
+    "generatedAt": "2026-11-09T11:54:44.350640048Z",
     "module": ":src:es:tmomanhwa",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "1b708981",
     "sources": [
         {
             "sourceId": 6910135245684799124,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 720,
+                    "durationMs": 792,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,13 +31,13 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 697,
+                    "durationMs": 737,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Mis amigos de la infancia intentan matarme -> /manhwa/mis-amigos-de-la-infancia-intentan-matarme/",
-                        "Taxidermia -> /manhwa/taxidermia/",
-                        "Hitoribocchi no Isekai Kouryaku -> /manhwa/hitoribocchi-no-isekai-kouryaku/"
+                        "Hoy no hay Video -> /manhwa/hoy-no-hay-video/",
+                        "Soy una ladróna, pero acabé en un matrimonio falso con un investigador -> /manhwa/soy-una-ladrona-pero-acabe-en-un-matrimonio-falso-con-un-investigador/",
+                        "¡Infiltrada en una Escuela Chaebol! -> /manhwa/infiltrada-en-una-escuela-chaebol/"
                     ]
                 },
                 {
@@ -60,44 +60,42 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 331,
+                    "status": "WARN",
+                    "durationMs": 344,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Mis amigos de la infancia intentan matarme -> /manhwa/mis-amigos-de-la-infancia-intentan-matarme/"
-                    ]
+                    "notes": [
+                        "returned an empty list",
+                        "query \"Hoy no hay Video\" matched no results in the first page"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 433,
+                    "status": "PASS",
+                    "durationMs": 351,
                     "message": null,
-                    "notes": [
-                        "duplicate chapter urls: [/manhwa/mis-amigos-de-la-infancia-intentan-matarme/capitulo-82-5/]"
-                    ],
+                    "notes": [],
                     "samples": [
-                        "Capítulo 109 -> /manhwa/mis-amigos-de-la-infancia-intentan-matarme/capitulo-109/",
-                        "Capítulo 108 -> /manhwa/mis-amigos-de-la-infancia-intentan-matarme/capitulo-108/",
-                        "Capítulo 107 -> /manhwa/mis-amigos-de-la-infancia-intentan-matarme/capitulo-107/"
+                        "Capítulo 25.5 -> /manhwa/hoy-no-hay-video/capitulo-25-5/",
+                        "Capítulo 25 -> /manhwa/hoy-no-hay-video/capitulo-25/",
+                        "Capítulo 24 -> /manhwa/hoy-no-hay-video/capitulo-24/"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 393,
+                    "durationMs": 361,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://img01.tmomanhwa.com/online/3654/109/001.webp",
-                        "https://img01.tmomanhwa.com/online/3654/109/002.webp",
-                        "https://img01.tmomanhwa.com/online/3654/109/003.webp"
+                        "https://img02.tmomanhwa.com/online/4096/25.5/1-4e1.jpg",
+                        "https://img02.tmomanhwa.com/online/4096/25.5/2-4e1.jpg"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 1498,
+                    "durationMs": 1438,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -105,14 +103,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:29:03.855424498Z",
+    "comparedTo": "2026-11-08T13:38:16.452926504Z",
     "changes": [
         {
             "source": "TmoManhwa",
             "lang": "es",
-            "scenario": "chapters",
+            "scenario": "search",
             "from": "PASS",
             "to": "WARN"
+        },
+        {
+            "source": "TmoManhwa",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

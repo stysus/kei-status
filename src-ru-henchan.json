@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:38:11.214696258Z",
+    "generatedAt": "2026-11-09T11:52:57.611044572Z",
     "module": ":src:ru:henchan",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "1b708981",
     "sources": [
         {
             "sourceId": 5504588601186153612,
             "name": "HenChan",
             "lang": "ru",
             "baseUrl": "https://xxl.hentaichan.live",
-            "status": "DOWN",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "DOWN",
-                    "durationMs": 30440,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 887,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 30006,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "status": "WARN",
+                    "durationMs": 217,
+                    "message": null,
                     "notes": [
-                        "java.net.SocketTimeoutException: timeout"
+                        "returned an empty list"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 30001,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 500,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Переполняясь Чернотой - Глава 1 -> /manga/55794-perepolnyayas-chernotoy-glava-1.html",
+                        "Футанари Атаго и секретный пляж (Futanari Atago to Himitsu no Beach) -> /manga/55792-futanari-atago-i-sekretnyy-plyazh-futanari-atago-to-himitsu-no-beach.html",
+                        "Tasha Henshin no Golem Girl - Глава 7 -> /manga/55791-tasha-henshin-no-golem-girl-glava-7.html"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,82 +61,102 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 3414,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Переполняясь Чернотой - Глава 1 (Overflowing Black) -> /manga/55794-perepolnyayas-chernotoy-glava-1.html"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 8832,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Переполняясь Чернотой - Глава 1 -> /manga/55794-perepolnyayas-chernotoy-glava-1.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 94,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://mimg4.imgschan.xyz/manganew_webp/o/1794098227_overflowingblack/page00.webp",
+                        "https://mimg4.imgschan.xyz/manganew_webp/o/1794098227_overflowingblack/page01.webp",
+                        "https://mimg4.imgschan.xyz/manganew_webp/o/1794098227_overflowingblack/page02.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 31701,
+                    "message": null,
+                    "notes": [
+                        "page[0] image request failed: SocketTimeoutException: timeout",
+                        "page[1] image request failed: SocketTimeoutException: timeout",
+                        "page[2] image request failed: SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-04T11:19:35.251678479Z",
+    "comparedTo": "2026-11-08T13:38:11.214696258Z",
     "changes": [
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "WARN"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "HenChan",
-            "lang": "ru",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "HenChan",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

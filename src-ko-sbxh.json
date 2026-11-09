@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:52:07.547571442Z",
+    "generatedAt": "2026-11-09T11:55:50.496762985Z",
     "module": ":src:ko:sbxh",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "1b708981",
     "sources": [
         {
             "sourceId": 5836877907605844302,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1393,
+                    "durationMs": 1218,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 538,
+                    "durationMs": 436,
                     "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
@@ -40,15 +40,13 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 425,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "남궁세가 천재 외손자 -> /webtoon/64167676",
-                        "대공가 시집살이 너무 쉬운데요 -> /webtoon/68103873",
-                        "노가다 김씨, 자동사냥으로 꿀 빱니다 -> /webtoon/70511208"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 418,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -61,50 +59,53 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "BLOCKED",
-                    "durationMs": 471,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "BLOCKED",
-                    "durationMs": 489,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-04T11:24:13.585044890Z",
+    "comparedTo": "2026-11-08T13:52:07.547571442Z",
     "changes": [
         {
             "source": "Newtoki (SBXH)",
             "lang": "ko",
-            "scenario": "chapters",
+            "scenario": "latest",
             "from": "PASS",
             "to": "BLOCKED"
         },
         {
             "source": "Newtoki (SBXH)",
             "lang": "ko",
-            "scenario": "pages",
-            "from": "FAIL",
+            "scenario": "chapters",
+            "from": "BLOCKED",
+            "to": "SKIP"
+        },
+        {
+            "source": "Newtoki (SBXH)",
+            "lang": "ko",
+            "scenario": "search",
+            "from": "BLOCKED",
             "to": "SKIP"
         }
     ],
