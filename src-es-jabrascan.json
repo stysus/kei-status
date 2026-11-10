@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T14:48:15.660518263Z",
+    "generatedAt": "2026-11-10T11:32:44.074944398Z",
     "module": ":src:es:jabrascan",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 7834765587341972487,
             "name": "JabraScan",
             "lang": "es",
             "baseUrl": "https://jabrascan.net",
-            "status": "FAIL",
+            "status": "UNSUPPORTED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 239,
+                    "durationMs": 221,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,13 +31,13 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 803,
+                    "durationMs": 991,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "¡Sistema Supremo del Marido! y Esposas -> SupremeHusbandWifeSystem",
-                        "Mi Maestra de la Universidad es la Mamá de Mis Hijos -> MyCollegeTeacherMyChildrenMom",
-                        "Mis Tres Esposas son Hermosas Vampiros -> Mis3EsposasSonHermosasVampiros"
+                        "¡El Héroe de Nivel Máximo Ha Regresado! -> MLHSB",
+                        "Cultivation Online -> CultivationOnline",
+                        "¡Sistema Supremo del Marido! y Esposas -> SupremeHusbandWifeSystem"
                     ]
                 },
                 {
@@ -61,44 +61,64 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 529,
+                    "durationMs": 775,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "¡Sistema Supremo del Marido! y Esposas -> SupremeHusbandWifeSystem"
+                        "¡El Héroe de Nivel Máximo Ha Regresado! -> MLHSB"
                     ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 723,
+                    "durationMs": 694,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "1070: Simulador de mazmorras -> SupremeHusbandWifeSystem/1070/SupremeHusbandWifeSystem-1070_JabraScan.pdf",
-                        "1069: Enlace del sistema -> SupremeHusbandWifeSystem/1069/SupremeHusbandWifeSystem-1069_JabraScan.pdf",
-                        "1068: ¿Empezamos con la Torre de las Pruebas? -> SupremeHusbandWifeSystem/1068/SupremeHusbandWifeSystem-1068_JabraScan.pdf"
+                        "403: Capítulo 403 - El Árbol Gigante Retorcido Hasta Lo Imposible -> MLHSB/403/MLHSB_JabraScan_0403.pdf",
+                        "402: Capítulo 402 -> MLHSB/402/MLHSB_JabraScan_0402.pdf",
+                        "401: Capítulo 401 -> MLHSB/401/MLHSB_JabraScan_0401.pdf"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 97,
-                    "message": "no pages found: not a PDF, or one the shim cannot scan",
+                    "status": "PASS",
+                    "durationMs": 301,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://books.jabrascan.net/MLHSB/MLHSB_JabraScan_0001.pdf#0",
+                        "https://books.jabrascan.net/MLHSB/MLHSB_JabraScan_0001.pdf#1"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "UNSUPPORTED",
+                    "durationMs": 10,
+                    "message": "requires an Android method or field the harness does not provide: android.graphics.pdf.PdfRenderer$Page.render",
+                    "notes": [
+                        "java.lang.NoSuchMethodError: 'void android.graphics.pdf.PdfRenderer$Page.render(android.graphics.Bitmap, android.graphics.Rect, android.graphics.Matrix, int)'"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:33:15.241571320Z",
+    "comparedTo": "2026-11-08T14:48:15.660518263Z",
     "changes": [
         {
             "source": "JabraScan",
             "lang": "es",
             "scenario": "pages",
-            "from": "UNSUPPORTED",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "JabraScan",
+            "lang": "es",
+            "scenario": "images",
+            "from": null,
+            "to": "UNSUPPORTED"
         }
     ],
     "throttledHosts": []

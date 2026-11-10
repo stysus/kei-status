@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-09T11:58:38.317643710Z",
+    "generatedAt": "2026-11-10T11:36:07.668685173Z",
     "module": ":src:zh:comicabc",
     "sourceRoot": "",
-    "extensionCommit": "1b708981",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 8110122805257580230,
@@ -23,36 +23,32 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 589,
+                    "durationMs": 291,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 572,
+                    "status": "WARN",
+                    "durationMs": 119,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "我的專屬高塔攻略 -> /html/23867.html",
-                        "拳願奧米迦 -> /html/17224.html",
-                        "租借女友 -> /html/15124.html"
-                    ]
+                    "notes": [
+                        "returned an empty list",
+                        "hasNextPage=true but list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 310,
+                    "durationMs": 113,
                     "message": null,
                     "notes": [
-                        "duplicate manga urls: [/html/24547.html]"
+                        "returned an empty list",
+                        "hasNextPage=true but list is empty"
                     ],
-                    "samples": [
-                        "轉生奇譚 -> /html/15466.html",
-                        "雖然很抱歉但我不是百合 -> /html/24587.html",
-                        "請不要吃我,花子同學 -> /html/23109.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -65,58 +61,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 578,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "我的專屬高塔攻略 -> /html/23867.html"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 471,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "第124話 -> https://articles.onemoreplace.tw/online/new-23867.html?ch=124",
-                        "第123話 -> https://articles.onemoreplace.tw/online/new-23867.html?ch=123",
-                        "第122話 -> https://articles.onemoreplace.tw/online/new-23867.html?ch=122"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 604,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img9.8comic.com/2/23867/124/001_3fk.jpg",
-                        "https://img9.8comic.com/2/23867/124/002_pRu.jpg",
-                        "https://img9.8comic.com/2/23867/124/003_E39.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 463,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:05:31.960899430Z",
+    "comparedTo": "2026-11-09T11:58:38.317643710Z",
     "changes": [
         {
             "source": "無限動漫",
             "lang": "zh",
-            "scenario": "latest",
+            "scenario": "popular",
             "from": "PASS",
             "to": "WARN"
+        },
+        {
+            "source": "無限動漫",
+            "lang": "zh",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "無限動漫",
+            "lang": "zh",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "無限動漫",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "無限動漫",
+            "lang": "zh",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

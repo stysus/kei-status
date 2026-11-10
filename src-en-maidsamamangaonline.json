@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:29:55.184776217Z",
+    "generatedAt": "2026-11-10T11:36:08.469909374Z",
     "module": ":src:en:maidsamamangaonline",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 7167497376777041176,
             "name": "Read Maid Sama Manga Online",
             "lang": "en",
             "baseUrl": "https://w14.maid-sama.com",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,10 +22,12 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1329,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30354,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 },
                 {
@@ -72,47 +74,54 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 793,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Oneshot Special 5 -> /manga/maid-sama-chapter-oneshot-special-5/",
-                        "Oneshot Special 4 -> /manga/maid-sama-chapter-oneshot-special-4/",
-                        "Oneshot Special 3 -> /manga/maid-sama-chapter-oneshot-special-3/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30006,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 166,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXfSVK3YVZesBM49vOPomIAiqO0ZlSCmJjrX5lM754YJTK-HHZM6cdJBLUO8AGLg7DlCOZqKmCSiR07b3-U3DIXoThUWy1NPreWBlhnBXCHdjV8obPakkcLdMv0fZffIstJ5BtqCAUd78BSJ0JIhuq2KuE1fdJ4Jeb-Yas3PqHHlzU6BCpkEhLirZW/s1600/01.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCnYeWMkZ6OBw65DqY8Cn-WQtuO3q32STePgLr_qJi40OtgrUaKfET_aCwp-LCzSBEKVPG0G_idjPgTP520sK4WoKmaMHrOaVnNTLUHZ_wcsYxpsD79u0m-uZaP2xBFr5ynaUPNcPEhaBDjHLWR2im5v24vNW2YnrV8uxoMHpki7-JFmVcTV_jt19X/s1600/02.jpg",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3Rd-LGyHdqajtcqbj-7Gg5o-6e0owx1uLqogU6UTY6P3ex3L0XdnlqiH1d_onAhAyU_LvkgNMufohCVQUQflioEV7BcjeS1yJT5fc7QnRgcLm7MK0KF4GDG280MOIqBLzaeA9pFadOOPz94xb6U7YNjXDEMD8C-2dBBr0ZUDd7Mc7eTGVkrCgycNw/s1600/03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 732,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:31:09.669142751Z",
+    "comparedTo": "2026-10-30T01:29:55.184776217Z",
     "changes": [
         {
             "source": "Read Maid Sama Manga Online",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Read Maid Sama Manga Online",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Read Maid Sama Manga Online",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Read Maid Sama Manga Online",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

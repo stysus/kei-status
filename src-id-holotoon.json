@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-09T11:54:54.325766240Z",
+    "generatedAt": "2026-11-10T11:40:24.427361475Z",
     "module": ":src:id:holotoon",
     "sourceRoot": "",
-    "extensionCommit": "1b708981",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 3970113862660733375,
             "name": "Holotoon",
             "lang": "id",
             "baseUrl": "https://holodek.run",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,35 +23,38 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 886,
+                    "durationMs": 744,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 255,
+                    "status": "PASS",
+                    "durationMs": 616,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "The Beginning After the End -> /comic/the-beginning-after-the-end-47d01089",
+                        "Solo Leveling: Ragnarok -> /comic/solo-leveling-ragnarok-78d1ed88"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 189,
+                    "status": "PASS",
+                    "durationMs": 598,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Nano Machine -> /comic/nano-machine-ea5a5ca8",
+                        "Martial Peak -> /comic/martial-peak-a134ffa2",
+                        "Return of the Blossoming Blade -> /comic/return-of-the-blossoming-blade-6c6e0ff3"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,18 +62,24 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 480,
+                    "message": null,
+                    "notes": [
+                        "query \"The Beginning After the End\" matched no results in the first page"
+                    ],
+                    "samples": [
+                        "Martial Peak -> /comic/martial-peak-a134ffa2",
+                        "Omniscient Reader -> /comic/omniscient-reader-2c60beff",
+                        "Solo Leveling: Ragnarok -> /comic/solo-leveling-ragnarok-78d1ed88"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 242,
+                    "message": "HTTP error 404",
                     "notes": [],
                     "samples": []
                 },
@@ -78,56 +87,42 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:33:11.846162329Z",
+    "comparedTo": "2026-11-09T11:54:54.325766240Z",
     "changes": [
         {
             "source": "Holotoon",
             "lang": "id",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Holotoon",
             "lang": "id",
             "scenario": "latest",
-            "from": "PASS",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Holotoon",
+            "lang": "id",
+            "scenario": "search",
+            "from": "SKIP",
             "to": "WARN"
         },
         {
             "source": "Holotoon",
             "lang": "id",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Holotoon",
-            "lang": "id",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Holotoon",
-            "lang": "id",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Holotoon",
-            "lang": "id",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:43.261093648Z",
+    "generatedAt": "2026-11-10T11:38:24.079668070Z",
     "module": ":src:es:mangamx",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 2202687009511923782,
             "name": "MangaOni",
             "lang": "es",
             "baseUrl": "https://manga-oni.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 3317,
+                    "status": "WARN",
+                    "durationMs": 19690,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 232,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Boku no Hero Academia -> /manga/boku-no-hero-academia/",
-                        "Tokyo 卍 Revengers -> /manga/tokyo-revengers/",
-                        "This doesn't feel like me -> /manhwa/this-doesnt-feel-like-me/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19455,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 383,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Un Phishing Telefónico Que Me Cambia La Vida -> /manhwa/un-phishing-telefonico-que-me-cambia-la-vida/",
-                        "Dark lady -> /manhwa/dark-lady/",
-                        "El devorador -> /manhua/el-devorador/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19456,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,60 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 255,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Boku no Hero Academia -> /manga/boku-no-hero-academia/",
-                        "Boku no Hero Academia SMASH!! -> /manga/boku-no-hero-academia-smash/",
-                        "Boku no hero academia- Para aquellas que contienen sus lágrimas -> /manga/boku-no-hero-academia-para-aquellas-que-contienen-sus-lagrimas/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 804,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 431.5 — My Hero Academia: Ultra Age: The Final Fan Book -> /lector/boku-no-hero-academia/710966/",
-                        "Capítulo 431 — Más -> /lector/boku-no-hero-academia/695588/",
-                        "Capítulo 430.5 — Epílogo -> /lector/boku-no-hero-academia/697556/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 293,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://oni.ntr-files.online/public/archivos/mangas/boku-no-hero-academia/10193/1.jpg.webp?up=20200309061203",
-                        "https://oni.ntr-files.online/public/archivos/mangas/boku-no-hero-academia/10193/2.jpg.webp?up=20200309061203",
-                        "https://oni.ntr-files.online/public/archivos/mangas/boku-no-hero-academia/10193/3.jpg.webp?up=20200309061203"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1232,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:40:28.802410856Z",
+    "comparedTo": "2026-10-30T01:31:43.261093648Z",
     "changes": [
         {
             "source": "MangaOni",
             "lang": "es",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "MangaOni",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "MangaOni",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "MangaOni",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaOni",
+            "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaOni",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaOni",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:21.311483256Z",
+    "generatedAt": "2026-11-10T11:32:58.301820131Z",
     "module": ":src:id:voratoon",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 972717448578983812,
             "name": "VoraToon",
             "lang": "id",
             "baseUrl": "https://voratoon.co",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 416,
+                    "durationMs": 4372,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 833,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 1177,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Magic Emperor -> /series/magic-emperor",
-                        "The Regressed Mercenary’s Machinations -> /series/the-regressed-mercenarys-machinations",
-                        "Leveling In The Future (Apex Future Martial Arts) -> /series/leveling-in-the-future-apex-future-martial-arts"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 262,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 790,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Offering Kimchi Cup Noodles to the Gods' Group Chat -> /series/offering-kimchi-cup-noodles-to-the-gods-group-chat",
-                        "Nano Machine -> /series/nano-machine",
-                        "Yotte, Hatsukoi wa Shoumei sareta. Delta to Gamma no Rigakubu Note -> /series/yotte-hatsukoi-wa-shoumei-sareta-delta-to-gamma-no-rigakubu-note"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,64 +55,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 649,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Magic Emperor -> /series/magic-emperor"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 689,
-                    "message": null,
-                    "notes": [
-                        "duplicate chapter urls: [/series/magic-emperor/chapter/146]"
-                    ],
-                    "samples": [
-                        "Chapter 927 -> /series/magic-emperor/chapter/927",
-                        "Chapter 926 -> /series/magic-emperor/chapter/926",
-                        "Chapter 925 -> /series/magic-emperor/chapter/925"
-                    ]
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 195,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://cdn.voratoon.com/wp-content/img/M/Magic-Emperor/001ff/01.jpg",
-                        "https://cdn.voratoon.com/wp-content/img/M/Magic-Emperor/001ff/02.jpg",
-                        "https://cdn.voratoon.com/wp-content/img/M/Magic-Emperor/001ff/03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 144,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.voratoon.com (HTTP 403)",
-                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.voratoon.com (HTTP 403)",
-                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.voratoon.com (HTTP 403)"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:36:31.126730139Z",
+    "comparedTo": "2026-10-30T01:33:21.311483256Z",
     "changes": [
         {
             "source": "VoraToon",
             "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "VoraToon",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "VoraToon",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "VoraToon",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "VoraToon",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "VoraToon",
+            "lang": "id",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

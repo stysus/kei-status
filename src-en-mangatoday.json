@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-09T11:51:31.470362874Z",
+    "generatedAt": "2026-11-10T11:31:14.591108362Z",
     "module": ":src:en:mangatoday",
     "sourceRoot": "",
-    "extensionCommit": "1b708981",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 868511056418443637,
             "name": "MangaToday",
             "lang": "en",
             "baseUrl": "https://mangatoday.fun",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,35 +23,41 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 5635,
+                    "durationMs": 1135,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 156,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 579,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Secret Class -> /manga/secret-class",
+                        "At the End of the Road -> /manga/at-the-end-of-the-road_124",
+                        "Martial Peak -> /manga/martial-peak"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 22,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "status": "WARN",
+                    "durationMs": 854,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                        "manga[4] has no thumbnail"
                     ],
-                    "samples": []
+                    "samples": [
+                        "Fortis Sancta: Three Shall Come -> /manga/fortis-sancta-three-shall-come",
+                        "The Wizard's Apprentice -> /manga/the-wizard-s-apprentice",
+                        "The Shepherd Wizard -> /manga/the-shepherd-wizard"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,75 +65,95 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 575,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Secret Class -> /manga/secret-class",
+                        "Return of the 8th class Magician -> /manga/return-of-the-8th-class-magician",
+                        "The Return Of The 8Th Class Mage -> /manga/the-return-of-the-8th-class-mage"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 223,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 323 -> /secret-class/chapter-323.0",
+                        "Chapter 322 -> /secret-class/chapter-322.0",
+                        "Chapter 321.5 -> /secret-class/chapter-321.5"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 803,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://imgx.mghcdn.com/secret-class/1/1.jpg",
+                        "https://imgx.mghcdn.com/secret-class/1/2.jpg",
+                        "https://imgx.mghcdn.com/secret-class/1/3.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 175,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:29:34.530589172Z",
+    "comparedTo": "2026-11-09T11:51:31.470362874Z",
     "changes": [
         {
             "source": "MangaToday",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "MangaToday",
             "lang": "en",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "MangaToday",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "BLOCKED",
+            "to": "WARN"
         },
         {
             "source": "MangaToday",
             "lang": "en",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaToday",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MangaToday",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MangaToday",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

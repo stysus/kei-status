@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-09T11:51:50.748672394Z",
+    "generatedAt": "2026-11-10T11:35:54.746920483Z",
     "module": ":src:ru:readmanga",
     "sourceRoot": "",
-    "extensionCommit": "1b708981",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 5,
             "name": "ReadManga",
             "lang": "ru",
             "baseUrl": "https://a.zazaza.me",
-            "status": "DOWN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 550,
+                    "status": "PASS",
+                    "durationMs": 649,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 503"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 270,
-                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 327,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Поднятие уровня в одиночку -> /podniatie_urovnia_v_odinochku__A5ea4",
+                        "Клинок, рассекающий демонов -> /klinok__rassekaiuchii_demonov__A5327",
+                        "Сказания о демонах и богах -> /skazaniia_o_demonah_i_bogah__A5664"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 575,
-                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 563,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Маска истины -> /maska_istiny",
+                        "Жизнь с кошкодевочкой -> /jizn_s_koshkodevochkoi",
+                        "Восставший против неба -> /vosstavshii_protiv_neba__A5327"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,68 +63,74 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 302,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Поднятие уровня в одиночку -> /podniatie_urovnia_v_odinochku__A5ea4",
+                        "Поднятие уровня в одиночку: Рагнарёк -> /podniatie_urovnia_v_odinochku__ragnarek",
+                        "Поднятие уровня в одиночку: Истоки Охотника -> /podniatie_urovnia_v_odinochku__istoki_ohotnika"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "chapters",
+                    "status": "BLOCKED",
+                    "durationMs": 628,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Для просмотра контента необходима авторизация через WebView🌍 или включите автоматическую авторизацию в настройках расширения"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:36:56.001150518Z",
+    "comparedTo": "2026-11-09T11:51:50.748672394Z",
     "changes": [
         {
             "source": "ReadManga",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "ReadManga",
             "lang": "ru",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "ReadManga",
             "lang": "ru",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "ReadManga",
-            "lang": "ru",
-            "scenario": "chapters",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "ReadManga",
             "lang": "ru",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "ReadManga",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

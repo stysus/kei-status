@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T10:01:56.484856460Z",
+    "generatedAt": "2026-11-10T11:36:14.037841078Z",
     "module": ":src:vi:roadsteam",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 7171061492842070313,
             "name": "Roads Team",
             "lang": "vi",
             "baseUrl": "https://nhaduong.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1018,
+                    "durationMs": 745,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 47,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "KHÚC NGUYỆN CẦU – BINARI -> 891",
-                        "TÌM LẠI THIÊN THẦN -> 855",
-                        "TRỘM TRỨNG VỚ ĐƯỢC CHỒNG -> 863"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 1164,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 216,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "ABOUT MIND -> 4789",
-                        "HHSB -> 1236",
-                        "BONES AND PETALS -> 911"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 274,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 671,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "KHÚC NGUYỆN CẦU – BINARI -> 891"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 255,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "CHAP 11 - 19+ -> chap-11",
-                        "CHAP 10 - 19+ -> chap-10",
-                        "CHAP 9 -> chap-9"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 205,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img.nhaduong.com/manga_6ab20a4bad73c/fa9dd568faa5bf69a042ee2b17523edf/01.webp#nd-jpeg=https%3A%2F%2Fimg.nhaduong.com%2Fcdn-cgi%2Fimage%2Fformat%3Djpeg%2Fmanga_6ab20a4bad73c%2Ffa9dd568faa5bf69a042ee2b17523edf%2F01.webp",
-                        "https://img.nhaduong.com/manga_6ab20a4bad73c/fa9dd568faa5bf69a042ee2b17523edf/02.webp#nd-jpeg=https%3A%2F%2Fimg.nhaduong.com%2Fcdn-cgi%2Fimage%2Fformat%3Djpeg%2Fmanga_6ab20a4bad73c%2Ffa9dd568faa5bf69a042ee2b17523edf%2F02.webp",
-                        "https://img.nhaduong.com/manga_6ab20a4bad73c/fa9dd568faa5bf69a042ee2b17523edf/03.webp#nd-jpeg=https%3A%2F%2Fimg.nhaduong.com%2Fcdn-cgi%2Fimage%2Fformat%3Djpeg%2Fmanga_6ab20a4bad73c%2Ffa9dd568faa5bf69a042ee2b17523edf%2F03.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 339,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:39:10.807678386Z",
+    "comparedTo": "2026-10-31T10:01:56.484856460Z",
     "changes": [
         {
             "source": "Roads Team",
             "lang": "vi",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Roads Team",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Roads Team",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Roads Team",
+            "lang": "vi",
             "scenario": "search",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Roads Team",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Roads Team",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

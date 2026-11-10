@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:17.626681642Z",
+    "generatedAt": "2026-11-10T11:32:21.774576836Z",
     "module": ":src:id:manhwalistid",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 3111049819536223391,
             "name": "Manhwa List",
             "lang": "id",
             "baseUrl": "https://m1.manhwalist.my.id",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1213,
+                    "durationMs": 993,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 768,
+                    "status": "WARN",
+                    "durationMs": 482,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Lookism -> /manga/lookism/",
-                        "Killer Peter -> /manga/killer-peter/",
-                        "The Bully In Charge -> /manga/the-bully-in-charge/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 496,
+                    "status": "WARN",
+                    "durationMs": 488,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Killer Peter -> /manga/killer-peter/",
-                        "Number One Star Instructor Master Baek -> /manga/number-one-star-instructor-master-baek/",
-                        "Myst, Might, Mayhem -> /manga/myst-might-mayhem/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,65 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 695,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Lookism -> /manga/lookism/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 326,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 631 -> /lookism-chapter-631-indonesia/",
-                        "Chapter 630 -> /lookism-chapter-630-indonesia/",
-                        "Chapter 334 -> /lookism-chapter-334/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 287,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://images4.imgbox.com/c0/49/XUjYtw7k_o.jpg",
-                        "https://images4.imgbox.com/81/f2/5on8Hvqp_o.jpg",
-                        "https://images4.imgbox.com/85/6c/dN2IZ4e2_o.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1313,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:22:31.906137348Z",
+    "comparedTo": "2026-10-30T01:33:17.626681642Z",
     "changes": [
         {
             "source": "Manhwa List",
             "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manhwa List",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manhwa List",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhwa List",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhwa List",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Manhwa List",
             "lang": "id",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

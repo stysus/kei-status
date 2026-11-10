@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:34:46.065115643Z",
+    "generatedAt": "2026-11-10T11:30:44.981946218Z",
     "module": ":src:pt:megahentai",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 6293316436960053544,
             "name": "MegaHentai",
             "lang": "pt-BR",
             "baseUrl": "https://megahentai.biz",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,43 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 698,
+                    "status": "WARN",
+                    "durationMs": 19583,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522",
+                        "home page body is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 227,
+                    "durationMs": 699,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "Alternative Account Trap -> alternative-account-trap",
                         "I Became an Apartment Security Manager -> i-became-an-apartment-security-manager",
-                        "Stop Smoking -> stop-smoking"
+                        "Not the Daughter, but the Mother -> not-the-daughter-but-the-mother"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 372,
+                    "durationMs": 691,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Ero: The Princess Submits -> ero-the-princess-submits",
-                        "Rooftop Sex King -> rooftop-sex-king",
-                        "Beautiful Days -> beautiful-days"
+                        "Stop Smoking -> stop-smoking",
+                        "New Town Massage -> new-town-massage",
+                        "Dirty Talk -> dirty-talk"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,50 +67,72 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 2099,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Alternative Account Trap -> alternative-account-trap"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 571,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 230,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Capítulo 20 -> alternative-account-trap-capitulo-20",
-                        "Capítulo 19 -> alternative-account-trap-capitulo-19",
-                        "Capítulo 18 -> alternative-account-trap-capitulo-18"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19872,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 857,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://gall2.megahentai.biz/static/50216/20/1.webp",
-                        "https://gall2.megahentai.biz/static/50216/20/2.webp",
-                        "https://gall2.megahentai.biz/static/50216/20/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 338,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
+    "comparedTo": "2026-11-08T13:34:46.065115643Z",
+    "changes": [
+        {
+            "source": "MegaHentai",
+            "lang": "pt-BR",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "MegaHentai",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "MegaHentai",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "MegaHentai",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MegaHentai",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

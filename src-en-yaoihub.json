@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T06:58:46.010382356Z",
+    "generatedAt": "2026-11-10T11:39:31.360436256Z",
     "module": ":src:en:yaoihub",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 6718273076571980404,
             "name": "Yaoihub",
             "lang": "en",
             "baseUrl": "https://yaoihub.org",
-            "status": "DOWN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 639,
+                    "status": "PASS",
+                    "durationMs": 1219,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 502"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 1650,
-                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1281,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Cherry Blossoms After Winter -> 84",
+                        "Passion -> 58",
+                        "Dog And Bird -> 52"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 2007,
-                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1992,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Sketch「Official」 -> 175",
+                        "A Well Known Love Affair -> 173",
+                        "Honey Bear -> 171"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,47 +63,100 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 3960,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Cherry Blossoms After Winter -> 84"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 4039,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 183 - Epilogue: Unofficial Translation -> chapter-183",
+                        "Chapter 182.02 - extra.2 - (Epilogue End) -> chapter-182-02",
+                        "Chapter 182.01 - extra.1 - (Epilogue) -> chapter-182-01"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 4266,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://cdn.tomatomanga.com/manga/manga_6af0df087b8b6/chapter-183/0000.jpg",
+                        "https://cdn.tomatomanga.com/manga/manga_6af0df087b8b6/chapter-183/0001.jpg",
+                        "https://cdn.tomatomanga.com/manga/manga_6af0df087b8b6/chapter-183/0002.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 8309,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:47:41.314546094Z",
+    "comparedTo": "2026-11-03T06:58:46.010382356Z",
     "changes": [
         {
             "source": "Yaoihub",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Yaoihub",
+            "lang": "en",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Yaoihub",
             "lang": "en",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
+        },
+        {
+            "source": "Yaoihub",
+            "lang": "en",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Yaoihub",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Yaoihub",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Yaoihub",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

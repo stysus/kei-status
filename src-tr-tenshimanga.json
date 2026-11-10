@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:04.977424496Z",
+    "generatedAt": "2026-11-10T11:42:05.967708121Z",
     "module": ":src:tr:tenshimanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 5906663076478194825,
             "name": "Tenshi Manga",
             "lang": "tr",
             "baseUrl": "https://tenshimanga.com",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 207,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from tenshimanga.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 1057,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 18,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from tenshimanga.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 822,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Seviye Atlaya Atlaya Dövüş İlahı -> /manga/seviye-atlaya-atlaya-dovus-ilahi",
+                        "Bir Hamlede Göksel Yumruk -> /manga/bir-hamlede-goksel-yumruk",
+                        "Modern Bir Adamın Murim Hayatı -> /manga/modern-bir-adamin-murim-hayati"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 32,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from tenshimanga.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 463,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Göksel Şeytan Size Masaj Yapacak -> /manga/goksel-seytan-size-masaj-yapacak",
+                        "Süperinsanların Oyun Alanı -> /manga/superinsanlarin-oyun-alani",
+                        "Kuleyi Fetheden Eziğin Rehberi -> /manga/kuleyi-fetheden-ezigin-rehberi"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,40 +63,100 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 354,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Seviye Atlaya Atlaya Dövüş İlahı -> /manga/seviye-atlaya-atlaya-dovus-ilahi"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 368,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Bölüm 53 -> /manga/seviye-atlaya-atlaya-dovus-ilahi/53-bolum-oku",
+                        "Bölüm 52 -> /manga/seviye-atlaya-atlaya-dovus-ilahi/52-bolum-oku",
+                        "Bölüm 51 -> /manga/seviye-atlaya-atlaya-dovus-ilahi/51-bolum-oku"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 363,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://cdn-t.efsaneler2.can.re/_manga/272/53/1.avif",
+                        "https://cdn-t.efsaneler2.can.re/_manga/272/53/2.avif",
+                        "https://cdn-t.efsaneler2.can.re/_manga/272/53/3.avif"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 2177,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:21.437576664Z",
+    "comparedTo": "2026-10-30T01:33:04.977424496Z",
     "changes": [
         {
             "source": "Tenshi Manga",
             "lang": "tr",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Tenshi Manga",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Tenshi Manga",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Tenshi Manga",
+            "lang": "tr",
             "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Tenshi Manga",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Tenshi Manga",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Tenshi Manga",
+            "lang": "tr",
+            "scenario": "images",
             "from": null,
-            "to": "SKIP"
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

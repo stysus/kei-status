@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:36:40.755677685Z",
+    "generatedAt": "2026-11-10T11:36:47.870805515Z",
     "module": ":src:pt:timelinecomics",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 7115586439863780878,
@@ -22,20 +22,20 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "THROTTLED",
-                    "durationMs": 7232,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 545,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "timelinecomics.blogspot.com answered HTTP 429 earlier in this run",
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 7124,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,8 +81,23 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
+    "comparedTo": "2026-11-08T13:36:40.755677685Z",
+    "changes": [
+        {
+            "source": "Timeline Comics",
+            "lang": "pt-BR",
+            "scenario": "connectivity",
+            "from": "THROTTLED",
+            "to": "PASS"
+        },
+        {
+            "source": "Timeline Comics",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "SKIP",
+            "to": "THROTTLED"
+        }
+    ],
     "throttledHosts": [
         "timelinecomics.blogspot.com"
     ]

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-09T11:53:42.013052983Z",
+    "generatedAt": "2026-11-10T11:28:20.529014481Z",
     "module": ":src:fr:bigsolo",
     "sourceRoot": "",
-    "extensionCommit": "1b708981",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 4410528266393104437,
             "name": "BigSolo",
             "lang": "fr",
             "baseUrl": "https://bigsolo.org",
-            "status": "DOWN",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3862,
+                    "durationMs": 3390,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 164,
+                    "durationMs": 309,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 34,
+                    "durationMs": 29,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "K-9: Public Security Bureau, Division 9 – Special Abilities Countermeasure -> /k-9-public-security-bureau-division-9",
-                        "UNDER DOCTOR -> /under-doctor",
-                        "Exorcist no Kiyoshi-kun -> /exorcist-no-kiyoshi-kun"
+                        "Hero Organization -> /hero-organization",
+                        "Otona Taisen -> /otona-taisen",
+                        "K-9: Public Security Bureau, Division 9 – Special Abilities Countermeasure -> /k-9-public-security-bureau-division-9"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 39,
+                    "durationMs": 37,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,47 +74,64 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "DOWN",
-                    "durationMs": 155,
-                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 131,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Vol. 2 Ch. 13 – Limite de temps -> /k-9-public-security-bureau-division-9/13",
+                        "Vol. 2 Ch. 12 – D'un seul coup -> /k-9-public-security-bureau-division-9/12",
+                        "Vol. 2 Ch. 11 – L'homme qui revient à la vie -> /k-9-public-security-bureau-division-9/11"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 709,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://cdnic.bigsolo.org/files/a18e219462de.png",
+                        "https://cdnic.bigsolo.org/files/a556a2015e3e.png",
+                        "https://cdnic.bigsolo.org/files/7127c34cbc48.png"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 678,
+                    "message": null,
+                    "notes": [
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from cdnic.bigsolo.org (HTTP 403)",
+                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from cdnic.bigsolo.org (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-04T11:19:31.083691376Z",
+    "comparedTo": "2026-11-09T11:53:42.013052983Z",
     "changes": [
         {
             "source": "BigSolo",
             "lang": "fr",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "BigSolo",
             "lang": "fr",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "BigSolo",
             "lang": "fr",
             "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

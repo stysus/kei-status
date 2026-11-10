@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:03:05.606060404Z",
+    "generatedAt": "2026-11-10T11:34:18.873180843Z",
     "module": ":src:tr:mangawt",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "3cf15bca",
     "sources": [
         {
             "sourceId": 9068262319581900273,
             "name": "MangaWT",
             "lang": "tr",
             "baseUrl": "https://mangawt.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3335,
+                    "durationMs": 3707,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 229,
+                    "durationMs": 204,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 202,
+                    "durationMs": 216,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "SSS Kademe Kutsal Şövalye -> sss-kademe-kutsal-sovalye",
+                        "Douluo Dalu 4 -> douluo-dalu-4",
                         "Cheon Ailesinin Serserisine Dönüştüm -> cheon-ailesinin-serserisine-donustum",
-                        "Douluo Dalu 4 -> douluo-dalu-4"
+                        "SSS Kademe Kutsal Şövalye -> sss-kademe-kutsal-sovalye"
                     ]
                 },
                 {
@@ -64,92 +64,64 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 788,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Süper Tanrı Geni -> super-tanri-geni"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 807,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 281,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Bölüm 492 🔒 -> 6ae32218a5a38eb7d0991351",
-                        "Bölüm 491 -> 6ae25eba2542694018ccd17f",
-                        "Bölüm 490 -> 6ae0ac8b7c0d262fea7b2069"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 206,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 765,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mangawt.com/api/mangas/media/ch/69c09fed20a0291102370908/1/0-1783083262590-2y9b-16u9vtd-0.jpg?exp=1793691000&sig=WI0yMoSs7SkM5OFVyWLzQn4VZLK6dxJ5ZFLhPHolreY",
-                        "https://mangawt.com/api/mangas/media/ch/69c09fed20a0291102370908/1/1-1783083262590-w8q4-ao0ybc-1.jpg?exp=1793691000&sig=odxUlYNBRd5tAePPgLHaMp2B-j48tMMFRq_8vSfixyQ",
-                        "https://mangawt.com/api/mangas/media/ch/69c09fed20a0291102370908/1/2-1783083262590-sdwb-1de202t-2.jpg?exp=1793691000&sig=zynPLm3JkaZK0UVe0s26XaiitFqFWAnjhcc1CsVPMFc"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1226,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:41:09.509491250Z",
+    "comparedTo": "2026-11-03T07:03:05.606060404Z",
     "changes": [
         {
             "source": "MangaWT",
             "lang": "tr",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaWT",
-            "lang": "tr",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaWT",
-            "lang": "tr",
             "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "MangaWT",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "MangaWT",
             "lang": "tr",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "MangaWT",
             "lang": "tr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []
