@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:31:17.790475015Z",
+    "generatedAt": "2026-11-11T11:17:38.519629233Z",
     "module": ":src:id:manhwalistorg",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 1031213229391436059,
             "name": "IsekaiKomik",
             "lang": "id",
             "baseUrl": "https://ch1.isekaikomik.site",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,27 +23,25 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2799,
+                    "durationMs": 7428,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2332,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Crow’s Prince -> /manga/the-crows-prince/",
-                        "Leviathan -> /manga/leviathan/",
-                        "Your Majesty, Please Don’t Kill Me Again -> /manga/your-majesty-please-dont-kill-me-again/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30005,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 2355,
+                    "durationMs": 13269,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,44 +63,41 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 4918,
+                    "durationMs": 2849,
                     "message": null,
-                    "notes": [
-                        "the site found nothing for \"The Crow’s Prince\"; the retry with \"The Crow s Prince\" did"
-                    ],
+                    "notes": [],
                     "samples": [
-                        "The Crow’s Prince -> /manga/the-crows-prince/",
-                        "The Crown Prince That Sells Medicine -> /manga/the-crown-prince-that-sells-medicine/"
+                        "Mercenary Enrollment -> /manga/mercenary-enrollment/"
                     ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 6505,
+                    "durationMs": 2851,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Chapter Special 12 -> /the-crows-prince-chapter-special-12/",
-                        "Chapter Special 11 -> /the-crows-prince-chapter-special-11/",
-                        "Chapter Special 10 -> /the-crows-prince-chapter-special-10/"
+                        "Chapter 280 -> /mercenary-enrollment-chapter-280/",
+                        "Chapter 279 -> /mercenary-enrollment-chapter-279/",
+                        "Chapter 278 -> /mercenary-enrollment-chapter-278/"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 2457,
+                    "durationMs": 1363,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://cdn.isekaikomik.com/wp-content/img/O/Of-All-Things-I-Became-a-Crow/Special-Episode-12/01.webp",
-                        "https://cdn.isekaikomik.com/wp-content/img/O/Of-All-Things-I-Became-a-Crow/Special-Episode-12/02.webp",
-                        "https://cdn.isekaikomik.com/wp-content/img/O/Of-All-Things-I-Became-a-Crow/Special-Episode-12/03.webp"
+                        "https://cdn.isekaikomik.com/wp-content/img/M/Mercenary-Enrollment/280/001.webp",
+                        "https://cdn.isekaikomik.com/wp-content/img/M/Mercenary-Enrollment/280/002.webp",
+                        "https://cdn.isekaikomik.com/wp-content/img/M/Mercenary-Enrollment/280/003.webp"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "WARN",
-                    "durationMs": 3891,
+                    "durationMs": 6891,
                     "message": null,
                     "notes": [
                         "page[0] image returned HTTP 523",
@@ -114,7 +109,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:32:57.547280711Z",
-    "changes": [],
+    "comparedTo": "2026-11-10T11:31:17.790475015Z",
+    "changes": [
+        {
+            "source": "IsekaiKomik",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        }
+    ],
     "throttledHosts": []
 }

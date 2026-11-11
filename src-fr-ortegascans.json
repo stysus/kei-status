@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:34.314149960Z",
+    "generatedAt": "2026-11-11T11:16:35.357368391Z",
     "module": ":src:fr:ortegascans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 8598370605081191622,
             "name": "Ortega Scans",
             "lang": "fr",
             "baseUrl": "https://ortegascans.fr",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 403,
+                    "status": "WARN",
+                    "durationMs": 19673,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 417,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "MILF Exchange Plan -> milf-exchange-plan",
-                        "Absolute Hypnosis in Another World -> absolute-hypnosis-in-another-world",
-                        "Keep it a secret from your mother! -> keep-it-a-secret-from-your-mother"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19456,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 225,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Frequency -> frequency",
-                        "Man of The House -> man-of-the-house",
-                        "APP for the Emperor of the Night -> app-for-the-emperor-of-the-night"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19456,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 231,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "MILF Exchange Plan -> milf-exchange-plan"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 776,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 Chapitre 94 -> cmvjnrgcr0ggcfezcpsnzc5v3",
-                        "🔒 Chapitre 93 -> cmv9tanrr0acefezcuasmk8i6",
-                        "🔒 Chapitre 92 -> cmuzxp0bs0507fezcw9ezk25k"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 430,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://ortegascans.fr/api/chapters/milf-exchange-plan/cmuofysug02im0nl4b7ww1h2a/image/1.webp",
-                        "https://ortegascans.fr/api/chapters/milf-exchange-plan/cmuofysug02im0nl4b7ww1h2a/image/2.webp",
-                        "https://ortegascans.fr/api/chapters/milf-exchange-plan/cmuofysug02im0nl4b7ww1h2a/image/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1335,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:29.439444288Z",
+    "comparedTo": "2026-10-30T01:32:34.314149960Z",
     "changes": [
         {
             "source": "Ortega Scans",
             "lang": "fr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Ortega Scans",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Ortega Scans",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Ortega Scans",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ortega Scans",
+            "lang": "fr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ortega Scans",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ortega Scans",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

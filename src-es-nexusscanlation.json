@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:43.281133060Z",
+    "generatedAt": "2026-11-11T11:16:04.417202678Z",
     "module": ":src:es:nexusscanlation",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 4086183896761281232,
             "name": "NexusScanlation",
             "lang": "es",
             "baseUrl": "https://nexusscanlation.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 840,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 69,
+                    "message": "the site is unreachable (nexusscanlation.com: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: nexusscanlation.com: Name or service not known"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 281,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Conquista hipnotica -> conquista-hipnotica",
-                        "Hacen Falta Hombres -> hacen-falta-hombres",
-                        "Que alguien la detenga -> que-alguien-la-detenga"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 57,
+                    "message": "the site is unreachable (api.nexusscanlation.com: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: api.nexusscanlation.com: Name or service not known"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 3020,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "La Tienda de Kim -> la-tienda-de-kim",
-                        "Mimosa -> mimosa",
-                        "Un equipamiento demasiado efectivo -> un-equipamiento-demasiado-efectivo"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 0,
+                    "message": "the site is unreachable (api.nexusscanlation.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: api.nexusscanlation.com"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 3154,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Conquista hipnotica -> conquista-hipnotica"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 2929,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 121 -> conquista-hipnotica/capitulo-121",
-                        "Capítulo 120 -> conquista-hipnotica/capitulo-120",
-                        "Capítulo 119 -> conquista-hipnotica/capitulo-119"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 3110,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.nexusscanlation.com/series/778f8f6f-6298-423f-8c3b-5dfd87ab3073/c/0001/001.jpg",
-                        "https://cdn.nexusscanlation.com/series/778f8f6f-6298-423f-8c3b-5dfd87ab3073/c/0001/002.jpg",
-                        "https://cdn.nexusscanlation.com/series/778f8f6f-6298-423f-8c3b-5dfd87ab3073/c/0001/003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 274,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:34:58.599977901Z",
+    "comparedTo": "2026-10-30T01:32:43.281133060Z",
     "changes": [
         {
             "source": "NexusScanlation",
             "lang": "es",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "NexusScanlation",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "NexusScanlation",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "NexusScanlation",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NexusScanlation",
+            "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NexusScanlation",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NexusScanlation",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

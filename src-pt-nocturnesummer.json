@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:39:14.901263321Z",
+    "generatedAt": "2026-11-11T11:18:33.407021846Z",
     "module": ":src:pt:nocturnesummer",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 5501311187877950699,
             "name": "Nocturne Summer",
             "lang": "pt-BR",
             "baseUrl": "https://nocfsb.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 693,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 40,
+                    "message": "the site is unreachable (nocfsb.com: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: nocfsb.com: Name or service not known"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1869,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Casei com meu sogro?! -> 439",
-                        "Amor doce como ameixa (M) -> 746",
-                        "Hey, Príncipe! -> 13"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 3,
+                    "message": "the site is unreachable (nocfsb.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: nocfsb.com"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1994,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Desire Me If You Can -> 16879",
-                        "Love Under Construction -> 12773",
-                        "Projection -> 7959"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 0,
+                    "message": "the site is unreachable (nocfsb.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: nocfsb.com"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,56 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 3874,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Casei com meu sogro?! -> 439"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 4092,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo Considerações Finais -> capitulo-consideracoes-finais",
-                        "Capítulo 193 -> capitulo-193",
-                        "Capítulo 192 -> capitulo-192"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2021,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://nocfsb.com/wp-content/uploads/WP-manga/data/manga_648a050e715b2/db3b0e78cba0125e34285ab2839fb177/1.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1701,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:09.455805976Z",
+    "comparedTo": "2026-10-30T01:39:14.901263321Z",
     "changes": [
         {
             "source": "Nocturne Summer",
             "lang": "pt-BR",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Nocturne Summer",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Nocturne Summer",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Nocturne Summer",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Nocturne Summer",
+            "lang": "pt-BR",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Nocturne Summer",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Nocturne Summer",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

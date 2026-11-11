@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:40:33.241258823Z",
+    "generatedAt": "2026-11-11T11:20:55.586274736Z",
     "module": ":src:zh:jiuermanhua",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 1520913911854846698,
             "name": "92漫画",
             "lang": "zh",
             "baseUrl": "http://www.92mh.com",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -25,33 +25,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 38,
+                    "durationMs": 85,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 27,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "暴夜 -> /manhua/1212/",
-                        "魔咒 -> /manhua/653/",
-                        "魔法禁书目录 -> /manhua/370/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 19769,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1154,
+                    "durationMs": 36,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "三人行不行 -> /manhua/7671/",
-                        "眼里只有十文字君!! -> /manhua/7642/",
-                        "帅气的小叔子 -> /manhua/7609/"
+                        "Cat Loss Syndrome -> /manhua/7707/",
+                        "为黑帮男性朋友辅导 -> /manhua/7703/",
+                        "刘伊琳在公园厕所里 -> /manhua/7661/"
                     ]
                 },
                 {
@@ -66,71 +64,71 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1369,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "暴夜 -> /manhua/1212/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 20630,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1269,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "外传2 -> /manhua/1212/305421.html",
-                        "外传1 -> /manhua/1212/305420.html",
-                        "第96话完 -> /manhua/1212/305419.html"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 138,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 10399,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cover.alltucdn.cc/images/comic/174/347968/1773840682XowhCC93DoW8NZaV.jpg",
-                        "https://cover.alltucdn.cc/images/comic/174/347968/177384068047-ZIIqDFAYJNJeS.jpg",
-                        "https://cover.alltucdn.cc/images/comic/174/347968/1773840679WUhX5sNew5I58KB6.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1434,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-04T11:22:20.541951810Z",
+    "comparedTo": "2026-11-08T13:40:33.241258823Z",
     "changes": [
         {
             "source": "92漫画",
             "lang": "zh",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "92漫画",
+            "lang": "zh",
             "scenario": "search",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "92漫画",
+            "lang": "zh",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "92漫画",
             "lang": "zh",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "92漫画",
             "lang": "zh",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

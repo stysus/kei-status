@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:58.815187183Z",
+    "generatedAt": "2026-11-11T11:17:38.907271313Z",
     "module": ":src:en:mistscans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 80073424419623517,
             "name": "Mist Scans",
             "lang": "en",
             "baseUrl": "https://mistscans.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1475,
+                    "status": "WARN",
+                    "durationMs": 19754,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1606,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Roxana -> /series/roxana/",
-                        "Solo EX Rank Summoner -> /series/solo-ex-rank-summoner/",
-                        "Butterfly Trap -> /series/butterfly-trap/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19457,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1700,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "+99 Reinforced Wooden Stick -> /series/99-reinforced-wooden-stick/",
-                        "The Extra's Academy Survival Guide -> /series/the-extras-academy-survival-guide/",
-                        "Roxana -> /series/roxana/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19454,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,65 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1467,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Roxana -> /series/roxana/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1183,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 45 -> /chapter/65e72c555a8-65f00c86d9b/",
-                        "Chapter 44 -> /chapter/65e72c555a8-65e7e92c0c5/",
-                        "Chapter 43 - Hiatus -> /chapter/65e72c555a8-65e75687692/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1676,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.meowing.org/uploads/65f00c88223.avif",
-                        "https://cdn.meowing.org/uploads/65f00c8b59a.avif",
-                        "https://cdn.meowing.org/uploads/65f00c8c5e2.avif"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1228,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:34.940630121Z",
+    "comparedTo": "2026-10-30T01:30:58.815187183Z",
     "changes": [
         {
             "source": "Mist Scans",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Mist Scans",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Mist Scans",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Mist Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mist Scans",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mist Scans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Mist Scans",
             "lang": "en",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

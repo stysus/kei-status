@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:59.303663072Z",
+    "generatedAt": "2026-11-11T11:21:41.568312397Z",
     "module": ":src:th:makimaaaaa",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 6102454165244031412,
             "name": "Makimaaaaa",
             "lang": "th",
             "baseUrl": "https://makimaaaaa.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,31 +23,39 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1896,
+                    "durationMs": 814,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 356,
-                    "message": "HTTP error 404",
+                    "status": "PASS",
+                    "durationMs": 691,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "A Returner’s Magic Should Be Special -> /manga/a-returners-magic-should-be-special/",
+                        "Memoir of the God of War -> /manga/memoir-of-the-god-of-war/",
+                        "Return of the Legendary Spear Knight -> /manga/return-of-the-legendary-spear-knight/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 550,
-                    "message": "HTTP error 404",
+                    "status": "PASS",
+                    "durationMs": 665,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Mushoku Tensei -> /manga/mushoku-tensei/",
+                        "Mato Seihei no Slave -> /manga/mato-seihei-no-slave/",
+                        "Shangri-La Frontier -> /manga/shangri-la-frontier/"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,40 +63,99 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 628,
+                    "message": null,
+                    "notes": [
+                        "the site found nothing for \"A Returner’s Magic Should Be Special\"; the retry with \"A Returner s Magic Should Be Special\" did"
+                    ],
+                    "samples": [
+                        "A Returner’s Magic Should Be Special -> /manga/a-returners-magic-should-be-special/"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 586,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "ตอนที่ 227 -> /a-returners-magic-should-be-special-227/",
+                        "ตอนที่ 226 -> /a-returners-magic-should-be-special-226/",
+                        "ตอนที่ 225 -> /a-returners-magic-should-be-special-%e0%b8%95%e0%b8%ad%e0%b8%99%e0%b8%97%e0%b8%b5%e0%b9%88-225/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 342,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://4.makimaaaaa.com/img/c4f4911797e97178469b52677b3771f2.jpg",
+                        "https://4.makimaaaaa.com/img/3f5f036897d4b4aef10e906364dc2613.jpg",
+                        "https://4.makimaaaaa.com/img/ecc4cf026cd9e37e15ddf64f53024d62.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 19758,
+                    "message": null,
+                    "notes": [
+                        "page[0] image returned HTTP 522",
+                        "page[1] image returned HTTP 522",
+                        "page[2] image returned HTTP 522"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:40:23.008765416Z",
+    "comparedTo": "2026-10-30T01:32:59.303663072Z",
     "changes": [
         {
             "source": "Makimaaaaa",
             "lang": "th",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Makimaaaaa",
+            "lang": "th",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Makimaaaaa",
+            "lang": "th",
             "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Makimaaaaa",
+            "lang": "th",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Makimaaaaa",
+            "lang": "th",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Makimaaaaa",
+            "lang": "th",
+            "scenario": "images",
             "from": null,
-            "to": "SKIP"
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

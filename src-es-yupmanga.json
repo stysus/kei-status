@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-09T11:50:00.500745633Z",
+    "generatedAt": "2026-11-11T11:17:35.856059005Z",
     "module": ":src:es:yupmanga",
     "sourceRoot": "",
-    "extensionCommit": "1b708981",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 4437245120973625796,
             "name": "Yupmanga",
             "lang": "es",
             "baseUrl": "https://www.yupmanga.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 658,
+                    "durationMs": 756,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 630,
+                    "durationMs": 545,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1009,
+                    "durationMs": 1004,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1041,
+                    "durationMs": 1075,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,35 +75,55 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1924,
+                    "durationMs": 1931,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Tomo - 01 -> fvG0f3VE4wOsh-dB3LdtrEFSoC4jJEfg3OOkpjT-cWr6cbd-6KwBDqKbl2HBfGK9ioCDdmQVnJxkGar0gsFM#87UVR1XORDH1R"
+                        "Tomo - 01 -> 1.00#87UVR1XORDH1R"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 994,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "status": "PASS",
+                    "durationMs": 12494,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://www.yupmanga.com/image-proxy-v2.php?chapter=DCC318E4AC3345&page=1&token=-JDIzDu6579q9Jeks7M5b9YUrPSUSQ&context=reader",
+                        "https://www.yupmanga.com/image-proxy-v2.php?chapter=DCC318E4AC3345&page=2&token=-JDIzDu6579q9Jeks7M5b9YUrPSUSQ&context=reader",
+                        "https://www.yupmanga.com/image-proxy-v2.php?chapter=DCC318E4AC3345&page=3&token=-JDIzDu6579q9Jeks7M5b9YUrPSUSQ&context=reader"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 2762,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403",
-                        "pages are only checked on a chapter that needs no unlock"
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from www.yupmanga.com (HTTP 403)",
+                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from www.yupmanga.com (HTTP 403)",
+                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from www.yupmanga.com (HTTP 403)"
                     ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:33:35.140205254Z",
+    "comparedTo": "2026-11-09T11:50:00.500745633Z",
     "changes": [
         {
             "source": "Yupmanga",
             "lang": "es",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Yupmanga",
+            "lang": "es",
+            "scenario": "images",
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

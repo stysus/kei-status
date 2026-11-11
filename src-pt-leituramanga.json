@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:34:49.492466905Z",
+    "generatedAt": "2026-11-11T11:18:21.350679893Z",
     "module": ":src:pt:leituramanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 1445343849143422351,
             "name": "Leitura Mangá",
             "lang": "pt-BR",
             "baseUrl": "https://leituramanga.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 502,
+                    "durationMs": 337,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1880,
+                    "durationMs": 1865,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1784,
+                    "durationMs": 1909,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "A Transmissão do Reino Demoníaco do Demônio Celestial Rejuvenescido -> /manga/a-transmissao-do-reino-demoniaco-do-demonio-celestial-rejuvenescido",
-                        "O Demônio Supremo do Veneno -> /manga/o-demonio-supremo-do-veneno",
-                        "Despertar em Tempo Integral -> /manga/despertar-em-tempo-integral"
+                        "O Noivo Lobo -> /manga/o-noivo-lobo",
+                        "Reparação Pela Sua Crueldade -> /manga/reparacao-pela-sua-crueldade",
+                        "Aulas Secretas da Tutora -> /manga/aulas-secretas-da-tutora"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1998,
+                    "durationMs": 2008,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,47 +74,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 3998,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 3990,
+                    "message": "Limite do site atingido. Aguarde 900 segundos.",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 124 -> /manga/lagrimas-sobre-flores-murchas/chapter/124",
-                        "Capítulo 123 -> /manga/lagrimas-sobre-flores-murchas/chapter/123",
-                        "Capítulo 122 -> /manga/lagrimas-sobre-flores-murchas/chapter/122"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2061,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.leituramanga.net/lagrimas-sobre-flores-murchas/capitulo-124/page-1-1.webp",
-                        "https://cdn.leituramanga.net/lagrimas-sobre-flores-murchas/capitulo-124/page-1-2.webp",
-                        "https://cdn.leituramanga.net/lagrimas-sobre-flores-murchas/capitulo-124/page-1-3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 5870,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:12.976671012Z",
+    "comparedTo": "2026-10-30T01:34:49.492466905Z",
     "changes": [
         {
             "source": "Leitura Mangá",
             "lang": "pt-BR",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Leitura Mangá",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Leitura Mangá",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

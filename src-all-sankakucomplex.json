@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:26:25.973914941Z",
+    "generatedAt": "2026-11-11T11:14:07.977325343Z",
     "module": ":src:all:sankakucomplex",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 3055331830444123651,
             "name": "Sankaku Complex",
             "lang": "all",
             "baseUrl": "https://sankaku.app",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,46 +22,27 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 307,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 326,
+                    "message": "stream was reset: PROTOCOL_ERROR",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 1315,
-                    "message": null,
-                    "notes": [
-                        "manga[1] has no thumbnail",
-                        "manga[2] has no thumbnail",
-                        "manga[3] has no thumbnail",
-                        "manga[4] has no thumbnail"
-                    ],
-                    "samples": [
-                        "Peaches [JMoz Comix] -> /series/zvkr3EKMZ4J",
-                        "The Milk Factory (Stardew Valley) -> /series/oj4MnA5ReBx",
-                        "Norako -> /series/v9krZW6Rg8j"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 265,
+                    "message": "stream was reset: PROTOCOL_ERROR",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 628,
-                    "message": null,
-                    "notes": [
-                        "manga[0] has no thumbnail",
-                        "manga[1] has no thumbnail",
-                        "manga[2] has no thumbnail",
-                        "manga[3] has no thumbnail",
-                        "manga[4] has no thumbnail"
-                    ],
-                    "samples": [
-                        "Masticating Mascots -> /series/QjXaj4pR2P7",
-                        "The Milk Factory (Stardew Valley) -> /series/oj4MnA5ReBx",
-                        "MRLO2020 -> /series/AzQRVj6RDW3"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 245,
+                    "message": "stream was reset: PROTOCOL_ERROR",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -74,83 +55,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 567,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Peaches [JMoz Comix] -> /series/zvkr3EKMZ4J"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 310,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "[JMoz Comix] Peaches - Chapter 3 -> /books/78MYpV6vRew",
-                        "[JMoz Comix] Peaches - Chapter 2 -> /books/YoMBPOxJrOv",
-                        "[JMoz Comix] Peaches - Chapter 1 -> /books/60rvLNxYM3A"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 603,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.Exception: Log in via WebView to read this book"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:27:30.709788740Z",
+    "comparedTo": "2026-11-10T11:26:25.973914941Z",
     "changes": [
         {
             "source": "Sankaku Complex",
             "lang": "all",
             "scenario": "connectivity",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Sankaku Complex",
             "lang": "all",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "FAIL"
         },
         {
             "source": "Sankaku Complex",
             "lang": "all",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "WARN"
-        },
-        {
-            "source": "Sankaku Complex",
-            "lang": "all",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "WARN",
+            "to": "FAIL"
         },
         {
             "source": "Sankaku Complex",
             "lang": "all",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Sankaku Complex",
+            "lang": "all",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Sankaku Complex",
             "lang": "all",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

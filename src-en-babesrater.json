@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:29:41.630917624Z",
+    "generatedAt": "2026-11-11T11:13:03.820450393Z",
     "module": ":src:en:babesrater",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 3304965214527977054,
             "name": "Babes Rater",
             "lang": "en",
             "baseUrl": "https://babesrater.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,22 +23,20 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 210,
+                    "durationMs": 195,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 90,
+                    "status": "WARN",
+                    "durationMs": 100,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Vasia X -> /person/210114/vasia-x",
-                        "Panagiota Vlanti -> /person/222867/panagiota-vlanti",
-                        "Mariada Pieridi -> /person/211732/mariada-pieridi"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -51,7 +49,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,86 +57,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 592,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Vasia X -> /person/210114/vasia-x"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 219,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "HotnessRater pictures, page 1 -> /person/210114/vasia-x?pageHot=1",
-                        "Nude pictures, page 4 -> /person/210114/vasia-x?page=4",
-                        "Nude pictures, page 3 -> /person/210114/vasia-x?page=3"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 166,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img8.hotnessrater.com/7393455/vasia-x-nude.jpg",
-                        "https://img8.hotnessrater.com/7393471/vasia-x-nude.jpg",
-                        "https://img2.hotnessrater.com/7393465/vasia-x-nude.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 340,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-09T11:49:33.009867432Z",
+    "comparedTo": "2026-11-10T11:29:41.630917624Z",
     "changes": [
         {
             "source": "Babes Rater",
             "lang": "en",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Babes Rater",
-            "lang": "en",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Babes Rater",
             "lang": "en",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Babes Rater",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Babes Rater",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Babes Rater",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

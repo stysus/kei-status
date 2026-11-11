@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:43.074156119Z",
+    "generatedAt": "2026-11-11T11:22:18.718694096Z",
     "module": ":src:zh:guazimanhua",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 9103931521355991619,
             "name": "瓜子漫画",
             "lang": "zh",
             "baseUrl": "https://www.guazimanhua.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1021,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30032,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 182,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "从姑获鸟开始 -> /comic.php?id=14109",
-                        "不当舔狗后，我成了亿万神豪 -> /comic.php?id=21264",
-                        "原来，她们才是主角 -> /comic.php?id=14422"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30046,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 161,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "灵世英雄 -> /comic.php?id=28919",
-                        "艾米丽与福克斯 -> /comic.php?id=31013",
-                        "火锅家族第八季 -> /comic.php?id=28896"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30104,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 448,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "从姑获鸟开始 -> /comic.php?id=14109"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1104,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "334 鬼梦貘 -> /chapter.php?id=1633768",
-                        "333 梦地府 -> /chapter.php?id=1633754",
-                        "公告 -> /chapter.php?id=1633736"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 111,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img.guazicdn.com/th/comics/chapters/2345/260424/343_1.webp",
-                        "https://img.guazicdn.com/th/comics/chapters/2345/260424/343_2.webp",
-                        "https://img.guazicdn.com/th/comics/chapters/2345/260424/343_3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 103,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:40:32.886907299Z",
+    "comparedTo": "2026-10-30T01:37:43.074156119Z",
     "changes": [
         {
             "source": "瓜子漫画",
             "lang": "zh",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "瓜子漫画",
+            "lang": "zh",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "瓜子漫画",
+            "lang": "zh",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "瓜子漫画",
+            "lang": "zh",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "瓜子漫画",
+            "lang": "zh",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "瓜子漫画",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "瓜子漫画",
+            "lang": "zh",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

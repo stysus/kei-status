@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:33:01.268170871Z",
+    "generatedAt": "2026-11-11T11:20:32.765858583Z",
     "module": ":src:it:hentaiarchive",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 6052929656772429531,
             "name": "HentaiArchive",
             "lang": "it",
             "baseUrl": "https://www.hentai-archive.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,22 +23,20 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 963,
+                    "durationMs": 882,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 364,
+                    "status": "WARN",
+                    "durationMs": 393,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "L’albergo termale -> /lalbergo-termale/",
-                        "E così fui sedotta -> /e-cosi-fui-sedotta/",
-                        "La moglie del proprietario -> /la-moglie-del-proprietario/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -59,56 +57,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 679,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "L’albergo termale -> /lalbergo-termale/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 181,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter -> /lalbergo-termale/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 181,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://picsarchive1.b-cdn.net/23223/Lalbergo_termale/Lalbergo_termale_1.webp",
-                        "https://picsarchive1.b-cdn.net/23223/Lalbergo_termale/Lalbergo_termale_2.webp",
-                        "https://picsarchive1.b-cdn.net/23223/Lalbergo_termale/Lalbergo_termale_3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 590,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:36:36.486702555Z",
+    "comparedTo": "2026-11-10T11:33:01.268170871Z",
     "changes": [
         {
             "source": "HentaiArchive",
             "lang": "it",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "HentaiArchive",
+            "lang": "it",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiArchive",
+            "lang": "it",
             "scenario": "search",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiArchive",
+            "lang": "it",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiArchive",
+            "lang": "it",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

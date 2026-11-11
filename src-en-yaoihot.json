@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:34:57.272117785Z",
+    "generatedAt": "2026-11-11T11:16:10.434065916Z",
     "module": ":src:en:yaoihot",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 2792939609625225108,
             "name": "YaoiHot",
             "lang": "en",
             "baseUrl": "https://yaoihot.com",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,36 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 772,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30233,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
+                        "java.io.EOFException: SSL peer shut down incorrectly"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 967,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Dirty Vibration -> /manga/dirty-vibration/",
-                        "Leave The Work To Me -> /manga/leave-the-work-to-me/",
-                        "A Crown Of Thorns Uncensored -> /manga/a-crown-of-thorns-uncensored/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30274,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
+                        "java.io.EOFException: SSL peer shut down incorrectly"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 953,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Dirty Vibration -> /manga/dirty-vibration/",
-                        "Leave The Work To Me -> /manga/leave-the-work-to-me/",
-                        "A Crown Of Thorns Uncensored -> /manga/a-crown-of-thorns-uncensored/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30228,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
+                        "java.io.EOFException: SSL peer shut down incorrectly"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +64,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 517,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Dirty Vibration -> /manga/dirty-vibration/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 687,
-                    "message": null,
-                    "notes": [
-                        "chapter list is empty"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:46:35.655311501Z",
+    "comparedTo": "2026-11-08T13:34:57.272117785Z",
     "changes": [
         {
             "source": "YaoiHot",
             "lang": "en",
-            "scenario": "chapters",
+            "scenario": "connectivity",
             "from": "PASS",
-            "to": "WARN"
+            "to": "DOWN"
         },
         {
             "source": "YaoiHot",
             "lang": "en",
-            "scenario": "pages",
+            "scenario": "popular",
             "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "YaoiHot",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "YaoiHot",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "WARN",
             "to": "SKIP"
         },
         {
             "source": "YaoiHot",
             "lang": "en",
-            "scenario": "images",
+            "scenario": "search",
             "from": "PASS",
-            "to": null
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:34:38.604824080Z",
+    "generatedAt": "2026-11-11T11:23:26.861332679Z",
     "module": ":src:ru:wamanga",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 1686869715645322994,
             "name": "WaManga",
             "lang": "ru",
             "baseUrl": "https://wamanga.ru",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1202,
+                    "durationMs": 1431,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 996,
+                    "durationMs": 3317,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 345,
+                    "durationMs": 2296,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Весточки от Ёсиды -> manga/vestochki-ot-yosidy",
-                        "Жизнь с кошкодевочкой -> manga/zhizn-s-koshkodevochkoy",
-                        "Любовь разрывает зомби -> manhwa/lyubov-razryvaet-zombi"
+                        "МобиДик -> manhwa/mobidik",
+                        "Денежная игра -> manhwa/denezhnaya-igra",
+                        "Презепе вне клетки -> manhwa/prezepe-vne-kletki"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 333,
+                    "durationMs": 2270,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +77,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 802,
+                    "durationMs": 7747,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,35 +88,32 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1082,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://wamanga.ru/app/uploads/ZDQxMTZhM2ItNzUxOS00ZTZhLThlMzMtM2Y1ZmQ1YzQzMzdm/b29010ee-2351-4a78-85a1-1bc08f382b83-ready-0.webp",
-                        "https://wamanga.ru/app/uploads/ZDQxMTZhM2ItNzUxOS00ZTZhLThlMzMtM2Y1ZmQ1YzQzMzdm/872fb090-e714-4bde-92e4-a2fee0695ef3-ready-0.webp",
-                        "https://wamanga.ru/app/uploads/ZDQxMTZhM2ItNzUxOS00ZTZhLThlMzMtM2Y1ZmQ1YzQzMzdm/872fb090-e714-4bde-92e4-a2fee0695ef3-ready-1.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 621,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 8723,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:35:30.703569777Z",
+    "comparedTo": "2026-11-10T11:34:38.604824080Z",
     "changes": [
         {
             "source": "WaManga",
             "lang": "ru",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "WaManga",
+            "lang": "ru",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

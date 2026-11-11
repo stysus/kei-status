@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:01:43.915481709Z",
+    "generatedAt": "2026-11-11T11:15:27.251546104Z",
     "module": ":src:en:ebookrenta",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 8412178155364465470,
             "name": "EbookRenta",
             "lang": "en",
             "baseUrl": "https://www.ebookrenta.com",
-            "status": "DOWN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,30 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 960,
+                    "durationMs": 110,
                     "message": null,
                     "notes": [
-                        "home page returned HTTP 503"
+                        "home page returned HTTP 403"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 858,
-                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "status": "BLOCKED",
+                    "durationMs": 67,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 846,
-                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "status": "BLOCKED",
+                    "durationMs": 13,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
                     ],
                     "samples": []
                 },
@@ -87,21 +87,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:28:16.588982791Z",
+    "comparedTo": "2026-11-03T07:01:43.915481709Z",
     "changes": [
         {
             "source": "EbookRenta",
             "lang": "en",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "BLOCKED"
         },
         {
             "source": "EbookRenta",
             "lang": "en",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:29:14.797431664Z",
+    "generatedAt": "2026-11-11T11:15:06.963684902Z",
     "module": ":src:ar:neverscans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 8433210273073845288,
             "name": "NeverScans",
             "lang": "ar",
             "baseUrl": "https://neverscans.com",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,29 +22,37 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1537,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 8084,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target",
+                        "sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target",
+                        "sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 59,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 12010,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target",
+                        "sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target",
+                        "sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 57,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 8004,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target",
+                        "sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target",
+                        "sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target"
                     ],
                     "samples": []
                 },
@@ -85,14 +93,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:18:06.800258166Z",
+    "comparedTo": "2026-10-30T01:29:14.797431664Z",
     "changes": [
         {
             "source": "NeverScans",
             "lang": "ar",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "NeverScans",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "DOWN"
+        },
+        {
+            "source": "NeverScans",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

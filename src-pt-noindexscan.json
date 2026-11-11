@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:41:22.373967480Z",
+    "generatedAt": "2026-11-11T11:21:38.100027046Z",
     "module": ":src:pt:noindexscan",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 987786689720213769,
             "name": "Hanami Heaven",
             "lang": "pt-BR",
             "baseUrl": "https://hanamiheaven.org",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1056,
+                    "status": "WARN",
+                    "durationMs": 287,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 332,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Hero Manager -> 7556",
-                        "I Need You, Noona -> 7539",
-                        "A Summer Camp to Remember -> 7411"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 119,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 296,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Teacher’s Efforts -> 3627",
-                        "Ajumma is Working Undercover -> 7773",
-                        "The Father-In-Law Fucks Them All -> 5158"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 39,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,100 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 2159,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Hero Manager -> 7556"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 860,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Cap. 28 - Fim -> cap-28-fim",
-                        "Cap. 27 -> cap-27",
-                        "Cap. 26 -> cap-26"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 395,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://hanamiheaven.org/wp-content/uploads/WP-manga/data/manga_6adaabfe31c54/55f98ad1239d1662e7c99a66a0e30ae6/1.webp",
-                        "https://hanamiheaven.org/wp-content/uploads/WP-manga/data/manga_6adaabfe31c54/55f98ad1239d1662e7c99a66a0e30ae6/2.webp",
-                        "https://hanamiheaven.org/wp-content/uploads/WP-manga/data/manga_6adaabfe31c54/55f98ad1239d1662e7c99a66a0e30ae6/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1675,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:36:31.890831507Z",
+    "comparedTo": "2026-11-10T11:41:22.373967480Z",
     "changes": [
         {
             "source": "Hanami Heaven",
             "lang": "pt-BR",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Hanami Heaven",
             "lang": "pt-BR",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Hanami Heaven",
             "lang": "pt-BR",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "Hanami Heaven",
-            "lang": "pt-BR",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Hanami Heaven",
             "lang": "pt-BR",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hanami Heaven",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Hanami Heaven",
             "lang": "pt-BR",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Hanami Heaven",
             "lang": "pt-BR",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

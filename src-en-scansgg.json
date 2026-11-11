@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:49.940123989Z",
+    "generatedAt": "2026-11-11T11:18:13.760961897Z",
     "module": ":src:en:scansgg",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 5988638662832109557,
             "name": "ScansGG",
             "lang": "en",
             "baseUrl": "https://scans.gg",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 953,
+                    "status": "WARN",
+                    "durationMs": 19419,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 709,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Kimi janakya Dame na Dorei Shoujo -> 17937",
-                        "My First Love, Transformed! -> 17936",
-                        "Life in a Deadly Magic School, from the Prologue with a Former Lover (*but with Zero Likability) -> 17935"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19448,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1136,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Playing Revenge Against God -> 742",
-                        "Susanghan Sogongjaneun Cheonhasipdaegosu -> 2078",
-                        "Hanlim Gym -> 6192"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19456,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,44 +61,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 493,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Kimi janakya Dame na Dorei Shoujo -> 17937"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 698,
-                    "message": null,
-                    "notes": [
-                        "chapter list is empty"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:58.310356519Z",
+    "comparedTo": "2026-10-30T01:32:49.940123989Z",
     "changes": [
         {
             "source": "ScansGG",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "ScansGG",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "ScansGG",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "ScansGG",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "ScansGG",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

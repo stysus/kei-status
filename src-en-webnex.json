@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T10:04:05.063688045Z",
+    "generatedAt": "2026-11-11T11:17:54.920920298Z",
     "module": ":src:en:webnex",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 319678837350572744,
             "name": "Webnex",
             "lang": "en",
             "baseUrl": "https://webnex.cc",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 304,
+                    "durationMs": 248,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,31 +31,31 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 131,
+                    "durationMs": 281,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The Hero's Ballad -> the-hero-s-ballad-zoymmxnh4f",
-                        "Tomb Raider King — End Line -> tomb-raider-king-end-line-j7jpxppr2o",
-                        "The Forgotten Field -> the-forgotten-field-59foz1p4fq"
+                        "Living With My Villainous Uncle -> living-with-my-villainous-uncle-7n4bhaqr4t",
+                        "I’ll Start by Changing My Husband Through a Plunder Marriage -> i-ll-start-by-changing-my-husband-through-a-plunder-marriage-dtww9mi1rs",
+                        "A Painter Who Draws Dungeons -> a-painter-who-draws-dungeons-x50nrs6p24"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 233,
+                    "durationMs": 262,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Cool Boyish Onee-san -> cool-boyish-onee-san-tbbr5xrgzt",
-                        "Lion's Heart! (2024 · more) -> lion-s-heart-2024-more-8vrkzs985f",
-                        "My Artifact Stats Stack Infinitely -> my-artifact-stats-stack-infinitely-padwz2skec"
+                        "Overwatch: Undivided -> overwatch-undivided-075w9lhi9c",
+                        "Tokyo Ghoul -> tokyo-ghoul-jcjrfe4res",
+                        "By Changing One Word in My Skills, I Broke Everything -> by-changing-one-word-in-my-skills-i-broke-everything-s304ybfocp"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,70 +65,56 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1024,
+                    "durationMs": 4228,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The Hero's Ballad -> the-hero-s-ballad-zoymmxnh4f"
+                        "Living With My Villainous Uncle -> living-with-my-villainous-uncle-7n4bhaqr4t"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 615,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chapter 14 -> zoymmxnh4f-73zsstmt",
-                        "Chapter 14 -> zoymmxnh4f-y3fqy1o3",
-                        "Chapter 14 -> zoymmxnh4f-vl8xtm12"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 87,
+                    "message": "NullPointerException at Webnex.fetchMangaUpdate$suspendImpl(Webnex.kt:140)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 240,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://images.webnex.cc/catalog/v1/chapter-pages/02/02dd6d3877d6c7a529929680648ad2fc111b5b166483475de515b86a4b0f7e09.webp",
-                        "https://images.webnex.cc/catalog/v1/chapter-pages/09/09635acbc16b3913483fea6cb1d21e2170ba15d2dd8f30ae58265ea7e4753fda.webp",
-                        "https://images.webnex.cc/catalog/v1/chapter-pages/32/327c0ce3218c204a5c3036e7dd3ec9011ef6b1e67cd7a2ba064efadd8a60c18b.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 870,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:30:31.667543865Z",
+    "comparedTo": "2026-10-31T10:04:05.063688045Z",
     "changes": [
         {
             "source": "Webnex",
             "lang": "en",
-            "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Webnex",
             "lang": "en",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Webnex",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

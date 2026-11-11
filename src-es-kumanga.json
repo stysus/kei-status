@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:31:40.498229577Z",
+    "generatedAt": "2026-11-11T11:18:28.001836779Z",
     "module": ":src:es:kumanga",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "d0478bb6",
     "sources": [
         {
             "sourceId": 5818858964600650549,
             "name": "Kumanga",
             "lang": "es",
             "baseUrl": "https://www.kumanga.com",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,29 +23,33 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 226,
+                    "durationMs": 715,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 105,
-                    "message": "Expected start of the object '{', but had 'EOF' instead at path: $\nJSON input: ",
+                    "status": "PASS",
+                    "durationMs": 3262,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Era tan hermosa cómo el jade -> /manga/14874/era-tan-hermosa-como-el-jade",
+                        "Accidentalmente Resucite a Mi Esposo Fallecido -> /manga/14873/accidentalmente-resucite-a-mi-esposo-fallecido",
+                        "Usagi-kun no Shitsukaketa -> /manga/14872/usagi-kun-no-shitsukaketa"
+                    ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 851,
+                    "durationMs": 163,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Tsuiraku JK to Haijin Kyoushi -> /manga/1424/tsuiraku-jk-to-haijin-kyoushi",
-                        "Death Game Ni Makikomore Mashita, Isekai Gaeri No Moto Yusha Desuga -> /manga/5743/death-game-ni-makikomore-mashita-isekai-gaeri-no-moto-yusha-desuga",
-                        "Jigoku Sensei Nube NEO -> /manga/14648/jigoku-sensei-nube-neo"
+                        "No me gustas solo por tu cara bonita -> /manga/13791/no-me-gustas-solo-por-tu-cara-bonita",
+                        "Maou-Sama Retry! R -> /manga/4751/maou-sama-retry-r",
+                        "Destino -> /manga/14409/destino"
                     ]
                 },
                 {
@@ -60,42 +64,41 @@
                 },
                 {
                     "name": "search",
-                    "status": "FAIL",
-                    "durationMs": 143,
-                    "message": "Expected start of the object '{', but had 'EOF' instead at path: $\nJSON input: ",
+                    "status": "PASS",
+                    "durationMs": 475,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Era tan hermosa cómo el jade -> /manga/14874/era-tan-hermosa-como-el-jade"
+                    ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 838,
+                    "durationMs": 530,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Capítulo 107.5 -> /manga/1424/capitulo/107.5",
-                        "Capítulo 107 -> /manga/1424/capitulo/107",
-                        "Capítulo 106 -> /manga/1424/capitulo/106"
+                        "Capítulo 2 -> /manga/14874/capitulo/2",
+                        "Capítulo 1 -> /manga/14874/capitulo/1"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 4043,
+                    "status": "PASS",
+                    "durationMs": 994,
                     "message": null,
-                    "notes": [
-                        "duplicate page urls: [https://i.imgur.com/M5vQtTw.gif]"
-                    ],
+                    "notes": [],
                     "samples": [
-                        "https://images3.memedroid.com/images/UPLOADED622/6758470570a08.jpeg",
-                        "https://i.imgur.com/M5vQtTw.gif",
-                        "https://i.imgur.com/M5vQtTw.gif"
+                        "https://www.kumanga.com/img.php?src=68747470733A2F2F6461746162616E6B2E6B756D616E67612E636F6D2F6D616E67612F3737343732352F312E6A7067",
+                        "https://www.kumanga.com/img.php?src=68747470733A2F2F6461746162616E6B2E6B756D616E67612E636F6D2F6D616E67612F3737343732352F322E6A7067",
+                        "https://www.kumanga.com/img.php?src=68747470733A2F2F6461746162616E6B2E6B756D616E67612E636F6D2F6D616E67612F3737343732352F332E6A7067"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 1067,
+                    "durationMs": 2516,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -103,27 +106,27 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-09T11:53:07.302065440Z",
+    "comparedTo": "2026-11-10T11:31:40.498229577Z",
     "changes": [
         {
             "source": "Kumanga",
             "lang": "es",
-            "scenario": "chapters",
-            "from": "WARN",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Kumanga",
+            "lang": "es",
+            "scenario": "search",
+            "from": "FAIL",
             "to": "PASS"
         },
         {
             "source": "Kumanga",
             "lang": "es",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "WARN"
-        },
-        {
-            "source": "Kumanga",
-            "lang": "es",
-            "scenario": "images",
-            "from": null,
+            "from": "WARN",
             "to": "PASS"
         }
     ],
