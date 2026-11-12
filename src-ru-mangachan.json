@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:35:23.374086440Z",
+    "generatedAt": "2026-11-12T11:37:15.712043259Z",
     "module": ":src:ru:mangachan",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "7c6a7c2f",
     "sources": [
         {
             "sourceId": 7,
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 763,
+                    "status": "WARN",
+                    "durationMs": 535,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 502"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "DOWN",
-                    "durationMs": 297,
+                    "durationMs": 225,
                     "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
@@ -41,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 650,
+                    "durationMs": 871,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -53,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,71 +64,83 @@
                 },
                 {
                     "name": "search",
-                    "status": "DOWN",
-                    "durationMs": 207,
-                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 592,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Yaoyorozu Toriatsukai Setsumeisho (Руководство по эксплуатации мириады богов) -> /manga/175125-yaoyorozu-toriatsukai-setsumeisho.html"
+                    ]
                 },
                 {
                     "name": "chapters",
-                    "status": "DOWN",
-                    "durationMs": 549,
-                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 214,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Том 1 Глава 1 -> /online/1214755-yaoyorozu-toriatsukai-setsumeisho_v1_ch1.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 584,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://img2.manga-chan.me/manga/-5new/m/1794262539_miriada-1-1/000.png",
+                        "https://img2.manga-chan.me/manga/-5new/m/1794262539_miriada-1-1/002.png",
+                        "https://img2.manga-chan.me/manga/-5new/m/1794262539_miriada-1-1/003.png"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 2058,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:33:42.853317903Z",
+    "comparedTo": "2026-11-10T11:35:23.374086440Z",
     "changes": [
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "popular",
+            "scenario": "connectivity",
             "from": "PASS",
-            "to": "DOWN"
+            "to": "WARN"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "search",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

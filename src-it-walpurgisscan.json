@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:26:20.058688864Z",
+    "generatedAt": "2026-11-12T11:36:56.817410183Z",
     "module": ":src:it:walpurgisscan",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "7c6a7c2f",
     "sources": [
         {
             "sourceId": 6566957355096372149,
@@ -22,31 +22,31 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 3960,
-                    "message": null,
+                    "status": "BLOCKED",
+                    "durationMs": 1872,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "home page returned HTTP 403"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.walpurgiscan.it (HTTP 403)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 246,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "durationMs": 224,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.walpurgiscan.it (HTTP 403)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "BLOCKED",
-                    "durationMs": 257,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "durationMs": 219,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.walpurgiscan.it (HTTP 403)"
                     ],
                     "samples": []
                 },
@@ -87,20 +87,13 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:35:36.677200647Z",
+    "comparedTo": "2026-11-03T07:26:20.058688864Z",
     "changes": [
         {
             "source": "Walpurgi Scan",
             "lang": "it",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "Walpurgi Scan",
-            "lang": "it",
-            "scenario": "latest",
-            "from": "FAIL",
+            "scenario": "connectivity",
+            "from": "WARN",
             "to": "BLOCKED"
         }
     ],

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:35:40.032651267Z",
+    "generatedAt": "2026-11-12T11:36:42.159665092Z",
     "module": ":src:tr:orimanga",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "7c6a7c2f",
     "sources": [
         {
             "sourceId": 4629101508845138320,
@@ -22,24 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 743,
+                    "status": "WARN",
+                    "durationMs": 693,
                     "message": null,
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 223,
-                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                        "home page returned HTTP 503"
                     ],
                     "samples": []
                 },
                 {
-                    "name": "latest",
+                    "name": "popular",
                     "status": "DOWN",
                     "durationMs": 195,
                     "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
@@ -49,9 +41,19 @@
                     "samples": []
                 },
                 {
+                    "name": "latest",
+                    "status": "DOWN",
+                    "durationMs": 201,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
+                },
+                {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -85,21 +87,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:38:02.753342842Z",
+    "comparedTo": "2026-11-08T13:35:40.032651267Z",
     "changes": [
         {
             "source": "Ori Manga",
             "lang": "tr",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "DOWN"
-        },
-        {
-            "source": "Ori Manga",
-            "lang": "tr",
-            "scenario": "latest",
-            "from": "FAIL",
-            "to": "DOWN"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

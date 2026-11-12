@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:42:00.854012648Z",
+    "generatedAt": "2026-11-12T11:37:56.468399471Z",
     "module": ":src:tr:mangaruhu",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "7c6a7c2f",
     "sources": [
         {
             "sourceId": 8370882282338930409,
             "name": "Manga Ruhu",
             "lang": "tr",
             "baseUrl": "https://mangaruhu.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 752,
+                    "durationMs": 744,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 539,
+                    "durationMs": 395,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 167,
+                    "durationMs": 158,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Askerliğim Bitti Derken Başka Dünyada Uyandım -> /manga/askerligim-bitti-derken-baska-dunyada-uyandim/",
-                        "Duyuru -> /manga/duyuru/",
-                        "Yok Oluş Savaşı -> /manga/yok-olus-savasi/"
+                        "İyileştirme Yeteneğim Her Şeyi Kopyalayabiliyor, Bu Sayede Uçurumu Fethettim -> /manga/iyilestirme-yetenegim-her-seyi-kopyalayabiliyor-bu-sayede-ucurumu-fethettim/",
+                        "Kentsel Ejder Savaşı -> /manga/kentsel-ejder-savasi/",
+                        "Tekrar Doğdum İntikamım Acı Verici Olacak -> /manga/tekrar-dogdum-intikamim-aci-verici-olacak/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,58 +64,63 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 260,
+                    "status": "WARN",
+                    "durationMs": 196,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Şeytani Çağ -> /manga/chronicles-of-the-demon-faction/",
-                        "Orta Çağ Barbarı -> /manga/the-barbarian-from-the-middle-ages/"
-                    ]
+                    "notes": [
+                        "returned an empty list",
+                        "query \"Şeytani Çağ\" matched no results in the first page"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 855,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 388,
+                    "message": "HTTP error 400",
                     "notes": [],
-                    "samples": [
-                        "🔒 Bölüm 194 -> /manga/chronicles-of-the-demon-faction/bolum-194/",
-                        "🔒 Bölüm 193 -> /manga/chronicles-of-the-demon-faction/bolum-193/",
-                        "🔒 Bölüm 192 -> /manga/chronicles-of-the-demon-faction/bolum-192/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 317,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.mangaruhu.com/Chronicles-of-the-Demon-Faction/bolum-1/001.webp",
-                        "https://cdn.mangaruhu.com/Chronicles-of-the-Demon-Faction/bolum-1/002.jpg",
-                        "https://cdn.mangaruhu.com/Chronicles-of-the-Demon-Faction/bolum-1/003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 527,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:29.423253541Z",
+    "comparedTo": "2026-10-30T01:42:00.854012648Z",
     "changes": [
         {
             "source": "Manga Ruhu",
             "lang": "tr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manga Ruhu",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manga Ruhu",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Ruhu",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

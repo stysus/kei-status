@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T06:57:48.050999809Z",
+    "generatedAt": "2026-11-12T11:31:40.275587799Z",
     "module": ":src:en:mangade",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "7c6a7c2f",
     "sources": [
         {
             "sourceId": 3447999145778061665,
             "name": "MangaDE",
             "lang": "en",
             "baseUrl": "https://mangade.io",
-            "status": "DOWN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,36 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 806,
+                    "durationMs": 685,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 340,
-                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
-                    "notes": [
-                        "javax.net.ssl.SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
-                        "sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
-                        "java.security.cert.CertPathValidatorException: validity check failed",
-                        "java.security.cert.CertificateExpiredException: NotAfter: Sun Oct 25 03:38:28 UTC 2026"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1128,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "One Piece -> /one-piece?mid=45719",
+                        "Maou to Ryuuou ni Sodaterareta Shounen wa Gakuen Seikatsu wo Musou suru You desu -> /maou-to-ryuuou-ni-sodaterareta-shounen-wa-gakuen-seikatsu-wo-musou-suru-you-desu?mid=46546",
+                        "Secret Class -> /secret-class?mid=43659"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 298,
-                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
-                    "notes": [
-                        "javax.net.ssl.SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
-                        "sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
-                        "java.security.cert.CertPathValidatorException: validity check failed",
-                        "java.security.cert.CertificateExpiredException: NotAfter: Sun Oct 25 03:38:28 UTC 2026"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 469,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Atelier on the Sunflower Hill -> /atelier-on-the-sunflower-hill?mid=49246",
+                        "Itsukasei Metsubou Syndrome -> /itsukasei-metsubou-syndrome?mid=49244",
+                        "The Ace has a Secret Crush on Me -> /the-ace-has-a-secret-crush-on-me?mid=49243"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -65,47 +63,93 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 494,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "One Piece -> /one-piece?mid=45719"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 665,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 1157 -> /one-piece/chapter-1157?cid=779347&mid=45719",
+                        "Chapter 1156 -> /one-piece/chapter-1156?cid=779343&mid=45719",
+                        "Chapter 1155 -> /one-piece/chapter-1155?cid=779339&mid=45719"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 270,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://s3-load.ttr.group/manga/en-uploads/45719/2291711/1755917813856_533_image.jpg",
+                        "https://s3-load.ttr.group/manga/en-uploads/45719/2291711/1755917814285_549_image.jpg",
+                        "https://s3-load.ttr.group/manga/en-uploads/45719/2291711/1755917815204_386_image.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1709,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:33:48.473168666Z",
+    "comparedTo": "2026-11-03T06:57:48.050999809Z",
     "changes": [
         {
             "source": "MangaDE",
             "lang": "en",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "MangaDE",
             "lang": "en",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaDE",
+            "lang": "en",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaDE",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaDE",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaDE",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:28:58.855768367Z",
+    "generatedAt": "2026-11-12T11:30:54.641049364Z",
     "module": ":src:ar:dilar",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "7c6a7c2f",
     "sources": [
         {
             "sourceId": 7634600808243438399,
             "name": "Dilar",
             "lang": "ar",
             "baseUrl": "https://dilar.tube",
-            "status": "BLOCKED",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 437,
+                    "status": "WARN",
+                    "durationMs": 5438,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 523",
+                        "home page body is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 237,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Remarried Empress -> 983/Remarried Empress",
-                        "My Husband Was Definitely a Holy Knight -> 12499/My Husband Was Definitely a Holy Knight",
-                        "When the Biting Wind Blows -> 13946/When the Biting Wind Blows"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 745,
+                    "message": "the site's origin server is not responding (HTTP 523); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 523"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 259,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Guy Upstairs -> 4438/The Guy Upstairs",
-                        "A Witch's Life in Mongol -> 12706/A Witch's Life in Mongol",
-                        "I Listened to My Husband and Brought in a Lover -> 7337/I Listened to My Husband and Brought in a Lover"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 6403,
+                    "message": "the site's origin server is not responding (HTTP 523); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 523"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,48 +62,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 462,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Remarried Empress -> 983/Remarried Empress"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 468,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "247 - النهــــــــــــــــــاية -> 983/Remarried Empress/247#136199",
-                        "246 -> 983/Remarried Empress/246#136197",
-                        "245 -> 983/Remarried Empress/245#136196"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 30208,
-                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
-                    "notes": [
-                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 30s"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:31:11.757057789Z",
+    "comparedTo": "2026-11-10T11:28:58.855768367Z",
     "changes": [
         {
             "source": "Dilar",
             "lang": "ar",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Dilar",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Dilar",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Dilar",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Dilar",
+            "lang": "ar",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Dilar",
+            "lang": "ar",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

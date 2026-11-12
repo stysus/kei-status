@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-11T11:20:17.689274003Z",
+    "generatedAt": "2026-11-12T11:35:29.672526761Z",
     "module": ":src:id:mangalay",
     "sourceRoot": "",
-    "extensionCommit": "d0478bb6",
+    "extensionCommit": "7c6a7c2f",
     "sources": [
         {
             "sourceId": 7859511511298731707,
@@ -24,21 +24,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "THROTTLED",
-                    "durationMs": 7334,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 183,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "mangalay.blogspot.com answered HTTP 429 earlier in this run",
+                    "status": "PASS",
+                    "durationMs": 7133,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "WORST GAIDEN -> /2013/04/list-baca-komik-worst-gaiden-bahasa.html",
+                        "WORST -> /2013/04/list-baca-komik-worst.html",
+                        "Next Crows Supplementary Story -> /2013/05/list-baca-komik-next-crows.html"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -50,82 +52,85 @@
                 },
                 {
                     "name": "filters",
-                    "status": "SKIP",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "mangalay.blogspot.com answered HTTP 429 earlier in this run",
+                    "message": null,
                     "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "samples": [
+                        "0 filters"
+                    ]
                 },
                 {
                     "name": "search",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "message": "not supported by this source",
+                    "notes": [
+                        "java.lang.UnsupportedOperationException: <no message>"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 298,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "Worst Gaiden Chapter The Begining of T.F.O.A Bagian Keempat Bahasa Indonesia -> /2013/08/worst-gaiden-chapter-6-bahasa-indonesia.html",
+                        "Worst Gaiden Chapter The Begining of T.F.O.A Bagian Ketiga Bahasa Indonesia -> /2013/05/worst-gaiden-chapter-5-page1.html",
+                        "Worst Gaiden Chapter The Begining of T.F.O.A Bagian Kedua Bahasa Indonesia -> /2013/05/worst-gaiden-chapter-4-bahasa-indonesia.html"
+                    ]
+                },
+                {
+                    "name": "pages",
+                    "status": "THROTTLED",
+                    "durationMs": 7290,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-10T11:33:03.436822315Z",
+    "comparedTo": "2026-11-11T11:20:17.689274003Z",
     "changes": [
         {
             "source": "Mangalay",
             "lang": "id",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "Mangalay",
             "lang": "id",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Mangalay",
             "lang": "id",
             "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Mangalay",
             "lang": "id",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Mangalay",
             "lang": "id",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Mangalay",
-            "lang": "id",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "THROTTLED"
         }
     ],
     "throttledHosts": [

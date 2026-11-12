@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:28:16.819638139Z",
+    "generatedAt": "2026-11-12T11:32:04.270608704Z",
     "module": ":src:en:sanascans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "7c6a7c2f",
     "sources": [
         {
             "sourceId": 1931508394363321246,
             "name": "Sana Scans",
             "lang": "en",
             "baseUrl": "https://sanascans.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1076,
+                    "status": "WARN",
+                    "durationMs": 631,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 489,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Oblivious Saint Who Leaks Power Finds Happiness in Her New Home -> the-oblivious-saint-who-leaks-power-finds-happiness-in-her-new-home#178",
-                        "Surprisingly Fun New Life of a Divorced Lady Who Is No Longer Interested -> surprisingly-fun-new-life-of-a-divorced-lady-who-is-no-longer-interested#8",
-                        "Heroine? Saint? No, I'm an All-Works Maid (Proud)! -> heroine-saint-no-i'm-an-all-works-maid-(proud)!#264"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 442,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 289,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Save the Sunfish Princess! -> save-the-sunfish-princess#801",
-                        "Demon Lord, Enjoy Your Meal — The Exiled Princess’s Happy Life -> demon-lord-enjoy-your-meal-the-exiled-princess's-happy-life#562",
-                        "Starting The Villainess Life With 0 Gold -> starting-the-villainess-life-with-0-gold#800"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 173,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 248,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The Oblivious Saint Who Leaks Power Finds Happiness in Her New Home -> the-oblivious-saint-who-leaks-power-finds-happiness-in-her-new-home#178"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 553,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 39 -> /series/the-oblivious-saint-who-leaks-power-finds-happiness-in-her-new-home/chapter-39#7809",
-                        "Chapter 38 -> /series/the-oblivious-saint-who-leaks-power-finds-happiness-in-her-new-home/chapter-38#7649",
-                        "Chapter 37 -> /series/the-oblivious-saint-who-leaks-power-finds-happiness-in-her-new-home/chapter-37#7648"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 235,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://storage.sanascans.com/upload/series/the-oblivious-saint-who-leaks-power-fin-7096e89d/cab29d98-4eae-4142-b45e-39606adf806e/page-0001_01_1787731144660-900476.webp",
-                        "https://storage.sanascans.com/upload/series/the-oblivious-saint-who-leaks-power-fin-7096e89d/cab29d98-4eae-4142-b45e-39606adf806e/page-0002_03_1787731144660-942112.webp",
-                        "https://storage.sanascans.com/upload/series/the-oblivious-saint-who-leaks-power-fin-7096e89d/cab29d98-4eae-4142-b45e-39606adf806e/page-0003_05_1787731144660-524474.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1593,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:34:01.584589816Z",
+    "comparedTo": "2026-10-30T01:28:16.819638139Z",
     "changes": [
         {
             "source": "Sana Scans",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Sana Scans",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Sana Scans",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Sana Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Sana Scans",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Sana Scans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Sana Scans",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

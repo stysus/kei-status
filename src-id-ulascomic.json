@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-11T11:18:09.775176515Z",
+    "generatedAt": "2026-11-12T11:33:53.703481440Z",
     "module": ":src:id:ulascomic",
     "sourceRoot": "",
-    "extensionCommit": "d0478bb6",
+    "extensionCommit": "7c6a7c2f",
     "sources": [
         {
             "sourceId": 440952493414630310,
             "name": "Ulas Comic",
             "lang": "id",
             "baseUrl": "https://www.ulascomic01.xyz",
-            "status": "THROTTLED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,83 +22,119 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "THROTTLED",
-                    "durationMs": 8037,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 874,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "www.ulascomic01.xyz answered HTTP 429 earlier in this run",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 230,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "www.ulascomic01.xyz answered HTTP 429 earlier in this run",
+                    "status": "PASS",
+                    "durationMs": 399,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "God Of Blackfield -> /2024/05/god-of-blackfield.html",
+                        "Day Walker -> /2024/07/httpswww.ulascomic.xyzday-walker.html",
+                        "The NIS Rookie -> /2026/02/the-nis-rookie.html"
+                    ]
                 },
                 {
                     "name": "filters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "www.ulascomic01.xyz answered HTTP 429 earlier in this run",
+                    "status": "PASS",
+                    "durationMs": 3,
+                    "message": null,
                     "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "samples": [
+                        "5 filters"
+                    ]
                 },
                 {
                     "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 449,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "God Of Blackfield -> /2024/05/god-of-blackfield.html"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 256,
+                    "message": "NullPointerException at ZeistManga.mangaDetailsParse(ZeistManga.kt:268)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-10T11:32:14.461158303Z",
+    "comparedTo": "2026-11-11T11:18:09.775176515Z",
     "changes": [
         {
             "source": "Ulas Comic",
             "lang": "id",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "Ulas Comic",
             "lang": "id",
             "scenario": "popular",
-            "from": "THROTTLED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Ulas Comic",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Ulas Comic",
+            "lang": "id",
+            "scenario": "filters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Ulas Comic",
+            "lang": "id",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Ulas Comic",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ],
-    "throttledHosts": [
-        "www.ulascomic01.xyz"
-    ]
+    "throttledHosts": []
 }

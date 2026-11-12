@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:51.611719860Z",
+    "generatedAt": "2026-11-12T11:35:52.086721199Z",
     "module": ":src:es:templescanesp",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "7c6a7c2f",
     "sources": [
         {
             "sourceId": 3451196845457607826,
             "name": "Temple Scan",
             "lang": "es",
             "baseUrl": "https://aedexnox.syakaihoken-web.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 268,
+                    "durationMs": 968,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 217,
+                    "status": "WARN",
+                    "durationMs": 344,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "¡Deja De Fumar! -> /serie/deja-de-fumar/",
-                        "Plan De Intercambio De Madres -> /serie/plan-de-intercambio-de-madres/",
-                        "Configurando A Mi Equipo De Voleibol -> /serie/configurando-a-mi-equipo-de-voleibol/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 148,
+                    "status": "WARN",
+                    "durationMs": 289,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Un Romance De Ensueño -> /serie/un-romance-de-ensueno/",
-                        "La Doma -> /serie/la-doma/",
-                        "Bad Apple -> /serie/bad-apple/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,59 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 482,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "¡Deja De Fumar! [Edición Especial] -> /serie/deja-de-fumar-edicion-especial/",
-                        "¡Deja De Fumar! -> /serie/deja-de-fumar/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 317,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capitulo 117 -> capitulo-117",
-                        "Capitulo 116 -> capitulo-116",
-                        "Capitulo 115 -> capitulo-115"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1685,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://aedexnox.syakaihoken-web.com/wp-content/uploads/WP-manga/data/manga_67de2dfeb8a07/5b15f40dc90b1efb1cf4c79b457f6824/Fumar-(1).webp",
-                        "https://aedexnox.syakaihoken-web.com/wp-content/uploads/WP-manga/data/manga_67de2dfeb8a07/5b15f40dc90b1efb1cf4c79b457f6824/Fumar-(2).webp",
-                        "https://aedexnox.syakaihoken-web.com/wp-content/uploads/WP-manga/data/manga_67de2dfeb8a07/5b15f40dc90b1efb1cf4c79b457f6824/Fumar-(3).webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 175,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:35.720755037Z",
+    "comparedTo": "2026-10-30T01:32:51.611719860Z",
     "changes": [
         {
             "source": "Temple Scan",
             "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

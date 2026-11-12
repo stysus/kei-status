@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:37:20.370866285Z",
+    "generatedAt": "2026-11-12T11:39:54.947347030Z",
     "module": ":src:zh:jiulingmanhua",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "7c6a7c2f",
     "sources": [
         {
             "sourceId": 491516884240375076,
             "name": "90漫画网",
             "lang": "zh",
             "baseUrl": "https://www.90mh.cc",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 327,
+                    "status": "WARN",
+                    "durationMs": 203,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1355,
+                    "durationMs": 431,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +45,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 87,
+                    "durationMs": 807,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "三人行不行 -> /manhua/sanrenxingbuxing/",
-                        "妹妹们的小心思 -> /manhua/meimeimendexiaoxinsi/",
-                        "过近的2人 -> /manhua/guojinde2ren/"
+                        "抽奖特奖无双后宫权 -> /manhua/choujiangtejiangwushuanghougongquan/",
+                        "雨森润奈的湿度很高 -> /manhua/yusenrunnaideshiduhengao/",
+                        "夏末的未知数 -> /manhua/xiamodeweizhishu/"
                     ]
                 },
                 {
@@ -65,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1171,
+                    "durationMs": 2587,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,40 +76,55 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 155,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "第五单行本附图 -> /manhua/zaiyishijiemigongkaihougong/124768.html",
-                        "第三单行本附图 -> /manhua/zaiyishijiemigongkaihougong/96147.html",
-                        "第109话 -> /manhua/zaiyishijiemigongkaihougong/367028.html"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 179,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2155,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "http://js50.haotu90.top/images/comic/63/124768/15799452454YZ-rN-04lvQruWn.jpg",
-                        "https://m.90mh.cc/manhua/zaiyishijiemigongkaihougong/124768-2.html",
-                        "https://m.90mh.cc/manhua/zaiyishijiemigongkaihougong/124768-3.html"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3384,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
+    "comparedTo": "2026-11-10T11:37:20.370866285Z",
+    "changes": [
+        {
+            "source": "90漫画网",
+            "lang": "zh",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "90漫画网",
+            "lang": "zh",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "90漫画网",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "90漫画网",
+            "lang": "zh",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }
