@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:29:40.968875482Z",
+    "generatedAt": "2026-11-13T11:16:35.242461768Z",
     "module": ":src:en:ilikecomix",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 630837345003448937,
             "name": "ILikeComix",
             "lang": "en",
             "baseUrl": "https://ilikecomix.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1094,
+                    "status": "WARN",
+                    "durationMs": 19655,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 392,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "No Nut November (Invincible) -> myhentai-gallery/no-nut-november-invincible/",
-                        "Adventures of Anastasia. Miracle Lake (Simpsons) -> sexparody-cartoon/adventures-of-anastasia-miracle-lake-simpsons/",
-                        "Adventures of Anastasia- Who stole the panties-sexkomix2 -> myhentai-gallery/adventures-of-anastasia-who-stole-the-panties-sexkomix2/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19454,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -59,56 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 802,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "No Nut November (Invincible) -> myhentai-gallery/no-nut-november-invincible/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 381,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Oneshot -> myhentai-gallery/no-nut-november-invincible/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 440,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://ilikecomix.com/comic/2026/08/000.webp",
-                        "https://ilikecomix.com/comic/2026/08/001-4.webp",
-                        "https://ilikecomix.com/comic/2026/08/002-3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1321,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:30:48.401750810Z",
+    "comparedTo": "2026-10-30T01:29:40.968875482Z",
     "changes": [
         {
             "source": "ILikeComix",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "ILikeComix",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "ILikeComix",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ILikeComix",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ILikeComix",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ILikeComix",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

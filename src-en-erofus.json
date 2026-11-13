@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:58.278631870Z",
+    "generatedAt": "2026-11-13T11:14:41.625876091Z",
     "module": ":src:en:erofus",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 3054988613439396424,
             "name": "Erofus",
             "lang": "en",
             "baseUrl": "https://www.erofus.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 230,
+                    "status": "WARN",
+                    "durationMs": 19551,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522",
+                        "home page body is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 245,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Afterschool Class -> /comics/various-authors/badonion/afterschool-class",
-                        "Karry Loves her Animals! -> /comics/various-authors/badonion/karry-loves-her-animals!",
-                        "Young Blond Slut -> /comics/various-authors/badonion/young-blond-slut"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 199,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 231,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Live Madam, Evil -> /comics/various-authors/the-black-pharaoh/live-madam,-evil",
-                        "JL Forsaken Souls -> /comics/various-authors/the-black-pharaoh/jl-forsaken-souls",
-                        "Hearts and Minds -> /comics/various-authors/the-black-pharaoh/hearts-and-minds"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 232,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +62,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 432,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Art Class -> /comics/blacknwhitecomics_com-comix/art-class",
-                        "Afterschool Class -> /comics/various-authors/badonion/afterschool-class",
-                        "Declassification! -> /comics/nicole-heat-comics/declassification!"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 118,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter -> /comics/various-authors/badonion/afterschool-class"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 4,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.erofus.com/medium/5004/58e52ada05b875113693600.jpeg",
-                        "https://www.erofus.com/medium/5004/58e52ada05bab0152393639.jpeg",
-                        "https://www.erofus.com/medium/5004/58e52ada05bb66104682113.jpeg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 183,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:28.910371066Z",
+    "comparedTo": "2026-10-30T01:30:58.278631870Z",
     "changes": [
         {
             "source": "Erofus",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Erofus",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Erofus",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Erofus",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Erofus",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Erofus",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Erofus",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

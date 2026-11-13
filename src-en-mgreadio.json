@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:33:07.361044175Z",
+    "generatedAt": "2026-11-13T11:19:20.670485867Z",
     "module": ":src:en:mgreadio",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 15083818169656208,
@@ -23,33 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 551,
+                    "durationMs": 1859,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 189,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Global Freeze: I Created An Apocalypse Shelter -> /manga/global-freeze-i-created-an-apocalypse-shelter/",
-                        "Martial Peak -> /manga/martial-peak/",
-                        "You Like Someone With That Face? -> /manga/you-like-someone-with-that-face/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 16,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mgread.io (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 183,
+                    "durationMs": 347,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Hollabook Girl -> /manga/hollabook-girl/",
-                        "Avenger Of Mystical Eyes – Blood Parasite -> /manga/avenger-of-mystical-eyes-blood-parasite/",
-                        "Prince Hero -> /manga/prince-hero/"
+                        "Gangnam Dokkaebi -> /manga/gangnam-dokkaebi/",
+                        "How to Perfectly Break Up With You -> /manga/how-to-perfectly-break-up-with-you/",
+                        "Cyberpunk Chivalry -> /manga/cyberpunk-chivalry/"
                     ]
                 },
                 {
@@ -64,18 +62,19 @@
                 },
                 {
                     "name": "search",
-                    "status": "BLOCKED",
-                    "durationMs": 20612,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mgread.io (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 480,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Gangnam Dokkaebi -> /manga/gangnam-dokkaebi/",
+                        "My Life With A Dokkaebi -> /manga/my-life-with-a-dokkaebi/"
+                    ]
                 },
                 {
                     "name": "chapters",
                     "status": "BLOCKED",
-                    "durationMs": 337,
+                    "durationMs": 18,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mgread.io (HTTP 403)"
@@ -93,12 +92,19 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:13:34.755739587Z",
+    "comparedTo": "2026-11-12T11:33:07.361044175Z",
     "changes": [
         {
             "source": "Mgread.io",
             "lang": "en",
-            "scenario": "connectivity",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Mgread.io",
+            "lang": "en",
+            "scenario": "search",
             "from": "BLOCKED",
             "to": "PASS"
         }

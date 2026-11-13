@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:32:19.374539595Z",
+    "generatedAt": "2026-11-13T11:17:05.138122263Z",
     "module": ":src:en:manhwa18tx",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 1509372624702907317,
             "name": "Manhwa18TX",
             "lang": "en",
             "baseUrl": "https://manhwa18tx.com",
-            "status": "DOWN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,25 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "DOWN",
-                    "durationMs": 292,
-                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
-                    "notes": [
-                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
-                        "java.io.EOFException: SSL peer shut down incorrectly"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 693,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 140,
-                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
-                    "notes": [
-                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
-                        "java.io.EOFException: SSL peer shut down incorrectly"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 369,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Nano Machine -> /manhwa/nano-machine/",
+                        "Return of the Mount Hua Sect -> /manhwa/return-of-the-mount-hua-sect/",
+                        "Surviving as a Genius on Borrowed Time -> /manhwa/surviving-as-a-genius-on-borrowed-time/"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -61,75 +59,93 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 323,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Nano Machine -> /manhwa/nano-machine/"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 362,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 338 -> /manhwa/nano-machine/chapter-338/",
+                        "Chapter 337 -> /manhwa/nano-machine/chapter-337/",
+                        "Chapter 336 -> /manhwa/nano-machine/chapter-336/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 404,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://img01.manhwa18tx.com/online/1744/338/1-a59d7.jpg",
+                        "https://img01.manhwa18tx.com/online/1744/338/2-a59d7.jpg",
+                        "https://img01.manhwa18tx.com/online/1744/338/3-a59d7.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1537,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:16:56.032008100Z",
+    "comparedTo": "2026-11-12T11:32:19.374539595Z",
     "changes": [
         {
             "source": "Manhwa18TX",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Manhwa18TX",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "Manhwa18TX",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Manhwa18TX",
             "lang": "en",
             "scenario": "search",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Manhwa18TX",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Manhwa18TX",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Manhwa18TX",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

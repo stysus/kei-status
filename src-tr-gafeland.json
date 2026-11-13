@@ -1,42 +1,104 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:25:40.568043990Z",
+    "generatedAt": "2026-11-13T11:26:43.664098306Z",
     "module": ":src:tr:gafeland",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:tr:gafeland",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 3266930735690843593,
+            "name": "gafeland",
+            "lang": "tr",
+            "baseUrl": "https://gafeland.com",
+            "status": "BLOCKED",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/tr/gafeland/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:tr:gafeland :src:tr:gafeland:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "PASS",
+                    "durationMs": 6291,
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "BLOCKED",
+                    "durationMs": 307,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gafeland.com (HTTP 403)"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "BLOCKED",
+                    "durationMs": 290,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gafeland.com (HTTP 403)"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 2,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "8 filters"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:20:46.915730158Z",
+    "comparedTo": "2026-11-12T11:25:40.568043990Z",
     "changes": [
-        {
-            "source": ":src:tr:gafeland",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "gafeland",
             "lang": "tr",
             "scenario": null,
-            "from": "BLOCKED",
+            "from": null,
+            "to": "BLOCKED"
+        },
+        {
+            "source": ":src:tr:gafeland",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

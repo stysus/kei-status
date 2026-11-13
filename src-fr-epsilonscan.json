@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:38.067004050Z",
+    "generatedAt": "2026-11-13T11:19:07.351320691Z",
     "module": ":src:fr:epsilonscan",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 2577248042661857530,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "BLOCKED",
-                    "durationMs": 206,
+                    "durationMs": 85,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from epsilonscan.to (HTTP 403)"
@@ -32,32 +32,34 @@
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 15283,
-                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "status": "UNSUPPORTED",
+                    "durationMs": 62,
+                    "message": "requires an Android method or field the harness does not provide: android.webkit.WebView.setVerticalScrollBarEnabled",
                     "notes": [
-                        "java.io.IOException: Open in WebView to pass the site's verification"
+                        "java.io.IOException: 'void android.webkit.WebView.setVerticalScrollBarEnabled(boolean)'",
+                        "java.lang.NoSuchMethodError: 'void android.webkit.WebView.setVerticalScrollBarEnabled(boolean)'"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 1,
-                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "status": "UNSUPPORTED",
+                    "durationMs": 1992,
+                    "message": "requires an Android method or field the harness does not provide: android.webkit.WebView.setVerticalScrollBarEnabled",
                     "notes": [
-                        "java.io.IOException: Open in WebView to pass the site's verification"
+                        "java.io.IOException: 'void android.webkit.WebView.setVerticalScrollBarEnabled(boolean)'",
+                        "java.lang.NoSuchMethodError: 'void android.webkit.WebView.setVerticalScrollBarEnabled(boolean)'"
                     ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "6 filters"
+                        "8 filters"
                     ]
                 },
                 {
@@ -87,14 +89,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:04.773603506Z",
+    "comparedTo": "2026-10-30T01:32:38.067004050Z",
     "changes": [
         {
             "source": "Epsilon Scan",
             "lang": "fr",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "UNSUPPORTED"
+        },
+        {
+            "source": "Epsilon Scan",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "UNSUPPORTED"
         }
     ],
     "throttledHosts": []

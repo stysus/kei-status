@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:32:53.891314457Z",
+    "generatedAt": "2026-11-13T11:16:04.071223463Z",
     "module": ":src:es:kumanga",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 5818858964600650549,
             "name": "Kumanga",
             "lang": "es",
             "baseUrl": "https://www.kumanga.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 624,
+                    "durationMs": 237,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,25 +31,25 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 4213,
+                    "durationMs": 3451,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Mi juventud comienza en el andén de la estación con la gyaru de más alto nivel de otra escuela -> /manga/14876/mi-juventud-comienza-en-el-anden-de-la-estacion-con-la-gyaru-de-mas-alto-nivel-de-otra-escuela",
                         "OBSESIÓN : De esta mujer no puedo escapar -> /manga/14875/obsesion-de-esta-mujer-no-puedo-escapar",
-                        "Era tan hermosa cómo el jade -> /manga/14874/era-tan-hermosa-como-el-jade",
-                        "Accidentalmente Resucite a Mi Esposo Fallecido -> /manga/14873/accidentalmente-resucite-a-mi-esposo-fallecido"
+                        "Era tan hermosa cómo el jade -> /manga/14874/era-tan-hermosa-como-el-jade"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 176,
+                    "durationMs": 148,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "No me gustas solo por tu cara bonita -> /manga/13791/no-me-gustas-solo-por-tu-cara-bonita",
-                        "Mairimashita! Iruma-kun: If Episode of Mafia -> /manga/12582/mairimashita-iruma-kun-if-episode-of-mafia",
-                        "Kakenai node Yattemita -> /manga/14236/kakenai-node-yattemita"
+                        "El día que decidí hacer entender a mi descarada hermana gal a mi manera -> /manga/9707/el-dia-que-decidi-hacer-entender-a-mi-descarada-hermana-gal-a-mi-manera",
+                        "KURO KON - BLACK MARRIAGE -> /manga/13862/kuro-kon-black-marriage",
+                        "Notorare -> /manga/14675/notorare"
                     ]
                 },
                 {
@@ -65,56 +65,52 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 414,
+                    "durationMs": 391,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "OBSESIÓN : De esta mujer no puedo escapar -> /manga/14875/obsesion-de-esta-mujer-no-puedo-escapar"
+                        "Mi juventud comienza en el andén de la estación con la gyaru de más alto nivel de otra escuela -> /manga/14876/mi-juventud-comienza-en-el-anden-de-la-estacion-con-la-gyaru-de-mas-alto-nivel-de-otra-escuela"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 561,
+                    "status": "PASS",
+                    "durationMs": 564,
                     "message": null,
-                    "notes": [
-                        "chapter list is empty"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Capítulo 2 -> /manga/14876/capitulo/2",
+                        "Capítulo 1 -> /manga/14876/capitulo/1"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 1011,
+                    "message": "NullPointerException at Kumanga.getPageList$suspendImpl(Kumanga.kt:149)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:18:28.001836779Z",
+    "comparedTo": "2026-11-12T11:32:53.891314457Z",
     "changes": [
         {
             "source": "Kumanga",
             "lang": "es",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Kumanga",
             "lang": "es",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Kumanga",
-            "lang": "es",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:53.648167855Z",
+    "generatedAt": "2026-11-13T11:16:07.356400954Z",
     "module": ":src:ar:mangastarz",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 6058166507489091982,
             "name": "Manga Starz",
             "lang": "ar",
             "baseUrl": "https://starzmanga.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 746,
+                    "durationMs": 660,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1545,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 721,
+                    "message": "HTTP error 400",
                     "notes": [],
-                    "samples": [
-                        "Otherworldly Evil Monarch -> 775",
-                        "lady Baby -> 417",
-                        "cultivation return on campus -> 2311"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1440,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 471,
+                    "message": "HTTP error 400",
                     "notes": [],
-                    "samples": [
-                        "The Villains’s Favourite Is Me -> 112392",
-                        "Everyone’s Job Transfer: Shadow Lord, I’m Invincible, You Can Do Whatever You Want -> 181254",
-                        "The Princess Who Lives Alone -> 134119"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,57 +55,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 757,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Otherworldly Evil Monarch -> 775"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 354,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "258 -> 258",
-                        "257 -> 257",
-                        "256 -> 256"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 891,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://s2manhwa.starzmanga.com/manga/arb4/data/manga_5ef28f62ab9b0/9e02b07dbf666b0d814bbaedf6b1600e/image-1.jpg",
-                        "https://s2manhwa.starzmanga.com/manga/arb4/data/manga_5ef28f62ab9b0/9e02b07dbf666b0d814bbaedf6b1600e/image-2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1603,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:30:03.628699568Z",
+    "comparedTo": "2026-10-30T01:31:53.648167855Z",
     "changes": [
         {
             "source": "Manga Starz",
             "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manga Starz",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manga Starz",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Starz",
+            "lang": "ar",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Starz",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Starz",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

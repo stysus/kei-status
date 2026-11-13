@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T06:58:32.530404404Z",
+    "generatedAt": "2026-11-13T11:16:58.239027170Z",
     "module": ":src:en:allporncomicio",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 6660493687892371703,
             "name": "AllPornComic.io",
             "lang": "en",
             "baseUrl": "https://allporncomic.io",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 640,
+                    "durationMs": 669,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 436,
+                    "durationMs": 337,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,15 +42,13 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 378,
+                    "status": "WARN",
+                    "durationMs": 231,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Prank with my stepmom uncensored -> 27504",
-                        "Your Mom Is the Best -> 27491",
-                        "Sinful Lust All Latest chapters -> 24219"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -65,7 +63,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 396,
+                    "durationMs": 338,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,7 +73,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 486,
+                    "durationMs": 305,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -86,42 +84,39 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 469,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://allporncomic.io/wp-content/uploads/WP-manga/data/manga_68e7a73018e0e/89e4237609c0f1879ff9769ece7ec645/00.jpg",
-                        "https://allporncomic.io/wp-content/uploads/WP-manga/data/manga_68e7a73018e0e/89e4237609c0f1879ff9769ece7ec645/1.jpg",
-                        "https://allporncomic.io/wp-content/uploads/WP-manga/data/manga_68e7a73018e0e/89e4237609c0f1879ff9769ece7ec645/2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 343,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 235,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:30:39.459625175Z",
+    "comparedTo": "2026-11-03T06:58:32.530404404Z",
     "changes": [
         {
             "source": "AllPornComic.io",
             "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "AllPornComic.io",
+            "lang": "en",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "AllPornComic.io",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

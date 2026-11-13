@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:36:29.111882980Z",
+    "generatedAt": "2026-11-13T11:21:21.213988192Z",
     "module": ":src:zh:yiqiqimanhua",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 4420888243278089080,
             "name": "177漫畫",
             "lang": "zh",
             "baseUrl": "https://www.177pica.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,33 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 400,
+                    "durationMs": 469,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 742,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "[November. (nanohana)] 俺の彼女がキモデブ社長の性処理メイドにされた件 (ブルーアーカイブ) -> 8821220",
-                        "[NTRシステム (ねっとりＰ太郎)] マサムネくんの黒光り木の葉ヨシノ編 -> 8821223",
-                        "[陸の孤島亭 (しゃよー)］桜春女学院の男優 （樱春女子学院的男演员 ）【1-3】[177P] -> 8342736"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30004,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "[RAID SLASH (黒小枝)] 俺の好きな義妹がDQNに寝取られるまで -> 8821239",
-                        "[pz屋台 (pz-x)] 俺のARメガネは義妹の様々な数値が見える？！ -> 8821238",
-                        "[pz-x] 俺のARメガネは義妹の様々な数値が見える？！ -> 8821237"
+                        "[SigMart (SigMa)] 僕の部屋が幼馴染ギャルのヤリ部屋になった話 温泉旅館編 -> 8823390",
+                        "[SigMart (SigMa)] 僕の部屋が幼馴染ギャルのヤリ部屋になった話 -> 8823391",
+                        "[SigMart (SigMa)] クール系店員さんをお持ち帰りしちゃった話 3 -> 8823389"
                     ]
                 },
                 {
@@ -64,48 +62,72 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1728,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "[November. (nanohana)] 俺の彼女がキモデブ社長の性処理メイドにされた件 (ブルーアーカイブ) -> 8821220"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 6443,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 314,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Ch. 1 -> 8821220"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 157,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 256,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img.177pica.com/uploads/2026/03a/001422-4.jpg",
-                        "https://img.177pica.com/uploads/2026/03a/001423-4.jpg",
-                        "https://img.177pica.com/uploads/2026/03a/001424-4.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 840,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
+    "comparedTo": "2026-11-10T11:36:29.111882980Z",
+    "changes": [
+        {
+            "source": "177漫畫",
+            "lang": "zh",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "177漫畫",
+            "lang": "zh",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "177漫畫",
+            "lang": "zh",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "177漫畫",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "177漫畫",
+            "lang": "zh",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

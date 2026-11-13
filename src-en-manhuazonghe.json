@@ -1,42 +1,106 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:25:40.509654616Z",
+    "generatedAt": "2026-11-13T11:16:55.076199183Z",
     "module": ":src:en:manhuazonghe",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:en:manhuazonghe",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 6077132944162952766,
+            "name": "Manhua Zonghe",
+            "lang": "en",
+            "baseUrl": "https://www.manhuazonghe.com",
+            "status": "DOWN",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/en/manhuazonghe/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:en:manhuazonghe :src:en:manhuazonghe:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "WARN",
+                    "durationMs": 795,
+                    "message": null,
+                    "notes": [
+                        "home page returned HTTP 404"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "DOWN",
+                    "durationMs": 187,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "DOWN",
+                    "durationMs": 188,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 3,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "8 filters"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T06:58:04.006078588Z",
+    "comparedTo": "2026-11-12T11:25:40.509654616Z",
     "changes": [
-        {
-            "source": ":src:en:manhuazonghe",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "Manhua Zonghe",
             "lang": "en",
             "scenario": null,
-            "from": "DOWN",
+            "from": null,
+            "to": "DOWN"
+        },
+        {
+            "source": ":src:en:manhuazonghe",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

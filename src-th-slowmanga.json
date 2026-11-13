@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:35:46.601468005Z",
+    "generatedAt": "2026-11-13T11:20:12.461056264Z",
     "module": ":src:th:slowmanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 3894617311216312574,
             "name": "Slow Manga",
             "lang": "th",
             "baseUrl": "https://www.slow-manga.net",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 226,
+                    "durationMs": 477,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 564,
+                    "status": "WARN",
+                    "durationMs": 357,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "I Took over The Academy With a Single Sashimi Knife -> /manga/i-took-over-the-academy-with-a-single-sashimi-knife/",
-                        "I am God ข้าคือเทพเจ้า -> /manga/i-am-god-%e0%b8%82%e0%b9%89%e0%b8%b2%e0%b8%84%e0%b8%b7%e0%b8%ad%e0%b9%80%e0%b8%97%e0%b8%9e%e0%b9%80%e0%b8%88%e0%b9%89%e0%b8%b2/",
-                        "I Was Immediately Mistaken for a Monster Genius Actor -> /manga/i-was-immediately-mistaken-for-a-monster-genius-actor/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 574,
+                    "status": "WARN",
+                    "durationMs": 294,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Villain to Kill -> /manga/villain-to-kill/",
-                        "Healing Life Through Camping In Another World -> /manga/healing-life-through-camping-in-another-world/",
-                        "I’ll Heal With An Academy Convenience Store -> /manga/ill-heal-with-an-academy-convenience-store/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 655,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "I Took over The Academy With a Single Sashimi Knife -> /manga/i-took-over-the-academy-with-a-single-sashimi-knife/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 187,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "ตอนที่ 93 -> /i-took-over-the-academy-with-a-single-sashimi-knife-93/",
-                        "ตอนที่ 92 -> /i-took-over-the-academy-with-a-single-sashimi-knife-92/",
-                        "ตอนที่ 91 -> /i-took-over-the-academy-with-a-single-sashimi-knife-91/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 105,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img3.sing-manga.com/2026/09/17/6aabba4cc156aCole9.jpg",
-                        "https://img3.sing-manga.com/2026/09/17/6aabba4c5c7c51UnLH.jpg",
-                        "https://img3.sing-manga.com/2026/09/17/6aabba4c427c0q7v1x.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 328,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:10.919945024Z",
+    "comparedTo": "2026-10-30T01:35:46.601468005Z",
     "changes": [
         {
             "source": "Slow Manga",
             "lang": "th",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Slow Manga",
+            "lang": "th",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Slow Manga",
+            "lang": "th",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Slow Manga",
+            "lang": "th",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Slow Manga",
+            "lang": "th",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Slow Manga",
+            "lang": "th",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

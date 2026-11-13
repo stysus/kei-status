@@ -1,37 +1,39 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:30:08.047260113Z",
+    "generatedAt": "2026-11-13T11:17:04.694006257Z",
     "module": ":src:en:manganel",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 678343830630527432,
             "name": "MangaNel",
             "lang": "en",
             "baseUrl": "https://manganel.me",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1164,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30088,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 772,
+                    "durationMs": 1921,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +45,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 266,
+                    "durationMs": 3606,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Arashi-Kun No Dakimakura -> /manga/arashi-kun-no-dakimakura",
-                        "Fei Ren Zai -> /manga/fei-ren-zai",
-                        "Lost Man -> /manga/lost-man"
+                        "Yowamushi Pedal -> /manga/yowamushi-pedal",
+                        "Nicoichi -> /manga/nicoichi",
+                        "Return Of The Runebound Professor -> /manga/return-of-the-runebound-professor"
                     ]
                 },
                 {
@@ -65,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 753,
+                    "durationMs": 766,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,19 +79,19 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 523,
+                    "durationMs": 521,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Chapter 538.1 -> /tales-of-demons-and-gods/chapter-538.1",
                         "Chapter 537.6 -> /tales-of-demons-and-gods/chapter-537.6",
-                        "Chapter 537.1 -> /tales-of-demons-and-gods/chapter-537.1",
-                        "Chapter 536.6 -> /tales-of-demons-and-gods/chapter-536.6"
+                        "Chapter 537.1 -> /tales-of-demons-and-gods/chapter-537.1"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 1043,
+                    "durationMs": 1732,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -101,7 +103,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 141,
+                    "durationMs": 155,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -109,49 +111,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-09T11:51:52.267041830Z",
+    "comparedTo": "2026-11-10T11:30:08.047260113Z",
     "changes": [
         {
             "source": "MangaNel",
             "lang": "en",
-            "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaNel",
-            "lang": "en",
-            "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaNel",
-            "lang": "en",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaNel",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaNel",
-            "lang": "en",
-            "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaNel",
-            "lang": "en",
-            "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

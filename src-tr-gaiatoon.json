@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:01:45.518892589Z",
+    "generatedAt": "2026-11-13T11:18:57.711298600Z",
     "module": ":src:tr:gaiatoon",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 7364322791901505063,
             "name": "Gaiatoon",
             "lang": "tr",
             "baseUrl": "https://gaiatoon.com",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 5158,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 6160,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gaiatoon.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 581,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Ters Harem Oyununa Düştüm! -> /manga/ters-harem-oyununa-dustum/",
-                        "Who Made Me a Princess? -> /manga/who-made-me-a-princess/",
-                        "I Will Become the Villain’s Poison Taster -> /manga/i-will-become-the-villains-poison-taster/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 65,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gaiatoon.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 541,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Runway -> /manga/the-runway/",
-                        "Ters Harem Oyununa Düştüm! -> /manga/ters-harem-oyununa-dustum/",
-                        "Acı Ayarını Kapattım! -> /manga/aci-ayarini-kapattim/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 66,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from gaiatoon.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,91 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 512,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Ters Harem Oyununa Düştüm! -> /manga/ters-harem-oyununa-dustum/"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 529,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 135+ -> /ters-harem-oyununa-dustum-135-2/",
-                        "Bölüm 135 -> /ters-harem-oyununa-dustum-135/",
-                        "Bölüm 134 -> /ters-harem-oyununa-dustum-134/"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 489,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "search",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:45:21.171052456Z",
+    "comparedTo": "2026-11-03T07:01:45.518892589Z",
     "changes": [
         {
             "source": "Gaiatoon",
             "lang": "tr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Gaiatoon",
+            "lang": "tr",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Gaiatoon",
             "lang": "tr",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Gaiatoon",
-            "lang": "tr",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Gaiatoon",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Gaiatoon",
+            "lang": "tr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Gaiatoon",
             "lang": "tr",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "SKIP"
         },
         {
             "source": "Gaiatoon",
             "lang": "tr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

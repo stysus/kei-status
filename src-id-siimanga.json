@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-11T11:19:04.985177968Z",
+    "generatedAt": "2026-11-13T11:19:37.585581231Z",
     "module": ":src:id:siimanga",
     "sourceRoot": "",
-    "extensionCommit": "d0478bb6",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 4762501899936439936,
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1233,
+                    "durationMs": 691,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 974,
+                    "status": "WARN",
+                    "durationMs": 187,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Tears on a Withered Flower -> /komik/tears-on-a-withered-flower/",
-                        "Ignorant Man -> /komik/ignorant-man/",
-                        "Operation Water Ghost -> /komik/operation-water-ghost/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 851,
+                    "status": "WARN",
+                    "durationMs": 170,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Garden of May [Side Story] -> /komik/garden-of-may-side-story/",
-                        "The Scarred Young Master’s Maid -> /komik/the-scarred-young-masters-maid/",
-                        "Dangerous Newlyweds -> /komik/dangerous-newlyweds/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 430,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Tears on a Withered Flower -> /komik/tears-on-a-withered-flower/"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 1004,
-                    "message": null,
-                    "notes": [
-                        "duplicate chapter urls: [chapters]"
-                    ],
-                    "samples": [
-                        "🔒 Chapter 126 -> chapters",
-                        "🔒 Chapter 125 -> chapters",
-                        "Chapter 124 -> chapter-124"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 959,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "search",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:37:41.652562462Z",
+    "comparedTo": "2026-11-11T11:19:04.985177968Z",
     "changes": [
         {
             "source": "Siikomik",
             "lang": "id",
-            "scenario": "chapters",
+            "scenario": "popular",
             "from": "PASS",
             "to": "WARN"
+        },
+        {
+            "source": "Siikomik",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Siikomik",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Siikomik",
+            "lang": "id",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Siikomik",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Siikomik",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

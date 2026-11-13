@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:36:38.118352077Z",
+    "generatedAt": "2026-11-13T11:19:51.342566744Z",
     "module": ":src:tr:strayfansub",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 7536061906713738443,
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 3640,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 6203,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from strayfansub.buzz (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 829,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Passion -> /manga/tutku/",
-                        "Flashlight -> /manga/flashlight/",
-                        "Yavru Köpeğimle Uğraşma! -> /manga/yavru-kopegimle-ugrasma/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 31,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from strayfansub.buzz (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 800,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Bongch0n Bride -> /manga/bongchun-gelin/",
-                        "Backlight -> /manga/backlight/",
-                        "Honbul: Ruhun Ateşi (Novel) -> /manga/honbul-ruhun-atesi-novel/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 33,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from strayfansub.buzz (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,70 +61,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 769,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Passion -> /manga/tutku/",
-                        "Passion: Raga -> /manga/tutku-ragia/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 549,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 144 -> /passion-144-bolum/",
-                        "Bölüm 143 -> /passion-143-bolum/",
-                        "Bölüm 142 -> /passion-142-bolum/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 503,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.Exception: Okumak için WebView üzerinden giriş yapın"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:28:27.204216204Z",
+    "comparedTo": "2026-10-30T01:36:38.118352077Z",
     "changes": [
         {
             "source": "Stray Fansub",
             "lang": "tr",
-            "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Stray Fansub",
             "lang": "tr",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Stray Fansub",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Stray Fansub",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Stray Fansub",
+            "lang": "tr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Stray Fansub",
             "lang": "tr",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

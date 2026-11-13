@@ -1,42 +1,109 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:25:40.559741288Z",
+    "generatedAt": "2026-11-13T11:24:58.561224290Z",
     "module": ":src:pt:starlightscan",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:pt:starlightscan",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 7977736050206547443,
+            "name": "Starlight Scan",
+            "lang": "pt-BR",
+            "baseUrl": "https://starligthscan.com",
+            "status": "DOWN",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/pt/starlightscan/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:pt:starlightscan :src:pt:starlightscan:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "DOWN",
+                    "durationMs": 110,
+                    "message": "the site is unreachable (Connection refused (connect failed)); the source is not at fault",
+                    "notes": [
+                        "java.net.ConnectException: Failed to connect to starligthscan.com/127.0.0.1:443",
+                        "java.net.ConnectException: Connection refused (connect failed)"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "DOWN",
+                    "durationMs": 4,
+                    "message": "the site is unreachable (Connection refused (connect failed)); the source is not at fault",
+                    "notes": [
+                        "java.net.ConnectException: Failed to connect to starligthscan.com/127.0.0.1:443",
+                        "java.net.ConnectException: Connection refused (connect failed)"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "DOWN",
+                    "durationMs": 1,
+                    "message": "the site is unreachable (Connection refused (connect failed)); the source is not at fault",
+                    "notes": [
+                        "java.net.ConnectException: Failed to connect to starligthscan.com/127.0.0.1:443",
+                        "java.net.ConnectException: Connection refused (connect failed)"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 1,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "1 filters"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:40:50.241212084Z",
+    "comparedTo": "2026-11-12T11:25:40.559741288Z",
     "changes": [
-        {
-            "source": ":src:pt:starlightscan",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "Starlight Scan",
             "lang": "pt-BR",
             "scenario": null,
-            "from": "DOWN",
+            "from": null,
+            "to": "DOWN"
+        },
+        {
+            "source": ":src:pt:starlightscan",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

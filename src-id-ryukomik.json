@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:05.788503477Z",
+    "generatedAt": "2026-11-13T11:20:13.928591289Z",
     "module": ":src:id:ryukomik",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 8514921831398456146,
             "name": "Ryukomik",
             "lang": "id",
             "baseUrl": "https://ryukomik.my.id",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 984,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 130,
+                    "message": "the site is unreachable (ryukomik.my.id: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: ryukomik.my.id: Name or service not known"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1153,
+                    "durationMs": 1322,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,20 +44,18 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 429,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Extra’s Academy Survival Guide -> /komik/komiku/the-extras-academy-survival-guide",
-                        "Dushi Xiewang -> /komik/komiku/dushi-xiewang",
-                        "Regressor Instruction Manual -> /komik/komiku/regressor-instruction-manual"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 0,
+                    "message": "the site is unreachable (ryukomik.my.id); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: ryukomik.my.id"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,59 +64,78 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 4917,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "A Revenge Guide for the Terminally -> /komik/komiku/a-revenge-guide-for-the-terminally",
-                        "A Revenge Guide for the Terminally Ill Maid -> /komik/kiryuu/a-revenge-guide-for-the-terminally-ill-maid",
-                        "A Revenge Guide for the Terminally Ill Maid -> /komik/josei/a-revenge-guide-for-the-terminally-ill-maid"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 2063,
+                    "message": "the site is unreachable (ryukomik.my.id); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: ryukomik.my.id"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 418,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chapter 6 -> /chapter/komiku/a-revenge-guide-for-the-terminally-chapter-6",
-                        "Chapter 5 -> /chapter/komiku/a-revenge-guide-for-the-terminally-chapter-5",
-                        "Chapter 4 -> /chapter/komiku/a-revenge-guide-for-the-terminally-chapter-4"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 1,
+                    "message": "the site is unreachable (ryukomik.my.id); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: ryukomik.my.id"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 590,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://api.ryukomik.web.id/komiku/image?url=https%3A%2F%2Fimg.komiku.org%2Fkomiku-promosi.webp",
-                        "https://api.ryukomik.web.id/komiku/image?url=https%3A%2F%2Fimg.komiku.org%2Fupload5%2Fa-revenge-guide-for-the-terminally%2F6%2F2025-08-14%2F1_35d18844.jpg",
-                        "https://api.ryukomik.web.id/komiku/image?url=https%3A%2F%2Fimg.komiku.org%2Fupload5%2Fa-revenge-guide-for-the-terminally%2F6%2F2025-08-14%2F2_part1_9a24aa16.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1018,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:13.305409593Z",
+    "comparedTo": "2026-10-30T01:33:05.788503477Z",
     "changes": [
         {
             "source": "Ryukomik",
             "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Ryukomik",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Ryukomik",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Ryukomik",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Ryukomik",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ryukomik",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

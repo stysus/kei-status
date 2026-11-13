@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:00.854012178Z",
+    "generatedAt": "2026-11-13T11:16:59.545800116Z",
     "module": ":src:fr:scanhentaimenu",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 8214773311087111646,
             "name": "X-Manga",
             "lang": "fr",
             "baseUrl": "https://x-manga.org",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 4587,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 7325,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from x-manga.org (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 261,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Sex Study Group -> sex-study-group",
-                        "Secret Class -> secret-class",
-                        "Panty Note -> panty-note"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 21,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from x-manga.org (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 309,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Temps Suspendu -> temps-suspendu",
-                        "Percée Fatale -> percee-fatale",
-                        "Où sont passés les hommes ? -> ou-sont-passes-les-hommes"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 32,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from x-manga.org (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 216,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Sex Study Group -> sex-study-group"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 225,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapitre 110: Fin -> 22192",
-                        "Chapitre 109 -> 20951",
-                        "Chapitre 108 -> 20941"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 202,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://reader.hentai.gifts/manga_633e8bea451ad/chapitre-1/01.png",
-                        "https://reader.hentai.gifts/manga_633e8bea451ad/chapitre-1/02.png",
-                        "https://reader.hentai.gifts/manga_633e8bea451ad/chapitre-1/03.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1378,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:34:53.033183304Z",
+    "comparedTo": "2026-10-30T01:32:00.854012178Z",
     "changes": [
         {
             "source": "X-Manga",
             "lang": "fr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "X-Manga",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "X-Manga",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "X-Manga",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "X-Manga",
+            "lang": "fr",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "X-Manga",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "X-Manga",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

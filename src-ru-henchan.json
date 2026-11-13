@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:36:10.770877449Z",
+    "generatedAt": "2026-11-13T11:20:21.441056332Z",
     "module": ":src:ru:henchan",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 5504588601186153612,
             "name": "HenChan",
             "lang": "ru",
             "baseUrl": "https://xxl.hentaichan.live",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 2201,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30552,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 5674,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 30004,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "java.net.SocketTimeoutException: timeout"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 6721,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Дафни и Велма -> /manga/55795-dafni-i-velma.html",
-                        "Переполняясь Чернотой - Глава 1 -> /manga/55794-perepolnyayas-chernotoy-glava-1.html",
-                        "Футанари Атаго и секретный пляж (Futanari Atago to Himitsu no Beach) -> /manga/55792-futanari-atago-i-sekretnyy-plyazh-futanari-atago-to-himitsu-no-beach.html"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30001,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -61,102 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 16981,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Дафни и Велма (Daphne and Velma) -> /manga/55795-dafni-i-velma.html"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 8877,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Дафни и Велма -> /online/55795-dafni-i-velma.html?cacheId=1794266551"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 98,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://mimg4.imgschan.xyz/manganew_webp/s/1794266551_skubi-du/skubi-1.webp",
-                        "https://mimg4.imgschan.xyz/manganew_webp/s/1794266551_skubi-du/skubi-2.webp",
-                        "https://mimg4.imgschan.xyz/manganew_webp/s/1794266551_skubi-du/skubi-3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 31776,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request failed: SocketTimeoutException: timeout",
-                        "page[1] image request failed: SocketTimeoutException: timeout",
-                        "page[2] image request failed: SocketTimeoutException: timeout"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:19:31.106506486Z",
+    "comparedTo": "2026-11-12T11:36:10.770877449Z",
     "changes": [
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "popular",
-            "from": "DOWN",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "DOWN"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "latest",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "HenChan",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HenChan",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "images",
-            "from": null,
-            "to": "WARN"
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

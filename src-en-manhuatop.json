@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:15.725987396Z",
+    "generatedAt": "2026-11-13T11:17:26.220279617Z",
     "module": ":src:en:manhuatop",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 1903782575226230108,
             "name": "ManhuaTop",
             "lang": "en",
             "baseUrl": "https://manhuatop.org",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 5083,
+                    "durationMs": 629,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,31 +31,31 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 3102,
+                    "durationMs": 695,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The Beginning After The End -> /manhua/the-beginning-after-the-end/",
-                        "The Return of the Scorned Genius -> /manhua/the-return-of-the-scorned-genius/",
-                        "Dark and Light Martial Emperor -> /manhua/dark-and-light-martial-emperor-mh/"
+                        "High-Martial World: One Hand to Overwhelm Three Thousand Emperors! -> /manhua/high-martial-world-one-hand-to-overwhelm-three-thousand-emperors/",
+                        "Return of the Flowery Mountain Sect -> /manhua/return-of-the-mount-hua-sect/",
+                        "Overgeared -> /manhua/overgeared-org/"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1497,
+                    "durationMs": 660,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Black Killer Whale Baby -> /manhua/black-killer-whale-baby-mhtop/",
-                        "The War of Corpses -> /manhua/the-war-of-corpses/",
-                        "There Are No Bad Heroes In This World -> /manhua/there-are-no-bad-heroes-in-this-world/"
+                        "The Broken Ring : This Marriage Will Fail Anyway -> /manhua/the-broken-ring-this-marriage-will-fail-anyway-mhtop/",
+                        "This Emperor Is Running a Marriage Scam -> /manhua/this-emperor-is-running-a-marriage-scam/",
+                        "Paranoid Mage -> /manhua/paranoid-mage-mh/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,64 +65,53 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 3608,
+                    "durationMs": 1522,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The Beginning After The End -> /manhua/the-beginning-after-the-end/",
-                        "The Beginning After The End: Side Story - Jasmine: Wind-Borne -> /manhua/the-beginning-after-the-end-side-story-jasmine-wind-borne/"
+                        "High-Martial World: One Hand to Overwhelm Three Thousand Emperors! -> /manhua/high-martial-world-one-hand-to-overwhelm-three-thousand-emperors/"
                     ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 8295,
+                    "durationMs": 2960,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Chapter 280 - 237 -> chapter-280-237",
-                        "Chapter 279 - 236 -> chapter-279-236",
-                        "Chapter 278 - 235 -> chapter-278-235"
+                        "Chapter 83 -> chapter-83",
+                        "Chapter 82 -> chapter-82",
+                        "Chapter 81 -> chapter-81"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1596,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://s3.manhuatop.org/manga_f2e10c988a255a5851d3a6acb702350d/chapter_369/ch_369_1.jpg",
-                        "https://s3.manhuatop.org/manga_f2e10c988a255a5851d3a6acb702350d/chapter_369/ch_369_2.jpg",
-                        "https://s3.manhuatop.org/manga_f2e10c988a255a5851d3a6acb702350d/chapter_369/ch_369_3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 148,
-                    "message": null,
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 1020,
+                    "message": "Field 'hasMore' is required for type with serial name 'eu.kanade.tachiyomi.extension.en.manhuatop.ContentDto', but it was missing",
+                    "notes": [
+                        "kotlinx.serialization.MissingFieldException: Field 'hasMore' is required for type with serial name 'eu.kanade.tachiyomi.extension.en.manhuatop.ContentDto', but it was missing at path: $"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:19:40.602573317Z",
+    "comparedTo": "2026-10-30T01:30:15.725987396Z",
     "changes": [
         {
             "source": "ManhuaTop",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "ManhuaTop",
             "lang": "en",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:30:54.641049364Z",
+    "generatedAt": "2026-11-13T11:16:08.796043680Z",
     "module": ":src:ar:dilar",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 7634600808243438399,
             "name": "Dilar",
             "lang": "ar",
             "baseUrl": "https://dilar.tube",
-            "status": "DOWN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,39 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 5438,
+                    "status": "PASS",
+                    "durationMs": 350,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 523",
-                        "home page body is empty"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 745,
-                    "message": "the site's origin server is not responding (HTTP 523); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 523"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 154,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Remarried Empress -> 983/Remarried Empress",
+                        "I Got Engaged to the Blind Duke -> 11034/I Got Engaged to the Blind Duke",
+                        "My Husband Was Definitely a Holy Knight -> 12499/My Husband Was Definitely a Holy Knight"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 6403,
-                    "message": "the site's origin server is not responding (HTTP 523); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 523"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 162,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "My Disciples Are All Villains -> 8950/My Disciples Are All Villains",
+                        "I have returned from all worlds -> 9462/I have returned from all worlds",
+                        "Dafeng Night Watchman -> 8980/Dafeng Night Watchman"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,75 +63,83 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 255,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Remarried Empress -> 983/Remarried Empress"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 178,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "250 -> 983/Remarried Empress/250#200810",
+                        "249 -> 983/Remarried Empress/249#200809",
+                        "248 -> 983/Remarried Empress/248#200808"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 30059,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 30s"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-10T11:28:58.855768367Z",
+    "comparedTo": "2026-11-12T11:30:54.641049364Z",
     "changes": [
         {
             "source": "Dilar",
             "lang": "ar",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Dilar",
             "lang": "ar",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Dilar",
             "lang": "ar",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "Dilar",
-            "lang": "ar",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Dilar",
             "lang": "ar",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Dilar",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Dilar",
             "lang": "ar",
             "scenario": "pages",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

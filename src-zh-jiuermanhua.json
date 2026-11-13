@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:38:03.688964083Z",
+    "generatedAt": "2026-11-13T11:21:48.188342911Z",
     "module": ":src:zh:jiuermanhua",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 1520913911854846698,
             "name": "92漫画",
             "lang": "zh",
             "baseUrl": "http://www.92mh.com",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -25,7 +25,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 125,
+                    "durationMs": 64,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -33,7 +33,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 122,
+                    "durationMs": 43,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -45,13 +45,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 944,
+                    "durationMs": 1160,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "今天开始我就是萝莉的小白脸！ -> /manhua/4094/",
-                        "涅槃公主的葬歌 -> /manhua/626/",
-                        "鬼畜英雄 -> /manhua/308/"
+                        "优等生跑来买成人玩具了 -> /manhua/7701/",
+                        "夜绘序 -> /manhua/7688/",
+                        "青肌巨乳与超级边缘人 -> /manhua/7670/"
                     ]
                 },
                 {
@@ -66,18 +66,18 @@
                 },
                 {
                     "name": "search",
-                    "status": "BLOCKED",
-                    "durationMs": 20322,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1050,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "暴夜 -> /manhua/1212/"
+                    ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 154,
+                    "durationMs": 983,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,32 +88,48 @@
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 19411,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403",
-                        "pages are only checked on a chapter that needs no unlock"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 199,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://cover.alltucdn.cc/images/comic/174/347968/1773840682XowhCC93DoW8NZaV.jpg",
+                        "https://cover.alltucdn.cc/images/comic/174/347968/177384068047-ZIIqDFAYJNJeS.jpg",
+                        "https://cover.alltucdn.cc/images/comic/174/347968/1773840679WUhX5sNew5I58KB6.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 2026,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:20:55.586274736Z",
+    "comparedTo": "2026-11-12T11:38:03.688964083Z",
     "changes": [
         {
             "source": "92漫画",
             "lang": "zh",
-            "scenario": "popular",
+            "scenario": "search",
             "from": "BLOCKED",
             "to": "PASS"
         },
         {
             "source": "92漫画",
             "lang": "zh",
-            "scenario": "chapters",
-            "from": "BLOCKED",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "92漫画",
+            "lang": "zh",
+            "scenario": "images",
+            "from": null,
             "to": "PASS"
         }
     ],

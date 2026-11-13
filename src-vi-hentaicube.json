@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:40:26.491609058Z",
+    "generatedAt": "2026-11-13T11:20:18.009866019Z",
     "module": ":src:vi:hentaicube",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 823638192569572166,
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 5519,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 6042,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from 2tencb.pro (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 422,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Lỗ đã mở -> 31556",
-                        "Mother, It has to be you! -> 1651",
-                        "Săn vợ người ở thế giới khác -> 33540"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 28,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from 2tencb.pro (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 394,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Em có thích những cô gái hơn tuổi hư hỏng không? -> 24701",
-                        "Chỉ một giọt rượu thôi cũng khiến Minami nhà bên “nổi loạn” -> 50730",
-                        "Risen vẫn chưa biết yêu -> 50727"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 14,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from 2tencb.pro (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,50 +61,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1256,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Lỗ đã mở -> 31556",
-                        "Chỉ một giọt rượu thôi cũng khiến Minami nhà bên “nổi loạn” -> 50730",
-                        "Cô vợ cho ta chịch mọi lỗ -> 49039"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 3612,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chap 152 - Đoạn kết -> chap-152",
-                        "Chap 151 - HẾT -> chap-151",
-                        "Chap 150 -> chap-150"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 2410,
-                    "message": "the site's captcha needs a human the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.IllegalStateException: Captcha needs interaction, but the app isn't in the foreground"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:44:26.239409879Z",
+    "comparedTo": "2026-10-30T01:40:26.491609058Z",
     "changes": [
         {
             "source": "CBHentai",
             "lang": "vi",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "CBHentai",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "CBHentai",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "CBHentai",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "CBHentai",
+            "lang": "vi",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "CBHentai",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "BLOCKED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

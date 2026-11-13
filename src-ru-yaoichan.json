@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:35:45.131240835Z",
+    "generatedAt": "2026-11-13T11:22:43.225459257Z",
     "module": ":src:ru:yaoichan",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 2466512768990363955,
@@ -22,28 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "DOWN",
-                    "durationMs": 31280,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 1511,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "DOWN",
-                    "durationMs": 30162,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
-                    "samples": []
-                },
-                {
-                    "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 455,
+                    "durationMs": 392,
                     "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
@@ -51,9 +39,21 @@
                     "samples": []
                 },
                 {
+                    "name": "latest",
+                    "status": "PASS",
+                    "durationMs": 573,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Fake dating -> /manga/175072-fake-dating.html",
+                        "Jujutsu Kaisen dj - WE ARE CUTE DOGS. -> /manga/175071-jujutsu-kaisen-dj-we-are-cute-dogs..html",
+                        "Genshin Impact dj - Atarashii kuni -> /manga/175063-genshin-impact-dj-atarashii-kuni.html"
+                    ]
+                },
+                {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,33 +61,66 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 580,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Fake dating (Фальшивое свидание) -> /manga/175072-fake-dating.html"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "chapters",
+                    "status": "WARN",
+                    "durationMs": 1922,
+                    "message": null,
+                    "notes": [
+                        "chapter list is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-04T11:23:21.446310887Z",
-    "changes": [],
+    "comparedTo": "2026-11-10T11:35:45.131240835Z",
+    "changes": [
+        {
+            "source": "YaoiChan",
+            "lang": "ru",
+            "scenario": "connectivity",
+            "from": "DOWN",
+            "to": "PASS"
+        },
+        {
+            "source": "YaoiChan",
+            "lang": "ru",
+            "scenario": "latest",
+            "from": "DOWN",
+            "to": "PASS"
+        },
+        {
+            "source": "YaoiChan",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "YaoiChan",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "WARN"
+        }
+    ],
     "throttledHosts": []
 }

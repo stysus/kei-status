@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:29:29.609496133Z",
+    "generatedAt": "2026-11-13T11:15:20.325083515Z",
     "module": ":src:en:mangahere",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 2,
             "name": "Mangahere",
             "lang": "en",
             "baseUrl": "https://www.mangahere.cc",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 372,
+                    "durationMs": 231,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,25 +31,25 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1918,
+                    "durationMs": 2061,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "Onepunch-Man -> /manga/onepunch_man/",
-                        "One Piece -> /manga/one_piece/",
-                        "Black Clover -> /manga/black_clover/"
+                        "Black Clover -> /manga/black_clover/",
+                        "Spy X Family -> /manga/spy_x_family/"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1948,
+                    "durationMs": 1906,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Tensei Akujo no Kuro Rekishi -> /manga/tensei_akujo_no_kuro_rekishi/",
-                        "Nano Machine -> /manga/nano_machine/",
-                        "Logging 10,000 Years Into the Future -> /manga/logging_10_000_years_into_the_future/"
+                        "Damn reincarnation -> /manga/damn_reincarnation/",
+                        "Mushoku Tensei - Isekai Ittara Honki Dasu -> /manga/mushoku_tensei_isekai_ittara_honki_dasu/",
+                        "After Turning Back Time, I Want to Live a Different Life -> /manga/after_turning_back_time_i_want_to_live_a_different_life/"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1976,
+                    "durationMs": 1930,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +77,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 4006,
+                    "durationMs": 4013,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,42 +88,32 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2247,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.mangahere.cc/manga/onepunch_man/c240/chapterfun.ashx?cid=1784703&page=1&key=3aa87b0d873169dd#https://www.mangahere.cc/manga/onepunch_man/c240/1.html",
-                        "https://www.mangahere.cc/manga/onepunch_man/c240/chapterfun.ashx?cid=1784703&page=2&key=3aa87b0d873169dd#https://www.mangahere.cc/manga/onepunch_man/c240/1.html",
-                        "https://www.mangahere.cc/manga/onepunch_man/c240/chapterfun.ashx?cid=1784703&page=3&key=3aa87b0d873169dd#https://www.mangahere.cc/manga/onepunch_man/c240/1.html"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 493,
-                    "message": null,
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 2009,
+                    "message": "NullPointerException at Mangahere.getPageList$suspendImpl(Mangahere.kt:248)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:16:52.097900280Z",
+    "comparedTo": "2026-11-12T11:29:29.609496133Z",
     "changes": [
         {
             "source": "Mangahere",
             "lang": "en",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Mangahere",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

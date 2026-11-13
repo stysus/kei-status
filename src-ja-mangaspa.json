@@ -1,42 +1,106 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:25:40.547679964Z",
+    "generatedAt": "2026-11-13T11:23:34.245146284Z",
     "module": ":src:ja:mangaspa",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:ja:mangaspa",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 2566686121922544500,
+            "name": "Manga SPA",
+            "lang": "ja",
+            "baseUrl": "https://mangaspa.nikkan-spa.jp",
+            "status": "BLOCKED",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/ja/mangaspa/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:ja:mangaspa :src:ja:mangaspa:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "WARN",
+                    "durationMs": 354,
+                    "message": null,
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "BLOCKED",
+                    "durationMs": 63,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "BLOCKED",
+                    "durationMs": 13,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "1 filters"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:05:08.853082419Z",
+    "comparedTo": "2026-11-12T11:25:40.547679964Z",
     "changes": [
-        {
-            "source": ":src:ja:mangaspa",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "Manga SPA",
             "lang": "ja",
             "scenario": null,
-            "from": "BLOCKED",
+            "from": null,
+            "to": "BLOCKED"
+        },
+        {
+            "source": ":src:ja:mangaspa",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],
