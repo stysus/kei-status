@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:22:43.225459257Z",
+    "generatedAt": "2026-11-14T10:46:39.380751852Z",
     "module": ":src:ru:yaoichan",
     "sourceRoot": "",
     "extensionCommit": "c3bc55d5",
@@ -22,16 +22,28 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1511,
+                    "status": "WARN",
+                    "durationMs": 1091,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 502"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "DOWN",
-                    "durationMs": 392,
+                    "durationMs": 30131,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "DOWN",
+                    "durationMs": 263,
                     "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
@@ -39,21 +51,9 @@
                     "samples": []
                 },
                 {
-                    "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 573,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Fake dating -> /manga/175072-fake-dating.html",
-                        "Jujutsu Kaisen dj - WE ARE CUTE DOGS. -> /manga/175071-jujutsu-kaisen-dj-we-are-cute-dogs..html",
-                        "Genshin Impact dj - Atarashii kuni -> /manga/175063-genshin-impact-dj-atarashii-kuni.html"
-                    ]
-                },
-                {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,65 +61,61 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 580,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Fake dating (Фальшивое свидание) -> /manga/175072-fake-dating.html"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 1922,
-                    "message": null,
-                    "notes": [
-                        "chapter list is empty"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-10T11:35:45.131240835Z",
+    "comparedTo": "2026-11-13T11:22:43.225459257Z",
     "changes": [
         {
             "source": "YaoiChan",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "YaoiChan",
             "lang": "ru",
             "scenario": "latest",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "YaoiChan",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "YaoiChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "YaoiChan",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

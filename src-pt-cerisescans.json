@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:48.291836729Z",
+    "generatedAt": "2026-11-14T10:48:01.206374615Z",
     "module": ":src:pt:cerisescans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 6986357795598884919,
             "name": "Cerise Scan",
             "lang": "pt-BR",
             "baseUrl": "https://loverstoon.net",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,26 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 418,
+                    "status": "WARN",
+                    "durationMs": 274,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 521"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 174,
-                    "message": "HTTP error 404",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 478,
+                    "message": "the site's origin server is not responding (HTTP 521); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 521"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 634,
-                    "message": "HTTP error 404",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 483,
+                    "message": "the site's origin server is not responding (HTTP 521); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 521"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,14 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:37:18.281296166Z",
+    "comparedTo": "2026-10-30T01:33:48.291836729Z",
     "changes": [
         {
             "source": "Cerise Scan",
             "lang": "pt-BR",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Cerise Scan",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "DOWN"
+        },
+        {
+            "source": "Cerise Scan",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

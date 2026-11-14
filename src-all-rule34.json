@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:13:00.881854603Z",
+    "generatedAt": "2026-11-14T10:39:15.660936126Z",
     "module": ":src:all:rule34",
     "sourceRoot": "",
     "extensionCommit": "c3bc55d5",
@@ -10,7 +10,7 @@
             "name": "Rule34",
             "lang": "all",
             "baseUrl": "https://rule34.xxx",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,30 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 707,
+                    "durationMs": 2980,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 33,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from rule34.xxx (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 349,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Post 12071379 -> post/12071379",
+                        "Post 2827009 -> post/2827009",
+                        "Post 12622276 -> post/12622276"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 576,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from rule34.xxx (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 908,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Post 19353198 -> post/19353198",
+                        "Post 19137914 -> post/19137914",
+                        "Post 7280896 -> post/7280896"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -59,33 +63,91 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 118,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"Post 12071379\" matched no results in the first page"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 121,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Post -> post/12071379"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 4,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://wimg.rule34.xxx//images/2105/828277bd0bd5d13e66f7d54f21205e48.jpeg?12071379"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1097,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
+    "comparedTo": "2026-11-13T11:13:00.881854603Z",
+    "changes": [
+        {
+            "source": "Rule34",
+            "lang": "all",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Rule34",
+            "lang": "all",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Rule34",
+            "lang": "all",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Rule34",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Rule34",
+            "lang": "all",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Rule34",
+            "lang": "all",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ],
     "throttledHosts": []
 }

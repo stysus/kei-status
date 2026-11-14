@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:20:13.928591289Z",
+    "generatedAt": "2026-11-14T10:49:37.094424522Z",
     "module": ":src:id:ryukomik",
     "sourceRoot": "",
     "extensionCommit": "c3bc55d5",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "DOWN",
-                    "durationMs": 130,
+                    "durationMs": 215,
                     "message": "the site is unreachable (ryukomik.my.id: Name or service not known); the source is not at fault",
                     "notes": [
                         "java.net.UnknownHostException: ryukomik.my.id: Name or service not known"
@@ -32,20 +32,18 @@
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1322,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "A Revenge Guide for the Terminally -> /komik/komiku/a-revenge-guide-for-the-terminally",
-                        "-50kg Cinderella -> /komik/komiku/50kg-cinderella",
-                        "-Aoppella!?- Hajimari no Playlist -> /komik/komiku/aoppella-hajimari-no-playlist"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 354,
+                    "message": "the site is unreachable (api.ryukomik.web.id: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: api.ryukomik.web.id: Name or service not known"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "DOWN",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": "the site is unreachable (ryukomik.my.id); the source is not at fault",
                     "notes": [
                         "java.net.UnknownHostException: ryukomik.my.id"
@@ -63,56 +61,38 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "DOWN",
-                    "durationMs": 2063,
-                    "message": "the site is unreachable (ryukomik.my.id); the source is not at fault",
-                    "notes": [
-                        "java.net.UnknownHostException: ryukomik.my.id"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "DOWN",
-                    "durationMs": 1,
-                    "message": "the site is unreachable (ryukomik.my.id); the source is not at fault",
-                    "notes": [
-                        "java.net.UnknownHostException: ryukomik.my.id"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:33:05.788503477Z",
+    "comparedTo": "2026-11-13T11:20:13.928591289Z",
     "changes": [
         {
             "source": "Ryukomik",
             "lang": "id",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "Ryukomik",
-            "lang": "id",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "Ryukomik",
-            "lang": "id",
-            "scenario": "search",
+            "scenario": "popular",
             "from": "PASS",
             "to": "DOWN"
         },
@@ -120,22 +100,15 @@
             "source": "Ryukomik",
             "lang": "id",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "Ryukomik",
-            "lang": "id",
-            "scenario": "pages",
-            "from": "PASS",
+            "from": "DOWN",
             "to": "SKIP"
         },
         {
             "source": "Ryukomik",
             "lang": "id",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "search",
+            "from": "DOWN",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

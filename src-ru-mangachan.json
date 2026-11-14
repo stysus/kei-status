@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:22:14.148513786Z",
+    "generatedAt": "2026-11-14T10:45:58.644164721Z",
     "module": ":src:ru:mangachan",
     "sourceRoot": "",
     "extensionCommit": "c3bc55d5",
@@ -22,18 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "DOWN",
-                    "durationMs": 31378,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "status": "WARN",
+                    "durationMs": 692,
+                    "message": null,
                     "notes": [
-                        "java.net.SocketTimeoutException: timeout"
+                        "home page returned HTTP 502"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "DOWN",
-                    "durationMs": 269,
+                    "durationMs": 261,
                     "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "DOWN",
-                    "durationMs": 136,
+                    "durationMs": 611,
                     "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
@@ -53,7 +53,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,49 +87,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:37:15.712043259Z",
+    "comparedTo": "2026-11-13T11:22:14.148513786Z",
     "changes": [
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "DOWN"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "DOWN",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

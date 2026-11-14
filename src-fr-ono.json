@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:33:10.020004999Z",
+    "generatedAt": "2026-11-14T10:43:44.464407523Z",
     "module": ":src:fr:ono",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 4944745470170824284,
@@ -22,21 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 136,
-                    "message": null,
+                    "status": "BLOCKED",
+                    "durationMs": 22,
+                    "message": "AWS WAF anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "home page returned HTTP 403"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: AWS WAF challenge from www.ono.live (HTTP 202)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 281,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "durationMs": 24,
+                    "message": "AWS WAF anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: AWS WAF challenge from ws.ono.live (HTTP 202)"
                     ],
                     "samples": []
                 },
@@ -85,49 +85,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:15:31.240334168Z",
+    "comparedTo": "2026-11-12T11:33:10.020004999Z",
     "changes": [
         {
             "source": "Ono",
             "lang": "fr",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Ono",
-            "lang": "fr",
-            "scenario": "popular",
-            "from": "PASS",
+            "from": "WARN",
             "to": "BLOCKED"
-        },
-        {
-            "source": "Ono",
-            "lang": "fr",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Ono",
-            "lang": "fr",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Ono",
-            "lang": "fr",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Ono",
-            "lang": "fr",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
         }
     ],
     "throttledHosts": []

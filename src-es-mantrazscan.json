@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-11T11:16:38.854092809Z",
+    "generatedAt": "2026-11-14T10:43:30.489216661Z",
     "module": ":src:es:mantrazscan",
     "sourceRoot": "",
-    "extensionCommit": "d0478bb6",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 7172992930543738693,
             "name": "Mantraz Scan",
             "lang": "es",
             "baseUrl": "https://mantrazscanss.lat",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 757,
+                    "durationMs": 736,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,13 +31,13 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 564,
+                    "durationMs": 370,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "El héroe no puede descansar -> /manga/el-heroe-no-puede-descansar/",
-                        "Actor Devorador de Guiones -> /manga/actor-devorador-de-guiones/",
-                        "Rust -> /manga/rust/"
+                        "Convivencia riesgosa -> /manga/convivencia-riesgosa/",
+                        "Un Femboy cuyos puntos de afecto aumentan en función de tus elecciones -> /manga/un-femboy-cuyos-puntos-de-afecto-aumentan-en-funcion-de-tus-elecciones/",
+                        "¡Mi Amigo De La Infancia No Puede Ser Tan Grande! -> /manga/mi-amigo-de-la-infancia-no-puede-ser-tan-grande/"
                     ]
                 },
                 {
@@ -61,56 +61,54 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 446,
+                    "durationMs": 448,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "El héroe no puede descansar -> /manga/el-heroe-no-puede-descansar/"
+                        "Convivencia riesgosa -> /manga/convivencia-riesgosa/"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 311,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 277,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 15 -> /manga/el-heroe-no-puede-descansar/capitulo-15/",
-                        "Capítulo 14 -> /manga/el-heroe-no-puede-descansar/capitulo-14/",
-                        "Capítulo 13 -> /manga/el-heroe-no-puede-descansar/capitulo-13/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 463,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img.mantrazscanss.lat/img/WP-manga/data/manga_6ab69931bf594/capitulo-1/1.webp",
-                        "https://img.mantrazscanss.lat/img/WP-manga/data/manga_6ab69931bf594/capitulo-1/2.webp",
-                        "https://img.mantrazscanss.lat/img/WP-manga/data/manga_6ab69931bf594/capitulo-1/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 126,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-10T11:32:49.735414462Z",
+    "comparedTo": "2026-11-11T11:16:38.854092809Z",
     "changes": [
         {
             "source": "Mantraz Scan",
             "lang": "es",
-            "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mantraz Scan",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mantraz Scan",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

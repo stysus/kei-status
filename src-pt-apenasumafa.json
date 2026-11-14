@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:24:05.484086225Z",
+    "generatedAt": "2026-11-14T10:47:24.462391395Z",
     "module": ":src:pt:apenasumafa",
     "sourceRoot": "",
     "extensionCommit": "c3bc55d5",
@@ -10,7 +10,7 @@
             "name": "Apenas Uma Fã",
             "lang": "pt-BR",
             "baseUrl": "https://apenasuma-fa.blogspot.com",
-            "status": "PASS",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 4796,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 7131,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 308,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "apenasuma-fa.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Nós, Introvertidos -> /2024/11/nos-introvertidos.html",
-                        "Eu Quero Ser Um Ator -> /2024/06/eu-quero-ser-um-ator_15.html",
-                        "O Maknae Precisa Ser Um Idol -> /2024/05/o-maknae-precisa-ser-um-idol.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -50,75 +48,92 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "apenasuma-fa.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 383,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Nós, Introvertidos -> /2024/11/nos-introvertidos.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 512,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 47 -> /2026/01/chapter-47.html",
-                        "Chapter 46 -> /2026/01/chapter-46.html",
-                        "Chapter 45 -> /2025/11/chapter-45.html"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 182,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkr7n-TRcFP1LYEvda-hi1Ow1BWNogV-QvrWwxS6nbStQLWwBjPgvar5b68tX22RgYgeQsEb9zV6iYej60_oEB9ozQ22JHyTyyzZoFQ-w6WK-BBybELfOmmdpub2nK_JFYnKtq430PAWNQqhpJYMyuCtbQtJMcVN8-bi0KTERd2taslOWW46YekJtMANg/s1600/00%20-%20introvertidos%20%282%29.png",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggFwvatg9z_2vmYUH-g-NiAIxPWeG3irod3nLJVOadWKPSeqm3KO417mQIK99Vq28337GOrVNCSEwx5fwt6U6kbopUNU-bv4dkcdqOQYkZqy88dRdu7W0wgsp-cmvt1VY1BkREEV2k_tm8oihjKyaXRhAcigmXNjXyctj4iNtEPjF9z-VSdUOTZEppW3E/s16000/01.png",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhV9uW-fvEVKoggfhDZD38uc8Nshqa_0hTQiM0VtkAELkMwT5GEdA5gDXrzXG6D-6jbzjGRU7bwDzeKw7A2VmHmePVe5oZaiV0e5jFtW1O5C1i-THN5myoE12jESkhlXYmBC994-LKN_swcfNiL2pTh_wCpVKGjCzCEKwPEs7JmtcJ3RybWWxUJlSfs0oA/s16000/02.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3310,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:37:35.406272505Z",
+    "comparedTo": "2026-11-13T11:24:05.484086225Z",
     "changes": [
         {
             "source": "Apenas Uma Fã",
             "lang": "pt-BR",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "Apenas Uma Fã",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Apenas Uma Fã",
+            "lang": "pt-BR",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Apenas Uma Fã",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Apenas Uma Fã",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Apenas Uma Fã",
+            "lang": "pt-BR",
             "scenario": "pages",
-            "from": "THROTTLED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Apenas Uma Fã",
             "lang": "pt-BR",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "apenasuma-fa.blogspot.com"
+    ]
 }

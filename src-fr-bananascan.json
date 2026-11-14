@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:55.175628167Z",
+    "generatedAt": "2026-11-14T10:43:38.993809042Z",
     "module": ":src:fr:bananascan",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 3121632933690925888,
             "name": "Harmony-Scan",
             "lang": "fr",
             "baseUrl": "https://harmony-scan.fr",
-            "status": "BLOCKED",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,31 +22,31 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 121,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "DOWN",
+                    "durationMs": 71,
+                    "message": "the site is unreachable (harmony-scan.fr: Name or service not known); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from harmony-scan.fr (HTTP 403)"
+                        "java.net.UnknownHostException: harmony-scan.fr: Name or service not known"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 26,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "DOWN",
+                    "durationMs": 4,
+                    "message": "the site is unreachable (harmony-scan.fr); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from harmony-scan.fr (HTTP 403)"
+                        "java.net.UnknownHostException: harmony-scan.fr"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 7,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "DOWN",
+                    "durationMs": 0,
+                    "message": "the site is unreachable (harmony-scan.fr); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from harmony-scan.fr (HTTP 403)"
+                        "java.net.UnknownHostException: harmony-scan.fr"
                     ],
                     "samples": []
                 },
@@ -87,14 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:20.444528106Z",
+    "comparedTo": "2026-10-30T01:32:55.175628167Z",
     "changes": [
         {
             "source": "Harmony-Scan",
             "lang": "fr",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "DOWN"
+        },
+        {
+            "source": "Harmony-Scan",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "DOWN"
+        },
+        {
+            "source": "Harmony-Scan",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

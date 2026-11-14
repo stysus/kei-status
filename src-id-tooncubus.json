@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:20:01.191257296Z",
+    "generatedAt": "2026-11-14T10:45:04.406228331Z",
     "module": ":src:id:tooncubus",
     "sourceRoot": "",
     "extensionCommit": "c3bc55d5",
@@ -10,7 +10,7 @@
             "name": "Tooncubus",
             "lang": "id",
             "baseUrl": "https://www.tooncubus.top",
-            "status": "DOWN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1761,
+                    "durationMs": 236,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1776,
+                    "durationMs": 6797,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 259,
+                    "durationMs": 320,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 146,
+                    "durationMs": 284,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,80 +75,43 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 854,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Baca Chapter 04 -> https://www.tooncubus-read.my.id/2026/01/konoha-shinobi-affair-04.html",
-                        "Baca Chapter 03 -> https://www.tooncubus-read.my.id/2025/02/konoha-shinobi-affair-03.html",
-                        "Baca Chapter 02 -> https://www.tooncubus-read.my.id/2023/01/konoha-shinobi-affair-02.html"
-                    ]
+                    "status": "THROTTLED",
+                    "durationMs": 7388,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "DOWN",
-                    "durationMs": 141,
-                    "message": "the site is unreachable (www.tooncubus-read.my.id: Name or service not known); the source is not at fault",
-                    "notes": [
-                        "java.net.UnknownHostException: www.tooncubus-read.my.id: Name or service not known"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:20:50.723287213Z",
+    "comparedTo": "2026-11-13T11:20:01.191257296Z",
     "changes": [
         {
             "source": "Tooncubus",
             "lang": "id",
-            "scenario": "connectivity",
-            "from": "THROTTLED",
-            "to": "PASS"
-        },
-        {
-            "source": "Tooncubus",
-            "lang": "id",
-            "scenario": "popular",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Tooncubus",
-            "lang": "id",
-            "scenario": "latest",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Tooncubus",
-            "lang": "id",
-            "scenario": "filters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Tooncubus",
-            "lang": "id",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Tooncubus",
-            "lang": "id",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
             "source": "Tooncubus",
             "lang": "id",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "SKIP"
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "www.tooncubus.top"
+    ]
 }

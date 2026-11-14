@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:35:14.245990721Z",
+    "generatedAt": "2026-11-14T10:46:08.628111112Z",
     "module": ":src:th:niceoppai",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 7720269837249664423,
             "name": "Niceoppai",
             "lang": "th",
             "baseUrl": "https://www.niceoppai.net",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 299,
+                    "status": "WARN",
+                    "durationMs": 94,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 96,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Naruto -> /naruto/",
-                        "One Piece -> /op/",
-                        "Toriko -> /toriko/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 10,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.niceoppai.net (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 80,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Risky Deals and the Girl Next Door -> /Risky-Deals-and-the-Girl-Next-Door/",
-                        "Moby Dick -> /Moby-Dick/",
-                        "I am The Only Male Soldier in The Army -> /I-am-The-Only-Male-Soldier-in-The-Army/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 18,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.niceoppai.net (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,46 +61,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 215,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Naruto -> /naruto/",
-                        "Naruto -The Day Become Hokage -> /Naruto-The-Day-Become-Hokage/",
-                        "Naruto Gaiden: Michita Tsuki ga Terasu Michi -> /Naruto-Gaiden-Michita-Tsuki-ga-Terasu-Michi/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 160,
-                    "message": null,
-                    "notes": [
-                        "chapter list is empty"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:43.385847969Z",
+    "comparedTo": "2026-10-30T01:35:14.245990721Z",
     "changes": [
         {
             "source": "Niceoppai",
             "lang": "th",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Niceoppai",
+            "lang": "th",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Niceoppai",
+            "lang": "th",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Niceoppai",
+            "lang": "th",
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Niceoppai",
+            "lang": "th",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

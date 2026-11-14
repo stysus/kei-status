@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-09T11:55:24.839094798Z",
+    "generatedAt": "2026-11-14T10:49:45.046839425Z",
     "module": ":src:it:juinjutsuteamreader",
     "sourceRoot": "",
-    "extensionCommit": "1b708981",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 1779918793601923139,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 723,
+                    "durationMs": 757,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 217,
+                    "durationMs": 198,
                     "message": null,
                     "notes": [
                         "manga[0] has no thumbnail",
@@ -41,9 +41,9 @@
                         "manga[4] has no thumbnail"
                     ],
                     "samples": [
+                        "Choujin X -> /series/choujin-x/",
                         "Four Knights of Apocalypse - Mokushiroku no Yonkishi -> /series/four-knights-of-apocalypse-mokushiroku-no-yonkishi/",
-                        "One Piece -> /series/one-piece/",
-                        "Ichi the Witch -> /series/ichi-the-witch/"
+                        "One Piece -> /series/one-piece/"
                     ]
                 },
                 {
@@ -71,38 +71,40 @@
                     "message": null,
                     "notes": [
                         "returned an empty list",
-                        "query \"Four Knights of Apocalypse\" matched no results in the first page"
+                        "query \"Choujin X\" matched no results in the first page"
                     ],
                     "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1069,
+                    "status": "WARN",
+                    "durationMs": 732,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "duplicate chapter urls: [/read/choujin-x/it/0/1/0/juin-jutsu-team/]"
+                    ],
                     "samples": [
-                        "Capitolo 259: La fine della furia -> /read/four-knights-of-apocalypse-mokushiroku-no-yonkishi/it/0/259/",
-                        "Capitolo 258: Il limite -> /read/four-knights-of-apocalypse-mokushiroku-no-yonkishi/it/0/258/",
-                        "Capitolo 257: Passione indissipabile -> /read/four-knights-of-apocalypse-mokushiroku-no-yonkishi/it/0/257/"
+                        "Choujin X 77.2: Cheese Pasta, Parte 2 -> /read/choujin-x/it/0/77/2/",
+                        "Choujin X 77.1: Cheese Pasta, Parte 1 -> /read/choujin-x/it/0/77/1/",
+                        "Choujin X 76: Charming -> /read/choujin-x/it/0/76/"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 551,
+                    "durationMs": 519,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://www.juinjutsureader.ovh/content/comics/four-knights-of-apocalypse-mokushiroku-no-yonkishi_600894cfae53d/107-1-i-pericoli-di-chion_648373a0945bf/00.jpg",
-                        "https://www.juinjutsureader.ovh/content/comics/four-knights-of-apocalypse-mokushiroku-no-yonkishi_600894cfae53d/107-1-i-pericoli-di-chion_648373a0945bf/01.png",
-                        "https://www.juinjutsureader.ovh/content/comics/four-knights-of-apocalypse-mokushiroku-no-yonkishi_600894cfae53d/107-1-i-pericoli-di-chion_648373a0945bf/02.png"
+                        "https://www.juinjutsureader.ovh/content/comics/choujin-x_60089471a11b7/26-2-estate-sull-isola-delle-bestie-parte-2_6307184d17b1b/00.jpg",
+                        "https://www.juinjutsureader.ovh/content/comics/choujin-x_60089471a11b7/26-2-estate-sull-isola-delle-bestie-parte-2_6307184d17b1b/01.png",
+                        "https://www.juinjutsureader.ovh/content/comics/choujin-x_60089471a11b7/26-2-estate-sull-isola-delle-bestie-parte-2_6307184d17b1b/02.png"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 1216,
+                    "durationMs": 1204,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -110,7 +112,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:38:07.451201685Z",
-    "changes": [],
+    "comparedTo": "2026-11-09T11:55:24.839094798Z",
+    "changes": [
+        {
+            "source": "Juin Jutsu Team Reader",
+            "lang": "it",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ],
     "throttledHosts": []
 }

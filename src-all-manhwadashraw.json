@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:14:04.336841306Z",
+    "generatedAt": "2026-11-14T10:39:16.202164825Z",
     "module": ":src:all:manhwadashraw",
     "sourceRoot": "",
     "extensionCommit": "c3bc55d5",
@@ -10,7 +10,7 @@
             "name": "Manhwa-raw",
             "lang": "all",
             "baseUrl": "https://manhwa-raw.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 16204,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 34995,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from manhwa-raw.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1678,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Former Supreme -> 19952",
-                        "Mangoji Zone – raw -> 22211",
-                        "Magical Girl Wife -> 17144"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 26,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from manhwa-raw.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1460,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Former Supreme -> 19952",
-                        "Mangoji Zone – raw -> 22211",
-                        "Magical Girl Wife -> 17144"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 15,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from manhwa-raw.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,67 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 993,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The Former Supreme -> 19952",
-                        "Kingdom -> 21411",
-                        "The Mysterious World’s Greatest Martial Artist Little Prince -> 21325"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1088,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 24 -> chapter-24",
-                        "Chapter 23 -> chapter-23",
-                        "Chapter 22 -> chapter-22"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 101,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://oze6.redpeak.cyou/manga_6a6a38b1686d1/22928fdd0973d8309c867579c569dee7/0.webp",
-                        "https://oze6.redpeak.cyou/manga_6a6a38b1686d1/22928fdd0973d8309c867579c569dee7/1.webp",
-                        "https://oze6.redpeak.cyou/manga_6a6a38b1686d1/22928fdd0973d8309c867579c569dee7/2.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 408,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-09T11:47:26.800357846Z",
+    "comparedTo": "2026-11-13T11:14:04.336841306Z",
     "changes": [
         {
             "source": "Manhwa-raw",
             "lang": "all",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Manhwa-raw",
+            "lang": "all",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Manhwa-raw",
+            "lang": "all",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Manhwa-raw",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhwa-raw",
+            "lang": "all",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhwa-raw",
+            "lang": "all",
             "scenario": "pages",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Manhwa-raw",
             "lang": "all",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

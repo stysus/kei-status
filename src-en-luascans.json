@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:29:32.731965065Z",
+    "generatedAt": "2026-11-14T10:42:43.906931177Z",
     "module": ":src:en:luascans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c3bc55d5",
     "sources": [
         {
             "sourceId": 972271455406675873,
             "name": "Lua Scans",
             "lang": "en",
             "baseUrl": "https://luacomic.org",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 283,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from luacomic.org (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 636,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 142,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.luacomic.org (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 247,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "I Need to Raise My Sister Properly -> /series/i-need-to-raise-my-sister-properly#77",
+                        "The Male Lead’s Little Lion Daughter -> /series/the-male-leads-little-lion-daughter#69",
+                        "Forget My Husband, I’ll Go Make Money -> /series/forget-my-husband-ill-go-make-money#253"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 13,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.luacomic.org (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 210,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Philomel the Fake -> /series/philomel-the-fake#525",
+                        "How to Hide the Emperor's Child -> /series/how-to-hide-the-emperors-child#698",
+                        "Marked as the Tyrant’s Daughter-in-law -> /series/marked-as-the-tyrants-daughter-in-law#656"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,40 +63,100 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 152,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "I Need to Raise My Sister Properly -> /series/i-need-to-raise-my-sister-properly#77"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 214,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 171 -> /series/i-need-to-raise-my-sister-properly/chapter-171#50853",
+                        "Chapter 170 -> /series/i-need-to-raise-my-sister-properly/chapter-170#49435",
+                        "Chapter 169 -> /series/i-need-to-raise-my-sister-properly/chapter-169#48032"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 120,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://media.luacomic.org/file/V4IKlhs/uploads/series/i-need-to-raise-my-sister-properly/96803916-cfa1-4286-96bd-0bc528822e06/page_001.webp",
+                        "https://media.luacomic.org/file/V4IKlhs/uploads/series/i-need-to-raise-my-sister-properly/96803916-cfa1-4286-96bd-0bc528822e06/page_002.webp",
+                        "https://media.luacomic.org/file/V4IKlhs/uploads/series/i-need-to-raise-my-sister-properly/96803916-cfa1-4286-96bd-0bc528822e06/page_003.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 118,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:59.288241018Z",
+    "comparedTo": "2026-10-30T01:29:32.731965065Z",
     "changes": [
         {
             "source": "Lua Scans",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Lua Scans",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Lua Scans",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Lua Scans",
+            "lang": "en",
             "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Lua Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Lua Scans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Lua Scans",
+            "lang": "en",
+            "scenario": "images",
             "from": null,
-            "to": "SKIP"
+            "to": "PASS"
         }
     ],
     "throttledHosts": []
