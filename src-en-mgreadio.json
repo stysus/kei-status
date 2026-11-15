@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-14T10:41:39.847414634Z",
+    "generatedAt": "2026-11-15T11:10:38.680691209Z",
     "module": ":src:en:mgreadio",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "80af09c2",
     "sources": [
         {
             "sourceId": 15083818169656208,
             "name": "Mgread.io",
             "lang": "en",
             "baseUrl": "https://mgread.io",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1103,
+                    "durationMs": 476,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 258,
+                    "durationMs": 4825,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,13 +42,15 @@
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 11,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mgread.io (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1739,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Inso’s Law -> /manga/insos-law/",
+                        "I’ll Change the Ending Through Home Education -> /manga/ill-change-the-ending-through-home-education/",
+                        "I Awakened as the Most Fearsome Stepmother?! -> /manga/i-awakened-as-the-most-fearsome-stepmother/"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -63,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 457,
+                    "durationMs": 2457,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,40 +76,68 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "BLOCKED",
-                    "durationMs": 624,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mgread.io (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 4564,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Chapter 633 -> /manga/global-freeze-i-created-an-apocalypse-shelter/chapter-633/",
+                        "Chapter 632 -> /manga/global-freeze-i-created-an-apocalypse-shelter/chapter-632/",
+                        "Chapter 631 -> /manga/global-freeze-i-created-an-apocalypse-shelter/chapter-631/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 2007,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://mg.mgread.io/140093/1/1.jpg",
+                        "https://mg.mgread.io/140093/1/2.jpeg",
+                        "https://mg.mgread.io/140093/1/3.jpeg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 192,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-13T11:19:20.670485867Z",
+    "comparedTo": "2026-11-14T10:41:39.847414634Z",
     "changes": [
         {
             "source": "Mgread.io",
             "lang": "en",
-            "scenario": "popular",
+            "scenario": "latest",
             "from": "BLOCKED",
             "to": "PASS"
         },
         {
             "source": "Mgread.io",
             "lang": "en",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "scenario": "chapters",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Mgread.io",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Mgread.io",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

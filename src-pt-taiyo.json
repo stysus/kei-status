@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:34:53.360038656Z",
+    "generatedAt": "2026-11-15T11:16:50.926030090Z",
     "module": ":src:pt:taiyo",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "80af09c2",
     "sources": [
         {
             "sourceId": 7387610647818309943,
@@ -23,22 +23,18 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 886,
+                    "durationMs": 257,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 13422,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 805,
+                    "message": "Não foi possivel localizar o token",
                     "notes": [],
-                    "samples": [
-                        "I am the only the one who levels up -> /media/17b03940-450b-4b34-a904-e9b296daee9a",
-                        "Slam Dunk! -> /media/0c77c4d7-b07f-414a-b39c-ecc5eec1fd4c",
-                        "Vagabond -> /media/de26e512-d7b3-42f3-9496-5c4090a8595d"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -59,78 +55,61 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 193,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "I am the only the one who levels up -> /media/17b03940-450b-4b34-a904-e9b296daee9a",
-                        "Show Me Your Stats! -> /media/59d6d266-1476-42f6-b968-d4f71dde9e91",
-                        "Doumo, Yuusha no Chichi desu. ~Kono Tabi wa Gusoku ga Gomeiwaku o Kakete, Moushiwake Arimasen.~ -> /media/99157c8c-22e6-493c-8a6d-fdedc2872331"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 2802,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 200 -> /chapter/9d694606-a816-422f-bd57-147cb4965007/1",
-                        "Capítulo 199 -> /chapter/9b42c04e-bddd-4b6e-aab7-5b01669144f1/1",
-                        "Capítulo 198 -> /chapter/f817f148-cc8e-4cc6-a8dc-4795dd096613/1"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 577,
-                    "message": "NullPointerException at Taiyo.getPageList$suspendImpl(Taiyo.kt:213)",
-                    "notes": [
-                        "java.lang.NullPointerException: <no message>"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-09T11:58:12.105063171Z",
+    "comparedTo": "2026-11-10T11:34:53.360038656Z",
     "changes": [
         {
             "source": "Taiyō",
             "lang": "pt-BR",
-            "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Taiyō",
-            "lang": "pt-BR",
             "scenario": "popular",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "Taiyō",
-            "lang": "pt-BR",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Taiyō",
             "lang": "pt-BR",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Taiyō",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Taiyō",
             "lang": "pt-BR",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

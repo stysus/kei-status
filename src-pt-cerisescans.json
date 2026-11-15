@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-14T10:48:01.206374615Z",
+    "generatedAt": "2026-11-15T11:16:13.924814417Z",
     "module": ":src:pt:cerisescans",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "80af09c2",
     "sources": [
         {
             "sourceId": 6986357795598884919,
             "name": "Cerise Scan",
             "lang": "pt-BR",
             "baseUrl": "https://loverstoon.net",
-            "status": "DOWN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 274,
+                    "status": "PASS",
+                    "durationMs": 535,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 521"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 478,
-                    "message": "the site's origin server is not responding (HTTP 521); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 521"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 475,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "A Imperatriz se Casou Novamente -> a-imperatriz-se-casou-novamente",
+                        "Debaixo do Carvalho -> debaixo-do-carvalho",
+                        "Os Privilégios De Uma Transmigrada -> os-privilegios-de-uma-transmigrada"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 483,
-                    "message": "the site's origin server is not responding (HTTP 521); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 521"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 387,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "O Campo Esquecido [Novel] -> o-campo-esquecido-novel",
+                        "Eu Não Sabia que Estava Tendo um Caso Secreto com o Imperador [Novel] -> eu-nao-sabia-que-estava-tendo-um-caso-secreto-com-o-imperador-novel",
+                        "Meu Marido Era Definitivamente um Paladino [Novel] -> meu-marido-era-definitivamente-um-paladino-novel"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,54 +63,81 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 363,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "A Imperatriz se Casou Novamente -> a-imperatriz-se-casou-novamente"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 979,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Capítulo 237 -> 1775064960191108_ch_237_1794730995627_10",
+                        "Capítulo 236 -> 1775064960191108_ch_236_1794730993806_9",
+                        "Capítulo 235 -> 1775064960191108_ch_235_1794730991997_8"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 209,
+                    "message": "HTTP error 401",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:33:48.291836729Z",
+    "comparedTo": "2026-11-14T10:48:01.206374615Z",
     "changes": [
         {
             "source": "Cerise Scan",
             "lang": "pt-BR",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Cerise Scan",
             "lang": "pt-BR",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Cerise Scan",
             "lang": "pt-BR",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
+        },
+        {
+            "source": "Cerise Scan",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Cerise Scan",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Cerise Scan",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

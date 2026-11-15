@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:27:15.068286222Z",
+    "generatedAt": "2026-11-15T11:17:04.338700211Z",
     "module": ":src:tr:lunascans",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "80af09c2",
     "sources": [
         {
             "sourceId": 6989973853577548620,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1879,
+                    "durationMs": 1502,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 772,
+                    "durationMs": 679,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 706,
+                    "durationMs": 624,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,22 +64,20 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 918,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "No Arguing With Mr. Mo -> 4501"
-                    ]
-                },
-                {
-                    "name": "chapters",
                     "status": "THROTTLED",
-                    "durationMs": 22184,
+                    "durationMs": 24202,
                     "message": "the site is rate-limiting this sweep (HTTP 429, retry after 3600s); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "tuhafscans.com answered HTTP 429 earlier in this run",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -93,21 +91,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:25:40.569929490Z",
+    "comparedTo": "2026-11-13T11:27:15.068286222Z",
     "changes": [
         {
             "source": "Luna Scans",
             "lang": "tr",
-            "scenario": null,
-            "from": null,
+            "scenario": "search",
+            "from": "PASS",
             "to": "THROTTLED"
         },
         {
-            "source": ":src:tr:lunascans",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
+            "source": "Luna Scans",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "THROTTLED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": [

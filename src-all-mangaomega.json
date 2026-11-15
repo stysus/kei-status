@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-14T10:38:55.299875639Z",
+    "generatedAt": "2026-11-15T11:10:09.107615159Z",
     "module": ":src:all:mangaomega",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "80af09c2",
     "sources": [
         {
             "sourceId": 2894342535414560681,
             "name": "Manga Omega",
             "lang": "en",
             "baseUrl": "https://mangaomega.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,26 +23,42 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 821,
+                    "durationMs": 1318,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 159,
-                    "message": "Unexpected JSON token at offset 0: Expected start of the array '[', but had '<' instead at path: $\nJSON input: <!DOCTYPE html>\n<html lang=\"en.....",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 12989,
+                    "message": null,
+                    "notes": [
+                        "manga[0] has no thumbnail",
+                        "manga[2] has no thumbnail"
+                    ],
+                    "samples": [
+                        "LOOKISM -> lookism",
+                        "ELECEED -> eleceed",
+                        "NANO MACHINE -> nanomachine"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 113,
-                    "message": "Unexpected JSON token at offset 0: Expected start of the array '[', but had '<' instead at path: $\nJSON input: <!DOCTYPE html>\n<html lang=\"en.....",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 25,
+                    "message": null,
+                    "notes": [
+                        "manga[0] has no thumbnail",
+                        "manga[1] has no thumbnail",
+                        "manga[3] has no thumbnail",
+                        "manga[4] has no thumbnail"
+                    ],
+                    "samples": [
+                        "SOLO MAX-LEVEL NEWBIE -> solomaxlevelnewbie",
+                        "MURIM LOGIN -> murimlogin",
+                        "SAKAMOTO DAYS -> sakamotodays"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -55,26 +71,46 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 12,
+                    "message": null,
+                    "notes": [
+                        "manga[0] has no thumbnail"
+                    ],
+                    "samples": [
+                        "LOOKISM -> lookism"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 14,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 634 -> 23139",
+                        "Chapter 633 -> 23113",
+                        "Chapter 632 -> 22872"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 296,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://i.ibb.co/cvHBP20/image-01.jpg",
+                        "https://i.ibb.co/zQ5VP6w/image-02.jpg",
+                        "https://i.ibb.co/GsHmh4m/image-03.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 729,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
@@ -85,7 +121,7 @@
             "name": "Manga Omega",
             "lang": "es",
             "baseUrl": "https://mangaomega.com",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -107,19 +143,27 @@
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 114,
-                    "message": "Unexpected JSON token at offset 0: Expected start of the array '[', but had '<' instead at path: $\nJSON input: <!DOCTYPE html>\n<html lang=\"en.....",
+                    "status": "PASS",
+                    "durationMs": 9,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "ELECTRICIDAD VELOZ -> electricidadveloz",
+                        "KANOJO OKARISHIMASU -> kanojookarishimasu",
+                        "MAIRIMASHITA IRUMA-KUN -> mairimashitairumakun"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 113,
-                    "message": "Unexpected JSON token at offset 0: Expected start of the array '[', but had '<' instead at path: $\nJSON input: <!DOCTYPE html>\n<html lang=\"en.....",
+                    "status": "PASS",
+                    "durationMs": 8,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "KANOJO OKARISHIMASU -> kanojookarishimasu",
+                        "SAKAMOTO DAYS -> sakamotodays",
+                        "MAIRIMASHITA IRUMA-KUN -> mairimashitairumakun"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -134,117 +178,135 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 9,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "ELECTRICIDAD VELOZ -> electricidadveloz"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 9,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Capítulo 426 -> 22928",
+                        "Capítulo 425 -> 22731",
+                        "Capítulo 424 -> 22502"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 283,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://i.ibb.co/w4rqYVk/002.webp",
+                        "https://i.ibb.co/kDGxn8r/003.webp",
+                        "https://i.ibb.co/7Yjxwhm/004.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 42,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-13T11:13:32.073828187Z",
+    "comparedTo": "2026-11-14T10:38:55.299875639Z",
     "changes": [
         {
             "source": "Manga Omega",
             "lang": "en",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
             "source": "Manga Omega",
             "lang": "en",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "FAIL"
-        },
-        {
-            "source": "Manga Omega",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
             "source": "Manga Omega",
             "lang": "en",
             "scenario": "search",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Manga Omega",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Manga Omega",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Manga Omega",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         },
         {
             "source": "Manga Omega",
             "lang": "es",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Manga Omega",
             "lang": "es",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Manga Omega",
-            "lang": "es",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Manga Omega",
             "lang": "es",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Manga Omega",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Manga Omega",
             "lang": "es",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Manga Omega",
             "lang": "es",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

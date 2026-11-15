@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-14T10:44:58.722523602Z",
+    "generatedAt": "2026-11-15T11:14:39.721199396Z",
     "module": ":src:id:mangakuri",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "80af09c2",
     "sources": [
         {
             "sourceId": 8634079728231059906,
             "name": "Mangakuri",
             "lang": "id",
             "baseUrl": "https://lc2.mangakuri.online",
-            "status": "BLOCKED",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 619,
+                    "durationMs": 904,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 664,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "You Can Blame It All on Me♡  [Hanniez] -> /comic/you-can-blame-it-all-on-me-hanniez",
-                        "The Secretive XX | Ji -> /comic/the-secretive-xx-ji",
-                        "Salt Friend [Vriell] -> /comic/salt-friend-vriell"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 566,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLPeerUnverifiedException: Hostname api.mangakuri.online not verified:\n    certificate: sha256/v1F8OYYrFOOQxfotyB09gK7R/V01nxvj5IfQ1MIWD4k=\n    DN: CN=api.mushinook.org\n    subjectAltNames: [api.mushinook.org]"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 179,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "My Bunny Bride [Eunjiii] -> /comic/my-bunny-bride-eunjiii",
-                        "Cross Color Point - Sakurachan -> /comic/cross-color-point-sakurachan",
-                        "Heatwave [Yuki] -> /comic/heatwave-yuki"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 555,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLPeerUnverifiedException: Hostname api.mangakuri.online not verified:\n    certificate: sha256/v1F8OYYrFOOQxfotyB09gK7R/V01nxvj5IfQ1MIWD4k=\n    DN: CN=api.mushinook.org\n    subjectAltNames: [api.mushinook.org]"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,48 +59,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 395,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "You Can Blame It All on Me♡  [Hanniez] -> /comic/you-can-blame-it-all-on-me-hanniez"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 169,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 7 -> /comic/you-can-blame-it-all-on-me-hanniez/chapter/chapter-7",
-                        "Chapter 6 -> /comic/you-can-blame-it-all-on-me-hanniez/chapter/chapter-6",
-                        "Chapter 5 -> /comic/you-can-blame-it-all-on-me-hanniez/chapter/chapter-5"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 890,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.IllegalStateException: Login in WebView and retry"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-13T11:17:27.526643565Z",
+    "comparedTo": "2026-11-14T10:44:58.722523602Z",
     "changes": [
         {
             "source": "Mangakuri",
             "lang": "id",
-            "scenario": "connectivity",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Mangakuri",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Mangakuri",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangakuri",
+            "lang": "id",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangakuri",
+            "lang": "id",
+            "scenario": "pages",
             "from": "BLOCKED",
-            "to": "PASS"
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

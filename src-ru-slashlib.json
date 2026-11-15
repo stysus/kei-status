@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-14T10:47:16.101870694Z",
+    "generatedAt": "2026-11-15T11:17:16.814141739Z",
     "module": ":src:ru:slashlib",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "80af09c2",
     "sources": [
         {
             "sourceId": 2730544188738947015,
@@ -23,33 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 850,
+                    "durationMs": 406,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 10419,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Secret Alliance -> /23435--secret-alliance",
-                        "Surviving Romance -> /60127--a-surviving-romance-",
-                        "Wolf and dog -> /24394--wolf-and-dog"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 10048,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 784,
+                    "durationMs": 8439,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Sami Plays the Game -> /196204--sami-plays-the-game",
-                        "Vampire Knight Memories -> /6199--vampire-knight-memories",
-                        "The Sister with Strength -> /179586--akumade-chikarawaza-no-sister"
+                        "Fly Me to The Moon -> /4909--fly-me-to-the-moon",
+                        "Mirror, mirror on the wall -> /277748--kagami-yo-kagami-yo",
+                        "Sami Plays the Game -> /196204--sami-plays-the-game"
                     ]
                 },
                 {
@@ -65,63 +63,77 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 2453,
+                    "durationMs": 1380,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Secret Alliance -> /23435--secret-alliance"
+                        "Fly Me to The Moon -> /4909--fly-me-to-the-moon"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "BLOCKED",
-                    "durationMs": 1542,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.io.IOException: HTTP error 404. Проверьте сайт. Попробуйте авторизоваться через WebView🌎︎ и обновите список. Для завершения авторизации может потребоваться перезапустить приложение с полной остановкой."
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1494,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Том 38. Глава 353 -> /4909--fly-me-to-the-moon/chapter?&volume=38&number=353",
+                        "Том 38. Глава 352 - Вот сколько их бродит тут поблизости -> /4909--fly-me-to-the-moon/chapter?&volume=38&number=352",
+                        "Том 38. Глава 351 - Более Скрупулёзный, чем Gemini и более компетентный, чем ChatGPT -> /4909--fly-me-to-the-moon/chapter?&volume=38&number=351"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 959,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "//manga/fly-me-to-the-moon/chapters/1-1/00007_waifu_n1._.jpg",
+                        "//manga/fly-me-to-the-moon/chapters/1-1/00008_waifu_n1._.jpg",
+                        "//manga/fly-me-to-the-moon/chapters/1-1/00009_waifu_n1._.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 2694,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:38:19.293874924Z",
+    "comparedTo": "2026-11-14T10:47:16.101870694Z",
     "changes": [
         {
             "source": "SlashLib",
             "lang": "ru",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "SlashLib",
-            "lang": "ru",
-            "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "SlashLib",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "SlashLib",
             "lang": "ru",
             "scenario": "chapters",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "SlashLib",
+            "lang": "ru",
+            "scenario": "pages",
             "from": "SKIP",
-            "to": "BLOCKED"
+            "to": "PASS"
+        },
+        {
+            "source": "SlashLib",
+            "lang": "ru",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:00:56.886007900Z",
+    "generatedAt": "2026-11-15T11:14:41.940165845Z",
     "module": ":src:ru:mangamen",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "80af09c2",
     "sources": [
         {
             "sourceId": 601889634773560665,
             "name": "MangaMen",
             "lang": "ru",
             "baseUrl": "https://mangamen.com",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 583,
+                    "status": "PASS",
+                    "durationMs": 660,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 403"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 141,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 425,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Поднятие уровня в одиночку -> /1344-solo-leveling",
+                        "Токийские мстители -> /toukyou-revengers",
+                        "Ветролом -> /wind-breaker-A628"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 729,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 707,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Ядовитый Знахарь -> /poisonous-witch-doctor",
+                        "Котя -> /cat",
+                        "Призыватель SSS Ранга -> /sss-rank-lone-summoner"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,47 +63,74 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 849,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Поднятие уровня в одиночку -> /1344-solo-leveling",
+                        "Поднятие уровня в одиночку: Рагнарёк -> /the-solo-leveling-ragnarok",
+                        "Поднятие уровня в одиночку: Восстание. Истоки Охотника. -> /solo-leveling-arise-hunter-origin"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "chapters",
+                    "status": "WARN",
+                    "durationMs": 356,
+                    "message": null,
+                    "notes": [
+                        "chapter list is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:36:28.396567767Z",
+    "comparedTo": "2026-11-03T07:00:56.886007900Z",
     "changes": [
         {
             "source": "MangaMen",
             "lang": "ru",
+            "scenario": "connectivity",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaMen",
+            "lang": "ru",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "MangaMen",
             "lang": "ru",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaMen",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaMen",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:41:40.733464226Z",
+    "generatedAt": "2026-11-15T11:18:30.683192270Z",
     "module": ":src:zh:hanabimanga",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "80af09c2",
     "sources": [
         {
             "sourceId": 6689953277839268159,
             "name": "花火漫画",
             "lang": "zh",
             "baseUrl": "https://uhkvqrxmcapgtpspglrp.moedot.net",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,34 +22,36 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1082,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 7328,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLException: (internal_error) Received fatal alert: internal_error"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1197,
+                    "durationMs": 1717,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "学生会也有洞！ -> 834",
-                        "我的女性朋友意外的有求必应 -> 3045",
-                        "入间同学入魔了 -> 975"
+                        "鬼畜英雄 -> 42",
+                        "回复术士的重来人生 -> 2353"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 460,
+                    "durationMs": 643,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "我独自升级 -> 2391",
-                        "入间同学入魔了 -> 975",
-                        "国王排名 -> 30"
+                        "星北绮罗罗想要闪耀！ -> 4139",
+                        "SSS级重生猎人 -> 1322",
+                        "驱魔少年 -> 635"
                     ]
                 },
                 {
@@ -65,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 471,
+                    "durationMs": 687,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,43 +77,43 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 479,
+                    "durationMs": 617,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "第156话-2 -> 44823",
-                        "第156话-1 -> 44822",
-                        "第155话 -> 44821"
+                        "第190话 -> 213714",
+                        "第189话 -> 213713",
+                        "性格测试 -> 213712"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 826,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "status": "FAIL",
+                    "durationMs": 768,
+                    "message": "Field 'urls' is required for type with serial name 'eu.kanade.tachiyomi.extension.zh.hanabimanga.PagesResult', but it was missing",
                     "notes": [
-                        "java.lang.Exception: 请先在插件设置中登录"
+                        "kotlinx.serialization.MissingFieldException: Field 'urls' is required for type with serial name 'eu.kanade.tachiyomi.extension.zh.hanabimanga.PagesResult', but it was missing at path: $"
                     ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:50:33.742049907Z",
+    "comparedTo": "2026-11-02T11:41:40.733464226Z",
     "changes": [
         {
             "source": "花火漫画",
             "lang": "zh",
-            "scenario": "pages",
+            "scenario": "connectivity",
             "from": "PASS",
-            "to": "BLOCKED"
+            "to": "DOWN"
         },
         {
             "source": "花火漫画",
             "lang": "zh",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "pages",
+            "from": "BLOCKED",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

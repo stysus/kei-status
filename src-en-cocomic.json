@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:32:02.934810245Z",
+    "generatedAt": "2026-11-15T11:11:34.453353367Z",
     "module": ":src:en:cocomic",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "80af09c2",
     "sources": [
         {
             "sourceId": 3544369893051520689,
             "name": "Cocomic",
             "lang": "en",
             "baseUrl": "https://cocomic.co",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 606,
+                    "durationMs": 827,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1851,
+                    "durationMs": 2864,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1980,
+                    "durationMs": 1339,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Kannami Kyoudai no Kunan -> 97894",
-                        "Stigma of Sponsorship -> 92676",
-                        "Lord of Destiny Wheel -> 51042"
+                        "Mairimashita! Iruma-kun -> 17751",
+                        "Obsession Series -> 93652",
+                        "Rebirth of the Divine Demon -> 82847"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 7,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1948,
+                    "durationMs": 1554,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,59 +74,47 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 5920,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chapter 105 -> chapter-105",
-                        "Chapter 104 -> chapter-104",
-                        "Chapter 103 -> chapter-103"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 6782,
+                    "message": "NullPointerException at MadaraBase.parseDetails(MadaraBase.kt:213)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2004,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn2.cocomic.co/manga_638600453798366558/0363cc453eda9458e38657d5d83128d2/105.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2641,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-04T11:20:55.245807427Z",
+    "comparedTo": "2026-11-08T13:32:02.934810245Z",
     "changes": [
         {
             "source": "Cocomic",
             "lang": "en",
             "scenario": "chapters",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Cocomic",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Cocomic",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

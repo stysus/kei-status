@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:29:00.285411151Z",
+    "generatedAt": "2026-11-15T11:13:29.399722021Z",
     "module": ":src:es:tmohentaiunoriginal",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "80af09c2",
     "sources": [
         {
             "sourceId": 6465093267346907024,
             "name": "TMOHentai (unoriginal)",
             "lang": "es",
             "baseUrl": "https://tmohentai.app",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 976,
+                    "status": "WARN",
+                    "durationMs": 171,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 503,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Comic de infidelidad -> /library/doujinshi/21102/comic-de-infidelidad",
-                        "Ojii-chan to Magomusume no Happy Saiminx _ Grandpa and Granddaughter's Happy Hypnotic Sex -> /library/doujinshi/21101/ojii-chan-to-magomusume-no-happy-saiminx-grandpa-and-granddaughters-happy-hypnotic-sex",
-                        "DQN Mamatomo no Musuko-tachi no Nama Onaho ni Sareta Bakunyuu Mama -> /library/doujinshi/21100/dqn-mamatomo-no-musuko-tachi-no-nama-onaho-ni-sareta-bakunyuu-mama"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 951,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from tmohentai.app (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1013,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Comic de infidelidad -> /library/doujinshi/21102/comic-de-infidelidad",
-                        "Ojii-chan to Magomusume no Happy Saiminx _ Grandpa and Granddaughter's Happy Hypnotic Sex -> /library/doujinshi/21101/ojii-chan-to-magomusume-no-happy-saiminx-grandpa-and-granddaughters-happy-hypnotic-sex",
-                        "DQN Mamatomo no Musuko-tachi no Nama Onaho ni Sareta Bakunyuu Mama -> /library/doujinshi/21100/dqn-mamatomo-no-musuko-tachi-no-nama-onaho-ni-sareta-bakunyuu-mama"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 1000,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from tmohentai.app (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,56 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1086,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Comic de infidelidad -> /library/doujinshi/21102/comic-de-infidelidad"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 854,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo único -> /view_uploads/21102"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 885,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://storage.tmohentai.app/mangas/21102/1.webp",
-                        "https://storage.tmohentai.app/mangas/21102/2.webp",
-                        "https://storage.tmohentai.app/mangas/21102/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 301,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:48.521667750Z",
+    "comparedTo": "2026-10-30T01:29:00.285411151Z",
     "changes": [
         {
             "source": "TMOHentai (unoriginal)",
             "lang": "es",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "TMOHentai (unoriginal)",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "TMOHentai (unoriginal)",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "TMOHentai (unoriginal)",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TMOHentai (unoriginal)",
+            "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TMOHentai (unoriginal)",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TMOHentai (unoriginal)",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

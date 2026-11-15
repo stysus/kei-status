@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-14T10:44:29.167142779Z",
+    "generatedAt": "2026-11-15T11:12:44.007915497Z",
     "module": ":src:en:aquamanga",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "80af09c2",
     "sources": [
         {
             "sourceId": 626267698662819838,
             "name": "Aqua Manga",
             "lang": "en",
             "baseUrl": "https://aquareader.org",
-            "status": "WARN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,32 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 508,
+                    "durationMs": 257,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 653,
+                    "status": "PASS",
+                    "durationMs": 153,
                     "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "hasNextPage=true but list is empty"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Magic Emperor -> /manga/magic-emperor/",
+                        "Nano Machine -> /manga/nano-machine/",
+                        "Eleceed -> /manga/eleceed/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 216,
+                    "status": "PASS",
+                    "durationMs": 145,
                     "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "hasNextPage=true but list is empty"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "The Shaman’s Blade -> /manga/the-shamans-blade/",
+                        "My Avatar Is Becoming the Final Boss -> /manga/my-avatar-is-becoming-the-final-boss/",
+                        "I Have An Apocalyptic Dungeon -> /manga/i-have-an-apocalyptic-dungeon/"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,75 +63,95 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 155,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Magic Emperor -> /manga/magic-emperor/",
+                        "Night of the Soulless Heathens -> /manga/night-of-the-soulless-heathens/",
+                        "Emperor of Steel -> /manga/emperor-of-steel/"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 236,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 935 -> chapter-935",
+                        "Chapter 934 -> chapter-934",
+                        "Chapter 933 -> chapter-933"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 702,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://aquareader.org/wp-content/uploads/WP-manga/data//3462dc95aa25487b3ee298fdac01e4c0/01.webp",
+                        "https://aquareader.org/wp-content/uploads/WP-manga/data//3462dc95aa25487b3ee298fdac01e4c0/02.webp",
+                        "https://aquareader.org/wp-content/uploads/WP-manga/data//3462dc95aa25487b3ee298fdac01e4c0/03.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 27,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:29:26.530437744Z",
+    "comparedTo": "2026-11-14T10:44:29.167142779Z",
     "changes": [
         {
             "source": "Aqua Manga",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Aqua Manga",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Aqua Manga",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Aqua Manga",
             "lang": "en",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Aqua Manga",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Aqua Manga",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Aqua Manga",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []
