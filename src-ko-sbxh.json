@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:23:47.794981893Z",
+    "generatedAt": "2026-11-16T11:53:57.138062077Z",
     "module": ":src:ko:sbxh",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 5836877907605844302,
             "name": "Newtoki (SBXH)",
             "lang": "ko",
             "baseUrl": "https://sbxh9.com",
-            "status": "BLOCKED",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,31 +22,31 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 490,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 30166,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
                     "notes": [
-                        "home page returned HTTP 403"
+                        "java.net.SocketTimeoutException: timeout"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 188,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "status": "DOWN",
+                    "durationMs": 23441,
+                    "message": "the site's origin server is not responding (HTTP 504); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 504"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 298,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "status": "DOWN",
+                    "durationMs": 30001,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                        "java.net.SocketTimeoutException: timeout"
                     ],
                     "samples": []
                 },
@@ -87,21 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:25:40.552757911Z",
+    "comparedTo": "2026-11-13T11:23:47.794981893Z",
     "changes": [
         {
             "source": "Newtoki (SBXH)",
             "lang": "ko",
-            "scenario": null,
-            "from": null,
-            "to": "BLOCKED"
+            "scenario": "connectivity",
+            "from": "WARN",
+            "to": "DOWN"
         },
         {
-            "source": ":src:ko:sbxh",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
+            "source": "Newtoki (SBXH)",
+            "lang": "ko",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "DOWN"
+        },
+        {
+            "source": "Newtoki (SBXH)",
+            "lang": "ko",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

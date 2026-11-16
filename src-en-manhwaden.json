@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:41.800776197Z",
+    "generatedAt": "2026-11-16T11:47:42.692661312Z",
     "module": ":src:en:manhwaden",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 7672439791159944710,
             "name": "ManhwaDen",
             "lang": "en",
             "baseUrl": "https://www.manhwaden.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1018,
+                    "status": "WARN",
+                    "durationMs": 19646,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 838,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Jinx Season 2 -> 31093",
-                        "Jinx -> 13673",
-                        "Tears on a Withered Flower -> 25177"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19457,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 708,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Boundary of Delusion -> 33863",
-                        "Reverse Try -> 49714",
-                        "A Wicked Husband -> 39384"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19453,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,56 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1176,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Jinx Season 2 -> 31093"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 631,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 102.6 -> chapter-102-6",
-                        "Chapter 102 - End -> chapter-102",
-                        "Chapter 101 -> chapter-101"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 596,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://remanhwa.me/images/JINX-S2-Chapter-102.6-001.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 241,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:28.675875638Z",
+    "comparedTo": "2026-10-30T01:30:41.800776197Z",
     "changes": [
         {
             "source": "ManhwaDen",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "ManhwaDen",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "ManhwaDen",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "ManhwaDen",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ManhwaDen",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ManhwaDen",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ManhwaDen",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

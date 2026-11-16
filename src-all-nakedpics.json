@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-14T10:42:15.521855426Z",
+    "generatedAt": "2026-11-16T11:42:38.398448417Z",
     "module": ":src:all:nakedpics",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 6711216111994206341,
             "name": "NakedPics",
             "lang": "all",
             "baseUrl": "https://hotnakedwomen.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 319,
+                    "status": "WARN",
+                    "durationMs": 572,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 83,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "White chick turns a girl lesbian after seducing her in the bathroom -> /gals/white-chick-turns-a-girl-lesbian-after-seducing-her-in-the-bathroom-29127919/",
-                        "Tanned Russian girl and beautiful friend come to guy for anal threesome -> /gals/tanned-russian-girl-and-beautiful-friend-come-to-guy-for-anal-threesome-31486675/",
-                        "Pornstar with big tits Sadie Summers gets screwed & facialed by a cute stud -> /gals/pornstar-with-big-tits-sadie-summers-gets-screwed-facialed-by-a-cute-stud-14684034/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 229,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 47,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "40 Something Mag starring Penelope Star Naked XXX -> /gals/40-something-mag-starring-penelope-star-naked-xxx-10940532/",
-                        "Throated Jay Romero, Rose Carter -> /gals/throated-jay-romero-rose-carter-12387124/",
-                        "Mommy Blows Best Adira Allure, Elias Cash -> /gals/mommy-blows-best-adira-allure-elias-cash-13014772/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 92,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,98 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1097,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "White chick turns a girl lesbian after seducing her in the bathroom -> /gals/white-chick-turns-a-girl-lesbian-after-seducing-her-in-the-bathroom-29127919/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 52,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Gallery -> /gals/white-chick-turns-a-girl-lesbian-after-seducing-her-in-the-bathroom-29127919/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 606,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdni.hotnakedwomen.com/1280/7/40/29127919/29127919_002_4508.jpg",
-                        "https://cdni.hotnakedwomen.com/1280/7/40/29127919/29127919_015_9e65.jpg",
-                        "https://cdni.hotnakedwomen.com/1280/7/40/29127919/29127919_025_af4d.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 202,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-13T11:15:20.845472454Z",
+    "comparedTo": "2026-11-14T10:42:15.521855426Z",
     "changes": [
         {
             "source": "NakedPics",
             "lang": "all",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "NakedPics",
             "lang": "all",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "NakedPics",
             "lang": "all",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "NakedPics",
-            "lang": "all",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "NakedPics",
             "lang": "all",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NakedPics",
+            "lang": "all",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "NakedPics",
             "lang": "all",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "NakedPics",
             "lang": "all",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

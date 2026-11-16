@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-15T11:20:02.452735099Z",
+    "generatedAt": "2026-11-16T11:52:05.727407385Z",
     "module": ":src:vi:zettruyen",
     "sourceRoot": "",
-    "extensionCommit": "80af09c2",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 893747327087652119,
             "name": "ZetTruyen",
             "lang": "vi",
             "baseUrl": "https://www.zettruyen5.com",
-            "status": "DOWN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 483,
+                    "status": "WARN",
+                    "durationMs": 139,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 30005,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "status": "BLOCKED",
+                    "durationMs": 19,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "java.net.SocketTimeoutException: timeout"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.zettruyen5.com (HTTP 403)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 519,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Lạc Vào Hoang Đảo Với Kỹ Năng Chế Tạo -> /truyen-tranh/lac-vao-hoang-dao-voi-ky-nang-che-tao",
-                        "Tatari -> /truyen-tranh/tatari",
-                        "100 Lời Nguyền Của Biệt Thự Elleston -> /truyen-tranh/100-loi-nguyen-cua-biet-thu-elleston"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 17,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.zettruyen5.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -61,65 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "DOWN",
-                    "durationMs": 30001,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 2326,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 14 -> /truyen-tranh/lac-vao-hoang-dao-voi-ky-nang-che-tao/chuong-14",
-                        "Chapter 13 -> /truyen-tranh/lac-vao-hoang-dao-voi-ky-nang-che-tao/chuong-13",
-                        "Chapter 12 -> /truyen-tranh/lac-vao-hoang-dao-voi-ky-nang-che-tao/chuong-12"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 884,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn1.zetimage.com/lac-vao-hoang-dao-voi-ky-nang-che-tao/14/0.jpg",
-                        "https://cdn1.zetimage.com/lac-vao-hoang-dao-voi-ky-nang-che-tao/14/1.jpg",
-                        "https://cdn1.zetimage.com/lac-vao-hoang-dao-voi-ky-nang-che-tao/14/2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1287,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:54:12.648608625Z",
+    "comparedTo": "2026-11-15T11:20:02.452735099Z",
     "changes": [
         {
             "source": "ZetTruyen",
             "lang": "vi",
-            "scenario": "popular",
+            "scenario": "connectivity",
             "from": "PASS",
-            "to": "DOWN"
+            "to": "WARN"
+        },
+        {
+            "source": "ZetTruyen",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "DOWN",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "ZetTruyen",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "ZetTruyen",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "ZetTruyen",
             "lang": "vi",
             "scenario": "search",
+            "from": "DOWN",
+            "to": "SKIP"
+        },
+        {
+            "source": "ZetTruyen",
+            "lang": "vi",
+            "scenario": "pages",
             "from": "PASS",
-            "to": "DOWN"
+            "to": "SKIP"
+        },
+        {
+            "source": "ZetTruyen",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

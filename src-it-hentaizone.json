@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:16:26.602150662Z",
+    "generatedAt": "2026-11-16T11:53:31.395151312Z",
     "module": ":src:it:hentaizone",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 7646644620523526397,
             "name": "Hentai Zone",
             "lang": "it",
             "baseUrl": "https://hentaizone.me",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,38 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 849,
+                    "durationMs": 402,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1140,
+                    "status": "WARN",
+                    "durationMs": 925,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Mamma e zia 2 -> /mamma-e-zia-2/",
-                        "Scuola privata – Ottava Ora -> /scuola-privata-ottava-ora/",
-                        "Il giocattolo delle eroine -> /il-giocattolo-delle-eroine/"
-                    ]
+                    "notes": [
+                        "returned an empty list",
+                        "hasNextPage=true but list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 670,
+                    "durationMs": 605,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Attrice NTR -> /attrice-ntr/",
-                        "Una giovane moglie trascurata 1 -> /una-giovane-moglie-trascurata-1/",
-                        "Gli amici d’infanzia 1 -> /gli-amici-dinfanzia-1/"
+                        "Una doccia con la mamma -> /una-doccia-con-la-mamma/",
+                        "Naufraghi 2 -> /naufraghi-2/",
+                        "Gli amici d’infanzia 3 -> /gli-amici-dinfanzia-3/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,43 +63,42 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 964,
+                    "status": "WARN",
+                    "durationMs": 1518,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Mamma e zia 2 -> /mamma-e-zia-2/",
-                        "Vado a vivere con mia zia 2 -> /vado-a-vivere-con-mia-zia-2/",
-                        "Tra lussuria e disgrazia 2 -> /tra-lussuria-e-disgrazia-2/"
-                    ]
+                    "notes": [
+                        "returned an empty list",
+                        "hasNextPage=true but list is empty",
+                        "query \"Una doccia con la mamma\" matched no results in the first page"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1486,
+                    "durationMs": 1415,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Cap. 2 -> /mamma-e-zia-2/",
-                        "Cap. 1 -> /mamma-e-zia/"
+                        "Capitolo unico -> /una-doccia-con-la-mamma/"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 643,
+                    "durationMs": 775,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://hentaizone.me/wp-content/uploads/gallery/Mamma%20e%20zia/1/Hentaizone.me200001.jpg",
-                        "https://hentaizone.me/wp-content/uploads/gallery/Mamma%20e%20zia/1/Hentaizone.me200002.jpg",
-                        "https://hentaizone.me/wp-content/uploads/gallery/Mamma%20e%20zia/1/Hentaizone.me200003.jpg"
+                        "https://hentaizone.me/wp-content/uploads/RUploads/Una%20doccia%20con%20la%20mamma/Hentaizone.me500001.jpg",
+                        "https://hentaizone.me/wp-content/uploads/RUploads/Una%20doccia%20con%20la%20mamma/Hentaizone.me500002.jpg",
+                        "https://hentaizone.me/wp-content/uploads/RUploads/Una%20doccia%20con%20la%20mamma/Hentaizone.me500003.jpg"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 2099,
+                    "durationMs": 1428,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -108,7 +106,22 @@
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
+    "comparedTo": "2026-11-04T11:16:26.602150662Z",
+    "changes": [
+        {
+            "source": "Hentai Zone",
+            "lang": "it",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Hentai Zone",
+            "lang": "it",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ],
     "throttledHosts": []
 }

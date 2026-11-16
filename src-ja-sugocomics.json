@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:39:20.521453847Z",
+    "generatedAt": "2026-11-16T11:52:58.935821208Z",
     "module": ":src:ja:sugocomics",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 4036523004624942398,
             "name": "Sugo Comics",
             "lang": "ja",
             "baseUrl": "https://nadeshiko-shoten.jp",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1647,
+                    "durationMs": 950,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 294,
+                    "status": "WARN",
+                    "durationMs": 152,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "クラスのクールギャルの呼び出しセックス 【コマカ】 -> 1106333",
-                        "オタク友達とのセックスは最高に気持ちいい 【コマカ】 -> 770567",
-                        "【無料試し読み】はらぺこ母娘と元カレ家主 -> 952623"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 228,
+                    "status": "WARN",
+                    "durationMs": 148,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "ハーレム相続【単話】 -> 1154755",
-                        "性的関係発展 -> 1166161",
-                        "禁欲の国【全年齢版】 -> 1163031"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,48 +59,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1374,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "クラスのクールギャルの呼び出しセックス 【コマカ】 -> 1106333"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 291,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 クラスのクールギャルの呼び出しセックス 【コマカ】 17 -> 1106333",
-                        "🔒 クラスのクールギャルの呼び出しセックス 【コマカ】 16 -> 1106332",
-                        "🔒 クラスのクールギャルの呼び出しセックス 【コマカ】 15 -> 1063312"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 379,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.Exception: Log in via WebView and purchase this product to read."
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:34:09.791875122Z",
+    "comparedTo": "2026-11-02T11:39:20.521453847Z",
     "changes": [
         {
             "source": "Sugo Comics",
             "lang": "ja",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Sugo Comics",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Sugo Comics",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Sugo Comics",
+            "lang": "ja",
             "scenario": "search",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Sugo Comics",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "BLOCKED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

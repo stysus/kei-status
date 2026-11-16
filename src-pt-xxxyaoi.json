@@ -1,12 +1,12 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:35:05.400574364Z",
+    "generatedAt": "2026-11-16T11:49:24.584348550Z",
     "module": ":src:pt:xxxyaoi",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
-            "sourceId": 2490962516027621137,
+            "sourceId": 4493410832840030334,
             "name": "XXX Yaoi",
             "lang": "pt-BR",
             "baseUrl": "https://3xyaoi.com",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "BLOCKED",
-                    "durationMs": 3849,
+                    "durationMs": 4691,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from 3xyaoi.com (HTTP 403)"
@@ -32,32 +32,30 @@
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 397,
-                    "message": null,
+                    "status": "BLOCKED",
+                    "durationMs": 414,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
                     "notes": [
-                        "returned an empty list"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 282,
-                    "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "supportsLatest = false",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "3 filters"
+                        "4 filters"
                     ]
                 },
                 {
@@ -87,48 +85,20 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-09T11:51:58.575946754Z",
+    "comparedTo": "2026-11-12T11:35:05.400574364Z",
     "changes": [
         {
             "source": "XXX Yaoi",
             "lang": "pt-BR",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
+            "scenario": null,
+            "from": null,
+            "to": "BLOCKED"
         },
         {
             "source": "XXX Yaoi",
             "lang": "pt-BR",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "XXX Yaoi",
-            "lang": "pt-BR",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "XXX Yaoi",
-            "lang": "pt-BR",
-            "scenario": "search",
-            "from": "FAIL",
-            "to": "SKIP"
-        },
-        {
-            "source": "XXX Yaoi",
-            "lang": "pt-BR",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "XXX Yaoi",
-            "lang": "pt-BR",
-            "scenario": "images",
-            "from": "PASS",
+            "scenario": null,
+            "from": "BLOCKED",
             "to": null
         }
     ],

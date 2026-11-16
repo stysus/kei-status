@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:54:36.021018673Z",
+    "generatedAt": "2026-11-16T11:52:24.289749003Z",
     "module": ":src:tr:norascans",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 1572449224606837251,
             "name": "Nora Scans",
             "lang": "tr",
             "baseUrl": "https://norascans.com",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,29 +22,31 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 690,
+                    "status": "WARN",
+                    "durationMs": 878,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 502"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 334,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 272,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 343,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 547,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
                     ],
                     "samples": []
                 },
@@ -85,28 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:03:25.715909392Z",
+    "comparedTo": "2026-11-08T13:54:36.021018673Z",
     "changes": [
         {
             "source": "Nora Scans",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Nora Scans",
             "lang": "tr",
             "scenario": "popular",
-            "from": "DOWN",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "DOWN"
         },
         {
             "source": "Nora Scans",
             "lang": "tr",
             "scenario": "latest",
-            "from": "DOWN",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

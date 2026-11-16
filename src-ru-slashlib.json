@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-15T11:17:16.814141739Z",
+    "generatedAt": "2026-11-16T11:54:06.904280826Z",
     "module": ":src:ru:slashlib",
     "sourceRoot": "",
-    "extensionCommit": "80af09c2",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 2730544188738947015,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 406,
+                    "durationMs": 1130,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "BLOCKED",
-                    "durationMs": 10048,
+                    "durationMs": 10089,
                     "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
                     "notes": [
                         "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
@@ -40,20 +40,18 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 8439,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Fly Me to The Moon -> /4909--fly-me-to-the-moon",
-                        "Mirror, mirror on the wall -> /277748--kagami-yo-kagami-yo",
-                        "Sami Plays the Game -> /196204--sami-plays-the-game"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 10070,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,56 +59,38 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1380,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Fly Me to The Moon -> /4909--fly-me-to-the-moon"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1494,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Том 38. Глава 353 -> /4909--fly-me-to-the-moon/chapter?&volume=38&number=353",
-                        "Том 38. Глава 352 - Вот сколько их бродит тут поблизости -> /4909--fly-me-to-the-moon/chapter?&volume=38&number=352",
-                        "Том 38. Глава 351 - Более Скрупулёзный, чем Gemini и более компетентный, чем ChatGPT -> /4909--fly-me-to-the-moon/chapter?&volume=38&number=351"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 959,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "//manga/fly-me-to-the-moon/chapters/1-1/00007_waifu_n1._.jpg",
-                        "//manga/fly-me-to-the-moon/chapters/1-1/00008_waifu_n1._.jpg",
-                        "//manga/fly-me-to-the-moon/chapters/1-1/00009_waifu_n1._.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2694,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-14T10:47:16.101870694Z",
+    "comparedTo": "2026-11-15T11:17:16.814141739Z",
     "changes": [
         {
             "source": "SlashLib",
             "lang": "ru",
-            "scenario": "popular",
+            "scenario": "latest",
             "from": "PASS",
             "to": "BLOCKED"
         },
@@ -118,22 +98,29 @@
             "source": "SlashLib",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "SlashLib",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "SlashLib",
             "lang": "ru",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "SlashLib",
             "lang": "ru",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:36:25.233977878Z",
+    "generatedAt": "2026-11-16T11:54:55.648726463Z",
     "module": ":src:ru:usagi",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 5705163226489175947,
             "name": "Usagi",
             "lang": "ru",
             "baseUrl": "https://web.usagi.one",
-            "status": "BLOCKED",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,37 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 784,
+                    "durationMs": 7272,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 840,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Поднятие уровня в одиночку -> /podniatie_urovnia_v_odinochku__A3b2ec",
-                        "Клинок, рассекающий демонов -> /blade_of_demon_destruction",
-                        "Сказания о демонах и богах -> /tales_of_demons_and_gods"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30033,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 325,
+                    "durationMs": 3649,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Центурия -> /centuriia",
-                        "Кайдзин Фугэки: Воспламенённые души -> /kaijin_fugeki__kindled_spirits",
-                        "Наруто (Цветная версия) -> /naruto___digital_colored_comics"
+                        "Их пара немного милая -> /the_top_couple_is_a_bit_sweet",
+                        "Пассивные навыки помогают мне побеждать -> /my_passive_skills_are_invincible",
+                        "Хуа То стал хирургом -> /32769"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,42 +63,75 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1306,
+                    "durationMs": 3390,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Поднятие уровня в одиночку -> /podniatie_urovnia_v_odinochku__A3b2ec",
-                        "Поднятие уровня в одиночку: Рагнарёк -> /the_solo_leveling__ragnarok",
-                        "Поднятие уровня в одиночку: Истоки Охотника -> /solo_leveling__hunter_origin"
+                        "Их пара немного милая -> /the_top_couple_is_a_bit_sweet"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "BLOCKED",
-                    "durationMs": 705,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.Exception: Для просмотра контента необходима авторизация через WebView🌍 или включите автоматическую авторизацию в настройках расширения"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1151,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "1 - 84 -> /the_top_couple_is_a_bit_sweet/vol1/84?mtr=true",
+                        "1 - 83 -> /the_top_couple_is_a_bit_sweet/vol1/83?mtr=true",
+                        "1 - 82 -> /the_top_couple_is_a_bit_sweet/vol1/82?mtr=true"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 1561,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://rm.one-way.work/auto/72/80/28/1_res.jpg",
+                        "https://rm.one-way.work/auto/72/80/28/2_res.jpg",
+                        "https://rm.one-way.work/auto/72/80/28/3_res.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1669,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:36:05.969867507Z",
+    "comparedTo": "2026-10-30T01:36:25.233977878Z",
     "changes": [
         {
             "source": "Usagi",
             "lang": "ru",
-            "scenario": "search",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Usagi",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "Usagi",
+            "lang": "ru",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Usagi",
+            "lang": "ru",
+            "scenario": "images",
             "from": null,
             "to": "PASS"
         }

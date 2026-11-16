@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:37:56.468399471Z",
+    "generatedAt": "2026-11-16T11:52:46.823037500Z",
     "module": ":src:tr:mangaruhu",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 8370882282338930409,
             "name": "Manga Ruhu",
             "lang": "tr",
-            "baseUrl": "https://mangaruhu.com",
-            "status": "FAIL",
+            "baseUrl": "https://mangaruhu.net",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 744,
+                    "durationMs": 775,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 395,
+                    "durationMs": 187,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 158,
+                    "durationMs": 187,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "İyileştirme Yeteneğim Her Şeyi Kopyalayabiliyor, Bu Sayede Uçurumu Fethettim -> /manga/iyilestirme-yetenegim-her-seyi-kopyalayabiliyor-bu-sayede-ucurumu-fethettim/",
-                        "Kentsel Ejder Savaşı -> /manga/kentsel-ejder-savasi/",
-                        "Tekrar Doğdum İntikamım Acı Verici Olacak -> /manga/tekrar-dogdum-intikamim-aci-verici-olacak/"
+                        "Sürgün Edildim Ama Craft’ta Bir Numarayım -> /manga/surgun-edildim-ama-craftta-bir-numarayim/",
+                        "Güçlüymüşüm Ama Farkında Değilim Çünkü Malım! -> /manga/gucluymusum-ama-farkinda-degilim-cunku-malim/",
+                        "Ninja Kralı: Bir Ara En Güçlüydüm. -> /manga/ninja-krali-bir-ara-en-gucluydum/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,63 +64,78 @@
                 },
                 {
                     "name": "search",
+                    "status": "PASS",
+                    "durationMs": 249,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Şeytani Çağ -> /manga/chronicles-of-the-demon-faction/",
+                        "Eşim Şeytani Tarikat Lideri -> /manga/esim-seytani-tarikat-lideri/",
+                        "Orta Çağ Barbarı -> /manga/the-barbarian-from-the-middle-ages/"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 674,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Bölüm 197 -> /manga/chronicles-of-the-demon-faction/bolum-197/",
+                        "Bölüm 196 -> /manga/chronicles-of-the-demon-faction/bolum-196/",
+                        "Bölüm 195 -> /manga/chronicles-of-the-demon-faction/bolum-195/"
+                    ]
+                },
+                {
+                    "name": "pages",
                     "status": "WARN",
-                    "durationMs": 196,
+                    "durationMs": 630,
                     "message": null,
                     "notes": [
-                        "returned an empty list",
-                        "query \"Şeytani Çağ\" matched no results in the first page"
+                        "page list is empty"
                     ],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 388,
-                    "message": "HTTP error 400",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "pages",
-                    "status": "SKIP",
+                    "name": "images",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:42:00.854012648Z",
+    "comparedTo": "2026-11-12T11:37:56.468399471Z",
     "changes": [
         {
             "source": "Manga Ruhu",
             "lang": "tr",
             "scenario": "search",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Manga Ruhu",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Manga Ruhu",
             "lang": "tr",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
         },
         {
             "source": "Manga Ruhu",
             "lang": "tr",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

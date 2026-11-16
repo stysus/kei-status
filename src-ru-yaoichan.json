@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-15T11:16:26.436407211Z",
+    "generatedAt": "2026-11-16T11:55:03.932382840Z",
     "module": ":src:ru:yaoichan",
     "sourceRoot": "",
-    "extensionCommit": "80af09c2",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 2466512768990363955,
             "name": "YaoiChan",
             "lang": "ru",
             "baseUrl": "https://yaoi-chan.me",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 2449,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 31299,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 2834,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 479,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 3947,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Through the Laurel Branches -> /manga/175119-through-the-laurel-branches.html",
-                        "At the Lake Where Waves Crash -> /manga/175115-at-the-lake-where-waves-crash.html",
-                        "Fake dating -> /manga/175072-fake-dating.html"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30165,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -61,100 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 3792,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Through the Laurel Branches (Меж лавровых ветвей) -> /manga/175119-through-the-laurel-branches.html"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 3112,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Through the Laurel Branches v1 - 14 -> /online/1214794-through-the-laurel-branches_v1_ch14.html",
-                        "Through the Laurel Branches v1 - 13 -> /online/1214793-through-the-laurel-branches_v1_ch13.html",
-                        "Through the Laurel Branches v1 - 12 -> /online/1214792-through-the-laurel-branches_v1_ch12.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2774,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img.yaoi-chan.me/manga/-5new/t/1794713497_through-the-laurel-branches_v1_ch14/01.jpg",
-                        "https://img.yaoi-chan.me/manga/-5new/t/1794713497_through-the-laurel-branches_v1_ch14/02.jpg",
-                        "https://img2.yaoi-chan.me/manga/-5new/t/1794713497_through-the-laurel-branches_v1_ch14/03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3149,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-14T10:46:39.380751852Z",
+    "comparedTo": "2026-11-15T11:16:26.436407211Z",
     "changes": [
         {
             "source": "YaoiChan",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "YaoiChan",
             "lang": "ru",
             "scenario": "popular",
-            "from": "DOWN",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "DOWN"
         },
         {
             "source": "YaoiChan",
             "lang": "ru",
             "scenario": "latest",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "YaoiChan",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "YaoiChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "YaoiChan",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "YaoiChan",
             "lang": "ru",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "YaoiChan",
             "lang": "ru",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

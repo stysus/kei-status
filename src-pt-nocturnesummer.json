@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:34:03.668703444Z",
+    "generatedAt": "2026-11-16T11:49:30.646472051Z",
     "module": ":src:pt:nocturnesummer",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 5501311187877950699,
             "name": "Nocturne Summer",
             "lang": "pt-BR",
             "baseUrl": "https://nocfsb.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 583,
+                    "durationMs": 668,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1855,
+                    "durationMs": 1841,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1974,
+                    "durationMs": 1954,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1937,
+                    "durationMs": 1930,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,87 +74,47 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 4141,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Capítulo Considerações Finais -> capitulo-consideracoes-finais",
-                        "Capítulo 193 -> capitulo-193",
-                        "Capítulo 192 -> capitulo-192"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 3975,
+                    "message": "NullPointerException at MadaraBase.parseDetails(MadaraBase.kt:222)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 3965,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://nocfsb.com/wp-content/uploads/WP-manga/data/manga_648a050e715b2/db3b0e78cba0125e34285ab2839fb177/1.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1726,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:18:33.407021846Z",
+    "comparedTo": "2026-11-12T11:34:03.668703444Z",
     "changes": [
         {
             "source": "Nocturne Summer",
             "lang": "pt-BR",
-            "scenario": "connectivity",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "Nocturne Summer",
-            "lang": "pt-BR",
-            "scenario": "popular",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "Nocturne Summer",
-            "lang": "pt-BR",
-            "scenario": "latest",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "Nocturne Summer",
-            "lang": "pt-BR",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Nocturne Summer",
-            "lang": "pt-BR",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Nocturne Summer",
             "lang": "pt-BR",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Nocturne Summer",
             "lang": "pt-BR",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-15T11:10:38.680691209Z",
+    "generatedAt": "2026-11-16T11:49:19.181711886Z",
     "module": ":src:en:mgreadio",
     "sourceRoot": "",
-    "extensionCommit": "80af09c2",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 15083818169656208,
             "name": "Mgread.io",
             "lang": "en",
             "baseUrl": "https://mgread.io",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 476,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 1856,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mgread.io (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 4825,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Global Freeze: I Created An Apocalypse Shelter -> /manga/global-freeze-i-created-an-apocalypse-shelter/",
-                        "Martial Peak -> /manga/martial-peak/",
-                        "You Like Someone With That Face? -> /manga/you-like-someone-with-that-face/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 34,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mgread.io (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1739,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Inso’s Law -> /manga/insos-law/",
-                        "I’ll Change the Ending Through Home Education -> /manga/ill-change-the-ending-through-home-education/",
-                        "I Awakened as the Most Fearsome Stepmother?! -> /manga/i-awakened-as-the-most-fearsome-stepmother/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 27,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mgread.io (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,81 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 2457,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Global Freeze: I Created An Apocalypse Shelter -> /manga/global-freeze-i-created-an-apocalypse-shelter/",
-                        "I created an Urban Legend -> /manga/i-created-an-urban-legend/",
-                        "I Created a Harem to Avoid the Male Lead -> /manga/i-created-a-harem-to-avoid-the-male-lead/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 4564,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 633 -> /manga/global-freeze-i-created-an-apocalypse-shelter/chapter-633/",
-                        "Chapter 632 -> /manga/global-freeze-i-created-an-apocalypse-shelter/chapter-632/",
-                        "Chapter 631 -> /manga/global-freeze-i-created-an-apocalypse-shelter/chapter-631/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2007,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mg.mgread.io/140093/1/1.jpg",
-                        "https://mg.mgread.io/140093/1/2.jpeg",
-                        "https://mg.mgread.io/140093/1/3.jpeg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 192,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-14T10:41:39.847414634Z",
+    "comparedTo": "2026-11-15T11:10:38.680691209Z",
     "changes": [
         {
             "source": "Mgread.io",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Mgread.io",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Mgread.io",
+            "lang": "en",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Mgread.io",
             "lang": "en",
             "scenario": "chapters",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mgread.io",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Mgread.io",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Mgread.io",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

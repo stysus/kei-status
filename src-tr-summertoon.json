@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-10T11:37:09.301805669Z",
+    "generatedAt": "2026-11-16T11:51:32.756117261Z",
     "module": ":src:tr:summertoon",
     "sourceRoot": "",
-    "extensionCommit": "3cf15bca",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 1346985078461508977,
             "name": "SummerToon",
             "lang": "tr",
-            "baseUrl": "https://summertoons.net",
-            "status": "DOWN",
+            "baseUrl": "https://summertoons.org",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,34 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 20064,
+                    "status": "PASS",
+                    "durationMs": 3162,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 522",
-                        "home page body is empty"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 375,
-                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1463,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "A Child Who Looks Like Me -> /manga/a-child-who-looks-like-me/",
+                        "Cry, Even Better If You Beg -> /manga/cry-even-better-if-you-beg/",
+                        "High Society -> /manga/high-society/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 1530,
-                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 2095,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "The Forgotten Field -> /manga/the-forgotten-field/",
+                        "Merry Psycho -> /manga/merry-psycho/",
+                        "Operation: True Love -> /manga/operation-true-love/"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -62,75 +63,102 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 2992,
+                    "message": null,
+                    "notes": [
+                        "query \"A Child Who Looks Like Me\" matched no results in the first page"
+                    ],
+                    "samples": [
+                        "The Forgotten Field -> /manga/the-forgotten-field/",
+                        "Merry Psycho -> /manga/merry-psycho/",
+                        "Operation: True Love -> /manga/operation-true-love/"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 1961,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Bölüm 61 -> /manga/a-child-who-looks-like-me/bolum-61/",
+                        "Bölüm 60 -> /manga/a-child-who-looks-like-me/bolum-60/",
+                        "Bölüm 59 -> /manga/a-child-who-looks-like-me/bolum-59/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
+                    "status": "WARN",
+                    "durationMs": 2192,
+                    "message": null,
+                    "notes": [
+                        "page list is empty"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:36:52.536820150Z",
+    "comparedTo": "2026-11-10T11:37:09.301805669Z",
     "changes": [
         {
             "source": "SummerToon",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "SummerToon",
             "lang": "tr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "SummerToon",
             "lang": "tr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "SummerToon",
-            "lang": "tr",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "SummerToon",
             "lang": "tr",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "SummerToon",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "SummerToon",
             "lang": "tr",
             "scenario": "pages",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "SummerToon",
+            "lang": "tr",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

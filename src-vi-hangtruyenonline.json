@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-15T11:18:43.406062289Z",
+    "generatedAt": "2026-11-16T11:52:43.797412923Z",
     "module": ":src:vi:hangtruyenonline",
     "sourceRoot": "",
-    "extensionCommit": "80af09c2",
+    "extensionCommit": "53ca8481",
     "sources": [
         {
             "sourceId": 2658264403201402304,
             "name": "HangTruyenOnline",
             "lang": "vi",
             "baseUrl": "https://hangtruyen.online",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 3883,
+                    "status": "WARN",
+                    "durationMs": 3938,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2532,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Võ Luyện Đỉnh Phong -> /truyen-tranh/vo-luyen-dinh-phong",
-                        "Đại Quản Gia Là Ma Hoàng -> /truyen-tranh/dai-quan-gia-la-ma-hoang",
-                        "Tinh Võ Thần Quyết -> /truyen-tranh/tinh-vo-than-quyet"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 2395,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1258,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Sự Trở Lại Của Người Chơi Thiên Tài -> /truyen-tranh/su-tro-lai-cua-nguoi-choi-thien-tai",
-                        "Vương Quốc Huyết Mạch -> /truyen-tranh/vuong-quoc-huyet-mach",
-                        "Chạng Vạng -> /truyen-tranh/chang-vang"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 1145,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,93 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1911,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Võ Luyện Đỉnh Phong -> /truyen-tranh/vo-luyen-dinh-phong"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 10083,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 3860 -> /truyen-tranh/vo-luyen-dinh-phong/chapter-3860",
-                        "Chapter 3858 -> /truyen-tranh/vo-luyen-dinh-phong/chapter-3858",
-                        "Chapter 3857 -> /truyen-tranh/vo-luyen-dinh-phong/chapter-3857"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 6148,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://api.hangtruyen.online/v1/uploads/vo-luyen-dinh-phong/3860/0.jpg",
-                        "https://api.hangtruyen.online/v1/uploads/vo-luyen-dinh-phong/3860/1.jpg",
-                        "https://api.hangtruyen.online/v1/uploads/vo-luyen-dinh-phong/3860/2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3781,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-14T10:55:33.524056274Z",
+    "comparedTo": "2026-11-15T11:18:43.406062289Z",
     "changes": [
         {
             "source": "HangTruyenOnline",
             "lang": "vi",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "HangTruyenOnline",
+            "lang": "vi",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "HangTruyenOnline",
             "lang": "vi",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "HangTruyenOnline",
-            "lang": "vi",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "HangTruyenOnline",
             "lang": "vi",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HangTruyenOnline",
+            "lang": "vi",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "HangTruyenOnline",
             "lang": "vi",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "HangTruyenOnline",
             "lang": "vi",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []
