@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:18:44.360239501Z",
+    "generatedAt": "2026-11-17T12:08:10.326700571Z",
     "module": ":src:en:coffeemangaunoriginal",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "02402ef9",
     "sources": [
         {
             "sourceId": 2571489285618757730,
             "name": "Coffee Manga (Unoriginal)",
             "lang": "en",
             "baseUrl": "https://coffeemanga.net",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 128,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30128,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 198,
+                    "durationMs": 138,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +45,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 793,
+                    "durationMs": 121,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "My Cute Baby Is A Wingman -> /manga/bn20lf37pyu0mnz/",
-                        "My Avatar Is Becoming the Final Boss -> /manga/my-avatar-is-becoming-the-final-boss/",
-                        "An Undesired Visit In Winter -> /manga/z58wbsmcr5gyehp/"
+                        "Missing Wife -> /manga/b1ymzmnihr4bni8/",
+                        "The Heavenly Demon Can’t Live a Normal Life -> /manga/the-heavenly-demon-cant-live-a-normal-life/",
+                        "Seal Evils and the Pursuit of Truth -> /manga/seal-evils-and-the-pursuit-of-truth/"
                     ]
                 },
                 {
@@ -64,64 +66,71 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 131,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Remarried Empress -> /manga/remarried-empress/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30742,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1910,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chapter 250 -> /manga/remarried-empress/chapter-250/",
-                        "Chapter 249 -> /manga/remarried-empress/chapter-249/",
-                        "Chapter 248 -> /manga/remarried-empress/chapter-248/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30001,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 997,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://coffeemanga.net/img/1gxpUkG_pyqlH9jKdqZU0H8FkrPjBmrMglhZJx8JrNs/raw:1/bG9jYWw6Ly8vbGVnYWN5LWNvZmZlZW1hbmdhL21hbmdhXzY5MzJlZmY3NTdjY2MvY2hhcHRlci0yNTAvMDAxLmpwZw",
-                        "https://coffeemanga.net/img/TmjkaaBp7-KJAz4m0I3INID4eo_gPUdLmbQSdh_VTHo/raw:1/bG9jYWw6Ly8vbGVnYWN5LWNvZmZlZW1hbmdhL21hbmdhXzY5MzJlZmY3NTdjY2MvY2hhcHRlci0yNTAvMDAyLmpwZw",
-                        "https://coffeemanga.net/img/Qn47Eo4vA8wjhVilLb0M4Aiq3FkCkhkvpJ2nRb97FII/raw:1/bG9jYWw6Ly8vbGVnYWN5LWNvZmZlZW1hbmdhL21hbmdhXzY5MzJlZmY3NTdjY2MvY2hhcHRlci0yNTAvMDAzLmpwZw"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1051,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:28:57.888729582Z",
+    "comparedTo": "2026-11-13T11:18:44.360239501Z",
     "changes": [
         {
             "source": "Coffee Manga (Unoriginal)",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Coffee Manga (Unoriginal)",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Coffee Manga (Unoriginal)",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Coffee Manga (Unoriginal)",
+            "lang": "en",
             "scenario": "pages",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Coffee Manga (Unoriginal)",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

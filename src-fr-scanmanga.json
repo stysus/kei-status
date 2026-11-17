@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-16T11:50:47.331544165Z",
+    "generatedAt": "2026-11-17T12:10:46.998719293Z",
     "module": ":src:fr:scanmanga",
     "sourceRoot": "",
-    "extensionCommit": "53ca8481",
+    "extensionCommit": "02402ef9",
     "sources": [
         {
             "sourceId": 2062108502806113139,
             "name": "Scan-Manga",
             "lang": "fr",
             "baseUrl": "https://m.scan-manga.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,37 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1320,
+                    "status": "WARN",
+                    "durationMs": 140,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 404"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 340,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 26,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Swordmaster's Youngest Son -> /10834-12372/Swordmaster-s-Youngest-Son.html",
-                        "A Dragonslayer's Peerless Regression -> /14952/A-Dragonslayer-s-Peerless-Regression.html",
-                        "Necromancer's Evolutionary Traits -> /13018-39112/Necromancer-s-Evolutionary-Traits.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 6,
-                    "message": null,
-                    "notes": [
-                        "duplicate manga urls: [/17454/Logging-Out-Is-Too-Hard.html, /17455/Sonic-Comic.html, /4135-42723/My-House-is-a-Magic-Power-Spot-Just-by-Living-there-I-Become-the-Strongest-in-the-World-Novel.html]"
-                    ],
-                    "samples": [
-                        "I Offered Kimchi Bowl Noodles to the Gods' Group Chat -> /17459/I-Offered-Kimchi-Bowl-Noodles-to-the-Gods-Group-Chat.html",
-                        "The Villainess Caruna Has Become a Child -> /9938-70606/The-Villainess-Caruna-Has-Become-a-Child.html",
-                        "Star Fox -> /17458/Star-Fox.html"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 11,
+                    "message": "HTTP error 404",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -65,41 +57,69 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 439,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Swordmaster's Youngest Son -> /10834-12372/Swordmaster-s-Youngest-Son.html"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 348,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Ch. 221 -> /lecture-en-ligne/Swordmaster-s-Youngest-Son-Chapitre-221-FR_583837.html",
-                        "Ch. 220 -> /lecture-en-ligne/Swordmaster-s-Youngest-Son-Chapitre-220-FR_582569.html",
-                        "Ch. 219 -> /lecture-en-ligne/Swordmaster-s-Youngest-Son-Chapitre-219-FR_581314.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
-                    "durationMs": 56,
-                    "message": "not supported by this source",
-                    "notes": [
-                        "java.lang.UnsupportedOperationException: CUSTOM_REQUEST_HEADERS is not supported on this WebView (requires Chromium 142+)"
-                    ],
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-15T11:14:22.836290153Z",
-    "changes": [],
+    "comparedTo": "2026-11-16T11:50:47.331544165Z",
+    "changes": [
+        {
+            "source": "Scan-Manga",
+            "lang": "fr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Scan-Manga",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Scan-Manga",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "Scan-Manga",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Scan-Manga",
+            "lang": "fr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        }
+    ],
     "throttledHosts": []
 }

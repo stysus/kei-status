@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-15T11:14:41.940165845Z",
+    "generatedAt": "2026-11-17T12:13:43.624586118Z",
     "module": ":src:ru:mangamen",
     "sourceRoot": "",
-    "extensionCommit": "80af09c2",
+    "extensionCommit": "02402ef9",
     "sources": [
         {
             "sourceId": 601889634773560665,
             "name": "MangaMen",
             "lang": "ru",
             "baseUrl": "https://mangamen.com",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 660,
+                    "status": "WARN",
+                    "durationMs": 579,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 425,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Поднятие уровня в одиночку -> /1344-solo-leveling",
-                        "Токийские мстители -> /toukyou-revengers",
-                        "Ветролом -> /wind-breaker-A628"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 286,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 707,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Ядовитый Знахарь -> /poisonous-witch-doctor",
-                        "Котя -> /cat",
-                        "Призыватель SSS Ранга -> /sss-rank-lone-summoner"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 554,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,74 +61,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 849,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Поднятие уровня в одиночку -> /1344-solo-leveling",
-                        "Поднятие уровня в одиночку: Рагнарёк -> /the-solo-leveling-ragnarok",
-                        "Поднятие уровня в одиночку: Восстание. Истоки Охотника. -> /solo-leveling-arise-hunter-origin"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 356,
-                    "message": null,
-                    "notes": [
-                        "chapter list is empty"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:00:56.886007900Z",
+    "comparedTo": "2026-11-15T11:14:41.940165845Z",
     "changes": [
         {
             "source": "MangaMen",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "MangaMen",
             "lang": "ru",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "MangaMen",
             "lang": "ru",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaMen",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "MangaMen",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaMen",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

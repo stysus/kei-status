@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-09T11:49:22.948061916Z",
+    "generatedAt": "2026-11-17T12:10:08.605356711Z",
     "module": ":src:es:onfmangas",
     "sourceRoot": "",
-    "extensionCommit": "1b708981",
+    "extensionCommit": "02402ef9",
     "sources": [
         {
             "sourceId": 438553037668091848,
             "name": "ONF MANGAS",
             "lang": "es",
             "baseUrl": "https://onfmangas.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 164,
+                    "durationMs": 638,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,25 +31,25 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 36,
+                    "durationMs": 179,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Koori no Jouheki -> /manga/4440/koori-no-jouheki",
                         "¡Deja de fumar! -> /manga/1490/deja-de-fumar",
+                        "Koori no Jouheki -> /manga/4440/koori-no-jouheki",
                         "Un diario de conquista -> /manga/7700/un-diario-de-conquista"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 42,
+                    "durationMs": 132,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Hunter x Hunter Full Color -> /manga/11963/hunter-x-hunter-full-color",
-                        "CONFESIÓN -> /manga/11961/confesion",
-                        "LAS AVENTURAS REENCARNADAS DEL JOVEN MARLE -> /manga/11960/las-aventuras-reencarnadas-del-joven-marle"
+                        "La fórmula del amor -> /manga/12337/la-formula-del-amor",
+                        "Moto Oshiego no Ninose-san -> /manga/12336/moto-oshiego-no-ninose-san",
+                        "El Cajón de Juguetes de Lady Jane -> /manga/12335/el-cajon-de-juguetes-de-lady-jane"
                     ]
                 },
                 {
@@ -65,54 +65,50 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 151,
+                    "durationMs": 244,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Koori no Jouheki (Book Version) -> /manga/4473/koori-no-jouheki-book-version",
-                        "Koori no Jouheki -> /manga/4440/koori-no-jouheki"
+                        "¡Deja De Fumar! (Sin Censura) -> /manga/7862/deja-de-fumar-sin-censura",
+                        "¡Deja de fumar! -> /manga/1490/deja-de-fumar"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 42,
+                    "status": "WARN",
+                    "durationMs": 125,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Capítulo 106: Fundamentos de la comunicación -> /lector/440858/koori-no-jouheki-fundamentos-de-la-comunicacion",
-                        "Capítulo 105 -> /lector/431655/koori-no-jouheki-capitulo-105",
-                        "Capítulo 104: Viaje escolar (2) -> /lector/431620/koori-no-jouheki-viaje-escolar-2"
-                    ]
+                    "notes": [
+                        "chapter list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 61,
-                    "message": "NullPointerException at OnfMangas.getPageList$suspendImpl(OnfMangas.kt:175)",
-                    "notes": [
-                        "java.lang.NullPointerException: <no message>"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:35:11.162479699Z",
+    "comparedTo": "2026-11-09T11:49:22.948061916Z",
     "changes": [
         {
             "source": "ONF MANGAS",
             "lang": "es",
-            "scenario": "pages",
+            "scenario": "chapters",
             "from": "PASS",
-            "to": "FAIL"
+            "to": "WARN"
         },
         {
             "source": "ONF MANGAS",
             "lang": "es",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

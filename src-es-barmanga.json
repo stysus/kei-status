@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:36:59.911284433Z",
+    "generatedAt": "2026-11-17T12:11:58.155630843Z",
     "module": ":src:es:barmanga",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "02402ef9",
     "sources": [
         {
             "sourceId": 404674447362480247,
             "name": "BarManga",
             "lang": "es",
             "baseUrl": "https://archiviumbar.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 631,
+                    "status": "WARN",
+                    "durationMs": 19766,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 614,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Cállate, malvado dragón, ya no quiero criar hijos contigo. -> 243",
-                        "¡Me Cansé De Ser Un Perro Faldero Y Ahora Tengo 90 Mil Millones De Monedas De Oro! -> 188",
-                        "Sobreviviendo en el Apocalipsis Glacial. -> 177"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19457,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 504,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Mi tranquila tienda de conveniencia dentro de la academia. -> 7396",
-                        "La granja del cazador retirado -> 7780",
-                        "Mi esposa me esperaba en el campo de trigo -> 7286"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19636,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 527,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Cállate, malvado dragón, ya no quiero criar hijos contigo. -> 243"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 952,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 117 -> capitulo-117",
-                        "Capítulo 116 -> capitulo-116",
-                        "Capítulo 115.50 -> capitulo-115-50"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 516,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://archiviumbar.com/wp-content/uploads/WP-manga/data/manga_66e3c14784bb4/4b062b5f9edca182b67b8a12b686d0aa/001.jpg",
-                        "https://archiviumbar.com/wp-content/uploads/WP-manga/data/manga_66e3c14784bb4/4b062b5f9edca182b67b8a12b686d0aa/002.jpg",
-                        "https://archiviumbar.com/wp-content/uploads/WP-manga/data/manga_66e3c14784bb4/4b062b5f9edca182b67b8a12b686d0aa/003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 84,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:43:07.156978529Z",
+    "comparedTo": "2026-11-02T11:36:59.911284433Z",
     "changes": [
         {
             "source": "BarManga",
             "lang": "es",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "BarManga",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "BarManga",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "BarManga",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "BarManga",
+            "lang": "es",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "BarManga",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "BarManga",
+            "lang": "es",
             "scenario": "images",
-            "from": "THROTTLED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

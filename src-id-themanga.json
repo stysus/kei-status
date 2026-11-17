@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-14T10:46:09.707041686Z",
+    "generatedAt": "2026-11-17T12:11:41.004861268Z",
     "module": ":src:id:themanga",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "02402ef9",
     "sources": [
         {
             "sourceId": 4154955713546598190,
             "name": "TheManga",
             "lang": "id",
             "baseUrl": "https://themanga.site",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 6751,
+                    "status": "WARN",
+                    "durationMs": 6336,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 4336,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Kakuzukesareru Sekai de Ikiteiku -> /manga/kakuzukesareru-sekai-de-ikiteiku",
-                        "Martial Peak -> /manga/martial-peak",
-                        "Nakama wo Mamotte Shindara 20-nengo no Onaji Sekai ni Umarekawatta Ken...... demo Ore, Tensei 2-kaime Nanda kedo? -> /manga/nakama-wo-mamotte-shindara-20-nengo-no-onaji-sekai-ni-umarekawatta-ken-demo-ore-tensei-2-kaime-nanda-kedo"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 10000,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 522,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "I Received a Request from the Villain Boss -> /manga/i-received-a-request-from-the-villain-boss",
-                        "A Strange But Effective Villainess Life -> /manga/a-strange-but-effective-villainess-life",
-                        "Tougen Anki -> /manga/tougen-anki"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 9999,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,56 +61,83 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1629,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Kakuzukesareru Sekai de Ikiteiku -> /manga/kakuzukesareru-sekai-de-ikiteiku",
-                        "Kikaku Hazure no Eiyuu ni Sodaterareta, Joushiki Hazure no Mahou Kenshi -> /manga/kikaku-hazure-no-eiyuu-ni-sodaterareta-joushiki-hazure-no-mahou-kenshi",
-                        "Koi wa Neiru ja Kakusenai -> /manga/koi-wa-neiru-ja-kakusenai"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1023,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 7 -> /manga/kakuzukesareru-sekai-de-ikiteiku/chapter/7.00",
-                        "Chapter 6 -> /manga/kakuzukesareru-sekai-de-ikiteiku/chapter/6.00",
-                        "Chapter 5 -> /manga/kakuzukesareru-sekai-de-ikiteiku/chapter/5.00"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 838,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://cdn.themanga.site/storage/manga_pages/21750/chapter_513057/001.webp",
-                        "https://cdn.themanga.site/storage/manga_pages/21750/chapter_513057/002.webp",
-                        "https://cdn.themanga.site/storage/manga_pages/21750/chapter_513057/003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 4777,
-                    "message": null,
-                    "notes": [
-                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.themanga.site (HTTP 403)",
-                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.themanga.site (HTTP 403)"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-13T11:20:50.869065949Z",
-    "changes": [],
+    "comparedTo": "2026-11-14T10:46:09.707041686Z",
+    "changes": [
+        {
+            "source": "TheManga",
+            "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "TheManga",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "TheManga",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "TheManga",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TheManga",
+            "lang": "id",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TheManga",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TheManga",
+            "lang": "id",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

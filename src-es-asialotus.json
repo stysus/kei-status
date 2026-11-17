@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:55.961812278Z",
+    "generatedAt": "2026-11-17T12:09:29.807549309Z",
     "module": ":src:es:asialotus",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "02402ef9",
     "sources": [
         {
             "sourceId": 3655128076360662290,
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1240,
+                    "durationMs": 428,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 846,
+                    "status": "WARN",
+                    "durationMs": 182,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Lluvia de Verano -> /manga/lluvia-de-verano",
-                        "El cazador quiere vivir tranquilamente -> /manga/el-cazador-quiere-vivir-tranquilamente",
-                        "¡Mr. I, un oficinista muy erótico! -> /manga/mr-i-un-oficinista-muy-erotico"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 823,
+                    "status": "WARN",
+                    "durationMs": 87,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Un mal amigo -> /manga/un-mal-amigo",
-                        "El cazador quiere vivir tranquilamente Novela -> /manga/el-cazador-quiere-vivir-tranquilamente-novela",
-                        "El cazador quiere vivir tranquilamente -> /manga/el-cazador-quiere-vivir-tranquilamente"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,56 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 932,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Lluvia de Verano -> /manga/lluvia-de-verano"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 740,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 123 -> /archivos/5803",
-                        "Chapter 122 -> /archivos/5791",
-                        "Chapter 121 -> /archivos/5788"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 495,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "search",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:34:25.843669729Z",
+    "comparedTo": "2026-10-30T01:31:55.961812278Z",
     "changes": [
         {
             "source": "Asia Lotus",
             "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Asia Lotus",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Asia Lotus",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Asia Lotus",
+            "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Asia Lotus",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Asia Lotus",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:32:04.751543264Z",
+    "generatedAt": "2026-11-17T12:09:49.651901375Z",
     "module": ":src:en:readjujutsukaisenmangaonline",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "02402ef9",
     "sources": [
         {
             "sourceId": 808850989053853006,
             "name": "Read Jujutsu Kaisen Manga Online",
             "lang": "en",
             "baseUrl": "https://ww6.readjujutsukaisen.com",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,10 +22,12 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 882,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30150,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 },
                 {
@@ -85,7 +87,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 495,
+                    "durationMs": 538,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -97,7 +99,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 307,
+                    "durationMs": 240,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -109,7 +111,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 127,
+                    "durationMs": 289,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -117,7 +119,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:31:08.444101160Z",
-    "changes": [],
+    "comparedTo": "2026-11-08T13:32:04.751543264Z",
+    "changes": [
+        {
+            "source": "Read Jujutsu Kaisen Manga Online",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        }
+    ],
     "throttledHosts": []
 }

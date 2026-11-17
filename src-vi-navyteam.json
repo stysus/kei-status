@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-11T11:19:27.597289232Z",
+    "generatedAt": "2026-11-17T12:13:56.619543806Z",
     "module": ":src:vi:navyteam",
     "sourceRoot": "",
-    "extensionCommit": "d0478bb6",
+    "extensionCommit": "02402ef9",
     "sources": [
         {
             "sourceId": 2905603390871515946,
             "name": "NavyTeam",
             "lang": "vi",
             "baseUrl": "https://navyteamz.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1175,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 70,
+                    "message": "the site is unreachable (navyteamz.com: No address associated with hostname); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: navyteamz.com: No address associated with hostname"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 373,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Bé Yêu Đáng Sợ Của Tôi -> /truyen/be-yeu-dang-so-cua-toi",
-                        "Tàn Thuốc (Comic) -> /truyen/tan-thuoc-comic",
-                        "Ranh Giới Ảo Tưởng (Bản Không Che) -> /truyen/ranh-gioi-ao-tuong"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 2,
+                    "message": "the site is unreachable (navyteamz.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: navyteamz.com"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -59,58 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 301,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bé Yêu Đáng Sợ Của Tôi -> /truyen/be-yeu-dang-so-cua-toi"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 534,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chap 53 -> /truyen/be-yeu-dang-so-cua-toi/chap-53",
-                        "Chap 52 -> /truyen/be-yeu-dang-so-cua-toi/chap-52",
-                        "Chap 51 -> /truyen/be-yeu-dang-so-cua-toi/chap-51"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 340,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://navytruyen.com/Be-Yeu-Dang-So-Cua-Toi/Chap-53/01.webp",
-                        "https://navytruyen.com/Be-Yeu-Dang-So-Cua-Toi/Chap-53/02.webp",
-                        "https://navytruyen.com/Be-Yeu-Dang-So-Cua-Toi/Chap-53/03.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2610,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-10T11:34:23.647186488Z",
+    "comparedTo": "2026-11-11T11:19:27.597289232Z",
     "changes": [
         {
             "source": "NavyTeam",
             "lang": "vi",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "NavyTeam",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "NavyTeam",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NavyTeam",
+            "lang": "vi",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NavyTeam",
+            "lang": "vi",
             "scenario": "pages",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NavyTeam",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

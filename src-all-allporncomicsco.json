@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:25:19.096581619Z",
+    "generatedAt": "2026-11-17T12:04:24.552334426Z",
     "module": ":src:all:allporncomicsco",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "02402ef9",
     "sources": [
         {
             "sourceId": 6353068724409812158,
             "name": "AllPornComics.co",
             "lang": "all",
             "baseUrl": "https://allporncomics.co",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 532,
+                    "durationMs": 285,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 943,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Hole is Open [Kimtuk] -> 20355",
-                        "Secret Class [Gang-cheol Wang] -> 20099",
-                        "Savita Bhabhi Hindi [Kirtu] -> 19890"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19602,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 287,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "A Very Inappropriate Lease Agreement [inshihyeon] -> 35999",
-                        "A Midsummer’s Carol (Uncensored) [Cht, Park Young] -> 34752",
-                        "A Changed Man [Ramddi] -> 34866"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19772,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 7,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,62 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 508,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The Hole is Open [Kimtuk] -> 20355"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 133,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 152 -> chapter-152",
-                        "Chapter 151 -> chapter-151",
-                        "Chapter 150 -> chapter-150"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 246,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://allporncomics.co/wp-content/uploads/WP-manga/data/manga_667ea53582f5b/5b1dfd26823759f5dfcfa2a9735c1d68/0.jpg",
-                        "https://allporncomics.co/wp-content/uploads/WP-manga/data/manga_667ea53582f5b/5b1dfd26823759f5dfcfa2a9735c1d68/1.jpg",
-                        "https://allporncomics.co/wp-content/uploads/WP-manga/data/manga_667ea53582f5b/5b1dfd26823759f5dfcfa2a9735c1d68/2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 240,
-                    "message": null,
-                    "notes": [
-                        "page[0] image returned HTTP 404",
-                        "page[1] image returned HTTP 404",
-                        "page[2] image returned HTTP 404"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:26:58.999730432Z",
+    "comparedTo": "2026-10-30T01:25:19.096581619Z",
     "changes": [
         {
             "source": "AllPornComics.co",
             "lang": "all",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "AllPornComics.co",
+            "lang": "all",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "AllPornComics.co",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "AllPornComics.co",
+            "lang": "all",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "AllPornComics.co",
+            "lang": "all",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "AllPornComics.co",
+            "lang": "all",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

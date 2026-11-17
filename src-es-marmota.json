@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:44.499962443Z",
+    "generatedAt": "2026-11-17T12:10:06.041931964Z",
     "module": ":src:es:marmota",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "02402ef9",
     "sources": [
         {
             "sourceId": 5937472249278743372,
             "name": "Marmota",
             "lang": "es",
             "baseUrl": "https://marmota.me",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1189,
+                    "durationMs": 274,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 628,
+                    "status": "WARN",
+                    "durationMs": 119,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Absolute Batman (2024) -> 1879",
-                        "Ultimate Spider-Man (2024) -> 1260",
-                        "Transformers (2023) -> 1192"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 910,
+                    "status": "WARN",
+                    "durationMs": 171,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Captain America (2025) -> 2186",
-                        "Charlie’s Angels vs. The Bionic Woman (2019) -> 3825",
-                        "Teen Titans Vol.7 (2026) -> 4193"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,59 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 442,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Absolute Batman (2024) -> 1879",
-                        "Absolute Power (2024) -> 1641"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 457,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Absolute Batman #24 -> absolute-batman-24",
-                        "Absolute Batman #23 -> absolute-batman-23",
-                        "Absolute Batman #22 -> absolute-batman-22"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 755,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "http://marmota.me/wp-content/uploads/WP-manga/data/manga_67151d003d20b/ec5626df5ddbe722297e9261791c1a49/Absolute-Batman-024-(2026)-(F)-(Digital)-(Shan-Empire)-00001.jpg",
-                        "http://marmota.me/wp-content/uploads/WP-manga/data/manga_67151d003d20b/ec5626df5ddbe722297e9261791c1a49/Absolute-Batman-024-(2026)-(F)-(Digital)-(Shan-Empire)-00003.jpg",
-                        "http://marmota.me/wp-content/uploads/WP-manga/data/manga_67151d003d20b/ec5626df5ddbe722297e9261791c1a49/Absolute-Batman-024-(2026)-(F)-(Digital)-(Shan-Empire)-00004.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 63,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:34:15.628430061Z",
+    "comparedTo": "2026-10-30T01:32:44.499962443Z",
     "changes": [
         {
             "source": "Marmota",
             "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Marmota",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Marmota",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Marmota",
+            "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Marmota",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Marmota",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

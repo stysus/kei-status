@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:42.493842671Z",
+    "generatedAt": "2026-11-17T12:11:30.412104967Z",
     "module": ":src:en:myhentaigallery",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "02402ef9",
     "sources": [
         {
             "sourceId": 7327582601422280123,
             "name": "MyHentaiGallery",
             "lang": "en",
             "baseUrl": "https://myhentaigallery.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,34 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 472,
+                    "status": "WARN",
+                    "durationMs": 198,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 521",
+                        "home page body is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 302,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Joy Of Breeding -> /a/20251",
-                        "The Bet 4 -> /a/35771",
-                        "Sultry Summer 1 -> /a/18279"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 167,
+                    "message": "the site's origin server is not responding (HTTP 521); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 521"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 279,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "A Workout For Influencers -> /a/64063",
-                        "Femboi's Adventure -> /a/64062",
-                        "Black Love - The Tribe -> /a/64061"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 196,
+                    "message": "the site's origin server is not responding (HTTP 521); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 521"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,56 +62,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 134,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The Joy Of Breeding -> /a/20251"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 107,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter -> /a/20251"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 61,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.myhentaicomics.com/mhc/images/The%20Joy%20Of%20Breeding/original/001_11.jpg?22",
-                        "https://cdn.myhentaicomics.com/mhc/images/The%20Joy%20Of%20Breeding/original/002_11.jpg?22",
-                        "https://cdn.myhentaicomics.com/mhc/images/The%20Joy%20Of%20Breeding/original/003_11.jpg?22"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 205,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:34:00.434224295Z",
+    "comparedTo": "2026-10-30T01:30:42.493842671Z",
     "changes": [
         {
             "source": "MyHentaiGallery",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "MyHentaiGallery",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "MyHentaiGallery",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "MyHentaiGallery",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MyHentaiGallery",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MyHentaiGallery",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MyHentaiGallery",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

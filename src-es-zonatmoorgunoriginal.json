@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-15T11:12:08.364991783Z",
+    "generatedAt": "2026-11-17T12:11:45.819704020Z",
     "module": ":src:es:zonatmoorgunoriginal",
     "sourceRoot": "",
-    "extensionCommit": "80af09c2",
+    "extensionCommit": "02402ef9",
     "sources": [
         {
             "sourceId": 7391754027638645731,
             "name": "ZonaTMO.org (unoriginal)",
             "lang": "es",
             "baseUrl": "https://zonatmo.org",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 835,
+                    "durationMs": 660,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 266,
+                    "durationMs": 364,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,29 +42,30 @@
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 402,
+                    "status": "PASS",
+                    "durationMs": 505,
                     "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "hasNextPage=true but list is empty"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Banana Scandal -> /biblioteca?title=banana%20scandal&type=manhwa",
+                        "Taiga of Genesis -> /biblioteca?title=taiga%20of%20genesis&type=manga",
+                        "Otouto Ana To Tsunagaru Anal Hole -> /biblioteca?title=otouto%20ana%20to%20tsunagaru%20anal%20hole&type=doujinshi"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "0 filters"
+                        "7 filters"
                     ]
                 },
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1129,
+                    "durationMs": 931,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -73,54 +74,68 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 436,
-                    "message": "NullPointerException at ZonaTmoOrgUnoriginal.parseMangaDetails(ZonaTmoOrgUnoriginal.kt:235)",
-                    "notes": [
-                        "java.lang.NullPointerException: <no message>"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 740,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Capítulo 30 -> /view_uploads/985018",
+                        "Capítulo 29 -> /view_uploads/978791",
+                        "Capítulo 28 -> /view_uploads/975646"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 411,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://storage2.zonatmo.org/chapters/985018/96634408fdbe1c1dcd097dec1074d86f.webp",
+                        "https://storage2.zonatmo.org/chapters/985018/e3db1835e2baa48c212052e80506d9a3.webp",
+                        "https://storage.zonatmo.org/chapters/985018/c1126f34ab0bdfaec71ef7846a8a8ef3.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 65,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:35:33.651379036Z",
+    "comparedTo": "2026-11-15T11:12:08.364991783Z",
     "changes": [
         {
             "source": "ZonaTMO.org (unoriginal)",
             "lang": "es",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "ZonaTMO.org (unoriginal)",
             "lang": "es",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "ZonaTMO.org (unoriginal)",
             "lang": "es",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "ZonaTMO.org (unoriginal)",
             "lang": "es",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

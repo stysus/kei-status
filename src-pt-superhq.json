@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:18:50.871670555Z",
+    "generatedAt": "2026-11-17T12:20:08.173167892Z",
     "module": ":src:pt:superhq",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "02402ef9",
     "sources": [
         {
             "sourceId": 8618551173246946816,
             "name": "SuperHQ",
             "lang": "pt-BR",
             "baseUrl": "https://www.superhq.net",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,21 +23,23 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 138,
+                    "durationMs": 162,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 30,
+                    "status": "WARN",
+                    "durationMs": 36,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[0] has no thumbnail"
+                    ],
                     "samples": [
-                        "Pegando no flagra -> /2026/pegando-no-flagra.html",
-                        "FunsexyDB – Dressing Room [EN] -> /2026/funsexydb-dressing-room-en.html",
-                        "D3 Comics – The Forbidden Rule 2 -> /2026/d3-comics-the-forbidden-rule-2.html"
+                        "[Tufos] FILMINHO, O Natal dos Sacanas -> /2026/tufos-filminho-o-natal-dos-sacanas.html",
+                        "NandoF, Secret Desires 2 -> /2026/nandof-secret-desires-2.html",
+                        "Dragon Ball, Cock Training [EN] -> /2026/dragon-ball-cock-training-en.html"
                     ]
                 },
                 {
@@ -51,7 +53,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -60,57 +62,73 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 409,
+                    "status": "WARN",
+                    "durationMs": 429,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[0] has no thumbnail"
+                    ],
                     "samples": [
-                        "Pegando no flagra -> /2026/pegando-no-flagra.html",
-                        "Filhinha Nota Dez -> /2018/filhinha-nota-dez.html",
-                        "Lady of the Night -> /2019/lady-of-the-night.html"
+                        "[Tufos] FILMINHO, O Natal dos Sacanas -> /2026/tufos-filminho-o-natal-dos-sacanas.html"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 67,
+                    "status": "WARN",
+                    "durationMs": 32,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Capítulo -> /2026/pegando-no-flagra.html"
-                    ]
+                    "notes": [
+                        "chapter list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 3,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://static.superhq.net/galerias/hqs/2025/Pegando_no_flagra/Pegando-no-flagra-01.webp",
-                        "https://static.superhq.net/galerias/hqs/2025/Pegando_no_flagra/Pegando-no-flagra-02.webp",
-                        "https://static.superhq.net/galerias/hqs/2025/Pegando_no_flagra/Pegando-no-flagra-03.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 90,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:37:01.597709013Z",
+    "comparedTo": "2026-11-13T11:18:50.871670555Z",
     "changes": [
         {
             "source": "SuperHQ",
             "lang": "pt-BR",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "SuperHQ",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "SuperHQ",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "SuperHQ",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "SuperHQ",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []
