@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-17T12:10:30.591534021Z",
+    "generatedAt": "2026-11-18T12:06:25.113153376Z",
     "module": ":src:en:rosesquadscans",
     "sourceRoot": "",
-    "extensionCommit": "02402ef9",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 5475936177780301452,
             "name": "Rose Squad Scans",
             "lang": "en",
             "baseUrl": "https://rosesquadscans.aishiteru.org",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,31 +22,37 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 969,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 1443,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: It's necessary to login via WebView to access this source."
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 1674,
+                    "status": "PASS",
+                    "durationMs": 1401,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Hanagara Tsumi -> 44",
+                        "Iya! Shi, Iyasare?! -> 225",
+                        "The Process of Becoming Gay -> 313"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 2000,
+                    "status": "PASS",
+                    "durationMs": 1990,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Kimi ni Koisuru Hazu ga Nai -> 248",
+                        "Chigireru Kubiwa -> 3601",
+                        "Run! Mr. Ha -> 380"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -59,68 +65,72 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 1959,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Hanagara Tsumi -> 44"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "chapters",
+                    "status": "BLOCKED",
+                    "durationMs": 4197,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: It's necessary to login via WebView to access this source."
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:31:18.074097590Z",
+    "comparedTo": "2026-11-17T12:10:30.591534021Z",
     "changes": [
         {
             "source": "Rose Squad Scans",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Rose Squad Scans",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Rose Squad Scans",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Rose Squad Scans",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Rose Squad Scans",
             "lang": "en",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Rose Squad Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

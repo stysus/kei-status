@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-17T12:15:04.484645617Z",
+    "generatedAt": "2026-11-18T12:16:39.143175799Z",
     "module": ":src:tr:juratempest",
     "sourceRoot": "",
-    "extensionCommit": "02402ef9",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 8286382933548342026,
             "name": "JuraTempest",
             "lang": "tr",
             "baseUrl": "https://juratempe.st",
-            "status": "THROTTLED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,37 +22,37 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "THROTTLED",
-                    "durationMs": 7469,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 545,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "juratempe.st answered HTTP 429 earlier in this run",
+                    "status": "FAIL",
+                    "durationMs": 175,
+                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html><html darker-da.....",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "juratempe.st answered HTTP 429 earlier in this run",
+                    "status": "FAIL",
+                    "durationMs": 189,
+                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html><html darker-da.....",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "filters",
-                    "status": "SKIP",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "juratempe.st answered HTTP 429 earlier in this run",
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "0 filters"
+                    ]
                 },
                 {
                     "name": "chapters",
@@ -81,38 +81,36 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:35:29.789045515Z",
+    "comparedTo": "2026-11-17T12:15:04.484645617Z",
     "changes": [
         {
             "source": "JuraTempest",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "JuraTempest",
             "lang": "tr",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "FAIL"
         },
         {
             "source": "JuraTempest",
             "lang": "tr",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "FAIL"
         },
         {
             "source": "JuraTempest",
             "lang": "tr",
             "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         }
     ],
-    "throttledHosts": [
-        "juratempe.st"
-    ]
+    "throttledHosts": []
 }

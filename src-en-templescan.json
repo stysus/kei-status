@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T14:48:06.716115138Z",
+    "generatedAt": "2026-11-18T12:09:35.786710140Z",
     "module": ":src:en:templescan",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 4210732525216763379,
             "name": "Temple Scan",
             "lang": "en",
             "baseUrl": "https://templetoons.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 435,
+                    "durationMs": 495,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2570,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Tears on a Withered Flower -> /comic/tears-on-a-withered-flower",
-                        "Childhood Friend Complex -> /comic/childhood-friend-complex",
-                        "Absolute Threshold -> /comic/absolute-threshold"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 10,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: Update Android System WebView to pass the site's verification"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1334,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Jiwoo's Master -> /comic/jiwoos-master",
-                        "Youth Lovesome -> /comic/youth-lovesome",
-                        "It's Just Business -> /comic/its-just-business"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 1994,
+                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: Update Android System WebView to pass the site's verification"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 4321,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Tears on a Withered Flower -> /comic/tears-on-a-withered-flower"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 880,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 126 -> /comic/tears-on-a-withered-flower/chapter-126",
-                        "Chapter 125 -> /comic/tears-on-a-withered-flower/chapter-125",
-                        "Chapter 124 -> /comic/tears-on-a-withered-flower/chapter-124"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1362,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://media.templetoons.com/file/terms54/uploads/series/tears-on-a-withered-flower/ec6cd9a3-c58e-413e-a7cb-8226f7c017ef/01.jpg",
-                        "https://media.templetoons.com/file/terms54/uploads/series/tears-on-a-withered-flower/ec6cd9a3-c58e-413e-a7cb-8226f7c017ef/02.jpg",
-                        "https://media.templetoons.com/file/terms54/uploads/series/tears-on-a-withered-flower/ec6cd9a3-c58e-413e-a7cb-8226f7c017ef/03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2116,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:31:22.277325310Z",
+    "comparedTo": "2026-11-08T14:48:06.716115138Z",
     "changes": [
         {
             "source": "Temple Scan",
             "lang": "en",
-            "scenario": "connectivity",
-            "from": "UNSUPPORTED",
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Temple Scan",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

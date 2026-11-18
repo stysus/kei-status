@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:40:43.917263651Z",
+    "generatedAt": "2026-11-18T12:14:03.193010969Z",
     "module": ":src:zh:cmanhua",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 7460126106933105633,
             "name": "CManhua",
             "lang": "zh",
             "baseUrl": "https://cmanhua.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 660,
+                    "durationMs": 618,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 729,
+                    "durationMs": 819,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 512,
+                    "durationMs": 561,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 276,
+                    "durationMs": 294,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,7 +75,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 371,
+                    "durationMs": 331,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,7 +87,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 321,
+                    "durationMs": 352,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -98,23 +98,27 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1156,
+                    "status": "WARN",
+                    "durationMs": 31147,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: SocketTimeoutException: Connect timed out",
+                        "page[1] image request failed: SocketTimeoutException: Connect timed out",
+                        "page[2] image request failed: SocketTimeoutException: Connect timed out"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:26.699695742Z",
+    "comparedTo": "2026-10-30T01:40:43.917263651Z",
     "changes": [
         {
             "source": "CManhua",
             "lang": "zh",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

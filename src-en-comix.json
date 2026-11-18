@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-16T11:44:34.892588969Z",
+    "generatedAt": "2026-11-18T12:38:00.342031093Z",
     "module": ":src:en:comix",
     "sourceRoot": "",
-    "extensionCommit": "53ca8481",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 7537715367149829912,
@@ -22,29 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 96,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from comix.to (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 363,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 45000,
-                    "message": "timed out after 45s",
+                    "status": "PASS",
+                    "durationMs": 1376,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "On the Way to Meet Mom -> /g2rk-on-the-way-to-meet-mom",
+                        "The Greatest Estate Developer -> /8wgym-the-greatest-estate-developer",
+                        "Omniscient Reader -> /w2399-omniscient-reader"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 45001,
-                    "message": "timed out after 45s",
+                    "status": "PASS",
+                    "durationMs": 1299,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Love Revolution -> /39y22-love-revolution",
+                        "My Apprentice: Game Over Again! -> /qqjvr-my-apprentice-game-over-again",
+                        "Mane Mane Nichi Nichi -> /g37k-mane-mane-nichi-nichi"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -57,18 +63,22 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 1328,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "On the Way to Meet Mom -> /g2rk-on-the-way-to-meet-mom",
+                        "Destined to Meet on the Trends -> /512z-destined-to-meet-on-the-trends",
+                        "Yujian -> /3vkv3-yujian"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
                     "samples": []
                 },
@@ -76,56 +86,49 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-15T11:10:58.818755995Z",
+    "comparedTo": "2026-11-16T11:44:34.892588969Z",
     "changes": [
         {
             "source": "Comix",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Comix",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Comix",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Comix",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Comix",
             "lang": "en",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Comix",
             "lang": "en",
-            "scenario": "pages",
-            "from": "UNSUPPORTED",
-            "to": "SKIP"
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

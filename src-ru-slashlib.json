@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-16T11:54:06.904280826Z",
+    "generatedAt": "2026-11-18T12:11:49.693036607Z",
     "module": ":src:ru:slashlib",
     "sourceRoot": "",
-    "extensionCommit": "53ca8481",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 2730544188738947015,
@@ -23,35 +23,39 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1130,
+                    "durationMs": 920,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 10089,
-                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
-                    "notes": [
-                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 10454,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Secret Alliance -> /23435--secret-alliance",
+                        "Surviving Romance -> /60127--a-surviving-romance-",
+                        "Wolf and dog -> /24394--wolf-and-dog"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 10070,
-                    "message": "the site requires a WebView session the sweep's browser did not complete; the source is not broken",
-                    "notes": [
-                        "keiyoushi.utils.WebViewTimeoutException: Timed out waiting for WebView after 10s"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 819,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Don't forget to save the data -> /196937--bie-wangle-cundang",
+                        "Handyman Saitou In Another World -> /7061--benriya-saitou-san-isekai-ni-iku",
+                        "ManeMane NichiNichi -> /205985--mane-mane-nichi-nichi"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,68 +63,65 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 1391,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Secret Alliance -> /23435--secret-alliance"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "chapters",
+                    "status": "BLOCKED",
+                    "durationMs": 2496,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: HTTP error 404. Проверьте сайт. Попробуйте авторизоваться через WebView🌎︎ и обновите список. Для завершения авторизации может потребоваться перезапустить приложение с полной остановкой."
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-15T11:17:16.814141739Z",
+    "comparedTo": "2026-11-16T11:54:06.904280826Z",
     "changes": [
         {
             "source": "SlashLib",
             "lang": "ru",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "SlashLib",
             "lang": "ru",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "SlashLib",
             "lang": "ru",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "SlashLib",
             "lang": "ru",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "SlashLib",
-            "lang": "ru",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

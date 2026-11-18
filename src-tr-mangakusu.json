@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-02T11:40:36.635299653Z",
+    "generatedAt": "2026-11-18T12:12:16.667371401Z",
     "module": ":src:tr:mangakusu",
     "sourceRoot": "",
-    "extensionCommit": "efa93f5a",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 6479744508771928030,
             "name": "Manga Kusu",
             "lang": "tr",
             "baseUrl": "https://mangakusu.com",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,36 +22,39 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 5821,
+                    "status": "WARN",
+                    "durationMs": 4127,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 526",
+                        "home page body is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 362,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 4980,
+                    "message": "the site's origin server is not responding (HTTP 526); the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 526"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 327,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 5357,
+                    "message": "the site's origin server is not responding (HTTP 526); the source is not at fault",
                     "notes": [
-                        "returned an empty list"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 526"
                     ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -85,28 +88,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:45:29.388600290Z",
+    "comparedTo": "2026-11-02T11:40:36.635299653Z",
     "changes": [
         {
             "source": "Manga Kusu",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Manga Kusu",
             "lang": "tr",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "DOWN"
         },
         {
             "source": "Manga Kusu",
             "lang": "tr",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

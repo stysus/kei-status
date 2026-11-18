@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:02:46.626941071Z",
+    "generatedAt": "2026-11-18T12:11:50.335201152Z",
     "module": ":src:tr:laviniafansub",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 3269982329415083765,
             "name": "Lavinia Fansub",
             "lang": "tr",
             "baseUrl": "https://laviniafansub.shop",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1357,
+                    "durationMs": 1497,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 738,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 460,
+                    "message": "HTTP error 400",
                     "notes": [],
-                    "samples": [
-                        "Placebo: Let’s Play -> 1068",
-                        "Save The Dae -> 1585",
-                        "Ghostly Vendetta -> 1302"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 656,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 474,
+                    "message": "HTTP error 400",
                     "notes": [],
-                    "samples": [
-                        "Bones and Petals -> 15990",
-                        "A Dragon’s Love -> 19037",
-                        "Regas -> 8053"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,50 +55,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 538,
-                    "message": null,
-                    "notes": [
-                        "the site found nothing for \"Placebo: Let’s Play\"; the retry with \"Placebo Let s Play\" did"
-                    ],
-                    "samples": [
-                        "Placebo: Let’s Play -> 1068"
-                    ]
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1315,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "68. Bölüm - Yan hikaye Final -> 68-bolum-yan-hikaye-final",
-                        "67. Bölüm - Yan Hikaye 9 -> 67-bolum-yan-hikaye-9",
-                        "66. Bölüm - Yan Hikaye 8 -> 66-bolum-yan-hikaye-8"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 1090,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.Exception: Okumak için WebView üzerinden giriş yapın"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T05:57:13.400940157Z",
+    "comparedTo": "2026-11-03T07:02:46.626941071Z",
     "changes": [
         {
             "source": "Lavinia Fansub",
             "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Lavinia Fansub",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Lavinia Fansub",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Lavinia Fansub",
+            "lang": "tr",
             "scenario": "search",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Lavinia Fansub",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "BLOCKED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

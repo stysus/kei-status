@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-17T12:08:41.605689852Z",
+    "generatedAt": "2026-11-18T12:13:36.336952266Z",
     "module": ":src:en:wildtoon",
     "sourceRoot": "",
-    "extensionCommit": "02402ef9",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 4082152694771839662,
             "name": "Wildtoon",
             "lang": "en",
             "baseUrl": "https://wildtoon.com",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 36255,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from wildtoon.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 34526,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 17,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from wildtoon.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 13016,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "The Boss’s Wife (Official) -> /webtoon/the-bosss-wife-official/",
+                        "Power Play (Siren) (Official) -> /webtoon/power-play-siren-official/",
+                        "Synced for Pleasure (Official) -> /webtoon/synced-for-pleasure-official/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 10,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from wildtoon.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 9460,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Maneater (Uncensored) -> /webtoon/maneater-uncensored/",
+                        "Five Girls, One Dorm -> /webtoon/five-girls-one-dorm/",
+                        "Boss! I’m Taking Your Girl! (Uncensored) -> /webtoon/boss-im-taking-your-girl-uncensored/"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,82 +63,102 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 10383,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "The Boss’s Wife (Official) -> /webtoon/the-bosss-wife-official/"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "name": "chapters",
+                    "status": "WARN",
+                    "durationMs": 7586,
+                    "message": null,
+                    "notes": [
+                        "duplicate chapter urls: [/the-bosss-wife-official-chapter-47/, /the-bosss-wife-official-chapter-48/, /the-bosss-wife-official-chapter-49/]"
+                    ],
+                    "samples": [
+                        "Chapter 81 -> /the-bosss-wife-official-chapter-81/",
+                        "Chapter 82 -> /the-bosss-wife-official-chapter-82/",
+                        "Chapter 80 -> /the-bosss-wife-official-chapter-80/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 1324,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://wildtoon.com/wp-content/uploads/focus/en_03/the-bosss-wife-official/chapter-81/0001.jpg",
+                        "https://wildtoon.com/wp-content/uploads/focus/en_03/the-bosss-wife-official/chapter-81/0002.jpg",
+                        "https://wildtoon.com/wp-content/uploads/focus/en_03/the-bosss-wife-official/chapter-81/0003.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1850,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:31:04.627924291Z",
+    "comparedTo": "2026-11-17T12:08:41.605689852Z",
     "changes": [
         {
             "source": "Wildtoon",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Wildtoon",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Wildtoon",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "Wildtoon",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Wildtoon",
             "lang": "en",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Wildtoon",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "WARN"
         },
         {
             "source": "Wildtoon",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Wildtoon",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

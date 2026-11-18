@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:52.389983717Z",
+    "generatedAt": "2026-11-18T12:08:09.550554015Z",
     "module": ":src:es:infrafandub",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 5594696691862732725,
             "name": "InfraFandub",
             "lang": "es",
             "baseUrl": "https://infrafandub.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,22 +23,20 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 690,
+                    "durationMs": 220,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 344,
+                    "status": "WARN",
+                    "durationMs": 90,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Combat Continent IV -> /manga/combat-continent-iv/",
-                        "Retornando a la supervivencia -> /manga/retornando-a-lasupervivencia/",
-                        "Sistema de dragón -> /manga/sistema-de-dragon/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -59,58 +57,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 954,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Combat Continent IV -> /manga/combat-continent-iv/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 2048,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capitulo 239 Versión 2 -> capitulo-239-version-2",
-                        "Capitulo 699 -> capitulo-699",
-                        "Capitulo 698 -> capitulo-698"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1142,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://i.imgur.com/sdCRXpZ.png",
-                        "https://i.imgur.com/ilAeCaD.jpg",
-                        "https://i.imgur.com/kOzNaik.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1239,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:18.474009166Z",
+    "comparedTo": "2026-10-30T01:31:52.389983717Z",
     "changes": [
         {
             "source": "InfraFandub",
             "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "InfraFandub",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "InfraFandub",
+            "lang": "es",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "InfraFandub",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "InfraFandub",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

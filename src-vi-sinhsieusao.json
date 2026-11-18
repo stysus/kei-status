@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:35:28.774830735Z",
+    "generatedAt": "2026-11-18T12:11:44.204705082Z",
     "module": ":src:vi:sinhsieusao",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 4780099289691520887,
             "name": "SinhSieuSao",
             "lang": "vi",
             "baseUrl": "https://sinhsieusao.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 746,
+                    "durationMs": 295,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 422,
+                    "durationMs": 532,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 239,
+                    "durationMs": 512,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Makima bú ngập họng -> 98",
+                        "Album Nanami Toga (Chainsaw Man) -> 90",
                         "Dẫu vậy, ngày mai anh vẫn muốn là bạn trai em -> 66",
-                        "Bé Nayuta tha hóa -> 97"
+                        "Cố thế nào thì cô bạn thuở nhỏ của tôi trông cũng rất nứng -> 75"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 595,
+                    "durationMs": 197,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,7 +75,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 2979,
+                    "durationMs": 4545,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,34 +87,38 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 638,
+                    "durationMs": 452,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://sinhsieusao.com/uploads/page/697/image/processed-4f31ef683a13479e8abeff8d6ec37b66.jpg",
-                        "https://sinhsieusao.com/uploads/page/698/image/processed-c8d756c999f6b1a990c60c3a18ab643c.jpg",
-                        "https://sinhsieusao.com/uploads/page/699/image/processed-85794ecddf6adaf141801d7d23294a66.jpg"
+                        "https://sinhsieusao.comhttps://img.sinhsieusao.com/page/697/image/processed-4f31ef683a13479e8abeff8d6ec37b66.jpg",
+                        "https://sinhsieusao.comhttps://img.sinhsieusao.com/page/698/image/processed-c8d756c999f6b1a990c60c3a18ab643c.jpg",
+                        "https://sinhsieusao.comhttps://img.sinhsieusao.com/page/699/image/processed-85794ecddf6adaf141801d7d23294a66.jpg"
                     ]
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1189,
+                    "status": "WARN",
+                    "durationMs": 30,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: UnknownHostException: sinhsieusao.comhttps",
+                        "page[1] image request failed: UnknownHostException: sinhsieusao.comhttps: Name or service not known",
+                        "page[2] image request failed: UnknownHostException: sinhsieusao.comhttps"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:40:27.254352851Z",
+    "comparedTo": "2026-10-30T01:35:28.774830735Z",
     "changes": [
         {
             "source": "SinhSieuSao",
             "lang": "vi",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

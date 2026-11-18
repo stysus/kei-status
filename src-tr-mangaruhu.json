@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-16T11:52:46.823037500Z",
+    "generatedAt": "2026-11-18T12:44:16.350210896Z",
     "module": ":src:tr:mangaruhu",
     "sourceRoot": "",
-    "extensionCommit": "53ca8481",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 8370882282338930409,
             "name": "Manga Ruhu",
             "lang": "tr",
             "baseUrl": "https://mangaruhu.net",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 775,
+                    "durationMs": 894,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 187,
+                    "durationMs": 191,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 187,
+                    "durationMs": 196,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Sürgün Edildim Ama Craft’ta Bir Numarayım -> /manga/surgun-edildim-ama-craftta-bir-numarayim/",
-                        "Güçlüymüşüm Ama Farkında Değilim Çünkü Malım! -> /manga/gucluymusum-ama-farkinda-degilim-cunku-malim/",
-                        "Ninja Kralı: Bir Ara En Güçlüydüm. -> /manga/ninja-krali-bir-ara-en-gucluydum/"
+                        "Çavuşun Ejderhası -> /manga/cavusun-ejderhasi/",
+                        "Beni Kovdular Ama Canavar Hatunların Koynuna. -> /manga/beni-kovdular-ama-canavar-hatunlarin-koynuna/",
+                        "Sınıfımı Ezik Gördüler Ama Öylemi ? -> /manga/sinifimi-ezik-gorduler-ama-oylemi/"
                     ]
                 },
                 {
@@ -64,78 +64,63 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 249,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Şeytani Çağ -> /manga/chronicles-of-the-demon-faction/",
-                        "Eşim Şeytani Tarikat Lideri -> /manga/esim-seytani-tarikat-lideri/",
-                        "Orta Çağ Barbarı -> /manga/the-barbarian-from-the-middle-ages/"
-                    ]
-                },
-                {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 674,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Bölüm 197 -> /manga/chronicles-of-the-demon-faction/bolum-197/",
-                        "Bölüm 196 -> /manga/chronicles-of-the-demon-faction/bolum-196/",
-                        "Bölüm 195 -> /manga/chronicles-of-the-demon-faction/bolum-195/"
-                    ]
-                },
-                {
-                    "name": "pages",
                     "status": "WARN",
-                    "durationMs": 630,
+                    "durationMs": 242,
                     "message": null,
                     "notes": [
-                        "page list is empty"
+                        "returned an empty list",
+                        "query \"Şeytani Çağ\" matched no results in the first page"
                     ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 438,
+                    "message": "HTTP error 400",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:37:56.468399471Z",
+    "comparedTo": "2026-11-16T11:52:46.823037500Z",
     "changes": [
         {
             "source": "Manga Ruhu",
             "lang": "tr",
             "scenario": "search",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Manga Ruhu",
-            "lang": "tr",
-            "scenario": "chapters",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "Manga Ruhu",
-            "lang": "tr",
-            "scenario": "pages",
-            "from": "SKIP",
+            "from": "PASS",
             "to": "WARN"
         },
         {
             "source": "Manga Ruhu",
             "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Manga Ruhu",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga Ruhu",
+            "lang": "tr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

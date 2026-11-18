@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:39.669790066Z",
+    "generatedAt": "2026-11-18T12:12:21.699510566Z",
     "module": ":src:en:egscomics",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 6631281276194159210,
             "name": "El Goonish Shive",
             "lang": "en",
             "baseUrl": "https://www.egscomics.com",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,10 +22,12 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 586,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30395,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
                     "samples": []
                 },
                 {
@@ -71,45 +73,54 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 470,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "falsekings-202 -> /comic/falsekings-202",
-                        "falsekings-201 -> /comic/falsekings-201",
-                        "falsekings-200 -> /comic/falsekings-200"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30118,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 169,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.egscomics.com/comics/20020121_cqrF.gif"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 114,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:15.613947690Z",
+    "comparedTo": "2026-10-30T01:30:39.669790066Z",
     "changes": [
         {
             "source": "El Goonish Shive",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "WARN"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "El Goonish Shive",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "El Goonish Shive",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "El Goonish Shive",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

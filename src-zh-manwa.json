@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:38:05.362924168Z",
+    "generatedAt": "2026-11-18T12:12:26.227088689Z",
     "module": ":src:zh:manwa",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 1795888684783606321,
             "name": "漫蛙",
             "lang": "zh",
             "baseUrl": "https://manwa.me",
-            "status": "FAIL",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,39 +22,37 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 345,
-                    "message": "图源列表已自动更新，请在插件设置中选择合适的图源并重新请求（如果反复提示，可能是服务器故障）",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 140,
-                    "message": null,
+                    "status": "THROTTLED",
+                    "durationMs": 14223,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
-                        "returned an empty list"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
                     "samples": []
                 },
                 {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "manwa.me answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 120,
-                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!doctype html><html lang=\"en\".....",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "manwa.me answered HTTP 429 earlier in this run",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
-                    "durationMs": 1,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "manwa.me answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "6 filters"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
@@ -83,50 +81,38 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:22:33.904137984Z",
+    "comparedTo": "2026-11-12T11:38:05.362924168Z",
     "changes": [
         {
             "source": "漫蛙",
             "lang": "zh",
+            "scenario": "connectivity",
+            "from": "FAIL",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "漫蛙",
+            "lang": "zh",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "SKIP"
         },
         {
             "source": "漫蛙",
             "lang": "zh",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "漫蛙",
-            "lang": "zh",
-            "scenario": "chapters",
-            "from": "PASS",
+            "from": "FAIL",
             "to": "SKIP"
         },
         {
             "source": "漫蛙",
             "lang": "zh",
-            "scenario": "search",
+            "scenario": "filters",
             "from": "PASS",
             "to": "SKIP"
-        },
-        {
-            "source": "漫蛙",
-            "lang": "zh",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "漫蛙",
-            "lang": "zh",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "manwa.me"
+    ]
 }

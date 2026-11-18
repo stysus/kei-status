@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-11T11:13:42.611535929Z",
+    "generatedAt": "2026-11-18T12:06:59.335208757Z",
     "module": ":src:en:linkmanga",
     "sourceRoot": "",
-    "extensionCommit": "d0478bb6",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 8622937201319058235,
             "name": "LinkManga",
             "lang": "en",
             "baseUrl": "https://linkmanga.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 5001,
+                    "durationMs": 542,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 464,
+                    "status": "WARN",
+                    "durationMs": 127,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Lazy Prince Becomes a Genius -> 8",
-                        "Magic Emperor -> 362",
-                        "Kimi ga Hoeru Tame no Uta wo -> 1730"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 447,
+                    "status": "WARN",
+                    "durationMs": 116,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        ".hack//Tasogare no Udewa Densetsu -> 8644",
-                        "I Returned as an FFF-Class Witch Doctor -> 8642",
-                        "Midwood -> 8640"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 412,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The Lazy Prince Becomes a Genius -> 8"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 445,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "chapter 163 -> ch-163",
-                        "chapter 162 -> ch-162",
-                        "chapter 161 -> ch-161"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 385,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://linkmanga.com/wp-content/uploads/WP-manga/data/manga_6a2fd59248089/ch-163/v001.jpg",
-                        "https://linkmanga.com/wp-content/uploads/WP-manga/data/manga_6a2fd59248089/ch-163/v002.jpg",
-                        "https://linkmanga.com/wp-content/uploads/WP-manga/data/manga_6a2fd59248089/ch-163/v003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 555,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-10T11:27:34.889665968Z",
+    "comparedTo": "2026-11-11T11:13:42.611535929Z",
     "changes": [
         {
             "source": "LinkManga",
             "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "LinkManga",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

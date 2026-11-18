@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:34:35.324447619Z",
+    "generatedAt": "2026-11-18T12:09:21.474492290Z",
     "module": ":src:pt:mangadash",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 4579000402227688678,
             "name": "MangaDash",
             "lang": "pt-BR",
             "baseUrl": "https://mangadash.net",
-            "status": "BLOCKED",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "BLOCKED",
-                    "durationMs": 193,
+                    "durationMs": 192,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangadash.net (HTTP 403)"
@@ -32,27 +32,23 @@
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 439,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Stop Smoking -> /manga/41-stop-smoking",
-                        "One Piece -> /manga/31-one-piece",
-                        "Bleach -> /manga/59-bleach"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 138,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 766,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Beware the Villainess! -> /manga/421-beware-the-villainess",
-                        "Mysterious Disappearances -> /manga/420-mysterious-disappearances",
-                        "The Reaper -> /manga/419-the-reaper"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 54,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -65,44 +61,61 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 216,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Stop Smoking -> /manga/41-stop-smoking"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "BLOCKED",
-                    "durationMs": 20,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangadash.net (HTTP 403)"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:42:26.743555624Z",
+    "comparedTo": "2026-10-30T01:34:35.324447619Z",
     "changes": [
         {
             "source": "MangaDash",
             "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "MangaDash",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "MangaDash",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "BLOCKED",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaDash",
+            "lang": "pt-BR",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

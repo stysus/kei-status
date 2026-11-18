@@ -1,61 +1,63 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:36:06.039092406Z",
+    "generatedAt": "2026-11-18T12:12:49.415279646Z",
     "module": ":src:tr:okutoon",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 6023377011056301844,
             "name": "OkuToon",
             "lang": "tr",
             "baseUrl": "https://okutoon.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 3664,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 20614,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from okutoon.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 283,
+                    "durationMs": 791,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "On Your Knees, Your Highness! -> /on-your-knees-your-highness",
-                        "I Married the Dragon I Killed -> /i-married-the-dragon-i-killed",
-                        "Golden Chevalier -> /golden-chevalier"
+                        "Let's Get Divorced, Your Majesty -> /let-s-get-divorced-your-majesty",
+                        "Revenge of the Iron-Blooded Sword Hound -> /revenge-of-the-iron-blooded-sword-hound",
+                        "About Things that Haven't Occurred Yet -> /about-things-that-haven-t-occurred-yet"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 187,
+                    "durationMs": 337,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "I Faked a Pregnancy, but My Husband Returned -> /i-faked-a-pregnancy-but-my-husband-returned",
-                        "Villain, I'll Do Everything Except Marriage for You! -> /villain-i-ll-do-everything-except-marriage-for-you-2",
-                        "Perfection is Everything -> /perfection-is-everything"
+                        "The Demon King's Friend -> /the-demon-king-s-friend",
+                        "Blind Obedience -> /blind-obedience"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,56 +67,60 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 248,
+                    "durationMs": 439,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "On Your Knees, Your Highness! -> /on-your-knees-your-highness"
+                        "Let's Get Divorced, Your Majesty -> /let-s-get-divorced-your-majesty"
                     ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 346,
+                    "durationMs": 280,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Bölüm 42 -> /on-your-knees-your-highness/bolum-42",
-                        "Bölüm 41 -> /on-your-knees-your-highness/bolum-41",
-                        "Bölüm 40 -> /on-your-knees-your-highness/bolum-40"
+                        "Bölüm 15 -> /let-s-get-divorced-your-majesty/bolum-15",
+                        "Bölüm 14 -> /let-s-get-divorced-your-majesty/bolum-14",
+                        "Bölüm 13 -> /let-s-get-divorced-your-majesty/bolum-13"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 216,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://om-cdn.okutoon.com/chapters/1091/138168/on-your-knees-your-highness_bolum-42_001.webp",
-                        "https://om-cdn.okutoon.com/chapters/1091/138168/on-your-knees-your-highness_bolum-42_002.webp",
-                        "https://om-cdn.okutoon.com/chapters/1091/138168/on-your-knees-your-highness_bolum-42_003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1431,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 20,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from okutoon.com (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:40:11.399164373Z",
+    "comparedTo": "2026-10-30T01:36:06.039092406Z",
     "changes": [
         {
             "source": "OkuToon",
             "lang": "tr",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "OkuToon",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "OkuToon",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

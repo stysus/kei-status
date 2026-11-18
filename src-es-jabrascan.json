@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-11T11:15:15.266634299Z",
+    "generatedAt": "2026-11-18T12:13:39.984313538Z",
     "module": ":src:es:jabrascan",
     "sourceRoot": "",
-    "extensionCommit": "d0478bb6",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 7834765587341972487,
             "name": "JabraScan",
             "lang": "es",
             "baseUrl": "https://jabrascan.net",
-            "status": "FAIL",
+            "status": "UNSUPPORTED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 429,
+                    "durationMs": 252,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,13 +31,13 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1437,
+                    "durationMs": 1119,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "La Leyenda de la Espada del Norte -> LaLeyendaDeLaEspadaDelNorte",
                         "Cultivation Online -> CultivationOnline",
-                        "¡Sistema Supremo del Marido! y Esposas -> SupremeHusbandWifeSystem",
-                        "Shadow Slave -> ShadowSlave"
+                        "¡Sistema Supremo del Marido! y Esposas -> SupremeHusbandWifeSystem"
                     ]
                 },
                 {
@@ -61,51 +61,65 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1241,
+                    "durationMs": 916,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Cultivation Online -> CultivationOnline"
+                        "La Leyenda de la Espada del Norte -> LaLeyendaDeLaEspadaDelNorte"
                     ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 953,
+                    "durationMs": 951,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "2706: Poder De Otro Mundo -> CultivationOnline/2706/CultivationOnline-2706_JabraScan.pdf",
-                        "2705: La Segunda Aparición del Cazador del Vacío -> CultivationOnline/2705/CultivationOnline-2705_JabraScan.pdf",
-                        "2704: Zona Negra de Nivel 4 -> CultivationOnline/2704/CultivationOnline-2704_JabraScan.pdf"
+                        "251: El Destino Fluye Inevitablemente Hacia Los Lugares Bajos Y Se Acumula (1) -> LaLeyendaDeLaEspadaDelNorte/251/TLOTNB-0251_JabraScan.pdf",
+                        "250: Puedes Evitar Una Lluvia Pasajera, Pero No Una Tormenta (4) -> LaLeyendaDeLaEspadaDelNorte/250/TLOTNB-0250_JabraScan.pdf",
+                        "249: Puedes Evitar Una Lluvia Pasajera, Pero No Una Tormenta (3) -> LaLeyendaDeLaEspadaDelNorte/249/TLOTNB-0249_JabraScan.pdf"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 395,
-                    "message": "no pages found: not a PDF, or one the shim cannot scan",
+                    "status": "PASS",
+                    "durationMs": 386,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://books.jabrascan.net/LaLeyendaDeLaEspadaDelNorte/TLOTNB-0001_JabraScan.pdf#0",
+                        "https://books.jabrascan.net/LaLeyendaDeLaEspadaDelNorte/TLOTNB-0001_JabraScan.pdf#1",
+                        "https://books.jabrascan.net/LaLeyendaDeLaEspadaDelNorte/TLOTNB-0001_JabraScan.pdf#2"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "UNSUPPORTED",
+                    "durationMs": 14,
+                    "message": "requires an Android method or field the harness does not provide: android.graphics.pdf.PdfRenderer$Page.render",
+                    "notes": [
+                        "java.lang.NoSuchMethodError: 'void android.graphics.pdf.PdfRenderer$Page.render(android.graphics.Bitmap, android.graphics.Rect, android.graphics.Matrix, int)'"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-10T11:32:44.074944398Z",
+    "comparedTo": "2026-11-11T11:15:15.266634299Z",
     "changes": [
         {
             "source": "JabraScan",
             "lang": "es",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "JabraScan",
             "lang": "es",
             "scenario": "images",
-            "from": "UNSUPPORTED",
-            "to": null
+            "from": null,
+            "to": "UNSUPPORTED"
         }
     ],
     "throttledHosts": []

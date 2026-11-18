@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-15T11:17:41.979381343Z",
+    "generatedAt": "2026-11-18T12:12:35.186156829Z",
     "module": ":src:tr:ucracizgiroman",
     "sourceRoot": "",
-    "extensionCommit": "80af09c2",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 2895434874576908511,
             "name": "Ücra Çizgi Roman",
             "lang": "tr",
             "baseUrl": "https://www.ucracizgiroman.com",
-            "status": "UNSUPPORTED",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,94 +22,125 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 760,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 12162,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 762,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.ucracizgiroman.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Küçük Kırmızı Ronin -> /2026/10/kucuk-krmz-ronin.html",
-                        "Adventure Time - Sonun Başlangıcı -> /2026/04/adventure-time-sonun-baslangc.html",
-                        "John Constantine - Hellblazer (2019) #12 -> /2026/04/john-constantine-hellblazer-2019-12.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 219,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.ucracizgiroman.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Küçük Kırmızı Ronin -> /2026/10/kucuk-krmz-ronin.html",
-                        "The Flash Zamana Karşı Yarış -> /2023/06/the-flash-zamana-kars-yars.html",
-                        "Ultimate Spider-Man -> /2023/06/ultimate-spider-man.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "www.ucracizgiroman.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 285,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Küçük Kırmızı Ronin -> /2026/10/kucuk-krmz-ronin.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 627,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Küçük Kırmızı Ronin #03 -> /2026/01/kucuk-krmz-ronin-03.html",
-                        "Küçük Kırmızı Ronin #02 -> /2026/01/kucuk-krmz-ronin-02.html",
-                        "Küçük Kırmızı Ronin #01 -> /2026/01/kucuk-krmz-ronin-01.html"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 4005,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://drive.usercontent.google.com/download?id=1OshwQLUjINFrlz8BZEphR7H0clzzf6rw&export=download#0",
-                        "https://drive.usercontent.google.com/download?id=1OshwQLUjINFrlz8BZEphR7H0clzzf6rw&export=download#1",
-                        "https://drive.usercontent.google.com/download?id=1OshwQLUjINFrlz8BZEphR7H0clzzf6rw&export=download#2"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "UNSUPPORTED",
-                    "durationMs": 76,
-                    "message": "requires an Android method or field the harness does not provide: android.graphics.pdf.PdfRenderer$Page.render",
-                    "notes": [
-                        "java.lang.NoSuchMethodError: 'void android.graphics.pdf.PdfRenderer$Page.render(android.graphics.Bitmap, android.graphics.Rect, android.graphics.Matrix, int)'"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
-    "throttledHosts": []
+    "comparedTo": "2026-11-15T11:17:41.979381343Z",
+    "changes": [
+        {
+            "source": "Ücra Çizgi Roman",
+            "lang": "tr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "THROTTLED"
+        },
+        {
+            "source": "Ücra Çizgi Roman",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ücra Çizgi Roman",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ücra Çizgi Roman",
+            "lang": "tr",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ücra Çizgi Roman",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ücra Çizgi Roman",
+            "lang": "tr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ücra Çizgi Roman",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ücra Çizgi Roman",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "UNSUPPORTED",
+            "to": null
+        }
+    ],
+    "throttledHosts": [
+        "www.ucracizgiroman.com"
+    ]
 }

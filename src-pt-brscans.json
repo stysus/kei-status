@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T06:59:59.476715357Z",
+    "generatedAt": "2026-11-18T12:07:54.068283076Z",
     "module": ":src:pt:brscans",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 1420003550573697308,
             "name": "BRScans",
             "lang": "pt-BR",
             "baseUrl": "https://brscans.vercel.app",
-            "status": "DOWN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,30 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 538,
+                    "durationMs": 2115,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 96,
-                    "message": "the site is unreachable (e5oer7ngt8.execute-api.sa-east-1.amazonaws.com: Name or service not known); the source is not at fault",
-                    "notes": [
-                        "java.net.UnknownHostException: e5oer7ngt8.execute-api.sa-east-1.amazonaws.com: Name or service not known"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1038,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Crônicas do Soberano Preguiçoso -> /manga/129",
+                        "A Suprema Espada Demoníaca -> /manga/182",
+                        "Guerreiro de Escolta Reencarnado -> /manga/178"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 0,
-                    "message": "the site is unreachable (e5oer7ngt8.execute-api.sa-east-1.amazonaws.com); the source is not at fault",
-                    "notes": [
-                        "java.net.UnknownHostException: e5oer7ngt8.execute-api.sa-east-1.amazonaws.com"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 659,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "A Suprema Espada Demoníaca -> /manga/182",
+                        "Crônicas do Soberano Preguiçoso -> /manga/129",
+                        "O Supremo Rei de Sichuan -> /manga/175"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -59,75 +63,93 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 227,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Crônicas do Soberano Preguiçoso -> /manga/129"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 227,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 73 -> /manga/129/chapter/9667?variant=translated",
+                        "Chapter 73 -> /manga/129/chapter/9667?variant=original",
+                        "Chapter 73 -> /manga/129/chapter/9667?variant=raw"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 222,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://d47sf0ah3vbtc.cloudfront.net/media/chapters/9667/translated/13676a8de99e45d2b2452c05e9d4534e.webp",
+                        "https://d47sf0ah3vbtc.cloudfront.net/media/chapters/9667/translated/30cca3424aa4409c8479987e87749273.webp",
+                        "https://d47sf0ah3vbtc.cloudfront.net/media/chapters/9667/translated/5cad211bd663474ca6b370972f95a7aa.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1515,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-01T10:47:29.145628698Z",
+    "comparedTo": "2026-11-03T06:59:59.476715357Z",
     "changes": [
         {
             "source": "BRScans",
             "lang": "pt-BR",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "BRScans",
             "lang": "pt-BR",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "BRScans",
-            "lang": "pt-BR",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "BRScans",
             "lang": "pt-BR",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "BRScans",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "BRScans",
             "lang": "pt-BR",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "BRScans",
             "lang": "pt-BR",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

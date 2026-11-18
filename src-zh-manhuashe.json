@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:35:48.931874387Z",
+    "generatedAt": "2026-11-18T12:13:21.739944339Z",
     "module": ":src:zh:manhuashe",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 6230622879116184108,
             "name": "漫画社",
             "lang": "zh",
             "baseUrl": "https://www.311s.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 821,
+                    "durationMs": 1016,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 702,
+                    "durationMs": 757,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 708,
+                    "durationMs": 787,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 266,
+                    "durationMs": 256,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,7 +76,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 253,
+                    "durationMs": 1258,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,7 +88,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 230,
+                    "durationMs": 218,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -97,23 +97,25 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 599,
+                    "status": "WARN",
+                    "durationMs": 31350,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: SocketTimeoutException: Connect timed out"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:40:41.039937252Z",
+    "comparedTo": "2026-10-30T01:35:48.931874387Z",
     "changes": [
         {
             "source": "漫画社",
             "lang": "zh",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

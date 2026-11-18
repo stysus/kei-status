@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:29:02.578972756Z",
+    "generatedAt": "2026-11-18T12:07:48.809557905Z",
     "module": ":src:en:mangakakalot",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 2528986671771677900,
             "name": "Mangakakalot",
             "lang": "en",
             "baseUrl": "https://www.kakamanga.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 217,
+                    "durationMs": 565,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 735,
+                    "status": "WARN",
+                    "durationMs": 660,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Martial Peak -> /manga/martial-peak",
-                        "Tales Of Demons And Gods -> /manga/tales-of-demons-and-gods",
-                        "Solo Leveling -> /manga/solo-leveling"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 852,
+                    "status": "WARN",
+                    "durationMs": 646,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Berserker's Second Playthrough -> /manga/the-berserker-s-second-playthrough",
-                        "Secretly More Powerful than the Hero -> /manga/secretly-more-powerful-than-the-hero",
-                        "Musin -> /manga/musin"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,60 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 3178,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Martial Peak -> /manga/martial-peak",
-                        "Martial Peak (Colored) -> /manga/martial-peak-colored",
-                        "Martial Arts Peak -> /manga/martial-arts-peak"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 881,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 3862 -> https://www.kakamanga.com/manga/martial-peak/chapter-3862",
-                        "Chapter 3861 -> https://www.kakamanga.com/manga/martial-peak/chapter-3861",
-                        "Chapter 3860 -> https://www.kakamanga.com/manga/martial-peak/chapter-3860"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 666,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img-r1.2xstorage.com/martial-peak/1/0.webp",
-                        "https://img-r1.2xstorage.com/martial-peak/1/1.webp",
-                        "https://img-r1.2xstorage.com/martial-peak/1/2.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1100,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:30.370098140Z",
+    "comparedTo": "2026-10-30T01:29:02.578972756Z",
     "changes": [
         {
             "source": "Mangakakalot",
             "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Mangakakalot",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Mangakakalot",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangakakalot",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangakakalot",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangakakalot",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

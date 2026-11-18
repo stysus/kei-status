@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-17T12:08:21.526067325Z",
+    "generatedAt": "2026-11-18T12:02:33.443622339Z",
     "module": ":src:all:pornsticky",
     "sourceRoot": "",
-    "extensionCommit": "02402ef9",
+    "extensionCommit": "f1d882a9",
     "sources": [
         {
             "sourceId": 5052420760211841842,
             "name": "PornSticky",
             "lang": "all",
             "baseUrl": "https://pornsticky.com",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1006,
+                    "status": "WARN",
+                    "durationMs": 841,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 195,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Teen first timer blow her guy's big dick before riding his cock in OTK socks -> /pics/teen-first-timer-blow-her-guys-big-dick-before-riding-his-cock-in-otk-socks-60158366/",
-                        "Girlfriends Kelly Madison & Angela White flash hooters before having a 3some -> /pics/girlfriends-kelly-madison-angela-white-flash-hooters-before-having-a-3some-50999724/",
-                        "Horny roommates Anastassia Delgado & Angela Diaz lick and toy each other -> /pics/horny-roommates-anastassia-delgado-angela-diaz-lick-and-toy-each-other-89930289/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 347,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -51,7 +51,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,51 +59,76 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 831,
-                    "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "query \"Teen first timer blow her guy's big dick before riding his cock in OTK socks\" matched no results in the first page",
-                        "a retry without punctuation (\"Teen first timer blow her guy s big dick before riding his cock in OTK socks\") also matched nothing"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 331,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Gallery -> /pics/teen-first-timer-blow-her-guys-big-dick-before-riding-his-cock-in-otk-socks-60158366/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 147,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdni.pornsticky.com/1280/1/226/60158366/60158366_001_e1ae.jpg",
-                        "https://cdni.pornsticky.com/1280/1/226/60158366/60158366_002_b476.jpg",
-                        "https://cdni.pornsticky.com/1280/1/226/60158366/60158366_003_a8ab.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 603,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-16T11:48:27.978798123Z",
-    "changes": [],
+    "comparedTo": "2026-11-17T12:08:21.526067325Z",
+    "changes": [
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "search",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }
