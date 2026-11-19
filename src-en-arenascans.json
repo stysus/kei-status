@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:27:29.404265425Z",
+    "generatedAt": "2026-11-19T11:55:22.103436765Z",
     "module": ":src:en:arenascans",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 8861274191478178487,
             "name": "Arena Scans",
             "lang": "en",
             "baseUrl": "https://arenascan.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1031,
+                    "status": "WARN",
+                    "durationMs": 563,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 513,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "How to Get My Husband on My Side -> /manga/how-to-get-my-husband-on-my-side/",
-                        "Tears on a Withered Flower -> /manga/tears-on-a-withered-flower/",
-                        "A Fortune-Telling Princess -> /manga/a-fortune-telling-princess/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 189,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 448,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "I’m The Male Lead’s Biological Daughter, But I Want To Live With The Second Male Lead! -> /manga/i-m-the-male-lead-s-biological-daughter-but-i-want-to-live-with-the-second-male-lead/",
-                        "Nine-Star Hegemon Body Technique -> /manga/nine-star-hegemon-body-technique/",
-                        "I Kidnapped the Youngest Daughter of the Sichuan Tang Clan, -> /manga/i-kidnapped-the-youngest-daughter-of-the-sichuan-tang-clan/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 180,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,60 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 701,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "As a Reincarnated Villainess and a Single Mother, I’ve Secured the Love Route! -> /manga/as-a-reincarnated-villainess-and-a-single-mother-ive-secured-the-love-route/",
-                        "End of the Show Window -> /manga/end-of-the-show-window/",
-                        "How to Get My Husband on My Side -> /manga/how-to-get-my-husband-on-my-side/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 470,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 137 -> /how-to-get-my-husband-on-my-side-137/",
-                        "Chapter 136 -> /how-to-get-my-husband-on-my-side-136/",
-                        "Chapter 135 -> /how-to-get-my-husband-on-my-side-135/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 369,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.arenascan.com/arena-bucket/173838/137/1.jpg",
-                        "https://cdn.arenascan.com/arena-bucket/173838/137/2.jpg",
-                        "https://cdn.arenascan.com/arena-bucket/173838/137/3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 222,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:49.748793040Z",
+    "comparedTo": "2026-10-30T01:27:29.404265425Z",
     "changes": [
         {
             "source": "Arena Scans",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Arena Scans",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Arena Scans",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Arena Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Arena Scans",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Arena Scans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Arena Scans",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

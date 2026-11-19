@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-18T12:11:30.299596640Z",
+    "generatedAt": "2026-11-19T12:04:25.670536877Z",
     "module": ":src:ru:mangachan",
     "sourceRoot": "",
-    "extensionCommit": "f1d882a9",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 7,
@@ -22,18 +22,16 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 606,
+                    "status": "PASS",
+                    "durationMs": 833,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 502"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "DOWN",
-                    "durationMs": 246,
+                    "durationMs": 323,
                     "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
@@ -42,18 +40,20 @@
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 632,
-                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 610,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Evil's Return -> /manga/175133-evils-return.html",
+                        "Oh My Goddess! The Adventures of Mini-Goddess -> /manga/175132-oh-my-goddess-the-adventures-of-mini-goddess.html",
+                        "Yaoyorozu Toriatsukai Setsumeisho -> /manga/175125-yaoyorozu-toriatsukai-setsumeisho.html"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,82 +61,65 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "search",
+                    "status": "DOWN",
+                    "durationMs": 233,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "chapters",
+                    "status": "DOWN",
+                    "durationMs": 511,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-17T12:15:00.149127196Z",
+    "comparedTo": "2026-11-18T12:11:30.299596640Z",
     "changes": [
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "latest",
-            "from": "PASS",
+            "from": "DOWN",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaChan",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "SKIP",
             "to": "DOWN"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

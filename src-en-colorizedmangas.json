@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:27:31.953368380Z",
+    "generatedAt": "2026-11-19T11:57:48.190318251Z",
     "module": ":src:en:colorizedmangas",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 2348696469980851942,
             "name": "Colorized Mangas",
             "lang": "en",
             "baseUrl": "https://colorizedmangas.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 324,
+                    "durationMs": 283,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 163,
+                    "durationMs": 113,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +61,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 183,
+                    "durationMs": 126,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -70,47 +70,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 300,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 42,
+                    "message": "HTTP error 451",
                     "notes": [],
-                    "samples": [
-                        "Chapter 1171 - Elbaf -> /one-piece/chapter/1171",
-                        "Chapter 1170 - Elbaf -> /one-piece/chapter/1170",
-                        "Chapter 1169 - Elbaf -> /one-piece/chapter/1169"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 183,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.jsdelivr.net/gh/anon6968/op-color-pages@268b7bbf9bdf3410d9847c12c80c462406fc1e65/pages/1/001.webp",
-                        "https://cdn.jsdelivr.net/gh/anon6968/op-color-pages@268b7bbf9bdf3410d9847c12c80c462406fc1e65/pages/1/002.webp",
-                        "https://cdn.jsdelivr.net/gh/anon6968/op-color-pages@268b7bbf9bdf3410d9847c12c80c462406fc1e65/pages/1/003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 128,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:31:23.130046087Z",
+    "comparedTo": "2026-10-30T01:27:31.953368380Z",
     "changes": [
         {
             "source": "Colorized Mangas",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Colorized Mangas",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Colorized Mangas",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

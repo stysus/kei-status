@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:46:43.180542789Z",
+    "generatedAt": "2026-11-19T11:56:23.958900228Z",
     "module": ":src:ar:murim",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 4966914277555229831,
             "name": "Murim",
             "lang": "ar",
-            "baseUrl": "https://www.murim.site",
-            "status": "FAIL",
+            "baseUrl": "https://murim-manga.blogspot.com",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,18 +23,22 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 211,
+                    "durationMs": 695,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 4801,
-                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <?xml version='1.0' encoding='.....",
+                    "status": "PASS",
+                    "durationMs": 620,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "الموريم -> /2026/02/blog-post.html",
+                        "God of Blackfield -> /2025/11/god-of-blackfield.html",
+                        "The Dark Mage’s Return to Enlistment -> /2026/02/the-dark-mages-return-to-enlistment.html"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -55,33 +59,86 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 267,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "الموريم -> /2026/02/blog-post.html",
+                        "The Absolute Scholar -> /2025/11/the-absolute-scholar.html",
+                        "I Reincarnated As The Crazed Heir -> /2025/09/i-reincarnated-as-crazed-heir.html"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 969,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "الفصل 2 -> /2026/02/2.html",
+                        "الفصل 1  -> /2026/02/1.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
+                    "status": "WARN",
+                    "durationMs": 517,
+                    "message": null,
+                    "notes": [
+                        "page list is empty"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-04T11:13:20.276870730Z",
-    "changes": [],
+    "comparedTo": "2026-11-08T13:46:43.180542789Z",
+    "changes": [
+        {
+            "source": "Murim",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Murim",
+            "lang": "ar",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Murim",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Murim",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Murim",
+            "lang": "ar",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ],
     "throttledHosts": []
 }

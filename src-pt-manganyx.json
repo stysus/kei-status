@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-18T12:12:14.079363246Z",
+    "generatedAt": "2026-11-19T11:59:51.901992567Z",
     "module": ":src:pt:manganyx",
     "sourceRoot": "",
-    "extensionCommit": "f1d882a9",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 5545056451990986567,
             "name": "Manga NXY",
             "lang": "pt-BR",
             "baseUrl": "https://manganyx.com",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,31 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 45000,
-                    "message": "timed out after 45s",
+                    "status": "PASS",
+                    "durationMs": 3521,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 38,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from manganyx.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 453,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Blue Lock -> blue-lock",
+                        "One Piece -> one-piece",
+                        "Gantz -> gantz"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 14,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from manganyx.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 504,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Kaoru Hana wa Rin to Saku -> kaoru-hana-wa-rin-to-saku",
+                        "Rent-A-Girlfriend -> rent-a-girlfriend",
+                        "Ultra Equipado: As Aventuras de Greed -> ultra-equipado-as-aventuras-de-greed"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -59,82 +63,100 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 479,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Blue Lock -> blue-lock"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 419,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Capítulo 369 -> chp_1795019958688",
+                        "Capítulo 368 -> chp_1794446233555",
+                        "Capítulo 367 -> chp_1793668482002"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 11569,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://aurora.snipercache.com/manga/blue-lock/cap0001/page-0001.webp?sig=6YmH8hoO2bl_4IRsR3GaVg&exp=1795096790",
+                        "https://aurora.snipercache.com/manga/blue-lock/cap0001/page-0002.webp?sig=qpfV_UOdqlzVg58AMn9ZIA&exp=1795096790",
+                        "https://aurora.snipercache.com/manga/blue-lock/cap0001/page-0003.webp?sig=09SSlxhkH0UKOvHNm3ARKw&exp=1795096790"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 779,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-17T12:13:09.295097886Z",
+    "comparedTo": "2026-11-18T12:12:14.079363246Z",
     "changes": [
         {
             "source": "Manga NXY",
             "lang": "pt-BR",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Manga NXY",
             "lang": "pt-BR",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Manga NXY",
             "lang": "pt-BR",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "Manga NXY",
-            "lang": "pt-BR",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Manga NXY",
             "lang": "pt-BR",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Manga NXY",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Manga NXY",
             "lang": "pt-BR",
             "scenario": "pages",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Manga NXY",
             "lang": "pt-BR",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-18T12:07:19.648905057Z",
+    "generatedAt": "2026-11-19T12:05:30.283669324Z",
     "module": ":src:it:hentaizone",
     "sourceRoot": "",
-    "extensionCommit": "f1d882a9",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 7646644620523526397,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1096,
+                    "durationMs": 426,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 1105,
+                    "durationMs": 1185,
                     "message": null,
                     "notes": [
                         "returned an empty list",
@@ -42,13 +42,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 689,
+                    "durationMs": 719,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Saldo in natura -> /saldo-in-natura/",
-                        "Una doccia con la mamma -> /una-doccia-con-la-mamma/",
-                        "Naufraghi 2 -> /naufraghi-2/"
+                        "Il padrone e la cameriera -> /il-padrone-e-la-cameriera/",
+                        "La spremitura 1 -> /la-spremitura-1/",
+                        "Saldo in natura -> /saldo-in-natura/"
                     ]
                 },
                 {
@@ -64,40 +64,39 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 1159,
+                    "durationMs": 1197,
                     "message": null,
                     "notes": [
                         "returned an empty list",
-                        "query \"Saldo in natura\" matched no results in the first page"
+                        "hasNextPage=true but list is empty",
+                        "query \"Il padrone e la cameriera\" matched no results in the first page"
                     ],
                     "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1286,
+                    "durationMs": 910,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Capitolo unico -> /saldo-in-natura/"
+                        "Capitolo unico (Premium) -> /il-padrone-e-la-cameriera/"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 692,
+                    "status": "WARN",
+                    "durationMs": 322,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://hentaizone.me/wp-content/uploads/Cuploads/Saldo%20in%20natura/1/Hentaizone.me600001.jpg",
-                        "https://hentaizone.me/wp-content/uploads/Cuploads/Saldo%20in%20natura/1/Hentaizone.me600002.jpg",
-                        "https://hentaizone.me/wp-content/uploads/Cuploads/Saldo%20in%20natura/1/Hentaizone.me600003.jpg"
-                    ]
+                    "notes": [
+                        "page list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 2013,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -105,7 +104,15 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-17T12:10:10.048214440Z",
-    "changes": [],
+    "comparedTo": "2026-11-18T12:07:19.648905057Z",
+    "changes": [
+        {
+            "source": "Hentai Zone",
+            "lang": "it",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ],
     "throttledHosts": []
 }

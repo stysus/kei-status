@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-18T12:11:28.805235425Z",
+    "generatedAt": "2026-11-19T12:05:04.197919107Z",
     "module": ":src:ru:henchan",
     "sourceRoot": "",
-    "extensionCommit": "f1d882a9",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 5504588601186153612,
             "name": "HenChan",
             "lang": "ru",
             "baseUrl": "https://xxl.hentaichan.live",
-            "status": "DOWN",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "DOWN",
-                    "durationMs": 30547,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 1614,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 30006,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "status": "WARN",
+                    "durationMs": 580,
+                    "message": null,
                     "notes": [
-                        "java.net.SocketTimeoutException: timeout"
+                        "returned an empty list"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 30001,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1653,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Tasha Henshin no Golem Girl - Глава 8 -> /manga/55796-tasha-henshin-no-golem-girl-glava-8.html",
+                        "Дафни и Велма -> /manga/55795-dafni-i-velma.html",
+                        "Переполняясь Чернотой - Глава 1 -> /manga/55794-perepolnyayas-chernotoy-glava-1.html"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,82 +61,104 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 8502,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Tasha Henshin no Golem Girl - Глава 8 (История о различных превращениях девушки-голема) -> /manga/55796-tasha-henshin-no-golem-girl-glava-8.html",
+                        "Tasha Henshin no Golem Girl - Глава 7 (История о различных превращениях девушки-голема) -> /manga/55791-tasha-henshin-no-golem-girl-glava-7.html",
+                        "Tasha Henshin no Golem Girl - Глава 6 (История о различных превращениях девушки-голема) -> /manga/55779-tasha-henshin-no-golem-girl-glava-6.html"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 10444,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Tasha Henshin no Golem Girl - Глава 8 -> /manga/55796-tasha-henshin-no-golem-girl-glava-8.html",
+                        "Tasha Henshin no Golem Girl - Глава 7 -> /manga/55791-tasha-henshin-no-golem-girl-glava-7.html",
+                        "Tasha Henshin no Golem Girl - Глава 6 -> /manga/55779-tasha-henshin-no-golem-girl-glava-6.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 198,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://mimg4.imgschan.xyz/manganew_webp/n/1767814157_naitou-kirara-tasha-henshin-no-golem-girl-01/001.webp",
+                        "https://mimg4.imgschan.xyz/manganew_webp/n/1767814157_naitou-kirara-tasha-henshin-no-golem-girl-01/002.webp",
+                        "https://mimg4.imgschan.xyz/manganew_webp/n/1767814157_naitou-kirara-tasha-henshin-no-golem-girl-01/003.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 2385,
+                    "message": null,
+                    "notes": [
+                        "page[1] image request failed: ConnectException: Failed to connect to megaimg.imgschan.xyz/5.9.95.30:443"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-17T12:13:42.196320374Z",
+    "comparedTo": "2026-11-18T12:11:28.805235425Z",
     "changes": [
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "WARN"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "HenChan",
-            "lang": "ru",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "HenChan",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:33:20.622713416Z",
+    "generatedAt": "2026-11-19T12:08:16.015254373Z",
     "module": ":src:ru:puremanga",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 501392872283294667,
             "name": "PureManga",
             "lang": "ru",
             "baseUrl": "https://v1.puremanga.me",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1235,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30315,
+                    "message": "the site is unreachable (Read timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Read timed out"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 489,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Распятие Шести -> juujika-no-rokunin",
-                        "Выживание с нуля -> an-return-and-survive-2019",
-                        "Секс-часы -> sex-stop-watch-ab"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30111,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 431,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Предание о храброй Алисе интроверте -> the-legend-of-the-hero-alices-social-death",
-                        "Одно убийство -> one-kill",
-                        "Маленькая мусорная русалочка -> the-little-trashmaid"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30019,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,93 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 293,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Распятие Шести -> juujika-no-rokunin"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1001,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Том 22 Глава 232.2: Специальный выпуск! -> 980e2a4b-42a8-481d-993f-03f70e1c4efd",
-                        "Том 22 Глава 232: Шестой. -> 4838fcce-a2f0-4066-8e9d-9dd04c023123",
-                        "Том 22 Глава 231: Память о «Справедливости». -> f59ad627-098c-4dee-97b1-bade6d50703d"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 483,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://static.inuko.me/chapters/e61cce8e-8524-4a75-8297-168aea9d7d62/fff7ae84-4ab3-x9ed-b412-041731a524b6.webp",
-                        "https://static.inuko.me/chapters/e61cce8e-8524-4a75-8297-168aea9d7d62/baf944f5-7f9b-x50a-a536-f8db86593911.jpeg",
-                        "https://static.inuko.me/chapters/e61cce8e-8524-4a75-8297-168aea9d7d62/23e530f0-76f6-x175-8d88-fa58af10d6c3.jpeg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1146,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:01:00.279164855Z",
+    "comparedTo": "2026-11-08T13:33:20.622713416Z",
     "changes": [
         {
             "source": "PureManga",
             "lang": "ru",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "PureManga",
+            "lang": "ru",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "PureManga",
             "lang": "ru",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "PureManga",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "PureManga",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "PureManga",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "PureManga",
             "lang": "ru",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "PureManga",
             "lang": "ru",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

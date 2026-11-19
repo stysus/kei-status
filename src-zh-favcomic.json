@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:47.619853922Z",
+    "generatedAt": "2026-11-19T12:01:37.073306120Z",
     "module": ":src:zh:favcomic",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 2276541741750874058,
             "name": "喜漫漫画",
             "lang": "zh",
             "baseUrl": "https://www.favcomic.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,27 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 353,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 127,
+                    "message": "Connection reset",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 169,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 56,
+                    "message": "Connection reset",
                     "notes": [],
-                    "samples": [
-                        "不擅长与人交往的寡妇雪女和诅咒戒指 -> /comic/detail/919568212977393664",
-                        "新常态 -> /comic/detail/964242115192299520",
-                        "魔都精兵的奴隶 -> /comic/detail/872972077160865792"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 286,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 36,
+                    "message": "Connection reset",
                     "notes": [],
-                    "samples": [
-                        "行走在末日的邮差 -> /comic/detail/1244955998185594880",
-                        "重返投手丘 -> /comic/detail/1308385366602231808",
-                        "怪异现象守则 -> /comic/detail/1285526704428363776"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,60 +55,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 173,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "不擅长与人交往的寡妇雪女和诅咒戒指 -> /comic/detail/919568212977393664",
-                        "3B恋人～与不该交往的职业男性们进行恋爱游戏 -> /comic/detail/930482304596451328",
-                        "擅长捉弄的高木同学 -> /comic/detail/872525141354094592"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 184,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "推图 -> /comic/chapter/934393780231086080",
-                        "2话 -> /comic/chapter/934393780126228480",
-                        "1话 -> /comic/chapter/934393780021370880"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 181,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.favcomic.com/file/e-media/app/comic/919568212977393664/3/1.webp#true",
-                        "https://cdn.favcomic.com/file/e-media/app/comic/919568212977393664/3/2.webp#true",
-                        "https://cdn.favcomic.com/file/e-media/app/comic/919568212977393664/3/3.webp#true"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 103,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:44:36.379120549Z",
+    "comparedTo": "2026-10-30T01:37:47.619853922Z",
     "changes": [
         {
             "source": "喜漫漫画",
             "lang": "zh",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "喜漫漫画",
+            "lang": "zh",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "喜漫漫画",
+            "lang": "zh",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "喜漫漫画",
+            "lang": "zh",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "喜漫漫画",
+            "lang": "zh",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "喜漫漫画",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "喜漫漫画",
+            "lang": "zh",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

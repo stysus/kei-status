@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:35:53.458087787Z",
+    "generatedAt": "2026-11-19T12:00:09.508098169Z",
     "module": ":src:id:doujinku",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 4688509366795716377,
             "name": "Doujinku",
             "lang": "id",
             "baseUrl": "https://doujinku.org",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3424,
+                    "durationMs": 5122,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 82,
+                    "status": "WARN",
+                    "durationMs": 309,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Boarding Diary (Uncensored) -> /manga/boarding-diary-uncensored/",
-                        "Secret Class (Uncensored) -> /manga/secret-class-uncensored/",
-                        "She Wants to Get Drunk (Uncensored) -> /manga/she-wants-to-get-drunk-uncensored/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 55,
+                    "status": "WARN",
+                    "durationMs": 248,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Mother’s Friends -> /manga/mothers-friends/",
-                        "Tsuihou Tamer no NTR Fukushuudan -> /manga/tsuihou-tamer-no-ntr-fukushuudan/",
-                        "Haramase! ~Tanetsuke sareru Hitozuma-tachi~ -> /manga/haramase-tanetsuke-sareru-hitozuma-tachi/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 414,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Boarding Diary (Uncensored) -> /manga/boarding-diary-uncensored/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 98,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 130 END -> /boarding-diary-uncensored-chapter-130-end/",
-                        "Chapter 129 -> /boarding-diary-uncensored-chapter-129/",
-                        "Chapter 128 -> /boarding-diary-uncensored-chapter-128/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 144,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://wibulep.xyz/uploads/manga-images/b/boarding-diary-uncen/chapter-130-end/1.jpg",
-                        "https://wibulep.xyz/uploads/manga-images/b/boarding-diary-uncen/chapter-130-end/2.jpg",
-                        "https://wibulep.xyz/uploads/manga-images/b/boarding-diary-uncen/chapter-130-end/3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1519,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:31.691763689Z",
+    "comparedTo": "2026-10-30T01:35:53.458087787Z",
     "changes": [
         {
             "source": "Doujinku",
             "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Doujinku",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Doujinku",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Doujinku",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Doujinku",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Doujinku",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

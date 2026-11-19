@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:38.157322715Z",
+    "generatedAt": "2026-11-19T12:02:12.167974124Z",
     "module": ":src:id:comicaso",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 8105901253428833094,
             "name": "Comicaso",
             "lang": "id",
             "baseUrl": "https://v3.comicaso.pro",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 529,
+                    "durationMs": 1567,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 461,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 370,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "ABSOLUTE STATION -> medusa/absolute-station",
-                        "Predatory Marriage -> medusa/predatory-marriage",
-                        "Try Begging -> medusa/try-begging"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 258,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 368,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Stockings Are Not to Blame -> medusa/stockings-are-not-to-blame",
-                        "Switch Boyfriend -> medusa/switch-boyfriend",
-                        "When Lips Touch, It’s Fate -> medusa/when-lips-touch-it-s-fate"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,44 +55,61 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 201,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "ABSOLUTE STATION -> medusa/absolute-station"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "BLOCKED",
-                    "durationMs": 153,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.io.IOException: Login wajib untuk membuka konten ini. Buka di WebView dan login dengan Google."
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:25.488108118Z",
+    "comparedTo": "2026-10-30T01:32:38.157322715Z",
     "changes": [
         {
             "source": "Comicaso",
             "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Comicaso",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Comicaso",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "BLOCKED",
+            "to": "SKIP"
+        },
+        {
+            "source": "Comicaso",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

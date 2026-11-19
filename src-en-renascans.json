@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-09T11:49:20.820403358Z",
+    "generatedAt": "2026-11-19T12:01:17.221263881Z",
     "module": ":src:en:renascans",
     "sourceRoot": "",
-    "extensionCommit": "1b708981",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 3447464472094373275,
             "name": "Renascans",
             "lang": "en",
             "baseUrl": "https://renascans.net",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,28 +22,30 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1070,
+                    "status": "WARN",
+                    "durationMs": 20015,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 634,
+                    "durationMs": 19669,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "Steal from the Devil's Pocket -> steal-from-the-devils-pocket-s9ihabns",
-                        "Widower -> widower-osot9qro",
-                        "Yard for Two -> yard-for-two-tsij4vrw"
+                        "Yard for Two -> yard-for-two-tsij4vrw",
+                        "Widower -> widower-osot9qro"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1248,
+                    "durationMs": 19454,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,64 +66,71 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 2604,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Steal from the Devil's Pocket -> steal-from-the-devils-pocket-s9ihabns"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19490,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 410,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chapter 41 -> /manga/steal-from-the-devils-pocket-s9ihabns/chapter-41",
-                        "Chapter 40 -> /manga/steal-from-the-devils-pocket-s9ihabns/chapter-40",
-                        "Chapter 39 -> /manga/steal-from-the-devils-pocket-s9ihabns/chapter-39"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19661,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 252,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://renascans.net/uploads/chapters/ch_94_1_d00a53347c4c35a0/b7f4d01d48b88172f2d1441b2bcb8070.webp?exp=1794227400&sig=FPpJgpfK_nVhpg5tGjRY9m533OirF5mcqUtR_ZSENHU#2916",
-                        "https://renascans.net/uploads/chapters/ch_94_1_d00a53347c4c35a0/ddba53cc34b511d2d461df2cf2bad77c.webp?exp=1794227400&sig=u7ZZVHJsUQiJ2c4GBpazjgl77WozdLbLVuhwE1h8spY#2916",
-                        "https://renascans.net/uploads/chapters/ch_94_1_d00a53347c4c35a0/716631a9461a26002a3652bbe5f9141a.webp?exp=1794227400&sig=XhQv9_QFGVbxClDBgXx01T_V1Ejg9s1MsC5rtk6X5c0#2916"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 4562,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:50:33.906465107Z",
+    "comparedTo": "2026-11-09T11:49:20.820403358Z",
     "changes": [
         {
             "source": "Renascans",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Renascans",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Renascans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Renascans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Renascans",
             "lang": "en",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

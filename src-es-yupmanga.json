@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-15T11:14:15.377794369Z",
+    "generatedAt": "2026-11-19T11:59:44.383667805Z",
     "module": ":src:es:yupmanga",
     "sourceRoot": "",
-    "extensionCommit": "80af09c2",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 4437245120973625796,
             "name": "Yupmanga",
             "lang": "es",
             "baseUrl": "https://www.yupmanga.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 924,
+                    "durationMs": 913,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,19 +31,19 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 8548,
+                    "durationMs": 435,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "En la línea del arrepentimiento -> 87UVR1XORDH1R",
                         "No sabía que sería así -> 99UBHZ8E7V5JJ",
+                        "En la línea del arrepentimiento -> 87UVR1XORDH1R",
                         "Creando un final oculto -> BMM7W2SVG8658"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 275,
+                    "durationMs": 965,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,35 +65,66 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1071,
+                    "durationMs": 1095,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "En la línea del arrepentimiento -> 87UVR1XORDH1R"
+                        "No sabía que sería así -> 99UBHZ8E7V5JJ"
                     ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1932,
+                    "durationMs": 1958,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Tomo - 01 -> 1.00#87UVR1XORDH1R"
+                        "Tomo - 01 -> 1.00#99UBHZ8E7V5JJ"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 1019,
-                    "message": "not a function",
+                    "status": "PASS",
+                    "durationMs": 12802,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://www.yupmanga.com/image-proxy-v2.php?chapter=6C3522BCB50E4F&page=1&token=yj2l8Zh2mmRq_y7S31uXTWRjCOEcDA&context=reader",
+                        "https://www.yupmanga.com/image-proxy-v2.php?chapter=6C3522BCB50E4F&page=2&token=yj2l8Zh2mmRq_y7S31uXTWRjCOEcDA&context=reader",
+                        "https://www.yupmanga.com/image-proxy-v2.php?chapter=6C3522BCB50E4F&page=3&token=yj2l8Zh2mmRq_y7S31uXTWRjCOEcDA&context=reader"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 2479,
+                    "message": null,
+                    "notes": [
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from www.yupmanga.com (HTTP 403)",
+                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from www.yupmanga.com (HTTP 403)",
+                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from www.yupmanga.com (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:35:04.205403476Z",
-    "changes": [],
+    "comparedTo": "2026-11-15T11:14:15.377794369Z",
+    "changes": [
+        {
+            "source": "Yupmanga",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "PASS"
+        },
+        {
+            "source": "Yupmanga",
+            "lang": "es",
+            "scenario": "images",
+            "from": null,
+            "to": "WARN"
+        }
+    ],
     "throttledHosts": []
 }

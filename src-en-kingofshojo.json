@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:01.967158057Z",
+    "generatedAt": "2026-11-19T11:57:39.921352005Z",
     "module": ":src:en:kingofshojo",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 9153097368891994905,
             "name": "King of Shojo",
             "lang": "en",
             "baseUrl": "https://kingofshojo.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 934,
+                    "status": "WARN",
+                    "durationMs": 630,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 582,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Tears on a Withered Flower -> /manga/tears-on-a-withered-flower/",
-                        "Childhood Friend Complex (Eunhi) -> /manga/childhood-friend-complex-eunhi/",
-                        "How to Get My Husband on My Side -> /manga/how-to-get-my-husband-on-my-side/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 202,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 532,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Monster Eater Adventurer -> /manga/monster-eater-adventurer/",
-                        "Regressor’s Life After Retirement -> /manga/regressors-life-after-retirement/",
-                        "I Kidnapped the Youngest Daughter of the Sichuan Tang Clan, -> /manga/i-kidnapped-the-youngest-daughter-of-the-sichuan-tang-clan/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 186,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 418,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Tears on a Withered Flower -> /manga/tears-on-a-withered-flower/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 567,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 124 -> /tears-on-a-withered-flower-chapter-124/",
-                        "Chapter 123 -> /tears-on-a-withered-flower-chapter-123/",
-                        "Chapter 122 -> /tears-on-a-withered-flower-chapter-122/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 421,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.kingofshojo.com/king-bucket/136046/124/2b17ea03b47a-1-webp.jpg",
-                        "https://cdn.kingofshojo.com/king-bucket/136046/124/e0e568ee679f-2-webp.jpg",
-                        "https://cdn.kingofshojo.com/king-bucket/136046/124/9523028e4c03-3-webp.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 216,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:16.221230570Z",
+    "comparedTo": "2026-10-30T01:31:01.967158057Z",
     "changes": [
         {
             "source": "King of Shojo",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "King of Shojo",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "King of Shojo",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "King of Shojo",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "King of Shojo",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "King of Shojo",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "King of Shojo",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

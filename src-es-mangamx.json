@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-18T12:08:26.201607589Z",
+    "generatedAt": "2026-11-19T11:56:46.121400341Z",
     "module": ":src:es:mangamx",
     "sourceRoot": "",
-    "extensionCommit": "f1d882a9",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 2202687009511923782,
             "name": "MangaOni",
             "lang": "es",
             "baseUrl": "https://manga-oni.com",
-            "status": "DOWN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 19659,
+                    "status": "PASS",
+                    "durationMs": 1762,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 522"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 19456,
-                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 917,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Boku no Hero Academia -> /manga/boku-no-hero-academia/",
+                        "Tokyo 卍 Revengers -> /manga/tokyo-revengers/",
+                        "This doesn't feel like me -> /manhwa/this-doesnt-feel-like-me/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 19455,
-                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 929,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Las 100 novias que te quieren mucho mucho mucho mucho mucho -> /manga/las-100-novias-que-te-quieren-mucho-mucho-mucho-mucho-mucho/",
+                        "Tensei Goblin Da kedo Shitsumon Aru? -> /manga/tensei-goblin-da-kedo-shitsumon-aru/",
+                        "Senki Survival Saga - Isekai no Unmei o Kaketa Mujintou Fujun Iseikouyuu -> /manga/senki-survival-saga-isekai-no-unmei-wo-kaketa-mujintou-fujun-iseikouyu/"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,82 +63,102 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 688,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Boku no Hero Academia -> /manga/boku-no-hero-academia/",
+                        "Boku no Hero Academia SMASH!! -> /manga/boku-no-hero-academia-smash/",
+                        "Boku no hero academia- Para aquellas que contienen sus lágrimas -> /manga/boku-no-hero-academia-para-aquellas-que-contienen-sus-lagrimas/"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 1921,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Capítulo 431.5 — My Hero Academia: Ultra Age: The Final Fan Book -> /lector/boku-no-hero-academia/710966/",
+                        "Capítulo 431 — Más -> /lector/boku-no-hero-academia/695588/",
+                        "Capítulo 430.5 — Epílogo -> /lector/boku-no-hero-academia/697556/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 918,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://oni.ntr-files.online/public/archivos/mangas/boku-no-hero-academia/10193/1.jpg.webp?up=20200309061203",
+                        "https://oni.ntr-files.online/public/archivos/mangas/boku-no-hero-academia/10193/2.jpg.webp?up=20200309061203",
+                        "https://oni.ntr-files.online/public/archivos/mangas/boku-no-hero-academia/10193/3.jpg.webp?up=20200309061203"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 810,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:35:49.006383260Z",
+    "comparedTo": "2026-11-18T12:08:26.201607589Z",
     "changes": [
         {
             "source": "MangaOni",
             "lang": "es",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "MangaOni",
             "lang": "es",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "MangaOni",
             "lang": "es",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "MangaOni",
-            "lang": "es",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "MangaOni",
             "lang": "es",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaOni",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MangaOni",
             "lang": "es",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MangaOni",
             "lang": "es",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

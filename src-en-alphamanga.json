@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-18T12:06:21.054063713Z",
+    "generatedAt": "2026-11-19T11:57:49.126940319Z",
     "module": ":src:en:alphamanga",
     "sourceRoot": "",
-    "extensionCommit": "f1d882a9",
+    "extensionCommit": "8947c372",
     "sources": [
         {
             "sourceId": 370653027333714265,
             "name": "Alpha Manga",
             "lang": "en",
             "baseUrl": "https://www.alpha-manga.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 727,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 1045,
+                    "message": "AWS WAF anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: AWS WAF challenge from www.alpha-manga.com (HTTP 202)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 572,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Re:Monster -> 609000058",
-                        "The Day I was Born into a Ducal House, I was Branded as a Disqualified Heir, but I'm Still Living Well to This Day! -> 299000324",
-                        "A Diary of Our Leisurely VRMMO Playthrough -> 119000129"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 243,
+                    "message": "AWS WAF anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: AWS WAF challenge from www.alpha-manga.com (HTTP 202)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -51,7 +51,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,93 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 213,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Re:Monster -> 609000058"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 771,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 112 -> 4564",
-                        "Chapter 111 -> 4516",
-                        "Chapter 110 -> 4455"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 887,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://ot-image-en.alpha-manga.com/official_manga/page_encrypted/609000058/161/103615e7-be0e-44ec-9572-9b20a0ab32bc/1080x1536.webp?Expires=1795004180&Signature=q3qpJwKdfQRr9T-QkiSNuhUu71PDc2V9Lytu4vmSs9Eoktr6VRwUCZ3igrwGSDf-Fdp6ddvWiOmFlIxxfcgLE8jM7JMWyN2xFNi7gvO-JilvyTv9PPh72xs84K8HB1qw0Eg8RmEBj8zJdZp~YAssIseBDy1Sjbqdytf~D6AYgp3-sANEH9sUddomnHgDjcZFFtCOZkCoB4sWrWq6Bs157q0ejHOxaZJ5zYVrblkC5ScaSfl0gO7fNeULR9iA9r6OsMc1hzE8zWwl8eCsK6fvmRDhrhwjmEs-xruSLVe83KmrsPn6BcxKz3UkqNDSogzf4nvn5KUcl49ZOAFxV~DDAQ__&Key-Pair-Id=KOB8VIO09S76W#key=xB3cCZcBBPDmDu4IoAUC8AEA3MmMAATwVRYAyAAAAPAFAO5IDAQA8FQW7ghJAQDwNiVlySIFAPDiDmWJ6QUD8DUld4hNAQLwwB13yNMEAfBVFtyJfwME8AIAAMgoBAPwNCUASAABA/DEHQAIuAQC8HQHAMgkAALwBQBlSdABAfCkLGUJcAYB8AEAdwgsBQHwpCwAyCkGAPBTFmWJggAB8McdZUn2AwHwcwd3SFwDA/BQFndIqgIA8MEd7ggHAAPwpCx3SEQGA/BwB2UJDwIC8HEH7kgRAwLwNSXcia0CBPAzJe6I6gID8HUH3MnhBATw5Q7cSSIFBPDiDnfIswMA8OcOAEjdAgHwpSzuSJwGAvCgLNyJHgYE8A==",
-                        "https://ot-image-en.alpha-manga.com/official_manga/page_encrypted/609000058/161/8df40e31-1699-4ba0-95c7-5ed97892eefa/1080x1536.webp?Expires=1795004180&Signature=SYgvKnCNaUlJj45pzaWKC6Cz838RobQKi0IxKNzYSIDu57~NDEl4MN8SdaQe-MIN4PMl1QVBFOCZz6F9kI~suk0fc-YE4r8wAmHMynX~YlCZs2Ec4OMZblNgtwHNcDKo-EUSu33m45jmsJEFmDYSqEcJAGrFYIuXXo3Q3f~3~zFAdY-wuW-5EGJMQ0KHoYEl-UqFA-OsUXfsAJ-SO43blSrR4k6LgEr7w9hNIu-dv26soD4vbsjtsIFdgmXxfZF~-GTX-D0H98l7idP8baJIyM1wmLxcOqfDiG9hnIJycCpSzVH9C7GzGb9gJMOc303~QDvgvWcSB9KW89zmqpMhog__&Key-Pair-Id=KOB8VIO09S76W#key=pSzuCB8GAfA3JXfIxwQD8AcAd8gkBQPwcgdlyUgDAvDHHe4I2gQB8HEH3Ek7AQTwBADcyXQEBPDjDu4IJQEA8OMOd8iyAwDwBgDuyH8BAvB0BwCIJAED8DclZYmDAADwoCx3CMQGAvACAAAITgUA8KEs3IkOBgTwVRYAyOMFAfBRFncIlQIC8DEl7kgrAwHwoSwAyDIGAPDAHXdI3gUC8KAsZckjBgPwwx0ASCMCA/AwJQBIHgQA8AcAZcnfAQHwcwd3SOQCAfDEHdwJQAIE8HQH7ggpAwPwMSXcSS0ABPBUFtzJcgUE8FEWZYn0AAHw5Q7cieIDBPBQFu7I8gIA8MUdZQkvAAPw5g4ACJwEAvDiDmXJsAAC8A==",
-                        "https://ot-image-en.alpha-manga.com/official_manga/page_encrypted/609000058/161/73376a28-f200-4f4d-a92f-454a1a51a65e/1080x1536.webp?Expires=1795004180&Signature=TriV6SfEuSZgDPwnPNxq1iziZTA0I4Gt0cE~vCEq0zZ-5y3e7BXjron4lz7DvLpu5eIAq3lOuhu-ygKYz1zk1Xy~w~OU-I65YSYVAwfBWG3cNEL1co84q-X-X09qHUjFrkLzRca86vFTwx~CHZWkAvUvcmqJcAyx3HRhRLShkZZ-jyxZFYUo7ER12JkvtCbG~5X8CgutXeJP2Bl1OArqKXpB17L4Rs1giv0ClA0X6hsqNh9VmWjvrZdqjLgokbSEf0~RxCZyLRMvmPgdKFki9dPdumS8qxEmQwkc4wzbFIIrt9YqftnbfWFMLPDFBoFbL5IsGWWGARFHicJCuKvGGg__&Key-Pair-Id=KOB8VIO09S76W#key=dAdlyeEAAfAwJe6IZAEB8MIdZUk1AQDwoSwASPUGA/AEAGWJBQUB8AEA7kgJAgPw4w53yOADAfClLHdIEgYB8MEd3El6BATw4Q5lST0EAfDkDtzJ3gAE8AMAAMhuAgHwxx13iB8FAvClLO7I7wYA8FAW7ogAAQLwVRbcyVIFBPB1B9zJXAEE8MMd7kg/BAPwcAd3CKwBA/A0JdyJiQIE8FAWZYm3AwDwMyUACFACAPBxB+6ImgAC8OIOAMhUAADwpSzciWQGBPDkDu7IuQQC8FQWAEggAAPwcwcASDkFAPDFHQAImQQA8AQAdwifAwLwNiVlyUQCAvCkLGWJxwYC8AEA3IkAAwTwMSV3iN0FA/BTFndIVwMD8A=="
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 543,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-09T11:50:01.901246077Z",
+    "comparedTo": "2026-11-18T12:06:21.054063713Z",
     "changes": [
         {
             "source": "Alpha Manga",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Alpha Manga",
             "lang": "en",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "Alpha Manga",
-            "lang": "en",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Alpha Manga",
             "lang": "en",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Alpha Manga",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Alpha Manga",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Alpha Manga",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []
