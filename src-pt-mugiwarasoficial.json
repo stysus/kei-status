@@ -1,42 +1,121 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T11:48:59.380271761Z",
+    "generatedAt": "2026-11-20T12:08:19.937651093Z",
     "module": ":src:pt:mugiwarasoficial",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:pt:mugiwarasoficial",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 5560103996308474844,
+            "name": "Mugiwaras Oficial",
+            "lang": "pt-BR",
+            "baseUrl": "https://mugiwarasoficial.org",
+            "status": "BLOCKED",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/pt/mugiwarasoficial/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:pt:mugiwarasoficial :src:pt:mugiwarasoficial:dumpHarnessClasspath",
+                    "message": null,
                     "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "BLOCKED",
+                    "durationMs": 21018,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mugiwarasoficial.org (HTTP 403)"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "PASS",
+                    "durationMs": 883,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "One Piece -> one-piece",
+                        "O Exilado Cavaleiro Pesado Reencarnado é Incomparável com o Conhecimento do Jogo -> o-exilado-cavaleiro-pesado-reencarnado-e-incomparavel-com-o-conhecimento-do-jogo",
+                        "Blue Lock -> blue-lock"
+                    ]
+                },
+                {
+                    "name": "latest",
+                    "status": "PASS",
+                    "durationMs": 562,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "A Princesa Marcou O Traidor -> a-princesa-marcou-o-traidor",
+                        "Servamp -> servamp",
+                        "Sonna, 14-sai. -> sonna-14-sai"
+                    ]
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "0 filters"
+                    ]
+                },
+                {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 534,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "One Piece -> one-piece",
+                        "One Piece Gakuen!! -> one-piece-gakuen",
+                        "One Piece: Road to Laugh Tale -> one-piece-road-to-laugh-tale"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 709,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Capítulo 1199 -> chp_1795117259538",
+                        "Capítulo 1198 -> chp_1793909329082",
+                        "Capítulo 1197 -> chp_1793299155103"
+                    ]
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 881,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403",
+                        "pages are only checked on a chapter that needs no unlock"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-10T11:35:14.885772857Z",
+    "comparedTo": "2026-11-19T11:48:59.380271761Z",
     "changes": [
-        {
-            "source": ":src:pt:mugiwarasoficial",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "Mugiwaras Oficial",
             "lang": "pt-BR",
             "scenario": null,
-            "from": "BLOCKED",
+            "from": null,
+            "to": "BLOCKED"
+        },
+        {
+            "source": ":src:pt:mugiwarasoficial",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

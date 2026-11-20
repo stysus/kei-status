@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:35:58.764652530Z",
+    "generatedAt": "2026-11-20T12:06:04.878283948Z",
     "module": ":src:th:manga168",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 8294739153755503988,
             "name": "Manga168",
             "lang": "th",
             "baseUrl": "https://manga168x.com",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,36 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 383,
+                    "status": "WARN",
+                    "durationMs": 19661,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522",
+                        "home page body is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 36,
+                    "durationMs": 462,
                     "message": null,
                     "notes": [],
                     "samples": [
                         "God of Blackfield -> /manga/god-of-blackfield",
                         "Overgeared (Remake) -> /manga/overgeared-remake",
-                        "My Ideal Type is My Friend’s Mom -> /manga/my-ideal-type-is-my-friends-mom"
+                        "The Village’s Special Law -> /manga/the-villages-special-law"
                     ]
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 310,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Pig Slayer -> /manga/pig-slayer",
-                        "One Step Closer to the Demon King -> /manga/one-step-closer-to-the-demon-king",
-                        "Bad Bone Blood -> /manga/bad-bone-blood"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 335,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -64,55 +65,76 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1317,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "God of Blackfield -> /manga/god-of-blackfield"
-                    ]
-                },
-                {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 276,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "God of Blackfield 225 -> /manga/god-of-blackfield/chapter/ch-225",
-                        "God of Blackfield 224 -> /manga/god-of-blackfield/chapter/ch-224",
-                        "God of Blackfield 223 -> /manga/god-of-blackfield/chapter/ch-223"
-                    ]
-                },
-                {
-                    "name": "pages",
                     "status": "WARN",
-                    "durationMs": 372,
+                    "durationMs": 1275,
                     "message": null,
                     "notes": [
-                        "page list is empty"
+                        "returned an empty list",
+                        "query \"God of Blackfield\" matched no results in the first page"
                     ],
                     "samples": []
                 },
                 {
-                    "name": "images",
+                    "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 751,
                     "message": null,
                     "notes": [],
+                    "samples": [
+                        "God of Blackfield 219 -> /manga/god-of-blackfield/chapter/ch-219",
+                        "God of Blackfield 218 -> /manga/god-of-blackfield/chapter/ch-218",
+                        "God of Blackfield 217 -> /manga/god-of-blackfield/chapter/ch-217"
+                    ]
+                },
+                {
+                    "name": "pages",
+                    "status": "DOWN",
+                    "durationMs": 1855,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T10:22:12.918396545Z",
+    "comparedTo": "2026-11-08T13:35:58.764652530Z",
     "changes": [
         {
             "source": "Manga168",
             "lang": "th",
-            "scenario": "pages",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "WARN"
+        },
+        {
+            "source": "Manga168",
+            "lang": "th",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Manga168",
+            "lang": "th",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manga168",
+            "lang": "th",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "DOWN"
+        },
+        {
+            "source": "Manga168",
+            "lang": "th",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

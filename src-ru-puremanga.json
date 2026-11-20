@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T12:08:16.015254373Z",
+    "generatedAt": "2026-11-20T12:02:52.710148914Z",
     "module": ":src:ru:puremanga",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 501392872283294667,
             "name": "PureManga",
             "lang": "ru",
             "baseUrl": "https://v1.puremanga.me",
-            "status": "DOWN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "DOWN",
-                    "durationMs": 30315,
-                    "message": "the site is unreachable (Read timed out); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: Read timed out"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 682,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 30111,
-                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: Connect timed out"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 331,
+                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!doctype html><html lang=\"en\".....",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 30019,
-                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: Connect timed out"
-                    ],
+                    "status": "FAIL",
+                    "durationMs": 492,
+                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!doctype html><html lang=\"en\".....",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 6,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,56 +81,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:33:20.622713416Z",
+    "comparedTo": "2026-11-19T12:08:16.015254373Z",
     "changes": [
         {
             "source": "PureManga",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "PureManga",
             "lang": "ru",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "FAIL"
         },
         {
             "source": "PureManga",
             "lang": "ru",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "PureManga",
-            "lang": "ru",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "PureManga",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "PureManga",
-            "lang": "ru",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "PureManga",
-            "lang": "ru",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "DOWN",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

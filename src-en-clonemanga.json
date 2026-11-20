@@ -1,42 +1,124 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T11:48:59.337705343Z",
+    "generatedAt": "2026-11-20T11:57:29.685998199Z",
     "module": ":src:en:clonemanga",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:en:clonemanga",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 5740849136135469941,
+            "name": "Clone Manga",
+            "lang": "en",
+            "baseUrl": "https://manga.clone-army.org",
+            "status": "WARN",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/en/clonemanga/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:en:clonemanga :src:en:clonemanga:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "PASS",
+                    "durationMs": 360,
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "WARN",
+                    "durationMs": 108,
+                    "message": null,
+                    "notes": [
+                        "duplicate manga urls: [/viewer.php?series=bigegg]"
+                    ],
+                    "samples": [
+                        "§I - Subjkt Kine Pnny-Biengg -> /viewer.php?series=witches",
+                        "§II - The Castle -> /viewer.php?series=witches_castle",
+                        "§III - Closed Circles -> /viewer.php?series=witches_loops"
+                    ]
+                },
+                {
+                    "name": "latest",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "supportsLatest = false",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "0 filters"
+                    ]
+                },
+                {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 56,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "§I - Subjkt Kine Pnny-Biengg -> /viewer.php?series=witches",
+                        "§II - The Castle -> /viewer.php?series=witches_castle",
+                        "§III - Closed Circles -> /viewer.php?series=witches_loops"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 77,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Chapter 8 -> /viewer.php?series=witches&page=8",
+                        "Chapter 7 -> /viewer.php?series=witches&page=7",
+                        "Chapter 6 -> /viewer.php?series=witches&page=6"
+                    ]
+                },
+                {
+                    "name": "pages",
+                    "status": "PASS",
+                    "durationMs": 42,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://manga.clone-army.org/southouse/web/000.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 256,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:28:03.844685733Z",
+    "comparedTo": "2026-11-19T11:48:59.337705343Z",
     "changes": [
-        {
-            "source": ":src:en:clonemanga",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "Clone Manga",
             "lang": "en",
             "scenario": null,
-            "from": "WARN",
+            "from": null,
+            "to": "WARN"
+        },
+        {
+            "source": ":src:en:clonemanga",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

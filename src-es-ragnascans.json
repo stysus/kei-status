@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T12:06:48.220988174Z",
+    "generatedAt": "2026-11-20T11:57:22.360321255Z",
     "module": ":src:es:ragnascans",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 6003330990591348231,
             "name": "Ragna Scans",
             "lang": "es",
             "baseUrl": "https://lector.ragnascan.xyz",
-            "status": "THROTTLED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 406,
+                    "durationMs": 369,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 69,
+                    "durationMs": 72,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 59,
+                    "durationMs": 66,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 58,
+                    "durationMs": 64,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,57 +74,62 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "THROTTLED",
-                    "durationMs": 6304,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1222,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Capítulo 90 -> /leer/ha-llegado-el-final/capitulo-90.00",
+                        "Capítulo 89 -> /leer/ha-llegado-el-final/capitulo-89.00",
+                        "Capítulo 88 -> /leer/ha-llegado-el-final/capitulo-88.00"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 84,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-90/1.webp",
+                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-90/2.webp",
+                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-90/3.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 313,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:07:19.423058910Z",
+    "comparedTo": "2026-11-19T12:06:48.220988174Z",
     "changes": [
         {
             "source": "Ragna Scans",
             "lang": "es",
-            "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Ragna Scans",
-            "lang": "es",
-            "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Ragna Scans",
-            "lang": "es",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Ragna Scans",
-            "lang": "es",
             "scenario": "chapters",
+            "from": "THROTTLED",
+            "to": "PASS"
+        },
+        {
+            "source": "Ragna Scans",
+            "lang": "es",
+            "scenario": "pages",
             "from": "SKIP",
-            "to": "THROTTLED"
+            "to": "PASS"
+        },
+        {
+            "source": "Ragna Scans",
+            "lang": "es",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
-    "throttledHosts": [
-        "lector.ragnascan.xyz"
-    ]
+    "throttledHosts": []
 }

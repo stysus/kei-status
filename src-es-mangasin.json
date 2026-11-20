@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:53.102407884Z",
+    "generatedAt": "2026-11-20T11:59:06.817916170Z",
     "module": ":src:es:mangasin",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 3344386250058668105,
             "name": "Mangas.in",
             "lang": "es",
             "baseUrl": "https://m440.in",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 915,
+                    "status": "WARN",
+                    "durationMs": 89,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 4106,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "ReLIFE -> /manga/relife",
-                        "Koi to Uso -> /manga/koi-to-uso",
-                        "One Piece -> /manga/one-piece"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 953,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from m440.in (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 684,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Lv2 kara Cheat datta Moto Yuusha Kouho no Mattari Isekai Life -> /manga/lv2-kara-cheat-datta-moto-yuusha-kouho-no-mattari-isekai-life",
-                        "Ore no vaccine dake ga zonbi-ka shita sekai o sukueru -> /manga/ore-no-vaccine-dake-ga-zonbi-ka-shita-sekai-o-sukueru",
-                        "Magic Emperor -> /manga/magic-emperor"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 1000,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from m440.in (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,22 +61,18 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 791,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "ReLIFE -> /manga/relife",
-                        "Relife Player -> /manga/relife-player",
-                        "The Revenge of My Youth Re Life with an Angelic Girl (Novela Web) -> /manga/the-revenge-of-my-youth-re-life-with-an-angelic-girl-novela-web"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 2823,
-                    "message": "No se pudo encontrar la clave",
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -86,28 +80,49 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:34:41.300251900Z",
+    "comparedTo": "2026-10-30T01:31:53.102407884Z",
     "changes": [
         {
             "source": "Mangas.in",
             "lang": "es",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Mangas.in",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Mangas.in",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Mangas.in",
             "lang": "es",
             "scenario": "chapters",
-            "from": "UNSUPPORTED",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangas.in",
+            "lang": "es",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

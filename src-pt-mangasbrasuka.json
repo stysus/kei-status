@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T12:01:24.490560680Z",
+    "generatedAt": "2026-11-20T12:07:30.305582126Z",
     "module": ":src:pt:mangasbrasuka",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 9021069622172695017,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "BLOCKED",
-                    "durationMs": 21138,
+                    "durationMs": 22533,
                     "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
                         "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from mangasbrasuka.org (HTTP 403)"
@@ -33,7 +33,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1006,
+                    "durationMs": 1005,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -45,13 +45,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 630,
+                    "durationMs": 1055,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Kaoru Hana wa Rin to Saku -> kaoru-hana-wa-rin-to-saku",
-                        "Rent-A-Girlfriend -> rent-a-girlfriend",
-                        "Ultra Equipado: As Aventuras de Greed -> ultra-equipado-as-aventuras-de-greed"
+                        "A Princesa Marcou O Traidor -> a-princesa-marcou-o-traidor",
+                        "Servamp -> servamp",
+                        "Sonna, 14-sai. -> sonna-14-sai"
                     ]
                 },
                 {
@@ -67,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 452,
+                    "durationMs": 1023,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +77,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 674,
+                    "durationMs": 712,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,35 +88,33 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 11559,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://aurora.snipercache.com/manga/ao-ashi/cap0001/page-0001-v1792179948649.webp?sig=xpksgb3VIUuGNKo4ywe8dA&exp=1795096883",
-                        "https://aurora.snipercache.com/manga/ao-ashi/cap0001/page-0002-v1792179948649.webp?sig=-QXYOGRO0_FB1mnpOqDAyw&exp=1795096883",
-                        "https://aurora.snipercache.com/manga/ao-ashi/cap0001/page-0003-v1792179948649.webp?sig=9CMfeD1eGoADT9ozu1p_Cg&exp=1795096883"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 766,
-                    "message": null,
-                    "notes": [],
+                    "status": "SKIP",
+                    "durationMs": 855,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403",
+                        "pages are only checked on a chapter that needs no unlock"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-10T11:35:43.651721578Z",
+    "comparedTo": "2026-11-19T12:01:24.490560680Z",
     "changes": [
         {
             "source": "Mangas Brasuka",
             "lang": "pt-BR",
             "scenario": "pages",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangas Brasuka",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

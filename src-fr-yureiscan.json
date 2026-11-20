@@ -1,42 +1,110 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T11:48:25.273311377Z",
+    "generatedAt": "2026-11-20T12:03:53.306005884Z",
     "module": ":src:fr:yureiscan",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:fr:yureiscan",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 2709762600252838524,
+            "name": "Yurei Scan",
+            "lang": "fr",
+            "baseUrl": "https://yurei-scan.fr",
+            "status": "DOWN",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/fr/yureiscan/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:fr:yureiscan :src:fr:yureiscan:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "PASS",
+                    "durationMs": 644,
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "DOWN",
+                    "durationMs": 3792,
+                    "message": "the site's origin server is not responding (HTTP 520); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 520"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "PASS",
+                    "durationMs": 174,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Undead-san no Bukiyou na Seishun -> /manga.php?id=53",
+                        "Colorist -> /manga.php?id=44",
+                        "I Made Friends with the Second Prettiest Girl in My Class -> /manga.php?id=57"
+                    ]
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "0 filters"
+                    ]
+                },
+                {
+                    "name": "search",
+                    "status": "DOWN",
+                    "durationMs": 150,
+                    "message": "the site's origin server is not responding (HTTP 520); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 520"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "DOWN",
+                    "durationMs": 142,
+                    "message": "the site's origin server is not responding (HTTP 520); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 520"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:07:56.707970740Z",
+    "comparedTo": "2026-11-19T11:48:25.273311377Z",
     "changes": [
-        {
-            "source": ":src:fr:yureiscan",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "Yurei Scan",
             "lang": "fr",
             "scenario": null,
-            "from": "DOWN",
+            "from": null,
+            "to": "DOWN"
+        },
+        {
+            "source": ":src:fr:yureiscan",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

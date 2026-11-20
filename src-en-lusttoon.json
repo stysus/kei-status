@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T11:58:24.587026258Z",
+    "generatedAt": "2026-11-20T11:55:33.490715861Z",
     "module": ":src:en:lusttoon",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 5466172882050312169,
             "name": "LustToon",
             "lang": "en",
             "baseUrl": "https://lustoon.com",
-            "status": "DOWN",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,36 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "DOWN",
-                    "durationMs": 371,
-                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
-                    "notes": [
-                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
-                        "java.io.EOFException: SSL peer shut down incorrectly"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 591,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 291,
-                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
-                    "notes": [
-                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
-                        "java.io.EOFException: SSL peer shut down incorrectly"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 497,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Atonement, For Your Cruelty -> /comic/atonement-for-your-cruelty",
+                        "Wild Dogs Dream of Predation -> /comic/wild-dogs-dream-of-predation",
+                        "The Shattering -> /comic/the-shattering"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 224,
-                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
-                    "notes": [
-                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
-                        "java.io.EOFException: SSL peer shut down incorrectly"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 760,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "The Legitimate Wife -> /comic/the-legitimate-wife",
+                        "One-Way Mind Link -> /comic/one-way-mind-link",
+                        "Love:Zero -> /comic/lovezero"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -64,82 +63,102 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 152,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Atonement, For Your Cruelty -> /comic/atonement-for-your-cruelty"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "name": "chapters",
+                    "status": "WARN",
+                    "durationMs": 200,
+                    "message": null,
+                    "notes": [
+                        "duplicate chapter urls: [/comic/atonement-for-your-cruelty/chapter-16]"
+                    ],
+                    "samples": [
+                        "Chapter 31 -> /comic/atonement-for-your-cruelty/chapter-31",
+                        "Chapter 30 -> /comic/atonement-for-your-cruelty/chapter-30",
+                        "Chapter 29 -> /comic/atonement-for-your-cruelty/chapter-29"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 226,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://media.lustoon.com/file/LTEemj/serie/atonement-for-your-cruelty/53a29f51-1001-4da9-b7fc-f1496a17cc10/00.jpg",
+                        "https://media.lustoon.com/file/LTEemj/serie/atonement-for-your-cruelty/53a29f51-1001-4da9-b7fc-f1496a17cc10/01.jpg",
+                        "https://media.lustoon.com/file/LTEemj/serie/atonement-for-your-cruelty/53a29f51-1001-4da9-b7fc-f1496a17cc10/02.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1207,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-09T11:51:06.528528121Z",
+    "comparedTo": "2026-11-19T11:58:24.587026258Z",
     "changes": [
         {
             "source": "LustToon",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "LustToon",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "LustToon",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "LustToon",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "LustToon",
             "lang": "en",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "LustToon",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "WARN"
         },
         {
             "source": "LustToon",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "LustToon",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

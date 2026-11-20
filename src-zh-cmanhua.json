@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T12:11:39.743260861Z",
+    "generatedAt": "2026-11-20T12:07:36.484726656Z",
     "module": ":src:zh:cmanhua",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 7460126106933105633,
             "name": "CManhua",
             "lang": "zh",
             "baseUrl": "https://cmanhua.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 764,
+                    "durationMs": 539,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 942,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 212,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "贵妃今天也要以身饲敌 -> guifeijintianyeyaoyishensidi",
-                        "荆棘之心 -> jingjizhixin",
-                        "我才不嫁反派皇子 -> wocaibujiafanpahuangzi"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 387,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 206,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "贵妃今天也要以身饲敌 -> guifeijintianyeyaoyishensidi",
-                        "荆棘之心 -> jingjizhixin",
-                        "我才不嫁反派皇子 -> wocaibujiafanpahuangzi"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +55,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 344,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "贵妃今天也要以身饲敌 -> guifeijintianyeyaoyishensidi"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 368,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 48: 贵妃今天也要以身饲敌 - 特典限时 返场 -> 69d4da8a31105888517dfb87",
-                        "Chapter 47: 贵妃今天也要以身饲敌 - 045 红妆好多情 -> 69d4da8a31105888517dfb86",
-                        "Chapter 46: 贵妃今天也要以身饲敌 - 044 美满大团圆 -> 69d4da8931105888517dfb85"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 336,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://manhua.5um.net/colatj/guifeijintianyeyaoyishensidi/2/0bea03f52e36b7f7fd93820d5ce604dd.webp",
-                        "https://manhua.5um.net/colatj/guifeijintianyeyaoyishensidi/2/f083e469d852281fb9b4971fb66742d1.webp",
-                        "https://manhua.5um.net/colatj/guifeijintianyeyaoyishensidi/2/320a03fde504cba8cf537e8147693064.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1112,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:14:03.193010969Z",
+    "comparedTo": "2026-11-19T12:11:39.743260861Z",
     "changes": [
         {
             "source": "CManhua",
             "lang": "zh",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "CManhua",
+            "lang": "zh",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "CManhua",
+            "lang": "zh",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "CManhua",
+            "lang": "zh",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "CManhua",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "CManhua",
+            "lang": "zh",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

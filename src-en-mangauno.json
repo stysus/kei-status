@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-17T12:17:38.938835993Z",
+    "generatedAt": "2026-11-20T11:59:46.174775011Z",
     "module": ":src:en:mangauno",
     "sourceRoot": "",
-    "extensionCommit": "02402ef9",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 4237239660432093896,
             "name": "Manga.uno",
             "lang": "en",
             "baseUrl": "https://manga.uno",
-            "status": "DOWN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,39 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 19672,
+                    "status": "PASS",
+                    "durationMs": 321,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 522",
-                        "home page body is empty"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 26,
-                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 277,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Chainsaw Man -> chainsaw-man",
+                        "Solo Leveling -> solo-leveling",
+                        "Jujutsu Kaisen -> jujutsu-kaisen"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 16,
-                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 211,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Emperor of Solo Play -> solo-play-ui-jewang",
+                        "Saja ui Seo -> saja-ui-seo",
+                        "The Genius Prismatic Mage -> the-genius-prismatic-mage"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,33 +63,103 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 1927,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chainsaw Man -> chainsaw-man",
+                        "Tatsuki Fujimoto Before Chainsaw Man: 17-21 -> tatsuki-fujimoto-short-story-collection",
+                        "Chainsaw Man - The Hayakawa Family (Doujinshi) -> chainsaw-man-the-hayakawa-family-doujinshi"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 219,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Ch. 232 — Thank You, Chainsaw Man -> chainsaw-man/818128",
+                        "Ch. 231 — Vol. 23 -> chainsaw-man/818129",
+                        "Ch. 230 — Vol. 23 -> chainsaw-man/818130"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 205,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://manga.uno/api/chapter/818128/page/1",
+                        "https://manga.uno/api/chapter/818128/page/2",
+                        "https://manga.uno/api/chapter/818128/page/3"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 606,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-16T11:46:38.845448001Z",
-    "changes": [],
+    "comparedTo": "2026-11-17T12:17:38.938835993Z",
+    "changes": [
+        {
+            "source": "Manga.uno",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Manga.uno",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "DOWN",
+            "to": "PASS"
+        },
+        {
+            "source": "Manga.uno",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "DOWN",
+            "to": "PASS"
+        },
+        {
+            "source": "Manga.uno",
+            "lang": "en",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Manga.uno",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Manga.uno",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Manga.uno",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
+        }
+    ],
     "throttledHosts": []
 }

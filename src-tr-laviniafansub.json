@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-18T12:11:50.335201152Z",
+    "generatedAt": "2026-11-20T12:06:25.861404077Z",
     "module": ":src:tr:laviniafansub",
     "sourceRoot": "",
-    "extensionCommit": "f1d882a9",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 3269982329415083765,
             "name": "Lavinia Fansub",
             "lang": "tr",
-            "baseUrl": "https://laviniafansub.shop",
-            "status": "FAIL",
+            "baseUrl": "https://laviniafansub.my",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,26 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1497,
+                    "durationMs": 2168,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 460,
-                    "message": "HTTP error 400",
+                    "status": "PASS",
+                    "durationMs": 709,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Placebo: Let’s Play -> 1068",
+                        "Save The Dae -> 1585",
+                        "Ghostly Vendetta -> 1302"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 474,
-                    "message": "HTTP error 400",
+                    "status": "PASS",
+                    "durationMs": 693,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "The Taming -> 17255",
+                        "Rainbow City -> 9836",
+                        "Omertà -> 15864"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -55,68 +63,78 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 484,
+                    "message": null,
+                    "notes": [
+                        "the site found nothing for \"Placebo: Let’s Play\"; the retry with \"Placebo Let s Play\" did"
+                    ],
+                    "samples": [
+                        "Placebo: Let’s Play -> 1068"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 1516,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "68. Bölüm - Yan hikaye Final -> 68-bolum-yan-hikaye-final",
+                        "67. Bölüm - Yan Hikaye 9 -> 67-bolum-yan-hikaye-9",
+                        "66. Bölüm - Yan Hikaye 8 -> 66-bolum-yan-hikaye-8"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 1484,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Okumak için WebView üzerinden giriş yapın"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:02:46.626941071Z",
+    "comparedTo": "2026-11-18T12:11:50.335201152Z",
     "changes": [
         {
             "source": "Lavinia Fansub",
             "lang": "tr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Lavinia Fansub",
             "lang": "tr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Lavinia Fansub",
-            "lang": "tr",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Lavinia Fansub",
             "lang": "tr",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Lavinia Fansub",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Lavinia Fansub",
             "lang": "tr",
             "scenario": "pages",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

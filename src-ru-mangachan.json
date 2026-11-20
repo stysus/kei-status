@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T12:04:25.670536877Z",
+    "generatedAt": "2026-11-20T12:03:58.832462439Z",
     "module": ":src:ru:mangachan",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 7,
@@ -23,25 +23,27 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 833,
+                    "durationMs": 1409,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 323,
-                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 404,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Girl the Wild's -> /manga/33-girl-the-wilds.html",
+                        "The Breaker: New waves -> /manga/5335-the-breaker-new-waves.html",
+                        "Monster Musume no Iru Nichijou -> /manga/13614-monster-musume-no-iru-nichijou.html"
+                    ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 610,
+                    "durationMs": 385,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -62,48 +64,47 @@
                 },
                 {
                     "name": "search",
-                    "status": "DOWN",
-                    "durationMs": 233,
-                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 859,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Girl the Wild's (Шальные девчонки) -> /manga/33-girl-the-wilds.html",
+                        "Mahou Shoujo Fatal Fate (Махо сёдзё фатальная судьба) -> /manga/15007-mahou-shoujo-fatal-fate.html",
+                        "Rise of the Outlaw Tamer and His Wild S-Rank Cat Girl (Восхождение Укротителя-изгоя и его дикой девушки-кошки ранга S) -> /manga/156080-rise-of-the-outlaw-tamer-and-his-wild-s-rank-cat-girl.html"
+                    ]
                 },
                 {
                     "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 353,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Том 2 Глава 260 -> /online/391162-girl-the-wilds_v2_ch260.html",
+                        "Том 2 Глава 259 -> /online/391154-girl-the-wilds_v2_ch259.html",
+                        "Том 2 Глава 258 -> /online/373978-girl-the-wilds_v2_ch258.html"
+                    ]
+                },
+                {
+                    "name": "pages",
                     "status": "DOWN",
-                    "durationMs": 511,
+                    "durationMs": 155,
                     "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
                     ],
-                    "samples": []
-                },
-                {
-                    "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
-                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:11:30.299596640Z",
+    "comparedTo": "2026-11-19T12:04:25.670536877Z",
     "changes": [
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "latest",
+            "scenario": "popular",
             "from": "DOWN",
             "to": "PASS"
         },
@@ -111,13 +112,20 @@
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "search",
-            "from": "SKIP",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "chapters",
+            "from": "DOWN",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaChan",
+            "lang": "ru",
+            "scenario": "pages",
             "from": "SKIP",
             "to": "DOWN"
         }

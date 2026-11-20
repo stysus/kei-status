@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T11:52:54.213142512Z",
+    "generatedAt": "2026-11-20T11:54:02.652823905Z",
     "module": ":src:all:e621",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 3580576879040377475,
             "name": "e621",
             "lang": "all",
             "baseUrl": "https://e621.net",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,26 +23,38 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 231,
+                    "durationMs": 400,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 1059,
-                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '[' instead at path: $\nJSON input: [{\"id\":6001452,\"created_at\":\"2.....",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 2495,
+                    "message": null,
+                    "notes": [
+                        "manga[3] has no thumbnail"
+                    ],
+                    "samples": [
+                        "Cocktober 2025 by Vopach -> 51343",
+                        "yuio - eevee and his sisters -> 29260",
+                        "Lewding Every Pal by Nepentz -> 57984"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 790,
-                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '[' instead at path: $\nJSON input: [{\"id\":6868290,\"created_at\":\"2.....",
-                    "notes": [],
-                    "samples": []
+                    "status": "WARN",
+                    "durationMs": 2926,
+                    "message": null,
+                    "notes": [
+                        "manga[1] has no thumbnail"
+                    ],
+                    "samples": [
+                        "Open Relationship Shenanigans by Vexyfursure -> 60309",
+                        "Novembreed 2026 [Lemgrum] -> 60443",
+                        "AngryDraconequus NNN Daily Animations 2026 Previews -> 60699"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -55,75 +67,92 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 301,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"Cocktober 2025 by Vopach\" matched no results in the first page"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 787,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Pool #51343 (28 pages) -> /pools/51343"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 1794,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://static1.e621.net/data/sample/5b/1f/5b1f0ef31c0393774d913682e2cb8a9f.webp",
+                        "https://static1.e621.net/data/sample/41/4e/414e51a8e04985eb77f1b13758e5bd49.webp",
+                        "https://static1.e621.net/data/sample/64/52/6452fc3675d782e029449d52aef498fb.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 794,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:08:54.363621698Z",
+    "comparedTo": "2026-11-19T11:52:54.213142512Z",
     "changes": [
         {
             "source": "e621",
             "lang": "all",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
             "source": "e621",
             "lang": "all",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "FAIL"
-        },
-        {
-            "source": "e621",
-            "lang": "all",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
             "source": "e621",
             "lang": "all",
             "scenario": "search",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "e621",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "e621",
             "lang": "all",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "e621",
             "lang": "all",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

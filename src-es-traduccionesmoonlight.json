@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-17T12:08:49.679735941Z",
+    "generatedAt": "2026-11-20T11:59:15.029402785Z",
     "module": ":src:es:traduccionesmoonlight",
     "sourceRoot": "",
-    "extensionCommit": "02402ef9",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 4349338377187141550,
             "name": "Traducciones Moonlight",
             "lang": "es",
             "baseUrl": "https://traduccionesmoonlight.com",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 809,
+                    "status": "WARN",
+                    "durationMs": 19458,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2778,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "FUI A CONFESARME Y TERMINE SIENDO DEVORADA -> /ver/fui-a-confesarme-y-termine-siendo-devorada",
-                        "APAREAMIENTO DE ELFOS -> /ver/apareamiento-de-elfos",
-                        "EL ESPOSO DE MI AMIGA -> /ver/el-esposo-de-mi-amiga"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19689,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 199,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "APAREAMIENTO DE ELFOS -> /ver/apareamiento-de-elfos",
-                        "OPERACIÓN FANTASMA DEL AGUA -> /ver/operacin-fantasma-del-agua",
-                        "RUEGA POR MI -> /ver/ruega-por-mi"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19733,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,63 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1184,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "FUI A CONFESARME Y TERMINE SIENDO DEVORADA -> /ver/fui-a-confesarme-y-termine-siendo-devorada"
-                    ]
-                },
-                {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 181,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "[chapter] 3 -> /ver/fui-a-confesarme-y-termine-siendo-devorada/capitulo-33",
-                        "[chapter] 2 -> /ver/fui-a-confesarme-y-termine-siendo-devorada/capitulo-22",
-                        "[chapter] 1 -> /ver/fui-a-confesarme-y-termine-siendo-devorada/capitulo-11"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 277,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "search",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-16T11:46:05.400276333Z",
+    "comparedTo": "2026-11-17T12:08:49.679735941Z",
     "changes": [
         {
             "source": "Traducciones Moonlight",
             "lang": "es",
-            "scenario": "pages",
-            "from": "DOWN",
+            "scenario": "connectivity",
+            "from": "PASS",
             "to": "WARN"
         },
         {
             "source": "Traducciones Moonlight",
             "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Traducciones Moonlight",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Traducciones Moonlight",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Traducciones Moonlight",
+            "lang": "es",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Traducciones Moonlight",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Traducciones Moonlight",
+            "lang": "es",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

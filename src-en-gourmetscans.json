@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:16:58.656935508Z",
+    "generatedAt": "2026-11-20T11:59:58.738576229Z",
     "module": ":src:en:gourmetscans",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 3694940277826033657,
             "name": "Gourmet Scans",
             "lang": "en",
             "baseUrl": "https://gourmetsupremacy.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 2009,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30183,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2037,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "It’s Time to Change the Genre -> 2953",
-                        "I Failed to Divorce My Husband -> 6578",
-                        "Lady Baby -> 2092"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30005,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1302,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Roxana -> 3726",
-                        "I’m Being Raised by Villains -> 8286",
-                        "I Divorced and Abandoned My Family -> 30007629"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30001,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,74 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 626,
-                    "message": null,
-                    "notes": [
-                        "the site found nothing for \"It’s Time to Change the Genre\"; the retry with \"It s Time to Change the Genre\" did"
-                    ],
-                    "samples": [
-                        "It’s Time to Change the Genre -> 2953"
-                    ]
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 379,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The End Notes - Afterword -> the-end-notes",
-                        "Side Story 3 - Ruediger Winterwald (Fin) -> side-story-3",
-                        "Side Story 2 - Ruediger Winterwald -> side-story-2"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1507,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_01.jpg",
-                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_02.jpg",
-                        "https://gourmetsupremacy.com/wp-content/uploads/WP-manga/data/manga_60843620e2917/9982b0bb9b81cedfb4f58d416d47ae2a/01_03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 834,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T06:56:51.197747411Z",
+    "comparedTo": "2026-11-04T11:16:58.656935508Z",
     "changes": [
         {
             "source": "Gourmet Scans",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Gourmet Scans",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Gourmet Scans",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Gourmet Scans",
+            "lang": "en",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Gourmet Scans",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Gourmet Scans",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Gourmet Scans",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

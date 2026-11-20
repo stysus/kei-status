@@ -1,42 +1,107 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T11:48:59.387087597Z",
+    "generatedAt": "2026-11-20T12:11:10.087270309Z",
     "module": ":src:tr:mangakusu",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:tr:mangakusu",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 6479744508771928030,
+            "name": "Manga Kusu",
+            "lang": "tr",
+            "baseUrl": "https://mangakusu.com",
+            "status": "DOWN",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/tr/mangakusu/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:tr:mangakusu :src:tr:mangakusu:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "WARN",
+                    "durationMs": 4637,
+                    "message": null,
+                    "notes": [
+                        "home page returned HTTP 526",
+                        "home page body is empty"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "DOWN",
+                    "durationMs": 447,
+                    "message": "the site's origin server is not responding (HTTP 526); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 526"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "DOWN",
+                    "durationMs": 550,
+                    "message": "the site's origin server is not responding (HTTP 526); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 526"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 1,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "8 filters"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:12:16.667371401Z",
+    "comparedTo": "2026-11-19T11:48:59.387087597Z",
     "changes": [
-        {
-            "source": ":src:tr:mangakusu",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "Manga Kusu",
             "lang": "tr",
             "scenario": null,
-            "from": "DOWN",
+            "from": null,
+            "to": "DOWN"
+        },
+        {
+            "source": ":src:tr:mangakusu",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

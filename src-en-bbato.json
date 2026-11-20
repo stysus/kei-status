@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-18T12:03:53.125954203Z",
+    "generatedAt": "2026-11-20T11:56:58.609852614Z",
     "module": ":src:en:bbato",
     "sourceRoot": "",
-    "extensionCommit": "f1d882a9",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 1678128543826757763,
@@ -23,34 +23,32 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 151,
+                    "durationMs": 183,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 35,
+                    "status": "WARN",
+                    "durationMs": 275,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Just Something I've Heard -> /manga/just-something-i-ve-heard",
-                        "Peerless Job-Hopper: Because I Changed Jobs Too Many Times I Failed the S-Rank Guild Application Screening, so I'll Rise to the Top in the Dark Guild -> /manga/peerless-job-hopper-because-i-changed-jobs-too-many-times-i-failed-the-s-rank-guild-application-screening-so-i-ll-rise-to-the-top-in-the-dark-guild",
-                        "The Reincarnator Who Repaired Junk in the Lower Slums Will Every Magic and Become the World’s Greatest Magician ~Creator of Original Magic~ | Asmodeus Universe -> /manga/the-reincarnator-who-repaired-junk-in-the-lower-slums-will-every-magic-and-become-the-worlds-greatest-magician-creator-of-original-magic-asmodeus-universe"
-                    ]
+                    "notes": [
+                        "returned an empty list",
+                        "hasNextPage=true but list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 927,
+                    "status": "WARN",
+                    "durationMs": 639,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Just Something I've Heard -> /manga/just-something-i-ve-heard",
-                        "Peerless Job-Hopper: Because I Changed Jobs Too Many Times I Failed the S-Rank Guild Application Screening, so I'll Rise to the Top in the Dark Guild -> /manga/peerless-job-hopper-because-i-changed-jobs-too-many-times-i-failed-the-s-rank-guild-application-screening-so-i-ll-rise-to-the-top-in-the-dark-guild",
-                        "The Reincarnator Who Repaired Junk in the Lower Slums Will Every Magic and Become the World’s Greatest Magician ~Creator of Original Magic~ | Asmodeus Universe -> /manga/the-reincarnator-who-repaired-junk-in-the-lower-slums-will-every-magic-and-become-the-worlds-greatest-magician-creator-of-original-magic-asmodeus-universe"
-                    ]
+                    "notes": [
+                        "returned an empty list",
+                        "hasNextPage=true but list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,39 +61,62 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1216,
-                    "message": null,
-                    "notes": [
-                        "the site found nothing for \"Just Something I've Heard\"; the retry with \"Just Something I ve Heard\" did"
-                    ],
-                    "samples": [
-                        "Just Something I've Heard -> /manga/just-something-i-ve-heard"
-                    ]
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 722,
-                    "message": null,
-                    "notes": [
-                        "chapter list is empty"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-13T11:17:05.232330651Z",
-    "changes": [],
+    "comparedTo": "2026-11-18T12:03:53.125954203Z",
+    "changes": [
+        {
+            "source": "Bbato",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Bbato",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Bbato",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Bbato",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        }
+    ],
     "throttledHosts": []
 }

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-18T12:36:41.146520471Z",
+    "generatedAt": "2026-11-20T11:56:58.860521021Z",
     "module": ":src:ar:xsanomanga",
     "sourceRoot": "",
-    "extensionCommit": "f1d882a9",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 6170348197605244575,
@@ -22,21 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "THROTTLED",
-                    "durationMs": 7614,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 1612,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "www.xsano-manga.com answered HTTP 429 earlier in this run",
+                    "status": "PASS",
+                    "durationMs": 214,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "BE BLUES -> /2023/02/be-blues.html",
+                        "Shangri-La Frontier -> /2025/07/shangri-la-frontier.html",
+                        "Ao Ashi Brotherfoot -> /2023/12/ao-ashi-brotherfoot_15.html"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -48,89 +50,92 @@
                 },
                 {
                     "name": "filters",
-                    "status": "SKIP",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "www.xsano-manga.com answered HTTP 429 earlier in this run",
+                    "message": null,
                     "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "samples": [
+                        "0 filters"
+                    ]
                 },
                 {
                     "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 267,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "BE BLUES -> /2023/02/be-blues.html"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 2487,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "الفصل 217 BE BLUES -> /2026/08/217-be-blues.html",
+                        "الفصل 216 BE BLUES -> /2026/08/216-be-blues.html",
+                        "الفصل 215 BE BLUES -> /2026/08/215-be-blues.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 7352,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-16T11:51:00.462036085Z",
+    "comparedTo": "2026-11-18T12:36:41.146520471Z",
     "changes": [
         {
             "source": "XSano Manga",
             "lang": "ar",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "XSano Manga",
             "lang": "ar",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "XSano Manga",
             "lang": "ar",
             "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "XSano Manga",
-            "lang": "ar",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "XSano Manga",
             "lang": "ar",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "XSano Manga",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "XSano Manga",
             "lang": "ar",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "XSano Manga",
-            "lang": "ar",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "THROTTLED"
         }
     ],
     "throttledHosts": [

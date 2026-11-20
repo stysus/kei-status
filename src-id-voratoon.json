@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-15T11:15:29.814877508Z",
+    "generatedAt": "2026-11-20T12:02:33.865137536Z",
     "module": ":src:id:voratoon",
     "sourceRoot": "",
-    "extensionCommit": "80af09c2",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 972717448578983812,
             "name": "VoraToon",
             "lang": "id",
             "baseUrl": "https://voratoon.co",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 4598,
+                    "durationMs": 4786,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 678,
+                    "durationMs": 630,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 214,
+                    "durationMs": 176,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Uchi no Ojou-sama no Hanashi wo Kiite Kure: Akuyaku Reijou Isabella Kouryaku Kiroku -> /series/uchi-no-ojou-sama-no-hanashi-wo-kiite-kure-akuyaku-reijou-isabella-kouryaku-kiroku",
-                        "I Quit Everything to Selling Cola -> /series/i-quit-everything-to-selling-cola",
-                        "Offering Kimchi Cup Noodles to the Gods' Group Chat -> /series/offering-kimchi-cup-noodles-to-the-gods-group-chat"
+                        "Nani no Torie mo Nai Heibon na Ore ga Bijin Futago Shimai wo Inochigake de Tasuketa Kekka, Jitsu wa Yandere datta Futari wo Gachi Bore Sasete  Shimatta -> /series/nani-no-torie-mo-nai-heibon-na-ore-ga-bijin-futago-shimai-wo-inochigake-de-tasuketa-kekka-jitsu-wa-yandere-datta-futari-wo-gachi-bore-sasete-shimatta",
+                        "Jinsei Gyakuten - Uwaki Sare Enzai o Kiserareta Ore ga, Gakuen Ichi no Bishoujo ni Natsukareru -> /series/jinsei-gyakuten-uwakisare-enzai-wo-kiserareta-orega-gakuenichi-no-bishoujo-ni-natsukareru",
+                        "A Regressor’s Tale of Cultivation -> /series/a-regressors-tale-of-cultivation"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 745,
+                    "durationMs": 716,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,43 +75,59 @@
                 {
                     "name": "chapters",
                     "status": "WARN",
-                    "durationMs": 379,
+                    "durationMs": 949,
                     "message": null,
                     "notes": [
                         "duplicate chapter urls: [/series/magic-emperor/chapter/146]"
                     ],
                     "samples": [
+                        "Chapter 937 -> /series/magic-emperor/chapter/937",
                         "Chapter 936 -> /series/magic-emperor/chapter/936",
-                        "Chapter 935 -> /series/magic-emperor/chapter/935",
-                        "Chapter 934 -> /series/magic-emperor/chapter/934"
+                        "Chapter 935 -> /series/magic-emperor/chapter/935"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 25437,
-                    "message": "Selesaikan verifikasi di WebView lalu coba lagi",
+                    "status": "PASS",
+                    "durationMs": 204,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://cdn.voratoon.com/wp-content/img/M/Magic-Emperor/001ff/01.jpg",
+                        "https://cdn.voratoon.com/wp-content/img/M/Magic-Emperor/001ff/02.jpg",
+                        "https://cdn.voratoon.com/wp-content/img/M/Magic-Emperor/001ff/03.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 816,
+                    "message": null,
+                    "notes": [
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.voratoon.com (HTTP 403)",
+                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.voratoon.com (HTTP 403)",
+                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.voratoon.com (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-13T11:18:55.852711767Z",
+    "comparedTo": "2026-11-15T11:15:29.814877508Z",
     "changes": [
         {
             "source": "VoraToon",
             "lang": "id",
             "scenario": "pages",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "VoraToon",
             "lang": "id",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

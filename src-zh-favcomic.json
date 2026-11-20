@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T12:01:37.073306120Z",
+    "generatedAt": "2026-11-20T12:05:14.187668296Z",
     "module": ":src:zh:favcomic",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 2276541741750874058,
             "name": "喜漫漫画",
             "lang": "zh",
             "baseUrl": "https://www.favcomic.com",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,26 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 127,
-                    "message": "Connection reset",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 241,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
+                        "java.io.EOFException: SSL peer shut down incorrectly"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 56,
-                    "message": "Connection reset",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 95,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
+                        "java.io.EOFException: SSL peer shut down incorrectly"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 36,
-                    "message": "Connection reset",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 92,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake",
+                        "java.io.EOFException: SSL peer shut down incorrectly"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,56 +90,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:37:47.619853922Z",
+    "comparedTo": "2026-11-19T12:01:37.073306120Z",
     "changes": [
         {
             "source": "喜漫漫画",
             "lang": "zh",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "DOWN"
         },
         {
             "source": "喜漫漫画",
             "lang": "zh",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "DOWN"
         },
         {
             "source": "喜漫漫画",
             "lang": "zh",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "喜漫漫画",
-            "lang": "zh",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "喜漫漫画",
-            "lang": "zh",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "喜漫漫画",
-            "lang": "zh",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "喜漫漫画",
-            "lang": "zh",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

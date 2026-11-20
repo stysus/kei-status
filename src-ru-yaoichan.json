@@ -1,15 +1,15 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T12:10:24.138947599Z",
+    "generatedAt": "2026-11-20T12:02:00.337959178Z",
     "module": ":src:ru:yaoichan",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
             "sourceId": 2466512768990363955,
             "name": "YaoiChan",
             "lang": "ru",
-            "baseUrl": "https://yaoi-chan.me",
+            "baseUrl": "https://v18.yaoi-chan.me",
             "status": "DOWN",
             "scenarios": [
                 {
@@ -22,18 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 2290,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 31125,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
                     "notes": [
-                        "home page returned HTTP 502"
+                        "java.net.SocketTimeoutException: timeout"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "DOWN",
-                    "durationMs": 269,
+                    "durationMs": 234,
                     "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
@@ -43,10 +43,10 @@
                 {
                     "name": "latest",
                     "status": "DOWN",
-                    "durationMs": 30132,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "durationMs": 119,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
                     "notes": [
-                        "java.net.SocketTimeoutException: timeout"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
                     ],
                     "samples": []
                 },
@@ -87,14 +87,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:09:42.864610150Z",
+    "comparedTo": "2026-11-19T12:10:24.138947599Z",
     "changes": [
         {
             "source": "YaoiChan",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "DOWN",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

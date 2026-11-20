@@ -1,42 +1,106 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T11:48:59.368892045Z",
+    "generatedAt": "2026-11-20T12:03:48.396952272Z",
     "module": ":src:fr:yaoiscan",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "ef952a64",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:fr:yaoiscan",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 7333825394865171341,
+            "name": "YaoiScan",
+            "lang": "fr",
+            "baseUrl": "https://yaoiscan.fr",
+            "status": "DOWN",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/fr/yaoiscan/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:fr:yaoiscan :src:fr:yaoiscan:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "WARN",
+                    "durationMs": 5822,
+                    "message": null,
+                    "notes": [
+                        "home page returned HTTP 504"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "DOWN",
+                    "durationMs": 5175,
+                    "message": "the site's origin server is not responding (HTTP 504); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 504"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "DOWN",
+                    "durationMs": 5170,
+                    "message": "the site's origin server is not responding (HTTP 504); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 504"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 2,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "8 filters"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:01:05.117019789Z",
+    "comparedTo": "2026-11-19T11:48:59.368892045Z",
     "changes": [
-        {
-            "source": ":src:fr:yaoiscan",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "YaoiScan",
             "lang": "fr",
             "scenario": null,
-            "from": "DOWN",
+            "from": null,
+            "to": "DOWN"
+        },
+        {
+            "source": ":src:fr:yaoiscan",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],
