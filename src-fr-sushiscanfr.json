@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:01:07.519976796Z",
+    "generatedAt": "2026-11-21T11:28:14.796774912Z",
     "module": ":src:fr:sushiscanfr",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 3196884165456788667,
@@ -22,33 +22,42 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 939,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 476,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertificateExpiredException: NotAfter: Sat Nov 21 04:19:46 UTC 2026"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "DOWN",
-                    "durationMs": 9831,
-                    "message": "the site's origin server is not responding (HTTP 504); the source is not at fault",
+                    "durationMs": 351,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 504"
+                        "javax.net.ssl.SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertificateExpiredException: NotAfter: Sat Nov 21 04:19:46 UTC 2026"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 342,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Ruined World Was Mistaken for a Game -> /catalogue/the-ruined-world-was-mistaken-for-a-game/",
-                        "La Servante Secrète -> /catalogue/la-servante-secrete/",
-                        "Martial Peak -> /catalogue/martial-peak/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 340,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
+                    "notes": [
+                        "javax.net.ssl.SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertificateExpiredException: NotAfter: Sat Nov 21 04:19:46 UTC 2026"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -61,58 +70,61 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "DOWN",
-                    "durationMs": 5686,
-                    "message": "the site's origin server is not responding (HTTP 504); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 504"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "DOWN",
-                    "durationMs": 5172,
-                    "message": "the site's origin server is not responding (HTTP 504); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 504"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:29:51.864469207Z",
+    "comparedTo": "2026-11-03T07:01:07.519976796Z",
     "changes": [
         {
             "source": "Sushiscan.fr",
             "lang": "fr",
-            "scenario": "popular",
-            "from": "FAIL",
+            "scenario": "connectivity",
+            "from": "PASS",
             "to": "DOWN"
         },
         {
             "source": "Sushiscan.fr",
             "lang": "fr",
-            "scenario": "search",
-            "from": "FAIL",
+            "scenario": "latest",
+            "from": "PASS",
             "to": "DOWN"
         },
         {
             "source": "Sushiscan.fr",
             "lang": "fr",
             "scenario": "chapters",
-            "from": "FAIL",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Sushiscan.fr",
+            "lang": "fr",
+            "scenario": "search",
+            "from": "DOWN",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

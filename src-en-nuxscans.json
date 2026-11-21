@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:11:54.992692017Z",
+    "generatedAt": "2026-11-21T11:23:50.166819839Z",
     "module": ":src:en:nuxscans",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 5854986367394591788,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 480,
+                    "durationMs": 1578,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 83,
+                    "durationMs": 1374,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +61,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1663,
+                    "durationMs": 375,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -70,47 +70,46 @@
                 },
                 {
                     "name": "chapters",
+                    "status": "WARN",
+                    "durationMs": 388,
+                    "message": null,
+                    "notes": [
+                        "duplicate chapter urls: [https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html]"
+                    ],
+                    "samples": [
+                        "Chapter 148 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html",
+                        "Chapter 147 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html",
+                        "Chapter 146 -> https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html"
+                    ]
+                },
+                {
+                    "name": "pages",
                     "status": "THROTTLED",
-                    "durationMs": 7671,
+                    "durationMs": 7480,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
                     "samples": []
-                },
-                {
-                    "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
-                    "notes": [],
-                    "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-19T11:57:32.315104893Z",
+    "comparedTo": "2026-11-20T12:11:54.992692017Z",
     "changes": [
         {
             "source": "Nux Scans",
             "lang": "en",
             "scenario": "chapters",
-            "from": "WARN",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "WARN"
         },
         {
             "source": "Nux Scans",
             "lang": "en",
             "scenario": "pages",
-            "from": "WARN",
-            "to": "SKIP"
-        },
-        {
-            "source": "Nux Scans",
-            "lang": "en",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "THROTTLED"
         }
     ],
     "throttledHosts": [

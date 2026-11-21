@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T11:57:22.360321255Z",
+    "generatedAt": "2026-11-21T11:23:17.860097566Z",
     "module": ":src:es:ragnascans",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 6003330990591348231,
             "name": "Ragna Scans",
             "lang": "es",
             "baseUrl": "https://lector.ragnascan.xyz",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 369,
+                    "status": "WARN",
+                    "durationMs": 172,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 72,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Ha llegado el final -> /manga.php?id=16",
-                        "Cultivando en la torre en solitario -> /manga.php?id=35",
-                        "Un dolor persistente -> /manga.php?id=24"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 78,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 66,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Un hombre en reparación -> /manga.php?id=108",
-                        "Me convertí en propietaria de un territorio pobre -> /manga.php?id=107",
-                        "Siendo el más fuerte a través de ofrendas de comida a los dioses -> /manga.php?id=106"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 41,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,72 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 64,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Ha llegado el final -> /manga.php?id=16"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1222,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 90 -> /leer/ha-llegado-el-final/capitulo-90.00",
-                        "Capítulo 89 -> /leer/ha-llegado-el-final/capitulo-89.00",
-                        "Capítulo 88 -> /leer/ha-llegado-el-final/capitulo-88.00"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 84,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-90/1.webp",
-                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-90/2.webp",
-                        "https://lector.ragnascan.xyz/uploads/mangas/ha-llegado-el-final/cap-90/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 313,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-19T12:06:48.220988174Z",
+    "comparedTo": "2026-11-20T11:57:22.360321255Z",
     "changes": [
         {
             "source": "Ragna Scans",
             "lang": "es",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Ragna Scans",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Ragna Scans",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Ragna Scans",
+            "lang": "es",
             "scenario": "chapters",
-            "from": "THROTTLED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ragna Scans",
+            "lang": "es",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Ragna Scans",
             "lang": "es",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Ragna Scans",
             "lang": "es",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

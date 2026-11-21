@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:31:40.275587799Z",
+    "generatedAt": "2026-11-21T11:25:38.908363025Z",
     "module": ":src:en:mangade",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 3447999145778061665,
             "name": "MangaDE",
             "lang": "en",
             "baseUrl": "https://mangade.io",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,36 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 685,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 182,
+                    "message": "the site is unreachable (Connection refused (connect failed)); the source is not at fault",
+                    "notes": [
+                        "java.net.ConnectException: Failed to connect to mangade.io/104.239.47.50:443",
+                        "java.net.ConnectException: Connection refused (connect failed)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1128,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "One Piece -> /one-piece?mid=45719",
-                        "Maou to Ryuuou ni Sodaterareta Shounen wa Gakuen Seikatsu wo Musou suru You desu -> /maou-to-ryuuou-ni-sodaterareta-shounen-wa-gakuen-seikatsu-wo-musou-suru-you-desu?mid=46546",
-                        "Secret Class -> /secret-class?mid=43659"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 182,
+                    "message": "the site is unreachable (Connection refused (connect failed)); the source is not at fault",
+                    "notes": [
+                        "java.net.ConnectException: Failed to connect to api.mangade.io/104.239.47.50:443",
+                        "java.net.ConnectException: Connection refused (connect failed)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 469,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Atelier on the Sunflower Hill -> /atelier-on-the-sunflower-hill?mid=49246",
-                        "Itsukasei Metsubou Syndrome -> /itsukasei-metsubou-syndrome?mid=49244",
-                        "The Ace has a Secret Crush on Me -> /the-ace-has-a-secret-crush-on-me?mid=49243"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 134,
+                    "message": "the site is unreachable (Connection refused (connect failed)); the source is not at fault",
+                    "notes": [
+                        "java.net.ConnectException: Failed to connect to api.mangade.io/104.239.47.50:443",
+                        "java.net.ConnectException: Connection refused (connect failed)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,93 +64,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 494,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "One Piece -> /one-piece?mid=45719"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 665,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 1157 -> /one-piece/chapter-1157?cid=779347&mid=45719",
-                        "Chapter 1156 -> /one-piece/chapter-1156?cid=779343&mid=45719",
-                        "Chapter 1155 -> /one-piece/chapter-1155?cid=779339&mid=45719"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 270,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://s3-load.ttr.group/manga/en-uploads/45719/2291711/1755917813856_533_image.jpg",
-                        "https://s3-load.ttr.group/manga/en-uploads/45719/2291711/1755917814285_549_image.jpg",
-                        "https://s3-load.ttr.group/manga/en-uploads/45719/2291711/1755917815204_386_image.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1709,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T06:57:48.050999809Z",
+    "comparedTo": "2026-11-12T11:31:40.275587799Z",
     "changes": [
         {
             "source": "MangaDE",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "MangaDE",
+            "lang": "en",
             "scenario": "popular",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "MangaDE",
             "lang": "en",
             "scenario": "latest",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaDE",
-            "lang": "en",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "MangaDE",
             "lang": "en",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaDE",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "MangaDE",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "MangaDE",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

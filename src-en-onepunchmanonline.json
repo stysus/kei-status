@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T11:58:50.785880699Z",
+    "generatedAt": "2026-11-21T11:22:17.730292774Z",
     "module": ":src:en:onepunchmanonline",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 897097334505121559,
@@ -23,17 +23,19 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 598,
+                    "durationMs": 513,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
+                    "status": "WARN",
                     "durationMs": 0,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[0] has no thumbnail"
+                    ],
                     "samples": [
                         "One Punch Man -> /"
                     ]
@@ -58,22 +60,22 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
+                    "status": "WARN",
                     "durationMs": 0,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[0] has no thumbnail"
+                    ],
                     "samples": [
                         "One Punch Man -> /"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 140,
+                    "status": "PASS",
+                    "durationMs": 133,
                     "message": null,
-                    "notes": [
-                        "duplicate chapter urls: [/manga/one-punch-man-chapter-236/, /manga/one-punch-man-chapter-237/, /manga/one-punch-man-chapter-238/]"
-                    ],
+                    "notes": [],
                     "samples": [
                         "One-Punch Man – Chapter 245 -> /manga/one-punch-man-chapter-245/",
                         "One-Punch Man – Chapter 244 -> /manga/one-punch-man-chapter-244-1/",
@@ -83,27 +85,56 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 270,
+                    "durationMs": 99,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://w10.1punchman.com/wp-content/uploads/2026/02/one_punch_man.png"
+                        "https://images.mangafreak.me/mangas/onepunch_man/onepunch_man_1/onepunch_man_1_1.jpg",
+                        "https://images.mangafreak.me/mangas/onepunch_man/onepunch_man_1/onepunch_man_1_2.jpg",
+                        "https://images.mangafreak.me/mangas/onepunch_man/onepunch_man_1/onepunch_man_1_3.jpg"
                     ]
                 },
                 {
                     "name": "images",
-                    "status": "WARN",
-                    "durationMs": 413,
+                    "status": "PASS",
+                    "durationMs": 111,
                     "message": null,
-                    "notes": [
-                        "page[0] image returned HTTP 404"
-                    ],
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-09T11:48:41.350818203Z",
-    "changes": [],
+    "comparedTo": "2026-11-20T11:58:50.785880699Z",
+    "changes": [
+        {
+            "source": "One Punch Man Online",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "One Punch Man Online",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "One Punch Man Online",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "One Punch Man Online",
+            "lang": "en",
+            "scenario": "images",
+            "from": "WARN",
+            "to": "PASS"
+        }
+    ],
     "throttledHosts": []
 }

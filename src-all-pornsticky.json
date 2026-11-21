@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T11:55:32.208784298Z",
+    "generatedAt": "2026-11-21T11:20:48.462580385Z",
     "module": ":src:all:pornsticky",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 5052420760211841842,
             "name": "PornSticky",
             "lang": "all",
             "baseUrl": "https://pornsticky.com",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 628,
+                    "status": "WARN",
+                    "durationMs": 527,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 145,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Teen lesbians Cassidy Klein and Maryjane Johnson are kissing hot -> /pics/teen-lesbians-cassidy-klein-and-maryjane-johnson-are-kissing-hot-79067587/",
-                        "Teen girls Felicia and Lana lick pussy before doing anal with their fuck buddy -> /pics/teen-girls-felicia-and-lana-lick-pussy-before-doing-anal-with-their-fuck-buddy-14068597/",
-                        "Sexy brunette Krystal Webb bares her enhanced tits while removing black dress -> /pics/sexy-brunette-krystal-webb-bares-her-enhanced-tits-while-removing-black-dress-45848713/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 232,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -51,7 +51,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,50 +59,76 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 445,
-                    "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "query \"Teen lesbians Cassidy Klein and Maryjane Johnson are kissing hot\" matched no results in the first page"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 112,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Gallery -> /pics/teen-lesbians-cassidy-klein-and-maryjane-johnson-are-kissing-hot-79067587/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 99,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdni.pornsticky.com/1280/5/160/79067587/79067587_001_852f.jpg",
-                        "https://cdni.pornsticky.com/1280/5/160/79067587/79067587_002_a80d.jpg",
-                        "https://cdni.pornsticky.com/1280/5/160/79067587/79067587_003_240a.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 216,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-19T11:52:46.226383970Z",
-    "changes": [],
+    "comparedTo": "2026-11-20T11:55:32.208784298Z",
+    "changes": [
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "search",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

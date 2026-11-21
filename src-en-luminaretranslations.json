@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-03T07:22:52.713621778Z",
+    "generatedAt": "2026-11-21T11:21:37.951764478Z",
     "module": ":src:en:luminaretranslations",
     "sourceRoot": "",
-    "extensionCommit": "eac81a2c",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 1698654724978495521,
             "name": "Luminare Translations",
             "lang": "en",
             "baseUrl": "https://luminaretranslations.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 2144,
+                    "status": "WARN",
+                    "durationMs": 3017,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 926,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 399,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Living Together with the Queen from My High School Days Who was Arrogant, Surprisingly isn’t That Uncomfortable -> living-together-with-the-queen-from-my-high-school-days-who-was-arrogant-surprisingly-isnt-that-uncomfortable",
-                        "Kirara Hoshikita Wants to Shine! -> kirara-hoshikita-wants-to-shine",
-                        "A Romantic Comedy Where the Heroine Dies in the End -> heroine-ga-saigo-ni-shinu-lovecome"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1050,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 399,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Tanabe from the Biology Club -> tanabe-from-the-biology-club",
-                        "The Jack-of-All-Trades Kicked Out of the Hero’s Party: The Swordsman Who Became a Support Mage Due to Party Circumstances, Becomes All-Powerful (Manga) -> the-jack-of-all-trades-kicked-out-of-the-heros-party-the-swordsman-who-became-a-support-mage-due-to-party-circumstances-becomes-all-powerfulad-manga",
-                        "Living Together with the Queen from My High School Days Who was Arrogant, Surprisingly isn’t That Uncomfortable -> living-together-with-the-queen-from-my-high-school-days-who-was-arrogant-surprisingly-isnt-that-uncomfortable"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,53 +57,83 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 321,
-                    "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "query \"Living Together with the Queen from My High School Days Who was Arrogant, Surprisingly isn’t That Uncomfortable\" matched no results in the first page",
-                        "a retry without punctuation (\"Living Together with the Queen from My High School Days Who was Arrogant Surprisingly isn t That Uncomfortable\") also matched nothing"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 846,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 46 -> 19965",
-                        "Chapter 45 -> 18240",
-                        "Chapter 44 -> 18222"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 798,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://luminaretranslations.com/wp-content/uploads/2026/10/luminaregroup-4-4.jpg",
-                        "https://luminaretranslations.com/wp-content/uploads/2026/10/0000-1.webp",
-                        "https://luminaretranslations.com/wp-content/uploads/2026/10/0001.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 260,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-02T11:32:11.639175662Z",
-    "changes": [],
+    "comparedTo": "2026-11-03T07:22:52.713621778Z",
+    "changes": [
+        {
+            "source": "Luminare Translations",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Luminare Translations",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Luminare Translations",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Luminare Translations",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Luminare Translations",
+            "lang": "en",
+            "scenario": "search",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Luminare Translations",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Luminare Translations",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

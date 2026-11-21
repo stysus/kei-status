@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T11:53:53.113776415Z",
+    "generatedAt": "2026-11-21T11:17:08.844538031Z",
     "module": ":src:all:deviantart",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 5211324870873630158,
             "name": "DeviantArt",
             "lang": "all",
             "baseUrl": "https://www.deviantart.com",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 376,
+                    "status": "PASS",
+                    "durationMs": 699,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 403"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 77,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 431,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Golden Strings -> /atklart/art/Golden-Strings-1377268239",
+                        "Tourmaline Waters -> /drelteo/art/Tourmaline-Waters-1381117694",
+                        "Jose with Sunflowers -> /lipthesp/art/Jose-with-Sunflowers-1409950338"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -59,47 +59,91 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 748,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Golden Strings -> /atklart/art/Golden-Strings-1377268239",
+                        "Red Neon Towers Against Golden String Lights -> /zella0123/art/Red-Neon-Towers-Against-Golden-String-Lights-1289557489",
+                        "My Aurevune2d SceneMix landmark fit 005 golden string 20261107 v01 -> /bugayvitalya/art/My-Aurevune2d-SceneMix-landmark-fit-005-golden-string-20261107-v01-1408180755"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 435,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Art -> /atklart/art/Golden-Strings-1377268239"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 302,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/55a2eb75-3dc0-40f7-a0bf-fbfded4c7369/dmrzmz3-386c4678-69bd-46b7-81c4-c95e96b0eea0.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTcwNyIsInBhdGgiOiIvZi81NWEyZWI3NS0zZGMwLTQwZjctYTBiZi1mYmZkZWQ0YzczNjkvZG1yem16My0zODZjNDY3OC02OWJkLTQ2YjctODFjNC1jOTVlOTZiMGVlYTAuanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.qQFueyoD1uYfYPIZ--M6E6uNiaKP4KKJZWZxFp3S9QM"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 233,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-19T11:48:59.086603439Z",
+    "comparedTo": "2026-11-20T11:53:53.113776415Z",
     "changes": [
         {
             "source": "DeviantArt",
             "lang": "all",
-            "scenario": null,
-            "from": null,
-            "to": "BLOCKED"
+            "scenario": "connectivity",
+            "from": "WARN",
+            "to": "PASS"
         },
         {
-            "source": ":src:all:deviantart",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
+            "source": "DeviantArt",
+            "lang": "all",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "DeviantArt",
+            "lang": "all",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "DeviantArt",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "DeviantArt",
+            "lang": "all",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "DeviantArt",
+            "lang": "all",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

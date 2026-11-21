@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:08:41.000035312Z",
+    "generatedAt": "2026-11-21T11:28:52.946327184Z",
     "module": ":src:pt:traducoesdolipe",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 3650511144741653873,
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 504,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 7077,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 437,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "traducoesdolipe.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Yamisu -> /2026/10/yamisu.html",
-                        "Kaiki Senrigan -> /2026/03/kaiki-senrigan.html",
-                        "Okujo Nite (No telhado) -> /2026/01/okujo-nite-no-telhado.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -50,62 +48,82 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
-                    "durationMs": 1,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "traducoesdolipe.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "3 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 488,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Yamisu -> /2026/10/yamisu.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1886,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "one shot -> /2026/10/one-shot.html"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "THROTTLED",
-                    "durationMs": 7413,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:08:28.823315731Z",
+    "comparedTo": "2026-11-20T12:08:41.000035312Z",
     "changes": [
         {
             "source": "Traduções do Lipe",
             "lang": "pt-BR",
-            "scenario": "pages",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "Traduções do Lipe",
             "lang": "pt-BR",
-            "scenario": "images",
+            "scenario": "popular",
             "from": "PASS",
-            "to": null
+            "to": "SKIP"
+        },
+        {
+            "source": "Traduções do Lipe",
+            "lang": "pt-BR",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Traduções do Lipe",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Traduções do Lipe",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Traduções do Lipe",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "THROTTLED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": [

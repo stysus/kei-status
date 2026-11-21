@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:03:48.396952272Z",
+    "generatedAt": "2026-11-21T11:26:05.355590100Z",
     "module": ":src:fr:yaoiscan",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 7333825394865171341,
@@ -22,31 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 5822,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 457,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
-                        "home page returned HTTP 504"
+                        "javax.net.ssl.SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertificateExpiredException: NotAfter: Sat Nov 21 04:20:02 UTC 2026"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "DOWN",
-                    "durationMs": 5175,
-                    "message": "the site's origin server is not responding (HTTP 504); the source is not at fault",
+                    "durationMs": 353,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 504"
+                        "javax.net.ssl.SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertificateExpiredException: NotAfter: Sat Nov 21 04:20:02 UTC 2026"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "DOWN",
-                    "durationMs": 5170,
-                    "message": "the site's origin server is not responding (HTTP 504); the source is not at fault",
+                    "durationMs": 348,
+                    "message": "the site's TLS/SSL certificate is invalid or the connection was rejected; the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 504"
+                        "javax.net.ssl.SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertPathValidatorException: validity check failed",
+                        "java.security.cert.CertificateExpiredException: NotAfter: Sat Nov 21 04:20:02 UTC 2026"
                     ],
                     "samples": []
                 },
@@ -87,21 +96,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-19T11:48:59.368892045Z",
+    "comparedTo": "2026-11-20T12:03:48.396952272Z",
     "changes": [
         {
             "source": "YaoiScan",
             "lang": "fr",
-            "scenario": null,
-            "from": null,
+            "scenario": "connectivity",
+            "from": "WARN",
             "to": "DOWN"
-        },
-        {
-            "source": ":src:fr:yaoiscan",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-01T10:39:42.986844732Z",
+    "generatedAt": "2026-11-21T11:22:10.997663220Z",
     "module": ":src:en:decadencescans",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 7432245132662185058,
             "name": "Decadence Scans",
             "lang": "en",
             "baseUrl": "https://reader.decadencescans.com",
-            "status": "PASS",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,144 +22,125 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1580,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 20989,
+                    "message": "the site is rate-limiting this sweep (HTTP 429, retry after 300s); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1543,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "reader.decadencescans.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Koi to Yobu ni wa Kimochi Warui -> 1734",
-                        "Teach Me Love -> 1872",
-                        "Mitsuyokon – Tsukumogami no Yomegoryou -> 1744"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1489,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "reader.decadencescans.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "The Remains of the Day -> 2487",
-                        "Sexy Tanaka-san -> 2091",
-                        "Kimi Bakkari no Sekai -> 2490"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
-                    "durationMs": 2,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "reader.decadencescans.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "8 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1079,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Koi to Yobu ni wa Kimochi Warui -> 1734",
-                        "Koisuru Hotaru to Kurashiteru -> 2062",
-                        "Nigate na no wa Amai Momo -> 1977"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 2628,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapters 1-6 -> chapters-1-6",
-                        "Chapter 56 - Last Chapter: Calling It Love is... -> chapter-56",
-                        "Chapter 55 - Best Friends -> chapter-55"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 7577,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://reader.decadencescans.com/wp-content/uploads/WP-manga/data/manga_5e93545469344/8cded5be4035435572e1f5472be9412a/Koi_to_Yobu_Une_Fleur_p001-2.jpg",
-                        "https://reader.decadencescans.com/wp-content/uploads/WP-manga/data/manga_5e93545469344/8cded5be4035435572e1f5472be9412a/Koi_to_Yobu_Une_Fleur_p001.jpg",
-                        "https://reader.decadencescans.com/wp-content/uploads/WP-manga/data/manga_5e93545469344/8cded5be4035435572e1f5472be9412a/Koi_to_Yobu_Une_Fleur_p002.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 199,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-31T09:58:31.942654311Z",
+    "comparedTo": "2026-11-01T10:39:42.986844732Z",
     "changes": [
         {
             "source": "Decadence Scans",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
             "source": "Decadence Scans",
             "lang": "en",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Decadence Scans",
             "lang": "en",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Decadence Scans",
             "lang": "en",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Decadence Scans",
             "lang": "en",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Decadence Scans",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Decadence Scans",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Decadence Scans",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "reader.decadencescans.com"
+    ]
 }

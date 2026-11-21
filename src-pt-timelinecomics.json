@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-18T12:12:50.687751827Z",
+    "generatedAt": "2026-11-21T11:25:14.885171997Z",
     "module": ":src:pt:timelinecomics",
     "sourceRoot": "",
-    "extensionCommit": "f1d882a9",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 7115586439863780878,
             "name": "Timeline Comics",
             "lang": "pt-BR",
             "baseUrl": "https://timelinecomics.blogspot.com",
-            "status": "UNSUPPORTED",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,152 +23,117 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 518,
+                    "durationMs": 1706,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 147,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Amazing Spider-Man - 1963 (Marvel) -> /2015/08/homem-aranha.html",
-                        "Invincible - 2003 (Skybound) -> /2016/02/invincible-image.html",
-                        "The Sandman - 1989 (Vertigo) -> /2017/06/the-sandman-dc-vertigo.html"
-                    ]
+                    "status": "THROTTLED",
+                    "durationMs": 6962,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 236,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "timelinecomics.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Lights Out - 2013 (DC) -> /2016/04/event-lights-out-dc.html",
-                        "SM University (Hentai) -> /2015/01/sm-university-eros.html",
-                        "300 (Dark Horse) -> /2016/06/300-dark-horse.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "timelinecomics.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "2 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 543,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Amazing Spider-Man: Renew Your Vows - 2016 (Marvel) -> /2016/11/amazing-spider-man-renew-your-vows.html",
-                        "Amazing Spider-Man Volume 2 (Marvel) -> /2017/05/amazing-spider-man-volume-2-marvel.html",
-                        "Amazing Spider-Man - 2015 (Marvel) -> /2015/11/amazing-spider-man-volume-4.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 9192,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "JUL 1975 -> /open?id=10gSYjGVuyylIlb3fsKVuk3oA4OahD0NX",
-                        "JUL 1974 -> /open?id=1zfvU95s-E93zkKBTRkxbXf7hL6oGxopm",
-                        "2011 -> /open?id=1hZmdD45deYXFoaNaTGQ8vJE-WxG6BR1J"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 9823,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://drive.usercontent.google.com/download?id=10gSYjGVuyylIlb3fsKVuk3oA4OahD0NX&export=download#0",
-                        "https://drive.usercontent.google.com/download?id=10gSYjGVuyylIlb3fsKVuk3oA4OahD0NX&export=download#1",
-                        "https://drive.usercontent.google.com/download?id=10gSYjGVuyylIlb3fsKVuk3oA4OahD0NX&export=download#2"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "UNSUPPORTED",
-                    "durationMs": 182,
-                    "message": "requires an Android method or field the harness does not provide: android.graphics.pdf.PdfRenderer$Page.render",
-                    "notes": [
-                        "java.lang.NoSuchMethodError: 'void android.graphics.pdf.PdfRenderer$Page.render(android.graphics.Bitmap, android.graphics.Rect, android.graphics.Matrix, int)'"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-17T12:13:26.887350010Z",
+    "comparedTo": "2026-11-18T12:12:50.687751827Z",
     "changes": [
         {
             "source": "Timeline Comics",
             "lang": "pt-BR",
-            "scenario": "connectivity",
-            "from": "THROTTLED",
-            "to": "PASS"
-        },
-        {
-            "source": "Timeline Comics",
-            "lang": "pt-BR",
             "scenario": "popular",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
             "source": "Timeline Comics",
             "lang": "pt-BR",
             "scenario": "latest",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Timeline Comics",
             "lang": "pt-BR",
             "scenario": "filters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Timeline Comics",
-            "lang": "pt-BR",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Timeline Comics",
             "lang": "pt-BR",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Timeline Comics",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Timeline Comics",
             "lang": "pt-BR",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Timeline Comics",
             "lang": "pt-BR",
             "scenario": "images",
-            "from": null,
-            "to": "UNSUPPORTED"
+            "from": "UNSUPPORTED",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "timelinecomics.blogspot.com"
+    ]
 }

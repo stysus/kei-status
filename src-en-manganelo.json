@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:11.900943374Z",
+    "generatedAt": "2026-11-21T11:22:58.014625614Z",
     "module": ":src:en:manganelo",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 1024627298672457456,
             "name": "Manganato",
             "lang": "en",
             "baseUrl": "https://www.natomanga.com",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,35 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 426,
+                    "durationMs": 126,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 20413,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "WARN",
+                    "durationMs": 4319,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.natomanga.com (HTTP 403)"
+                        "returned an empty list"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 44,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "WARN",
+                    "durationMs": 35,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.natomanga.com (HTTP 403)"
+                        "returned an empty list"
                     ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -85,14 +85,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:19.252462069Z",
+    "comparedTo": "2026-10-30T01:30:11.900943374Z",
     "changes": [
         {
             "source": "Manganato",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "SKIP"
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "WARN"
+        },
+        {
+            "source": "Manganato",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

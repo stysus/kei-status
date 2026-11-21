@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T11:57:35.415780379Z",
+    "generatedAt": "2026-11-21T11:23:26.704477850Z",
     "module": ":src:en:darthsdroids",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 1395072850055110585,
             "name": "Darths & Droids",
             "lang": "en",
             "baseUrl": "https://www.darthsanddroids.net",
-            "status": "PASS",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 467,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 20938,
+                    "message": "the site is rate-limiting this sweep (HTTP 429, retry after 300s); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 216,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.darthsanddroids.net answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Darths & Droids I. The Phantasmal Malevolence -> /archive1.html",
-                        "Darths & Droids II. The Silence of the Clones -> /archive2.html",
-                        "Darths & Droids III. Revelation of the Sith -> /archive3.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -50,73 +48,85 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "www.darthsanddroids.net answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "search",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "not supported by this source",
-                    "notes": [
-                        "java.lang.UnsupportedOperationException: <no message>"
-                    ],
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 506,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Episode 208: Fish Fall. Everyone Dies. -> /episodes/0208.html",
-                        "Episode 207: The Jedi Master's New Groove -> /episodes/0207.html",
-                        "Episode 206: Best Waylaid Plans -> /episodes/0206.html"
-                    ]
-                },
-                {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 195,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.darthsanddroids.net/comics/darths0002.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 129,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-19T11:48:59.338749218Z",
+    "comparedTo": "2026-11-20T11:57:35.415780379Z",
     "changes": [
         {
             "source": "Darths & Droids",
             "lang": "en",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
-            "source": ":src:en:darthsdroids",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "Darths & Droids",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Darths & Droids",
+            "lang": "en",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Darths & Droids",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Darths & Droids",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Darths & Droids",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "www.darthsanddroids.net"
+    ]
 }

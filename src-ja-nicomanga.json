@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:30:54.401754522Z",
+    "generatedAt": "2026-11-21T11:26:09.124753834Z",
     "module": ":src:ja:nicomanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 5680590515266301834,
             "name": "Nicomanga",
             "lang": "ja",
             "baseUrl": "https://nicomanga.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1106,
+                    "durationMs": 339,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1024,
+                    "durationMs": 324,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 438,
+                    "durationMs": 667,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "SHURAN REIJOU NO YARAKASHI: SEIRYAKU KEKKON MAE NI YAKEZAKE, KI GA TSUKUTO REIKOKU NA KON'YAKUSHA TO DRAGON NO SU NO NAKA -> /manga8926/2c905ec0.html",
-                        "SUTERARE TSUMA DESU GA, HINEKURE HAKUSHAKU TO AISARE KAZOKU WO TSUKURIMASU -> /manga8925/0484d6f8.html",
-                        "RYUUKISHI IRIS ~THE WAR FOR CHRONOLIS~ -> /manga8924/b60ffd61.html"
+                        "DEATHLESS BRIDE -> /manga9026/c07fc188.html",
+                        "KOUSHAKU FUJIN NO HIMITSU NO NIKKI: SHIROI KEKKON WO MOUSHIIRETARA, WATARI NI FUNE TO IWAREMASHITA -> /manga9025/b31eda3f.html",
+                        "HAKEN DEBUGGER NO ISEKAI KENSHOUTAN -> /manga9024/c990b4f5.html"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1089,
+                    "durationMs": 1715,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,47 +74,45 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1809,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 290,
+                    "message": "Encoded site payload not found",
                     "notes": [],
-                    "samples": [
-                        "Chapter 285 -> /manga82/1424bfba/chapter-c285i318584.html",
-                        "Chapter 284 -> /manga82/1424bfba/chapter-c284i317106.html",
-                        "Chapter 283 -> /manga82/1424bfba/chapter-c283i315895.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2303,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://s2.ihlv1.xyz/images4/20261027/a66b361ec537665fb4a4d09aa7b278b8069.jpg",
-                        "https://s2.ihlv1.xyz/images4/20261027/38a782b5a6b792ac71ea08656182b761070.jpg",
-                        "https://s2.ihlv1.xyz/images4/20261027/14ab96067d93e184704e99d0a19ecd36071.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1106,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:35.616209332Z",
+    "comparedTo": "2026-10-30T01:30:54.401754522Z",
     "changes": [
         {
             "source": "Nicomanga",
             "lang": "ja",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Nicomanga",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Nicomanga",
+            "lang": "ja",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

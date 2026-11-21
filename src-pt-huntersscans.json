@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T11:59:40.004973397Z",
+    "generatedAt": "2026-11-21T11:25:16.782125507Z",
     "module": ":src:pt:huntersscans",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 7310576253330700902,
             "name": "Hunters Scan",
             "lang": "pt-BR",
             "baseUrl": "https://readhunters.xyz",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 980,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 1348,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: Faça o login na WebView"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 818,
+                    "durationMs": 864,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +45,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 587,
+                    "durationMs": 563,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +57,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 852,
+                    "durationMs": 1478,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,82 +76,54 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 18861,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Capítulo 172 -> capitulo-172",
-                        "Capítulo 171 -> capitulo-171",
-                        "Capítulo 170 -> capitulo-170"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 1559,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: Faça o login na WebView"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1236,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://readhunters.xyz/wp-content/uploads/WP-manga/data/manga_672d3a29e98c3/7a29cf9bb3b88b839cd30412afe35b51/01.webp",
-                        "https://readhunters.xyz/wp-content/uploads/WP-manga/data/manga_672d3a29e98c3/7a29cf9bb3b88b839cd30412afe35b51/02.webp",
-                        "https://readhunters.xyz/wp-content/uploads/WP-manga/data/manga_672d3a29e98c3/7a29cf9bb3b88b839cd30412afe35b51/03.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1864,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:11:11.153527335Z",
+    "comparedTo": "2026-11-19T11:59:40.004973397Z",
     "changes": [
         {
             "source": "Hunters Scan",
             "lang": "pt-BR",
-            "scenario": "popular",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "Hunters Scan",
-            "lang": "pt-BR",
-            "scenario": "latest",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "Hunters Scan",
-            "lang": "pt-BR",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Hunters Scan",
             "lang": "pt-BR",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Hunters Scan",
             "lang": "pt-BR",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Hunters Scan",
             "lang": "pt-BR",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []
