@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:23:17.860097566Z",
+    "generatedAt": "2026-11-22T11:44:56.690365182Z",
     "module": ":src:es:ragnascans",
     "sourceRoot": "",
     "extensionCommit": "293eb3cd",
@@ -10,7 +10,7 @@
             "name": "Ragna Scans",
             "lang": "es",
             "baseUrl": "https://lector.ragnascan.xyz",
-            "status": "DOWN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 172,
+                    "status": "PASS",
+                    "durationMs": 502,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 503"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 78,
-                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 173,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Ha llegado el final -> /manga.php?id=16",
+                        "Un dolor persistente -> /manga.php?id=24",
+                        "Cultivando en la torre en solitario -> /manga.php?id=35"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 41,
-                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 136,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Un hombre en reparación -> /manga.php?id=108",
+                        "Me convertí en propietaria de un territorio pobre -> /manga.php?id=107",
+                        "Siendo el más fuerte a través de ofrendas de comida a los dioses -> /manga.php?id=106"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,82 +63,100 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 118,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Ha llegado el final -> /manga.php?id=16"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 186,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Capítulo 90 -> /leer/ha-llegado-el-final/capitulo-90.00",
+                        "Capítulo 89 -> /leer/ha-llegado-el-final/capitulo-89.00",
+                        "Capítulo 88 -> /leer/ha-llegado-el-final/capitulo-88.00"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 172,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://65c37029ebc3c0b1b9c4e584f492534d.r2.cloudflarestorage.com/ragnascan-imagenes/uploads/mangas/ha-llegado-el-final/cap-90/1.webp?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=11d8eb280d4948b87659df4fa86674de%2F20261122%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261122T114456Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Signature=0f5c3402f0f1ecb3f406941d8e2570d1303f48e18eb8e6792b13ef2172c05200",
+                        "https://65c37029ebc3c0b1b9c4e584f492534d.r2.cloudflarestorage.com/ragnascan-imagenes/uploads/mangas/ha-llegado-el-final/cap-90/2.webp?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=11d8eb280d4948b87659df4fa86674de%2F20261122%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261122T114456Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Signature=20526e6f1d33f0feab795a0cd28a2dc908a8137d25abdb33e250b090f348ae5b",
+                        "https://65c37029ebc3c0b1b9c4e584f492534d.r2.cloudflarestorage.com/ragnascan-imagenes/uploads/mangas/ha-llegado-el-final/cap-90/3.webp?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=11d8eb280d4948b87659df4fa86674de%2F20261122%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261122T114456Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Signature=bfa06c66c0b83de6df4e445c6f73322d8977d8b0a14bafcd5538c79e4fb39ef1"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 318,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T11:57:22.360321255Z",
+    "comparedTo": "2026-11-21T11:23:17.860097566Z",
     "changes": [
         {
             "source": "Ragna Scans",
             "lang": "es",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Ragna Scans",
             "lang": "es",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Ragna Scans",
             "lang": "es",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "Ragna Scans",
-            "lang": "es",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "Ragna Scans",
             "lang": "es",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Ragna Scans",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Ragna Scans",
             "lang": "es",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Ragna Scans",
             "lang": "es",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

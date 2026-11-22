@@ -1,42 +1,106 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:13:43.740729446Z",
+    "generatedAt": "2026-11-22T12:02:39.468778406Z",
     "module": ":src:zh:comicabc",
     "sourceRoot": "",
     "extensionCommit": "293eb3cd",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:zh:comicabc",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 8110122805257580230,
+            "name": "無限動漫",
+            "lang": "zh",
+            "baseUrl": "https://www.8comic.com",
+            "status": "WARN",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/zh/comicabc/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:zh:comicabc :src:zh:comicabc:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "PASS",
+                    "durationMs": 185,
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "WARN",
+                    "durationMs": 108,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "hasNextPage=true but list is empty"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "WARN",
+                    "durationMs": 114,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "hasNextPage=true but list is empty"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "0 filters"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-10T11:36:07.668685173Z",
+    "comparedTo": "2026-11-21T11:13:43.740729446Z",
     "changes": [
-        {
-            "source": ":src:zh:comicabc",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "無限動漫",
             "lang": "zh",
             "scenario": null,
-            "from": "WARN",
+            "from": null,
+            "to": "WARN"
+        },
+        {
+            "source": ":src:zh:comicabc",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

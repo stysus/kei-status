@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T12:01:16.889070240Z",
+    "generatedAt": "2026-11-22T11:57:57.485350301Z",
     "module": ":src:th:readtoon",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 3929777603004177982,
             "name": "ReadToon",
             "lang": "th",
             "baseUrl": "https://readtoon.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 4958,
+                    "status": "WARN",
+                    "durationMs": 5450,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 12378,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "บุปผารุ่มราคะ Tears on a Withered Flower -> tears-on-a-withered-flower",
-                        "จอมยุทธ์เกิดใหม่ (The Invincible Man) -> the-invincible-man",
-                        "The Ultimate Shut-In | โทษที พื้นที่นี้ห้ามออก -> t1zzn8l3"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 270,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 419,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "การกลับมาของยอดนักพรตแห่งจงหนาน -> mwetpicc",
-                        "สมรภูมิไร้ฝัน -> bo9xqyxk",
-                        "ถึงผู้อุปถัมภ์นิรนามที่เคารพรัก - Dear Anonymous Benefactor -> fpwjioaa"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 258,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,102 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 341,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "บุปผารุ่มราคะ Tears on a Withered Flower -> tears-on-a-withered-flower",
-                        "บุปผาเคียงดาบ The Flower With a Sword -> 2farva72x1xmvx08gvuxp",
-                        "คมดาบของบุปผา The Flower with a Sword  검을 든 꽃 -> tkpvzoag"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 388,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 ✨ แปลโดย : แปลจนตาแตก ✨ (ชนต้นฉบับ) -> tears-on-a-withered-flower/111",
-                        "🔒 ✨ แปลโดย : แปลจนตาแตก ✨ -> tears-on-a-withered-flower/110",
-                        "🔒 ✨ แปลโดย : แปลจนตาแตก ✨ -> tears-on-a-withered-flower/109"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 545,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://wd.nobuild.pro/content/599becc0-b5b4-49ec-970e-fcf223bf1bc2/1/24a7d399-8b5a-4418-be83-7bcf03795fbb.webp",
-                        "https://wd.nobuild.pro/content/599becc0-b5b4-49ec-970e-fcf223bf1bc2/1/f1d9aa5c-2e34-49f2-a4a2-1a61ff0d920e.webp",
-                        "https://wd.nobuild.pro/content/599becc0-b5b4-49ec-970e-fcf223bf1bc2/1/e40ea693-a9cf-4381-9c1f-3d323e8ccfb9.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 542,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-17T12:13:10.236685429Z",
+    "comparedTo": "2026-11-19T12:01:16.889070240Z",
     "changes": [
         {
             "source": "ReadToon",
             "lang": "th",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "ReadToon",
             "lang": "th",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "ReadToon",
             "lang": "th",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "ReadToon",
-            "lang": "th",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "ReadToon",
             "lang": "th",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ReadToon",
+            "lang": "th",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "ReadToon",
             "lang": "th",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "ReadToon",
             "lang": "th",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

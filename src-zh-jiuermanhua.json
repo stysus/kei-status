@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:15:19.572991631Z",
+    "generatedAt": "2026-11-22T11:46:07.303649169Z",
     "module": ":src:zh:jiuermanhua",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 1520913911854846698,
             "name": "92漫画",
             "lang": "zh",
             "baseUrl": "http://www.92mh.com",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -25,7 +25,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 154,
+                    "durationMs": 43,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -33,7 +33,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1011,
+                    "durationMs": 30,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -45,19 +45,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 334,
+                    "durationMs": 2420,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "无用圣女与无能王女～被召唤至异世界的零魔力圣女救国纪～ -> /manhua/1495/",
-                        "喜欢来者不拒的你 -> /manhua/1431/",
-                        "生活魔术师们、挑战迷宫 -> /manhua/1294/"
+                        "反被魅魔吃掉了 -> /manhua/7697/",
+                        "夜绘序 -> /manhua/7688/",
+                        "不谈恋爱就会死！ -> /manhua/7550/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -67,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 2973,
+                    "durationMs": 2361,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,53 +76,46 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 14629,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "外传2 -> /manhua/1212/305421.html",
-                        "外传1 -> /manhua/1212/305420.html",
-                        "第96话完 -> /manhua/1212/305419.html"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 100,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 163,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cover.alltucdn.cc/images/comic/174/347968/1773840682XowhCC93DoW8NZaV.jpg",
-                        "https://cover.alltucdn.cc/images/comic/174/347968/177384068047-ZIIqDFAYJNJeS.jpg",
-                        "https://cover.alltucdn.cc/images/comic/174/347968/1773840679WUhX5sNew5I58KB6.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2374,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-19T11:48:25.315469885Z",
+    "comparedTo": "2026-11-20T12:15:19.572991631Z",
     "changes": [
         {
             "source": "92漫画",
             "lang": "zh",
-            "scenario": null,
-            "from": null,
-            "to": "WARN"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
-            "source": ":src:zh:jiuermanhua",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "92漫画",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "92漫画",
+            "lang": "zh",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

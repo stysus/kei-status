@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:25:14.885171997Z",
+    "generatedAt": "2026-11-22T11:57:00.106360243Z",
     "module": ":src:pt:timelinecomics",
     "sourceRoot": "",
     "extensionCommit": "293eb3cd",
@@ -10,7 +10,7 @@
             "name": "Timeline Comics",
             "lang": "pt-BR",
             "baseUrl": "https://timelinecomics.blogspot.com",
-            "status": "THROTTLED",
+            "status": "UNSUPPORTED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,117 +23,145 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1706,
+                    "durationMs": 470,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "THROTTLED",
-                    "durationMs": 6962,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 128,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Amazing Spider-Man - 1963 (Marvel) -> /2015/08/homem-aranha.html",
+                        "Invincible - 2003 (Skybound) -> /2016/02/invincible-image.html",
+                        "X-Men - 1963 (Marvel) -> /2015/08/x-men.html"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "timelinecomics.blogspot.com answered HTTP 429 earlier in this run",
+                    "status": "PASS",
+                    "durationMs": 231,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Lights Out - 2013 (DC) -> /2016/04/event-lights-out-dc.html",
+                        "SM University (Hentai) -> /2015/01/sm-university-eros.html",
+                        "300 (Dark Horse) -> /2016/06/300-dark-horse.html"
+                    ]
                 },
                 {
                     "name": "filters",
-                    "status": "SKIP",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "timelinecomics.blogspot.com answered HTTP 429 earlier in this run",
+                    "message": null,
                     "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "samples": [
+                        "2 filters"
+                    ]
                 },
                 {
                     "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 383,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Amazing Spider-Man: Renew Your Vows - 2016 (Marvel) -> /2016/11/amazing-spider-man-renew-your-vows.html",
+                        "Amazing Spider-Man Volume 2 (Marvel) -> /2017/05/amazing-spider-man-volume-2-marvel.html",
+                        "Amazing Spider-Man - 2015 (Marvel) -> /2015/11/amazing-spider-man-volume-4.html"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 1632,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "JUL 1975 -> /open?id=10gSYjGVuyylIlb3fsKVuk3oA4OahD0NX",
+                        "JUL 1974 -> /open?id=1zfvU95s-E93zkKBTRkxbXf7hL6oGxopm",
+                        "2011 -> /open?id=1hZmdD45deYXFoaNaTGQ8vJE-WxG6BR1J"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 2543,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://drive.usercontent.google.com/download?id=10gSYjGVuyylIlb3fsKVuk3oA4OahD0NX&export=download#0",
+                        "https://drive.usercontent.google.com/download?id=10gSYjGVuyylIlb3fsKVuk3oA4OahD0NX&export=download#1",
+                        "https://drive.usercontent.google.com/download?id=10gSYjGVuyylIlb3fsKVuk3oA4OahD0NX&export=download#2"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "UNSUPPORTED",
+                    "durationMs": 285,
+                    "message": "requires an Android method or field the harness does not provide: android.graphics.pdf.PdfRenderer$Page.render",
+                    "notes": [
+                        "java.lang.NoSuchMethodError: 'void android.graphics.pdf.PdfRenderer$Page.render(android.graphics.Bitmap, android.graphics.Rect, android.graphics.Matrix, int)'"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:12:50.687751827Z",
+    "comparedTo": "2026-11-21T11:25:14.885171997Z",
     "changes": [
         {
             "source": "Timeline Comics",
             "lang": "pt-BR",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "Timeline Comics",
             "lang": "pt-BR",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Timeline Comics",
             "lang": "pt-BR",
             "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Timeline Comics",
-            "lang": "pt-BR",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Timeline Comics",
             "lang": "pt-BR",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Timeline Comics",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Timeline Comics",
             "lang": "pt-BR",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Timeline Comics",
             "lang": "pt-BR",
             "scenario": "images",
-            "from": "UNSUPPORTED",
-            "to": null
+            "from": null,
+            "to": "UNSUPPORTED"
         }
     ],
-    "throttledHosts": [
-        "timelinecomics.blogspot.com"
-    ]
+    "throttledHosts": []
 }

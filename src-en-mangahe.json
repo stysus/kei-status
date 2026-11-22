@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T11:58:37.144163767Z",
+    "generatedAt": "2026-11-22T11:45:00.149845352Z",
     "module": ":src:en:mangahe",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 1406386535599331231,
             "name": "MangaHe",
             "lang": "en",
             "baseUrl": "https://mangahe.com",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,34 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 412,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 10022,
+                    "message": "the site is unreachable (mangahe.com: Temporary failure in name resolution); the source is not at fault",
                     "notes": [
-                        "home page returned HTTP 404"
+                        "java.net.UnknownHostException: mangahe.com: Temporary failure in name resolution"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 407,
-                    "message": "HTTP error 404",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 4,
+                    "message": "the site is unreachable (mangahe.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: mangahe.com"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 516,
-                    "message": "HTTP error 404",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 0,
+                    "message": "the site is unreachable (mangahe.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: mangahe.com"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -83,21 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-19T11:48:25.244724363Z",
+    "comparedTo": "2026-11-20T11:58:37.144163767Z",
     "changes": [
         {
             "source": "MangaHe",
             "lang": "en",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
+            "scenario": "connectivity",
+            "from": "WARN",
+            "to": "DOWN"
         },
         {
-            "source": ":src:en:mangahe",
-            "lang": "",
-            "scenario": null,
+            "source": "MangaHe",
+            "lang": "en",
+            "scenario": "popular",
             "from": "FAIL",
-            "to": null
+            "to": "DOWN"
+        },
+        {
+            "source": "MangaHe",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

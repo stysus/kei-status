@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:26:09.124753834Z",
+    "generatedAt": "2026-11-22T11:45:52.272035438Z",
     "module": ":src:ja:nicomanga",
     "sourceRoot": "",
     "extensionCommit": "293eb3cd",
@@ -10,7 +10,7 @@
             "name": "Nicomanga",
             "lang": "ja",
             "baseUrl": "https://nicomanga.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 339,
+                    "durationMs": 987,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 324,
+                    "status": "WARN",
+                    "durationMs": 414,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "SHANGRILA FRONTIER ~ SHITTY GAMES HUNTER CHALLENGES GODLY GAME ~ - RAW -> /manga82/1424bfba.html",
-                        "YUUSHA PARTY WO OIDASARETA KIYOU BINBOU -> /manga2203/70cd39b2.html",
-                        "PARALLEL PARADISE - RAW -> /manga362/95373ea6.html"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 667,
+                    "status": "WARN",
+                    "durationMs": 375,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "DEATHLESS BRIDE -> /manga9026/c07fc188.html",
-                        "KOUSHAKU FUJIN NO HIMITSU NO NIKKI: SHIROI KEKKON WO MOUSHIIRETARA, WATARI NI FUNE TO IWAREMASHITA -> /manga9025/b31eda3f.html",
-                        "HAKEN DEBUGGER NO ISEKAI KENSHOUTAN -> /manga9024/c990b4f5.html"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,20 +59,18 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1715,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "SHANGRILA FRONTIER ~ SHITTY GAMES HUNTER CHALLENGES GODLY GAME ~ - RAW -> /manga82/1424bfba.html"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 290,
-                    "message": "Encoded site payload not found",
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 },
@@ -84,35 +78,42 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:30:54.401754522Z",
+    "comparedTo": "2026-11-21T11:26:09.124753834Z",
     "changes": [
         {
             "source": "Nicomanga",
             "lang": "ja",
-            "scenario": "chapters",
+            "scenario": "popular",
             "from": "PASS",
-            "to": "FAIL"
+            "to": "WARN"
         },
         {
             "source": "Nicomanga",
             "lang": "ja",
-            "scenario": "pages",
+            "scenario": "latest",
             "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Nicomanga",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "FAIL",
             "to": "SKIP"
         },
         {
             "source": "Nicomanga",
             "lang": "ja",
-            "scenario": "images",
+            "scenario": "search",
             "from": "PASS",
-            "to": null
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

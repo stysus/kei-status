@@ -1,44 +1,104 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:13:50.921557452Z",
+    "generatedAt": "2026-11-22T12:01:45.118389275Z",
     "module": ":src:vi:seikowo",
     "sourceRoot": "",
     "extensionCommit": "293eb3cd",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:vi:seikowo",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 3049157397733640125,
+            "name": "Seikowo",
+            "lang": "vi",
+            "baseUrl": "https://seikowo-app.blogspot.com",
+            "status": "THROTTLED",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/vi/seikowo/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:vi:seikowo :src:vi:seikowo:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "THROTTLED",
+                    "durationMs": 7236,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "seikowo-app.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "seikowo-app.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "seikowo-app.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-17T12:14:38.490478773Z",
+    "comparedTo": "2026-11-21T11:13:50.921557452Z",
     "changes": [
-        {
-            "source": ":src:vi:seikowo",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "Seikowo",
             "lang": "vi",
+            "scenario": null,
+            "from": null,
+            "to": "THROTTLED"
+        },
+        {
+            "source": ":src:vi:seikowo",
+            "lang": "",
             "scenario": null,
             "from": "FAIL",
             "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "seikowo-app.blogspot.com"
+    ]
 }

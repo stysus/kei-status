@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:17:34.335601446Z",
+    "generatedAt": "2026-11-22T11:41:49.567990425Z",
     "module": ":src:en:madaradex",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 2136088453725931591,
             "name": "MadaraDex",
             "lang": "en",
             "baseUrl": "https://madaradex.org",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1093,
+                    "durationMs": 1185,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 467,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 661,
+                    "message": "HTTP error 400",
                     "notes": [],
-                    "samples": [
-                        "Secret Class (Uncensored) -> 767",
-                        "Wireless Onahole -> 391",
-                        "Stop Smoking! -> 613"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 460,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 735,
+                    "message": "HTTP error 400",
                     "notes": [],
-                    "samples": [
-                        "Ahjumma’s Secret Employment -> 3366",
-                        "Mind Control -> 2635",
-                        "No Man’s Land -> 580"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,66 +55,74 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 447,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Secret Class (Uncensored) -> 767",
-                        "Chamber of Secrets (Uncensored) -> 3174",
-                        "Into The Wild (Uncensored) -> 2957"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 541,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 171 -> chapter-171",
-                        "Chapter 170 -> chapter-170",
-                        "Chapter 169 -> chapter-169"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 484,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.madaradex.org/manga_689a36f8c50e1/chapter-171/0.webp",
-                        "https://cdn.madaradex.org/manga_689a36f8c50e1/chapter-171/1.webp",
-                        "https://cdn.madaradex.org/manga_689a36f8c50e1/chapter-171/2.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1467,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:25:40.498436430Z",
+    "comparedTo": "2026-11-13T11:17:34.335601446Z",
     "changes": [
         {
             "source": "MadaraDex",
             "lang": "en",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
-            "source": ":src:en:madaradex",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "MadaraDex",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MadaraDex",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MadaraDex",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MadaraDex",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MadaraDex",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

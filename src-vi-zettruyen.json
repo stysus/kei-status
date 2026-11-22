@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:28:36.312110630Z",
+    "generatedAt": "2026-11-22T11:48:20.568323779Z",
     "module": ":src:vi:zettruyen",
     "sourceRoot": "",
     "extensionCommit": "293eb3cd",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 296,
+                    "durationMs": 158,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,22 +31,24 @@
                 {
                     "name": "popular",
                     "status": "DOWN",
-                    "durationMs": 285,
-                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "durationMs": 30006,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                        "java.net.SocketTimeoutException: timeout"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 307,
-                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 314,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Trở Thành Miêu Nữ Của Hoàng Đế -> /truyen-tranh/tro-thanh-mieu-nu-cua-hoang-de",
+                        "Rồi, Ta Hướng Tới Hạnh Phúc -> /truyen-tranh/roi-ta-huong-toi-hanh-phuc",
+                        "Sống Sót Như Nàng Công Chúa Song Sinh -> /truyen-tranh/song-sot-nhu-nang-cong-chua-song-sinh"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -59,75 +61,86 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "search",
+                    "status": "DOWN",
+                    "durationMs": 30001,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 3721,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 75 -> /truyen-tranh/tro-thanh-mieu-nu-cua-hoang-de/chuong-75",
+                        "Chapter 74 -> /truyen-tranh/tro-thanh-mieu-nu-cua-hoang-de/chuong-74",
+                        "Chapter 73 -> /truyen-tranh/tro-thanh-mieu-nu-cua-hoang-de/chuong-73"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 1117,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://cdn1.zetimage.com/tro-thanh-mieu-nu-cua-hoang-de/75/0.jpg",
+                        "https://cdn1.zetimage.com/tro-thanh-mieu-nu-cua-hoang-de/75/1.jpg",
+                        "https://cdn1.zetimage.com/tro-thanh-mieu-nu-cua-hoang-de/75/2.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 738,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T12:14:24.061823349Z",
+    "comparedTo": "2026-11-21T11:28:36.312110630Z",
     "changes": [
         {
             "source": "ZetTruyen",
             "lang": "vi",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "scenario": "latest",
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "ZetTruyen",
             "lang": "vi",
-            "scenario": "latest",
-            "from": "PASS",
+            "scenario": "search",
+            "from": "SKIP",
             "to": "DOWN"
         },
         {
             "source": "ZetTruyen",
             "lang": "vi",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "ZetTruyen",
-            "lang": "vi",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "ZetTruyen",
             "lang": "vi",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "ZetTruyen",
             "lang": "vi",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

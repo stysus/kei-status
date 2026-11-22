@@ -1,40 +1,108 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:13:50.882317333Z",
+    "generatedAt": "2026-11-22T11:48:43.342567990Z",
     "module": ":src:es:mangavault",
     "sourceRoot": "",
     "extensionCommit": "293eb3cd",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:es:mangavault",
-            "lang": "",
-            "baseUrl": "",
+            "sourceId": 568182773829502484,
+            "name": "MangaVault",
+            "lang": "es",
+            "baseUrl": "https://mangavault.lat",
             "status": "FAIL",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/es/mangavault/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:es:mangavault :src:es:mangavault:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "PASS",
+                    "durationMs": 312,
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "FAIL",
+                    "durationMs": 6,
+                    "message": "NullPointerException at MangaVault.getPopularManga$suspendImpl(MangaVault.kt:35)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "PASS",
+                    "durationMs": 54,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Fate Reroll: El que desafía al destino -> /manga/fate-reroll-el-que-desafia-al-destino-7feda0",
+                        "El Malvado Alquimista No Puede Controlar A Su Experimento -> /manga/el-malvado-alquimista-no-puede-controlar-a-su-experimento-9fa635",
+                        "Este valiente es un supremacista del dinero -> /manga/este-valiente-es-un-supremacista-del-dinero-743ab3"
+                    ]
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 1,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "7 filters"
+                    ]
+                },
+                {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 48,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Fate Reroll: El que desafía al destino -> /manga/fate-reroll-el-que-desafia-al-destino-7feda0"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "FAIL",
+                    "durationMs": 64,
+                    "message": "NullPointerException at MangaVault.islandProps(MangaVault.kt:115)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T11:59:55.645213649Z",
+    "comparedTo": "2026-11-21T11:13:50.882317333Z",
     "changes": [
         {
-            "source": ":src:es:mangavault",
-            "lang": "",
+            "source": "MangaVault",
+            "lang": "es",
             "scenario": null,
             "from": null,
             "to": "FAIL"
         },
         {
-            "source": "MangaVault",
-            "lang": "es",
+            "source": ":src:es:mangavault",
+            "lang": "",
             "scenario": null,
             "from": "FAIL",
             "to": null

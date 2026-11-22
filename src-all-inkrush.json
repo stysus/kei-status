@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T11:50:59.519060673Z",
+    "generatedAt": "2026-11-22T11:37:32.991478928Z",
     "module": ":src:all:inkrush",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 8266025984012516367,
@@ -22,25 +22,27 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1285,
+                    "status": "WARN",
+                    "durationMs": 1801,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 651,
-                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html><html lang=\"en\".....",
+                    "durationMs": 308,
+                    "message": "HTTP error 404",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 592,
-                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html><html lang=\"en\".....",
+                    "durationMs": 313,
+                    "message": "HTTP error 404",
                     "notes": [],
                     "samples": []
                 },
@@ -97,10 +99,11 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
+                    "status": "WARN",
                     "durationMs": 0,
                     "message": null,
                     "notes": [
+                        "home page returned HTTP 500",
                         "same site as INKRUSH [en]; not checked again"
                     ],
                     "samples": []
@@ -108,16 +111,16 @@
                 {
                     "name": "popular",
                     "status": "FAIL",
-                    "durationMs": 605,
-                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html><html lang=\"en\".....",
+                    "durationMs": 1037,
+                    "message": "HTTP error 404",
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "FAIL",
-                    "durationMs": 547,
-                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html><html lang=\"en\".....",
+                    "durationMs": 300,
+                    "message": "HTTP error 404",
                     "notes": [],
                     "samples": []
                 },
@@ -160,7 +163,22 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:04:43.708887724Z",
-    "changes": [],
+    "comparedTo": "2026-11-19T11:50:59.519060673Z",
+    "changes": [
+        {
+            "source": "INKRUSH",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "INKRUSH",
+            "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ],
     "throttledHosts": []
 }

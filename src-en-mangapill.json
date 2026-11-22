@@ -1,42 +1,130 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:13:43.670378636Z",
+    "generatedAt": "2026-11-22T11:45:11.872644433Z",
     "module": ":src:en:mangapill",
     "sourceRoot": "",
     "extensionCommit": "293eb3cd",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:en:mangapill",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 8448310129093543312,
+            "name": "MangaPill",
+            "lang": "en",
+            "baseUrl": "https://mangapill.com",
+            "status": "WARN",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/en/mangapill/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:en:mangapill :src:en:mangapill:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "PASS",
+                    "durationMs": 497,
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "PASS",
+                    "durationMs": 183,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Berserk -> /manga/1/berserk",
+                        "One Piece -> /manga/2/one-piece",
+                        "Kingdom -> /manga/8/kingdom"
+                    ]
+                },
+                {
+                    "name": "latest",
+                    "status": "WARN",
+                    "durationMs": 303,
+                    "message": null,
+                    "notes": [
+                        "duplicate manga urls: [/manga/2629/lost-man, /manga/281/ao-no-orchestra, /manga/4519/tokusatsu-gagaga]"
+                    ],
+                    "samples": [
+                        "Shiokaze to Ryuu no Sumika -> /manga/10534/shiokaze-to-ryuu-no-sumika",
+                        "Kingdom -> /manga/8/kingdom",
+                        "Mob kara Hajimaru Tansaku Eiyuutan -> /manga/9481/mob-kara-hajimaru-tansaku-eiyuutan"
+                    ]
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "5 filters"
+                    ]
+                },
+                {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 151,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Berserk -> /manga/1/berserk",
+                        "Berserk of Gluttony -> /manga/493/berserk-of-gluttony",
+                        "Berserk Official Guidebook -> /manga/8115/berserk-official-guidebook"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 172,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Group 2 Chapter 386 -> /chapters/1-20386000/berserk-chapter-386",
+                        "Group 2 Chapter 385 -> /chapters/1-20385000/berserk-chapter-385",
+                        "Group 2 Chapter 384 -> /chapters/1-20384000/berserk-chapter-384"
+                    ]
+                },
+                {
+                    "name": "pages",
+                    "status": "PASS",
+                    "durationMs": 168,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://cdn.readdetectiveconan.com/file/mangap/2026/28/1/20386000/019f4a76-c331-734a-9c2d-1364beeacc6f/1.jpeg",
+                        "https://cdn.readdetectiveconan.com/file/mangap/2026/28/1/20386000/019f4a76-c331-734a-9c2d-1364beeacc6f/2.jpeg",
+                        "https://cdn.readdetectiveconan.com/file/mangap/2026/28/1/20386000/019f4a76-c331-734a-9c2d-1364beeacc6f/3.jpeg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 130,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T11:57:34.994860357Z",
+    "comparedTo": "2026-11-21T11:13:43.670378636Z",
     "changes": [
-        {
-            "source": ":src:en:mangapill",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "MangaPill",
             "lang": "en",
             "scenario": null,
-            "from": "WARN",
+            "from": null,
+            "to": "WARN"
+        },
+        {
+            "source": ":src:en:mangapill",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

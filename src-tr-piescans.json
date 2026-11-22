@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-17T12:14:13.633044107Z",
+    "generatedAt": "2026-11-22T11:58:33.329380777Z",
     "module": ":src:tr:piescans",
     "sourceRoot": "",
-    "extensionCommit": "02402ef9",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 7253944895138761719,
             "name": "Piescans",
             "lang": "tr",
             "baseUrl": "https://piescans.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,33 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1004,
+                    "durationMs": 931,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 410,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "A Fortune-Telling Princess -> /manga/a-fortune-telling-princess/",
-                        "World’s Apocalypse Online -> /manga/worlds-apocalypse-online/",
-                        "Rebirth of Abandoned Young Master [TAMAMLANDI] -> /manga/rebirth-of-abandoned-young-master/"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 980,
+                    "message": "NullPointerException at Piescans.getSearchMangaList$suspendImpl(Piescans.kt:69)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 367,
+                    "durationMs": 370,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "My Demure Husband’s Reason for Marriage Is Suspicious -> /manga/my-demure-husbands-reason-for-marriage-is-suspicious/",
-                        "The Manor Awaits Spring -> /manga/the-manor-awaits-spring/",
-                        "I Shall Master This Family -> /manga/i-shall-master-this-family/"
+                        "A Fortune-Telling Princess -> /manga/a-fortune-telling-princess/",
+                        "Roxana -> /manga/roxana/",
+                        "The Secret Tutor of Lord Preston -> /manga/the-secret-tutor-of-lord-preston/"
                     ]
                 },
                 {
@@ -64,50 +62,72 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 443,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "A Fortune-Telling Princess -> /manga/a-fortune-telling-princess/"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 370,
+                    "message": "NullPointerException at Piescans.getSearchMangaList$suspendImpl(Piescans.kt:69)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 622,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Bölüm 178 -> /a-fortune-telling-princess-bolum-178/",
-                        "Bölüm 177 -> /a-fortune-telling-princess-bolum-177/",
-                        "Bölüm 176 -> /a-fortune-telling-princess-bolum-176/"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 564,
+                    "message": "NullPointerException at Piescans.parseDetails(Piescans.kt:89)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 714,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://piescans.com/wp-content/uploads/kitmanga-manga/images/manga_61771/ba5f6169e97c007ccf36c377fbc8d283/1haylxl.webp",
-                        "https://piescans.com/wp-content/uploads/kitmanga-manga/images/manga_61771/ba5f6169e97c007ccf36c377fbc8d283/2stbxbm.webp",
-                        "https://piescans.com/wp-content/uploads/kitmanga-manga/images/manga_61771/ba5f6169e97c007ccf36c377fbc8d283/3sirtxo.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 877,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
+    "comparedTo": "2026-11-17T12:14:13.633044107Z",
+    "changes": [
+        {
+            "source": "Piescans",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Piescans",
+            "lang": "tr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Piescans",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Piescans",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Piescans",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

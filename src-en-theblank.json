@@ -1,42 +1,108 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:13:50.873442655Z",
+    "generatedAt": "2026-11-22T11:46:14.987782287Z",
     "module": ":src:en:theblank",
     "sourceRoot": "",
     "extensionCommit": "293eb3cd",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:en:theblank",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 7514642512113015247,
+            "name": "The Blank",
+            "lang": "en",
+            "baseUrl": "https://theblank.net",
+            "status": "BLOCKED",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/en/theblank/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:en:theblank :src:en:theblank:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "BLOCKED",
+                    "durationMs": 108,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from theblank.net (HTTP 403)"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "UNSUPPORTED",
+                    "durationMs": 53,
+                    "message": "requires an Android method or field the harness does not provide: android.webkit.WebView.setVerticalScrollBarEnabled",
+                    "notes": [
+                        "java.io.IOException: 'void android.webkit.WebView.setVerticalScrollBarEnabled(boolean)'",
+                        "java.lang.NoSuchMethodError: 'void android.webkit.WebView.setVerticalScrollBarEnabled(boolean)'"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "UNSUPPORTED",
+                    "durationMs": 1984,
+                    "message": "requires an Android method or field the harness does not provide: android.webkit.WebView.setVerticalScrollBarEnabled",
+                    "notes": [
+                        "java.io.IOException: 'void android.webkit.WebView.setVerticalScrollBarEnabled(boolean)'",
+                        "java.lang.NoSuchMethodError: 'void android.webkit.WebView.setVerticalScrollBarEnabled(boolean)'"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 2,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "8 filters"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-13T11:14:54.576753976Z",
+    "comparedTo": "2026-11-21T11:13:50.873442655Z",
     "changes": [
-        {
-            "source": ":src:en:theblank",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "The Blank",
             "lang": "en",
             "scenario": null,
-            "from": "BLOCKED",
+            "from": null,
+            "to": "BLOCKED"
+        },
+        {
+            "source": ":src:en:theblank",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

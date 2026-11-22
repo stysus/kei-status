@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:24:52.045231697Z",
+    "generatedAt": "2026-11-22T11:47:37.820133371Z",
     "module": ":src:pt:apenasumafa",
     "sourceRoot": "",
     "extensionCommit": "293eb3cd",
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 349,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 7241,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 394,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "apenasuma-fa.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Nós, Introvertidos -> /2024/11/nos-introvertidos.html",
-                        "Eu Quero Ser Um Ator -> /2024/06/eu-quero-ser-um-ator_15.html",
-                        "O Maknae Precisa Ser Um Idol -> /2024/05/o-maknae-precisa-ser-um-idol.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -50,59 +48,74 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "apenasuma-fa.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 568,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Nós, Introvertidos -> /2024/11/nos-introvertidos.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "THROTTLED",
-                    "durationMs": 7343,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T12:07:12.170196822Z",
+    "comparedTo": "2026-11-21T11:24:52.045231697Z",
     "changes": [
         {
             "source": "Apenas Uma Fã",
             "lang": "pt-BR",
-            "scenario": "chapters",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "Apenas Uma Fã",
             "lang": "pt-BR",
-            "scenario": "pages",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Apenas Uma Fã",
+            "lang": "pt-BR",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Apenas Uma Fã",
+            "lang": "pt-BR",
+            "scenario": "chapters",
             "from": "THROTTLED",
+            "to": "SKIP"
+        },
+        {
+            "source": "Apenas Uma Fã",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": "PASS",
             "to": "SKIP"
         }
     ],

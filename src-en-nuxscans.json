@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:23:50.166819839Z",
+    "generatedAt": "2026-11-22T11:41:23.546357410Z",
     "module": ":src:en:nuxscans",
     "sourceRoot": "",
     "extensionCommit": "293eb3cd",
@@ -10,7 +10,7 @@
             "name": "Nux Scans",
             "lang": "en",
             "baseUrl": "https://nuxscans-comics.blogspot.com",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1578,
+                    "durationMs": 465,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1374,
+                    "durationMs": 176,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,7 +61,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 375,
+                    "durationMs": 373,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -71,7 +71,7 @@
                 {
                     "name": "chapters",
                     "status": "WARN",
-                    "durationMs": 388,
+                    "durationMs": 821,
                     "message": null,
                     "notes": [
                         "duplicate chapter urls: [https://nuxscans.blogspot.com/2021/08/im-evil-god-chapter-146.html]"
@@ -84,35 +84,45 @@
                 },
                 {
                     "name": "pages",
-                    "status": "THROTTLED",
-                    "durationMs": 7480,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "status": "WARN",
+                    "durationMs": 380,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                        "duplicate page urls: [https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9lh3K4Z6dHoaSZTkAbVWrUSq4hNiD0OJU_A_7udV2vDMxNXi0Zt1CZ_bNhISYJr0SPcsHzLVewhb9i93VYXNWHH5_xBl9LjbnTFq9PWqArAemazBFNzi4i-nrKIm9x9nJ8v72yAkvrQkT/s0/download.jpg.png]"
                     ],
+                    "samples": [
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9lh3K4Z6dHoaSZTkAbVWrUSq4hNiD0OJU_A_7udV2vDMxNXi0Zt1CZ_bNhISYJr0SPcsHzLVewhb9i93VYXNWHH5_xBl9LjbnTFq9PWqArAemazBFNzi4i-nrKIm9x9nJ8v72yAkvrQkT/s0/download.jpg.png",
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9lh3K4Z6dHoaSZTkAbVWrUSq4hNiD0OJU_A_7udV2vDMxNXi0Zt1CZ_bNhISYJr0SPcsHzLVewhb9i93VYXNWHH5_xBl9LjbnTFq9PWqArAemazBFNzi4i-nrKIm9x9nJ8v72yAkvrQkT/s0/download.jpg.png",
+                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjFUzhVZ97Won8rewfqo8fPwLmAAbSsykCzA9t05rVtA5xGwi4WDRwxcMn33KRHh_Qc4hvQJEfUuh6SUmvsLb37_JBGivDYpT1GCQ6fn0dkQgsg8F-pI-piTUqovmr4_J3mISzQx87SWQ/s0/000019.jpg.png"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 782,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T12:11:54.992692017Z",
+    "comparedTo": "2026-11-21T11:23:50.166819839Z",
     "changes": [
         {
             "source": "Nux Scans",
             "lang": "en",
-            "scenario": "chapters",
+            "scenario": "pages",
             "from": "THROTTLED",
             "to": "WARN"
         },
         {
             "source": "Nux Scans",
             "lang": "en",
-            "scenario": "pages",
-            "from": "SKIP",
-            "to": "THROTTLED"
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
-    "throttledHosts": [
-        "nuxscans-comics.blogspot.com"
-    ]
+    "throttledHosts": []
 }

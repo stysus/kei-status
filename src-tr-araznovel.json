@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:10:52.683377647Z",
+    "generatedAt": "2026-11-22T11:47:22.099188264Z",
     "module": ":src:tr:araznovel",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 6376619749329806300,
             "name": "ArazNovel",
             "lang": "tr",
             "baseUrl": "https://manga.araznovel.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 823,
+                    "durationMs": 1853,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,19 +31,19 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 208,
+                    "durationMs": 630,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Rakudai Kenja no Gakuin Musou: Nidome no Tensei, S-Rank Cheat Majutsushi Boukenroku -> 99",
                         "The Reason Why Raeliana Ended up at the Duke’s Mansion -> 119",
+                        "Rakudai Kenja no Gakuin Musou: Nidome no Tensei, S-Rank Cheat Majutsushi Boukenroku -> 99",
                         "Tensei Shitara Slime Datta Ken -> 103"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 184,
+                    "durationMs": 519,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,64 +64,68 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 204,
+                    "status": "WARN",
+                    "durationMs": 416,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Rakudai Kenja no Gakuin Musou: Nidome no Tensei, S-Rank Cheat Majutsushi Boukenroku -> 99"
-                    ]
+                    "notes": [
+                        "returned an empty list",
+                        "query \"The Reason Why Raeliana Ended up at the Duke’s Mansion\" matched no results in the first page",
+                        "a retry without punctuation (\"The Reason Why Raeliana Ended up at the Duke s Mansion\") also matched nothing"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 217,
+                    "durationMs": 209,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Bölüm 17.7 -> 2254",
-                        "Bölüm 17.6 -> 2253",
-                        "Bölüm 17.5 -> 2252"
+                        "Bölüm 158 - FİNAL -> 1890",
+                        "Bölüm 157 -> 1889",
+                        "Bölüm 156 -> 1888"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 7507,
+                    "durationMs": 6427,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://manga.araznovel.com/wp-content/uploads/aotori/data/ao_69ced999cf352/bolum-17-7/001_6aa6a38c7f653.png",
-                        "https://manga.araznovel.com/wp-content/uploads/aotori/data/ao_69ced999cf352/bolum-17-7/002_6aa6a38c7f6f7.png",
-                        "https://manga.araznovel.com/wp-content/uploads/aotori/data/ao_69ced999cf352/bolum-17-7/003_6aa6a38c7f751.png"
+                        "https://manga.araznovel.com/wp-content/uploads/aotori/data/ao_69ceda9f7976b/bolum-158-final/001.jpg",
+                        "https://manga.araznovel.com/wp-content/uploads/aotori/data/ao_69ceda9f7976b/bolum-158-final/002.jpg",
+                        "https://manga.araznovel.com/wp-content/uploads/aotori/data/ao_69ceda9f7976b/bolum-158-final/003.jpg"
                     ]
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1411,
+                    "status": "WARN",
+                    "durationMs": 1735,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[1] image returned HTTP 525"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-19T11:48:59.386420033Z",
+    "comparedTo": "2026-11-20T12:10:52.683377647Z",
     "changes": [
         {
             "source": "ArazNovel",
             "lang": "tr",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "search",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
-            "source": ":src:tr:araznovel",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
+            "source": "ArazNovel",
+            "lang": "tr",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

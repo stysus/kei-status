@@ -1,42 +1,106 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:13:43.726478893Z",
+    "generatedAt": "2026-11-22T11:56:50.345227082Z",
     "module": ":src:pt:sssscanlator",
     "sourceRoot": "",
     "extensionCommit": "293eb3cd",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:pt:sssscanlator",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 1497838059713668619,
+            "name": "Yomu Comics",
+            "lang": "pt-BR",
+            "baseUrl": "https://yomu.com.br",
+            "status": "DOWN",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/pt/sssscanlator/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:pt:sssscanlator :src:pt:sssscanlator:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "WARN",
+                    "durationMs": 430,
+                    "message": null,
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "DOWN",
+                    "durationMs": 691,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "DOWN",
+                    "durationMs": 290,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 2,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "5 filters"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:04:58.032759668Z",
+    "comparedTo": "2026-11-21T11:13:43.726478893Z",
     "changes": [
-        {
-            "source": ":src:pt:sssscanlator",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "Yomu Comics",
             "lang": "pt-BR",
             "scenario": null,
-            "from": "DOWN",
+            "from": null,
+            "to": "DOWN"
+        },
+        {
+            "source": ":src:pt:sssscanlator",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

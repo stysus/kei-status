@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:10:35.010396677Z",
+    "generatedAt": "2026-11-22T11:47:31.245912564Z",
     "module": ":src:th:toomtammanga",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 5640783863041818405,
             "name": "ToomTam-Manga",
             "lang": "th",
             "baseUrl": "https://toomtam-manga.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1120,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30077,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 437,
+                    "durationMs": 19432,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +45,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 407,
+                    "durationMs": 384,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 478,
+                    "durationMs": 487,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,7 +77,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 269,
+                    "durationMs": 261,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,7 +89,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 285,
+                    "durationMs": 252,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -99,7 +101,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 172,
+                    "durationMs": 1237,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -107,21 +109,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-19T11:48:25.302736034Z",
+    "comparedTo": "2026-11-20T12:10:35.010396677Z",
     "changes": [
         {
             "source": "ToomTam-Manga",
             "lang": "th",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
-        },
-        {
-            "source": ":src:th:toomtammanga",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

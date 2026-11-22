@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:04:02.566659480Z",
+    "generatedAt": "2026-11-22T11:46:52.160308830Z",
     "module": ":src:vi:navyteam",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 2905603390871515946,
             "name": "NavyTeam",
             "lang": "vi",
             "baseUrl": "https://navyteams.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 691,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30139,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 392,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Anh Rể Là Bạn Diễn OnlyX Của Tôi -> /truyen/anh-re-la-ban-dien-onlyx-cua-toi",
-                        "Người Tình Biển Khơi -> /truyen/nguoi-tinh-bien-khoi",
-                        "Tàn Thuốc (Comic) -> /truyen/tan-thuoc-comic"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19388,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -59,93 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 299,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Anh Rể Là Bạn Diễn OnlyX Của Tôi -> /truyen/anh-re-la-ban-dien-onlyx-cua-toi"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 569,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chap 8 -> /truyen/anh-re-la-ban-dien-onlyx-cua-toi/chap-8",
-                        "Chap 7 - Ngoại truyện 1 -> /truyen/anh-re-la-ban-dien-onlyx-cua-toi/chap-7",
-                        "Chap 6 - H -> /truyen/anh-re-la-ban-dien-onlyx-cua-toi/chap-6"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 346,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://navytruyen.com/Anh-Re-La-Ban-Dien-OnlyX-Cua-Toi/Chap-8/wt000081151EP066HD0016.webp",
-                        "https://navytruyen.com/Anh-Re-La-Ban-Dien-OnlyX-Cua-Toi/Chap-8/wt000081151EP066HD0045.webp",
-                        "https://navytruyen.com/Anh-Re-La-Ban-Dien-OnlyX-Cua-Toi/Chap-8/wt000081151EP066HD0086.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2349,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-17T12:13:56.619543806Z",
+    "comparedTo": "2026-11-20T12:04:02.566659480Z",
     "changes": [
         {
             "source": "NavyTeam",
             "lang": "vi",
             "scenario": "connectivity",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "NavyTeam",
             "lang": "vi",
             "scenario": "popular",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "NavyTeam",
-            "lang": "vi",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "NavyTeam",
             "lang": "vi",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NavyTeam",
+            "lang": "vi",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "NavyTeam",
             "lang": "vi",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "NavyTeam",
             "lang": "vi",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:28.064106459Z",
+    "generatedAt": "2026-11-22T11:43:26.355392748Z",
     "module": ":src:en:readhorimiyaonline",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "293eb3cd",
     "sources": [
         {
             "sourceId": 855674716623999161,
             "name": "Read Horimiya Online",
             "lang": "en",
             "baseUrl": "https://read-horimiya.online",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,21 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 423,
+                    "status": "WARN",
+                    "durationMs": 308,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 127,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Horimiya -> /"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 93,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -57,58 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 105,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Horimiya -> /"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 103,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 128 -> /comic/horimiya-chapter-128/",
-                        "Chapter 127 -> /comic/horimiya-chapter-127/",
-                        "Chapter 126 -> /comic/horimiya-chapter-126/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 114,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://laiond.com/images/Horimiya - Manga/NTCBGqHRvgHAjHrRe26gifbDsdwldh1787861289.jpg",
-                        "https://laiond.com/images/Horimiya - Manga/8VWvesG1XiQWyk9XA3bw0PujwkhQkv1787861290.jpg",
-                        "https://laiond.com/images/Horimiya - Manga/t8x02R18HSG8BkdZLy5TkXkEaG2Rje1787861292.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 961,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:30:34.113951571Z",
+    "comparedTo": "2026-10-30T01:31:28.064106459Z",
     "changes": [
         {
             "source": "Read Horimiya Online",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Read Horimiya Online",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Read Horimiya Online",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Read Horimiya Online",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Read Horimiya Online",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Read Horimiya Online",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []
