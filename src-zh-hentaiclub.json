@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-14T10:52:18.084266557Z",
+    "generatedAt": "2026-11-23T13:21:59.672544298Z",
     "module": ":src:zh:hentaiclub",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 8618065660246087865,
             "name": "绅士会所",
             "lang": "zh",
             "baseUrl": "https://www.hentaiclub.net",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,22 +23,20 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 589,
+                    "durationMs": 388,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 295,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Seya狮砸 胜利女神妮姬 马斯特 女仆 -> /r15/71554.html",
-                        "Seya狮砸 碧蓝航线 帕萨迪纳 -> /r15/71553.html",
-                        "宫本桜 碧蓝航线 天狼星 水着 -> /r15/71552.html"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 310,
+                    "message": "NullPointerException at HentaiClub.parseMangaList(HentaiClub.kt:138)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -59,50 +57,69 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 2148,
-                    "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "query \"Seya狮砸 胜利女神妮姬 马斯特 女仆\" matched no results in the first page"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 282,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "章节 1 -> /r15/71554.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 339,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.sshs.rip/9c/b6/9c66a7ccd5f83524087f69958f3146b6.webp",
-                        "https://cdn.sshs.rip/be/30/bea918c7eefc1d05562dd357cee5c830.webp",
-                        "https://cdn.sshs.rip/4e/0e/4ef9e22c1a37aac70f9316646996b60e.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1893,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:39:07.300462466Z",
-    "changes": [],
+    "comparedTo": "2026-11-14T10:52:18.084266557Z",
+    "changes": [
+        {
+            "source": "绅士会所",
+            "lang": "zh",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "绅士会所",
+            "lang": "zh",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "绅士会所",
+            "lang": "zh",
+            "scenario": "search",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "绅士会所",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "绅士会所",
+            "lang": "zh",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

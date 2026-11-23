@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:59:33.115651035Z",
+    "generatedAt": "2026-11-23T13:21:26.234821722Z",
     "module": ":src:vi:damconuong",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 2680345917627448572,
             "name": "DamCoNuong",
             "lang": "vi",
             "baseUrl": "https://damconuong.tech",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 194,
+                    "durationMs": 376,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 373,
+                    "durationMs": 698,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 180,
+                    "durationMs": 224,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Cùng Thần Tượng Trong Nhà Vệ Sinh Nữ -> /truyen/cung-than-tuong-trong-nha-ve-sinh-nu",
-                        "Đảo Ngược -> /truyen/dao-nguoc",
-                        "[18+] Ngọc Ma Nữ -> /truyen/18-ngoc-ma-nu"
+                        "Robin heo -> /truyen/robin-heo",
+                        "My Neighbor's Widow -> /truyen/my-neighbor-s-widow",
+                        "Tôi đã quan hệ với tất cả bạn cùng lớp sau khi tốt nghiệp -> /truyen/toi-da-quan-he-voi-tat-ca-ban-cung-lop-sau-khi-tot-nghiep-2"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 753,
+                    "durationMs": 840,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +77,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 199,
+                    "durationMs": 727,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,41 +88,31 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1799,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://zs.wtcdn.xyz/aprtw/dcn/sextoy-k-t-n-i-kh-ng-d-y/chapter-130/1pADvZp7pWKJsLUy.webp",
-                        "https://zs.wtcdn.xyz/aprtw/dcn/sextoy-k-t-n-i-kh-ng-d-y/chapter-130/O7yhnmn6D0tIY0av.webp",
-                        "https://zs.wtcdn.xyz/aprtw/dcn/sextoy-k-t-n-i-kh-ng-d-y/chapter-130/XxBbJZeBnKWDARem.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1012,
-                    "message": null,
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 2046,
+                    "message": "Field 'e' is required for type with serial name 'eu.kanade.tachiyomi.extension.vi.damconuong.PagesResponse', but it was missing",
+                    "notes": [
+                        "kotlinx.serialization.MissingFieldException: Field 'e' is required for type with serial name 'eu.kanade.tachiyomi.extension.vi.damconuong.PagesResponse', but it was missing at path: $"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-21T11:13:50.919875005Z",
+    "comparedTo": "2026-11-22T11:59:33.115651035Z",
     "changes": [
         {
             "source": "DamCoNuong",
             "lang": "vi",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
-            "source": ":src:vi:damconuong",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "DamCoNuong",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

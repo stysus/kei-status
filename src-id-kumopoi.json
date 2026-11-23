@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:04:40.230525792Z",
+    "generatedAt": "2026-11-23T13:17:23.054200731Z",
     "module": ":src:id:kumopoi",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 5610091745946956485,
             "name": "KumoPoi",
             "lang": "id",
             "baseUrl": "https://beta.kumopoi.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 635,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 139,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from beta.kumopoi.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 640,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Love Quest -> /comic/love-quest",
-                        "Wireless Onahole -> /comic/wireless-onahole",
-                        "I Will Teach You Self Defense -> /comic/i-will-teach-you-self-defense"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 98,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.kumopoi.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 458,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Hero Is the Secretary Under the Desk -> /comic/the-hero-is-the-secretary-under-the-desk",
-                        "Mr. Kim's General Store -> /comic/mr-kims-general-store",
-                        "Capitalist Harem -> /comic/capitalist-harem"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 30,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.kumopoi.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,60 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 360,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Love Quest -> /comic/love-quest",
-                        "Love and Risk -> /comic/love-and-risk",
-                        "Heroine App -> /comic/heroine-app"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 191,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 40 -> /comic/love-quest/chapter/40#cmwhy1chk0wvmtzkgljw5tqgj",
-                        "Chapter 39.5: Hiatus -> /comic/love-quest/chapter/39.5#cmvxr75vf0ueyjtkg8ncy44qg",
-                        "Chapter 39 -> /comic/love-quest/chapter/39#cmvo52dou3kg5cekgjkiz4ip3"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 604,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://api.kumopoi.com/api/v1/media/chapter/deliver?token=eyJzIjoiY2hhcHRlci9sb3ZlLXF1ZXN0LWJhaGFzYS1pbmRvbmVzaWEvY2hhcHRlci0xLzAwMS53ZWJwIiwiZSI6MTc5NTczNzYwMH0.Z6zb0X-yzwiPEmVw0PhTid-6BRtTYCmwhOCqtuDi5fw",
-                        "https://api.kumopoi.com/api/v1/media/chapter/deliver?token=eyJzIjoiY2hhcHRlci9sb3ZlLXF1ZXN0LWJhaGFzYS1pbmRvbmVzaWEvY2hhcHRlci0xLzAwMi53ZWJwIiwiZSI6MTc5NTczNzYwMH0.LOmUCz80HHCpDepySO8PrdQ8M98hqdTmdQcXdfuwrrE",
-                        "https://api.kumopoi.com/api/v1/media/chapter/deliver?token=eyJzIjoiY2hhcHRlci9sb3ZlLXF1ZXN0LWJhaGFzYS1pbmRvbmVzaWEvY2hhcHRlci0xLzAwMy53ZWJwIiwiZSI6MTc5NTczNzYwMH0.u8hwKtv-vbaTChOpnENm-VGvTMjaNreEuWNVmGSdGKA"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1397,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-17T12:11:10.701907943Z",
+    "comparedTo": "2026-11-20T12:04:40.230525792Z",
     "changes": [
         {
             "source": "KumoPoi",
             "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "KumoPoi",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "KumoPoi",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "KumoPoi",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KumoPoi",
+            "lang": "id",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KumoPoi",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "KumoPoi",
+            "lang": "id",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:42:47.255767692Z",
+    "generatedAt": "2026-11-23T13:16:20.331047903Z",
     "module": ":src:es:hibonblscanlation",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 6836697941845374072,
@@ -22,21 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "THROTTLED",
-                    "durationMs": 7076,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 1494,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "hibon-bl.blogspot.com answered HTTP 429 earlier in this run",
+                    "status": "PASS",
+                    "durationMs": 390,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Oazuke wa, Warui Yoru no Aizu -> /2025/12/oazuke-wa-warui-yoru-no-aizu.html",
+                        "Danna-sama wa Saikyou -> /2025/08/danna-sama-wa-saikyou.html",
+                        "Daken ni Chuui! -> /2025/08/daken-ni-chuui.html"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -48,75 +50,81 @@
                 },
                 {
                     "name": "filters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "hibon-bl.blogspot.com answered HTTP 429 earlier in this run",
+                    "status": "PASS",
+                    "durationMs": 2,
+                    "message": null,
                     "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "samples": [
+                        "4 filters"
+                    ]
                 },
                 {
                     "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 333,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "Oazuke wa, Warui Yoru no Aizu -> /2025/12/oazuke-wa-warui-yoru-no-aizu.html"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "THROTTLED",
+                    "durationMs": 7245,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-17T12:09:33.001446889Z",
+    "comparedTo": "2026-11-22T11:42:47.255767692Z",
     "changes": [
         {
             "source": "Hibon BL Scanlation",
             "lang": "es",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "Hibon BL Scanlation",
             "lang": "es",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Hibon BL Scanlation",
             "lang": "es",
             "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Hibon BL Scanlation",
-            "lang": "es",
-            "scenario": "chapters",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Hibon BL Scanlation",
             "lang": "es",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Hibon BL Scanlation",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "THROTTLED"
         }
     ],
     "throttledHosts": [

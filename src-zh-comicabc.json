@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T12:02:39.468778406Z",
+    "generatedAt": "2026-11-23T13:21:57.217825288Z",
     "module": ":src:zh:comicabc",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 8110122805257580230,
             "name": "無限動漫",
             "lang": "zh",
             "baseUrl": "https://www.8comic.com",
-            "status": "WARN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,32 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 185,
+                    "durationMs": 588,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 108,
+                    "status": "PASS",
+                    "durationMs": 167,
                     "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "hasNextPage=true but list is empty"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "狂賭之淵 -> /html/10818.html",
+                        "租借女友 -> /html/15124.html",
+                        "我的專屬高塔攻略 -> /html/23867.html"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 114,
+                    "status": "PASS",
+                    "durationMs": 156,
                     "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "hasNextPage=true but list is empty"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "螢火蟲之婚 -> /html/20599.html",
+                        "叛逆的虹之咲 -> /html/26664.html",
+                        "喜好打扮的王妃在偽裝婚姻裡被國王溺愛 -> /html/28780.html"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,47 +63,95 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 791,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "狂賭之淵 -> /html/10818.html",
+                        "狂賭之淵-雙 -> /html/13796.html",
+                        "狂賭之淵(仮) -> /html/15470.html"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 158,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "第134話 -> https://articles.onemoreplace.tw/online/new-10818.html?ch=134",
+                        "第133話 -> https://articles.onemoreplace.tw/online/new-10818.html?ch=133",
+                        "第132話 -> https://articles.onemoreplace.tw/online/new-10818.html?ch=132"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 572,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://img9.8comic.com/3/10818/134/001_Kh8.jpg",
+                        "https://img9.8comic.com/3/10818/134/002_t28.jpg",
+                        "https://img9.8comic.com/3/10818/134/003_ytG.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 785,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-21T11:13:43.740729446Z",
+    "comparedTo": "2026-11-22T12:02:39.468778406Z",
     "changes": [
         {
             "source": "無限動漫",
             "lang": "zh",
-            "scenario": null,
-            "from": null,
-            "to": "WARN"
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "PASS"
         },
         {
-            "source": ":src:zh:comicabc",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
+            "source": "無限動漫",
+            "lang": "zh",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "無限動漫",
+            "lang": "zh",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "無限動漫",
+            "lang": "zh",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "無限動漫",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "無限動漫",
+            "lang": "zh",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

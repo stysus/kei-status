@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:52:03.765319014Z",
+    "generatedAt": "2026-11-23T13:18:06.045717551Z",
     "module": ":src:it:mangaworld",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 7114846210461894145,
             "name": "Mangaworld",
             "lang": "it",
-            "baseUrl": "https://www.mangaworld.mx",
-            "status": "WARN",
+            "baseUrl": "https://www.mangaworld.me",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,35 +23,39 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 432,
+                    "durationMs": 587,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 205,
+                    "status": "PASS",
+                    "durationMs": 599,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "One Piece -> /manga/1708/one-piece",
+                        "Solo Leveling -> /manga/1738/solo-leveling",
+                        "Martial Peak -> /manga/1972/martial-peak"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 207,
+                    "status": "PASS",
+                    "durationMs": 320,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Reincarnator's Stream -> /manga/5023/reincarnator-s-stream",
+                        "Wail of a Dragon's Rage -> /manga/4214/wail-of-a-dragon-s-rage",
+                        "The Novel's Extra -> /manga/4256/the-novel-s-extra"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,47 +63,95 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 288,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "One Piece -> /manga/1708/one-piece",
+                        "One Piece - Digital Colored Comics -> /manga/3200/one-piece-digital-colored-comics",
+                        "One Piece Episode A -> /manga/1697/one-piece-episode-a"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 475,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Capitolo 1199 -> /manga/1708/one-piece/read/6b032279179d77b59c06a674?style=list",
+                        "Capitolo 1198 -> /manga/1708/one-piece/read/6af0ac8b72c04e6fdcc5f808?style=list",
+                        "Capitolo 1197 -> /manga/1708/one-piece/read/6ae77212da100d22d1290951?style=list"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 305,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://cdn.mangaworld.me/chapters/one-piece-5fa0c9e2c9f2201ee55d3bd4/volume-01-5fa0d57e9c5b631f15d5b490/capitolo-01-5fa0d57e9c5b631f15d5b492/1.jpg",
+                        "https://cdn.mangaworld.me/chapters/one-piece-5fa0c9e2c9f2201ee55d3bd4/volume-01-5fa0d57e9c5b631f15d5b490/capitolo-01-5fa0d57e9c5b631f15d5b492/2.jpg",
+                        "https://cdn.mangaworld.me/chapters/one-piece-5fa0c9e2c9f2201ee55d3bd4/volume-01-5fa0d57e9c5b631f15d5b490/capitolo-01-5fa0d57e9c5b631f15d5b492/3.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1278,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-21T11:13:50.894034997Z",
+    "comparedTo": "2026-11-22T11:52:03.765319014Z",
     "changes": [
         {
             "source": "Mangaworld",
             "lang": "it",
-            "scenario": null,
-            "from": null,
-            "to": "WARN"
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "PASS"
         },
         {
-            "source": ":src:it:mangaworld",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
+            "source": "Mangaworld",
+            "lang": "it",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Mangaworld",
+            "lang": "it",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Mangaworld",
+            "lang": "it",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Mangaworld",
+            "lang": "it",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Mangaworld",
+            "lang": "it",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

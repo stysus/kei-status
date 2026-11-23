@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:29:18.898946831Z",
+    "generatedAt": "2026-11-23T13:14:02.275089223Z",
     "module": ":src:en:mangamaniacs",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 5502656519292762717,
             "name": "MangaManiacs",
             "lang": "en",
             "baseUrl": "https://mangamaniacs.org",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 962,
+                    "durationMs": 730,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 366,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 205,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "A Man of Virtue -> 2056",
-                        "Surge Looking For You [RAW] 너를 찾는 파도 -> 3927",
-                        "Dark Fall [RAW] 다크폴 -> 3968"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 302,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 197,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Omerta -> 10105",
-                        "Hangman -> 10103",
-                        "Sono Gap Nyoi Special Feature -> 8928"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +55,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 294,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "A Man of Virtue -> 2056"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 450,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 61 -> chapter-61",
-                        "Chapter 60 -> chapter-60",
-                        "Chapter 59 -> chapter-59"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 431,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://images.mangamaniacs.org/manga_614df5128a71f/ca12290109088e7ae596756cba9d028f/A-Man-of-Virtue-Yaoi-BL-Chapter-61-Smut-Manhwa-English-mangamaniacs.org-(1).jpg",
-                        "https://images.mangamaniacs.org/manga_614df5128a71f/ca12290109088e7ae596756cba9d028f/A-Man-of-Virtue-Yaoi-BL-Chapter-61-Smut-Manhwa-English-mangamaniacs.org-(2).jpg",
-                        "https://images.mangamaniacs.org/manga_614df5128a71f/ca12290109088e7ae596756cba9d028f/A-Man-of-Virtue-Yaoi-BL-Chapter-61-Smut-Manhwa-English-mangamaniacs.org-(3).jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 3080,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:41.929451487Z",
+    "comparedTo": "2026-10-30T01:29:18.898946831Z",
     "changes": [
         {
             "source": "MangaManiacs",
             "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaManiacs",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaManiacs",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaManiacs",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaManiacs",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaManiacs",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

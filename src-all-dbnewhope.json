@@ -1,21 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:38:20.284884779Z",
+    "generatedAt": "2026-11-23T13:09:23.462426160Z",
     "module": ":src:all:dbnewhope",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 909008906078523978,
             "name": "DB New Hope",
             "lang": "all",
             "baseUrl": "https://dbnewhope.com",
-            "status": "DOWN",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 752,
+                    "durationMs": 985,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 0,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [
                         "manga[0] has no thumbnail",
@@ -85,7 +85,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 655,
+                    "durationMs": 407,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -96,33 +96,42 @@
                 },
                 {
                     "name": "pages",
-                    "status": "DOWN",
-                    "durationMs": 30550,
-                    "message": "the site is unreachable (Socket closed); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout",
-                        "java.net.SocketException: Socket closed"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 626,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://dbnewhope.com/english/1/fe07eee1f0268775c646e844b05bff2d.png?v=1795439362",
+                        "https://dbnewhope.com/english/1/d9b6f4554ead74cebd62effb6a671a522.png?v=1795439362",
+                        "https://dbnewhope.com/english/1/9a11768d2c2eea7c331011b06a7d4eb2.png?v=1795439362"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 817,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:26:24.459628419Z",
+    "comparedTo": "2026-11-22T11:38:20.284884779Z",
     "changes": [
         {
             "source": "DB New Hope",
             "lang": "all",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "DB New Hope",
             "lang": "all",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

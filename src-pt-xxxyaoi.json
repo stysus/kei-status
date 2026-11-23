@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-16T11:49:24.584348550Z",
+    "generatedAt": "2026-11-23T13:25:01.226404606Z",
     "module": ":src:pt:xxxyaoi",
     "sourceRoot": "",
-    "extensionCommit": "53ca8481",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 4493410832840030334,
             "name": "XXX Yaoi",
             "lang": "pt-BR",
             "baseUrl": "https://3xyaoi.com",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,21 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 4691,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "SKIP",
+                    "durationMs": 138,
+                    "message": "not supported by this source",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from 3xyaoi.com (HTTP 403)"
+                        "java.io.IOException: Update Android System WebView to pass Cloudflare's check",
+                        "java.lang.UnsupportedOperationException: CUSTOM_REQUEST_HEADERS is not supported on this WebView (requires Chromium 142+)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 414,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "status": "SKIP",
+                    "durationMs": 41,
+                    "message": "not supported by this source",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                        "java.io.IOException: Update Android System WebView to pass Cloudflare's check",
+                        "java.lang.UnsupportedOperationException: CUSTOM_REQUEST_HEADERS is not supported on this WebView (requires Chromium 142+)"
                     ],
                     "samples": []
                 },
@@ -51,7 +53,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -85,21 +87,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:35:05.400574364Z",
+    "comparedTo": "2026-11-16T11:49:24.584348550Z",
     "changes": [
         {
             "source": "XXX Yaoi",
             "lang": "pt-BR",
-            "scenario": null,
-            "from": null,
-            "to": "BLOCKED"
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "SKIP"
         },
         {
             "source": "XXX Yaoi",
             "lang": "pt-BR",
-            "scenario": null,
+            "scenario": "popular",
             "from": "BLOCKED",
-            "to": null
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

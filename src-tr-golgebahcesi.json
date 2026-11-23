@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:02:06.799995968Z",
+    "generatedAt": "2026-11-23T13:15:25.930113561Z",
     "module": ":src:tr:golgebahcesi",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 7442439989890509521,
             "name": "Gölge Bahçesi",
             "lang": "tr",
             "baseUrl": "https://golgebahcesi.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 178,
+                    "durationMs": 919,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,25 +31,25 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1189,
+                    "durationMs": 571,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Deli Mühendis -> deli-muhendis",
                         "Gel Beni Al -> gel-beni-al",
+                        "Deli Mühendis -> deli-muhendis",
                         "Son Seviye Çaylak -> son-seviye-caylak"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 259,
+                    "durationMs": 200,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Gölge Köle -> golge-kole",
                         "Yetenek Yutan Büyücü -> yetenek-yutan-buyucu",
-                        "Mutlak Geri Dönüş -> mutlak-geri-donus"
+                        "Mutlak Geri Dönüş -> mutlak-geri-donus",
+                        "Kahramanın Torunu -> kahramanin-torunu"
                     ]
                 },
                 {
@@ -65,63 +65,56 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 731,
+                    "durationMs": 565,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Deli Mühendis -> deli-muhendis"
+                        "Gel Beni Al -> gel-beni-al"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 706,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Bölüm 223 - Özel Bölüm [SON] -> /6acf530f6cf9b16efdaecf74/deli-muhendis/chapter-223",
-                        "Bölüm 222 - Anlatılmamış Hikâyeler 08 – Javier ve Lloyd (2) [SON] -> /6acf1c766cf9b16efda77645/deli-muhendis/chapter-222",
-                        "Bölüm 221 - Anlatılmamış Hikâyeler 08 – Javier ve Lloyd (1) -> /6acf1cc96cf9b16efda77ee8/deli-muhendis/chapter-221"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 363,
+                    "message": "Field 'deliverySystem' is required for type with serial name 'eu.kanade.tachiyomi.extension.tr.golgebahcesi.ChapterDto', but it was missing",
+                    "notes": [
+                        "kotlinx.serialization.MissingFieldException: Field 'deliverySystem' is required for type with serial name 'eu.kanade.tachiyomi.extension.tr.golgebahcesi.ChapterDto', but it was missing at path: $[59]"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 242,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://c3.skycdn.online/golge/series/deli-muhendis/AQJvfeNSy7CDB2UD3G8MPyRqTrbiev_ecy158NH6/1.jpg",
-                        "https://c3.skycdn.online/golge/series/deli-muhendis/AQJvfeNSy7CDB2UD3G8MPyRqTrbiev_ecy158NH6/2.jpg",
-                        "https://c3.skycdn.online/golge/series/deli-muhendis/AQJvfeNSy7CDB2UD3G8MPyRqTrbiev_ecy158NH6/3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 361,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-14T10:49:02.292561790Z",
+    "comparedTo": "2026-11-20T12:02:06.799995968Z",
     "changes": [
         {
             "source": "Gölge Bahçesi",
             "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Gölge Bahçesi",
+            "lang": "tr",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Gölge Bahçesi",
             "lang": "tr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

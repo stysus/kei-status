@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:42:49.833523223Z",
+    "generatedAt": "2026-11-23T13:12:52.351149660Z",
     "module": ":src:en:webtoonxyz",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 6750082404202711318,
             "name": "WebtoonXYZ",
             "lang": "en",
             "baseUrl": "https://www.webtoon.xyz",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 4190,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 129,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.webtoon.xyz (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 476,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "What Do You Take Me For? -> 206",
-                        "My Kingdom (Silent War) -> 126",
-                        "Stepmother Friends -> 1109"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 24,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.webtoon.xyz (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 397,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "First-Class Seat to the Abyss -> 12657",
-                        "I Love You Very Much -> 12638",
-                        "Gear that’s Way Too Good -> 12613"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 12,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.webtoon.xyz (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,103 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 385,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "What Do You Take Me For? -> 206"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 295,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 160 - END -> chapter-160",
-                        "Chapter 159 -> chapter-159",
-                        "Chapter 158 -> chapter-158"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 285,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://cdn4.webtoon.xyz/manga_5e4b04725a3de/chapter-160/001.jpg",
-                        "https://cdn4.webtoon.xyz/manga_5e4b04725a3de/chapter-160/002.jpg",
-                        "https://cdn4.webtoon.xyz/manga_5e4b04725a3de/chapter-160/003.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 979,
-                    "message": null,
-                    "notes": [
-                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn4.webtoon.xyz (HTTP 403)",
-                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn4.webtoon.xyz (HTTP 403)"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:08:33.990556762Z",
+    "comparedTo": "2026-11-22T11:42:49.833523223Z",
     "changes": [
         {
             "source": "WebtoonXYZ",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "WebtoonXYZ",
             "lang": "en",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "WebtoonXYZ",
             "lang": "en",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "WebtoonXYZ",
-            "lang": "en",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "WebtoonXYZ",
             "lang": "en",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "WebtoonXYZ",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "WebtoonXYZ",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "WebtoonXYZ",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "WARN"
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

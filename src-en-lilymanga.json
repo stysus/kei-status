@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:44:33.796883131Z",
+    "generatedAt": "2026-11-23T13:13:53.836116558Z",
     "module": ":src:en:lilymanga",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 4480996639887718467,
             "name": "Lily Manga",
             "lang": "en",
             "baseUrl": "https://lilymanga.net",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,26 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 575,
+                    "status": "WARN",
+                    "durationMs": 19905,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 1593,
-                    "message": "HTTP error 404",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 19455,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 2001,
-                    "message": "HTTP error 404",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 19456,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,21 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-21T11:13:50.859925343Z",
+    "comparedTo": "2026-11-22T11:44:33.796883131Z",
     "changes": [
         {
             "source": "Lily Manga",
             "lang": "en",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
-            "source": ":src:en:lilymanga",
-            "lang": "",
-            "scenario": null,
+            "source": "Lily Manga",
+            "lang": "en",
+            "scenario": "popular",
             "from": "FAIL",
-            "to": null
+            "to": "DOWN"
+        },
+        {
+            "source": "Lily Manga",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

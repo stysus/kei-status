@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:27:21.529912914Z",
+    "generatedAt": "2026-11-23T13:13:18.712091208Z",
     "module": ":src:ru:henchan",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 5504588601186153612,
             "name": "HenChan",
             "lang": "ru",
             "baseUrl": "https://x17.h-chan.me",
-            "status": "DOWN",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "DOWN",
-                    "durationMs": 31369,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 769,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 30002,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 846,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Kono, Hikyoumono!! -> /manga/16866-kono-hikyoumono.html",
+                        "Kyoushi to Seito to - глава 1 -> /manga/9179-kyoushi-to-seito-to-glava-1.html",
+                        "Pandemonium - часть 1 -> /manga/17531-pandemonium-chast-1.html"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 30001,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 466,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Tasha Henshin no Golem Girl - Глава 8 -> /manga/55796-tasha-henshin-no-golem-girl-glava-8.html",
+                        "Дафни и Велма -> /manga/55795-dafni-i-velma.html",
+                        "Переполняясь Чернотой - Глава 1 -> /manga/55794-perepolnyayas-chernotoy-glava-1.html"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,82 +63,72 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 2968,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Kono, Hikyoumono!! -> /manga/16866-kono-hikyoumono.html"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "chapters",
+                    "status": "WARN",
+                    "durationMs": 228,
+                    "message": null,
+                    "notes": [
+                        "chapter list is empty"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T12:06:05.461732729Z",
+    "comparedTo": "2026-11-21T11:27:21.529912914Z",
     "changes": [
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "HenChan",
-            "lang": "ru",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "HenChan",
             "lang": "ru",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "HenChan",
-            "lang": "ru",
-            "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

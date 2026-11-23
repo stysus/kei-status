@@ -1,109 +1,43 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:19:07.351320691Z",
+    "generatedAt": "2026-11-23T12:58:18.499254418Z",
     "module": ":src:fr:epsilonscan",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "582615a3",
     "sources": [
         {
-            "sourceId": 2577248042661857530,
-            "name": "Epsilon Scan",
-            "lang": "fr",
-            "baseUrl": "https://epsilonscan.to",
-            "status": "BLOCKED",
+            "sourceId": 0,
+            "name": ":src:fr:epsilonscan",
+            "lang": "",
+            "baseUrl": "",
+            "status": "FAIL",
             "scenarios": [
                 {
-                    "name": "metadata",
-                    "status": "PASS",
+                    "name": "load",
+                    "status": "FAIL",
                     "durationMs": 0,
-                    "message": null,
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 85,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from epsilonscan.to (HTTP 403)"
-                    ],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
-                    "status": "UNSUPPORTED",
-                    "durationMs": 62,
-                    "message": "requires an Android method or field the harness does not provide: android.webkit.WebView.setVerticalScrollBarEnabled",
-                    "notes": [
-                        "java.io.IOException: 'void android.webkit.WebView.setVerticalScrollBarEnabled(boolean)'",
-                        "java.lang.NoSuchMethodError: 'void android.webkit.WebView.setVerticalScrollBarEnabled(boolean)'"
-                    ],
-                    "samples": []
-                },
-                {
-                    "name": "latest",
-                    "status": "UNSUPPORTED",
-                    "durationMs": 1992,
-                    "message": "requires an Android method or field the harness does not provide: android.webkit.WebView.setVerticalScrollBarEnabled",
-                    "notes": [
-                        "java.io.IOException: 'void android.webkit.WebView.setVerticalScrollBarEnabled(boolean)'",
-                        "java.lang.NoSuchMethodError: 'void android.webkit.WebView.setVerticalScrollBarEnabled(boolean)'"
-                    ],
-                    "samples": []
-                },
-                {
-                    "name": "filters",
-                    "status": "PASS",
-                    "durationMs": 3,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "8 filters"
-                    ]
-                },
-                {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "Missing extensions-source/src/fr/epsilonscan/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:fr:epsilonscan :src:fr:epsilonscan:dumpHarnessClasspath",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:32:38.067004050Z",
+    "comparedTo": "2026-11-13T11:19:07.351320691Z",
     "changes": [
         {
-            "source": "Epsilon Scan",
-            "lang": "fr",
-            "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "UNSUPPORTED"
+            "source": ":src:fr:epsilonscan",
+            "lang": "",
+            "scenario": null,
+            "from": null,
+            "to": "FAIL"
         },
         {
             "source": "Epsilon Scan",
             "lang": "fr",
-            "scenario": "latest",
+            "scenario": null,
             "from": "BLOCKED",
-            "to": "UNSUPPORTED"
+            "to": null
         }
     ],
     "throttledHosts": []

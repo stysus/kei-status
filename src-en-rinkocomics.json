@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:42:45.923944139Z",
+    "generatedAt": "2026-11-23T13:12:35.598199968Z",
     "module": ":src:en:rinkocomics",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 4915548839286527736,
@@ -23,97 +23,135 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 926,
+                    "durationMs": 1313,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 1486,
+                    "status": "PASS",
+                    "durationMs": 2032,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "The Count’s Secret Maid -> /comic/the-counts-secret-maid/",
+                        "The Problematic Prince -> /comic/the-problematic-prince/",
+                        "Cry, or Better Yet, Beg -> /comic/cry-or-better-yet-beg/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 1362,
+                    "status": "PASS",
+                    "durationMs": 2854,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "The Night at the Crossroads -> /comic/the-night-at-the-crossroads/",
+                        "Through My Worst Relative’s Eyes -> /comic/through-my-worst-relatives-eyes/",
+                        "My Possession Became a Ghost Story -> /comic/my-possession-became-a-ghost-story/"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "3 filters"
+                        "4 filters"
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 7140,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"The Count’s Secret Maid\" matched no results in the first page",
+                        "a retry without punctuation (\"The Count s Secret Maid\") also matched nothing"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 6894,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 116 -> /chapter/the-counts-secret-maid-chapter-116/",
+                        "Chapter 115 -> /chapter/the-counts-secret-maid-chapter-115/",
+                        "Chapter 114 -> /chapter/the-counts-secret-maid-chapter-114/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 5846,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://cdn.rinkocomics.com/wp-content/uploads/comics/the-counts-secret-maid/116/01__ad4c51de-10a6-4c96-b8cf-4048cd3d28bc.webp",
+                        "https://cdn.rinkocomics.com/wp-content/uploads/comics/the-counts-secret-maid/116/02__a6c90893-c5da-4a47-aba8-1584089898fe.webp",
+                        "https://cdn.rinkocomics.com/wp-content/uploads/comics/the-counts-secret-maid/116/03__557f47e9-a7ee-471e-b5d6-830aabdab54a.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 131,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-10T11:37:04.724961942Z",
+    "comparedTo": "2026-11-22T11:42:45.923944139Z",
     "changes": [
         {
             "source": "Rinko Comics",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Rinko Comics",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Rinko Comics",
+            "lang": "en",
+            "scenario": "search",
+            "from": "SKIP",
             "to": "WARN"
         },
         {
             "source": "Rinko Comics",
             "lang": "en",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Rinko Comics",
             "lang": "en",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Rinko Comics",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

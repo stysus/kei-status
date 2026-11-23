@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:58:30.105118766Z",
+    "generatedAt": "2026-11-23T13:23:09.964492773Z",
     "module": ":src:tr:norascans",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 1572449224606837251,
@@ -22,31 +22,31 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 625,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 10025,
+                    "message": "the site is unreachable (norascans.com: Temporary failure in name resolution); the source is not at fault",
                     "notes": [
-                        "home page returned HTTP 502"
+                        "java.net.UnknownHostException: norascans.com: Temporary failure in name resolution"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "DOWN",
-                    "durationMs": 239,
-                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "durationMs": 2,
+                    "message": "the site is unreachable (norascans.com); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                        "java.net.UnknownHostException: norascans.com"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "DOWN",
-                    "durationMs": 657,
-                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "durationMs": 0,
+                    "message": "the site is unreachable (norascans.com); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                        "java.net.UnknownHostException: norascans.com"
                     ],
                     "samples": []
                 },
@@ -87,21 +87,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-21T11:13:50.915072258Z",
+    "comparedTo": "2026-11-22T11:58:30.105118766Z",
     "changes": [
         {
             "source": "Nora Scans",
             "lang": "tr",
-            "scenario": null,
-            "from": null,
+            "scenario": "connectivity",
+            "from": "WARN",
             "to": "DOWN"
-        },
-        {
-            "source": ":src:tr:norascans",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,15 +1,15 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T11:56:58.609852614Z",
+    "generatedAt": "2026-11-23T13:13:04.753219359Z",
     "module": ":src:en:bbato",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 1678128543826757763,
             "name": "Bbato",
             "lang": "en",
-            "baseUrl": "https://bato1.com",
+            "baseUrl": "https://bato1.co.uk",
             "status": "WARN",
             "scenarios": [
                 {
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 183,
+                    "durationMs": 98,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,24 +31,28 @@
                 {
                     "name": "popular",
                     "status": "WARN",
-                    "durationMs": 275,
+                    "durationMs": 42,
                     "message": null,
                     "notes": [
-                        "returned an empty list",
-                        "hasNextPage=true but list is empty"
+                        "duplicate manga urls: [/manga/eleceed, /manga/i-shall-master-this-family, /manga/jinx-manhwa]"
                     ],
-                    "samples": []
+                    "samples": [
+                        "19 Days -> /manga/19-dayss",
+                        "Eleceed -> /manga/eleceed",
+                        "Love by Mistake -> /manga/love-by-mistake"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 639,
+                    "status": "PASS",
+                    "durationMs": 922,
                     "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "hasNextPage=true but list is empty"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Chiikawa: Nanka Chiisakute Kawaii Yatsu -> /manga/chiikawa-nanka-chiisakute-kawaii-yatsu",
+                        "To Hell with ThisMistress -> /manga/to-hell-with-this-mistress",
+                        "The Baby Fairy is a Villain -> /manga/the-baby-fairy-is-a-villain"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,61 +65,88 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 714,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "The Days I Was Raised by My Mortal Enemy -> /manga/the-days-i-was-raised-by-my-mortal-enemy",
+                        "Seven days with my niece -> /manga/seven-days-with-my-niece",
+                        "I Hate These Calm Days -> /manga/i-hate-these-calm-days"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 376,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 497 -> /read/19-dayss/chapter-497",
+                        "Chapter 496 -> /read/19-dayss/chapter-496",
+                        "Chapter 495 -> /read/19-dayss/chapter-495"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 1420,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://cdnb.snapvip.xyz/19-dayss/497/0.webp",
+                        "https://cdnb.snapvip.xyz/19-dayss/497/1.webp",
+                        "https://cdnb.snapvip.xyz/19-dayss/497/2.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1200,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:03:53.125954203Z",
+    "comparedTo": "2026-11-20T11:56:58.609852614Z",
     "changes": [
         {
             "source": "Bbato",
             "lang": "en",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Bbato",
-            "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Bbato",
-            "lang": "en",
-            "scenario": "chapters",
             "from": "WARN",
-            "to": "SKIP"
+            "to": "PASS"
         },
         {
             "source": "Bbato",
             "lang": "en",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Bbato",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Bbato",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Bbato",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:35:11.078747276Z",
+    "generatedAt": "2026-11-23T13:14:24.480303669Z",
     "module": ":src:pt:mrtenzus",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 4272456161813617008,
             "name": "MR Tenzus",
             "lang": "pt-BR",
             "baseUrl": "https://mrtenzus.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1256,
+                    "durationMs": 306,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 491,
+                    "durationMs": 472,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 472,
+                    "durationMs": 393,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 738,
+                    "durationMs": 957,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,51 +74,47 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 609,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Capitulo 04 -> capitulo-04",
-                        "Capitulo 03 -> capitulo-03",
-                        "Capitulo 02 -> capitulo-02"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 334,
+                    "message": "NullPointerException at MadaraBase.parseDetails(MadaraBase.kt:224)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 716,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
-                    "samples": [
-                        "https://mrtenzus.com/wp-content/uploads/WP-manga/data/manga_67f9522b90e6c/da2866809d056b977a9d4d7a32b873b8/1.jpg",
-                        "https://mrtenzus.com/wp-content/uploads/WP-manga/data/manga_67f9522b90e6c/da2866809d056b977a9d4d7a32b873b8/2.jpg",
-                        "https://mrtenzus.com/wp-content/uploads/WP-manga/data/manga_67f9522b90e6c/da2866809d056b977a9d4d7a32b873b8/3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 1291,
-                    "message": null,
-                    "notes": [
-                        "page[0] image returned HTTP 404",
-                        "page[1] image returned HTTP 404",
-                        "page[2] image returned HTTP 404"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:39:56.375439361Z",
+    "comparedTo": "2026-10-30T01:35:11.078747276Z",
     "changes": [
         {
             "source": "MR Tenzus",
             "lang": "pt-BR",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MR Tenzus",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MR Tenzus",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

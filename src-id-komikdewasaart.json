@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:40:15.284018294Z",
+    "generatedAt": "2026-11-23T13:19:05.069633137Z",
     "module": ":src:id:komikdewasaart",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "582615a3",
     "sources": [
         {
             "sourceId": 6053881646324024096,
             "name": "Komik Dewasa Art",
             "lang": "id",
             "baseUrl": "https://komikdewasa.art",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 748,
+                    "durationMs": 1017,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 776,
+                    "durationMs": 4784,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,20 +42,16 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 233,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
-                    "samples": [
-                        "Rahasia Inmon, Jejak Terlarang Di Tubuh Sang Gadis -> /komik/rahasia-inmon-jejak-terlarang-di-tubuh-sang-gadis/",
-                        "Preman Yang Tiba-Tiba Jadi Cewek Dan Digarap Incha -> /komik/preman-yang-tiba-tiba-jadi-cewek-dan-digarap-incha/",
-                        "Cewek Pendiam Yang Ternyata Mesum Banget Dan Gila Di Ranjang -> /komik/cewek-pendiam-yang-ternyata-mesum-banget-dan-gila-di-ranjang/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,57 +60,69 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 9485,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
-                    "samples": [
-                        "Komik Fasik Surti (NO SENSOR) -> /komik/komik-fasik-surti/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 211,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chapter 15 - Istri Yang Tak Pernah Puas -> /komik-fasik-surti-no-sensor-chapter-15/",
-                        "Chapter 14 - Tukang Sayur -> /komik-fasik-surti-no-sensor-chapter-14/",
-                        "Chapter 13 - Salah Masukin Barang -> /komik-fasik-surti-no-sensor-chapter-13/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 44425,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 587,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://warungkomikcdn.icu/kakarotto/id-01.jpg",
-                        "https://warungkomikcdn.icu/kakarotto/p3TLcAeS-id-02.jpg",
-                        "https://warungkomikcdn.icu/kakarotto/bGsfiTEJ-id-03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 622,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:52.308026712Z",
+    "comparedTo": "2026-10-30T01:40:15.284018294Z",
     "changes": [
         {
             "source": "Komik Dewasa Art",
             "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Komik Dewasa Art",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Komik Dewasa Art",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Komik Dewasa Art",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Komik Dewasa Art",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []
