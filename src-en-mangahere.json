@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-23T13:13:16.966381849Z",
+    "generatedAt": "2026-11-24T14:07:37.257726614Z",
     "module": ":src:en:mangahere",
     "sourceRoot": "",
-    "extensionCommit": "582615a3",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 2,
             "name": "Mangahere",
             "lang": "en",
             "baseUrl": "https://www.mangahere.cc",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 284,
+                    "durationMs": 470,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1995,
+                    "durationMs": 1752,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 2003,
+                    "durationMs": 1983,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The Hero's Ballad -> /manga/the_hero_s_ballad/",
-                        "A Wimp's Strategy Guide to Conquer the Tower -> /manga/a_wimp_s_strategy_guide_to_conquer_the_tower/",
-                        "Got a Gallery in the Wild -> /manga/got_a_gallery_in_the_wild/"
+                        "The Third-Generation Chaebol Who Takes It All -> /manga/the_third_generation_chaebol_who_takes_it_all/",
+                        "Teto X Egen -> /manga/teto_x_egen/",
+                        "I Start With Mythical Talent, One Sword Slays Kings! -> /manga/i_start_with_mythical_talent_one_sword_slays_kings/"
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1890,
+                    "durationMs": 1988,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +77,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 4007,
+                    "durationMs": 3992,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,42 +88,32 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2265,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.mangahere.cc/manga/onepunch_man/c241/chapterfun.ashx?cid=1793263&page=1&key=0533217c5da51f20#https://www.mangahere.cc/manga/onepunch_man/c241/1.html",
-                        "https://www.mangahere.cc/manga/onepunch_man/c241/chapterfun.ashx?cid=1793263&page=2&key=0533217c5da51f20#https://www.mangahere.cc/manga/onepunch_man/c241/1.html",
-                        "https://www.mangahere.cc/manga/onepunch_man/c241/chapterfun.ashx?cid=1793263&page=3&key=0533217c5da51f20#https://www.mangahere.cc/manga/onepunch_man/c241/1.html"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 361,
-                    "message": null,
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 2035,
+                    "message": "NullPointerException at Mangahere.getPageList$suspendImpl(Mangahere.kt:248)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T12:00:54.166960466Z",
+    "comparedTo": "2026-11-23T13:13:16.966381849Z",
     "changes": [
         {
             "source": "Mangahere",
             "lang": "en",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Mangahere",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

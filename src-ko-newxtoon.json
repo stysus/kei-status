@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:23:46.808922897Z",
+    "generatedAt": "2026-11-24T14:16:15.070030407Z",
     "module": ":src:ko:newxtoon",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 1562897350957827542,
             "name": "NewXToon",
             "lang": "ko",
             "baseUrl": "https://newxtoon5.com",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 366,
+                    "status": "PASS",
+                    "durationMs": 408,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 403"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 90,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 280,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "외모지상주의 -> 8067",
+                        "화산귀환 -> 1876",
+                        "나 혼자만 레벨업 -> 4492"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 28,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 305,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "더 스트리머 -> 17594",
+                        "쾌변일지 -> 17589",
+                        "은빛 눈이 반짝이던 -> 17661"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,47 +63,100 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 349,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "외모지상주의 -> 8067"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 4894,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "624화 -> /comics/8067/chapters/1062999",
+                        "623화 -> /comics/8067/chapters/1062993",
+                        "622화 -> /comics/8067/chapters/1062991"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 244,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://user281.quicksharefiles.top/chapters/2184735/624/605d7ef51cb9795cbfdb99261b555900.webp",
+                        "https://user281.quicksharefiles.top/chapters/2184735/624/8ff7dbb5b0158f614d74d99d7ff7c8e9.webp",
+                        "https://user281.quicksharefiles.top/chapters/2184735/624/b0bdf43bcbd9cbdb5c9c150d3c8a2e35.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 442,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:25:40.551835881Z",
+    "comparedTo": "2026-11-13T11:23:46.808922897Z",
     "changes": [
         {
             "source": "NewXToon",
             "lang": "ko",
-            "scenario": null,
-            "from": null,
-            "to": "BLOCKED"
+            "scenario": "connectivity",
+            "from": "WARN",
+            "to": "PASS"
         },
         {
-            "source": ":src:ko:newxtoon",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
+            "source": "NewXToon",
+            "lang": "ko",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "NewXToon",
+            "lang": "ko",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "NewXToon",
+            "lang": "ko",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "NewXToon",
+            "lang": "ko",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "NewXToon",
+            "lang": "ko",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "NewXToon",
+            "lang": "ko",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

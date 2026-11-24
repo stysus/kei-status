@@ -1,21 +1,21 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-23T13:20:59.647571215Z",
+    "generatedAt": "2026-11-24T14:26:04.282499374Z",
     "module": ":src:zh:jiuermanhua",
     "sourceRoot": "",
-    "extensionCommit": "582615a3",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 1520913911854846698,
             "name": "92漫画",
             "lang": "zh",
             "baseUrl": "http://www.92mh.com",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
                     "status": "WARN",
-                    "durationMs": 2,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [
                         "baseUrl is not https: http://www.92mh.com"
@@ -25,7 +25,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 82,
+                    "durationMs": 76,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -33,7 +33,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 42,
+                    "durationMs": 20,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -45,19 +45,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 954,
+                    "durationMs": 975,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "星期一的丰满 -> /manhua/11/",
-                        "交往对象是普通人 -> /manhua/7690/",
-                        "祭尸忌鲤 -> /manhua/7567/"
+                        "南方的勇者死了 -> /manhua/7675/",
+                        "怜香、绽露，爱至深处 融化在重男后辈的甜蜜执着性爱 -> /manhua/7357/",
+                        "66666年后复活的黑魔法师 -> /manhua/7318/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -66,18 +66,18 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 2681,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "暴夜 -> /manhua/1212/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 148,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 94,
+                    "durationMs": 882,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,49 +88,40 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 999,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cover.alltucdn.cc/images/comic/174/347968/1773840682XowhCC93DoW8NZaV.jpg",
-                        "https://cover.alltucdn.cc/images/comic/174/347968/177384068047-ZIIqDFAYJNJeS.jpg",
-                        "https://cover.alltucdn.cc/images/comic/174/347968/1773840679WUhX5sNew5I58KB6.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1568,
-                    "message": null,
-                    "notes": [],
+                    "status": "SKIP",
+                    "durationMs": 1046,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403",
+                        "pages are only checked on a chapter that needs no unlock"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-22T11:46:07.303649169Z",
+    "comparedTo": "2026-11-23T13:20:59.647571215Z",
     "changes": [
         {
             "source": "92漫画",
             "lang": "zh",
-            "scenario": "chapters",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "scenario": "search",
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "92漫画",
             "lang": "zh",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "92漫画",
             "lang": "zh",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

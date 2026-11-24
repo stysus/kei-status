@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:33:34.274095849Z",
+    "generatedAt": "2026-11-24T14:05:38.045327038Z",
     "module": ":src:en:hentaipill",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 5744141040135150417,
             "name": "HentaiPill",
             "lang": "en",
             "baseUrl": "https://hentaipill.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 675,
+                    "status": "WARN",
+                    "durationMs": 211,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 350,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "[Takayuki Hiyori] Aiyoku Gensou no Kai -Cthulhu Pregnant- [English] [Seyzer Koze, ChoriScans] -> g117376",
-                        "[Anrakugai] Saiai no Kanojo no Chitai ~Senpai no Omocha ni Sareteita Koibito~ [English] [Raknnkarscans] [SFX Translation] -> g25661",
-                        "[Izayoi Seishin, Yamasaki Masato] Boshi Double Soukan [English] [Tadanohito + Sei-Jin] [decensored] -> g117579"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 80,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 164,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "[AsstroNsfw] Vicky (The Fairly Oddparents) (Animated - Ongoing) -> g106965",
-                        "[Fontez] Killer Frost: Playing Hooky (Suicide Squad) -> g106939",
-                        "[SunsetSkyline] Malfoid (Harry Potter AU) -> g106964"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 69,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,56 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 93,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "[Takayuki Hiyori] Aiyoku Gensou no Kai -Cthulhu Pregnant- [English] [Seyzer Koze, ChoriScans] -> g117376"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 172,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter -> g117376"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 173,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://b1.hentaipill.me/picture/491469-1.jpg",
-                        "https://b1.hentaipill.me/picture/491469-2.jpg",
-                        "https://b1.hentaipill.me/picture/491469-3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1395,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:09.996992513Z",
+    "comparedTo": "2026-10-30T01:33:34.274095849Z",
     "changes": [
         {
             "source": "HentaiPill",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "HentaiPill",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "HentaiPill",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "HentaiPill",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiPill",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiPill",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiPill",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

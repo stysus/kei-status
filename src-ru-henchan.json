@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-23T13:13:18.712091208Z",
+    "generatedAt": "2026-11-24T14:14:13.912181530Z",
     "module": ":src:ru:henchan",
     "sourceRoot": "",
-    "extensionCommit": "582615a3",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 5504588601186153612,
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 769,
+                    "durationMs": 1483,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 846,
+                    "status": "WARN",
+                    "durationMs": 319,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Kono, Hikyoumono!! -> /manga/16866-kono-hikyoumono.html",
-                        "Kyoushi to Seito to - глава 1 -> /manga/9179-kyoushi-to-seito-to-glava-1.html",
-                        "Pandemonium - часть 1 -> /manga/17531-pandemonium-chast-1.html"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 466,
+                    "status": "WARN",
+                    "durationMs": 382,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Tasha Henshin no Golem Girl - Глава 8 -> /manga/55796-tasha-henshin-no-golem-girl-glava-8.html",
-                        "Дафни и Велма -> /manga/55795-dafni-i-velma.html",
-                        "Переполняясь Чернотой - Глава 1 -> /manga/55794-perepolnyayas-chernotoy-glava-1.html"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,72 +59,61 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 2968,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Kono, Hikyoumono!! -> /manga/16866-kono-hikyoumono.html"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "WARN",
-                    "durationMs": 228,
-                    "message": null,
-                    "notes": [
-                        "chapter list is empty"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-21T11:27:21.529912914Z",
+    "comparedTo": "2026-11-23T13:13:18.712091208Z",
     "changes": [
         {
             "source": "HenChan",
             "lang": "ru",
-            "scenario": "connectivity",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "HenChan",
-            "lang": "ru",
             "scenario": "popular",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "latest",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "HenChan",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "HenChan",
             "lang": "ru",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "HenChan",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:28:05.832193552Z",
+    "generatedAt": "2026-11-24T14:16:07.334399988Z",
     "module": ":src:en:hentaiforce",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 3523945650915299214,
             "name": "HentaiForce",
             "lang": "en",
             "baseUrl": "https://hentaiforce.net",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 198,
+                    "status": "WARN",
+                    "durationMs": 365,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 500"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 46,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "[Jay R. Naylor] The Fall Of Little Red Riding Hood (Ch.1-4) Full color {color enhanced by: Necrotechian} -> 138131",
-                        "[KimMundo] 리그 오브 티모 - League of Teemo (League of Legends) [English] {Bohem No. 3} -> 12083",
-                        "[LemonFont] Shapeshifter Part 1-3 -> 4243"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 84,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 903,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "[BLACK DOG (Kuroinu Juu)] Mami no Meikyuu 3 Toaru Futsuu no Hitozuma Hen | An ordinary housewife Episode [English] [Linie] [Decensored] [Digital] -> 745016",
-                        "[Super Melons] Hinata : The Failed (Naruto) [ENGLISH] -> 745013",
-                        "[肥鹅不腻]知更鸟抱枕（重口注意） -> 745010"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 769,
+                    "message": "the site's origin server is not responding (HTTP 500); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 500"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,49 +61,83 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 78,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "[Jay R. Naylor] The Fall Of Little Red Riding Hood (Ch.1-4) Full color {color enhanced by: Necrotechian} -> 138131"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 939,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter -> 138131"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 61,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://m1.hentaiforce.me/img/795560-1.jpg",
-                        "https://m1.hentaiforce.me/img/795560-2.jpg",
-                        "https://m1.hentaiforce.me/img/795560-3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 114,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
+    "comparedTo": "2026-11-08T13:28:05.832193552Z",
+    "changes": [
+        {
+            "source": "HentaiForce",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "HentaiForce",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "HentaiForce",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "HentaiForce",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiForce",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiForce",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "HentaiForce",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:41:34.904107019Z",
+    "generatedAt": "2026-11-24T14:18:39.501633295Z",
     "module": ":src:tr:yaoiflix",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 9083257818102461515,
             "name": "Yaoi Flix",
             "lang": "tr",
             "baseUrl": "https://yaoiflix.fit",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 885,
+                    "durationMs": 2766,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 390,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 843,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Jinx -> 57",
-                        "Waterside Night -> 73",
-                        "Dangerous Convenience Store -> 319"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 366,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 833,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "A Guide Thicker Than Blood -> 780",
-                        "A Tree Without Roots -> 302",
-                        "Heaven Official’s Blessing -> 778"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,101 +55,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 862,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Juyeon’s Jinx -> 590",
-                        "Love Jinx -> 175",
-                        "Jinx -> 57"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 517,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Bölüm 102.5 - Çizer Notu -> bolum-102-5",
-                        "Bölüm 102 - Final -> bolum-102",
-                        "Bölüm 101 -> bolum-101"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1041,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://yaoicdn.xyz/mindafansub/manga_6ae4974eeef1a/bolum-102-5/0000.png",
-                        "https://yaoicdn.xyz/mindafansub/manga_6ae4974eeef1a/bolum-102-5/0001.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1448,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-04T11:26:49.304149858Z",
+    "comparedTo": "2026-11-08T13:41:34.904107019Z",
     "changes": [
         {
             "source": "Yaoi Flix",
             "lang": "tr",
-            "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Yaoi Flix",
-            "lang": "tr",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Yaoi Flix",
             "lang": "tr",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Yaoi Flix",
-            "lang": "tr",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Yaoi Flix",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Yaoi Flix",
+            "lang": "tr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Yaoi Flix",
             "lang": "tr",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Yaoi Flix",
             "lang": "tr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

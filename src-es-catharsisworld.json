@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:18:01.835193197Z",
+    "generatedAt": "2026-11-24T14:05:56.536714522Z",
     "module": ":src:es:catharsisworld",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 2240276887816651754,
             "name": "Catharsis World",
             "lang": "es",
             "baseUrl": "https://newcatharsis.dig-it.info",
-            "status": "FAIL",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,37 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 347,
+                    "durationMs": 407,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 139,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Lágrimas entre Flores Marchitas -> 83",
-                        "Amor Accidental -> 82",
-                        "Demasiado cercanos para ser solo amigos -> 85"
-                    ]
+                    "status": "SKIP",
+                    "durationMs": 74,
+                    "message": "not supported by this source",
+                    "notes": [
+                        "java.io.IOException: Actualiza Android System WebView para leer este sitio",
+                        "java.lang.UnsupportedOperationException: CUSTOM_REQUEST_HEADERS is not supported on this WebView (requires Chromium 142+)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 142,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Corrosión -> 711",
-                        "Como Escapar de las Garras del Sultán -> 2321",
-                        "El Proyecto del Huevo -> 1248"
-                    ]
+                    "status": "SKIP",
+                    "durationMs": 1971,
+                    "message": "not supported by this source",
+                    "notes": [
+                        "java.io.IOException: Actualiza Android System WebView para leer este sitio",
+                        "java.lang.UnsupportedOperationException: CUSTOM_REQUEST_HEADERS is not supported on this WebView (requires Chromium 142+)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 6,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,39 +61,69 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 588,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Lágrimas entre Flores Marchitas -> 83"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 281,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 126 -> 83/126",
-                        "Capítulo 125 -> 83/125",
-                        "Capítulo 124 -> 83/124"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "FAIL",
-                    "durationMs": 1083,
-                    "message": "The site's reader changed, update the extension",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:33:58.600824876Z",
-    "changes": [],
+    "comparedTo": "2026-11-13T11:18:01.835193197Z",
+    "changes": [
+        {
+            "source": "Catharsis World",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Catharsis World",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Catharsis World",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Catharsis World",
+            "lang": "es",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Catharsis World",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "FAIL",
+            "to": "SKIP"
+        }
+    ],
     "throttledHosts": []
 }

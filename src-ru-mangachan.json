@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-23T13:16:41.908329888Z",
+    "generatedAt": "2026-11-24T14:12:18.848786816Z",
     "module": ":src:ru:mangachan",
     "sourceRoot": "",
-    "extensionCommit": "582615a3",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 7,
             "name": "MangaChan",
             "lang": "ru",
             "baseUrl": "https://im.manga-chan.me",
-            "status": "DOWN",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 397,
+                    "durationMs": 412,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 452,
+                    "durationMs": 4243,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 793,
+                    "durationMs": 2711,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,54 +76,65 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "DOWN",
-                    "durationMs": 150,
-                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1577,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Том 2 Глава 260 -> /online/391162-girl-the-wilds_v2_ch260.html",
+                        "Том 2 Глава 259 -> /online/391154-girl-the-wilds_v2_ch259.html",
+                        "Том 2 Глава 258 -> /online/373978-girl-the-wilds_v2_ch258.html"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 2457,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://img2.manga-chan.me/manga/g/1364717603_girl-the-wilds_v1_ch1/0001.avif",
+                        "https://img2.manga-chan.me/manga/g/1364717603_girl-the-wilds_v1_ch1/0002.avif",
+                        "https://img2.manga-chan.me/manga/g/1364717603_girl-the-wilds_v1_ch1/0003.avif"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 205,
+                    "message": null,
+                    "notes": [
+                        "page[0] image request failed: ConnectException: Failed to connect to img2.manga-chan.me/5.9.95.30:443",
+                        "page[1] image request failed: ConnectException: Failed to connect to img2.manga-chan.me/5.9.95.30:443",
+                        "page[2] image request failed: ConnectException: Failed to connect to img2.manga-chan.me/5.9.95.30:443"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-22T11:50:39.058869033Z",
+    "comparedTo": "2026-11-23T13:16:41.908329888Z",
     "changes": [
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "popular",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "latest",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "MangaChan",
-            "lang": "ru",
             "scenario": "chapters",
+            "from": "DOWN",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaChan",
+            "lang": "ru",
+            "scenario": "pages",
             "from": "SKIP",
-            "to": "DOWN"
+            "to": "PASS"
+        },
+        {
+            "source": "MangaChan",
+            "lang": "ru",
+            "scenario": "images",
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

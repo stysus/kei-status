@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:25:38.908363025Z",
+    "generatedAt": "2026-11-24T14:10:43.841088043Z",
     "module": ":src:en:mangade",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 3447999145778061665,
             "name": "MangaDE",
             "lang": "en",
             "baseUrl": "https://mangade.io",
-            "status": "DOWN",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,41 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "DOWN",
-                    "durationMs": 182,
-                    "message": "the site is unreachable (Connection refused (connect failed)); the source is not at fault",
-                    "notes": [
-                        "java.net.ConnectException: Failed to connect to mangade.io/104.239.47.50:443",
-                        "java.net.ConnectException: Connection refused (connect failed)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 839,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 182,
-                    "message": "the site is unreachable (Connection refused (connect failed)); the source is not at fault",
-                    "notes": [
-                        "java.net.ConnectException: Failed to connect to api.mangade.io/104.239.47.50:443",
-                        "java.net.ConnectException: Connection refused (connect failed)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1035,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "One Piece -> /one-piece?mid=45719",
+                        "Maou to Ryuuou ni Sodaterareta Shounen wa Gakuen Seikatsu wo Musou suru You desu -> /maou-to-ryuuou-ni-sodaterareta-shounen-wa-gakuen-seikatsu-wo-musou-suru-you-desu?mid=46546",
+                        "Secret Class -> /secret-class?mid=43659"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 134,
-                    "message": "the site is unreachable (Connection refused (connect failed)); the source is not at fault",
-                    "notes": [
-                        "java.net.ConnectException: Failed to connect to api.mangade.io/104.239.47.50:443",
-                        "java.net.ConnectException: Connection refused (connect failed)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 394,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Starting From Today I’ll Work As A City Lord -> /starting-from-today-ill-work-as-a-city-lord?mid=49586",
+                        "Dirty Marriage -> /dirty-marriage?mid=49585",
+                        "Friendly Rivalry -> /friendly-rivalry?mid=49581"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,82 +63,100 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 555,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "One Piece -> /one-piece?mid=45719"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 782,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 1157 -> /one-piece/chapter-1157?cid=779347&mid=45719",
+                        "Chapter 1156 -> /one-piece/chapter-1156?cid=779343&mid=45719",
+                        "Chapter 1155 -> /one-piece/chapter-1155?cid=779339&mid=45719"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 318,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://s3-load.ttr.group/manga/en-uploads/45719/2291711/1755917813856_533_image.jpg",
+                        "https://s3-load.ttr.group/manga/en-uploads/45719/2291711/1755917814285_549_image.jpg",
+                        "https://s3-load.ttr.group/manga/en-uploads/45719/2291711/1755917815204_386_image.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1587,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:31:40.275587799Z",
+    "comparedTo": "2026-11-21T11:25:38.908363025Z",
     "changes": [
         {
             "source": "MangaDE",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "MangaDE",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "MangaDE",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "MangaDE",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "MangaDE",
             "lang": "en",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "MangaDE",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MangaDE",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MangaDE",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

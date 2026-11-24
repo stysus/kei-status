@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-23T13:13:53.341933204Z",
+    "generatedAt": "2026-11-24T14:11:00.778877374Z",
     "module": ":src:id:mangalay",
     "sourceRoot": "",
-    "extensionCommit": "582615a3",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 7859511511298731707,
@@ -25,20 +25,22 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 303,
+                    "durationMs": 1795,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "THROTTLED",
-                    "durationMs": 7205,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 424,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "WORST GAIDEN -> /2013/04/list-baca-komik-worst-gaiden-bahasa.html",
+                        "WORST -> /2013/04/list-baca-komik-worst.html",
+                        "Next Crows Supplementary Story -> /2013/05/list-baca-komik-next-crows.html"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -50,75 +52,67 @@
                 },
                 {
                     "name": "filters",
-                    "status": "SKIP",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "mangalay.blogspot.com answered HTTP 429 earlier in this run",
+                    "message": null,
                     "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "samples": [
+                        "0 filters"
+                    ]
                 },
                 {
                     "name": "search",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "message": "not supported by this source",
+                    "notes": [
+                        "java.lang.UnsupportedOperationException: <no message>"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "THROTTLED",
+                    "durationMs": 7484,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-22T11:51:27.259882573Z",
+    "comparedTo": "2026-11-23T13:13:53.341933204Z",
     "changes": [
         {
             "source": "Mangalay",
             "lang": "id",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "Mangalay",
             "lang": "id",
             "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Mangalay",
             "lang": "id",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Mangalay",
-            "lang": "id",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Mangalay",
-            "lang": "id",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "SKIP",
+            "to": "THROTTLED"
         }
     ],
     "throttledHosts": [

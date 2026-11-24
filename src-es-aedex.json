@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T12:00:59.360057753Z",
+    "generatedAt": "2026-11-24T14:07:10.188092234Z",
     "module": ":src:es:aedex",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 4334604114708629478,
             "name": "Aedex",
             "lang": "es",
             "baseUrl": "https://aedexnox.com",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 436,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from aedexnox.com (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 421,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 152,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from aedexnox.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 487,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Lágrimas entre Flores Marchitas -> lagrimas-entre-flores-marchitas",
+                        "Amor Accidental -> amor-accidental",
+                        "Plan De Intercambio De Madres -> plan-de-intercambio-de-madres"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 72,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from aedexnox.com (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 222,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Asmodeck: Un Juego De Deseo -> asmodeck-un-juego-de-deseo",
+                        "Conexión Inalámbrica -> conexion-inalambrica",
+                        "Carpeta De Favoritos.ZIP -> carpeta-de-favoritos-zip"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,75 +63,81 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 987,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Lágrimas entre Flores Marchitas -> lagrimas-entre-flores-marchitas"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 207,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Capítulo 126 -> lagrimas-entre-flores-marchitas/126",
+                        "Capítulo 125 -> lagrimas-entre-flores-marchitas/125",
+                        "Capítulo 124 -> lagrimas-entre-flores-marchitas/124"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 2285,
+                    "message": "Turn off your VPN or proxy to read on this site",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-13T11:18:30.500083888Z",
+    "comparedTo": "2026-11-19T12:00:59.360057753Z",
     "changes": [
         {
             "source": "Aedex",
             "lang": "es",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Aedex",
             "lang": "es",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Aedex",
             "lang": "es",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "Aedex",
-            "lang": "es",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Aedex",
             "lang": "es",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Aedex",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Aedex",
             "lang": "es",
             "scenario": "pages",
-            "from": "FAIL",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "FAIL"
         }
     ],
     "throttledHosts": []

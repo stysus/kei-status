@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-23T13:09:48.178144512Z",
+    "generatedAt": "2026-11-24T14:03:42.584993354Z",
     "module": ":src:all:historyofhyrule",
     "sourceRoot": "",
-    "extensionCommit": "582615a3",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 1995287596306677267,
             "name": "History of Hyrule",
             "lang": "all",
             "baseUrl": "https://historyofhyrule.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 376,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30099,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 707,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Hyrule Fantasy -> /publications/manga_loz_en/",
-                        "The Adventure of Link vol. 1 -> /publications/manga_aol_1/",
-                        "The Adventure of Link vol. 2 -> /publications/manga_aol_2/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30033,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -59,94 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 44,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The Hyrule Fantasy -> /publications/manga_loz_en/",
-                        "The Hyrule Fantasy -> /publications/manga_loz_wan/",
-                        "The Hyrule Fantasy -> /publications/manga_old_loz_trans/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 76,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "English Language Version -> /publications/manga_loz_en/",
-                        "Japanese Language Version -> /publications/manga_loz/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 267,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://historyofhyrule.com/publications/manga_loz_en/pages/cover.jpg",
-                        "https://historyofhyrule.com/publications/manga_loz_en/pages/001.jpg",
-                        "https://historyofhyrule.com/publications/manga_loz_en/pages/002.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 347,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T11:55:52.340313086Z",
+    "comparedTo": "2026-11-23T13:09:48.178144512Z",
     "changes": [
         {
             "source": "History of Hyrule",
             "lang": "all",
             "scenario": "connectivity",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "History of Hyrule",
             "lang": "all",
             "scenario": "popular",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "History of Hyrule",
-            "lang": "all",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "History of Hyrule",
             "lang": "all",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "History of Hyrule",
+            "lang": "all",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "History of Hyrule",
             "lang": "all",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "History of Hyrule",
             "lang": "all",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

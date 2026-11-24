@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:38:15.367794871Z",
+    "generatedAt": "2026-11-24T14:19:39.388244794Z",
     "module": ":src:ja:mangaupjapan",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 697820552173578283,
             "name": "Manga UP! (Japan)",
             "lang": "ja",
             "baseUrl": "https://www.manga-up.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 866,
+                    "durationMs": 711,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 354,
+                    "status": "WARN",
+                    "durationMs": 344,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "酔った華にはウラがある -> /titles/1762",
-                        "凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録 -> /titles/1069",
-                        "おっさん冒険者の遅れた英雄譚　感謝の素振りを１日１万回していたら､剣聖が弟子入り志願にやってきた -> /titles/1597"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 241,
+                    "status": "WARN",
+                    "durationMs": 125,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "酔った華にはウラがある -> /titles/1762",
-                        "おっさん冒険者の遅れた英雄譚　感謝の素振りを１日１万回していたら､剣聖が弟子入り志願にやってきた -> /titles/1597",
-                        "スノードロップ～あなたの死を望みます～ -> /titles/1740"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,56 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 230,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "酔った華にはウラがある -> /titles/1762"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 284,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 (Preview) 十二杯目 - じんわりアフターアワーズ - ② -> 349914#1762",
-                        "🔒 (Preview) 十二杯目 - じんわりアフターアワーズ - ① -> 349911#1762",
-                        "🔒 (Preview) 十一杯目 - はらはらホワイトライ - ② -> 349266#1762"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 151,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://ja-img.manga-up.com/secure/1792378512/manga/high/1363i2630_o/1363i2630_o_012.webp?hash=7EEu5hTmnTCLFJqDKCi6uw&expires=1793412000"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 939,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:36:40.074719470Z",
+    "comparedTo": "2026-10-30T01:38:15.367794871Z",
     "changes": [
         {
             "source": "Manga UP! (Japan)",
             "lang": "ja",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manga UP! (Japan)",
+            "lang": "ja",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manga UP! (Japan)",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga UP! (Japan)",
+            "lang": "ja",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga UP! (Japan)",
+            "lang": "ja",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manga UP! (Japan)",
+            "lang": "ja",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

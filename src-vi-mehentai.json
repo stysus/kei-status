@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:47:45.074721154Z",
+    "generatedAt": "2026-11-24T14:12:16.811249072Z",
     "module": ":src:vi:mehentai",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 1503074002208879050,
             "name": "MeHentai",
             "lang": "vi",
             "baseUrl": "https://mehentai.live",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 2937,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30192,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2087,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Sextoy kết nối không dây (Wireless Onahole) -> /truyen/sextoy-ket-noi-khong-day-wireless-onahole",
-                        "Mối Quan Hệ Không Nên Có -> /truyen/moi-quan-he-khong-nen-co",
-                        "Anna Ojou-sama no Yashikinai Ryuugaku | Mistress Anna Studies Abroad in a Mansion -> /truyen/anna-ojou-sama-no-yashikinai-ryuugaku-mistress-anna-studies-abroad-in-a-mansion-4131373"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30005,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1617,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Saba 07 Dog Mansion -> /truyen/saba-07-dog-mansion-4344834",
-                        "Mùa hè thỏa mãn -> /truyen/mua-he-thoa-man",
-                        "Chuyện Tình 18+ Phần 2 -> /truyen/chuyen-tinh-18-phan-2"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30002,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,53 +61,83 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 955,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Sextoy kết nối không dây (Wireless Onahole) -> /truyen/sextoy-ket-noi-khong-day-wireless-onahole"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1095,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 130 -> /truyen/sextoy-ket-noi-khong-day-wireless-onahole/chuong/chuong-130",
-                        "Chapter 129 -> /truyen/sextoy-ket-noi-khong-day-wireless-onahole/chuong/chuong-129",
-                        "Chapter 128 -> /truyen/sextoy-ket-noi-khong-day-wireless-onahole/chuong/chuong-128"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 1356,
-                    "message": null,
-                    "notes": [
-                        "duplicate page urls: [https://api.khotruyen.site/api/assets/9758685/content?expires=1797882193&signature=f81ee6ac472ac84e838a9b86baa0159c5a90d4503f95789d9f304a6f6bc34a82&proxy=1, https://api.khotruyen.site/api/assets/9758686/content?expires=1797882193&signature=04dfe6a05bc200a767e7138e409cf9342f10987958f937406196d3b1dc8701a3&proxy=1, https://api.khotruyen.site/api/assets/9758687/content?expires=1797882193&signature=1129b33fb4d55a85cca0b91a69e1f4d940bed23fbf418e870845ce5e0274f8b2&proxy=1]"
-                    ],
-                    "samples": [
-                        "https://api.khotruyen.site/api/assets/9758684/content?expires=1797882193&signature=3cbb8ec793a9942f7ce5d0c99ec8fac1bb0f2abb73fc4208038a50e1a2dd157b&proxy=1&kt=eyJwIjoxNCwicyI6InNleHRveS1rZXQtbm9pLWtob25nLWRheS13aXJlbGVzcy1vbmFob2xlIiwiYyI6ImNodW9uZy0xMzAiLCJlIjoxNzk3ODgyMTkzfQ.PdlGGyLQasYtn5JDo78a5Js0uohb-XuXvId6SvecjFI",
-                        "https://api.khotruyen.site/api/assets/9758685/content?expires=1797882193&signature=f81ee6ac472ac84e838a9b86baa0159c5a90d4503f95789d9f304a6f6bc34a82&proxy=1",
-                        "https://api.khotruyen.site/api/assets/9758685/content?expires=1797882193&signature=f81ee6ac472ac84e838a9b86baa0159c5a90d4503f95789d9f304a6f6bc34a82&proxy=1"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 11641,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T12:03:20.138933963Z",
-    "changes": [],
+    "comparedTo": "2026-11-22T11:47:45.074721154Z",
+    "changes": [
+        {
+            "source": "MeHentai",
+            "lang": "vi",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "MeHentai",
+            "lang": "vi",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "MeHentai",
+            "lang": "vi",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "MeHentai",
+            "lang": "vi",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MeHentai",
+            "lang": "vi",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MeHentai",
+            "lang": "vi",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "MeHentai",
+            "lang": "vi",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

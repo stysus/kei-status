@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-23T13:20:31.462713259Z",
+    "generatedAt": "2026-11-24T14:06:58.094835310Z",
     "module": ":src:fr:scanmanga",
     "sourceRoot": "",
-    "extensionCommit": "582615a3",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 2062108502806113139,
             "name": "Scan-Manga",
             "lang": "fr",
             "baseUrl": "https://m.scan-manga.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,37 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 791,
+                    "status": "WARN",
+                    "durationMs": 143,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 404"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 309,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 40,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Swordmaster's Youngest Son -> /10834-12372/Swordmaster-s-Youngest-Son.html",
-                        "A Dragonslayer's Peerless Regression -> /14952/A-Dragonslayer-s-Peerless-Regression.html",
-                        "Legendary Hero Is an Academy Honors Student -> /14951-62431/Legendary-Hero-Is-an-Academy-Honors-Student.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 426,
-                    "message": null,
-                    "notes": [
-                        "duplicate manga urls: [/11538-95491/Dungeon-Odyssey.html, /16450/High-Martial-World-One-Hand-to-Overwhelm-Three-Thousand-Emperors.html, /17429/Double-Kill.html]"
-                    ],
-                    "samples": [
-                        "A Life Changing Turn -> /13625/A-Life-Changing-Turn.html",
-                        "I Became a Genius at the Academy in a World Where Magic Reigns Supreme -> /17479/I-Became-a-Genius-at-the-Academy-in-a-World-Where-Magic-Reigns-Supreme.html",
-                        "The Villainess Caruna Has Become a Child -> /9938-70606/The-Villainess-Caruna-Has-Become-a-Child.html"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 44,
+                    "message": "HTTP error 404",
+                    "notes": [],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -65,41 +57,69 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 360,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Swordmaster's Youngest Son -> /10834-12372/Swordmaster-s-Youngest-Son.html"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 357,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Ch. 222 -> /lecture-en-ligne/Swordmaster-s-Youngest-Son-Chapitre-222-FR_585010.html",
-                        "Ch. 221 -> /lecture-en-ligne/Swordmaster-s-Youngest-Son-Chapitre-221-FR_583837.html",
-                        "Ch. 220 -> /lecture-en-ligne/Swordmaster-s-Youngest-Son-Chapitre-220-FR_582569.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
-                    "durationMs": 72,
-                    "message": "not supported by this source",
-                    "notes": [
-                        "java.lang.UnsupportedOperationException: CUSTOM_REQUEST_HEADERS is not supported on this WebView (requires Chromium 142+)"
-                    ],
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-22T11:43:58.034074652Z",
-    "changes": [],
+    "comparedTo": "2026-11-23T13:20:31.462713259Z",
+    "changes": [
+        {
+            "source": "Scan-Manga",
+            "lang": "fr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Scan-Manga",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Scan-Manga",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "WARN",
+            "to": "FAIL"
+        },
+        {
+            "source": "Scan-Manga",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Scan-Manga",
+            "lang": "fr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        }
+    ],
     "throttledHosts": []
 }

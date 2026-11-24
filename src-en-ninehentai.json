@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:43:55.759993517Z",
+    "generatedAt": "2026-11-24T14:16:33.131610461Z",
     "module": ":src:en:ninehentai",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 7689490563697355048,
             "name": "NineHentai",
             "lang": "en",
             "baseUrl": "https://9hentai.so",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1403,
+                    "status": "WARN",
+                    "durationMs": 428,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 502"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1977,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "[Kekesumi BOX (Kekesumi)] The Neighbor's Ex-Gyaru Mom Gets Ecchi in Her Thin Clothes [English] -> /g/155055",
-                        "[Team☆Lucky (Hoshi to Lucky)] A Pantsy Relationship With the Girl Next Door [English] -> /g/154837",
-                        "[RK-2] Tomodachi no Mama ga Boku no Dekachin de Ikimakutta Halloween | The Time When My Friend’s Mother Came on My Big Dick on Halloween [English] [Omega Scans] -> /g/154848"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 207,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1135,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "[Teenage Fanclub (Sakana Noko)] Daddy Doggy [Eng] -> /g/155312",
-                        "[Teenage Fanclub (Sakana Noko)] My Stepdad Extra Edition 2 [Eng] -> /g/155311",
-                        "[Teenage Fanclub (Sakana Noko)] My Stepdad Extra Edition 1 [Eng] -> /g/155310"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 203,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,54 +61,83 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 2766,
-                    "message": null,
-                    "notes": [
-                        "query \"The Neighbor's Ex-Gyaru Mom Gets Ecchi in Her Thin Clothes\" matched no results in the first page",
-                        "a retry without punctuation (\"The Neighbor s Ex Gyaru Mom Gets Ecchi in Her Thin Clothes\") also matched nothing"
-                    ],
-                    "samples": [
-                        "[Teenage Fanclub (Sakana Noko)] Daddy Doggy [Eng] -> /g/155312",
-                        "[Teenage Fanclub (Sakana Noko)] My Stepdad Extra Edition 2 [Eng] -> /g/155311",
-                        "[Teenage Fanclub (Sakana Noko)] My Stepdad Extra Edition 1 [Eng] -> /g/155310"
-                    ]
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 997,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter -> /g/155055"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1613,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://i.9hentai.so/images/155055/1.jpg",
-                        "https://i.9hentai.so/images/155055/2.jpg",
-                        "https://i.9hentai.so/images/155055/3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 19177,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-21T11:19:56.985406348Z",
-    "changes": [],
+    "comparedTo": "2026-11-22T11:43:55.759993517Z",
+    "changes": [
+        {
+            "source": "NineHentai",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "NineHentai",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "NineHentai",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "NineHentai",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NineHentai",
+            "lang": "en",
+            "scenario": "search",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "NineHentai",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NineHentai",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-23T13:18:44.550604631Z",
+    "generatedAt": "2026-11-24T14:11:09.613888633Z",
     "module": ":src:ar:orcamanga",
     "sourceRoot": "",
-    "extensionCommit": "582615a3",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 5634203247016722993,
@@ -22,20 +22,20 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 7544,
-                    "message": null,
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
                     "status": "THROTTLED",
-                    "durationMs": 7038,
+                    "durationMs": 7125,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "infinity896.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -81,41 +81,20 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-20T11:56:46.917376354Z",
+    "comparedTo": "2026-11-23T13:18:44.550604631Z",
     "changes": [
         {
             "source": "Orca Manga",
             "lang": "ar",
-            "scenario": "popular",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "Orca Manga",
             "lang": "ar",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Orca Manga",
-            "lang": "ar",
-            "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Orca Manga",
-            "lang": "ar",
-            "scenario": "chapters",
-            "from": "WARN",
-            "to": "SKIP"
-        },
-        {
-            "source": "Orca Manga",
-            "lang": "ar",
-            "scenario": "search",
-            "from": "PASS",
+            "scenario": "popular",
+            "from": "THROTTLED",
             "to": "SKIP"
         }
     ],

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:45:07.740013423Z",
+    "generatedAt": "2026-11-24T14:09:02.681905520Z",
     "module": ":src:en:mangahome",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 933332296024902732,
             "name": "MangaHome",
             "lang": "en",
             "baseUrl": "https://www.mangahome.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1657,
+                    "durationMs": 196,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,25 +31,25 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 564,
+                    "durationMs": 74,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Drunken My Boss -> drunken_my_boss",
-                        "Take a Peek -> take_a_peek",
-                        "Savor the Taste -> savor_the_taste"
+                        "Namaikizakari. -> namaikizakari",
+                        "Tsubaki-chou Lonely Planet -> tsubaki_chou_lonely_planet",
+                        "Take a Peek -> take_a_peek"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 3005,
+                    "durationMs": 94,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Regression of the Yong Clan Heir -> regression_of_the_yong_clan_heir",
-                        "World No. 0, Please Stop -> world_no_0_please_stop",
-                        "I’ve Become the Devil’s Master -> i_ve_become_the_devil_s_master"
+                        "The Third-Generation Chaebol Who Takes It All -> the_third_generation_chaebol_who_takes_it_all",
+                        "Teto X Egen -> teto_x_egen",
+                        "I Start With Mythical Talent, One Sword Slays Kings! -> i_start_with_mythical_talent_one_sword_slays_kings"
                     ]
                 },
                 {
@@ -65,62 +65,55 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 8221,
+                    "durationMs": 144,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Drunken My Boss -> drunken_my_boss"
+                        "Namaikizakari. -> namaikizakari"
                     ]
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 156,
+                    "status": "WARN",
+                    "durationMs": 68,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Ch 47 -> drunken_my_boss/c047",
-                        "Ch 46 -> drunken_my_boss/c046",
-                        "Ch 45 -> drunken_my_boss/c045"
-                    ]
+                    "notes": [
+                        "chapter list is empty"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 136,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.mangahome.com/manga/drunken_my_boss/c001/chapterfun.ashx?cid=1473177&page=1&key=",
-                        "https://www.mangahome.com/manga/drunken_my_boss/c001/chapterfun.ashx?cid=1473177&page=2&key=",
-                        "https://www.mangahome.com/manga/drunken_my_boss/c001/chapterfun.ashx?cid=1473177&page=3&key="
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 441,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-21T11:13:43.668873409Z",
+    "comparedTo": "2026-11-22T11:45:07.740013423Z",
     "changes": [
         {
             "source": "MangaHome",
             "lang": "en",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
-            "source": ":src:en:mangahome",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "MangaHome",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "MangaHome",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

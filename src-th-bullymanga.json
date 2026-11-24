@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-11T11:23:30.071322121Z",
+    "generatedAt": "2026-11-24T14:18:58.945838737Z",
     "module": ":src:th:bullymanga",
     "sourceRoot": "",
-    "extensionCommit": "d0478bb6",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 916548575565854572,
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 605,
+                    "durationMs": 528,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 383,
+                    "status": "WARN",
+                    "durationMs": 645,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Solo Leveling: Ragnarok โซโล่เลเวลลิ่ง แร็คนาร็อค -> /solo-leveling-ragnarok",
-                        "Chainsaw Man -> /chainsaw-man",
-                        "Legendary Youngest Son of the Marquis House -> /legendary-youngest-marquis"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 656,
+                    "status": "WARN",
+                    "durationMs": 647,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "สเปซมารีนผู้ปลุกหน้าต่างสถานะ A Space Marine Gets a Status Window -> /a-space-marine-gets-a-status-window",
-                        "อดีตแชมเปี้ยนไร้เทียมทาน จุติใหม่เป็นขยะของตระกูล The Clan’s Failure Is a Former Continental Champion -> /the-clans-failure-is-a-former-continental-champion",
-                        "This Killer Is a Son in Law -> /this-killer-is-a-son-in-law"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,56 +59,45 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 382,
-                    "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "query \"Solo Leveling: Ragnarok โซโล่เลเวลลิ่ง แร็คนาร็อค\" matched no results in the first page",
-                        "a retry without punctuation (\"Solo Leveling Ragnarok โซโล เลเวลล ง แร คนาร อค\") also matched nothing"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 402,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "ตอนที่ 71 -> /solo-leveling-ragnarok-ep0071",
-                        "ตอนที่ 70 -> /solo-leveling-ragnarok-ep0070",
-                        "ตอนที่ 69 -> /solo-leveling-ragnarok-ep0069"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 352,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
-                    "samples": []
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-10T11:34:19.491704720Z",
+    "comparedTo": "2026-11-11T11:23:30.071322121Z",
     "changes": [
         {
             "source": "Bully Manga",
             "lang": "th",
-            "scenario": "search",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Bully Manga",
+            "lang": "th",
+            "scenario": "latest",
             "from": "PASS",
             "to": "WARN"
         },
@@ -120,8 +105,29 @@
             "source": "Bully Manga",
             "lang": "th",
             "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Bully Manga",
+            "lang": "th",
+            "scenario": "search",
             "from": "WARN",
-            "to": "PASS"
+            "to": "SKIP"
+        },
+        {
+            "source": "Bully Manga",
+            "lang": "th",
+            "scenario": "pages",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "Bully Manga",
+            "lang": "th",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

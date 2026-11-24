@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:02:02.658484489Z",
+    "generatedAt": "2026-11-24T14:13:27.738514833Z",
     "module": ":src:es:tmohentaiunoriginal",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 6465093267346907024,
             "name": "TMOHentai (unoriginal)",
             "lang": "es",
             "baseUrl": "https://tmohentai.app",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 877,
+                    "status": "WARN",
+                    "durationMs": 220,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 524,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Sabias que? -> /library/doujinshi/21989/sabias-que",
-                        "La Princesa Bestial -> /library/doujinshi/21988/la-princesa-bestial",
-                        "HoneyMoon - Versión EL FROGY 318 -> /library/hentai/21987/honeymoon-version-el-frogy-318"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 929,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from tmohentai.app (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1037,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Sabias que? -> /library/doujinshi/21989/sabias-que",
-                        "La Princesa Bestial -> /library/doujinshi/21988/la-princesa-bestial",
-                        "HoneyMoon - Versión EL FROGY 318 -> /library/hentai/21987/honeymoon-version-el-frogy-318"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 998,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from tmohentai.app (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,62 +61,81 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1081,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Sabias que? -> /library/doujinshi/21989/sabias-que"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 805,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo único -> /view_uploads/21989"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 948,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://storage.tmohentai.app/mangas/21989/1.webp",
-                        "https://storage.tmohentai.app/mangas/21989/2.webp",
-                        "https://storage.tmohentai.app/mangas/21989/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 271,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-19T11:48:59.366149672Z",
+    "comparedTo": "2026-11-20T12:02:02.658484489Z",
     "changes": [
         {
             "source": "TMOHentai (unoriginal)",
             "lang": "es",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
-            "source": ":src:es:tmohentaiunoriginal",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "TMOHentai (unoriginal)",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "TMOHentai (unoriginal)",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "TMOHentai (unoriginal)",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TMOHentai (unoriginal)",
+            "lang": "es",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TMOHentai (unoriginal)",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "TMOHentai (unoriginal)",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

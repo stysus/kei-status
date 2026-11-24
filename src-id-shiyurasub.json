@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-23T13:16:24.009958214Z",
+    "generatedAt": "2026-11-24T14:13:42.726891588Z",
     "module": ":src:id:shiyurasub",
     "sourceRoot": "",
-    "extensionCommit": "582615a3",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 7106013231844823613,
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 3121,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 7477,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 318,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "shiyurasub.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Detektif Conan -> /2021/10/detektif-conan.html",
-                        "Jojolands -> /2023/02/jojolands.html",
-                        "Gantz -> /2022/11/gantz.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -50,82 +48,75 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
-                    "durationMs": 2,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "shiyurasub.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "5 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 406,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Detektif Conan -> /2021/10/detektif-conan.html",
-                        "Zero Tea Time -> /2021/12/zero-tea-time.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "THROTTLED",
-                    "durationMs": 7194,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-22T11:44:28.047443279Z",
+    "comparedTo": "2026-11-23T13:16:24.009958214Z",
     "changes": [
         {
             "source": "ShiyuraSub",
             "lang": "id",
             "scenario": "connectivity",
-            "from": "THROTTLED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
             "source": "ShiyuraSub",
             "lang": "id",
             "scenario": "popular",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "ShiyuraSub",
             "lang": "id",
             "scenario": "filters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "ShiyuraSub",
-            "lang": "id",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "ShiyuraSub",
             "lang": "id",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "SKIP"
+        },
+        {
+            "source": "ShiyuraSub",
+            "lang": "id",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": [

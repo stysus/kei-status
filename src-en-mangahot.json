@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:35:40.188653510Z",
+    "generatedAt": "2026-11-24T14:04:51.849882844Z",
     "module": ":src:en:mangahot",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "14e22396",
     "sources": [
         {
             "sourceId": 1536742225206613908,
             "name": "MangaHot",
             "lang": "en",
             "baseUrl": "https://mangahot.org",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 733,
+                    "durationMs": 4889,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,25 +31,25 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 548,
+                    "durationMs": 869,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Obedient Pregnancy -> 231",
+                        "Absolute Threshold -> 441",
                         "A Wimp’s Strategy Guide to Conquer the Tower -> 192",
-                        "Tears on a Withered Flower -> 67"
+                        "Remarried Empress -> 532"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 302,
+                    "durationMs": 769,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The Crazy Young Master’s Daily Life Is a Scheme -> 390",
-                        "Bravo Youth Beer -> 1063",
-                        "My Ideal Type is my Friend’s Mom -> 695"
+                        "I Possessed the Body of a Delinquent Girl -> 879",
+                        "I Kidnapped the Youngest Daughter of the Sichuan Tang Clan -> 887",
+                        "Affair Agency -> 883"
                     ]
                 },
                 {
@@ -64,50 +64,72 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 532,
+                    "status": "WARN",
+                    "durationMs": 710,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "query \"Absolute Threshold\" matched no results in the first page"
+                    ],
                     "samples": [
-                        "Obedient Pregnancy -> /manga/obedient-pregnancy/"
+                        "I Possessed the Body of a Delinquent Girl -> 879",
+                        "I Kidnapped the Youngest Daughter of the Sichuan Tang Clan -> 887",
+                        "Affair Agency -> 883"
                     ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 632,
+                    "durationMs": 1073,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Chapter 44 -> chapter-44",
-                        "Chapter 43 -> chapter-43",
-                        "Chapter 42 -> chapter-42"
+                        "Chapter 111 -> chapter-111",
+                        "Chapter 110 -> chapter-110",
+                        "Chapter 109 -> chapter-109"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 151,
+                    "durationMs": 196,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://cdn.mangahot.org/mangas/231/44/0.webp",
-                        "https://cdn.mangahot.org/mangas/231/44/1.webp",
-                        "https://cdn.mangahot.org/mangas/231/44/2.webp"
+                        "https://cdn.mangahot.org/mangas/441/111/0.jpg",
+                        "https://cdn.mangahot.org/mangas/441/111/1.jpg",
+                        "https://cdn.mangahot.org/mangas/441/111/2.jpg"
                     ]
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 209,
+                    "status": "WARN",
+                    "durationMs": 1011,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.mangahot.org (HTTP 403)",
+                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.mangahot.org (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
+    "comparedTo": "2026-11-08T13:35:40.188653510Z",
+    "changes": [
+        {
+            "source": "MangaHot",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "MangaHot",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
+        }
+    ],
     "throttledHosts": []
 }
