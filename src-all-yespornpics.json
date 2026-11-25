@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:07:35.220892147Z",
+    "generatedAt": "2026-11-25T13:14:24.334795117Z",
     "module": ":src:all:yespornpics",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 7565626369772015997,
             "name": "YesPornPics",
             "lang": "all",
             "baseUrl": "https://yespornpics.com",
-            "status": "BLOCKED",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,20 +23,20 @@
                 {
                     "name": "connectivity",
                     "status": "WARN",
-                    "durationMs": 145,
+                    "durationMs": 270,
                     "message": null,
                     "notes": [
-                        "home page returned HTTP 403"
+                        "home page returned HTTP 523"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 95,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "status": "DOWN",
+                    "durationMs": 169,
+                    "message": "the site's origin server is not responding (HTTP 523); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from yespornpics.com (HTTP 403)"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 523"
                     ],
                     "samples": []
                 },
@@ -85,49 +85,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-23T13:16:41.993106908Z",
+    "comparedTo": "2026-11-24T14:07:35.220892147Z",
     "changes": [
         {
             "source": "YesPornPics",
             "lang": "all",
-            "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "YesPornPics",
-            "lang": "all",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "YesPornPics",
-            "lang": "all",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "YesPornPics",
-            "lang": "all",
-            "scenario": "search",
-            "from": "WARN",
-            "to": "SKIP"
-        },
-        {
-            "source": "YesPornPics",
-            "lang": "all",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "YesPornPics",
-            "lang": "all",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "BLOCKED",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

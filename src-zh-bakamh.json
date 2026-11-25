@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:14:33.288565515Z",
+    "generatedAt": "2026-11-25T13:22:07.051859684Z",
     "module": ":src:zh:bakamh",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 3712194609356981776,
             "name": "巴卡漫画",
             "lang": "zh",
             "baseUrl": "https://bakamh.com",
-            "status": "BLOCKED",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 4919,
+                    "status": "WARN",
+                    "durationMs": 43187,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 439,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "吸烟洗脑 -> 10192",
-                        "重生士兵的雌性征服日志! [UC] -> 7924",
-                        "被召唤到异世界，然后成为半龙骑士长 [UC] -> 9038"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19676,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 467,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "My New Family Treats Me Well -> 16723",
-                        "My Eyes Now See Desire -> 16721",
-                        "Money Games -> 16719"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19455,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,56 +61,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1438,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "吸烟洗脑 -> 10192",
-                        "催眠烟 -> 4209"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 671,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "第2季 第25话 最终话 -> c-46",
-                        "第2季 第24话 -> c-45",
-                        "第2季 第23话 -> c-44"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 1275,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.IllegalStateException: 需在 WebView 中登录，账号有封禁风险"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-19T11:48:25.314466748Z",
+    "comparedTo": "2026-11-20T12:14:33.288565515Z",
     "changes": [
         {
             "source": "巴卡漫画",
             "lang": "zh",
-            "scenario": null,
-            "from": null,
-            "to": "BLOCKED"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
-            "source": ":src:zh:bakamh",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
+            "source": "巴卡漫画",
+            "lang": "zh",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "巴卡漫画",
+            "lang": "zh",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "巴卡漫画",
+            "lang": "zh",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "巴卡漫画",
+            "lang": "zh",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "巴卡漫画",
+            "lang": "zh",
+            "scenario": "pages",
+            "from": "BLOCKED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

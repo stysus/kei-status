@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:40:36.140045924Z",
+    "generatedAt": "2026-11-25T13:13:56.428388249Z",
     "module": ":src:en:broccolisoup",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 2175678633501332475,
             "name": "Broccoli Soup",
             "lang": "en",
             "baseUrl": "https://politeandgood.com",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,10 +22,12 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 153,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 30086,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
                     "samples": []
                 },
                 {
@@ -69,68 +71,54 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 48,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "100: Nakey Dream (VOID #38) -> /comic/100",
-                        "99: Decadence (VOID #37) -> /comic/99",
-                        "98: Apologetics (VOID #36) -> /comic/98"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30034,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: Connect timed out"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 3370,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://politeandgood.com/assets/images/comics/202408241944078964021/1.1.jpg",
-                        "https://politeandgood.com/assets/images/comics/20240824194440759867/1.2.jpg",
-                        "https://politeandgood.com/assets/images/comics/20240824194520310080/1.3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 75,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T11:54:44.355295415Z",
+    "comparedTo": "2026-11-22T11:40:36.140045924Z",
     "changes": [
         {
             "source": "Broccoli Soup",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Broccoli Soup",
             "lang": "en",
             "scenario": "chapters",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Broccoli Soup",
             "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Broccoli Soup",
             "lang": "en",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

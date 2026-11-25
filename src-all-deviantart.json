@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:03:49.864065268Z",
+    "generatedAt": "2026-11-25T13:17:16.260891599Z",
     "module": ":src:all:deviantart",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 5211324870873630158,
             "name": "DeviantArt",
             "lang": "all",
             "baseUrl": "https://www.deviantart.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 363,
+                    "status": "WARN",
+                    "durationMs": 159,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 171,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Sunrise River -> /dyrk-wyst/art/Sunrise-River-1325699990",
-                        "[OPEN] ADOPT AUCTION — Comet \"Aphel\" -> /nyxikaaa/art/%5BOPEN%5D-ADOPT-AUCTION-%E2%80%94-Comet-%22Aphel%22-1398676959",
-                        "Lake -> /sezarka/art/Lake-1405123846"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 109,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -51,7 +51,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,91 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 285,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Sunrise River -> /dyrk-wyst/art/Sunrise-River-1325699990",
-                        "Sunrise River | June 2026 -> /janna402661/art/Sunrise-River-%7C-June-2026-1413073652",
-                        "Sunrise at the river -> /marcinfilinger/art/Sunrise-at-the-river-1347258989"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 387,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Art -> /dyrk-wyst/art/Sunrise-River-1325699990"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 386,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/458dd116-8c3e-44d1-8ce3-02c405a8ed01/dlxacnq-2aba36ee-900b-4c75-b2a7-a08273c60f1e.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi80NThkZDExNi04YzNlLTQ0ZDEtOGNlMy0wMmM0MDVhOGVkMDEvZGx4YWNucS0yYWJhMzZlZS05MDBiLTRjNzUtYjJhNy1hMDgyNzNjNjBmMWUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.bWX-RUmBXqO-RCbCfNWMPIIQd5WPxSzPy9eK6Z5tiy0"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 302,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-23T13:11:35.159716911Z",
+    "comparedTo": "2026-11-24T14:03:49.864065268Z",
     "changes": [
         {
             "source": "DeviantArt",
             "lang": "all",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "DeviantArt",
             "lang": "all",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "DeviantArt",
-            "lang": "all",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "DeviantArt",
             "lang": "all",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "DeviantArt",
+            "lang": "all",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "DeviantArt",
             "lang": "all",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "DeviantArt",
             "lang": "all",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

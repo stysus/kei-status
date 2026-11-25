@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:07:13.254823992Z",
+    "generatedAt": "2026-11-25T13:18:39.970168417Z",
     "module": ":src:id:komiku",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 4838485846640015979,
             "name": "Komiku",
             "lang": "id",
             "baseUrl": "https://komiku.org",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 167,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from komiku.org (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 492,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 70,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.komiku.org (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1378,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "One Piece -> /manga/komik-one-piece-indo/",
+                        "Kimetsu no Yaiba -> /manga/kimetsu-no-yaiba-indonesia/",
+                        "Martial Peak Part 1 -> /manga/martial-peak/"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 877,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.komiku.org (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 456,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "King Account At The Start -> /manga/king-account-at-the-start/",
+                        "Star Ginseng Store -> /manga/star-ginseng-store/",
+                        "The Yellow-haired Villain in Female Main Character’s Novel wants Happiness -> /manga/the-yellow-haired-villain-in-female-main-characters-novel-wants-happiness/"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,82 +63,101 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 387,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "One Piece -> /manga/komik-one-piece-indo/",
+                        "One Piece: Ace Story -> /manga/one-piece-ace-story/"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 593,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 1199 -> /one-piece-chapter-1199/",
+                        "Chapter 1198 -> /one-piece-chapter-1198/",
+                        "Chapter 1197 -> /one-piece-chapter-1197/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 282,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://img.komiku.org/upload5/one-piece/1199/2026-11-19/1.webp",
+                        "https://img.komiku.org/upload5/one-piece/1199/2026-11-19/2.webp",
+                        "https://img.komiku.org/upload5/one-piece/1199/2026-11-19/3.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1374,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-22T11:51:18.140044872Z",
+    "comparedTo": "2026-11-24T14:07:13.254823992Z",
     "changes": [
         {
             "source": "Komiku",
             "lang": "id",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Komiku",
             "lang": "id",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Komiku",
             "lang": "id",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "Komiku",
-            "lang": "id",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Komiku",
             "lang": "id",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Komiku",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Komiku",
             "lang": "id",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Komiku",
             "lang": "id",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:12:18.848786816Z",
+    "generatedAt": "2026-11-25T13:19:10.352903366Z",
     "module": ":src:ru:mangachan",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 7,
             "name": "MangaChan",
             "lang": "ru",
             "baseUrl": "https://im.manga-chan.me",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,28 +22,28 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1473,
+                    "status": "WARN",
+                    "durationMs": 1025,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 502"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 412,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Girl the Wild's -> /manga/33-girl-the-wilds.html",
-                        "The Breaker: New waves -> /manga/5335-the-breaker-new-waves.html",
-                        "Monster Musume no Iru Nichijou -> /manga/13614-monster-musume-no-iru-nichijou.html"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 452,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 4243,
+                    "durationMs": 644,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,77 +64,75 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 2711,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Girl the Wild's (Шальные девчонки) -> /manga/33-girl-the-wilds.html",
-                        "Mahou Shoujo Fatal Fate (Махо сёдзё фатальная судьба) -> /manga/15007-mahou-shoujo-fatal-fate.html",
-                        "Rise of the Outlaw Tamer and His Wild S-Rank Cat Girl (Восхождение Укротителя-изгоя и его дикой девушки-кошки ранга S) -> /manga/156080-rise-of-the-outlaw-tamer-and-his-wild-s-rank-cat-girl.html"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 354,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1577,
+                    "durationMs": 467,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Том 2 Глава 260 -> /online/391162-girl-the-wilds_v2_ch260.html",
-                        "Том 2 Глава 259 -> /online/391154-girl-the-wilds_v2_ch259.html",
-                        "Том 2 Глава 258 -> /online/373978-girl-the-wilds_v2_ch258.html"
+                        "Том 1 Глава 5 -> /online/1214939-evils-return_v1_ch5.html",
+                        "Том 1 Глава 4 -> /online/1214938-evils-return_v1_ch4.html",
+                        "Том 1 Глава 3 -> /online/1214886-evils-return_v1_ch3.html"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 2457,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img2.manga-chan.me/manga/g/1364717603_girl-the-wilds_v1_ch1/0001.avif",
-                        "https://img2.manga-chan.me/manga/g/1364717603_girl-the-wilds_v1_ch1/0002.avif",
-                        "https://img2.manga-chan.me/manga/g/1364717603_girl-the-wilds_v1_ch1/0003.avif"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 205,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 532,
+                    "message": "the site's origin server is not responding (HTTP 502); the source is not at fault",
                     "notes": [
-                        "page[0] image request failed: ConnectException: Failed to connect to img2.manga-chan.me/5.9.95.30:443",
-                        "page[1] image request failed: ConnectException: Failed to connect to img2.manga-chan.me/5.9.95.30:443",
-                        "page[2] image request failed: ConnectException: Failed to connect to img2.manga-chan.me/5.9.95.30:443"
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 502"
                     ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-23T13:16:41.908329888Z",
+    "comparedTo": "2026-11-24T14:12:18.848786816Z",
     "changes": [
         {
             "source": "MangaChan",
             "lang": "ru",
-            "scenario": "chapters",
-            "from": "DOWN",
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "MangaChan",
+            "lang": "ru",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "MangaChan",
+            "lang": "ru",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "MangaChan",
             "lang": "ru",
             "scenario": "images",
-            "from": null,
-            "to": "WARN"
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

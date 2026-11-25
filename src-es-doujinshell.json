@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-23T13:15:48.125249608Z",
+    "generatedAt": "2026-11-25T13:17:57.121638504Z",
     "module": ":src:es:doujinshell",
     "sourceRoot": "",
-    "extensionCommit": "582615a3",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 7008709488397053596,
             "name": "DoujinsHell",
             "lang": "es",
             "baseUrl": "https://doujinshell.net",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 729,
+                    "durationMs": 760,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1262,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "ESCUELA EN CASA 1 -> 2918",
-                        "ME ENAMORÉ DE MI DESAFORTUNADA MADRE Y LA DEJÉ EMBARAZADA -> 5317",
-                        "LUJURIA PROHIBIDA 2.5 Y 3 -> 1874"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30007,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 926,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "EL DÍA QUE MONTÉ A MI HIJO -> 6990",
-                        "LA DUEÑA DEL RYOKAN ES UNA MADRE SUSTITUTA -> 6986",
-                        "CON UN HONGO DE CONTROL CONSEGUÍ A UNA DELINCUENTE DE PECHOS ENORMES -> 6983"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 30001,
+                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "notes": [
+                        "java.net.SocketTimeoutException: timeout"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,78 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1388,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "ESCUELA EN CASA 1 -> 2918",
-                        "ESCUELA EN CASA 2 -> 2921"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 859,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo -> escuela-en-casa-1"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 159,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://images2.imgbox.com/16/ae/JEvgpFrB_o.jpg",
-                        "https://images2.imgbox.com/e3/06/yiJkHBWA_o.jpg",
-                        "https://images2.imgbox.com/a1/9c/8B82hl4w_o.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 529,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-22T11:42:40.171246496Z",
+    "comparedTo": "2026-11-23T13:15:48.125249608Z",
     "changes": [
         {
             "source": "DoujinsHell",
             "lang": "es",
-            "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "DoujinsHell",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "DoujinsHell",
             "lang": "es",
             "scenario": "chapters",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "DoujinsHell",
+            "lang": "es",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "DoujinsHell",
             "lang": "es",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "DoujinsHell",
             "lang": "es",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

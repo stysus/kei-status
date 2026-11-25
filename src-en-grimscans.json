@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-17T12:09:35.165136486Z",
+    "generatedAt": "2026-11-25T13:16:57.246833445Z",
     "module": ":src:en:grimscans",
     "sourceRoot": "",
-    "extensionCommit": "02402ef9",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 8588684547293952127,
             "name": "Grim Scans",
             "lang": "en",
             "baseUrl": "https://grimscans.com",
-            "status": "FAIL",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,32 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "FAIL",
-                    "durationMs": 9259,
-                    "message": "Too many follow-up requests: 21",
-                    "notes": [],
+                    "status": "WARN",
+                    "durationMs": 19852,
+                    "message": null,
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 8724,
-                    "message": "Too many follow-up requests: 21",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 19456,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 9685,
-                    "message": "Too many follow-up requests: 21",
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 19456,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -81,28 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:15:24.071704963Z",
+    "comparedTo": "2026-11-17T12:09:35.165136486Z",
     "changes": [
         {
             "source": "Grim Scans",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
             "source": "Grim Scans",
             "lang": "en",
             "scenario": "popular",
-            "from": "DOWN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "DOWN"
         },
         {
             "source": "Grim Scans",
             "lang": "en",
             "scenario": "latest",
-            "from": "DOWN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

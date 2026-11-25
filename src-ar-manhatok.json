@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:05:53.732258257Z",
+    "generatedAt": "2026-11-25T13:21:21.790797636Z",
     "module": ":src:ar:manhatok",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 743599002989616408,
@@ -22,20 +22,20 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1516,
-                    "message": null,
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
                     "status": "THROTTLED",
-                    "durationMs": 7149,
+                    "durationMs": 7333,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "manhatok.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -81,21 +81,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-23T12:58:18.450706253Z",
+    "comparedTo": "2026-11-24T14:05:53.732258257Z",
     "changes": [
         {
             "source": "Manhatok",
             "lang": "ar",
-            "scenario": null,
-            "from": null,
+            "scenario": "connectivity",
+            "from": "PASS",
             "to": "THROTTLED"
         },
         {
-            "source": ":src:ar:manhatok",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
+            "source": "Manhatok",
+            "lang": "ar",
+            "scenario": "popular",
+            "from": "THROTTLED",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": [

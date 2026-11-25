@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:07:06.244501688Z",
+    "generatedAt": "2026-11-25T13:14:15.207846672Z",
     "module": ":src:fr:yureiscan",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 2709762600252838524,
             "name": "Yurei Scan",
             "lang": "fr",
             "baseUrl": "https://yurei-scan.fr",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,27 +23,25 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 675,
+                    "durationMs": 718,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 3913,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Tonikaku Kawaii -> /manga.php?id=40",
-                        "Beast Tamer -> /manga.php?id=41",
-                        "Mushoku Tensei - l'Anthologie : Les Chroniques d'Eris -> /manga.php?id=43"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 4171,
+                    "message": "the site's origin server is not responding (HTTP 520); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 520"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 244,
+                    "durationMs": 155,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -64,85 +62,71 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 309,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Tonikaku Kawaii -> /manga.php?id=40"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 126,
+                    "message": "the site's origin server is not responding (HTTP 520); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 520"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 595,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chapitre 122 -> /chapter.php?id=40&chapter_id=296",
-                        "Chapitre 121 -> /chapter.php?id=40&chapter_id=295",
-                        "Chapitre 120 -> /chapter.php?id=40&chapter_id=294"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 140,
+                    "message": "the site's origin server is not responding (HTTP 520); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 520"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 424,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://yurei-scan.fr/images/manga/tonikaku-kawaii/chapter-122-0/page-001.webp",
-                        "https://yurei-scan.fr/images/manga/tonikaku-kawaii/chapter-122-0/page-002.webp",
-                        "https://yurei-scan.fr/images/manga/tonikaku-kawaii/chapter-122-0/page-003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 878,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T12:03:53.306005884Z",
+    "comparedTo": "2026-11-24T14:07:06.244501688Z",
     "changes": [
         {
             "source": "Yurei Scan",
             "lang": "fr",
             "scenario": "popular",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Yurei Scan",
             "lang": "fr",
             "scenario": "search",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Yurei Scan",
             "lang": "fr",
             "scenario": "chapters",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Yurei Scan",
             "lang": "fr",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Yurei Scan",
             "lang": "fr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

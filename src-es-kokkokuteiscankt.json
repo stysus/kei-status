@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:07:42.460312608Z",
+    "generatedAt": "2026-11-25T13:18:11.813453773Z",
     "module": ":src:es:kokkokuteiscankt",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 2159936368130445305,
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 641,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 7258,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 507,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "kokkokuteisukyankt.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "Zettai ni Shujuu ga Gyakuten Suru Yuri Ecchi Anthology -> /2026/11/zettai-ni-shujuu-ga-gyakuten-suru-yuri.html",
-                        "Keiyaku Shimai -> /2024/01/keiyaku-shimai.html",
-                        "IDOLxIDOL STORY! -> /2023/09/idolidol-story.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -50,59 +48,74 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "kokkokuteisukyankt.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 371,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Zettai ni Shujuu ga Gyakuten Suru Yuri Ecchi Anthology -> /2026/11/zettai-ni-shujuu-ga-gyakuten-suru-yuri.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "THROTTLED",
-                    "durationMs": 7027,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-23T13:09:26.704015916Z",
+    "comparedTo": "2026-11-24T14:07:42.460312608Z",
     "changes": [
         {
             "source": "Kokkokutei Scan KT",
             "lang": "es",
-            "scenario": "chapters",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "Kokkokutei Scan KT",
             "lang": "es",
-            "scenario": "pages",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Kokkokutei Scan KT",
+            "lang": "es",
+            "scenario": "filters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Kokkokutei Scan KT",
+            "lang": "es",
+            "scenario": "chapters",
             "from": "THROTTLED",
+            "to": "SKIP"
+        },
+        {
+            "source": "Kokkokutei Scan KT",
+            "lang": "es",
+            "scenario": "search",
+            "from": "PASS",
             "to": "SKIP"
         }
     ],

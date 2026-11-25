@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:11:28.723974290Z",
+    "generatedAt": "2026-11-25T13:11:33.311196513Z",
     "module": ":src:all:sxypix",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 2675708767508746065,
             "name": "SxyPix",
             "lang": "all",
             "baseUrl": "https://www.sxypix.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 776,
+                    "status": "WARN",
+                    "durationMs": 376,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 442,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "!Perfect Hottie -> 52f54470f3bc9ff03110ff17f90e60de",
-                        "Teen Kristens Innocent Catholic Schoolgirl Tease - Blonde big tits latina petite skirt -> 1131b29df1c7ee7d259b56e3fefab73c",
-                        "Frances Bentley & Terry Banks - Perfect Hottie Becomes A Fuck Toy -> 22de3ac60233f274cc38f816a66a57fc"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 114,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 286,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "michelle wild setj3 -> c97ef352c0b57643b3024c56f480ae18",
-                        "michelle wild setj2 -> 8d9dacdce932366f583137adf264aaeb",
-                        "eva black setg3 -> be6fab17b0ab0e8df3c21f69db036017"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 105,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,100 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 267,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "!Perfect Hottie -> 52f54470f3bc9ff03110ff17f90e60de",
-                        "Frances Bentley & Terry Banks - Perfect Hottie Becomes A Fuck Toy -> 22de3ac60233f274cc38f816a66a57fc",
-                        "#Tushy 26 09 06 Maddie Wren Perfect Hottie Wants Anal #imageset -> 6570cd7ca9b598afbbd8f34e00e310e5"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 704,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Gallery -> 52f54470f3bc9ff03110ff17f90e60de"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 262,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://x.sxypix.com/pixiw/_grbIW1Ayy8dg2CpQsXyig/1795568400/o/6b02002ee269f/52f54470f3bc9ff03110ff17f90e60de/4527e98804731f395fc05720869dc00f.webp",
-                        "https://x.sxypix.com/pixiw/2sgbBdSbJ2VDzE3ZmTGhvg/1795568400/o/6b02002ee269f/52f54470f3bc9ff03110ff17f90e60de/2b9fbe9dc25d1090678533ef72b45dd1.webp",
-                        "https://x.sxypix.com/pixiw/zvF2JaMQUVi1yGFHjqp4Qw/1795568400/o/6b02002ee269f/52f54470f3bc9ff03110ff17f90e60de/337f89870607581fed6804c6e7fc463c.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1003,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-23T13:07:29.280667971Z",
+    "comparedTo": "2026-11-24T14:11:28.723974290Z",
     "changes": [
         {
             "source": "SxyPix",
             "lang": "all",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "SxyPix",
             "lang": "all",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "SxyPix",
             "lang": "all",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "SxyPix",
-            "lang": "all",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "SxyPix",
             "lang": "all",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "SxyPix",
+            "lang": "all",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "SxyPix",
             "lang": "all",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "SxyPix",
             "lang": "all",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

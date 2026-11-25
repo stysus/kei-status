@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-18T12:44:16.350210896Z",
+    "generatedAt": "2026-11-25T13:21:10.618169750Z",
     "module": ":src:tr:mangaruhu",
     "sourceRoot": "",
-    "extensionCommit": "f1d882a9",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 8370882282338930409,
             "name": "Manga Ruhu",
             "lang": "tr",
-            "baseUrl": "https://mangaruhu.net",
-            "status": "FAIL",
+            "baseUrl": "https://ruhmanga.net",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 894,
+                    "durationMs": 453,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 191,
+                    "durationMs": 533,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +43,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 196,
+                    "durationMs": 184,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Çavuşun Ejderhası -> /manga/cavusun-ejderhasi/",
-                        "Beni Kovdular Ama Canavar Hatunların Koynuna. -> /manga/beni-kovdular-ama-canavar-hatunlarin-koynuna/",
-                        "Sınıfımı Ezik Gördüler Ama Öylemi ? -> /manga/sinifimi-ezik-gorduler-ama-oylemi/"
+                        "İntihar Savaş Tanrısının Yeniden Doğuşu -> /manga/intihar-savas-tanrisinin-yeniden-dogusu/",
+                        "Kuleyi Yıkan Göksel İblis -> /manga/kuleyi-yikan-goksel-iblis/",
+                        "On Yıl Sonra Aşk -> /manga/on-yil-sonra-ask/"
                     ]
                 },
                 {
@@ -64,63 +64,78 @@
                 },
                 {
                     "name": "search",
+                    "status": "PASS",
+                    "durationMs": 316,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Şeytani Çağ -> /manga/chronicles-of-the-demon-faction/",
+                        "Dokuz Şeytani Öğrencinin Efendisi -> /manga/dokuz-seytani-ogrencinin-efendisi/",
+                        "Eşim Şeytani Tarikat Lideri -> /manga/esim-seytani-tarikat-lideri/"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 800,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Bölüm 198 -> /manga/chronicles-of-the-demon-faction/bolum-198/",
+                        "Bölüm 197 -> /manga/chronicles-of-the-demon-faction/bolum-197/",
+                        "Bölüm 196 -> /manga/chronicles-of-the-demon-faction/bolum-196/"
+                    ]
+                },
+                {
+                    "name": "pages",
                     "status": "WARN",
-                    "durationMs": 242,
+                    "durationMs": 559,
                     "message": null,
                     "notes": [
-                        "returned an empty list",
-                        "query \"Şeytani Çağ\" matched no results in the first page"
+                        "page list is empty"
                     ],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 438,
-                    "message": "HTTP error 400",
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "pages",
-                    "status": "SKIP",
+                    "name": "images",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-16T11:52:46.823037500Z",
+    "comparedTo": "2026-11-18T12:44:16.350210896Z",
     "changes": [
         {
             "source": "Manga Ruhu",
             "lang": "tr",
             "scenario": "search",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Manga Ruhu",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Manga Ruhu",
             "lang": "tr",
             "scenario": "pages",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
         },
         {
             "source": "Manga Ruhu",
             "lang": "tr",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:05.447966993Z",
+    "generatedAt": "2026-11-25T13:28:22.217695791Z",
     "module": ":src:tr:toontaku",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 8871964332446395715,
             "name": "Toontaku",
             "lang": "tr",
             "baseUrl": "https://toontaku.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1141,
+                    "status": "WARN",
+                    "durationMs": 645,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 503"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 888,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Öte Âlemin Zindan Hükümdarı -> ote-lemin-zindan-hukumdari",
-                        "I Became a King by Picking up Trash -> i-became-a-king-by-picking-up-trash",
-                        "Nano Makine -> nano-makine"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 443,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 1370,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Kıyamet Sınıfı Ölüm Şövalyesi'nin Dönüşü -> kiyamet-sinifi-olum-sovalyesi-nin-donusu",
-                        "Green Skin -> green-skin",
-                        "Home Plate's Villain -> home-plates-villain"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 473,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,100 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 235,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Öte Âlemin Zindan Hükümdarı -> ote-lemin-zindan-hukumdari"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1939,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 Bölüm 123 -> 01a17538-389c-77ec-9364-11665be9b0c1",
-                        "🔒 Bölüm 122 -> 01a17051-93e1-7a65-bfeb-7868492bb695",
-                        "🔒 Bölüm 121 -> 01a17539-7ca6-742b-95c2-ee0f93007861"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 204,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.toontaku.com/series/cmld6lec6001p8vv4f4xkdui7/0-5-cc07/001-e984.webp",
-                        "https://cdn.toontaku.com/series/cmld6lec6001p8vv4f4xkdui7/0-5-cc07/002-b787.webp",
-                        "https://cdn.toontaku.com/series/cmld6lec6001p8vv4f4xkdui7/0-5-cc07/003-1d9d.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1368,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:31.679207221Z",
+    "comparedTo": "2026-10-30T01:37:05.447966993Z",
     "changes": [
         {
             "source": "Toontaku",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Toontaku",
             "lang": "tr",
             "scenario": "popular",
-            "from": "FAIL",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Toontaku",
             "lang": "tr",
             "scenario": "latest",
-            "from": "FAIL",
-            "to": "PASS"
-        },
-        {
-            "source": "Toontaku",
-            "lang": "tr",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Toontaku",
             "lang": "tr",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Toontaku",
+            "lang": "tr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Toontaku",
             "lang": "tr",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Toontaku",
             "lang": "tr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

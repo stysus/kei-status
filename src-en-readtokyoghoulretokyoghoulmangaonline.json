@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:35:14.739470192Z",
+    "generatedAt": "2026-11-25T13:12:11.544433258Z",
     "module": ":src:en:readtokyoghoulretokyoghoulmangaonline",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 6468833665354206027,
             "name": "Read Tokyo Ghoul Re & Tokyo Ghoul Manga Online",
             "lang": "en",
             "baseUrl": "https://ww12.tokyoghoulre.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 895,
+                    "durationMs": 812,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -84,40 +84,48 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 425,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Tokyo Ghoul Chapter 143 -> https://ww12.tokyoghoulre.com/chapter/tokyo-ghoul-chapter-143/",
-                        "Tokyo Ghoul Chapter 142 -> https://ww12.tokyoghoulre.com/chapter/tokyo-ghoul-chapter-142/",
-                        "Tokyo Ghoul Chapter 141 -> https://ww12.tokyoghoulre.com/chapter/tokyo-ghoul-chapter-141/"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 602,
+                    "message": "NullPointerException at MangaCatalog.mangaDetailsParse(MangaCatalog.kt:77)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 311,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.tokyoghoulre.com/file/mangap/4524/10143000/1.jpg",
-                        "https://cdn.tokyoghoulre.com/file/mangap/4524/10143000/2.jpg",
-                        "https://cdn.tokyoghoulre.com/file/mangap/4524/10143000/3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 82,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:33:18.552473156Z",
-    "changes": [],
+    "comparedTo": "2026-11-08T13:35:14.739470192Z",
+    "changes": [
+        {
+            "source": "Read Tokyo Ghoul Re & Tokyo Ghoul Manga Online",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Read Tokyo Ghoul Re & Tokyo Ghoul Manga Online",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Read Tokyo Ghoul Re & Tokyo Ghoul Manga Online",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

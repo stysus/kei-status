@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:40:18.673465761Z",
+    "generatedAt": "2026-11-25T13:22:22.110286759Z",
     "module": ":src:zh:iqiyi",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 2198877009406729694,
             "name": "爱奇艺叭嗒",
             "lang": "zh-Hans",
             "baseUrl": "https://bud.m.iqiyi.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 2795,
+                    "durationMs": 1969,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,13 +31,13 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1314,
+                    "durationMs": 1018,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "勇者X女魔王 -> /detail_2631605318570070.html",
                         "我家大师兄脑子有坑 -> /detail_205650070.html",
-                        "江思先生 -> /detail_6584678578090070.html",
-                        "大理寺日志 -> /detail_237940070.html"
+                        "江思先生 -> /detail_6584678578090070.html"
                     ]
                 },
                 {
@@ -60,59 +60,63 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 801,
+                    "status": "WARN",
+                    "durationMs": 576,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "query \"勇者X女魔王\" matched no results in the first page"
+                    ],
                     "samples": [
-                        "我家侯爷不宠我 -> /detail_283300070.html",
-                        "家有准妈咪 -> /detail_241450070.html",
-                        "我家爱豆有点怪 -> /detail_246830070.html"
+                        "魔王的专属甜心 -> /detail_276620070.html",
+                        "西装下的魔王 -> /detail_287190070.html",
+                        "第六天魔王 -> /detail_233620070.html"
                     ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 381,
+                    "durationMs": 310,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "287 第二百八十章（上） -> /reader/205650070_735640170.html",
-                        "286 伏魔大会剧情梳理 -> /reader/205650070_725190170.html",
-                        "285 第二百七十九章（下） -> /reader/205650070_725180170.html"
+                        "186 新作上线 -> /reader/2631605318570070_6195628145940170.html",
+                        "185 182 求婚 -> /reader/2631605318570070_8453724985530170.html",
+                        "184 181 名单决定 -> /reader/2631605318570070_8034192251310170.html"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 283,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "http://manhua.iqiyipic.com/image/20190129/1d/1f/cc_4085516_c_601_m3.webp",
-                        "http://manhua.iqiyipic.com/image/20190129/31/87/cc_4085517_c_601_m3.webp",
-                        "http://manhua.iqiyipic.com/image/20190128/80/e3/cc_4085518_c_601_m3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1515,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 219,
+                    "message": "本章为付费章节",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:38:51.440773992Z",
+    "comparedTo": "2026-10-30T01:40:18.673465761Z",
     "changes": [
         {
             "source": "爱奇艺叭嗒",
             "lang": "zh-Hans",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "爱奇艺叭嗒",
+            "lang": "zh-Hans",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "爱奇艺叭嗒",
+            "lang": "zh-Hans",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

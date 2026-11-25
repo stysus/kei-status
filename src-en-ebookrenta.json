@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:20:06.805274095Z",
+    "generatedAt": "2026-11-25T13:14:49.462192245Z",
     "module": ":src:en:ebookrenta",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 8412178155364465470,
             "name": "EbookRenta",
             "lang": "en",
             "baseUrl": "https://www.ebookrenta.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,26 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 372,
+                    "status": "WARN",
+                    "durationMs": 68,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 117,
-                    "message": "HTTP error 404",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 44,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 292,
-                    "message": "HTTP error 404",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 3,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,28 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-20T11:58:19.363664390Z",
+    "comparedTo": "2026-11-21T11:20:06.805274095Z",
     "changes": [
         {
             "source": "EbookRenta",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "EbookRenta",
             "lang": "en",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "BLOCKED"
         },
         {
             "source": "EbookRenta",
             "lang": "en",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:20:08.092887549Z",
+    "generatedAt": "2026-11-25T13:20:12.803508435Z",
     "module": ":src:es:inventariooculto",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 609477585841458199,
             "name": "Inventario Oculto",
             "lang": "es",
             "baseUrl": "https://inventariooculto.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 777,
+                    "durationMs": 1000,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 392,
+                    "status": "WARN",
+                    "durationMs": 950,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Jujutsu Kaisen Módulo -> 2796",
-                        "Blue Lock -> 2656",
-                        "Madan no Ichi -> 2530"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 358,
+                    "status": "WARN",
+                    "durationMs": 913,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Graykeith: Traducciones Daemónicas -> 2977",
-                        "Kagurabachi -> 2650",
-                        "Madan no Ichi -> 2530"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,65 +59,74 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 300,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Jujutsu Kaisen Módulo -> 2796",
-                        "Un Amor Que Siempre Regresa -> 2999"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 455,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "EPÍLOGO -> epilogo",
-                        "VOLUMEN 3 - Extras -> volumen-3",
-                        "Capítulo final - Un futuro brillante -> capitulo-final"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 424,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://inventariooculto.com/wp-content/uploads/WP-manga/data/manga_68bbe0b2a4dbe/9811892571dead329011b8252dd9c695/1.png",
-                        "https://inventariooculto.com/wp-content/uploads/WP-manga/data/manga_68bbe0b2a4dbe/9811892571dead329011b8252dd9c695/2.png",
-                        "https://inventariooculto.com/wp-content/uploads/WP-manga/data/manga_68bbe0b2a4dbe/9811892571dead329011b8252dd9c695/3.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1073,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:25:40.536942101Z",
+    "comparedTo": "2026-11-13T11:20:08.092887549Z",
     "changes": [
         {
             "source": "Inventario Oculto",
             "lang": "es",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
-            "source": ":src:es:inventariooculto",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "Inventario Oculto",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Inventario Oculto",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Inventario Oculto",
+            "lang": "es",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Inventario Oculto",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Inventario Oculto",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

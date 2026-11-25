@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:02:52.710148914Z",
+    "generatedAt": "2026-11-25T13:18:37.069952466Z",
     "module": ":src:ru:puremanga",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 501392872283294667,
             "name": "PureManga",
             "lang": "ru",
             "baseUrl": "https://v1.puremanga.me",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,32 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 682,
+                    "status": "WARN",
+                    "durationMs": 956,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 331,
-                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!doctype html><html lang=\"en\".....",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 453,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 492,
-                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!doctype html><html lang=\"en\".....",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 304,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 6,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -81,28 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-19T12:08:16.015254373Z",
+    "comparedTo": "2026-11-20T12:02:52.710148914Z",
     "changes": [
         {
             "source": "PureManga",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "PureManga",
             "lang": "ru",
             "scenario": "popular",
-            "from": "DOWN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "BLOCKED"
         },
         {
             "source": "PureManga",
             "lang": "ru",
             "scenario": "latest",
-            "from": "DOWN",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

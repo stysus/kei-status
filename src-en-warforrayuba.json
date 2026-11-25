@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:13:38.023794574Z",
+    "generatedAt": "2026-11-25T13:17:42.821244477Z",
     "module": ":src:en:warforrayuba",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 9161629559428486377,
             "name": "War For Rayuba",
             "lang": "en",
             "baseUrl": "https://xrabohrok.github.io/WarMap/#/",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,20 +23,28 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 163,
+                    "durationMs": 181,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 105,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "status": "WARN",
+                    "durationMs": 319,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                        "manga[0] has no thumbnail",
+                        "manga[1] has no thumbnail",
+                        "manga[2] has no thumbnail",
+                        "manga[3] has no thumbnail",
+                        "manga[4] has no thumbnail"
                     ],
-                    "samples": []
+                    "samples": [
+                        "master-list-1.json -> https://raw.githubusercontent.com/xrabohrok/WarMap/main/tools/master-list-1.json",
+                        "master-list-2.json -> https://raw.githubusercontent.com/xrabohrok/WarMap/main/tools/master-list-2.json",
+                        "master-list-3.json -> https://raw.githubusercontent.com/xrabohrok/WarMap/main/tools/master-list-3.json"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -57,68 +65,88 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
+                    "name": "search",
+                    "status": "WARN",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"master-list-1.json\" matched no results in the first page",
+                        "a retry without punctuation (\"master list 1 json\") also matched nothing"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 224,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "155 Queen Paguroidea -> https://cubari.moe/proxy/api/imgur/chapter/uhzhrtO/",
+                        "154 Starla & Bodyguard -> https://cubari.moe/proxy/api/imgur/chapter/dhFJmw5/",
+                        "153 0 REPENTANT KILLSTAR SHATTERS RUIN -> https://cubari.moe/proxy/api/imgur/chapter/AE7VVJ8/"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 725,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://i.imgur.com/h3453fW.png",
+                        "https://i.imgur.com/Sr6Kovn.png",
+                        "https://i.imgur.com/jgAJisd.png"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 423,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-22T11:47:20.542844639Z",
+    "comparedTo": "2026-11-24T14:13:38.023794574Z",
     "changes": [
         {
             "source": "War For Rayuba",
             "lang": "en",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "War For Rayuba",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "BLOCKED",
+            "to": "WARN"
         },
         {
             "source": "War For Rayuba",
             "lang": "en",
             "scenario": "search",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "War For Rayuba",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "War For Rayuba",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "War For Rayuba",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

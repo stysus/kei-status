@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:16:08.812188242Z",
+    "generatedAt": "2026-11-25T13:15:05.268580918Z",
     "module": ":src:fr:banchanscan",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 8593333389489308586,
             "name": "Banchan Scan",
             "lang": "fr",
             "baseUrl": "https://banchanscan.fr",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 6060,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 20403,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from banchanscan.fr (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 2876,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "A Saint Who Was Adopted By The Grand Duke -> webtoon_1957d018-ad82-4b04-86ab-8ae99f5b0863",
-                        "Talented Baby Squirrel -> webtoon_4b3f8afc-1d1a-4c28-a2b1-7ef4e517dae3",
-                        "Trash Will Always Be Trash -> webtoon_24c93655-c284-40f4-b41e-d29208d485da"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 16,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from banchanscan.fr (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 629,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Baby Lynx of the Tiger Family -> webtoon_1cb53ee0-a1c3-4e7f-90cb-81ff8b85fc40",
-                        "The Reaper and the Waiting -> webtoon_03959aaf-518f-4c1d-ad44-664a00be5485",
-                        "Thriving Agency for Regretful Male Leads in Full Operation! -> webtoon_e96fd7b2-ce12-4f74-b783-94cb1eceb1e4"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 21,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from banchanscan.fr (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,54 +61,83 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 25,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "A Saint Who Was Adopted By The Grand Duke -> webtoon_1957d018-ad82-4b04-86ab-8ae99f5b0863"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 475,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Saison 3 · Chapitre 99 -> chapter_d4074eb4-2a6b-46d7-9b24-e14c566cb599",
-                        "Saison 3 · Chapitre 98 -> chapter_54e45784-defc-4653-8385-e1c31c15cb83",
-                        "Saison 3 · Chapitre 97 -> chapter_1cb0f32f-1d23-481b-8fab-fa3cef08c7ad"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 240,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://cdn.banchanscan.fr/chapters/a-saint-who-was-adopted-by-the-grand-duke/1/0001.webp",
-                        "https://cdn.banchanscan.fr/chapters/a-saint-who-was-adopted-by-the-grand-duke/1/0002.webp",
-                        "https://cdn.banchanscan.fr/chapters/a-saint-who-was-adopted-by-the-grand-duke/1/0003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 1044,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.banchanscan.fr (HTTP 403)",
-                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.banchanscan.fr (HTTP 403)"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-22T11:48:56.245233369Z",
-    "changes": [],
+    "comparedTo": "2026-11-24T14:16:08.812188242Z",
+    "changes": [
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:07:48.493694129Z",
+    "generatedAt": "2026-11-25T13:19:49.022751461Z",
     "module": ":src:id:manhwaindo",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 862941840467210819,
             "name": "Manhwa Indo",
             "lang": "id",
             "baseUrl": "https://www.manhwaindo.my",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 321,
+                    "status": "WARN",
+                    "durationMs": 534,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1269,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Eleceed -> /series/eleceed/",
-                        "Revenge Of The Iron-Blooded Sword Hound -> /series/revenge-of-the-iron-blooded-sword-hound/",
-                        "Killer Peter -> /series/killer-peter/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 30,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 450,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Time-Limited Villainess Who Makes Medicine -> /series/the-time-limited-villainess-who-makes-medicine/",
-                        "God Killer (Job Changing for the Entire Population: The Jobless Me Will Terminate the Gods) -> /series/god-killer-job-changing-for-the-entire-population-the-jobless-me-will-terminate-the-gods/",
-                        "Urban Dragon Revealed -> /series/urban-dragon-revealed/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 19,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,76 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 472,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Eleceed -> /series/eleceed/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 380,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 427 -> /eleceed-chapter-427/",
-                        "Chapter 426 -> /eleceed-chapter-426/",
-                        "Chapter 425 -> /eleceed-chapter-425/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 277,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://upload.gmbr.pro/uploads/Eleceed_ch_427/001_20261118_015238_083.webp",
-                        "https://upload.gmbr.pro/uploads/Eleceed_ch_427/002_20261118_015238_299.webp",
-                        "https://upload.gmbr.pro/uploads/Eleceed_ch_427/003_20261118_015238_832.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 97,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from upload.gmbr.pro (HTTP 403)",
-                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from upload.gmbr.pro (HTTP 403)",
-                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from upload.gmbr.pro (HTTP 403)"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-23T13:23:20.755056788Z",
+    "comparedTo": "2026-11-24T14:07:48.493694129Z",
     "changes": [
         {
             "source": "Manhwa Indo",
             "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Manhwa Indo",
+            "lang": "id",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Manhwa Indo",
             "lang": "id",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Manhwa Indo",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Manhwa Indo",
             "lang": "id",
             "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhwa Indo",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Manhwa Indo",
+            "lang": "id",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

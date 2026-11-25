@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-23T13:25:01.226404606Z",
+    "generatedAt": "2026-11-25T13:18:13.684980805Z",
     "module": ":src:pt:xxxyaoi",
     "sourceRoot": "",
-    "extensionCommit": "582615a3",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 4493410832840030334,
             "name": "XXX Yaoi",
             "lang": "pt-BR",
             "baseUrl": "https://3xyaoi.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,22 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "SKIP",
-                    "durationMs": 138,
-                    "message": "not supported by this source",
+                    "status": "BLOCKED",
+                    "durationMs": 4917,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "java.io.IOException: Update Android System WebView to pass Cloudflare's check",
-                        "java.lang.UnsupportedOperationException: CUSTOM_REQUEST_HEADERS is not supported on this WebView (requires Chromium 142+)"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from 3xyaoi.com (HTTP 403)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "SKIP",
-                    "durationMs": 41,
+                    "durationMs": 47,
                     "message": "not supported by this source",
                     "notes": [
-                        "java.io.IOException: Update Android System WebView to pass Cloudflare's check",
+                        "java.io.IOException: Atualize o Android System WebView para ler este site",
                         "java.lang.UnsupportedOperationException: CUSTOM_REQUEST_HEADERS is not supported on this WebView (requires Chromium 142+)"
                     ],
                     "samples": []
@@ -45,9 +44,12 @@
                 {
                     "name": "latest",
                     "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "supportsLatest = false",
-                    "notes": [],
+                    "durationMs": 1987,
+                    "message": "not supported by this source",
+                    "notes": [
+                        "java.io.IOException: Atualize o Android System WebView para ler este site",
+                        "java.lang.UnsupportedOperationException: CUSTOM_REQUEST_HEADERS is not supported on this WebView (requires Chromium 142+)"
+                    ],
                     "samples": []
                 },
                 {
@@ -87,21 +89,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-16T11:49:24.584348550Z",
+    "comparedTo": "2026-11-23T13:25:01.226404606Z",
     "changes": [
         {
             "source": "XXX Yaoi",
             "lang": "pt-BR",
             "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "SKIP"
-        },
-        {
-            "source": "XXX Yaoi",
-            "lang": "pt-BR",
-            "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

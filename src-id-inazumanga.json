@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:15:14.057854223Z",
+    "generatedAt": "2026-11-25T13:18:39.463257160Z",
     "module": ":src:id:inazumanga",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 1645729642561182833,
@@ -22,20 +22,20 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 7268,
-                    "message": null,
-                    "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "popular",
                     "status": "THROTTLED",
-                    "durationMs": 7154,
+                    "durationMs": 8267,
                     "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
                     ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "www.re-yume.my.id answered HTTP 429 earlier in this run",
+                    "notes": [],
                     "samples": []
                 },
                 {
@@ -81,56 +81,21 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-22T11:50:57.734516863Z",
+    "comparedTo": "2026-11-24T14:15:14.057854223Z",
     "changes": [
         {
             "source": "ReYume",
             "lang": "id",
-            "scenario": "popular",
+            "scenario": "connectivity",
             "from": "PASS",
             "to": "THROTTLED"
         },
         {
             "source": "ReYume",
             "lang": "id",
-            "scenario": "latest",
-            "from": "PASS",
+            "scenario": "popular",
+            "from": "THROTTLED",
             "to": "SKIP"
-        },
-        {
-            "source": "ReYume",
-            "lang": "id",
-            "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "ReYume",
-            "lang": "id",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "ReYume",
-            "lang": "id",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "ReYume",
-            "lang": "id",
-            "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "ReYume",
-            "lang": "id",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
         }
     ],
     "throttledHosts": [

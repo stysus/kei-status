@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-17T12:12:42.560157985Z",
+    "generatedAt": "2026-11-25T13:19:06.910019566Z",
     "module": ":src:id:ainzscansid",
     "sourceRoot": "",
-    "extensionCommit": "02402ef9",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 6828652413569586396,
             "name": "Ainz Scans ID",
             "lang": "id",
             "baseUrl": "https://v3.ainzscans01.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 943,
+                    "durationMs": 882,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1917,
+                    "durationMs": 1920,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -42,20 +42,22 @@
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 445,
+                    "status": "WARN",
+                    "durationMs": 451,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "manga[3] has no thumbnail"
+                    ],
                     "samples": [
-                        "Fog Land -> /comic/fog-land",
-                        "Genius Hitter Hits Fastball -> /comic/genius-hitter-hits-fastball",
-                        "Yane no Shita no Artemis -> /comic/yane-no-shita-no-artemis"
+                        "Janome-san wa Hohoemitai! -> /comic/janome-san-wa-hohoemitai",
+                        "Haitoku Onee-san no Yuuwaku ni Kimi wa Kateru ka? -> /comic/haitoku-onee-san-no-yuuwaku-ni-kimi-wa-kateru-ka",
+                        "Survive As The Hero's Husband -> /comic/survive-as-the-heros-husband"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 877,
+                    "durationMs": 895,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,19 +77,19 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 162,
+                    "durationMs": 169,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Chapter 368 -> /comic/leveling-in-the-future/chapter/chapter-368",
-                        "Chapter 367 -> /comic/leveling-in-the-future/chapter/chapter-367",
-                        "Chapter 366 -> /comic/leveling-in-the-future/chapter/chapter-366"
+                        "Chapter 370 -> /comic/leveling-in-the-future/chapter/chapter-370",
+                        "Chapter 369 -> /comic/leveling-in-the-future/chapter/chapter-369",
+                        "Chapter 368 -> /comic/leveling-in-the-future/chapter/chapter-368"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 168,
+                    "durationMs": 174,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -98,23 +100,34 @@
                 },
                 {
                     "name": "images",
-                    "status": "PASS",
-                    "durationMs": 344,
+                    "status": "WARN",
+                    "durationMs": 10015,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "page[0] image request failed: UnknownHostException: gambar.xyz: Temporary failure in name resolution",
+                        "page[1] image request failed: UnknownHostException: gambar.xyz",
+                        "page[2] image request failed: UnknownHostException: gambar.xyz"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-16T11:48:07.281411352Z",
+    "comparedTo": "2026-11-17T12:12:42.560157985Z",
     "changes": [
         {
             "source": "Ainz Scans ID",
             "lang": "id",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Ainz Scans ID",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

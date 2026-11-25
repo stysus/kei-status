@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:43:04.594145324Z",
+    "generatedAt": "2026-11-25T13:15:43.888141399Z",
     "module": ":src:en:gunnerkriggcourt",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 6036325841864340105,
             "name": "Gunnerkrigg Court",
             "lang": "en",
             "baseUrl": "https://www.gunnerkrigg.com",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,21 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "THROTTLED",
-                    "durationMs": 20437,
-                    "message": "the site is rate-limiting this sweep (HTTP 429, retry after 300s); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 314,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "SKIP",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "www.gunnerkrigg.com answered HTTP 429 earlier in this run",
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Gunnerkrigg Court -> /archives/"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -48,92 +48,109 @@
                 },
                 {
                     "name": "filters",
-                    "status": "SKIP",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "www.gunnerkrigg.com answered HTTP 429 earlier in this run",
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "0 filters"
+                    ]
+                },
+                {
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [
+                        "returned an empty list",
+                        "query \"Gunnerkrigg Court\" matched no results in the first page"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 3352,
+                    "message": null,
                     "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 103: A Short Time (3341) -> /?p=3341",
+                        "Chapter 103: A Short Time (3340) -> /?p=3340",
+                        "Chapter 103: A Short Time (3339) -> /?p=3339"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 188,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://www.gunnerkrigg.com/comics/00000001.jpg?v=1726160949"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 28,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T11:58:04.462127454Z",
+    "comparedTo": "2026-11-22T11:43:04.594145324Z",
     "changes": [
         {
             "source": "Gunnerkrigg Court",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
             "source": "Gunnerkrigg Court",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Gunnerkrigg Court",
             "lang": "en",
             "scenario": "filters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "Gunnerkrigg Court",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Gunnerkrigg Court",
             "lang": "en",
             "scenario": "search",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "Gunnerkrigg Court",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Gunnerkrigg Court",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Gunnerkrigg Court",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
-    "throttledHosts": [
-        "www.gunnerkrigg.com"
-    ]
+    "throttledHosts": []
 }

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:02:50.253043313Z",
+    "generatedAt": "2026-11-25T13:21:02.571924991Z",
     "module": ":src:pt:nocturnesummer",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 5501311187877950699,
             "name": "Nocturne Summer",
             "lang": "pt-BR",
             "baseUrl": "https://nocfsb.com",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 807,
+                    "durationMs": 385,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1664,
+                    "status": "WARN",
+                    "durationMs": 1823,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Casei com meu sogro?! -> 439",
-                        "Amor doce como ameixa (M) -> 746",
-                        "Hey, Príncipe! -> 13"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 2053,
+                    "status": "WARN",
+                    "durationMs": 1967,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Amor com sabor de hortelã (M) -> 9879",
-                        "Subesfera -> 22419",
-                        "Aposentadoria, não amor! -> 14571"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,37 +59,62 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 5870,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Casei com meu sogro?! -> 439"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 4105,
-                    "message": "NullPointerException at MadaraBase.parseDetails(MadaraBase.kt:224)",
-                    "notes": [
-                        "java.lang.NullPointerException: <no message>"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:12:38.872093325Z",
-    "changes": [],
+    "comparedTo": "2026-11-20T12:02:50.253043313Z",
+    "changes": [
+        {
+            "source": "Nocturne Summer",
+            "lang": "pt-BR",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Nocturne Summer",
+            "lang": "pt-BR",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Nocturne Summer",
+            "lang": "pt-BR",
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "SKIP"
+        },
+        {
+            "source": "Nocturne Summer",
+            "lang": "pt-BR",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        }
+    ],
     "throttledHosts": []
 }

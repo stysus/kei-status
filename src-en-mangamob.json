@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:32:26.677030923Z",
+    "generatedAt": "2026-11-25T13:13:56.701471190Z",
     "module": ":src:en:mangamob",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 954997815643613941,
             "name": "Comivex",
             "lang": "en",
             "baseUrl": "https://comivex.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 2295,
+                    "status": "WARN",
+                    "durationMs": 19537,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1180,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Hero Returns -> /series/3616-the-hero-returns/",
-                        "Magic Emperor -> /series/164-magic-emperor-mg1/",
-                        "Eternally Regressing Knight -> /series/6070-eternally-regressing-knight/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19456,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 2167,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Berserker's Second Playthrough -> /series/7890-the-berserkers-second-playthrough/",
-                        "Musin -> /series/6817-musin/",
-                        "Being Able to Edit Skills in Another World I Gained OP Waifus -> /series/1100-being-able-to-edit-skills-in-another-world-i-gained-op-waifus/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19455,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,59 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 253,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The Hero Returns -> /series/3616-the-hero-returns/",
-                        "The hero returns from another world, becomes an influencer, and earns money in the real world, where dungeons have appeared! -> /series/4858-the-hero-returns-from-another-world/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 596,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 176 -> /read/3616/176-eng-li/",
-                        "Chapter 175 -> /read/3616/175-eng-li/",
-                        "Chapter 174 -> /read/3616/174-eng-li/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 256,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://imgsrv5.com/sv2/comic/the-hero-returns/chapter-176/0.jpg",
-                        "https://imgsrv5.com/sv2/comic/the-hero-returns/chapter-176/1.jpg",
-                        "https://imgsrv5.com/sv2/comic/the-hero-returns/chapter-176/2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1335,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:33:32.519851710Z",
+    "comparedTo": "2026-10-30T01:32:26.677030923Z",
     "changes": [
         {
             "source": "Comivex",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Comivex",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Comivex",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Comivex",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Comivex",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Comivex",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Comivex",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

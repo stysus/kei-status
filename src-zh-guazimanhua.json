@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:36:32.199083607Z",
+    "generatedAt": "2026-11-25T13:19:47.107716362Z",
     "module": ":src:zh:guazimanhua",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "bac637ac",
     "sources": [
         {
             "sourceId": 9103931521355991619,
             "name": "瓜子漫画",
             "lang": "zh",
             "baseUrl": "https://www.guazimanhua.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1154,
+                    "status": "WARN",
+                    "durationMs": 742,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 195,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "从姑获鸟开始 -> /comic.php?id=14109",
-                        "原来，她们才是主角 -> /comic.php?id=14422",
-                        "高武进化：从觉醒怪兽之王开始 -> /comic.php?id=19575"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 386,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 187,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "从异世界归来的小雅 -> /comic.php?id=38570",
-                        "以王之力重生 -> /comic.php?id=19967",
-                        "暗夜英雄破冰而出 -> /comic.php?id=35048"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 173,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,100 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 468,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "从姑获鸟开始 -> /comic.php?id=14109"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 350,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "334 鬼梦貘 -> /chapter.php?id=1633768",
-                        "333 梦地府 -> /chapter.php?id=1633754",
-                        "公告 -> /chapter.php?id=1633736"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 139,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://img.guazicdn.com/th/comics/chapters/2345/260424/343_1.webp",
-                        "https://img.guazicdn.com/th/comics/chapters/2345/260424/343_2.webp",
-                        "https://img.guazicdn.com/th/comics/chapters/2345/260424/343_3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 178,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:22:18.718694096Z",
+    "comparedTo": "2026-11-12T11:36:32.199083607Z",
     "changes": [
         {
             "source": "瓜子漫画",
             "lang": "zh",
             "scenario": "connectivity",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "瓜子漫画",
             "lang": "zh",
             "scenario": "popular",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "瓜子漫画",
             "lang": "zh",
             "scenario": "latest",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "瓜子漫画",
-            "lang": "zh",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "瓜子漫画",
             "lang": "zh",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "瓜子漫画",
+            "lang": "zh",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "瓜子漫画",
             "lang": "zh",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "瓜子漫画",
             "lang": "zh",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []
