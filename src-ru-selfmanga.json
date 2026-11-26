@@ -1,42 +1,112 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-25T13:05:06.288908056Z",
+    "generatedAt": "2026-11-26T13:00:11.241163172Z",
     "module": ":src:ru:selfmanga",
     "sourceRoot": "",
-    "extensionCommit": "bac637ac",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:ru:selfmanga",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 5227602742162454547,
+            "name": "SelfManga",
+            "lang": "ru",
+            "baseUrl": "https://1.selfmanga.live",
+            "status": "BLOCKED",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/ru/selfmanga/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:ru:selfmanga :src:ru:selfmanga:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "PASS",
+                    "durationMs": 732,
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "PASS",
+                    "durationMs": 611,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "NO_WAY -> /no_way",
+                        "Яойщица -> /yaoi_fangirl",
+                        "Клуб -> /klub"
+                    ]
+                },
+                {
+                    "name": "latest",
+                    "status": "PASS",
+                    "durationMs": 278,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Невероятные Приключения ДжоДжо: Не Забывай -> /neveroiatnye_prikliucheniia_djodjo__ne_zabyvai",
+                        "Зверь в клетке -> /zver_v_kletke",
+                        "Ягода малина -> /iagoda_malina"
+                    ]
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 1,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "1 filters"
+                    ]
+                },
+                {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 897,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "NO_WAY -> /no_way"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "BLOCKED",
+                    "durationMs": 734,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Для просмотра контента необходима авторизация через WebView🌍 или включите автоматическую авторизацию в настройках расширения"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-02T12:04:54.896435393Z",
+    "comparedTo": "2026-11-25T13:05:06.288908056Z",
     "changes": [
-        {
-            "source": ":src:ru:selfmanga",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "SelfManga",
             "lang": "ru",
             "scenario": null,
-            "from": "BLOCKED",
+            "from": null,
+            "to": "BLOCKED"
+        },
+        {
+            "source": ":src:ru:selfmanga",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

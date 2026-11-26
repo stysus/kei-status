@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-25T13:15:46.596968204Z",
+    "generatedAt": "2026-11-26T12:54:03.041719385Z",
     "module": ":src:en:lilymanga",
     "sourceRoot": "",
-    "extensionCommit": "bac637ac",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 4480996639887718467,
             "name": "Lily Manga",
             "lang": "en",
             "baseUrl": "https://lilymanga.net",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 403,
+                    "status": "WARN",
+                    "durationMs": 19683,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1994,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Best Ending in the World -> 8833",
-                        "Miss Kobayashi’s Dragon Maid -> 5623",
-                        "Kimi ga Hoeru Tame no Uta wo, -> 11195"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19517,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 2014,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "The Best Ending in the World -> 8833",
-                        "Miss Kobayashi’s Dragon Maid -> 5623",
-                        "Kimi ga Hoeru Tame no Uta wo, -> 11195"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19454,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,60 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 3932,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The Best Ending in the World -> 10802",
-                        "The Best Ending in the World -> 8833",
-                        "This World Is Mine -> 8735"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 4123,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 08 - Frayed Faith -> chapter-08",
-                        "Chapter 07 - Clue of the Cocoon -> chapter-07",
-                        "Chapter 06 - The Promise of Disaster -> chapter-06"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 3728,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://lilymanga.net/wp-content/uploads/WP-manga/data/manga_638025405b656/1226ed4183a7e3e61cca5956a62b18f7/001.webp",
-                        "https://lilymanga.net/wp-content/uploads/WP-manga/data/manga_638025405b656/1226ed4183a7e3e61cca5956a62b18f7/002.webp",
-                        "https://lilymanga.net/wp-content/uploads/WP-manga/data/manga_638025405b656/1226ed4183a7e3e61cca5956a62b18f7/003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 5901,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-24T14:07:23.222681521Z",
+    "comparedTo": "2026-11-25T13:15:46.596968204Z",
     "changes": [
         {
             "source": "Lily Manga",
             "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Lily Manga",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Lily Manga",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Lily Manga",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Lily Manga",
+            "lang": "en",
             "scenario": "search",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Lily Manga",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Lily Manga",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

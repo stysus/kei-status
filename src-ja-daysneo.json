@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-25T13:25:28.481610825Z",
+    "generatedAt": "2026-11-26T12:58:18.160650183Z",
     "module": ":src:ja:daysneo",
     "sourceRoot": "",
-    "extensionCommit": "bac637ac",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 4655533104466661727,
             "name": "DAYS NEO",
             "lang": "ja",
             "baseUrl": "https://daysneo.com",
-            "status": "BLOCKED",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 814,
+                    "status": "PASS",
+                    "durationMs": 983,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 403"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 127,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 1100,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "（わたく）しごとではございますが… -> e9d5a0b8060b3c1fdfdf53be614dadcc",
+                        "ウェザーリポート -> 0b0d4f0fb9b836e116160da6a8499e04",
+                        "俺は沢口靖子のことを何も知らない -> 3b68203b05f5fd18d99a1188dc176e40"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 122,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 973,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "お家にモンスターお邪魔します -> e3e99f140c715ac5ce52024a540e15d2",
+                        "西生駒ショート漫画 行く -> 1d546c3c2360cf640b7653afd171caf4",
+                        "ソクラテスの神曲かく語りき -> 7f3ac71f41ac03b5a9cd753f0b889bb2"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,82 +63,98 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 1983,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "（わたく）しごとではございますが… -> e9d5a0b8060b3c1fdfdf53be614dadcc"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 234,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "第1話 -> e9d5a0b8060b3c1fdfdf53be614dadcc/b83bb07510a19b9258129e93b96e5c2d"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 696,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://img.daysneo.com/work/p_25031ef1766d0377409e3b2bbd49a2fec248.png",
+                        "https://img.daysneo.com/work/p_2503c4fabafa9623213687ffcf9e18cab910.png",
+                        "https://img.daysneo.com/work/p_2503d466e4b7c9399413e641375353ff9762.png"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 77,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-23T13:11:23.459198906Z",
+    "comparedTo": "2026-11-25T13:25:28.481610825Z",
     "changes": [
         {
             "source": "DAYS NEO",
             "lang": "ja",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "DAYS NEO",
             "lang": "ja",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "DAYS NEO",
             "lang": "ja",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "DAYS NEO",
-            "lang": "ja",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "DAYS NEO",
             "lang": "ja",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "DAYS NEO",
+            "lang": "ja",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "DAYS NEO",
             "lang": "ja",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "DAYS NEO",
             "lang": "ja",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-13T11:18:25.231487999Z",
+    "generatedAt": "2026-11-26T12:57:02.827515343Z",
     "module": ":src:en:rackus",
     "sourceRoot": "",
-    "extensionCommit": "c3bc55d5",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 263040414613624318,
             "name": "Rackus",
             "lang": "en",
             "baseUrl": "https://rackusreads.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1560,
+                    "durationMs": 1353,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 315,
+                    "status": "WARN",
+                    "durationMs": 297,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Winning Shot! -> /manga/winning-shot/",
-                        "Ahiru no Sora -> /manga/ahiru-no-sora/",
-                        "Top Corner -> /manga/top-corner/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 325,
+                    "status": "WARN",
+                    "durationMs": 252,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Ryuna -> /manga/ryuna/",
-                        "Top Corner -> /manga/top-corner/",
-                        "Penholder -> /manga/penholder/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,64 +59,74 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 518,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Winning Shot! -> /manga/winning-shot/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 400,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 91 - Suspended Game -> /winning-shot-chapter-91/",
-                        "Chapter 90 - S2--Next Stage -> /winning-shot-chapter-90/",
-                        "Chapter 89 - S2--Transitional Period -> /winning-shot-chapter-89/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 552,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://rackusreads.com/wp-content/uploads/2025/08/00-WSs2-creds.webp",
-                        "https://rackusreads.com/wp-content/uploads/2025/08/CREDITPAGE-1.webp",
-                        "https://rackusreads.com/wp-content/uploads/2025/08/WS-S2-CH16E-01-copy.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1041,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-12T11:25:40.518086008Z",
+    "comparedTo": "2026-11-13T11:18:25.231487999Z",
     "changes": [
         {
             "source": "Rackus",
             "lang": "en",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
-            "source": ":src:en:rackus",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "Rackus",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Rackus",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Rackus",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Rackus",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Rackus",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:50:13.419272749Z",
+    "generatedAt": "2026-11-26T12:59:18.816818080Z",
     "module": ":src:fr:mangasoriginesfr",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 4803238581797687746,
             "name": "Mangas-Origines.fr",
             "lang": "fr",
             "baseUrl": "https://mangas-origines.fr",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3666,
+                    "durationMs": 2684,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 924,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 793,
+                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html>\n<html lang=\"en.....",
                     "notes": [],
-                    "samples": [
-                        "Solo Leveling -> 826-solo-leveling",
-                        "The Beginning After the End -> 831-the-beginning-after-the-end",
-                        "Nano Machine -> nano-machine"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 667,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 212,
+                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html>\n<html lang=\"en.....",
                     "notes": [],
-                    "samples": [
-                        "I’m Only a Stepmother, but My Daughter Is Just so Cute -> im-only-a-stepmother-but-my-daughter-is-just-so-cute",
-                        "The Villain Wants To Live -> a-villains-will-to-survive",
-                        "The Lord Who Levels Up by Absorbing Powers -> the-lord-who-levels-up-by-absorbing-powers"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,66 +55,74 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 622,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "F-Class Destiny Hunter -> f-class-destiny-hunter",
-                        "Solo Leveling : Ragnarok -> solo-leveling-ragnarok",
-                        "Light of Arad: Forerunner -> light-of-arad-forerunner"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1148,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapitre 200 Ch.200 -> 826-solo-leveling/chapitre-200",
-                        "Chapitre 199 Ch.199 -> 826-solo-leveling/chapitre-199",
-                        "Chapitre 198 Ch.198 -> 826-solo-leveling/chapitre-198"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1277,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://mangas-origines.fr/wp-content/uploads/WP-manga/data/manga_649064bd0c0db/9626520b2f07ca46b35c19b1f309e806/01.jpg",
-                        "https://mangas-origines.fr/wp-content/uploads/WP-manga/data/manga_649064bd0c0db/9626520b2f07ca46b35c19b1f309e806/02.jpg",
-                        "https://mangas-origines.fr/wp-content/uploads/WP-manga/data/manga_649064bd0c0db/9626520b2f07ca46b35c19b1f309e806/03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 226,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-21T11:13:43.696780041Z",
+    "comparedTo": "2026-11-22T11:50:13.419272749Z",
     "changes": [
         {
             "source": "Mangas-Origines.fr",
             "lang": "fr",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
-            "source": ":src:fr:mangasoriginesfr",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "Mangas-Origines.fr",
+            "lang": "fr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Mangas-Origines.fr",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangas-Origines.fr",
+            "lang": "fr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangas-Origines.fr",
+            "lang": "fr",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Mangas-Origines.fr",
+            "lang": "fr",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

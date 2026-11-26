@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:49:09.672606249Z",
+    "generatedAt": "2026-11-26T12:59:02.706366255Z",
     "module": ":src:es:rakuentranslations",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 1527666187989988991,
             "name": "Rakuen Translations",
             "lang": "es",
             "baseUrl": "https://rakuentranslations.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 684,
+                    "durationMs": 425,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 552,
+                    "status": "WARN",
+                    "durationMs": 119,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Class no Daikirai na Joshi to Kekkon Suru Koto ni Natta -> /manga/class-no-daikirai-na-joshi-to-kekkon-suru-koto-ni-natta/",
-                        "Kuroiwa Medaka Ni Watashi No Kawaii Ga Tsuujinai -> /manga/kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai/",
-                        "Mayonaka Heart Tune -> /manga/mayonaka-heart-tune/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 509,
+                    "status": "WARN",
+                    "durationMs": 129,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Shibou Endo o Kaihi shita Gyaruge no Hirointachi ga Ore no Nikkichou -> /manga/shibou-endo-o-kaihi-shita-gyaruge-no-hirointachi-ga-ore-no-nikkichou/",
-                        "Kuroiwa Medaka Ni Watashi No Kawaii Ga Tsuujinai -> /manga/kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai/",
-                        "Kanan-Sama Wa Akumade Choroi -> /manga/kanan-sama-wa-akumade-choroi/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,64 +59,74 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 481,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Class no Daikirai na Joshi to Kekkon Suru Koto ni Natta -> /manga/class-no-daikirai-na-joshi-to-kekkon-suru-koto-ni-natta/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 510,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 56.2 -> /class-no-daikirai-na-joshi-to-kekkon-suru-koto-ni-natta-capitulo-56-2/",
-                        "Capítulo 56.1 -> /class-no-daikirai-na-joshi-to-kekkon-suru-koto-ni-natta-capitulo-56-1/",
-                        "Capítulo 55.2 -> /class-no-daikirai-na-joshi-to-kekkon-suru-koto-ni-natta-capitulo-55-2/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 481,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://i1.wp.com/rakuentranslations.com/wp-content/uploads/2026/10/0.1-89.jpg",
-                        "https://i2.wp.com/rakuentranslations.com/wp-content/uploads/2026/10/0.2-69.jpg",
-                        "https://i3.wp.com/rakuentranslations.com/wp-content/uploads/2026/10/01-79.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 392,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-21T11:13:50.885475507Z",
+    "comparedTo": "2026-11-22T11:49:09.672606249Z",
     "changes": [
         {
             "source": "Rakuen Translations",
             "lang": "es",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
-            "source": ":src:es:rakuentranslations",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "Rakuen Translations",
+            "lang": "es",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Rakuen Translations",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Rakuen Translations",
+            "lang": "es",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Rakuen Translations",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Rakuen Translations",
+            "lang": "es",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

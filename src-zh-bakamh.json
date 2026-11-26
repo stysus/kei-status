@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-25T13:22:07.051859684Z",
+    "generatedAt": "2026-11-26T13:01:27.367590683Z",
     "module": ":src:zh:bakamh",
     "sourceRoot": "",
-    "extensionCommit": "bac637ac",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 3712194609356981776,
@@ -15,25 +15,25 @@
                 {
                     "name": "metadata",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 43187,
-                    "message": null,
+                    "status": "BLOCKED",
+                    "durationMs": 22668,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "home page returned HTTP 522"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from bakamh.com (HTTP 403)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "DOWN",
-                    "durationMs": 19676,
+                    "durationMs": 19755,
                     "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "DOWN",
-                    "durationMs": 19455,
+                    "durationMs": 19727,
                     "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
                     "notes": [
                         "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
@@ -87,49 +87,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-20T12:14:33.288565515Z",
+    "comparedTo": "2026-11-25T13:22:07.051859684Z",
     "changes": [
         {
             "source": "巴卡漫画",
             "lang": "zh",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "巴卡漫画",
-            "lang": "zh",
-            "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "巴卡漫画",
-            "lang": "zh",
-            "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "巴卡漫画",
-            "lang": "zh",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "巴卡漫画",
-            "lang": "zh",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "巴卡漫画",
-            "lang": "zh",
-            "scenario": "pages",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "WARN",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

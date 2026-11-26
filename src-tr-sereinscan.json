@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:44.011303161Z",
+    "generatedAt": "2026-11-26T12:59:45.168810434Z",
     "module": ":src:tr:sereinscan",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 1993924607457500259,
             "name": "Serein Scan",
             "lang": "tr",
             "baseUrl": "https://sereinscan.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1157,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 1748,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from sereinscan.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1200,
+                    "durationMs": 986,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +45,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 811,
+                    "durationMs": 818,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Durum Penceresindeki Zamanım Tükeniyor! -> /manga/durum-penceresindeki-zamanim-tukeniyor/",
-                        "Kılıcı Taşıyan Çiçek -> /manga/kilici-tasiyan-cicek/",
-                        "Kötü Adamın Kızı Olmak -> /manga/kotu-adamin-kizi-olmak/"
+                        "Karina’nın Son Günleri -> /manga/karinanin-son-gunleri/",
+                        "Oyundan Çıkamayan NPC -> /manga/oyundan-cikamayan-npc/",
+                        "Sıralamacının Sıradan Bir Hayat Yaşama Rehberi -> /manga/siralamacinin-siradan-bir-hayat-yasama-rehberi/"
                     ]
                 },
                 {
@@ -65,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1137,
+                    "durationMs": 732,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,7 +77,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1389,
+                    "durationMs": 974,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,7 +89,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 829,
+                    "durationMs": 825,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -99,7 +101,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 1420,
+                    "durationMs": 224,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -107,14 +109,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:34.206893172Z",
+    "comparedTo": "2026-10-30T01:37:44.011303161Z",
     "changes": [
         {
             "source": "Serein Scan",
             "lang": "tr",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

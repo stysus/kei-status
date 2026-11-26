@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:10:04.127041199Z",
+    "generatedAt": "2026-11-26T12:53:31.744881574Z",
     "module": ":src:en:manhwanex",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 3663840686576348637,
             "name": "ManhwaNex",
             "lang": "en",
             "baseUrl": "https://manhwanex.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 580,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 29,
+                    "message": "the site is unreachable (manhwanex.com: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: manhwanex.com: Name or service not known"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 424,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "A Glimpse of the Jianghu -> 244",
-                        "Taking Advantage in a Strange World -> 224",
-                        "Disastrous Necromancer -> 329"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 2,
+                    "message": "the site is unreachable (manhwanex.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: manhwanex.com"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 906,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Global Beast Taming: Awakening an SSS-level Talent at the Start -> 779",
-                        "Summoner of Calamity -> 787",
-                        "From Goblin to Goblin God -> 559"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 0,
+                    "message": "the site is unreachable (manhwanex.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: manhwanex.com"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,65 +61,81 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 560,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "A Glimpse of the Jianghu -> 244",
-                        "Assassin & Dragon Girl -> 249"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 380,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 18 -> chapter-18",
-                        "Chapter 17 -> chapter-17",
-                        "Chapter 16 -> chapter-16"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 141,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.manhwanex.com/manga_6990778feb73f/a9dea92fbe1094f3bcb2d6fb791e8fd0/imgi_1_01.jpg",
-                        "https://cdn.manhwanex.com/manga_6990778feb73f/a9dea92fbe1094f3bcb2d6fb791e8fd0/imgi_2_02.jpg",
-                        "https://cdn.manhwanex.com/manga_6990778feb73f/a9dea92fbe1094f3bcb2d6fb791e8fd0/imgi_3_03.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 701,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-23T12:58:18.475187226Z",
+    "comparedTo": "2026-11-24T14:10:04.127041199Z",
     "changes": [
         {
             "source": "ManhwaNex",
             "lang": "en",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
-            "source": ":src:en:manhwanex",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "ManhwaNex",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "ManhwaNex",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "ManhwaNex",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ManhwaNex",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ManhwaNex",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ManhwaNex",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

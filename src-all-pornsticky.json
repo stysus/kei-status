@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-25T13:13:59.322833838Z",
+    "generatedAt": "2026-11-26T12:49:46.620817474Z",
     "module": ":src:all:pornsticky",
     "sourceRoot": "",
-    "extensionCommit": "bac637ac",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 5052420760211841842,
             "name": "PornSticky",
             "lang": "all",
             "baseUrl": "https://pornsticky.com",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 888,
+                    "status": "WARN",
+                    "durationMs": 816,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 187,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chubby brunette enjoys a sensual massage turning into hardcore twatting -> /pics/chubby-brunette-enjoys-a-sensual-massage-turning-into-hardcore-twatting-74198126/",
-                        "Teen Nicole Ray gets a cumshot in her face and a creampie in her cunt -> /pics/teen-nicole-ray-gets-a-cumshot-in-her-face-and-a-creampie-in-her-cunt-86062714/",
-                        "Max Mikita amazing nudity and solo toy porn with her hairy Asian pussy -> /pics/max-mikita-amazing-nudity-and-solo-toy-porn-with-her-hairy-asian-pussy-27374961/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 341,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -59,50 +59,76 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 490,
-                    "message": null,
-                    "notes": [
-                        "returned an empty list",
-                        "query \"Chubby brunette enjoys a sensual massage turning into hardcore twatting\" matched no results in the first page"
-                    ],
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 143,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Gallery -> /pics/chubby-brunette-enjoys-a-sensual-massage-turning-into-hardcore-twatting-74198126/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 137,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdni.pornsticky.com/1280/5/102/74198126/74198126_001_48ad.jpg",
-                        "https://cdni.pornsticky.com/1280/5/102/74198126/74198126_002_850e.jpg",
-                        "https://cdni.pornsticky.com/1280/5/102/74198126/74198126_003_cf09.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 409,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-24T14:04:59.895865936Z",
-    "changes": [],
+    "comparedTo": "2026-11-25T13:13:59.322833838Z",
+    "changes": [
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "search",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "PornSticky",
+            "lang": "all",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

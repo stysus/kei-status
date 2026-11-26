@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-11T11:23:47.264926734Z",
+    "generatedAt": "2026-11-26T12:59:12.338722935Z",
     "module": ":src:tr:merlinmanga",
     "sourceRoot": "",
-    "extensionCommit": "d0478bb6",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 896733953724376427,
             "name": "Merlin Manga",
             "lang": "tr",
             "baseUrl": "https://merlinmanga.com",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,29 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 981,
+                    "status": "WARN",
+                    "durationMs": 601,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 404"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 688,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 196,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "The Remarried Empress -> 3291",
-                        "Kılıç Hanesinin Genç Efendisi -> 2574",
-                        "Star-Embracing Swordmaster (Umut Şövalyesi) -> 2244"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 559,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 465,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Rüzgar Kıran Bisikletçi -> 3336",
-                        "Tanrıların Üstünde -> 3690",
-                        "Oyuncunun Son Şansı -> 3907"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,41 +57,76 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 481,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "The Remarried Empress -> 3291"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 692,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 Bölüm 247.5 -> bolum-247-5",
-                        "🔒 Bölüm 247 -> bolum-247",
-                        "Bölüm 246 -> bolum-246"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "BLOCKED",
-                    "durationMs": 310,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.Exception: Log in to the site in WebView to read this chapter (a free account is enough)"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
+    "comparedTo": "2026-11-11T11:23:47.264926734Z",
+    "changes": [
+        {
+            "source": "Merlin Manga",
+            "lang": "tr",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Merlin Manga",
+            "lang": "tr",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Merlin Manga",
+            "lang": "tr",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Merlin Manga",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Merlin Manga",
+            "lang": "tr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Merlin Manga",
+            "lang": "tr",
+            "scenario": "pages",
+            "from": "BLOCKED",
+            "to": "SKIP"
+        }
+    ],
     "throttledHosts": []
 }

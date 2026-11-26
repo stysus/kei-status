@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-16T11:45:23.413626064Z",
+    "generatedAt": "2026-11-26T12:51:57.432730362Z",
     "module": ":src:all:vinnieVeritas",
     "sourceRoot": "",
-    "extensionCommit": "53ca8481",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 9005452006043030878,
             "name": "Vinnie Veritas - CCC",
             "lang": "en",
             "baseUrl": "https://ccc.vinnieveritas.com",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,10 +22,12 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 307,
+                    "status": "WARN",
+                    "durationMs": 19473,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
@@ -70,31 +72,19 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 62,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "#CCC CCC026 -> /CCC026.php",
-                        "#CCC CCC025 -> /CCC025.php",
-                        "#CCC CCC024 -> /CCC024.php"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19355,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 126,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://ccc.vinnieveritas.com/comics/CCCr026E.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 280,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
@@ -105,7 +95,7 @@
             "name": "Vinnie Veritas - CCC",
             "lang": "es",
             "baseUrl": "https://ccc.vinnieveritas.com",
-            "status": "WARN",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -117,10 +107,11 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
+                    "status": "WARN",
                     "durationMs": 0,
                     "message": null,
                     "notes": [
+                        "home page returned HTTP 522",
                         "same site as Vinnie Veritas - CCC [en]; not checked again"
                     ],
                     "samples": []
@@ -169,45 +160,82 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 44,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "#CCC CCC026 -> /CCC026.php",
-                        "#CCC CCC025 -> /CCC025.php",
-                        "#CCC CCC024 -> /CCC024.php"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19554,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 44,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://ccc.vinnieveritas.com/comics/CCCr026.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 269,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T06:56:06.431979023Z",
+    "comparedTo": "2026-11-16T11:45:23.413626064Z",
     "changes": [
+        {
+            "source": "Vinnie Veritas - CCC",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Vinnie Veritas - CCC",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Vinnie Veritas - CCC",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Vinnie Veritas - CCC",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        },
+        {
+            "source": "Vinnie Veritas - CCC",
+            "lang": "es",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Vinnie Veritas - CCC",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Vinnie Veritas - CCC",
+            "lang": "es",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
         {
             "source": "Vinnie Veritas - CCC",
             "lang": "es",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

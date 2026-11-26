@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T12:00:41.016238854Z",
+    "generatedAt": "2026-11-26T12:55:42.914159383Z",
     "module": ":src:ko:blacktoon",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 7080800841003944426,
             "name": "블랙툰",
             "lang": "ko",
-            "baseUrl": "https://blacktoon510.com",
-            "status": "PASS",
+            "baseUrl": "https://blacktoongo.com",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,31 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 450,
+                    "durationMs": 494,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 794,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 278,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "동아리 -> 9098",
-                        "나 혼자만 레벨업 -> 279",
-                        "연애혁명 -> 426"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 7,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 1,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "눈먼 공작과 약혼했다 -> 18933",
-                        "비밀복식클럽 -> 17994",
-                        "고교야구 타이쿤 -> 19308"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,53 +55,76 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 24,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "짝사랑 과몰입 동아리 -> 20348",
-                        "신도시 미시들의 비밀동아리 -> 18274",
-                        "괴담 동아리 -> 11990"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 250,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "후기 -> 9098/1521482",
-                        "215화 완결 -> 9098/1519158",
-                        "214화 -> 9098/1516930"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 419,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://diksds.speedwebgo.com/202505/19/202505190025157085551.jpg",
-                        "https://diksds.speedwebgo.com/202505/19/202505190025152275800.jpg",
-                        "https://diksds.speedwebgo.com/202505/19/202505190025157910572.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 141,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-13T11:19:47.837565589Z",
-    "changes": [],
+    "comparedTo": "2026-11-19T12:00:41.016238854Z",
+    "changes": [
+        {
+            "source": "블랙툰",
+            "lang": "ko",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "블랙툰",
+            "lang": "ko",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "블랙툰",
+            "lang": "ko",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "블랙툰",
+            "lang": "ko",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "블랙툰",
+            "lang": "ko",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "블랙툰",
+            "lang": "ko",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

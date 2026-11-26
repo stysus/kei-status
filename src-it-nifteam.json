@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-25T13:19:46.603372075Z",
+    "generatedAt": "2026-11-26T12:58:03.078245276Z",
     "module": ":src:it:nifteam",
     "sourceRoot": "",
-    "extensionCommit": "bac637ac",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 7816508865953731299,
@@ -23,41 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 935,
+                    "durationMs": 1015,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 545,
+                    "status": "WARN",
+                    "durationMs": 229,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "#DRCL Midnight Children -> /slide/series/drcl-midnight-children/",
-                        "Astro Royale -> /slide/series/astro-royale/",
-                        "B - Manga -> /slide/series/b-manga/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 238,
+                    "durationMs": 195,
                     "message": null,
                     "notes": [
-                        "manga[0] has no thumbnail",
-                        "manga[1] has no thumbnail",
-                        "manga[2] has no thumbnail",
-                        "manga[3] has no thumbnail",
-                        "manga[4] has no thumbnail",
-                        "duplicate manga urls: [/slide/series/b2-manga/, /slide/series/f-manga/, /slide/series/nif-bl/]"
+                        "returned an empty list"
                     ],
-                    "samples": [
-                        "NIF - BL -> /slide/series/nif-bl/",
-                        "B2 - Manga -> /slide/series/b2-manga/",
-                        "One Piece NIF -> /slide/series/one-piece-nif/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -70,51 +59,69 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "WARN",
-                    "durationMs": 228,
-                    "message": null,
-                    "notes": [
-                        "manga[0] has no thumbnail"
-                    ],
-                    "samples": [
-                        "#DRCL Midnight Children -> /slide/series/drcl-midnight-children/"
-                    ]
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 229,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 1: One Shot -> /slide/read/drcl-midnight-children/it/0/1/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 258,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://read-nifteam.info/slide/content/comics/drcl-midnight-children_5fe658e18839b/1-0-one-shot_5fe658f30c579/00.png",
-                        "https://read-nifteam.info/slide/content/comics/drcl-midnight-children_5fe658e18839b/1-0-one-shot_5fe658f30c579/01.png",
-                        "https://read-nifteam.info/slide/content/comics/drcl-midnight-children_5fe658e18839b/1-0-one-shot_5fe658f30c579/02-03.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1463,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-08T13:37:00.453506808Z",
-    "changes": [],
+    "comparedTo": "2026-11-25T13:19:46.603372075Z",
+    "changes": [
+        {
+            "source": "NIFTeam",
+            "lang": "it",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "NIFTeam",
+            "lang": "it",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NIFTeam",
+            "lang": "it",
+            "scenario": "search",
+            "from": "WARN",
+            "to": "SKIP"
+        },
+        {
+            "source": "NIFTeam",
+            "lang": "it",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "NIFTeam",
+            "lang": "it",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

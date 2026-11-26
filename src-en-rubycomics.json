@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:42:51.564281924Z",
+    "generatedAt": "2026-11-26T12:54:21.384319171Z",
     "module": ":src:en:rubycomics",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 6792243715659475719,
             "name": "Ruby Comics",
             "lang": "en",
             "baseUrl": "https://rubycomics.net",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1349,
+                    "status": "WARN",
+                    "durationMs": 772,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 404"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 465,
+                    "durationMs": 794,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +45,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 462,
+                    "durationMs": 397,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "I’ll eat you tonight -> 4714",
-                        "I want to eat you every day -> 4843",
-                        "My Friend’s Husband -> 3783"
+                        "My Mom’s Friend’s Son: Observation Log -> 3671",
+                        "That bastard -> 4058",
+                        "Solstice -> 3721"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 411,
+                    "durationMs": 336,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -76,53 +78,51 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 407,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 232,
+                    "message": "HTTP error 404",
                     "notes": [],
-                    "samples": [
-                        "Chapter 100.5 -> chapter-100-5",
-                        "Chapter 100 SPOILER -> chapter-100-spoiler",
-                        "Chapter 100 -> chapter-100"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 290,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://rubycomics.net/wp-content/uploads/WP-manga/data/manga_68626171dc44d/bdc7f88b4410baa6c7916121025ab406/4_1_11zon.jpg",
-                        "https://rubycomics.net/wp-content/uploads/WP-manga/data/manga_68626171dc44d/bdc7f88b4410baa6c7916121025ab406/5_2_11zon.jpg",
-                        "https://rubycomics.net/wp-content/uploads/WP-manga/data/manga_68626171dc44d/bdc7f88b4410baa6c7916121025ab406/6_3_11zon.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 65,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-21T11:13:50.869221960Z",
+    "comparedTo": "2026-11-22T11:42:51.564281924Z",
     "changes": [
         {
             "source": "Ruby Comics",
             "lang": "en",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
-            "source": ":src:en:rubycomics",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "Ruby Comics",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Ruby Comics",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ruby Comics",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

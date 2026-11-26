@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-25T13:15:05.268580918Z",
+    "generatedAt": "2026-11-26T12:57:42.950720334Z",
     "module": ":src:fr:banchanscan",
     "sourceRoot": "",
-    "extensionCommit": "bac637ac",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 8593333389489308586,
             "name": "Banchan Scan",
             "lang": "fr",
             "baseUrl": "https://banchanscan.fr",
-            "status": "BLOCKED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,33 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 20403,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from banchanscan.fr (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 5625,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 16,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from banchanscan.fr (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 2005,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "A Saint Who Was Adopted By The Grand Duke -> webtoon_1957d018-ad82-4b04-86ab-8ae99f5b0863",
+                        "Talented Baby Squirrel -> webtoon_4b3f8afc-1d1a-4c28-a2b1-7ef4e517dae3",
+                        "Back to Spring -> webtoon_b275b5bf-d1af-4c09-933d-680851cf8c14"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 21,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from banchanscan.fr (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 426,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Dragon Daily -> webtoon_e68626d3-e005-4168-b738-0d43137500d7",
+                        "We Hate The Male Lead -> webtoon_a9163408-f23d-499d-a978-5d3d7865bbf2",
+                        "The Grand Duke Has Awakened in a Strange Place -> webtoon_fe67236c-6fd2-4064-9c4d-6f82cef2ed4d"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -61,82 +63,103 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 16,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "A Saint Who Was Adopted By The Grand Duke -> webtoon_1957d018-ad82-4b04-86ab-8ae99f5b0863"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 236,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Saison 3 · Chapitre 99 -> chapter_d4074eb4-2a6b-46d7-9b24-e14c566cb599",
+                        "Saison 3 · Chapitre 98 -> chapter_54e45784-defc-4653-8385-e1c31c15cb83",
+                        "Saison 3 · Chapitre 97 -> chapter_1cb0f32f-1d23-481b-8fab-fa3cef08c7ad"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 200,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "https://cdn.banchanscan.fr/chapters/a-saint-who-was-adopted-by-the-grand-duke/1/0001.webp",
+                        "https://cdn.banchanscan.fr/chapters/a-saint-who-was-adopted-by-the-grand-duke/1/0002.webp",
+                        "https://cdn.banchanscan.fr/chapters/a-saint-who-was-adopted-by-the-grand-duke/1/0003.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "WARN",
+                    "durationMs": 1056,
+                    "message": null,
+                    "notes": [
+                        "page[1] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.banchanscan.fr (HTTP 403)",
+                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from cdn.banchanscan.fr (HTTP 403)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-24T14:16:08.812188242Z",
+    "comparedTo": "2026-11-25T13:15:05.268580918Z",
     "changes": [
         {
             "source": "Banchan Scan",
             "lang": "fr",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Banchan Scan",
             "lang": "fr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Banchan Scan",
             "lang": "fr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "Banchan Scan",
-            "lang": "fr",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "BLOCKED",
+            "to": "PASS"
         },
         {
             "source": "Banchan Scan",
             "lang": "fr",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Banchan Scan",
+            "lang": "fr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Banchan Scan",
             "lang": "fr",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Banchan Scan",
             "lang": "fr",
             "scenario": "images",
-            "from": "WARN",
-            "to": null
+            "from": null,
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

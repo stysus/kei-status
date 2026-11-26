@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:19:36.883986101Z",
+    "generatedAt": "2026-11-26T13:03:28.942355981Z",
     "module": ":src:vi:fastscan",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 4353548193024198457,
             "name": "FastScan",
             "lang": "vi",
             "baseUrl": "https://fastscan.org",
-            "status": "DOWN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "DOWN",
-                    "durationMs": 30040,
-                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "status": "BLOCKED",
+                    "durationMs": 33265,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "java.net.SocketTimeoutException: Connect timed out"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from fastscan.org (HTTP 403)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 30035,
-                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "status": "BLOCKED",
+                    "durationMs": 17,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "java.net.SocketTimeoutException: Connect timed out"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from fastscan.org (HTTP 403)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 30032,
-                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
+                    "status": "BLOCKED",
+                    "durationMs": 10,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "java.net.SocketTimeoutException: Connect timed out"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from fastscan.org (HTTP 403)"
                     ],
                     "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 0,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,56 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-14T10:48:03.328788682Z",
+    "comparedTo": "2026-11-24T14:19:36.883986101Z",
     "changes": [
         {
             "source": "FastScan",
             "lang": "vi",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "BLOCKED"
         },
         {
             "source": "FastScan",
             "lang": "vi",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "BLOCKED"
         },
         {
             "source": "FastScan",
             "lang": "vi",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "FastScan",
-            "lang": "vi",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "FastScan",
-            "lang": "vi",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
-        },
-        {
-            "source": "FastScan",
-            "lang": "vi",
-            "scenario": "pages",
-            "from": "WARN",
-            "to": "SKIP"
-        },
-        {
-            "source": "FastScan",
-            "lang": "vi",
-            "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": "DOWN",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

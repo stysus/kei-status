@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-04T11:16:49.684597513Z",
+    "generatedAt": "2026-11-26T13:00:47.577322770Z",
     "module": ":src:id:lianscans",
     "sourceRoot": "",
-    "extensionCommit": "ee661f52",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 8863831356505058723,
             "name": "LianScans",
             "lang": "id",
             "baseUrl": "https://www.lianscans.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 288,
+                    "durationMs": 482,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 817,
+                    "status": "WARN",
+                    "durationMs": 227,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Tada de wa Dakaremasen -> /manga/tada-de-wa-dakaremasen/",
-                        "Saki Midareru wa Yuri no Hana -> /manga/saki-midareru-wa-yuri-no-hana/",
-                        "LIAN Short Yuri Collection -> /manga/lian-short-yuri-collection/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 584,
+                    "status": "WARN",
+                    "durationMs": 234,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Honto wa Motto, Shitai dake -> /manga/honto-wa-motto-shitai-dake/",
-                        "Ohiru Yasumi ga Owaru made -> /manga/ohiru-yasumi-ga-owaru-made/",
-                        "Tada de wa Dakaremasen -> /manga/tada-de-wa-dakaremasen/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,93 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 595,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Tada de wa Dakaremasen -> /manga/tada-de-wa-dakaremasen/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 235,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 61 - G-Spot Watari-san -> /tada-de-wa-dakaremasen-chapter-61-bahasa-indonesia/",
-                        "Chapter 60 - Masa Lalu Watari-san -> /tada-de-wa-dakaremasen-chapter-60-bahasa-indonesia/",
-                        "Chapter 59 - Mengerikan! Miyako Diserang Hantu! -> /tada-de-wa-dakaremasen-chapter-59-bahasa-indonesia/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 358,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://wsrv.nl/?url=images2.imgbox.com%2Fe2%2F07%2FF9tT8r6c_o.jpg",
-                        "https://wsrv.nl/?url=images2.imgbox.com%2Ff5%2F69%2FgD5anGNb_o.jpg",
-                        "https://wsrv.nl/?url=images2.imgbox.com%2Fc2%2F1f%2F7KLx2FZ3_o.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 915,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T11:52:12.592926231Z",
+    "comparedTo": "2026-11-04T11:16:49.684597513Z",
     "changes": [
         {
             "source": "LianScans",
             "lang": "id",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "LianScans",
             "lang": "id",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "LianScans",
-            "lang": "id",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "LianScans",
             "lang": "id",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "LianScans",
+            "lang": "id",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "LianScans",
             "lang": "id",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "LianScans",
             "lang": "id",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-19T11:58:49.060201321Z",
+    "generatedAt": "2026-11-26T13:16:23.167389858Z",
     "module": ":src:es:anzmanga",
     "sourceRoot": "",
-    "extensionCommit": "8947c372",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 7374498796507972405,
             "name": "AnzManga",
             "lang": "es",
             "baseUrl": "https://www.anzmanga25.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 814,
+                    "durationMs": 831,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 234,
+                    "status": "WARN",
+                    "durationMs": 247,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "One Punch-Man -> /manga/one-punchman",
-                        "Tokyo Revengers -> /manga/tokyo-revengers",
-                        "Shuumatsu no Valkyrie -> /manga/shuumatsu-no-valkyrie"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 423,
+                    "status": "WARN",
+                    "durationMs": 227,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "One Punch-Man -> /manga/one-punchman",
-                        "Blue Lock -> /manga/blue-lock",
-                        "Dandadan -> /manga/dandadan"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,93 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 203,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "One Punch-Man -> /manga/one-punchman"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 241,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Capítulo 308:  -> /manga/one-punchman/308",
-                        "Capítulo 307:  -> /manga/one-punchman/307",
-                        "Capítulo 306:  -> /manga/one-punchman/306"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 226,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1UXBSnYWDJb3BLRlieNta_neGlRJgSJVngyKBulSU6fiUZNiuqvagxX2UE9BtzwDs13XREiNTeQCQud48C-A_FMTCSm50MuGXatD2pB5Pil3HbXFfvHZ3j77Yfwzkr0J15SQIGSZOcwtK8vaDE9XQNQC63JtY81jhk8Pf3UajfCobfKJFBdAw3oh8o9zm/s1600",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfSpSR-pog1lu0pi0pn3DOfZxgjfOIi1qGPDgxf9bqtigMRLTU946wN3DxNNvoXWK14TSwGdDbszxEUDZnaA_SGyMGUlOp0gVeQ4G5Y7COKW6RrxxuCw4Yk4hjx9jo_OVlo8npJyOv1HZS1QdWecI7zMx-0JK7NPdPhjM5BWBfz9V15cGND9OBoSjcOqjk/s1600",
-                        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjntT67yYkQLPGAGHnGZnMWho_arCFfxb8f-yiEHPCdmajpkxDlQGMHFOnHtQL9Gc55LcsJ7XQCtC3ofBMtAFNRgsKbFF8XeeLu716TZEzBDTESlCBKoX6iRrhCfrFt9GWCWHSaKcRLwjRrgqIrzrYiE6f3a_gQMbNzYrZQK6Ij_4cnvqR6iy7fUBVpfvl2/s1600"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 546,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-18T12:06:44.231087391Z",
+    "comparedTo": "2026-11-19T11:58:49.060201321Z",
     "changes": [
         {
             "source": "AnzManga",
             "lang": "es",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "AnzManga",
             "lang": "es",
             "scenario": "latest",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "AnzManga",
-            "lang": "es",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "AnzManga",
             "lang": "es",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "AnzManga",
+            "lang": "es",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "AnzManga",
             "lang": "es",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "AnzManga",
             "lang": "es",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

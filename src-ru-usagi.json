@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-17T12:14:16.396640192Z",
+    "generatedAt": "2026-11-26T12:57:10.578984987Z",
     "module": ":src:ru:usagi",
     "sourceRoot": "",
-    "extensionCommit": "02402ef9",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 5705163226489175947,
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1134,
+                    "status": "WARN",
+                    "durationMs": 545,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 1171,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Поднятие уровня в одиночку -> /podniatie_urovnia_v_odinochku__A3b2ec",
-                        "Клинок, рассекающий демонов -> /blade_of_demon_destruction",
-                        "Сказания о демонах и богах -> /tales_of_demons_and_gods"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 125,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 383,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "MF Призрак -> /mf_prizrak",
-                        "Мудрый план злодейки по уходу в отставку -> /32094",
-                        "Держись, Джури! -> /34719"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 713,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,67 +61,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1292,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Поднятие уровня в одиночку -> /podniatie_urovnia_v_odinochku__A3b2ec",
-                        "Поднятие уровня в одиночку: Рагнарёк -> /the_solo_leveling__ragnarok",
-                        "Поднятие уровня в одиночку: Истоки Охотника -> /solo_leveling__hunter_origin"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "BLOCKED",
-                    "durationMs": 770,
-                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
-                    "notes": [
-                        "java.lang.Exception: Для просмотра контента необходима авторизация через WebView🌍 или включите автоматическую авторизацию в настройках расширения"
-                    ],
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no chapters available",
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-16T11:54:55.648726463Z",
+    "comparedTo": "2026-11-17T12:14:16.396640192Z",
     "changes": [
         {
             "source": "Usagi",
             "lang": "ru",
-            "scenario": "popular",
-            "from": "DOWN",
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "Usagi",
             "lang": "ru",
-            "scenario": "chapters",
+            "scenario": "popular",
             "from": "PASS",
             "to": "BLOCKED"
         },
         {
             "source": "Usagi",
             "lang": "ru",
-            "scenario": "pages",
+            "scenario": "latest",
             "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Usagi",
+            "lang": "ru",
+            "scenario": "chapters",
+            "from": "BLOCKED",
             "to": "SKIP"
         },
         {
             "source": "Usagi",
             "lang": "ru",
-            "scenario": "images",
+            "scenario": "search",
             "from": "PASS",
-            "to": null
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

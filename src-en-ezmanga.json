@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:28:28.077917238Z",
+    "generatedAt": "2026-11-26T12:53:27.284607692Z",
     "module": ":src:en:ezmanga",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 3317136566565343717,
             "name": "EZmanga",
             "lang": "en",
             "baseUrl": "https://ezmanga.org",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 808,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 119,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ezmanga.org (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 472,
+                    "durationMs": 536,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,13 +45,13 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 222,
+                    "durationMs": 851,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "The Coldhearted Duke Is Obsessed With the Seal Princess -> the-coldhearted-duke-is-obsessed-with-the-seal-princess",
-                        "Husband, I Won't Forgive You if You Die in This Life -> husband-i-wont-forgive-you-if-you-die-in-this-life",
-                        "I Was Supposed to Have Killed My Husband  -> i-was-supposed-to-have-killed-my-husband"
+                        "The Scandal Maker Has Returned -> the-scandal-maker-has-returned",
+                        "Don't Act Like We're Strangers -> dont-act-like-were-strangers",
+                        "I Will Dedicate My Life To Revenge -> i-will-dedicate-my-life-to-revenge1"
                     ]
                 },
                 {
@@ -65,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 565,
+                    "durationMs": 494,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +79,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1003,
+                    "durationMs": 835,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -89,7 +91,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 428,
+                    "durationMs": 676,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -101,7 +103,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 1484,
+                    "durationMs": 1057,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -109,14 +111,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:44.504811545Z",
+    "comparedTo": "2026-10-30T01:28:28.077917238Z",
     "changes": [
         {
             "source": "EZmanga",
             "lang": "en",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

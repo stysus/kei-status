@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:28:11.456368223Z",
+    "generatedAt": "2026-11-26T12:52:36.671569223Z",
     "module": ":src:ar:empirewebtoon",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 2655166136445570124,
             "name": "Empire Webtoon",
             "lang": "ar",
             "baseUrl": "https://webtoonempire-bl.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 902,
+                    "durationMs": 1009,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 492,
+                    "status": "WARN",
+                    "durationMs": 205,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Jinx -> 25077",
-                        "Painter of the Night -> 22878",
-                        "Love Jinx -> 22866"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 521,
+                    "status": "WARN",
+                    "durationMs": 201,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Help me teacher -> 31072",
-                        "Way Of Practice -> 30836",
-                        "Rut Partner -> 30991"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,59 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 460,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Jinx -> 25077",
-                        "Love Jinx -> 22866"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 602,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 102.5( ملاحظة المؤلفة ) -> chapter-102-5-%d9%85%d9%84%d8%a7%d8%ad%d8%b8%d8%a9-%d8%a7%d9%84%d9%85%d8%a4%d9%84%d9%81%d8%a9",
-                        "Chapter 102 ( النهاية ) -> chapter-102-%d8%a7%d9%84%d9%86%d9%87%d8%a7%d9%8a%d8%a9",
-                        "Chapter 101 -> chapter-101"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 280,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://tempe.webtoonempire-bl.com/manga/empire3/data/manga_6382194041573/d51a875cfa3e5407124e250d088b92ab/Untitled13394.png",
-                        "https://tempe.webtoonempire-bl.com/manga/empire3/data/manga_6382194041573/d51a875cfa3e5407124e250d088b92ab/Untitled13395.png",
-                        "https://tempe.webtoonempire-bl.com/manga/empire3/data/manga_6382194041573/d51a875cfa3e5407124e250d088b92ab/Untitled13396.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1505,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-29T10:15:07.148439782Z",
+    "comparedTo": "2026-10-30T01:28:11.456368223Z",
     "changes": [
         {
             "source": "Empire Webtoon",
             "lang": "ar",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Empire Webtoon",
+            "lang": "ar",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Empire Webtoon",
+            "lang": "ar",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Empire Webtoon",
+            "lang": "ar",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Empire Webtoon",
+            "lang": "ar",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Empire Webtoon",
+            "lang": "ar",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

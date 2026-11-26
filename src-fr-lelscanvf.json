@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:35:47.707053564Z",
+    "generatedAt": "2026-11-26T12:57:03.772677725Z",
     "module": ":src:fr:lelscanvf",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 4874205281198767614,
             "name": "Lelscan-VF",
             "lang": "fr",
             "baseUrl": "https://www.lelscanfr.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,16 +22,18 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 2254,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 1313,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from www.lelscanfr.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1781,
+                    "durationMs": 634,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +45,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 1503,
+                    "durationMs": 412,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 1097,
+                    "durationMs": 585,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -75,7 +77,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 4101,
+                    "durationMs": 998,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,7 +89,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 1296,
+                    "durationMs": 2017,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -99,7 +101,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 2013,
+                    "durationMs": 995,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -107,14 +109,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:10.391340271Z",
+    "comparedTo": "2026-10-30T01:35:47.707053564Z",
     "changes": [
         {
             "source": "Lelscan-VF",
             "lang": "fr",
-            "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

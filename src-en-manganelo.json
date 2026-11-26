@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-21T11:22:58.014625614Z",
+    "generatedAt": "2026-11-26T12:55:23.866549326Z",
     "module": ":src:en:manganelo",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 1024627298672457456,
             "name": "Manganato",
             "lang": "en",
-            "baseUrl": "https://www.natomanga.com",
-            "status": "WARN",
+            "baseUrl": "https://www.saiyanmanga.com",
+            "status": "PASS",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,30 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 126,
+                    "durationMs": 131,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 4319,
+                    "status": "PASS",
+                    "durationMs": 17142,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Martial Peak -> /manga/martial-peak",
+                        "Tales Of Demons And Gods -> /manga/tales-of-demons-and-gods",
+                        "Solo Leveling -> /manga/solo-leveling"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 35,
+                    "status": "PASS",
+                    "durationMs": 263,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "HappyEND -> /manga/happyend",
+                        "The World’s Strongest Fist Fighter -> /manga/the-worlds-strongest-fist-fighter",
+                        "I Am the Commander of the Second Male Lead's Knights -> /manga/i-am-the-commander-of-the-second-male-lead-s-knights"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -59,47 +63,95 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 733,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Martial Peak -> /manga/martial-peak",
+                        "Martial Peak (Colored) -> /manga/martial-peak-colored",
+                        "Martial Arts Peak -> /manga/martial-arts-peak"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 839,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 3862 -> https://www.saiyanmanga.com/manga/martial-peak/chapter-3862",
+                        "Chapter 3861 -> https://www.saiyanmanga.com/manga/martial-peak/chapter-3861",
+                        "Chapter 3860 -> https://www.saiyanmanga.com/manga/martial-peak/chapter-3860"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 624,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://img-r1.2xstorage.com/martial-peak/1/0.webp",
+                        "https://img-r1.2xstorage.com/martial-peak/1/1.webp",
+                        "https://img-r1.2xstorage.com/martial-peak/1/2.webp"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 110,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:30:11.900943374Z",
+    "comparedTo": "2026-11-21T11:22:58.014625614Z",
     "changes": [
         {
             "source": "Manganato",
             "lang": "en",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Manganato",
             "lang": "en",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
+        },
+        {
+            "source": "Manganato",
+            "lang": "en",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Manganato",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Manganato",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Manganato",
+            "lang": "en",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

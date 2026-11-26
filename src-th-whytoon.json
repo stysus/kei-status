@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-25T13:18:57.178124057Z",
+    "generatedAt": "2026-11-26T13:02:24.768296604Z",
     "module": ":src:th:whytoon",
     "sourceRoot": "",
-    "extensionCommit": "bac637ac",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 2537618180202255574,
             "name": "WhyToon",
             "lang": "th",
             "baseUrl": "https://whytoon.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,40 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 3641,
+                    "status": "WARN",
+                    "durationMs": 3779,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 955,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Jinx (Mingwa) - จิงซ์ -> /content/jinx",
-                        "Blossom Under the Sun's Night - บุปผาใต้คืนตะวันฉาย -> /content/blossom-under-the-suns-night",
-                        "Mr.A's Farm - ฟาร์มลับของมิสเตอร์ A -> /content/mr-as-farm"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 395,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 408,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "High School Return of a Gangster - เมื่อนักเลงวัยเก๋าต้องมาเข้าโรงเรียนมัธยม -> /content/high-school-return-of-a-gangster",
-                        "Osananajimi wo Miru Me ga Kawatte Shimatta - เมื่อสายตาที่มองเพื่อนสมัยเด็กเปลี่ยนไป -> /content/osananajimi-wo-miru-me-ga-kawatte-shimatta",
-                        "Alpha Injection - ห้วงรักอัลฟ่าเร้าร้อน -> /content/alpha-injection"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 212,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 0,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,102 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 961,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Jinx (Mingwa) - จิงซ์ -> /content/jinx",
-                        "Love Jinx - จินซ์แห่งความรัก -> /content/love-jinx",
-                        "How to Break a Jinx - วิธีแก้จิงซ์ของหัวใจ -> /content/how-to-break-a-jinx"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 963,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "ตอนที่ 102 • END -> /content/jinx/102",
-                        "ตอนที่ 101 -> /content/jinx/101",
-                        "ตอนที่ 100 -> /content/jinx/100"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 879,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://storage.whytoon.com/content/cmh4h6f7n01gsp808aneoqsyp/0.1/d3c23f9d-37e0-49f1-aaa0-a54d58b14db9.webp",
-                        "https://storage.whytoon.com/content/cmh4h6f7n01gsp808aneoqsyp/0.1/edf92d1d-e673-4b8d-ae2c-eaac3583d8a9.webp",
-                        "https://storage.whytoon.com/content/cmh4h6f7n01gsp808aneoqsyp/0.1/477ed43e-1ad6-4104-8e6f-b024f7fb6375.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1942,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T12:04:10.719067669Z",
+    "comparedTo": "2026-11-25T13:18:57.178124057Z",
     "changes": [
         {
             "source": "WhyToon",
             "lang": "th",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "WARN"
         },
         {
             "source": "WhyToon",
             "lang": "th",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "WhyToon",
             "lang": "th",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "WhyToon",
-            "lang": "th",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "WhyToon",
             "lang": "th",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "WhyToon",
+            "lang": "th",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "WhyToon",
             "lang": "th",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "WhyToon",
             "lang": "th",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

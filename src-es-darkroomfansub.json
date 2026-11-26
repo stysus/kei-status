@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:17:09.046619930Z",
+    "generatedAt": "2026-11-26T12:54:50.661453421Z",
     "module": ":src:es:darkroomfansub",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 2769673412724723872,
@@ -22,21 +22,23 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "THROTTLED",
-                    "durationMs": 7178,
-                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 439,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "lector-darkroomfansub.blogspot.com answered HTTP 429 earlier in this run",
+                    "status": "PASS",
+                    "durationMs": 151,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Smoky Nectar Renew -> /2025/01/smoky-nectar-renew.html",
+                        "Domestic Beast -> /2023/06/domestic-beast.html",
+                        "Back-To-Back March -> /2023/05/back-to-back-march.html"
+                    ]
                 },
                 {
                     "name": "latest",
@@ -48,54 +50,81 @@
                 },
                 {
                     "name": "filters",
-                    "status": "SKIP",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "lector-darkroomfansub.blogspot.com answered HTTP 429 earlier in this run",
+                    "message": null,
                     "notes": [],
-                    "samples": []
-                },
-                {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "samples": [
+                        "0 filters"
+                    ]
                 },
                 {
                     "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 397,
+                    "message": null,
                     "notes": [],
+                    "samples": [
+                        "Smoky Nectar Renew -> /2025/01/smoky-nectar-renew.html"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "THROTTLED",
+                    "durationMs": 7431,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-23T12:58:18.490711636Z",
+    "comparedTo": "2026-11-24T14:17:09.046619930Z",
     "changes": [
         {
             "source": "Dark Room Fansub",
             "lang": "es",
-            "scenario": null,
-            "from": null,
-            "to": "THROTTLED"
+            "scenario": "connectivity",
+            "from": "THROTTLED",
+            "to": "PASS"
         },
         {
-            "source": ":src:es:darkroomfansub",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
+            "source": "Dark Room Fansub",
+            "lang": "es",
+            "scenario": "popular",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Dark Room Fansub",
+            "lang": "es",
+            "scenario": "filters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Dark Room Fansub",
+            "lang": "es",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Dark Room Fansub",
+            "lang": "es",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "THROTTLED"
         }
     ],
     "throttledHosts": [

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-25T13:13:19.875320442Z",
+    "generatedAt": "2026-11-26T12:55:39.069312278Z",
     "module": ":src:fr:hentaiscanreader",
     "sourceRoot": "",
-    "extensionCommit": "bac637ac",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 8376548397716758785,
             "name": "Hentai Scan Reader",
             "lang": "fr",
             "baseUrl": "https://hentai.scanreader.net",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 836,
+                    "durationMs": 992,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 370,
+                    "durationMs": 343,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 589,
+                    "durationMs": 322,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 2048,
+                    "durationMs": 1059,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -74,59 +74,47 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1657,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Chap 1 Mon skill est trop nul…? -> /chapitre/mon-skill-est-trop-nul/"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 1097,
+                    "message": "the site's origin server is not responding (HTTP 503); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 503"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 1289,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://hentai.scanreader.net/wp-content/uploads/sites/2/2026/02/1-385cb0210225607aa6b2801c7223eeaecb413216e463b6550eeb5be6f9b4b792.png",
-                        "https://hentai.scanreader.net/wp-content/uploads/sites/2/2026/02/2-e0e5f3839ccff2ff68759494a118bfc807ea62e9f3193c8d801ee2ade0537b9c.png",
-                        "https://hentai.scanreader.net/wp-content/uploads/sites/2/2026/02/3-e97e4988373c370d48c30c45eabedfbc1b9dbb11d2e1e91d324af3bf78c95583.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1430,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-24T14:14:55.416789862Z",
+    "comparedTo": "2026-11-25T13:13:19.875320442Z",
     "changes": [
         {
             "source": "Hentai Scan Reader",
             "lang": "fr",
             "scenario": "chapters",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "DOWN"
         },
         {
             "source": "Hentai Scan Reader",
             "lang": "fr",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Hentai Scan Reader",
             "lang": "fr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

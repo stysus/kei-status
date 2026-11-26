@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:08:57.052957411Z",
+    "generatedAt": "2026-11-26T13:00:01.876730071Z",
     "module": ":src:pt:zettahq",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 4655858297496198897,
             "name": "ZettaHQ",
             "lang": "pt-BR",
             "baseUrl": "https://zettahq.com",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 307,
+                    "durationMs": 132,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,13 +31,13 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 137,
+                    "durationMs": 73,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Hawkeye short comic -> /hawkeye-short-comic/",
-                        "COWRRUPTED 01 Milky Business Partnership -> /cowrrupted-01-milky-business-partnership/",
-                        "Beach Day -> /beach-day/"
+                        "Up and At ‘Em! -> /up-and-at-em/",
+                        "Fuck Doll -> /fuck-doll/",
+                        "Princess Peach Gym Days -> /princess-peach-gym-days/"
                     ]
                 },
                 {
@@ -60,40 +60,42 @@
                 },
                 {
                     "name": "search",
-                    "status": "PASS",
-                    "durationMs": 766,
+                    "status": "WARN",
+                    "durationMs": 1122,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Hawkeye short comic -> /hawkeye-short-comic/"
-                    ]
+                    "notes": [
+                        "returned an empty list",
+                        "query \"Up and At ‘Em!\" matched no results in the first page",
+                        "a retry without punctuation (\"Up and At Em\") also matched nothing"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 71,
+                    "durationMs": 86,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Capítulo Único -> /hawkeye-short-comic/"
+                        "Capítulo Único -> /up-and-at-em/"
                     ]
                 },
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 172,
+                    "durationMs": 320,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "https://zettahq.com/wp-content/uploads/2026/10/01.jpg-7.webp",
-                        "https://zettahq.com/wp-content/uploads/2026/10/02.jpg-7.webp",
-                        "https://zettahq.com/wp-content/uploads/2026/10/03.jpg-7.webp"
+                        "https://zettahq.com/wp-content/uploads/2026/10/01-5.webp",
+                        "https://zettahq.com/wp-content/uploads/2026/10/02-5.webp",
+                        "https://zettahq.com/wp-content/uploads/2026/10/03-5.webp"
                     ]
                 },
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 244,
+                    "durationMs": 218,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -101,21 +103,14 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-19T11:48:59.381595980Z",
+    "comparedTo": "2026-11-20T12:08:57.052957411Z",
     "changes": [
         {
             "source": "ZettaHQ",
             "lang": "pt-BR",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
-        },
-        {
-            "source": ":src:pt:zettahq",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
+            "scenario": "search",
+            "from": "PASS",
+            "to": "WARN"
         }
     ],
     "throttledHosts": []

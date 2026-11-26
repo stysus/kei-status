@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-31T10:04:09.899668638Z",
+    "generatedAt": "2026-11-26T12:53:59.616697662Z",
     "module": ":src:en:webtoonlib",
     "sourceRoot": "",
-    "extensionCommit": "0d83f6be",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 2442596821296482388,
             "name": "WebtoonLib",
             "lang": "en",
             "baseUrl": "https://webtoonlib.to",
-            "status": "BLOCKED",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,40 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "BLOCKED",
-                    "durationMs": 147,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from webtoonlib.to (HTTP 403)"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 672,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 52,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.webtoonlib.to (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 386,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Minmotion Syndrome -> minmotion-syndrome-wtck5iks",
+                        "The Dangerous Convenience Store -> the-dangerous-convenience-store-35e812",
+                        "Surge Towards You -> surge-towards-you-085b9b"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 25,
-                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
-                    "notes": [
-                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from api.webtoonlib.to (HTTP 403)"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 197,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Volcanic Age -> volcanic-age-1bnjjwzt",
+                        "Trapped Together -> trapped-together-1b0qkrtc",
+                        "Eeny, Meeny, Miney, Mo -> eeny-meeny-miney-mo-xikeb873"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,33 +63,82 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 1605,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Minmotion Syndrome -> minmotion-syndrome-wtck5iks"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 1067,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 94 -> minmotion-syndrome-wtck5iks/94-4a7erp",
+                        "Chapter 93 -> minmotion-syndrome-wtck5iks/93-9ffwha",
+                        "Chapter 92 -> minmotion-syndrome-wtck5iks/92-mzpjje"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "FAIL",
+                    "durationMs": 45000,
+                    "message": "timed out after 45s",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
+    "comparedTo": "2026-10-31T10:04:09.899668638Z",
+    "changes": [
+        {
+            "source": "WebtoonLib",
+            "lang": "en",
+            "scenario": "connectivity",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "WebtoonLib",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "WebtoonLib",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "BLOCKED",
+            "to": "PASS"
+        },
+        {
+            "source": "WebtoonLib",
+            "lang": "en",
+            "scenario": "search",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "WebtoonLib",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "WebtoonLib",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "FAIL"
+        }
+    ],
     "throttledHosts": []
 }

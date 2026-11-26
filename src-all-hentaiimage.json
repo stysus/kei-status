@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-25T13:10:54.202440492Z",
+    "generatedAt": "2026-11-26T12:49:13.045590020Z",
     "module": ":src:all:hentaiimage",
     "sourceRoot": "",
-    "extensionCommit": "bac637ac",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 8365811741007899719,
             "name": "Hentai Image",
             "lang": "all",
             "baseUrl": "https://hentai-img.com",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,42 +22,38 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 6101,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 28282,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from hentai-img.com (HTTP 403)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 574,
-                    "message": null,
+                    "status": "BLOCKED",
+                    "durationMs": 35,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
                     "notes": [
-                        "duplicate manga urls: [/image/lolisilver-misc-part-0020-ai-generated/, /image/my-realistic-ai-animated-collection-7-ai-generated/]"
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from hentai-img.com (HTTP 403)"
                     ],
-                    "samples": [
-                        "[Academic Mass] [Erotic image] Hiroshi Shinozawa invited me with naughty black pantyhose ~ ♪ -> /image/academic-mass-erotic-image-hiroshi-shinozawa-invited-me-with-naughty-black-pantyhose/",
-                        "Another Me [AI Generated] -> /image/another-me-ai-generated/",
-                        "(BBL) kaju [AI Generated] -> /image/bbl-kaju-ai-generated/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 399,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "[Patreon] noname882 2026.08 (1) [AI Generated] -> /image/patreon-noname882-202608-1-ai-generated/",
-                        "(Babtb) Rukia Kuchiki / 朽木ルキア - Full Set - p537 [AI Generated] -> /image/babtb-rukia-kuchiki-full-set-p537-ai-generated/",
-                        "oo Miscellaneous Images qwq Mini Update Bunny (AI Drawing) [AI Generated] -> /image/oo-miscellaneous-images-qwq-mini-update-bunny-ai-drawing-ai-generated/"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 22,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from hentai-img.com (HTTP 403)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,61 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 543,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "[Maclove] Shirokane Rinko 白金燐子 Collection[AI Generated] -> /image/maclove-shirokane-rinko-collectionai-generated/",
-                        "QUACKIES - TELIBOKA (AI Generated) -> /image/quackies-teliboka-ai-generated-1/",
-                        "Waifus Everyday! Momo Deviluke 1 To Love-Ru (Patreon) [AI Generated] -> /image/waifus-everyday-momo-deviluke-1-to-love-ru-patreon-ai-generated/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 180,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Gallery -> /story/academic-mass-erotic-image-hiroshi-shinozawa-invited-me-with-naughty-black-pantyhose/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 177,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "https://static23.hentai-img.com/upload/20240924/1301/1331667/1.jpg",
-                        "https://static23.hentai-img.com/upload/20240924/1301/1331667/2.jpg",
-                        "https://static23.hentai-img.com/upload/20240924/1301/1331667/3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "WARN",
-                    "durationMs": 519,
-                    "message": null,
-                    "notes": [
-                        "page[0] image request failed: AntiBotChallengeException: Cloudflare challenge from static23.hentai-img.com (HTTP 403)",
-                        "page[2] image request failed: AntiBotChallengeException: Cloudflare challenge from static23.hentai-img.com (HTTP 403)"
-                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-24T14:02:32.600514301Z",
+    "comparedTo": "2026-11-25T13:10:54.202440492Z",
     "changes": [
         {
             "source": "Hentai Image",
             "lang": "all",
-            "scenario": "popular",
+            "scenario": "connectivity",
             "from": "PASS",
-            "to": "WARN"
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Hentai Image",
+            "lang": "all",
+            "scenario": "popular",
+            "from": "WARN",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Hentai Image",
+            "lang": "all",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Hentai Image",
+            "lang": "all",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hentai Image",
+            "lang": "all",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hentai Image",
+            "lang": "all",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hentai Image",
+            "lang": "all",
+            "scenario": "images",
+            "from": "WARN",
+            "to": null
         }
     ],
     "throttledHosts": []

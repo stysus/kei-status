@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-08T13:29:50.842470760Z",
+    "generatedAt": "2026-11-26T12:54:03.873618441Z",
     "module": ":src:en:readsakamotodaysmangaonline",
     "sourceRoot": "",
-    "extensionCommit": "48b29182",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 9061586347786095111,
             "name": "Read Sakamoto Days Manga Online",
             "lang": "en",
             "baseUrl": "https://ww2.readsakadays.com",
-            "status": "WARN",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 791,
+                    "durationMs": 1575,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -83,40 +83,48 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 529,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Sakamoto Days Chapter 282 -> https://ww2.readsakadays.com/chapter/sakamoto-days-chapter-282/",
-                        "Sakamoto Days Chapter 281 - Days 281 The Strongest Papa -> https://ww2.readsakadays.com/chapter/sakamoto-days-chapter-281/",
-                        "Sakamoto Days Chapter 280 - Days 280 Cinematic Violence -> https://ww2.readsakadays.com/chapter/sakamoto-days-chapter-280/"
-                    ]
+                    "status": "FAIL",
+                    "durationMs": 669,
+                    "message": "NullPointerException at MangaCatalog.mangaDetailsParse(MangaCatalog.kt:77)",
+                    "notes": [
+                        "java.lang.NullPointerException: <no message>"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 270,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://r2.capibaratraductor.com/v2/tenants/tamt/chapters/1793897679678_942572.webp",
-                        "https://r2.capibaratraductor.com/v2/tenants/tamt/chapters/1793897702565_210054.webp",
-                        "https://r2.capibaratraductor.com/v2/tenants/tamt/chapters/1793897717377_678578.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 290,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": null,
-    "changes": [],
+    "comparedTo": "2026-11-08T13:29:50.842470760Z",
+    "changes": [
+        {
+            "source": "Read Sakamoto Days Manga Online",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Read Sakamoto Days Manga Online",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Read Sakamoto Days Manga Online",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
+        }
+    ],
     "throttledHosts": []
 }

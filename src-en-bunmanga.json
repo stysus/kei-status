@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-25T13:13:26.095563422Z",
+    "generatedAt": "2026-11-26T12:57:05.573031931Z",
     "module": ":src:en:bunmanga",
     "sourceRoot": "",
-    "extensionCommit": "bac637ac",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 5944672760629857205,
             "name": "Bun Manga",
             "lang": "en",
             "baseUrl": "https://bunmanga.com",
-            "status": "DOWN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,30 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 8233,
+                    "durationMs": 1541,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 27414,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Seize My Boyfriend -> 2543",
-                        "My Father-in-Law Is My Wife -> 1900",
-                        "Desharow Mermaid -> 2050"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 208,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 19429,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Who is the Succubus! -> 26477",
-                        "Kiss the Rose Gently -> 3810",
-                        "Fly over the sea -> 2667"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 232,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,48 +59,68 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 13501,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Seize My Boyfriend -> 2543"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 22887,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chap 582 -> chap-582",
-                        "Chap 581 -> chap-581",
-                        "Chap 580 -> chap-580"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "DOWN",
-                    "durationMs": 30003,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T06:57:57.334279497Z",
+    "comparedTo": "2026-11-25T13:13:26.095563422Z",
     "changes": [
         {
             "source": "Bun Manga",
             "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Bun Manga",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Bun Manga",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Bun Manga",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Bun Manga",
+            "lang": "en",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "SKIP"
         }
     ],
     "throttledHosts": []

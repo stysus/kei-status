@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:31:37.833935988Z",
+    "generatedAt": "2026-11-26T12:53:29.379087434Z",
     "module": ":src:en:manhuahot",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "5244cf49",
     "sources": [
         {
             "sourceId": 7638481723868333116,
             "name": "ManhuaHot",
             "lang": "en",
             "baseUrl": "https://manhuahot.com",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 803,
+                    "durationMs": 979,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 523,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Deliverance of the Counterattack -> 2176",
-                        "I Have To Be A Great Villain -> 2942",
-                        "Seize My Boyfriend -> 2620"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 475,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 546,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Transmigrated Into the Tyrant’s Beloved -> 11317",
-                        "Day And Night -> 10721",
-                        "Rejoice in Your Enemies -> 10432"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 339,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,58 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 437,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Deliverance of the Counterattack -> 2176"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 900,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chap 412 -> chap-412",
-                        "Chap 411 -> chap-411",
-                        "Chap 410 -> chap-410"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 984,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn.manhuahot.com/manga_60d84a6e6ccfe/765ad2723719a76ac4272cd9c69887e4/0.jpeg",
-                        "https://cdn.manhuahot.com/manga_60d84a6e6ccfe/765ad2723719a76ac4272cd9c69887e4/1.jpeg",
-                        "https://cdn.manhuahot.com/manga_60d84a6e6ccfe/765ad2723719a76ac4272cd9c69887e4/2.jpeg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 271,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:16.626088947Z",
+    "comparedTo": "2026-10-30T01:31:37.833935988Z",
     "changes": [
         {
             "source": "ManhuaHot",
             "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "ManhuaHot",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "ManhuaHot",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ManhuaHot",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ManhuaHot",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "ManhuaHot",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []
