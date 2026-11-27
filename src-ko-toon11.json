@@ -1,42 +1,106 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:45:06.885438735Z",
+    "generatedAt": "2026-11-27T12:57:58.242192986Z",
     "module": ":src:ko:toon11",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:ko:toon11",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 8796296375202334266,
+            "name": "11toon",
+            "lang": "ko",
+            "baseUrl": "https://www.11toon.com",
+            "status": "DOWN",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/ko/toon11/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:ko:toon11 :src:ko:toon11:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "DOWN",
+                    "durationMs": 10016,
+                    "message": "the site is unreachable (www.11toon.com: Temporary failure in name resolution); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: www.11toon.com: Temporary failure in name resolution"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "DOWN",
+                    "durationMs": 2,
+                    "message": "the site is unreachable (www.11toon.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: www.11toon.com"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "DOWN",
+                    "durationMs": 0,
+                    "message": "the site is unreachable (www.11toon.com); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: www.11toon.com"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "5 filters"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:03:43.691609085Z",
+    "comparedTo": "2026-11-26T12:45:06.885438735Z",
     "changes": [
-        {
-            "source": ":src:ko:toon11",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "11toon",
             "lang": "ko",
             "scenario": null,
-            "from": "DOWN",
+            "from": null,
+            "to": "DOWN"
+        },
+        {
+            "source": ":src:ko:toon11",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

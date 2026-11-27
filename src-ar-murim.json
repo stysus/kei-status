@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:54:43.434059029Z",
+    "generatedAt": "2026-11-27T12:41:19.904955653Z",
     "module": ":src:ar:murim",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 4966914277555229831,
             "name": "Murim",
             "lang": "ar",
             "baseUrl": "https://murim-manga.blogspot.com",
-            "status": "WARN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,23 +22,21 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 209,
-                    "message": null,
-                    "notes": [],
+                    "status": "THROTTLED",
+                    "durationMs": 7074,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 213,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "murim-manga.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "الموريم -> /2026/02/blog-post.html",
-                        "God of Blackfield -> /2025/11/god-of-blackfield.html",
-                        "The Dark Mage’s Return to Enlistment -> /2026/02/the-dark-mages-return-to-enlistment.html"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
@@ -50,109 +48,92 @@
                 },
                 {
                     "name": "filters",
-                    "status": "PASS",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "murim-manga.blogspot.com answered HTTP 429 earlier in this run",
                     "notes": [],
-                    "samples": [
-                        "0 filters"
-                    ]
-                },
-                {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 974,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "الموريم -> /2026/02/blog-post.html",
-                        "The Absolute Scholar -> /2025/11/the-absolute-scholar.html",
-                        "I Reincarnated As The Crazed Heir -> /2025/09/i-reincarnated-as-crazed-heir.html"
-                    ]
-                },
-                {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1005,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "الفصل 2 -> /2026/02/2.html",
-                        "الفصل 1  -> /2026/02/1.html"
-                    ]
-                },
-                {
-                    "name": "pages",
-                    "status": "WARN",
-                    "durationMs": 322,
-                    "message": null,
-                    "notes": [
-                        "page list is empty"
-                    ],
                     "samples": []
                 },
                 {
-                    "name": "images",
-                    "status": "PASS",
+                    "name": "chapters",
+                    "status": "SKIP",
                     "durationMs": 0,
-                    "message": null,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-22T11:39:15.154816620Z",
+    "comparedTo": "2026-11-26T12:54:43.434059029Z",
     "changes": [
         {
             "source": "Murim",
             "lang": "ar",
             "scenario": "connectivity",
-            "from": "THROTTLED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "THROTTLED"
         },
         {
             "source": "Murim",
             "lang": "ar",
             "scenario": "popular",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Murim",
             "lang": "ar",
             "scenario": "filters",
-            "from": "SKIP",
-            "to": "PASS"
-        },
-        {
-            "source": "Murim",
-            "lang": "ar",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Murim",
             "lang": "ar",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Murim",
+            "lang": "ar",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Murim",
             "lang": "ar",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "SKIP"
         },
         {
             "source": "Murim",
             "lang": "ar",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "murim-manga.blogspot.com"
+    ]
 }

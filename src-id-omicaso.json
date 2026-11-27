@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:37:41.548848873Z",
+    "generatedAt": "2026-11-27T12:48:24.491431890Z",
     "module": ":src:id:omicaso",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 7347711054392056906,
             "name": "Omicaso",
             "lang": "id",
             "baseUrl": "https://omicaso.org",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1394,
+                    "status": "WARN",
+                    "durationMs": 19586,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 522"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 903,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "ABSOLUTE STATION -> absolute-station",
-                        "TRY BEGGING -> try-begging",
-                        "Beasts That Cross the Line -> beasts-that-cross-the-line"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19933,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 865,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Shachou to Sake to Hoshi -> shachou-to-sake-to-hoshi",
-                        "The Evil Alchemist Can't Handle His Own Experiment -> the-evil-alchemist-can-t-handle-his-own-experiment",
-                        "I’m Being Raised by Villains -> im-being-raised-by-villains"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 19490,
+                    "message": "the site's origin server is not responding (HTTP 522); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 522"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,58 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 768,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "ABSOLUTE STATION -> absolute-station"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 553,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Ch. 106 -> /chapter.php?manga=absolute-station&chapter=chapter-106",
-                        "Ch. 105 -> /chapter.php?manga=absolute-station&chapter=chapter-105",
-                        "Ch. 104 -> /chapter.php?manga=absolute-station&chapter=chapter-104"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 252,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn2.omicaso.fun/manga-492564/chapter-2830586/001.webp",
-                        "https://cdn2.omicaso.fun/manga-492564/chapter-2830586/002.webp",
-                        "https://cdn2.omicaso.fun/manga-492564/chapter-2830586/003.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1374,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:35:29.493078804Z",
+    "comparedTo": "2026-10-30T01:37:41.548848873Z",
     "changes": [
         {
             "source": "Omicaso",
             "lang": "id",
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Omicaso",
+            "lang": "id",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Omicaso",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Omicaso",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Omicaso",
+            "lang": "id",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Omicaso",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Omicaso",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

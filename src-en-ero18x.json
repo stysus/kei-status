@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:52:54.851680392Z",
+    "generatedAt": "2026-11-27T12:44:30.895545667Z",
     "module": ":src:en:ero18x",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 5861653560535486832,
             "name": "Ero18x",
             "lang": "en",
             "baseUrl": "https://ero18x.com",
-            "status": "WARN",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,30 +23,34 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 3546,
+                    "durationMs": 4788,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 119,
+                    "status": "PASS",
+                    "durationMs": 1193,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Another Typical Fantasy Romance -> 18400",
+                        "One-Way Brainwork – raw -> 21828",
+                        "The Academy’s Sashimi Sword Master -> 17886"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 104,
+                    "status": "PASS",
+                    "durationMs": 975,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "Another Typical Fantasy Romance -> 18400",
+                        "One-Way Brainwork – raw -> 21828",
+                        "The Academy’s Sashimi Sword Master -> 17886"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -59,68 +63,76 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "search",
+                    "status": "BLOCKED",
+                    "durationMs": 788,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ero18x.com (HTTP 503)"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 554,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 180 -> chapter-180",
+                        "Chapter 178 -> chapter-178",
+                        "Chapter 177 -> chapter-177"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 265,
+                    "message": "Cloudflare anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: Cloudflare challenge from ero18x.com (HTTP 503)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-24T14:09:12.561221047Z",
+    "comparedTo": "2026-11-26T12:52:54.851680392Z",
     "changes": [
         {
             "source": "Ero18x",
             "lang": "en",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Ero18x",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "WARN"
-        },
-        {
-            "source": "Ero18x",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Ero18x",
             "lang": "en",
             "scenario": "search",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Ero18x",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Ero18x",
             "lang": "en",
             "scenario": "pages",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

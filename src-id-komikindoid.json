@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T13:03:08.127067209Z",
+    "generatedAt": "2026-11-27T12:43:18.835795259Z",
     "module": ":src:id:komikindoid",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 5384836574731339537,
             "name": "KomikIndoID",
             "lang": "id",
             "baseUrl": "https://komikindo.ch",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 942,
+                    "durationMs": 194,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 685,
+                    "durationMs": 713,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,19 +43,19 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 663,
+                    "durationMs": 680,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Hell Login -> /komik/hell-login/",
-                        "Haitoku Onee-san no Yuuwaku ni Kimi wa Kateru ka? -> /komik/haitoku-onee-san-no-yuuwaku-ni-kimi-wa-kateru-ka/",
-                        "Futari wa Sekai to Kamiawanai -> /komik/futari-wa-sekai-to-kamiawanai/"
+                        "Hitoribocchi no Isekai Kouryaku -> /komik/hitoribocchi-no-isekai-kouryaku/",
+                        "Kanojo, Okarishimasu -> /komik/395372-kanojo-okarishimasu/",
+                        "Bad Born Blood -> /komik/212320-bad-born-blood/"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 765,
+                    "durationMs": 722,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -77,7 +77,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 43,
+                    "durationMs": 371,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -88,35 +88,33 @@
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 348,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://amatipolanyatirudesainnya.lol/media/1965377/chapter-1/rqGgv6Jcmn7oyHNWQSU4iUCVvf6MhFVZ7Z9OsZQyEAhZygS55IL961JryNsDcx2v_001.jpg?mi_revision=1&mi_content_hash=7a48d215596c233e11a17bdb03e27956545726310cb22b716fb39bbcbcb99abc&mi_event=90cdd3ff-8c1d-4a96-8277-4295001facb6&mi_delivery=1",
-                        "https://bukansiapasiapa.lol/media/1965377/chapter-1/rqGgv6Jcmn7oyHNWQSU4iUCVvf6MhFVZ7Z9OsZQyEAhZygS55IL961JryNsDcx2v_002.jpg?mi_revision=1&mi_delivery=1",
-                        "https://ss.guatauaslinyalusiapa.asia/media/1965377/chapter-1/rqGgv6Jcmn7oyHNWQSU4iUCVvf6MhFVZ7Z9OsZQyEAhZygS55IL961JryNsDcx2v_003.jpg?mi_revision=1&mi_delivery=1"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1007,
-                    "message": null,
-                    "notes": [],
+                    "status": "DOWN",
+                    "durationMs": 15,
+                    "message": "the site is unreachable (Connection refused (connect failed)); the source is not at fault",
+                    "notes": [
+                        "java.net.ConnectException: Failed to connect to /127.0.0.1:80",
+                        "java.net.ConnectException: Connection refused (connect failed)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-25T13:16:07.582097050Z",
+    "comparedTo": "2026-11-26T13:03:08.127067209Z",
     "changes": [
         {
             "source": "KomikIndoID",
             "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "KomikIndoID",
+            "lang": "id",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

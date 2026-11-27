@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:59:12.338722935Z",
+    "generatedAt": "2026-11-27T12:49:08.743945647Z",
     "module": ":src:tr:merlinmanga",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 896733953724376427,
             "name": "Merlin Manga",
             "lang": "tr",
             "baseUrl": "https://merlinmanga.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,29 +22,35 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 601,
+                    "status": "PASS",
+                    "durationMs": 1940,
                     "message": null,
-                    "notes": [
-                        "home page returned HTTP 404"
-                    ],
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 196,
-                    "message": "HTTP error 404",
+                    "status": "PASS",
+                    "durationMs": 691,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "The Remarried Empress -> 3291",
+                        "Kılıç Hanesinin Genç Efendisi -> 2574",
+                        "Serena -> 3064"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 465,
-                    "message": "HTTP error 404",
+                    "status": "PASS",
+                    "durationMs": 539,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Haikyuu!! -> 4020",
+                        "Back from the Grave -> 4008",
+                        "The Cook of a Perished World -> 4018"
+                    ]
                 },
                 {
                     "name": "filters",
@@ -57,75 +63,83 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 484,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "The Remarried Empress -> 3291"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 652,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "🔒 Bölüm 247.5 -> bolum-247-5",
+                        "🔒 Bölüm 247 -> bolum-247",
+                        "Bölüm 246 -> bolum-246"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 796,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Log in to the site in WebView to read this chapter (a free account is enough)"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:23:47.264926734Z",
+    "comparedTo": "2026-11-26T12:59:12.338722935Z",
     "changes": [
         {
             "source": "Merlin Manga",
             "lang": "tr",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Merlin Manga",
             "lang": "tr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Merlin Manga",
             "lang": "tr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "FAIL"
-        },
-        {
-            "source": "Merlin Manga",
-            "lang": "tr",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "FAIL",
+            "to": "PASS"
         },
         {
             "source": "Merlin Manga",
             "lang": "tr",
             "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Merlin Manga",
+            "lang": "tr",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Merlin Manga",
             "lang": "tr",
             "scenario": "pages",
-            "from": "BLOCKED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

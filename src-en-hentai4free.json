@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-10-30T01:28:50.964737927Z",
+    "generatedAt": "2026-11-27T12:40:40.081518166Z",
     "module": ":src:en:hentai4free",
     "sourceRoot": "",
-    "extensionCommit": "dbf6c05d",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 6625474581258090106,
             "name": "Hentai4Free",
             "lang": "en",
             "baseUrl": "https://hentai4free.net",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1754,
+                    "durationMs": 794,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 924,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Milf Massage NTR♥ -> 4751",
-                        "Boy Meets Harem -> 24435",
-                        "Mom is Mine -> 18232"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 368,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 896,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "My Emotionless Stepsister is Trying to Seduce Me -> 30735",
-                        "Kuu ka, Kuwareru ka? 2 -> 30733",
-                        "Kuu ka, Kuwareru ka? -> 30731"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 337,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 4,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,56 +59,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 595,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Milf Massage NTR♥ -> 4751"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 172,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "artist CG -> artist-cg"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 130,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://hentai4free.net/wp-content/uploads/WP-manga/data/manga_5dc039a00f6eb/2c454a398cfd42574297d36013fb34b8/1005090_kidmoart_milf_massage.jpg",
-                        "https://hentai4free.net/wp-content/uploads/WP-manga/data/manga_5dc039a00f6eb/2c454a398cfd42574297d36013fb34b8/1006323_kidmoart_milf_massage_2.jpg",
-                        "https://hentai4free.net/wp-content/uploads/WP-manga/data/manga_5dc039a00f6eb/2c454a398cfd42574297d36013fb34b8/1014950_kidmoart_milf_massage_3.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 210,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-28T18:32:12.272926437Z",
+    "comparedTo": "2026-10-30T01:28:50.964737927Z",
     "changes": [
         {
             "source": "Hentai4Free",
             "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Hentai4Free",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "BLOCKED"
+        },
+        {
+            "source": "Hentai4Free",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hentai4Free",
+            "lang": "en",
             "scenario": "search",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hentai4Free",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Hentai4Free",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

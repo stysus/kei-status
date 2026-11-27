@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:57:10.578984987Z",
+    "generatedAt": "2026-11-27T12:48:47.660037228Z",
     "module": ":src:ru:usagi",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 5705163226489175947,
             "name": "Usagi",
             "lang": "ru",
             "baseUrl": "https://web.usagi.one",
-            "status": "BLOCKED",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,31 +22,31 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "WARN",
-                    "durationMs": 545,
-                    "message": null,
+                    "status": "DOWN",
+                    "durationMs": 30054,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
                     "notes": [
-                        "home page returned HTTP 403"
+                        "java.net.SocketTimeoutException: Connect timed out"
                     ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "BLOCKED",
-                    "durationMs": 125,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "status": "DOWN",
+                    "durationMs": 30039,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                        "java.net.SocketTimeoutException: Connect timed out"
                     ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "BLOCKED",
-                    "durationMs": 713,
-                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "status": "DOWN",
+                    "durationMs": 30059,
+                    "message": "the site is unreachable (Connect timed out); the source is not at fault",
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                        "java.net.SocketTimeoutException: Connect timed out"
                     ],
                     "samples": []
                 },
@@ -87,42 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-17T12:14:16.396640192Z",
+    "comparedTo": "2026-11-26T12:57:10.578984987Z",
     "changes": [
         {
             "source": "Usagi",
             "lang": "ru",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "DOWN"
         },
         {
             "source": "Usagi",
             "lang": "ru",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "BLOCKED"
+            "from": "BLOCKED",
+            "to": "DOWN"
         },
         {
             "source": "Usagi",
             "lang": "ru",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "BLOCKED"
-        },
-        {
-            "source": "Usagi",
-            "lang": "ru",
-            "scenario": "chapters",
             "from": "BLOCKED",
-            "to": "SKIP"
-        },
-        {
-            "source": "Usagi",
-            "lang": "ru",
-            "scenario": "search",
-            "from": "PASS",
-            "to": "SKIP"
+            "to": "DOWN"
         }
     ],
     "throttledHosts": []

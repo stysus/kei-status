@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:58:12.106405331Z",
+    "generatedAt": "2026-11-27T12:48:15.199489227Z",
     "module": ":src:ja:alphapolis",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 1943011614685426671,
             "name": "Alphapolis",
             "lang": "ja",
             "baseUrl": "https://www.alphapolis.co.jp",
-            "status": "PASS",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 909,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 254,
+                    "message": "AWS WAF anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: AWS WAF challenge from www.alphapolis.co.jp (HTTP 202)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 560,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "私を追放したことを後悔してもらおう　 -> /manga/official/4000577",
-                        "ハズレ嫁は最強の天才公爵様と再婚しました。 -> /manga/official/900000697",
-                        "転生令嬢の物理無双 -> /manga/official/837000780"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 51,
+                    "message": "AWS WAF anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: AWS WAF challenge from www.alphapolis.co.jp (HTTP 202)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 824,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Re:Monster -> /manga/official/609000058",
-                        "悪役令息レイナルド・リモナの華麗な... -> /manga/official/961000752",
-                        "金鼎国後宮の華妃 -> /manga/official/951000810"
-                    ]
+                    "status": "BLOCKED",
+                    "durationMs": 8,
+                    "message": "AWS WAF anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: AWS WAF challenge from www.alphapolis.co.jp (HTTP 202)"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,100 +61,82 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 363,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "私を追放したことを後悔してもらおう... -> /manga/official/4000577"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 913,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "第24話 -> 12886",
-                        "第23話 -> 12723",
-                        "🔒 第22話 -> 12549"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 899,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://ot-image.alphapolis.co.jp/official_manga/page_encrypted/4000577/12886/0a9a7cfd-ec6f-4ba1-b874-a00bb20b53c5/1080x1536.webp?Expires=1795698490&Signature=pwOf5QaMUJEVWBoJ66KKlQyJR4BTMMYbJaV3NpGTfqcXZCExLhtdvpQ1igI6nBAbuwG-tRe5PqTM-8P~Jq-cbVM9xuW~euzPwkjZsrHkQrr3U1~~KRBGo7TCuU7QRjPFKsqtQsvI~CiqFLmmM3R3zazVK3KvrPMVFPIqcWd8TuLUw6JoKQdxl9IzHyKWimZAE~9Ia~SnQoOIio4~ftr1zAV4RvJ44XpCkXNh98aEPpyOGCtq~3GdaWgqZ-ZJ--SnOTQLr3IZjMGYzKi06FGUlR8ZyVTKjMWwewA9mgLChx5fe1~QPbRllDEKTiWJ3c3nD3Ea-afKxC1yCYKfX-ozhg__&Key-Pair-Id=KOB8VIO09S76W#key=URYASGADAvB1B2UJzQUA8FIWZUmnAQLwAwB3SDYFAfAHAAAIAQAD8HUH3IkCBQTw4g7uyKUFAvAwJQDIRgMA8AQA7ggZAADwcQcAiBACAvDCHe7IwwAB8KEs3AkXBgTw4g53iL8CAPDHHQAIewQA8MUd3MnmAgTwNyVlyXkFA/CkLO7I+AYD8HcHd4heBAHwAwBlyZsBA/AyJe7IEwMB8KEsZQlKBgDw4A7cSecEBPAEANwJWQEE8OUOZQkVAgHwMyV3yNkCA/BRFu6IUwEA8KQsAIgrBgHwUBbcCVQDBPDhDgBIZAEB8FMWd4i8BAPwdAfuiCYEAvAxJdxJjgAE8MAdd8gtAwPwpSx3iI8GAvDGHWUJAgAC8A==",
-                        "https://ot-image.alphapolis.co.jp/official_manga/page_encrypted/4000577/12886/e1212bde-7157-448a-b276-8b695c32f1ba/1080x1536.webp?Expires=1795698490&Signature=C2jhQQm7UdSQCqMnzIK3Gl2UIb8BAW6RzyLszU0MyAVm6FGP3TzltMoHOyBLKaRImFr89popegSIMzwlq3iqqQvcerjJIweMA2bSE2CyNcfZu9RkNekVMSEtf6qxWTOeXK1GHgrtwbWE9xzb3~sU6nQI8kt8m-6qIk47SvE-UZRMRDQt6hJfabXGwnqDwj6HSJbGwi0yCdifmy3T4JUY14Ok2OZANEMY1XJxICHxWTzjd-l6R1xaJeOeAIj~B64-She-4AGlFfxe4LSym6iDGIKfMTtefJv-uzNFZgGeHg1JXyYgqtXVhodrJJ-mg5YvbJtTbktnmwiHPRf~5-hBpA__&Key-Pair-Id=KOB8VIO09S76W#key=oCzuCDwGAPAHAO6IrQAD8FAW3Mn9AwTw5w4AiKUFA/BRFnfIYgQC8HAHdwhvAgPw5g7uSCkCAfBWFu6IYgAC8DIlZUlZAwLwNiV3yE4CAvDBHe6IZAQB8MUd3IloAQTwBQB3iGEBA/AAANxJAgUE8AYAAAibBQLwxx1lSfYFAPDhDtzJFQIE8AQAZYkHBAPw4A5liV8BAfBxBwBIugIA8KAsd4joBgPwcQdlCfkDAPBwB9yJ6AAE8KUsAEjOBgLw5A53yCADAfA3JQDIBAAB8KQsZclOBgHwwR13yA4BAvBQFgDI0gUB8HUH7kjoAQDwpSzcyXcGBPA1Je7IxAAA8FMWZckiAwPwwR0AyLgEAPA0JdzJxAQE8A==",
-                        "https://ot-image.alphapolis.co.jp/official_manga/page_encrypted/4000577/12886/e3e9062e-e84a-4944-85c3-f7092559eaea/1080x1536.webp?Expires=1795698490&Signature=JVn5o6IUnpUGDf3qQU6xLAzEMkLdJhBGU6ouiU2-43jJSdNF0wE9fY7dYQ6GFJ3nWMFrvHbUQHNrY3VBScgOX8Y9tZj0hT7Br360VRxr00ZLu8Njuy3SDA9oAjp5OgDsLd3wi7LIylB5~w~d3OO-mAJquPwP4Tx3QUOFYdIX7wIMHSrwc793n2P5dcOkx~XY7yMMm2TTgyCS5Qxp7hjFk8~xvc~90lpXtK5DS0VWpFNetpzvKepKkNTE~h7Glspu~cfOio1nbW3i2u7~2IIJ1x8r5rSr59LM0NNceOuZlaY1YSvtIRUCAuLnNYcZQuYOFL46GOIjVQC9ACBexVreoQ__&Key-Pair-Id=KOB8VIO09S76W#key=pCwACKgGA/AxJWWJogAB8KEsZQn9BgHwxx0AyAsCAfCkLHeIGgYC8OAO3ImKAwTw5Q53yMsBAvBzBwAI3wEA8MYdZYkLBQHwNSXciZwEBPBTFmWJ4QID8DMl7ggsBAHwcwd3SM0EAvDlDu4IFQMC8AUA3ElIAATwUhbuCIkFAvB1B9wJgAIE8AIAd0hPBQPwNCV3yKIAAPAFAADIDQEB8OEOAIjKAwPwAQBlyQMEAPBUFgAImAIA8DYlAAj+BQDwVBbciQYFBPBzB+6InwIC8Mcdd8gcAAPwUBZ3CJIAAvDiDmXJKgMB8KAs7ojHBgDwxB3uCHwBA/AEAO5IKQQD8HUHZcnWAwDwoCzciSkGBPDFHdzJeAEE8A=="
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 855,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-25T13:18:43.349327462Z",
+    "comparedTo": "2026-11-26T12:58:12.106405331Z",
     "changes": [
         {
             "source": "Alphapolis",
             "lang": "ja",
             "scenario": "connectivity",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Alphapolis",
             "lang": "ja",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Alphapolis",
             "lang": "ja",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "PASS"
-        },
-        {
-            "source": "Alphapolis",
-            "lang": "ja",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "Alphapolis",
             "lang": "ja",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Alphapolis",
+            "lang": "ja",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Alphapolis",
             "lang": "ja",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Alphapolis",
             "lang": "ja",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:56:27.364278692Z",
+    "generatedAt": "2026-11-27T12:44:08.777553875Z",
     "module": ":src:en:mangaowlio",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 2031498907928923621,
             "name": "MangaOwl.io (unoriginal)",
             "lang": "en",
             "baseUrl": "https://mangaowl.io",
-            "status": "DOWN",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,38 +22,42 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "DOWN",
-                    "durationMs": 30116,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
+                    "status": "PASS",
+                    "durationMs": 5610,
+                    "message": null,
+                    "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "DOWN",
-                    "durationMs": 30005,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
+                    "status": "WARN",
+                    "durationMs": 6578,
+                    "message": null,
                     "notes": [
-                        "java.net.SocketTimeoutException: timeout"
+                        "manga[4] has no thumbnail"
                     ],
-                    "samples": []
+                    "samples": [
+                        "Dark fall -> 9095",
+                        "Roses And Champagne -> 9086",
+                        "Jinx -> 8184"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "DOWN",
-                    "durationMs": 30001,
-                    "message": "the site is unreachable (timeout); the source is not at fault",
-                    "notes": [
-                        "java.net.SocketTimeoutException: timeout"
-                    ],
-                    "samples": []
+                    "status": "PASS",
+                    "durationMs": 3900,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Jinx [Octopusmanga] -> 10630",
+                        "Kiss Me If You Can -> 10605",
+                        "FlashLight [UNCENSORED R19] -> 10626"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -61,82 +65,106 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
-                    "samples": []
+                    "name": "search",
+                    "status": "WARN",
+                    "durationMs": 1323,
+                    "message": null,
+                    "notes": [
+                        "manga[1] has no thumbnail",
+                        "manga[2] has no thumbnail",
+                        "manga[4] has no thumbnail"
+                    ],
+                    "samples": [
+                        "Dark fall -> 9095",
+                        "How To Be A Dark Hero’S Daughter -> 6566",
+                        "Mookhyang – Dark Lady -> 5406"
+                    ]
                 },
                 {
-                    "name": "search",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "name": "chapters",
+                    "status": "PASS",
+                    "durationMs": 9296,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter 93.5 Warning 19+ -> dark-fall-chapter-93-5-warning-19",
+                        "Chapter 93 Warning 19+ -> dark-fall-chapter-93-warning-19",
+                        "Chapter 92.5 Warning 19+ -> dark-fall-chapter-92-5-warning-19"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "status": "PASS",
+                    "durationMs": 4281,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://mangaowl.io/wp-content/uploads/WP-manga/data/manga_674adb4f4f888/dark-fall-chapter-93-5-warning-19/1-001.jpg",
+                        "https://mangaowl.io/wp-content/uploads/WP-manga/data/manga_674adb4f4f888/dark-fall-chapter-93-5-warning-19/2-002.jpg",
+                        "https://mangaowl.io/wp-content/uploads/WP-manga/data/manga_674adb4f4f888/dark-fall-chapter-93-5-warning-19/3-003.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 308,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-24T14:05:16.711052032Z",
+    "comparedTo": "2026-11-26T12:56:27.364278692Z",
     "changes": [
         {
             "source": "MangaOwl.io (unoriginal)",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "PASS",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "MangaOwl.io (unoriginal)",
             "lang": "en",
             "scenario": "popular",
-            "from": "WARN",
-            "to": "DOWN"
+            "from": "DOWN",
+            "to": "WARN"
         },
         {
             "source": "MangaOwl.io (unoriginal)",
             "lang": "en",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "DOWN"
-        },
-        {
-            "source": "MangaOwl.io (unoriginal)",
-            "lang": "en",
-            "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "DOWN",
+            "to": "PASS"
         },
         {
             "source": "MangaOwl.io (unoriginal)",
             "lang": "en",
             "scenario": "search",
-            "from": "WARN",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "WARN"
+        },
+        {
+            "source": "MangaOwl.io (unoriginal)",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MangaOwl.io (unoriginal)",
             "lang": "en",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "MangaOwl.io (unoriginal)",
             "lang": "en",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

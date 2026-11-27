@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-12T11:31:30.737761849Z",
+    "generatedAt": "2026-11-27T12:47:08.788835991Z",
     "module": ":src:fr:ortegascans",
     "sourceRoot": "",
-    "extensionCommit": "7c6a7c2f",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 8598370605081191622,
             "name": "Ortega Scans",
             "lang": "fr",
             "baseUrl": "https://ortegascans.fr",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 559,
+                    "durationMs": 647,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 376,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 42,
+                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html>\n<html>\n<head>\n.....",
                     "notes": [],
-                    "samples": [
-                        "MILF Exchange Plan -> milf-exchange-plan",
-                        "Regressed Warrior’s Female Dominance Diary -> regressed-warrior-s-female-dominance-diary",
-                        "Absolute Hypnosis in Another World -> absolute-hypnosis-in-another-world"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 215,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 32,
+                    "message": "Unexpected JSON token at offset 0: Expected start of the object '{', but had '<' instead at path: $\nJSON input: <!DOCTYPE html>\n<html>\n<head>\n.....",
                     "notes": [],
-                    "samples": [
-                        "The Delinquent Girls’ Training Begins! -> the-delinquent-girls-training-begins",
-                        "Cliterary Book Club -> cliterary-book-club",
-                        "Frequency -> frequency"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,100 +55,75 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 189,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "MILF Exchange Plan -> milf-exchange-plan"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 778,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "🔒 Chapitre 95 -> cmvwref7t021r65mcv1cv8vf8",
-                        "🔒 Chapitre 94 -> cmvjnrgcr0ggcfezcpsnzc5v3",
-                        "🔒 Chapitre 93 -> cmv9tanrr0acefezcuasmk8i6"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 394,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://ortegascans.fr/api/chapters/milf-exchange-plan/cmuofysug02im0nl4b7ww1h2a/image/1.webp",
-                        "https://ortegascans.fr/api/chapters/milf-exchange-plan/cmuofysug02im0nl4b7ww1h2a/image/2.webp",
-                        "https://ortegascans.fr/api/chapters/milf-exchange-plan/cmuofysug02im0nl4b7ww1h2a/image/3.webp"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 876,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-11T11:16:35.357368391Z",
+    "comparedTo": "2026-11-12T11:31:30.737761849Z",
     "changes": [
         {
             "source": "Ortega Scans",
             "lang": "fr",
-            "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
-        },
-        {
-            "source": "Ortega Scans",
-            "lang": "fr",
             "scenario": "popular",
-            "from": "DOWN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Ortega Scans",
             "lang": "fr",
             "scenario": "latest",
-            "from": "DOWN",
-            "to": "PASS"
-        },
-        {
-            "source": "Ortega Scans",
-            "lang": "fr",
-            "scenario": "search",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
             "source": "Ortega Scans",
             "lang": "fr",
             "scenario": "chapters",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Ortega Scans",
+            "lang": "fr",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Ortega Scans",
             "lang": "fr",
             "scenario": "pages",
-            "from": "SKIP",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "SKIP"
         },
         {
             "source": "Ortega Scans",
             "lang": "fr",
             "scenario": "images",
-            "from": null,
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

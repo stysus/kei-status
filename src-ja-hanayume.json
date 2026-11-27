@@ -1,42 +1,106 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:45:13.628720241Z",
+    "generatedAt": "2026-11-27T12:56:24.903777322Z",
     "module": ":src:ja:hanayume",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:ja:hanayume",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 6820605856874807465,
+            "name": "Hana To Yume+",
+            "lang": "ja",
+            "baseUrl": "https://hanayume.com",
+            "status": "BLOCKED",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/ja/hanayume/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:ja:hanayume :src:ja:hanayume:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "WARN",
+                    "durationMs": 116,
+                    "message": null,
+                    "notes": [
+                        "home page returned HTTP 403"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "BLOCKED",
+                    "durationMs": 67,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "BLOCKED",
+                    "durationMs": 16,
+                    "message": "the site refused the request (HTTP 403); typically geo-blocking or bot rejection, though a chapters/pages 403 can be hotlink protection",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 403"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "1 filters"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-03T07:04:51.071023068Z",
+    "comparedTo": "2026-11-26T12:45:13.628720241Z",
     "changes": [
-        {
-            "source": ":src:ja:hanayume",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "Hana To Yume+",
             "lang": "ja",
             "scenario": null,
-            "from": "BLOCKED",
+            "from": null,
+            "to": "BLOCKED"
+        },
+        {
+            "source": ":src:ja:hanayume",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

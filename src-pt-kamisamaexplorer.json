@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:55:51.014549958Z",
+    "generatedAt": "2026-11-27T12:49:21.251219333Z",
     "module": ":src:pt:kamisamaexplorer",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 5221484950287110636,
             "name": "Kami Sama Explorer",
             "lang": "pt-BR",
             "baseUrl": "https://leitor.kamisama.com.br",
-            "status": "FAIL",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 542,
+                    "durationMs": 1349,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 1897,
+                    "durationMs": 1558,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "WARN",
-                    "durationMs": 2099,
+                    "durationMs": 1958,
                     "message": null,
                     "notes": [
                         "manga[4] has no thumbnail"
@@ -57,7 +57,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 3,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -67,7 +67,7 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 5845,
+                    "durationMs": 3711,
                     "message": null,
                     "notes": [
                         "manga[1] has no thumbnail"
@@ -80,40 +80,63 @@
                 },
                 {
                     "name": "chapters",
-                    "status": "FAIL",
-                    "durationMs": 4219,
-                    "message": "NullPointerException at MadaraBase.parseDetails(MadaraBase.kt:224)",
+                    "status": "WARN",
+                    "durationMs": 4500,
+                    "message": null,
                     "notes": [
-                        "java.lang.NullPointerException: <no message>"
+                        "duplicate chapter urls: [capitulo-31, capitulo-32]"
                     ],
-                    "samples": []
+                    "samples": [
+                        "Capítulo 104 - O Nascimento do Saiyaman X! -> capitulo-104",
+                        "Capítulo 103 - Herança para o Futuro -> capitulo-103",
+                        "Capítulo 102 - Son Goku Vs. Son Gohan -> capitulo-102"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 5674,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://leitor.kamisama.com.br/wp-content/uploads/WP-manga/data/manga_6179875e3a7ca/5453ccc990116b1723e1f3a29f7d3a66/00031_W2xEX_2x_3n_jpeg.jpg",
+                        "https://leitor.kamisama.com.br/wp-content/uploads/WP-manga/data/manga_6179875e3a7ca/5453ccc990116b1723e1f3a29f7d3a66/00032_W2xEX_2x_3n_jpeg.jpg",
+                        "https://leitor.kamisama.com.br/wp-content/uploads/WP-manga/data/manga_6179875e3a7ca/5453ccc990116b1723e1f3a29f7d3a66/00033_W2xEX_2x_3n_jpeg.jpg"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 1907,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-21T11:13:43.722635611Z",
+    "comparedTo": "2026-11-22T11:55:51.014549958Z",
     "changes": [
         {
             "source": "Kami Sama Explorer",
             "lang": "pt-BR",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
+            "scenario": "chapters",
+            "from": "FAIL",
+            "to": "WARN"
         },
         {
-            "source": ":src:pt:kamisamaexplorer",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
-            "to": null
+            "source": "Kami Sama Explorer",
+            "lang": "pt-BR",
+            "scenario": "pages",
+            "from": "SKIP",
+            "to": "PASS"
+        },
+        {
+            "source": "Kami Sama Explorer",
+            "lang": "pt-BR",
+            "scenario": "images",
+            "from": null,
+            "to": "PASS"
         }
     ],
     "throttledHosts": []

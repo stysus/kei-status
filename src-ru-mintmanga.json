@@ -1,42 +1,113 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:45:06.888773740Z",
+    "generatedAt": "2026-11-27T13:00:21.769891302Z",
     "module": ":src:ru:mintmanga",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:ru:mintmanga",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 6,
+            "name": "MintManga",
+            "lang": "ru",
+            "baseUrl": "https://2.mintmanga.one",
+            "status": "BLOCKED",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/ru/mintmanga/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:ru:mintmanga :src:ru:mintmanga:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "PASS",
+                    "durationMs": 625,
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "PASS",
+                    "durationMs": 387,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "19 дней — Однажды -> /19_dnei___odnajdy",
+                        "BJ Алекс -> /bj_aleks__A2034ec",
+                        "Ты здесь -> /ty_zdes__A3b2ec"
+                    ]
+                },
+                {
+                    "name": "latest",
+                    "status": "PASS",
+                    "durationMs": 477,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "Олеандр на Луне -> /oleandr_na_lune",
+                        "Gwan-gye Joongdok Short Story Collection -> /gwan_gye_joongdok_short_story_collection",
+                        "Хочу на пенсию, а не любовь! -> /hochu_na_pensiiu__a_ne_liubov_"
+                    ]
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "1 filters"
+                    ]
+                },
+                {
+                    "name": "search",
+                    "status": "PASS",
+                    "durationMs": 289,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "19 дней — Однажды -> /19_dnei___odnajdy",
+                        "19 дней -> /19_dnei"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "BLOCKED",
+                    "durationMs": 1025,
+                    "message": "the source requires login or credentials the sweep cannot provide; the source is not broken",
+                    "notes": [
+                        "java.lang.Exception: Для просмотра контента необходима авторизация через WebView🌍 или включите автоматическую авторизацию в настройках расширения"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-20T12:09:39.193243261Z",
+    "comparedTo": "2026-11-26T12:45:06.888773740Z",
     "changes": [
-        {
-            "source": ":src:ru:mintmanga",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "MintManga",
             "lang": "ru",
             "scenario": null,
-            "from": "BLOCKED",
+            "from": null,
+            "to": "BLOCKED"
+        },
+        {
+            "source": ":src:ru:mintmanga",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

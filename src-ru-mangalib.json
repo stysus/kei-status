@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:57:25.185614817Z",
+    "generatedAt": "2026-11-27T12:49:03.853342906Z",
     "module": ":src:ru:mangalib",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 6111047689498497237,
             "name": "MangaLib",
             "lang": "ru",
             "baseUrl": "https://mangalib.me",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 1176,
+                    "durationMs": 959,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,31 +31,31 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 4819,
+                    "durationMs": 4769,
                     "message": null,
                     "notes": [],
                     "samples": [
+                        "Villains Are Destined to Die -> /29916--ag-yeog-uiending-eunjug-eumppun",
                         "Omniscient Reader -> /34466--jeonjijeog-dogja-sijeom_",
-                        "Sweet Home -> /3754--sweet-home-kim-carnby-",
-                        "Wind Breaker -> /1773--wind-breaker"
+                        "Sweet Home -> /3754--sweet-home-kim-carnby-"
                     ]
                 },
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 904,
+                    "durationMs": 661,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "She Tames Heroes -> /233917--ta-hui-xunfu-yingxiong",
-                        "You've Got This, Juri! -> /273294--youve-got-this-juri",
-                        "Silent Witch Chinmoku no Majo no Kakushigoto -> /86752--sairentouitchi-chin-mo-ku-no-majo-no-kakushi-goto"
+                        "Age-Restricted First Confession -> /243293--yeollyeongjehan-cheot-gobaek",
+                        "2nd Berserker in the game -> /254222--i-hoi-cha-gwang-jeon-sa",
+                        "Nano Machine -> /36410--nanomasin"
                     ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 3,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,58 +65,53 @@
                 {
                     "name": "search",
                     "status": "PASS",
-                    "durationMs": 2388,
+                    "durationMs": 1497,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Omniscient Reader -> /34466--jeonjijeog-dogja-sijeom_",
-                        "Omniscient Reader doujinshi by @/nep0115 -> /179945--omniscient-reader-doujinshi-by-at-nep0115",
-                        "Omniscient Reader (dodjinshi by @ManaDreams) -> /189093--omniscient-reader-dodjinshi-by-at-manadreams"
+                        "Villains Are Destined to Die -> /29916--ag-yeog-uiending-eunjug-eumppun"
                     ]
                 },
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 1443,
+                    "durationMs": 2453,
                     "message": null,
                     "notes": [],
                     "samples": [
-                        "Том 1. Глава 311.1 - Послесловие студии -> /34466--jeonjijeog-dogja-sijeom_/chapter?&volume=1&number=311.1",
-                        "Том 1. Глава 311 - «История Док Чжа»  – Часть 13 КОНЕЦ СЕЗОНА -> /34466--jeonjijeog-dogja-sijeom_/chapter?&volume=1&number=311",
-                        "Том 1. Глава 310 - «История Док Чжа»  – Часть 12 -> /34466--jeonjijeog-dogja-sijeom_/chapter?&volume=1&number=310"
+                        "Том 8. Глава 24 -> /29916--ag-yeog-uiending-eunjug-eumppun/chapter?&volume=8&number=24",
+                        "Том 8. Глава 23 -> /29916--ag-yeog-uiending-eunjug-eumppun/chapter?&volume=8&number=23",
+                        "Том 8. Глава 22 -> /29916--ag-yeog-uiending-eunjug-eumppun/chapter?&volume=8&number=22"
                     ]
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 903,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "//manga/jeonjijeog-dogja-sijeom_/chapters/632558/001_Synp.png",
-                        "//manga/jeonjijeog-dogja-sijeom_/chapters/632558/002_o9mc.png",
-                        "//manga/jeonjijeog-dogja-sijeom_/chapters/632558/003_bu05.png"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 2865,
-                    "message": null,
-                    "notes": [],
+                    "status": "FAIL",
+                    "durationMs": 902,
+                    "message": "Field 'pages' is required for type with serial name 'eu.kanade.tachiyomi.multisrc.libgroup.Pages', but it was missing",
+                    "notes": [
+                        "kotlinx.serialization.MissingFieldException: Field 'pages' is required for type with serial name 'eu.kanade.tachiyomi.multisrc.libgroup.Pages', but it was missing at path: $.data"
+                    ],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-25T13:17:17.478373910Z",
+    "comparedTo": "2026-11-26T12:57:25.185614817Z",
     "changes": [
         {
             "source": "MangaLib",
             "lang": "ru",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "MangaLib",
+            "lang": "ru",
             "scenario": "images",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": null
         }
     ],
     "throttledHosts": []

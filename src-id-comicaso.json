@@ -1,42 +1,106 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:45:16.143133648Z",
+    "generatedAt": "2026-11-27T12:53:18.533346035Z",
     "module": ":src:id:comicaso",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:id:comicaso",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 1390978553596884683,
+            "name": "Comicaso",
+            "lang": "id",
+            "baseUrl": "https://comicaso.site",
+            "status": "DOWN",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/id/comicaso/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:id:comicaso :src:id:comicaso:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "DOWN",
+                    "durationMs": 43,
+                    "message": "the site is unreachable (comicaso.site: Name or service not known); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: comicaso.site: Name or service not known"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "DOWN",
+                    "durationMs": 3,
+                    "message": "the site is unreachable (comicaso.site); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: comicaso.site"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "DOWN",
+                    "durationMs": 0,
+                    "message": "the site is unreachable (comicaso.site); the source is not at fault",
+                    "notes": [
+                        "java.net.UnknownHostException: comicaso.site"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 1,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "5 filters"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-25T13:22:02.960541755Z",
+    "comparedTo": "2026-11-26T12:45:16.143133648Z",
     "changes": [
-        {
-            "source": ":src:id:comicaso",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "Comicaso",
             "lang": "id",
             "scenario": null,
-            "from": "PASS",
+            "from": null,
+            "to": "DOWN"
+        },
+        {
+            "source": ":src:id:comicaso",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

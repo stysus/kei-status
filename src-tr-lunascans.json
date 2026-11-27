@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T13:02:28.040050336Z",
+    "generatedAt": "2026-11-27T12:49:55.275752533Z",
     "module": ":src:tr:lunascans",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 6989973853577548620,
             "name": "Luna Scans",
             "lang": "tr",
             "baseUrl": "https://tuhafscans.com",
-            "status": "WARN",
+            "status": "THROTTLED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,35 +23,39 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 807,
+                    "durationMs": 1578,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "WARN",
-                    "durationMs": 152,
+                    "status": "PASS",
+                    "durationMs": 710,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "No Arguing With Mr. Mo -> 4501",
+                        "The Beast Must Die -> 2245",
+                        "Full Moon Alchemist -> 4713"
+                    ]
                 },
                 {
                     "name": "latest",
-                    "status": "WARN",
-                    "durationMs": 172,
+                    "status": "PASS",
+                    "durationMs": 714,
                     "message": null,
-                    "notes": [
-                        "returned an empty list"
-                    ],
-                    "samples": []
+                    "notes": [],
+                    "samples": [
+                        "The Taming -> 4998",
+                        "Sherbet Above the Sea of Fog -> 4877",
+                        "Kiss the Collar -> 2191"
+                    ]
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 1,
+                    "durationMs": 2,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -59,18 +63,20 @@
                     ]
                 },
                 {
-                    "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no manga available from popular or latest",
-                    "notes": [],
+                    "name": "search",
+                    "status": "THROTTLED",
+                    "durationMs": 23984,
+                    "message": "the site is rate-limiting this sweep (HTTP 429, retry after 3600s); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
                     "samples": []
                 },
                 {
-                    "name": "search",
+                    "name": "chapters",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "tuhafscans.com answered HTTP 429 earlier in this run",
                     "notes": [],
                     "samples": []
                 },
@@ -78,36 +84,38 @@
                     "name": "pages",
                     "status": "SKIP",
                     "durationMs": 0,
-                    "message": "no manga available from popular or latest",
+                    "message": "no chapters available",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-25T13:19:02.981973652Z",
+    "comparedTo": "2026-11-26T13:02:28.040050336Z",
     "changes": [
         {
             "source": "Luna Scans",
             "lang": "tr",
             "scenario": "popular",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Luna Scans",
             "lang": "tr",
             "scenario": "latest",
-            "from": "PASS",
-            "to": "WARN"
+            "from": "WARN",
+            "to": "PASS"
         },
         {
             "source": "Luna Scans",
             "lang": "tr",
             "scenario": "search",
-            "from": "THROTTLED",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "THROTTLED"
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "tuhafscans.com"
+    ]
 }

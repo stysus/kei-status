@@ -1,42 +1,106 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:45:06.881442882Z",
+    "generatedAt": "2026-11-27T12:56:57.310499249Z",
     "module": ":src:ja:musicbookjp",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:ja:musicbookjp",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 4867228037042567585,
+            "name": "Music Book Japan",
+            "lang": "ja",
+            "baseUrl": "https://music-book.jp",
+            "status": "BLOCKED",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/ja/musicbookjp/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:ja:musicbookjp :src:ja:musicbookjp:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "BLOCKED",
+                    "durationMs": 408,
+                    "message": "the site restricts by region and the sweep runs outside the allowed area; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: This service is only available in Japan."
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "BLOCKED",
+                    "durationMs": 757,
+                    "message": "the site restricts by region and the sweep runs outside the allowed area; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: This service is only available in Japan."
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "BLOCKED",
+                    "durationMs": 641,
+                    "message": "the site restricts by region and the sweep runs outside the allowed area; the source is not broken",
+                    "notes": [
+                        "java.io.IOException: This service is only available in Japan."
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "PASS",
+                    "durationMs": 0,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "0 filters"
+                    ]
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-10-30T01:36:03.006195527Z",
+    "comparedTo": "2026-11-26T12:45:06.881442882Z",
     "changes": [
-        {
-            "source": ":src:ja:musicbookjp",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "Music Book Japan",
             "lang": "ja",
             "scenario": null,
-            "from": "BLOCKED",
+            "from": null,
+            "to": "BLOCKED"
+        },
+        {
+            "source": ":src:ja:musicbookjp",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],

@@ -1,44 +1,104 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:45:13.634978584Z",
+    "generatedAt": "2026-11-27T12:59:07.929301768Z",
     "module": ":src:pt:ler999",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:pt:ler999",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 11864058740306611,
+            "name": "Ler 999",
+            "lang": "pt-BR",
+            "baseUrl": "https://ler999.blogspot.com",
+            "status": "THROTTLED",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/pt/ler999/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:pt:ler999 :src:pt:ler999:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "THROTTLED",
+                    "durationMs": 7954,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "ler999.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "ler999.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "ler999.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-24T14:21:29.427329576Z",
+    "comparedTo": "2026-11-26T12:45:13.634978584Z",
     "changes": [
-        {
-            "source": ":src:pt:ler999",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "Ler 999",
             "lang": "pt-BR",
             "scenario": null,
-            "from": "THROTTLED",
+            "from": null,
+            "to": "THROTTLED"
+        },
+        {
+            "source": ":src:pt:ler999",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "ler999.blogspot.com"
+    ]
 }

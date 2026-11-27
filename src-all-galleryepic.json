@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:52:40.129502854Z",
+    "generatedAt": "2026-11-27T12:37:56.443387283Z",
     "module": ":src:all:galleryepic",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 5621791889139364299,
@@ -23,7 +23,7 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 526,
+                    "durationMs": 363,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -31,7 +31,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 323,
+                    "durationMs": 258,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -43,7 +43,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 194,
+                    "durationMs": 155,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -55,7 +55,7 @@
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 4,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -65,7 +65,7 @@
                 {
                     "name": "search",
                     "status": "WARN",
-                    "durationMs": 282,
+                    "durationMs": 219,
                     "message": null,
                     "notes": [
                         "returned an empty list",
@@ -77,7 +77,7 @@
                 {
                     "name": "chapters",
                     "status": "PASS",
-                    "durationMs": 187,
+                    "durationMs": 214,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -87,7 +87,7 @@
                 {
                     "name": "pages",
                     "status": "PASS",
-                    "durationMs": 156,
+                    "durationMs": 186,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -99,7 +99,7 @@
                 {
                     "name": "images",
                     "status": "PASS",
-                    "durationMs": 378,
+                    "durationMs": 773,
                     "message": null,
                     "notes": [],
                     "samples": []
@@ -111,7 +111,7 @@
             "name": "Gallery Epic",
             "lang": "zh",
             "baseUrl": "https://galleryepic.com",
-            "status": "THROTTLED",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -134,7 +134,7 @@
                 {
                     "name": "popular",
                     "status": "PASS",
-                    "durationMs": 197,
+                    "durationMs": 166,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -146,7 +146,7 @@
                 {
                     "name": "latest",
                     "status": "PASS",
-                    "durationMs": 155,
+                    "durationMs": 173,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -169,65 +169,79 @@
                 },
                 {
                     "name": "search",
-                    "status": "THROTTLED",
-                    "durationMs": 10053,
-                    "message": "the site is rate-limiting this sweep (HTTP 429, retry after 0s); the source was not checked",
+                    "status": "WARN",
+                    "durationMs": 10605,
+                    "message": null,
                     "notes": [
-                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                        "returned an empty list",
+                        "query \"Saya Scarlet cosplay 拉毗 (胜利女神：妮姬)\" matched no results in the first page",
+                        "a retry without punctuation (\"Saya Scarlet cosplay 拉毗 胜利女神 妮姬\") also matched nothing"
                     ],
                     "samples": []
                 },
                 {
                     "name": "chapters",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "galleryepic.com answered HTTP 429 earlier in this run",
+                    "status": "PASS",
+                    "durationMs": 177,
+                    "message": null,
                     "notes": [],
-                    "samples": []
+                    "samples": [
+                        "Chapter -> /zh/cosplay/11011"
+                    ]
                 },
                 {
                     "name": "pages",
-                    "status": "SKIP",
-                    "durationMs": 0,
-                    "message": "no chapters available",
+                    "status": "PASS",
+                    "durationMs": 160,
+                    "message": null,
+                    "notes": [],
+                    "samples": [
+                        "https://static.galleryepic.xyz/image/012a4984-74c5-42ed-9a9b-c405cd701ccf",
+                        "https://static.galleryepic.xyz/image/dded04d7-4610-46c9-9d79-e01c90441442",
+                        "https://static.galleryepic.xyz/image/fef01a7e-bdd1-4131-9737-4e65e16fd2c9"
+                    ]
+                },
+                {
+                    "name": "images",
+                    "status": "PASS",
+                    "durationMs": 209,
+                    "message": null,
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-25T13:10:45.690842456Z",
+    "comparedTo": "2026-11-26T12:52:40.129502854Z",
     "changes": [
         {
             "source": "Gallery Epic",
             "lang": "zh",
             "scenario": "search",
-            "from": "WARN",
-            "to": "THROTTLED"
+            "from": "THROTTLED",
+            "to": "WARN"
         },
         {
             "source": "Gallery Epic",
             "lang": "zh",
             "scenario": "chapters",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Gallery Epic",
             "lang": "zh",
             "scenario": "pages",
-            "from": "PASS",
-            "to": "SKIP"
+            "from": "SKIP",
+            "to": "PASS"
         },
         {
             "source": "Gallery Epic",
             "lang": "zh",
             "scenario": "images",
-            "from": "PASS",
-            "to": null
+            "from": null,
+            "to": "PASS"
         }
     ],
-    "throttledHosts": [
-        "galleryepic.com"
-    ]
+    "throttledHosts": []
 }

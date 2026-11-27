@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-22T11:41:27.109402320Z",
+    "generatedAt": "2026-11-27T12:41:49.595406116Z",
     "module": ":src:en:setsuscans",
     "sourceRoot": "",
-    "extensionCommit": "293eb3cd",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 8546397272954539389,
             "name": "Setsu Scans",
             "lang": "en",
             "baseUrl": "https://setsuscans.com",
-            "status": "PASS",
+            "status": "FAIL",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,34 +23,26 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 4687,
+                    "durationMs": 3896,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 675,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 122,
+                    "message": "HTTP error 415",
                     "notes": [],
-                    "samples": [
-                        "Tales of the Demon and Gods -> 48",
-                        "Imaizumin’s House is a Place for Gals to Gather -> 40",
-                        "[Pixiv Extras] Imaizumin’s House is a Place for Gals to Gather -> 24"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 542,
-                    "message": null,
+                    "status": "FAIL",
+                    "durationMs": 117,
+                    "message": "HTTP error 415",
                     "notes": [],
-                    "samples": [
-                        "A Story About Accidentally Finding Out a girl’s “Secret” at School -> 520",
-                        "Artemis Under the Same Roof -> 486",
-                        "Haimiya-Senpai is Scary But Cute [Serialization] -> 512"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,64 +55,74 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 1465,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Tales of the Demon and Gods -> 48"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 1048,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 536.5 -> chapter-536-5",
-                        "Chapter 536.1 -> chapter-536-1",
-                        "Chapter 535.5 -> chapter-535-5"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 983,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://setsuscans.com/wp-content/uploads/WP-manga/data/manga_645679882ae63/7d5919ad2528509d455f3cd007d77fdd/00.jpg",
-                        "https://setsuscans.com/wp-content/uploads/WP-manga/data/manga_645679882ae63/7d5919ad2528509d455f3cd007d77fdd/001_0.jpg",
-                        "https://setsuscans.com/wp-content/uploads/WP-manga/data/manga_645679882ae63/7d5919ad2528509d455f3cd007d77fdd/002_0.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 1617,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-21T11:13:50.870256698Z",
+    "comparedTo": "2026-11-22T11:41:27.109402320Z",
     "changes": [
         {
             "source": "Setsu Scans",
             "lang": "en",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "FAIL"
         },
         {
-            "source": ":src:en:setsuscans",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "Setsu Scans",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "FAIL"
+        },
+        {
+            "source": "Setsu Scans",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Setsu Scans",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Setsu Scans",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Setsu Scans",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

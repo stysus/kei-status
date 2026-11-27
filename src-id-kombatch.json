@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-20T12:04:28.007619715Z",
+    "generatedAt": "2026-11-27T12:41:54.739239909Z",
     "module": ":src:id:kombatch",
     "sourceRoot": "",
-    "extensionCommit": "ef952a64",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 911623545095065045,
             "name": "Kombatch",
             "lang": "id",
             "baseUrl": "https://kombatch.cc",
-            "status": "PASS",
+            "status": "WARN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -23,39 +23,35 @@
                 {
                     "name": "connectivity",
                     "status": "PASS",
-                    "durationMs": 400,
+                    "durationMs": 277,
                     "message": null,
                     "notes": [],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 177,
+                    "status": "WARN",
+                    "durationMs": 130,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Secret Class -> /manga/secret-class/",
-                        "Stepmothers Friends -> /manga/stepmothers-friends/",
-                        "MILF Hunting In Another World -> /manga/milf-hunting-in-another-world/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 171,
+                    "status": "WARN",
+                    "durationMs": 127,
                     "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Taming A Female Bully -> /manga/taming-a-female-bully/",
-                        "Wireless Onahole -> /manga/wireless-onahole/",
-                        "Mind Control -> /manga/mind-control/"
-                    ]
+                    "notes": [
+                        "returned an empty list"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
                     "status": "PASS",
-                    "durationMs": 2,
+                    "durationMs": 1,
                     "message": null,
                     "notes": [],
                     "samples": [
@@ -63,65 +59,74 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 169,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Secret Class -> /manga/secret-class/",
-                        "Secret Class Uncen -> /manga/secret-class-uncen/"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 178,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "Chapter 324 -> /secret-class-chapter-324/",
-                        "Chapter 323 -> /secret-class-chapter-323/",
-                        "Chapter 322 -> /secret-class-chapter-322/"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 296,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://cdn-2.uqni.net/users/25/2026/11/00-736253.jpeg",
-                        "https://cdn-2.uqni.net/users/25/2026/11/1-408552.jpeg",
-                        "https://cdn-2.uqni.net/users/25/2026/11/2-795338.jpeg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 864,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-19T11:48:25.275446945Z",
+    "comparedTo": "2026-11-20T12:04:28.007619715Z",
     "changes": [
         {
             "source": "Kombatch",
             "lang": "id",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
-            "source": ":src:id:kombatch",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "Kombatch",
+            "lang": "id",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "WARN"
+        },
+        {
+            "source": "Kombatch",
+            "lang": "id",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Kombatch",
+            "lang": "id",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Kombatch",
+            "lang": "id",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Kombatch",
+            "lang": "id",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

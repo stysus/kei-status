@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:53:20.153484057Z",
+    "generatedAt": "2026-11-27T12:40:35.653344069Z",
     "module": ":src:en:ebookrenta",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 8412178155364465470,
             "name": "EbookRenta",
             "lang": "en",
             "baseUrl": "https://www.ebookrenta.com",
-            "status": "FAIL",
+            "status": "BLOCKED",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,26 +22,32 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 350,
-                    "message": null,
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 119,
+                    "message": "AWS WAF anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: AWS WAF challenge from www.ebookrenta.com (HTTP 202)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "FAIL",
-                    "durationMs": 298,
-                    "message": "HTTP error 404",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 43,
+                    "message": "AWS WAF anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: AWS WAF challenge from www.ebookrenta.com (HTTP 202)"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "FAIL",
-                    "durationMs": 293,
-                    "message": "HTTP error 404",
-                    "notes": [],
+                    "status": "BLOCKED",
+                    "durationMs": 3,
+                    "message": "AWS WAF anti-bot challenge; the source needs a browser session that passes it",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.interceptor.AntiBotChallengeException: AWS WAF challenge from www.ebookrenta.com (HTTP 202)"
+                    ],
                     "samples": []
                 },
                 {
@@ -81,28 +87,28 @@
             ]
         }
     ],
-    "comparedTo": "2026-11-25T13:14:49.462192245Z",
+    "comparedTo": "2026-11-26T12:53:20.153484057Z",
     "changes": [
         {
             "source": "EbookRenta",
             "lang": "en",
             "scenario": "connectivity",
-            "from": "WARN",
-            "to": "PASS"
+            "from": "PASS",
+            "to": "BLOCKED"
         },
         {
             "source": "EbookRenta",
             "lang": "en",
             "scenario": "popular",
-            "from": "BLOCKED",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "BLOCKED"
         },
         {
             "source": "EbookRenta",
             "lang": "en",
             "scenario": "latest",
-            "from": "BLOCKED",
-            "to": "FAIL"
+            "from": "FAIL",
+            "to": "BLOCKED"
         }
     ],
     "throttledHosts": []

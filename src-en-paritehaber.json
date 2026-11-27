@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-24T14:06:09.673262767Z",
+    "generatedAt": "2026-11-27T12:39:34.855108819Z",
     "module": ":src:en:paritehaber",
     "sourceRoot": "",
-    "extensionCommit": "14e22396",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
             "sourceId": 3740623306758763677,
             "name": "Paritehaber",
             "lang": "en",
             "baseUrl": "https://www.paritehaber.com",
-            "status": "PASS",
+            "status": "DOWN",
             "scenarios": [
                 {
                     "name": "metadata",
@@ -22,35 +22,33 @@
                 },
                 {
                     "name": "connectivity",
-                    "status": "PASS",
-                    "durationMs": 1392,
+                    "status": "WARN",
+                    "durationMs": 7519,
                     "message": null,
-                    "notes": [],
+                    "notes": [
+                        "home page returned HTTP 521"
+                    ],
                     "samples": []
                 },
                 {
                     "name": "popular",
-                    "status": "PASS",
-                    "durationMs": 577,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "DEAR. DOOR UNCENSORED version -> 76",
-                        "Turn Off the Camera! -> 23",
-                        "BJ Alex -> 2416"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 11433,
+                    "message": "the site's origin server is not responding (HTTP 521); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 521"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "latest",
-                    "status": "PASS",
-                    "durationMs": 510,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "Devoured: The Serpent and the Pomegranate -> 4652",
-                        "Seven Sundays -> 4631",
-                        "Am I Too Alpha for You? -> 4668"
-                    ]
+                    "status": "DOWN",
+                    "durationMs": 196,
+                    "message": "the site's origin server is not responding (HTTP 521); the source is not at fault",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 521"
+                    ],
+                    "samples": []
                 },
                 {
                     "name": "filters",
@@ -63,64 +61,81 @@
                     ]
                 },
                 {
-                    "name": "search",
-                    "status": "PASS",
-                    "durationMs": 383,
-                    "message": null,
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "DEAR. DOOR UNCENSORED version -> 76"
-                    ]
+                    "samples": []
                 },
                 {
-                    "name": "chapters",
-                    "status": "PASS",
-                    "durationMs": 330,
-                    "message": null,
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
-                    "samples": [
-                        "166-Chapter 163.5 Creator's Note -> 166-chapter-163-5-creators-note",
-                        "165-Chapter 163 Special Episode 33 [THE END]⁠~ -> 165-chapter-163-special-episode-33-the-end%e2%81%a0",
-                        "164-Chapter 162 Special Episode 32 -> 164-chapter-162-special-episode-32"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "pages",
-                    "status": "PASS",
-                    "durationMs": 429,
-                    "message": null,
-                    "notes": [],
-                    "samples": [
-                        "https://www.paritehaber.com/wp-content/uploads/WP-manga/data/manga_6179776fb3385/8d28eebbb848d91fc4f3906f9acb72b1/DEAR.-DOOR-%5BUNCENSORED-VERSION-R19+%5D-0.jpg",
-                        "https://www.paritehaber.com/wp-content/uploads/WP-manga/data/manga_6179776fb3385/8d28eebbb848d91fc4f3906f9acb72b1/DEAR.-DOOR-%5BUNCENSORED-VERSION-R19+%5D-1.jpg",
-                        "https://www.paritehaber.com/wp-content/uploads/WP-manga/data/manga_6179776fb3385/8d28eebbb848d91fc4f3906f9acb72b1/DEAR.-DOOR-%5BUNCENSORED-VERSION-R19+%5D-2.jpg"
-                    ]
-                },
-                {
-                    "name": "images",
-                    "status": "PASS",
-                    "durationMs": 223,
-                    "message": null,
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-23T12:58:18.479590575Z",
+    "comparedTo": "2026-11-24T14:06:09.673262767Z",
     "changes": [
         {
             "source": "Paritehaber",
             "lang": "en",
-            "scenario": null,
-            "from": null,
-            "to": "PASS"
+            "scenario": "connectivity",
+            "from": "PASS",
+            "to": "WARN"
         },
         {
-            "source": ":src:en:paritehaber",
-            "lang": "",
-            "scenario": null,
-            "from": "FAIL",
+            "source": "Paritehaber",
+            "lang": "en",
+            "scenario": "popular",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Paritehaber",
+            "lang": "en",
+            "scenario": "latest",
+            "from": "PASS",
+            "to": "DOWN"
+        },
+        {
+            "source": "Paritehaber",
+            "lang": "en",
+            "scenario": "chapters",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Paritehaber",
+            "lang": "en",
+            "scenario": "search",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Paritehaber",
+            "lang": "en",
+            "scenario": "pages",
+            "from": "PASS",
+            "to": "SKIP"
+        },
+        {
+            "source": "Paritehaber",
+            "lang": "en",
+            "scenario": "images",
+            "from": "PASS",
             "to": null
         }
     ],

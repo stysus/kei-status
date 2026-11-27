@@ -1,44 +1,104 @@
 {
     "schemaVersion": 1,
-    "generatedAt": "2026-11-26T12:45:16.160450764Z",
+    "generatedAt": "2026-11-27T12:58:52.474067622Z",
     "module": ":src:pt:hanmokkuscan",
     "sourceRoot": "",
-    "extensionCommit": "5244cf49",
+    "extensionCommit": "c09b1744",
     "sources": [
         {
-            "sourceId": 0,
-            "name": ":src:pt:hanmokkuscan",
-            "lang": "",
-            "baseUrl": "",
-            "status": "FAIL",
+            "sourceId": 2374282752350973310,
+            "name": "Hanmokku Scan",
+            "lang": "pt-BR",
+            "baseUrl": "https://hanmokkuscan.blogspot.com",
+            "status": "THROTTLED",
             "scenarios": [
                 {
-                    "name": "load",
-                    "status": "FAIL",
+                    "name": "metadata",
+                    "status": "PASS",
                     "durationMs": 0,
-                    "message": "Missing extensions-source/src/pt/hanmokkuscan/build/harness-classpath.json. Run:\n  ./gradlew -I ../tools/harness.init.gradle.kts -PharnessModule=:src:pt:hanmokkuscan :src:pt:hanmokkuscan:dumpHarnessClasspath",
+                    "message": null,
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "connectivity",
+                    "status": "THROTTLED",
+                    "durationMs": 7508,
+                    "message": "the site is rate-limiting this sweep (HTTP 429); the source was not checked",
+                    "notes": [
+                        "eu.kanade.tachiyomi.network.HttpException: HTTP error 429"
+                    ],
+                    "samples": []
+                },
+                {
+                    "name": "popular",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "hanmokkuscan.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "latest",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "hanmokkuscan.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "filters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "hanmokkuscan.blogspot.com answered HTTP 429 earlier in this run",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "chapters",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "search",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
+                    "notes": [],
+                    "samples": []
+                },
+                {
+                    "name": "pages",
+                    "status": "SKIP",
+                    "durationMs": 0,
+                    "message": "no manga available from popular or latest",
                     "notes": [],
                     "samples": []
                 }
             ]
         }
     ],
-    "comparedTo": "2026-11-24T14:11:15.676905576Z",
+    "comparedTo": "2026-11-26T12:45:16.160450764Z",
     "changes": [
-        {
-            "source": ":src:pt:hanmokkuscan",
-            "lang": "",
-            "scenario": null,
-            "from": null,
-            "to": "FAIL"
-        },
         {
             "source": "Hanmokku Scan",
             "lang": "pt-BR",
             "scenario": null,
-            "from": "THROTTLED",
+            "from": null,
+            "to": "THROTTLED"
+        },
+        {
+            "source": ":src:pt:hanmokkuscan",
+            "lang": "",
+            "scenario": null,
+            "from": "FAIL",
             "to": null
         }
     ],
-    "throttledHosts": []
+    "throttledHosts": [
+        "hanmokkuscan.blogspot.com"
+    ]
 }
